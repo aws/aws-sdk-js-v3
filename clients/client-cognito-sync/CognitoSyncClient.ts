@@ -1,7 +1,4 @@
-import {
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput
-} from "./commands/BulkPublishCommand";
+import { BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
 import {
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput
@@ -38,10 +35,7 @@ import {
   ListIdentityPoolUsageCommandInput,
   ListIdentityPoolUsageCommandOutput
 } from "./commands/ListIdentityPoolUsageCommand";
-import {
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput
-} from "./commands/ListRecordsCommand";
+import { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
 import {
   RegisterDeviceCommandInput,
   RegisterDeviceCommandOutput
@@ -241,9 +235,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +244,7 @@ export type CognitoSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

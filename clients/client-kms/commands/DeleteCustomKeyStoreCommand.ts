@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCustomKeyStoreCommand,
   serializeAws_json1_1DeleteCustomKeyStoreCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCustomKeyStoreCommandInput = DeleteCustomKeyStoreRequest;
-export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse &
-  __MetadataBearer;
+export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse & __MetadataBearer;
 
 export class DeleteCustomKeyStoreCommand extends $Command<
   DeleteCustomKeyStoreCommandInput,
@@ -49,13 +41,8 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCustomKeyStoreCommandInput,
-    DeleteCustomKeyStoreCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCustomKeyStoreCommandInput, DeleteCustomKeyStoreCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

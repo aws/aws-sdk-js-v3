@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateDBInstanceMessage,
-  CreateDBInstanceResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBInstanceCommandInput = CreateDBInstanceMessage;
-export type CreateDBInstanceCommandOutput = CreateDBInstanceResult &
-  __MetadataBearer;
+export type CreateDBInstanceCommandOutput = CreateDBInstanceResult & __MetadataBearer;
 
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,
@@ -50,9 +42,7 @@ export class CreateDBInstanceCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

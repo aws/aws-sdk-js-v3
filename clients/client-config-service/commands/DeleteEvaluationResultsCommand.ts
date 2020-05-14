@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  DeleteEvaluationResultsRequest,
-  DeleteEvaluationResultsResponse
-} from "../models/index";
+import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteEvaluationResultsCommand,
   serializeAws_json1_1DeleteEvaluationResultsCommand
@@ -49,13 +46,8 @@ export class DeleteEvaluationResultsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEvaluationResultsCommandInput,
-    DeleteEvaluationResultsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEvaluationResultsCommandInput, DeleteEvaluationResultsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteEvaluationResultsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEvaluationResultsCommandOutput> {
-    return deserializeAws_json1_1DeleteEvaluationResultsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEvaluationResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

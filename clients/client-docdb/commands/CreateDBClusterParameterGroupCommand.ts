@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   CreateDBClusterParameterGroupMessage,
   CreateDBClusterParameterGroupResult
@@ -53,9 +49,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     CreateDBClusterParameterGroupCommandInput,
     CreateDBClusterParameterGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     input: CreateDBClusterParameterGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

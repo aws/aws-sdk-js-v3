@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetWorkflowRunCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetWorkflowRunCommandInput = GetWorkflowRunRequest;
-export type GetWorkflowRunCommandOutput = GetWorkflowRunResponse &
-  __MetadataBearer;
+export type GetWorkflowRunCommandOutput = GetWorkflowRunResponse & __MetadataBearer;
 
 export class GetWorkflowRunCommand extends $Command<
   GetWorkflowRunCommandInput,
@@ -47,9 +42,7 @@ export class GetWorkflowRunCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

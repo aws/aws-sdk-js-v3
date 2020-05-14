@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksCMClient";
-import {
-  DescribeBackupsRequest,
-  DescribeBackupsResponse
-} from "../models/index";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeBackupsCommand,
   serializeAws_json1_1DescribeBackupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBackupsCommandInput = DescribeBackupsRequest;
-export type DescribeBackupsCommandOutput = DescribeBackupsResponse &
-  __MetadataBearer;
+export type DescribeBackupsCommandOutput = DescribeBackupsResponse & __MetadataBearer;
 
 export class DescribeBackupsCommand extends $Command<
   DescribeBackupsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeBackupsCommand extends $Command<
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeBackupsCommandInput, DescribeBackupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

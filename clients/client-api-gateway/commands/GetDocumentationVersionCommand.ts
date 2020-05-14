@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  DocumentationVersion,
-  GetDocumentationVersionRequest
-} from "../models/index";
+import { DocumentationVersion, GetDocumentationVersionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDocumentationVersionCommand,
   serializeAws_restJson1_1GetDocumentationVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDocumentationVersionCommandInput = GetDocumentationVersionRequest;
-export type GetDocumentationVersionCommandOutput = DocumentationVersion &
-  __MetadataBearer;
+export type GetDocumentationVersionCommandOutput = DocumentationVersion & __MetadataBearer;
 
 export class GetDocumentationVersionCommand extends $Command<
   GetDocumentationVersionCommandInput,
@@ -49,13 +45,8 @@ export class GetDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDocumentationVersionCommandInput,
-    GetDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDocumentationVersionCommandInput, GetDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetDocumentationVersionCommand extends $Command<
     input: GetDocumentationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDocumentationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDocumentationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetDocumentationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

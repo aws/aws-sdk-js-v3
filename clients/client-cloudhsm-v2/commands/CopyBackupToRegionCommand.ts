@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMV2Client";
-import {
-  CopyBackupToRegionRequest,
-  CopyBackupToRegionResponse
-} from "../models/index";
+import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CopyBackupToRegionCommand,
   serializeAws_json1_1CopyBackupToRegionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyBackupToRegionCommandInput = CopyBackupToRegionRequest;
-export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse &
-  __MetadataBearer;
+export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse & __MetadataBearer;
 
 export class CopyBackupToRegionCommand extends $Command<
   CopyBackupToRegionCommandInput,
@@ -50,9 +46,7 @@ export class CopyBackupToRegionCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyBackupToRegionCommandInput, CopyBackupToRegionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

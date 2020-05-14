@@ -14,22 +14,13 @@ import {
   CreateGlobalTableCommandInput,
   CreateGlobalTableCommandOutput
 } from "./commands/CreateGlobalTableCommand";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput
 } from "./commands/DeleteBackupCommand";
-import {
-  DeleteItemCommandInput,
-  DeleteItemCommandOutput
-} from "./commands/DeleteItemCommand";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand";
+import { DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DescribeBackupCommandInput,
   DescribeBackupCommandOutput
@@ -70,14 +61,8 @@ import {
   DescribeTimeToLiveCommandInput,
   DescribeTimeToLiveCommandOutput
 } from "./commands/DescribeTimeToLiveCommand";
-import {
-  GetItemCommandInput,
-  GetItemCommandOutput
-} from "./commands/GetItemCommand";
-import {
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput
-} from "./commands/ListBackupsCommand";
+import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput
@@ -86,18 +71,12 @@ import {
   ListGlobalTablesCommandInput,
   ListGlobalTablesCommandOutput
 } from "./commands/ListGlobalTablesCommand";
-import {
-  ListTablesCommandInput,
-  ListTablesCommandOutput
-} from "./commands/ListTablesCommand";
+import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
   ListTagsOfResourceCommandInput,
   ListTagsOfResourceCommandOutput
 } from "./commands/ListTagsOfResourceCommand";
-import {
-  PutItemCommandInput,
-  PutItemCommandOutput
-} from "./commands/PutItemCommand";
+import { PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommandInput,
@@ -108,10 +87,7 @@ import {
   RestoreTableToPointInTimeCommandOutput
 } from "./commands/RestoreTableToPointInTimeCommand";
 import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput
@@ -140,14 +116,8 @@ import {
   UpdateGlobalTableSettingsCommandInput,
   UpdateGlobalTableSettingsCommandOutput
 } from "./commands/UpdateGlobalTableSettingsCommand";
-import {
-  UpdateItemCommandInput,
-  UpdateItemCommandOutput
-} from "./commands/UpdateItemCommand";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand";
+import { UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
   UpdateTableReplicaAutoScalingCommandOutput
@@ -379,9 +349,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DynamoDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DynamoDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -390,9 +358,7 @@ export type DynamoDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

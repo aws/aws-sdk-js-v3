@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  RegisterAVSDeviceRequest,
-  RegisterAVSDeviceResponse
-} from "../models/index";
+import { RegisterAVSDeviceRequest, RegisterAVSDeviceResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterAVSDeviceCommand,
   serializeAws_json1_1RegisterAVSDeviceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterAVSDeviceCommandInput = RegisterAVSDeviceRequest;
-export type RegisterAVSDeviceCommandOutput = RegisterAVSDeviceResponse &
-  __MetadataBearer;
+export type RegisterAVSDeviceCommandOutput = RegisterAVSDeviceResponse & __MetadataBearer;
 
 export class RegisterAVSDeviceCommand extends $Command<
   RegisterAVSDeviceCommandInput,
@@ -50,9 +46,7 @@ export class RegisterAVSDeviceCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterAVSDeviceCommandInput, RegisterAVSDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

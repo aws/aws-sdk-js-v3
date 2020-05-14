@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 } from "../TranscribeClient";
-import {
-  CreateVocabularyRequest,
-  CreateVocabularyResponse
-} from "../models/index";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateVocabularyCommand,
   serializeAws_json1_1CreateVocabularyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVocabularyCommandInput = CreateVocabularyRequest;
-export type CreateVocabularyCommandOutput = CreateVocabularyResponse &
-  __MetadataBearer;
+export type CreateVocabularyCommandOutput = CreateVocabularyResponse & __MetadataBearer;
 
 export class CreateVocabularyCommand extends $Command<
   CreateVocabularyCommandInput,
@@ -50,9 +46,7 @@ export class CreateVocabularyCommand extends $Command<
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVocabularyCommandInput, CreateVocabularyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

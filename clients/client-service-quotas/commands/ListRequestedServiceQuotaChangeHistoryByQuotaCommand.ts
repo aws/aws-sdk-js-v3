@@ -39,9 +39,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
-  ) {
+  constructor(readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
   }
 
   private deserialize(

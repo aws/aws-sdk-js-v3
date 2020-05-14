@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataExchangeClient";
-import {
-  ListRevisionAssetsRequest,
-  ListRevisionAssetsResponse
-} from "../models/index";
+import { ListRevisionAssetsRequest, ListRevisionAssetsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRevisionAssetsCommand,
   serializeAws_restJson1_1ListRevisionAssetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRevisionAssetsCommandInput = ListRevisionAssetsRequest;
-export type ListRevisionAssetsCommandOutput = ListRevisionAssetsResponse &
-  __MetadataBearer;
+export type ListRevisionAssetsCommandOutput = ListRevisionAssetsResponse & __MetadataBearer;
 
 export class ListRevisionAssetsCommand extends $Command<
   ListRevisionAssetsCommandInput,
@@ -50,9 +46,7 @@ export class ListRevisionAssetsCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

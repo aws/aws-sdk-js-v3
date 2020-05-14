@@ -2,9 +2,7 @@ import { Readable } from "stream";
 import { StreamCollector } from "@aws-sdk/types";
 import { Collector } from "./collector";
 
-export const streamCollector: StreamCollector = (
-  stream: Readable
-): Promise<Uint8Array> =>
+export const streamCollector: StreamCollector = (stream: Readable): Promise<Uint8Array> =>
   new Promise((resolve, reject) => {
     const collector = new Collector();
     stream.pipe(collector);

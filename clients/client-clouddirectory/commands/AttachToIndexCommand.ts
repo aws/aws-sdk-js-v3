@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachToIndexCommandInput = AttachToIndexRequest;
-export type AttachToIndexCommandOutput = AttachToIndexResponse &
-  __MetadataBearer;
+export type AttachToIndexCommandOutput = AttachToIndexResponse & __MetadataBearer;
 
 export class AttachToIndexCommand extends $Command<
   AttachToIndexCommandInput,
@@ -47,9 +46,7 @@ export class AttachToIndexCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachToIndexCommandInput, AttachToIndexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

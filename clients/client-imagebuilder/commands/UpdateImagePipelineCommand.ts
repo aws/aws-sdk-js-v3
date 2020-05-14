@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  UpdateImagePipelineRequest,
-  UpdateImagePipelineResponse
-} from "../models/index";
+import { UpdateImagePipelineRequest, UpdateImagePipelineResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateImagePipelineCommand,
   serializeAws_restJson1_1UpdateImagePipelineCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateImagePipelineCommandInput = UpdateImagePipelineRequest;
-export type UpdateImagePipelineCommandOutput = UpdateImagePipelineResponse &
-  __MetadataBearer;
+export type UpdateImagePipelineCommandOutput = UpdateImagePipelineResponse & __MetadataBearer;
 
 export class UpdateImagePipelineCommand extends $Command<
   UpdateImagePipelineCommandInput,
@@ -49,13 +45,8 @@ export class UpdateImagePipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateImagePipelineCommandInput,
-    UpdateImagePipelineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateImagePipelineCommandInput, UpdateImagePipelineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateImagePipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateImagePipelineCommandOutput> {
-    return deserializeAws_restJson1_1UpdateImagePipelineCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  ListImagePipelineImagesRequest,
-  ListImagePipelineImagesResponse
-} from "../models/index";
+import { ListImagePipelineImagesRequest, ListImagePipelineImagesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListImagePipelineImagesCommand,
   serializeAws_restJson1_1ListImagePipelineImagesCommand
@@ -49,13 +46,8 @@ export class ListImagePipelineImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListImagePipelineImagesCommandInput,
-    ListImagePipelineImagesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListImagePipelineImagesCommandInput, ListImagePipelineImagesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListImagePipelineImagesCommand extends $Command<
     input: ListImagePipelineImagesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListImagePipelineImagesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListImagePipelineImagesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListImagePipelineImagesCommandOutput> {
-    return deserializeAws_restJson1_1ListImagePipelineImagesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListImagePipelineImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

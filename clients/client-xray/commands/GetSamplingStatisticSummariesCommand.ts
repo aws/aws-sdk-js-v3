@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 import {
   GetSamplingStatisticSummariesRequest,
   GetSamplingStatisticSummariesResult
@@ -53,9 +49,7 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     GetSamplingStatisticSummariesCommandInput,
     GetSamplingStatisticSummariesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     input: GetSamplingStatisticSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetSamplingStatisticSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

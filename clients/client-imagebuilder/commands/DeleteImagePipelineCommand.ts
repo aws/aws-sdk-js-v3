@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  DeleteImagePipelineRequest,
-  DeleteImagePipelineResponse
-} from "../models/index";
+import { DeleteImagePipelineRequest, DeleteImagePipelineResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteImagePipelineCommand,
   serializeAws_restJson1_1DeleteImagePipelineCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteImagePipelineCommandInput = DeleteImagePipelineRequest;
-export type DeleteImagePipelineCommandOutput = DeleteImagePipelineResponse &
-  __MetadataBearer;
+export type DeleteImagePipelineCommandOutput = DeleteImagePipelineResponse & __MetadataBearer;
 
 export class DeleteImagePipelineCommand extends $Command<
   DeleteImagePipelineCommandInput,
@@ -49,13 +45,8 @@ export class DeleteImagePipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteImagePipelineCommandInput,
-    DeleteImagePipelineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteImagePipelineCommandInput, DeleteImagePipelineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteImagePipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImagePipelineCommandOutput> {
-    return deserializeAws_restJson1_1DeleteImagePipelineCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

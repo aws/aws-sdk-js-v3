@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  DescribeResourceRequest,
-  DescribeResourceResponse
-} from "../models/index";
+import { DescribeResourceRequest, DescribeResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeResourceCommand,
   serializeAws_json1_1DescribeResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeResourceCommandInput = DescribeResourceRequest;
-export type DescribeResourceCommandOutput = DescribeResourceResponse &
-  __MetadataBearer;
+export type DescribeResourceCommandOutput = DescribeResourceResponse & __MetadataBearer;
 
 export class DescribeResourceCommand extends $Command<
   DescribeResourceCommandInput,
@@ -50,9 +46,7 @@ export class DescribeResourceCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeResourceCommandInput, DescribeResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIAMPolicyAssignmentCommandInput,
-    DeleteIAMPolicyAssignmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIAMPolicyAssignmentCommandInput, DeleteIAMPolicyAssignmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     input: DeleteIAMPolicyAssignmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

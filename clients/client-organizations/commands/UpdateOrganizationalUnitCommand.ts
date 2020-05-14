@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  UpdateOrganizationalUnitRequest,
-  UpdateOrganizationalUnitResponse
-} from "../models/index";
+import { UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateOrganizationalUnitCommand,
   serializeAws_json1_1UpdateOrganizationalUnitCommand
@@ -49,13 +46,8 @@ export class UpdateOrganizationalUnitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateOrganizationalUnitCommandInput,
-    UpdateOrganizationalUnitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateOrganizationalUnitCommandInput, UpdateOrganizationalUnitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateOrganizationalUnitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1UpdateOrganizationalUnitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

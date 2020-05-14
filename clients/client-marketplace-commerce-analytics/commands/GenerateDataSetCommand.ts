@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateDataSetCommandInput = GenerateDataSetRequest;
-export type GenerateDataSetCommandOutput = GenerateDataSetResult &
-  __MetadataBearer;
+export type GenerateDataSetCommandOutput = GenerateDataSetResult & __MetadataBearer;
 
 export class GenerateDataSetCommand extends $Command<
   GenerateDataSetCommandInput,
@@ -47,9 +46,7 @@ export class GenerateDataSetCommand extends $Command<
     configuration: MarketplaceCommerceAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataSetCommandInput, GenerateDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

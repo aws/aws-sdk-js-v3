@@ -45,13 +45,8 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminRemoveUserFromGroupCommandInput,
-    AdminRemoveUserFromGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminRemoveUserFromGroupCommandInput, AdminRemoveUserFromGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminRemoveUserFromGroupCommandOutput> {
-    return deserializeAws_json1_1AdminRemoveUserFromGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminRemoveUserFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

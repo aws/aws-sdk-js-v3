@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetGroupPolicyRequest, GetGroupPolicyResponse } from "../models/index";
 import {
   deserializeAws_queryGetGroupPolicyCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGroupPolicyCommandInput = GetGroupPolicyRequest;
-export type GetGroupPolicyCommandOutput = GetGroupPolicyResponse &
-  __MetadataBearer;
+export type GetGroupPolicyCommandOutput = GetGroupPolicyResponse & __MetadataBearer;
 
 export class GetGroupPolicyCommand extends $Command<
   GetGroupPolicyCommandInput,
@@ -47,9 +42,7 @@ export class GetGroupPolicyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

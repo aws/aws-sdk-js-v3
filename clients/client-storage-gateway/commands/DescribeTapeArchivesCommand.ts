@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeTapeArchivesInput,
-  DescribeTapeArchivesOutput
-} from "../models/index";
+import { DescribeTapeArchivesInput, DescribeTapeArchivesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTapeArchivesCommand,
   serializeAws_json1_1DescribeTapeArchivesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTapeArchivesCommandInput = DescribeTapeArchivesInput;
-export type DescribeTapeArchivesCommandOutput = DescribeTapeArchivesOutput &
-  __MetadataBearer;
+export type DescribeTapeArchivesCommandOutput = DescribeTapeArchivesOutput & __MetadataBearer;
 
 export class DescribeTapeArchivesCommand extends $Command<
   DescribeTapeArchivesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeTapeArchivesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTapeArchivesCommandInput,
-    DescribeTapeArchivesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTapeArchivesCommandInput, DescribeTapeArchivesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

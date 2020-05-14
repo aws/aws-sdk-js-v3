@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSegmentCommandInput = DeleteSegmentRequest;
-export type DeleteSegmentCommandOutput = DeleteSegmentResponse &
-  __MetadataBearer;
+export type DeleteSegmentCommandOutput = DeleteSegmentResponse & __MetadataBearer;
 
 export class DeleteSegmentCommand extends $Command<
   DeleteSegmentCommandInput,
@@ -47,9 +46,7 @@ export class DeleteSegmentCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSegmentCommandInput, DeleteSegmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

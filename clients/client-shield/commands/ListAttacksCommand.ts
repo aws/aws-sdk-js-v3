@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 import { ListAttacksRequest, ListAttacksResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAttacksCommand,
@@ -46,9 +42,7 @@ export class ListAttacksCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAttacksCommandInput, ListAttacksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

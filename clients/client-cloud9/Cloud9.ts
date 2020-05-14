@@ -260,10 +260,7 @@ export class Cloud9 extends Cloud9Client {
     args: DescribeEnvironmentMembershipsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentMembershipsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeEnvironmentMembershipsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEnvironmentMembershipsCommandOutput) => void
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> | void {
     const command = new DescribeEnvironmentMembershipsCommand(args);
@@ -366,9 +363,7 @@ export class Cloud9 extends Cloud9Client {
   ): void;
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): Promise<ListEnvironmentsCommandOutput> | void {
     const command = new ListEnvironmentsCommand(args);

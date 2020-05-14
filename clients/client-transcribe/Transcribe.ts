@@ -94,9 +94,7 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public createVocabulary(
     args: CreateVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVocabularyCommandOutput) => void),
     cb?: (err: any, data?: CreateVocabularyCommandOutput) => void
   ): Promise<CreateVocabularyCommandOutput> | void {
     const command = new CreateVocabularyCommand(args);
@@ -201,9 +199,7 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVocabularyCommandOutput) => void),
     cb?: (err: any, data?: DeleteVocabularyCommandOutput) => void
   ): Promise<DeleteVocabularyCommandOutput> | void {
     const command = new DeleteVocabularyCommand(args);
@@ -309,9 +305,7 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public getVocabulary(
     args: GetVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVocabularyCommandOutput) => void),
     cb?: (err: any, data?: GetVocabularyCommandOutput) => void
   ): Promise<GetVocabularyCommandOutput> | void {
     const command = new GetVocabularyCommand(args);
@@ -415,9 +409,7 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public listVocabularies(
     args: ListVocabulariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVocabulariesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVocabulariesCommandOutput) => void),
     cb?: (err: any, data?: ListVocabulariesCommandOutput) => void
   ): Promise<ListVocabulariesCommandOutput> | void {
     const command = new ListVocabulariesCommand(args);
@@ -522,9 +514,7 @@ export class Transcribe extends TranscribeClient {
   ): void;
   public updateVocabulary(
     args: UpdateVocabularyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVocabularyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVocabularyCommandOutput) => void),
     cb?: (err: any, data?: UpdateVocabularyCommandOutput) => void
   ): Promise<UpdateVocabularyCommandOutput> | void {
     const command = new UpdateVocabularyCommand(args);

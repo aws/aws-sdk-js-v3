@@ -49,13 +49,8 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTopicsDetectionJobCommandInput,
-    DescribeTopicsDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTopicsDetectionJobCommandInput, DescribeTopicsDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     input: DescribeTopicsDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  GetCodeBindingSourceRequest,
-  GetCodeBindingSourceResponse
-} from "../models/index";
+import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCodeBindingSourceCommand,
   serializeAws_restJson1_1GetCodeBindingSourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCodeBindingSourceCommandInput = GetCodeBindingSourceRequest;
-export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse &
-  __MetadataBearer;
+export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse & __MetadataBearer;
 
 export class GetCodeBindingSourceCommand extends $Command<
   GetCodeBindingSourceCommandInput,
@@ -49,13 +45,8 @@ export class GetCodeBindingSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCodeBindingSourceCommandInput,
-    GetCodeBindingSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCodeBindingSourceCommandInput, GetCodeBindingSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetCodeBindingSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCodeBindingSourceCommandOutput> {
-    return deserializeAws_restJson1_1GetCodeBindingSourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCodeBindingSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

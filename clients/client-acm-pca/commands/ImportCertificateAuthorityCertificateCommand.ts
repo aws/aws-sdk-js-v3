@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { ImportCertificateAuthorityCertificateRequest } from "../models/index";
 import {
   deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand,
@@ -35,9 +31,7 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ImportCertificateAuthorityCertificateCommandInput
-  ) {
+  constructor(readonly input: ImportCertificateAuthorityCertificateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +45,7 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     ImportCertificateAuthorityCertificateCommandInput,
     ImportCertificateAuthorityCertificateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +64,14 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     input: ImportCertificateAuthorityCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportCertificateAuthorityCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ImportCertificateAuthorityCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput> {
-    return deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

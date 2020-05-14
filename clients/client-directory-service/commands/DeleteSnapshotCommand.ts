@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSnapshotCommandInput = DeleteSnapshotRequest;
-export type DeleteSnapshotCommandOutput = DeleteSnapshotResult &
-  __MetadataBearer;
+export type DeleteSnapshotCommandOutput = DeleteSnapshotResult & __MetadataBearer;
 
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,
@@ -47,9 +46,7 @@ export class DeleteSnapshotCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateWebACLRequest {
@@ -31,8 +28,7 @@ export interface AssociateWebACLRequest {
 }
 
 export namespace AssociateWebACLRequest {
-  export const isa = (o: any): o is AssociateWebACLRequest =>
-    __isa(o, "AssociateWebACLRequest");
+  export const isa = (o: any): o is AssociateWebACLRequest => __isa(o, "AssociateWebACLRequest");
 }
 
 export interface AssociateWebACLResponse {
@@ -40,8 +36,7 @@ export interface AssociateWebACLResponse {
 }
 
 export namespace AssociateWebACLResponse {
-  export const isa = (o: any): o is AssociateWebACLResponse =>
-    __isa(o, "AssociateWebACLResponse");
+  export const isa = (o: any): o is AssociateWebACLResponse => __isa(o, "AssociateWebACLResponse");
 }
 
 export interface DisassociateWebACLRequest {
@@ -321,8 +316,7 @@ export interface ByteMatchSetSummary {
 }
 
 export namespace ByteMatchSetSummary {
-  export const isa = (o: any): o is ByteMatchSetSummary =>
-    __isa(o, "ByteMatchSetSummary");
+  export const isa = (o: any): o is ByteMatchSetSummary => __isa(o, "ByteMatchSetSummary");
 }
 
 /**
@@ -345,8 +339,7 @@ export interface ByteMatchSetUpdate {
 }
 
 export namespace ByteMatchSetUpdate {
-  export const isa = (o: any): o is ByteMatchSetUpdate =>
-    __isa(o, "ByteMatchSetUpdate");
+  export const isa = (o: any): o is ByteMatchSetUpdate => __isa(o, "ByteMatchSetUpdate");
 }
 
 /**
@@ -575,8 +568,7 @@ export interface ByteMatchTuple {
 }
 
 export namespace ByteMatchTuple {
-  export const isa = (o: any): o is ByteMatchTuple =>
-    __isa(o, "ByteMatchTuple");
+  export const isa = (o: any): o is ByteMatchTuple => __isa(o, "ByteMatchTuple");
 }
 
 export enum ChangeAction {
@@ -688,8 +680,7 @@ export interface CreateIPSetRequest {
 }
 
 export namespace CreateIPSetRequest {
-  export const isa = (o: any): o is CreateIPSetRequest =>
-    __isa(o, "CreateIPSetRequest");
+  export const isa = (o: any): o is CreateIPSetRequest => __isa(o, "CreateIPSetRequest");
 }
 
 export interface CreateIPSetResponse {
@@ -707,8 +698,7 @@ export interface CreateIPSetResponse {
 }
 
 export namespace CreateIPSetResponse {
-  export const isa = (o: any): o is CreateIPSetResponse =>
-    __isa(o, "CreateIPSetResponse");
+  export const isa = (o: any): o is CreateIPSetResponse => __isa(o, "CreateIPSetResponse");
 }
 
 export interface CreateRateBasedRuleRequest {
@@ -879,8 +869,7 @@ export interface CreateRuleGroupRequest {
 }
 
 export namespace CreateRuleGroupRequest {
-  export const isa = (o: any): o is CreateRuleGroupRequest =>
-    __isa(o, "CreateRuleGroupRequest");
+  export const isa = (o: any): o is CreateRuleGroupRequest => __isa(o, "CreateRuleGroupRequest");
 }
 
 export interface CreateRuleGroupResponse {
@@ -898,8 +887,7 @@ export interface CreateRuleGroupResponse {
 }
 
 export namespace CreateRuleGroupResponse {
-  export const isa = (o: any): o is CreateRuleGroupResponse =>
-    __isa(o, "CreateRuleGroupResponse");
+  export const isa = (o: any): o is CreateRuleGroupResponse => __isa(o, "CreateRuleGroupResponse");
 }
 
 export interface CreateRuleRequest {
@@ -925,8 +913,7 @@ export interface CreateRuleRequest {
 }
 
 export namespace CreateRuleRequest {
-  export const isa = (o: any): o is CreateRuleRequest =>
-    __isa(o, "CreateRuleRequest");
+  export const isa = (o: any): o is CreateRuleRequest => __isa(o, "CreateRuleRequest");
 }
 
 export interface CreateRuleResponse {
@@ -944,8 +931,7 @@ export interface CreateRuleResponse {
 }
 
 export namespace CreateRuleResponse {
-  export const isa = (o: any): o is CreateRuleResponse =>
-    __isa(o, "CreateRuleResponse");
+  export const isa = (o: any): o is CreateRuleResponse => __isa(o, "CreateRuleResponse");
 }
 
 export interface CreateSizeConstraintSetRequest {
@@ -1059,8 +1045,7 @@ export interface CreateWebACLRequest {
 }
 
 export namespace CreateWebACLRequest {
-  export const isa = (o: any): o is CreateWebACLRequest =>
-    __isa(o, "CreateWebACLRequest");
+  export const isa = (o: any): o is CreateWebACLRequest => __isa(o, "CreateWebACLRequest");
 }
 
 export interface CreateWebACLResponse {
@@ -1078,8 +1063,7 @@ export interface CreateWebACLResponse {
 }
 
 export namespace CreateWebACLResponse {
-  export const isa = (o: any): o is CreateWebACLResponse =>
-    __isa(o, "CreateWebACLResponse");
+  export const isa = (o: any): o is CreateWebACLResponse => __isa(o, "CreateWebACLResponse");
 }
 
 /**
@@ -1207,8 +1191,7 @@ export interface DeleteIPSetRequest {
 }
 
 export namespace DeleteIPSetRequest {
-  export const isa = (o: any): o is DeleteIPSetRequest =>
-    __isa(o, "DeleteIPSetRequest");
+  export const isa = (o: any): o is DeleteIPSetRequest => __isa(o, "DeleteIPSetRequest");
 }
 
 export interface DeleteIPSetResponse {
@@ -1221,8 +1204,7 @@ export interface DeleteIPSetResponse {
 }
 
 export namespace DeleteIPSetResponse {
-  export const isa = (o: any): o is DeleteIPSetResponse =>
-    __isa(o, "DeleteIPSetResponse");
+  export const isa = (o: any): o is DeleteIPSetResponse => __isa(o, "DeleteIPSetResponse");
 }
 
 export interface DeleteLoggingConfigurationRequest {
@@ -1386,8 +1368,7 @@ export interface DeleteRuleGroupRequest {
 }
 
 export namespace DeleteRuleGroupRequest {
-  export const isa = (o: any): o is DeleteRuleGroupRequest =>
-    __isa(o, "DeleteRuleGroupRequest");
+  export const isa = (o: any): o is DeleteRuleGroupRequest => __isa(o, "DeleteRuleGroupRequest");
 }
 
 export interface DeleteRuleGroupResponse {
@@ -1400,8 +1381,7 @@ export interface DeleteRuleGroupResponse {
 }
 
 export namespace DeleteRuleGroupResponse {
-  export const isa = (o: any): o is DeleteRuleGroupResponse =>
-    __isa(o, "DeleteRuleGroupResponse");
+  export const isa = (o: any): o is DeleteRuleGroupResponse => __isa(o, "DeleteRuleGroupResponse");
 }
 
 export interface DeleteRuleRequest {
@@ -1419,8 +1399,7 @@ export interface DeleteRuleRequest {
 }
 
 export namespace DeleteRuleRequest {
-  export const isa = (o: any): o is DeleteRuleRequest =>
-    __isa(o, "DeleteRuleRequest");
+  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
 }
 
 export interface DeleteRuleResponse {
@@ -1433,8 +1412,7 @@ export interface DeleteRuleResponse {
 }
 
 export namespace DeleteRuleResponse {
-  export const isa = (o: any): o is DeleteRuleResponse =>
-    __isa(o, "DeleteRuleResponse");
+  export const isa = (o: any): o is DeleteRuleResponse => __isa(o, "DeleteRuleResponse");
 }
 
 export interface DeleteSizeConstraintSetRequest {
@@ -1524,8 +1502,7 @@ export interface DeleteWebACLRequest {
 }
 
 export namespace DeleteWebACLRequest {
-  export const isa = (o: any): o is DeleteWebACLRequest =>
-    __isa(o, "DeleteWebACLRequest");
+  export const isa = (o: any): o is DeleteWebACLRequest => __isa(o, "DeleteWebACLRequest");
 }
 
 export interface DeleteWebACLResponse {
@@ -1538,8 +1515,7 @@ export interface DeleteWebACLResponse {
 }
 
 export namespace DeleteWebACLResponse {
-  export const isa = (o: any): o is DeleteWebACLResponse =>
-    __isa(o, "DeleteWebACLResponse");
+  export const isa = (o: any): o is DeleteWebACLResponse => __isa(o, "DeleteWebACLResponse");
 }
 
 /**
@@ -1677,8 +1653,7 @@ export interface GeoMatchConstraint {
 }
 
 export namespace GeoMatchConstraint {
-  export const isa = (o: any): o is GeoMatchConstraint =>
-    __isa(o, "GeoMatchConstraint");
+  export const isa = (o: any): o is GeoMatchConstraint => __isa(o, "GeoMatchConstraint");
 }
 
 export enum GeoMatchConstraintType {
@@ -1982,8 +1957,7 @@ export interface GeoMatchSetSummary {
 }
 
 export namespace GeoMatchSetSummary {
-  export const isa = (o: any): o is GeoMatchSetSummary =>
-    __isa(o, "GeoMatchSetSummary");
+  export const isa = (o: any): o is GeoMatchSetSummary => __isa(o, "GeoMatchSetSummary");
 }
 
 /**
@@ -2003,8 +1977,7 @@ export interface GeoMatchSetUpdate {
 }
 
 export namespace GeoMatchSetUpdate {
-  export const isa = (o: any): o is GeoMatchSetUpdate =>
-    __isa(o, "GeoMatchSetUpdate");
+  export const isa = (o: any): o is GeoMatchSetUpdate => __isa(o, "GeoMatchSetUpdate");
 }
 
 export interface GetByteMatchSetRequest {
@@ -2017,8 +1990,7 @@ export interface GetByteMatchSetRequest {
 }
 
 export namespace GetByteMatchSetRequest {
-  export const isa = (o: any): o is GetByteMatchSetRequest =>
-    __isa(o, "GetByteMatchSetRequest");
+  export const isa = (o: any): o is GetByteMatchSetRequest => __isa(o, "GetByteMatchSetRequest");
 }
 
 export interface GetByteMatchSetResponse {
@@ -2050,8 +2022,7 @@ export interface GetByteMatchSetResponse {
 }
 
 export namespace GetByteMatchSetResponse {
-  export const isa = (o: any): o is GetByteMatchSetResponse =>
-    __isa(o, "GetByteMatchSetResponse");
+  export const isa = (o: any): o is GetByteMatchSetResponse => __isa(o, "GetByteMatchSetResponse");
 }
 
 export interface GetChangeTokenRequest {
@@ -2059,8 +2030,7 @@ export interface GetChangeTokenRequest {
 }
 
 export namespace GetChangeTokenRequest {
-  export const isa = (o: any): o is GetChangeTokenRequest =>
-    __isa(o, "GetChangeTokenRequest");
+  export const isa = (o: any): o is GetChangeTokenRequest => __isa(o, "GetChangeTokenRequest");
 }
 
 export interface GetChangeTokenResponse {
@@ -2073,8 +2043,7 @@ export interface GetChangeTokenResponse {
 }
 
 export namespace GetChangeTokenResponse {
-  export const isa = (o: any): o is GetChangeTokenResponse =>
-    __isa(o, "GetChangeTokenResponse");
+  export const isa = (o: any): o is GetChangeTokenResponse => __isa(o, "GetChangeTokenResponse");
 }
 
 export interface GetChangeTokenStatusRequest {
@@ -2113,8 +2082,7 @@ export interface GetGeoMatchSetRequest {
 }
 
 export namespace GetGeoMatchSetRequest {
-  export const isa = (o: any): o is GetGeoMatchSetRequest =>
-    __isa(o, "GetGeoMatchSetRequest");
+  export const isa = (o: any): o is GetGeoMatchSetRequest => __isa(o, "GetGeoMatchSetRequest");
 }
 
 export interface GetGeoMatchSetResponse {
@@ -2126,8 +2094,7 @@ export interface GetGeoMatchSetResponse {
 }
 
 export namespace GetGeoMatchSetResponse {
-  export const isa = (o: any): o is GetGeoMatchSetResponse =>
-    __isa(o, "GetGeoMatchSetResponse");
+  export const isa = (o: any): o is GetGeoMatchSetResponse => __isa(o, "GetGeoMatchSetResponse");
 }
 
 export interface GetIPSetRequest {
@@ -2140,8 +2107,7 @@ export interface GetIPSetRequest {
 }
 
 export namespace GetIPSetRequest {
-  export const isa = (o: any): o is GetIPSetRequest =>
-    __isa(o, "GetIPSetRequest");
+  export const isa = (o: any): o is GetIPSetRequest => __isa(o, "GetIPSetRequest");
 }
 
 export interface GetIPSetResponse {
@@ -2167,8 +2133,7 @@ export interface GetIPSetResponse {
 }
 
 export namespace GetIPSetResponse {
-  export const isa = (o: any): o is GetIPSetResponse =>
-    __isa(o, "GetIPSetResponse");
+  export const isa = (o: any): o is GetIPSetResponse => __isa(o, "GetIPSetResponse");
 }
 
 export interface GetLoggingConfigurationRequest {
@@ -2270,8 +2235,7 @@ export interface GetRateBasedRuleRequest {
 }
 
 export namespace GetRateBasedRuleRequest {
-  export const isa = (o: any): o is GetRateBasedRuleRequest =>
-    __isa(o, "GetRateBasedRuleRequest");
+  export const isa = (o: any): o is GetRateBasedRuleRequest => __isa(o, "GetRateBasedRuleRequest");
 }
 
 export interface GetRateBasedRuleResponse {
@@ -2298,8 +2262,7 @@ export interface GetRegexMatchSetRequest {
 }
 
 export namespace GetRegexMatchSetRequest {
-  export const isa = (o: any): o is GetRegexMatchSetRequest =>
-    __isa(o, "GetRegexMatchSetRequest");
+  export const isa = (o: any): o is GetRegexMatchSetRequest => __isa(o, "GetRegexMatchSetRequest");
 }
 
 export interface GetRegexMatchSetResponse {
@@ -2352,8 +2315,7 @@ export interface GetRuleGroupRequest {
 }
 
 export namespace GetRuleGroupRequest {
-  export const isa = (o: any): o is GetRuleGroupRequest =>
-    __isa(o, "GetRuleGroupRequest");
+  export const isa = (o: any): o is GetRuleGroupRequest => __isa(o, "GetRuleGroupRequest");
 }
 
 export interface GetRuleGroupResponse {
@@ -2365,8 +2327,7 @@ export interface GetRuleGroupResponse {
 }
 
 export namespace GetRuleGroupResponse {
-  export const isa = (o: any): o is GetRuleGroupResponse =>
-    __isa(o, "GetRuleGroupResponse");
+  export const isa = (o: any): o is GetRuleGroupResponse => __isa(o, "GetRuleGroupResponse");
 }
 
 export interface GetRuleRequest {
@@ -2379,8 +2340,7 @@ export interface GetRuleRequest {
 }
 
 export namespace GetRuleRequest {
-  export const isa = (o: any): o is GetRuleRequest =>
-    __isa(o, "GetRuleRequest");
+  export const isa = (o: any): o is GetRuleRequest => __isa(o, "GetRuleRequest");
 }
 
 export interface GetRuleResponse {
@@ -2407,8 +2367,7 @@ export interface GetRuleResponse {
 }
 
 export namespace GetRuleResponse {
-  export const isa = (o: any): o is GetRuleResponse =>
-    __isa(o, "GetRuleResponse");
+  export const isa = (o: any): o is GetRuleResponse => __isa(o, "GetRuleResponse");
 }
 
 export interface GetSampledRequestsRequest {
@@ -2590,8 +2549,7 @@ export interface GetWebACLRequest {
 }
 
 export namespace GetWebACLRequest {
-  export const isa = (o: any): o is GetWebACLRequest =>
-    __isa(o, "GetWebACLRequest");
+  export const isa = (o: any): o is GetWebACLRequest => __isa(o, "GetWebACLRequest");
 }
 
 export interface GetWebACLResponse {
@@ -2628,8 +2586,7 @@ export interface GetWebACLResponse {
 }
 
 export namespace GetWebACLResponse {
-  export const isa = (o: any): o is GetWebACLResponse =>
-    __isa(o, "GetWebACLResponse");
+  export const isa = (o: any): o is GetWebACLResponse => __isa(o, "GetWebACLResponse");
 }
 
 /**
@@ -2645,8 +2602,7 @@ export interface GetXssMatchSetRequest {
 }
 
 export namespace GetXssMatchSetRequest {
-  export const isa = (o: any): o is GetXssMatchSetRequest =>
-    __isa(o, "GetXssMatchSetRequest");
+  export const isa = (o: any): o is GetXssMatchSetRequest => __isa(o, "GetXssMatchSetRequest");
 }
 
 /**
@@ -2680,8 +2636,7 @@ export interface GetXssMatchSetResponse {
 }
 
 export namespace GetXssMatchSetResponse {
-  export const isa = (o: any): o is GetXssMatchSetResponse =>
-    __isa(o, "GetXssMatchSetResponse");
+  export const isa = (o: any): o is GetXssMatchSetResponse => __isa(o, "GetXssMatchSetResponse");
 }
 
 /**
@@ -2835,8 +2790,7 @@ export interface IPSetDescriptor {
 }
 
 export namespace IPSetDescriptor {
-  export const isa = (o: any): o is IPSetDescriptor =>
-    __isa(o, "IPSetDescriptor");
+  export const isa = (o: any): o is IPSetDescriptor => __isa(o, "IPSetDescriptor");
 }
 
 export enum IPSetDescriptorType {
@@ -2993,8 +2947,7 @@ export interface ListGeoMatchSetsRequest {
 }
 
 export namespace ListGeoMatchSetsRequest {
-  export const isa = (o: any): o is ListGeoMatchSetsRequest =>
-    __isa(o, "ListGeoMatchSetsRequest");
+  export const isa = (o: any): o is ListGeoMatchSetsRequest => __isa(o, "ListGeoMatchSetsRequest");
 }
 
 export interface ListGeoMatchSetsResponse {
@@ -3037,8 +2990,7 @@ export interface ListIPSetsRequest {
 }
 
 export namespace ListIPSetsRequest {
-  export const isa = (o: any): o is ListIPSetsRequest =>
-    __isa(o, "ListIPSetsRequest");
+  export const isa = (o: any): o is ListIPSetsRequest => __isa(o, "ListIPSetsRequest");
 }
 
 export interface ListIPSetsResponse {
@@ -3057,8 +3009,7 @@ export interface ListIPSetsResponse {
 }
 
 export namespace ListIPSetsResponse {
-  export const isa = (o: any): o is ListIPSetsResponse =>
-    __isa(o, "ListIPSetsResponse");
+  export const isa = (o: any): o is ListIPSetsResponse => __isa(o, "ListIPSetsResponse");
 }
 
 export interface ListLoggingConfigurationsRequest {
@@ -3253,8 +3204,7 @@ export interface ListRuleGroupsRequest {
 }
 
 export namespace ListRuleGroupsRequest {
-  export const isa = (o: any): o is ListRuleGroupsRequest =>
-    __isa(o, "ListRuleGroupsRequest");
+  export const isa = (o: any): o is ListRuleGroupsRequest => __isa(o, "ListRuleGroupsRequest");
 }
 
 export interface ListRuleGroupsResponse {
@@ -3271,8 +3221,7 @@ export interface ListRuleGroupsResponse {
 }
 
 export namespace ListRuleGroupsResponse {
-  export const isa = (o: any): o is ListRuleGroupsResponse =>
-    __isa(o, "ListRuleGroupsResponse");
+  export const isa = (o: any): o is ListRuleGroupsResponse => __isa(o, "ListRuleGroupsResponse");
 }
 
 export interface ListRulesRequest {
@@ -3293,8 +3242,7 @@ export interface ListRulesRequest {
 }
 
 export namespace ListRulesRequest {
-  export const isa = (o: any): o is ListRulesRequest =>
-    __isa(o, "ListRulesRequest");
+  export const isa = (o: any): o is ListRulesRequest => __isa(o, "ListRulesRequest");
 }
 
 export interface ListRulesResponse {
@@ -3313,8 +3261,7 @@ export interface ListRulesResponse {
 }
 
 export namespace ListRulesResponse {
-  export const isa = (o: any): o is ListRulesResponse =>
-    __isa(o, "ListRulesResponse");
+  export const isa = (o: any): o is ListRulesResponse => __isa(o, "ListRulesResponse");
 }
 
 export interface ListSizeConstraintSetsRequest {
@@ -3496,8 +3443,7 @@ export interface ListWebACLsRequest {
 }
 
 export namespace ListWebACLsRequest {
-  export const isa = (o: any): o is ListWebACLsRequest =>
-    __isa(o, "ListWebACLsRequest");
+  export const isa = (o: any): o is ListWebACLsRequest => __isa(o, "ListWebACLsRequest");
 }
 
 export interface ListWebACLsResponse {
@@ -3517,8 +3463,7 @@ export interface ListWebACLsResponse {
 }
 
 export namespace ListWebACLsResponse {
-  export const isa = (o: any): o is ListWebACLsResponse =>
-    __isa(o, "ListWebACLsResponse");
+  export const isa = (o: any): o is ListWebACLsResponse => __isa(o, "ListWebACLsResponse");
 }
 
 /**
@@ -3543,8 +3488,7 @@ export interface ListXssMatchSetsRequest {
 }
 
 export namespace ListXssMatchSetsRequest {
-  export const isa = (o: any): o is ListXssMatchSetsRequest =>
-    __isa(o, "ListXssMatchSetsRequest");
+  export const isa = (o: any): o is ListXssMatchSetsRequest => __isa(o, "ListXssMatchSetsRequest");
 }
 
 /**
@@ -3598,8 +3542,7 @@ export interface LoggingConfiguration {
 }
 
 export namespace LoggingConfiguration {
-  export const isa = (o: any): o is LoggingConfiguration =>
-    __isa(o, "LoggingConfiguration");
+  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 export enum MatchFieldType {
@@ -3896,8 +3839,7 @@ export interface RegexMatchSetSummary {
 }
 
 export namespace RegexMatchSetSummary {
-  export const isa = (o: any): o is RegexMatchSetSummary =>
-    __isa(o, "RegexMatchSetSummary");
+  export const isa = (o: any): o is RegexMatchSetSummary => __isa(o, "RegexMatchSetSummary");
 }
 
 /**
@@ -3920,8 +3862,7 @@ export interface RegexMatchSetUpdate {
 }
 
 export namespace RegexMatchSetUpdate {
-  export const isa = (o: any): o is RegexMatchSetUpdate =>
-    __isa(o, "RegexMatchSetUpdate");
+  export const isa = (o: any): o is RegexMatchSetUpdate => __isa(o, "RegexMatchSetUpdate");
 }
 
 /**
@@ -4053,8 +3994,7 @@ export interface RegexMatchTuple {
 }
 
 export namespace RegexMatchTuple {
-  export const isa = (o: any): o is RegexMatchTuple =>
-    __isa(o, "RegexMatchTuple");
+  export const isa = (o: any): o is RegexMatchTuple => __isa(o, "RegexMatchTuple");
 }
 
 /**
@@ -4082,8 +4022,7 @@ export interface RegexPatternSet {
 }
 
 export namespace RegexPatternSet {
-  export const isa = (o: any): o is RegexPatternSet =>
-    __isa(o, "RegexPatternSet");
+  export const isa = (o: any): o is RegexPatternSet => __isa(o, "RegexPatternSet");
 }
 
 /**
@@ -4107,8 +4046,7 @@ export interface RegexPatternSetSummary {
 }
 
 export namespace RegexPatternSetSummary {
-  export const isa = (o: any): o is RegexPatternSetSummary =>
-    __isa(o, "RegexPatternSetSummary");
+  export const isa = (o: any): o is RegexPatternSetSummary => __isa(o, "RegexPatternSetSummary");
 }
 
 /**
@@ -4129,8 +4067,7 @@ export interface RegexPatternSetUpdate {
 }
 
 export namespace RegexPatternSetUpdate {
-  export const isa = (o: any): o is RegexPatternSetUpdate =>
-    __isa(o, "RegexPatternSetUpdate");
+  export const isa = (o: any): o is RegexPatternSetUpdate => __isa(o, "RegexPatternSetUpdate");
 }
 
 export enum ResourceType {
@@ -4250,8 +4187,7 @@ export interface RuleGroupSummary {
 }
 
 export namespace RuleGroupSummary {
-  export const isa = (o: any): o is RuleGroupSummary =>
-    __isa(o, "RuleGroupSummary");
+  export const isa = (o: any): o is RuleGroupSummary => __isa(o, "RuleGroupSummary");
 }
 
 /**
@@ -4275,8 +4211,7 @@ export interface RuleGroupUpdate {
 }
 
 export namespace RuleGroupUpdate {
-  export const isa = (o: any): o is RuleGroupUpdate =>
-    __isa(o, "RuleGroupUpdate");
+  export const isa = (o: any): o is RuleGroupUpdate => __isa(o, "RuleGroupUpdate");
 }
 
 /**
@@ -4361,8 +4296,7 @@ export interface SampledHTTPRequest {
 }
 
 export namespace SampledHTTPRequest {
-  export const isa = (o: any): o is SampledHTTPRequest =>
-    __isa(o, "SampledHTTPRequest");
+  export const isa = (o: any): o is SampledHTTPRequest => __isa(o, "SampledHTTPRequest");
 }
 
 /**
@@ -4514,8 +4448,7 @@ export interface SizeConstraint {
 }
 
 export namespace SizeConstraint {
-  export const isa = (o: any): o is SizeConstraint =>
-    __isa(o, "SizeConstraint");
+  export const isa = (o: any): o is SizeConstraint => __isa(o, "SizeConstraint");
 }
 
 /**
@@ -4548,8 +4481,7 @@ export interface SizeConstraintSet {
 }
 
 export namespace SizeConstraintSet {
-  export const isa = (o: any): o is SizeConstraintSet =>
-    __isa(o, "SizeConstraintSet");
+  export const isa = (o: any): o is SizeConstraintSet => __isa(o, "SizeConstraintSet");
 }
 
 /**
@@ -4601,8 +4533,7 @@ export interface SizeConstraintSetUpdate {
 }
 
 export namespace SizeConstraintSetUpdate {
-  export const isa = (o: any): o is SizeConstraintSetUpdate =>
-    __isa(o, "SizeConstraintSetUpdate");
+  export const isa = (o: any): o is SizeConstraintSetUpdate => __isa(o, "SizeConstraintSetUpdate");
 }
 
 /**
@@ -4636,8 +4567,7 @@ export interface SqlInjectionMatchSet {
 }
 
 export namespace SqlInjectionMatchSet {
-  export const isa = (o: any): o is SqlInjectionMatchSet =>
-    __isa(o, "SqlInjectionMatchSet");
+  export const isa = (o: any): o is SqlInjectionMatchSet => __isa(o, "SqlInjectionMatchSet");
 }
 
 /**
@@ -4799,8 +4729,7 @@ export interface SqlInjectionMatchTuple {
 }
 
 export namespace SqlInjectionMatchTuple {
-  export const isa = (o: any): o is SqlInjectionMatchTuple =>
-    __isa(o, "SqlInjectionMatchTuple");
+  export const isa = (o: any): o is SqlInjectionMatchTuple => __isa(o, "SqlInjectionMatchTuple");
 }
 
 /**
@@ -4847,8 +4776,7 @@ export interface TagInfoForResource {
 }
 
 export namespace TagInfoForResource {
-  export const isa = (o: any): o is TagInfoForResource =>
-    __isa(o, "TagInfoForResource");
+  export const isa = (o: any): o is TagInfoForResource => __isa(o, "TagInfoForResource");
 }
 
 export interface TagResourceRequest {
@@ -4858,8 +4786,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -4867,8 +4794,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TextTransformation {
@@ -4915,8 +4841,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -4924,8 +4849,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateByteMatchSetRequest {
@@ -5071,8 +4995,7 @@ export interface UpdateIPSetRequest {
 }
 
 export namespace UpdateIPSetRequest {
-  export const isa = (o: any): o is UpdateIPSetRequest =>
-    __isa(o, "UpdateIPSetRequest");
+  export const isa = (o: any): o is UpdateIPSetRequest => __isa(o, "UpdateIPSetRequest");
 }
 
 export interface UpdateIPSetResponse {
@@ -5085,8 +5008,7 @@ export interface UpdateIPSetResponse {
 }
 
 export namespace UpdateIPSetResponse {
-  export const isa = (o: any): o is UpdateIPSetResponse =>
-    __isa(o, "UpdateIPSetResponse");
+  export const isa = (o: any): o is UpdateIPSetResponse => __isa(o, "UpdateIPSetResponse");
 }
 
 export interface UpdateRateBasedRuleRequest {
@@ -5238,8 +5160,7 @@ export interface UpdateRuleGroupRequest {
 }
 
 export namespace UpdateRuleGroupRequest {
-  export const isa = (o: any): o is UpdateRuleGroupRequest =>
-    __isa(o, "UpdateRuleGroupRequest");
+  export const isa = (o: any): o is UpdateRuleGroupRequest => __isa(o, "UpdateRuleGroupRequest");
 }
 
 export interface UpdateRuleGroupResponse {
@@ -5252,8 +5173,7 @@ export interface UpdateRuleGroupResponse {
 }
 
 export namespace UpdateRuleGroupResponse {
-  export const isa = (o: any): o is UpdateRuleGroupResponse =>
-    __isa(o, "UpdateRuleGroupResponse");
+  export const isa = (o: any): o is UpdateRuleGroupResponse => __isa(o, "UpdateRuleGroupResponse");
 }
 
 export interface UpdateRuleRequest {
@@ -5294,8 +5214,7 @@ export interface UpdateRuleRequest {
 }
 
 export namespace UpdateRuleRequest {
-  export const isa = (o: any): o is UpdateRuleRequest =>
-    __isa(o, "UpdateRuleRequest");
+  export const isa = (o: any): o is UpdateRuleRequest => __isa(o, "UpdateRuleRequest");
 }
 
 export interface UpdateRuleResponse {
@@ -5308,8 +5227,7 @@ export interface UpdateRuleResponse {
 }
 
 export namespace UpdateRuleResponse {
-  export const isa = (o: any): o is UpdateRuleResponse =>
-    __isa(o, "UpdateRuleResponse");
+  export const isa = (o: any): o is UpdateRuleResponse => __isa(o, "UpdateRuleResponse");
 }
 
 export interface UpdateSizeConstraintSetRequest {
@@ -5482,8 +5400,7 @@ export interface UpdateWebACLRequest {
 }
 
 export namespace UpdateWebACLRequest {
-  export const isa = (o: any): o is UpdateWebACLRequest =>
-    __isa(o, "UpdateWebACLRequest");
+  export const isa = (o: any): o is UpdateWebACLRequest => __isa(o, "UpdateWebACLRequest");
 }
 
 export interface UpdateWebACLResponse {
@@ -5496,8 +5413,7 @@ export interface UpdateWebACLResponse {
 }
 
 export namespace UpdateWebACLResponse {
-  export const isa = (o: any): o is UpdateWebACLResponse =>
-    __isa(o, "UpdateWebACLResponse");
+  export const isa = (o: any): o is UpdateWebACLResponse => __isa(o, "UpdateWebACLResponse");
 }
 
 /**
@@ -5564,25 +5480,20 @@ export namespace UpdateXssMatchSetResponse {
     __isa(o, "UpdateXssMatchSetResponse");
 }
 
-export interface WAFBadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFBadRequestException extends __SmithyException, $MetadataBearer {
   name: "WAFBadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace WAFBadRequestException {
-  export const isa = (o: any): o is WAFBadRequestException =>
-    __isa(o, "WAFBadRequestException");
+  export const isa = (o: any): o is WAFBadRequestException => __isa(o, "WAFBadRequestException");
 }
 
 /**
  * <p>The name specified is invalid.</p>
  */
-export interface WAFDisallowedNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFDisallowedNameException extends __SmithyException, $MetadataBearer {
   name: "WAFDisallowedNameException";
   $fault: "client";
   message?: string;
@@ -5596,9 +5507,7 @@ export namespace WAFDisallowedNameException {
 /**
  * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  */
-export interface WAFInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFInternalErrorException";
   $fault: "server";
   message?: string;
@@ -5612,9 +5521,7 @@ export namespace WAFInternalErrorException {
 /**
  * <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  */
-export interface WAFInvalidAccountException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidAccountException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidAccountException";
   $fault: "client";
 }
@@ -5647,9 +5554,7 @@ export namespace WAFInvalidAccountException {
  *             </li>
  *          </ul>
  */
-export interface WAFInvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidOperationException";
   $fault: "client";
   message?: string;
@@ -5700,9 +5605,7 @@ export namespace WAFInvalidOperationException {
  * 			   	     </li>
  *          </ul>
  */
-export interface WAFInvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidParameterException";
   $fault: "client";
   field?: ParameterExceptionField | string;
@@ -5747,9 +5650,7 @@ export namespace WAFInvalidParameterException {
  *             </li>
  *          </ul>
  */
-export interface WAFInvalidPermissionPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidPermissionPolicyException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidPermissionPolicyException";
   $fault: "client";
   message?: string;
@@ -5763,9 +5664,7 @@ export namespace WAFInvalidPermissionPolicyException {
 /**
  * <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
  */
-export interface WAFInvalidRegexPatternException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidRegexPatternException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidRegexPatternException";
   $fault: "client";
   message?: string;
@@ -5781,9 +5680,7 @@ export namespace WAFInvalidRegexPatternException {
  * 			for an AWS account. For more information, see
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
-export interface WAFLimitsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFLimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "WAFLimitsExceededException";
   $fault: "client";
   message?: string;
@@ -5812,9 +5709,7 @@ export namespace WAFLimitsExceededException {
  *             </li>
  *          </ul>
  */
-export interface WAFNonEmptyEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFNonEmptyEntityException extends __SmithyException, $MetadataBearer {
   name: "WAFNonEmptyEntityException";
   $fault: "client";
   message?: string;
@@ -5843,9 +5738,7 @@ export namespace WAFNonEmptyEntityException {
  *             </li>
  *          </ul>
  */
-export interface WAFNonexistentContainerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFNonexistentContainerException extends __SmithyException, $MetadataBearer {
   name: "WAFNonexistentContainerException";
   $fault: "client";
   message?: string;
@@ -5859,9 +5752,7 @@ export namespace WAFNonexistentContainerException {
 /**
  * <p>The operation failed because the referenced object doesn't exist.</p>
  */
-export interface WAFNonexistentItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFNonexistentItemException extends __SmithyException, $MetadataBearer {
   name: "WAFNonexistentItemException";
   $fault: "client";
   message?: string;
@@ -5883,9 +5774,7 @@ export namespace WAFNonexistentItemException {
  *             </li>
  *          </ul>
  */
-export interface WAFReferencedItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFReferencedItemException extends __SmithyException, $MetadataBearer {
   name: "WAFReferencedItemException";
   $fault: "client";
   message?: string;
@@ -5899,9 +5788,7 @@ export namespace WAFReferencedItemException {
 /**
  * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  */
-export interface WAFServiceLinkedRoleErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFServiceLinkedRoleErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
@@ -5915,25 +5802,20 @@ export namespace WAFServiceLinkedRoleErrorException {
 /**
  * <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  */
-export interface WAFStaleDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFStaleDataException extends __SmithyException, $MetadataBearer {
   name: "WAFStaleDataException";
   $fault: "client";
   message?: string;
 }
 
 export namespace WAFStaleDataException {
-  export const isa = (o: any): o is WAFStaleDataException =>
-    __isa(o, "WAFStaleDataException");
+  export const isa = (o: any): o is WAFStaleDataException => __isa(o, "WAFStaleDataException");
 }
 
 /**
  * <p>The specified subscription does not exist.</p>
  */
-export interface WAFSubscriptionNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFSubscriptionNotFoundException extends __SmithyException, $MetadataBearer {
   name: "WAFSubscriptionNotFoundException";
   $fault: "client";
   message?: string;
@@ -5944,9 +5826,7 @@ export namespace WAFSubscriptionNotFoundException {
     __isa(o, "WAFSubscriptionNotFoundException");
 }
 
-export interface WAFTagOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationException";
   $fault: "client";
   message?: string;
@@ -5957,9 +5837,7 @@ export namespace WAFTagOperationException {
     __isa(o, "WAFTagOperationException");
 }
 
-export interface WAFTagOperationInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   message?: string;
@@ -5974,9 +5852,7 @@ export namespace WAFTagOperationInternalErrorException {
  * <p>The operation failed because the entity
  *       referenced is temporarily unavailable. Retry your request.</p>
  */
-export interface WAFUnavailableEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WAFUnavailableEntityException extends __SmithyException, $MetadataBearer {
   name: "WAFUnavailableEntityException";
   $fault: "client";
   message?: string;
@@ -6039,8 +5915,7 @@ export interface WafOverrideAction {
 }
 
 export namespace WafOverrideAction {
-  export const isa = (o: any): o is WafOverrideAction =>
-    __isa(o, "WafOverrideAction");
+  export const isa = (o: any): o is WafOverrideAction => __isa(o, "WafOverrideAction");
 }
 
 export enum WafOverrideActionType {
@@ -6209,8 +6084,7 @@ export interface XssMatchSetSummary {
 }
 
 export namespace XssMatchSetSummary {
-  export const isa = (o: any): o is XssMatchSetSummary =>
-    __isa(o, "XssMatchSetSummary");
+  export const isa = (o: any): o is XssMatchSetSummary => __isa(o, "XssMatchSetSummary");
 }
 
 /**
@@ -6234,8 +6108,7 @@ export interface XssMatchSetUpdate {
 }
 
 export namespace XssMatchSetUpdate {
-  export const isa = (o: any): o is XssMatchSetUpdate =>
-    __isa(o, "XssMatchSetUpdate");
+  export const isa = (o: any): o is XssMatchSetUpdate => __isa(o, "XssMatchSetUpdate");
 }
 
 /**

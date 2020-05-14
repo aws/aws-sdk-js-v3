@@ -46,13 +46,8 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    HttpPayloadWithXmlNamespaceCommandInput,
-    HttpPayloadWithXmlNamespaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<HttpPayloadWithXmlNamespaceCommandInput, HttpPayloadWithXmlNamespaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +66,14 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
     input: HttpPayloadWithXmlNamespaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithXmlNamespaceCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

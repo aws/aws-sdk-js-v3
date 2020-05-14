@@ -2,18 +2,12 @@ import {
   BatchGetTracesCommandInput,
   BatchGetTracesCommandOutput
 } from "./commands/BatchGetTracesCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateSamplingRuleCommandInput,
   CreateSamplingRuleCommandOutput
 } from "./commands/CreateSamplingRuleCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteSamplingRuleCommandInput,
   DeleteSamplingRuleCommandOutput
@@ -22,14 +16,8 @@ import {
   GetEncryptionConfigCommandInput,
   GetEncryptionConfigCommandOutput
 } from "./commands/GetEncryptionConfigCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
-import {
-  GetGroupsCommandInput,
-  GetGroupsCommandOutput
-} from "./commands/GetGroupsCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
 import {
   GetSamplingRulesCommandInput,
   GetSamplingRulesCommandOutput
@@ -70,10 +58,7 @@ import {
   PutTraceSegmentsCommandInput,
   PutTraceSegmentsCommandOutput
 } from "./commands/PutTraceSegmentsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateSamplingRuleCommandInput,
   UpdateSamplingRuleCommandOutput
@@ -259,9 +244,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type XRayClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type XRayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -270,9 +253,7 @@ export type XRayClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

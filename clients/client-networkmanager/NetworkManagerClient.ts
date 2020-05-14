@@ -14,14 +14,8 @@ import {
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput
 } from "./commands/CreateGlobalNetworkCommand";
-import {
-  CreateLinkCommandInput,
-  CreateLinkCommandOutput
-} from "./commands/CreateLinkCommand";
-import {
-  CreateSiteCommandInput,
-  CreateSiteCommandOutput
-} from "./commands/CreateSiteCommand";
+import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
+import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import {
   DeleteDeviceCommandInput,
   DeleteDeviceCommandOutput
@@ -30,14 +24,8 @@ import {
   DeleteGlobalNetworkCommandInput,
   DeleteGlobalNetworkCommandOutput
 } from "./commands/DeleteGlobalNetworkCommand";
-import {
-  DeleteLinkCommandInput,
-  DeleteLinkCommandOutput
-} from "./commands/DeleteLinkCommand";
-import {
-  DeleteSiteCommandInput,
-  DeleteSiteCommandOutput
-} from "./commands/DeleteSiteCommand";
+import { DeleteLinkCommandInput, DeleteLinkCommandOutput } from "./commands/DeleteLinkCommand";
+import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
 import {
   DeregisterTransitGatewayCommandInput,
   DeregisterTransitGatewayCommandOutput
@@ -58,22 +46,13 @@ import {
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput
 } from "./commands/GetCustomerGatewayAssociationsCommand";
-import {
-  GetDevicesCommandInput,
-  GetDevicesCommandOutput
-} from "./commands/GetDevicesCommand";
+import { GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
 import {
   GetLinkAssociationsCommandInput,
   GetLinkAssociationsCommandOutput
 } from "./commands/GetLinkAssociationsCommand";
-import {
-  GetLinksCommandInput,
-  GetLinksCommandOutput
-} from "./commands/GetLinksCommand";
-import {
-  GetSitesCommandInput,
-  GetSitesCommandOutput
-} from "./commands/GetSitesCommand";
+import { GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
 import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput
@@ -86,10 +65,7 @@ import {
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput
 } from "./commands/RegisterTransitGatewayCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -102,14 +78,8 @@ import {
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput
 } from "./commands/UpdateGlobalNetworkCommand";
-import {
-  UpdateLinkCommandInput,
-  UpdateLinkCommandOutput
-} from "./commands/UpdateLinkCommand";
-import {
-  UpdateSiteCommandInput,
-  UpdateSiteCommandOutput
-} from "./commands/UpdateSiteCommand";
+import { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -307,9 +277,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type NetworkManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type NetworkManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

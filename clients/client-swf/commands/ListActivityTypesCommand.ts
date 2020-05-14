@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { ActivityTypeInfos, ListActivityTypesInput } from "../models/index";
 import {
   deserializeAws_json1_0ListActivityTypesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListActivityTypesCommandInput = ListActivityTypesInput;
-export type ListActivityTypesCommandOutput = ActivityTypeInfos &
-  __MetadataBearer;
+export type ListActivityTypesCommandOutput = ActivityTypeInfos & __MetadataBearer;
 
 export class ListActivityTypesCommand extends $Command<
   ListActivityTypesCommandInput,
@@ -47,9 +42,7 @@ export class ListActivityTypesCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListActivityTypesCommandInput, ListActivityTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

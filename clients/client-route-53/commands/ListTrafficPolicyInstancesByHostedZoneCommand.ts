@@ -40,9 +40,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput
-  ) {
+  constructor(readonly input: ListTrafficPolicyInstancesByHostedZoneCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -56,9 +54,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     ListTrafficPolicyInstancesByHostedZoneCommandInput,
     ListTrafficPolicyInstancesByHostedZoneCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -78,20 +74,14 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

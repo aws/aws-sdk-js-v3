@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  ListSizeConstraintSetsRequest,
-  ListSizeConstraintSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSizeConstraintSetsCommand,
   serializeAws_json1_1ListSizeConstraintSetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSizeConstraintSetsCommandInput = ListSizeConstraintSetsRequest;
-export type ListSizeConstraintSetsCommandOutput = ListSizeConstraintSetsResponse &
-  __MetadataBearer;
+export type ListSizeConstraintSetsCommandOutput = ListSizeConstraintSetsResponse & __MetadataBearer;
 
 export class ListSizeConstraintSetsCommand extends $Command<
   ListSizeConstraintSetsCommandInput,
@@ -49,13 +41,8 @@ export class ListSizeConstraintSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSizeConstraintSetsCommandInput,
-    ListSizeConstraintSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSizeConstraintSetsCommandInput, ListSizeConstraintSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

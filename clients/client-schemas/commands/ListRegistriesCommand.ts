@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRegistriesCommandInput = ListRegistriesRequest;
-export type ListRegistriesCommandOutput = ListRegistriesResponse &
-  __MetadataBearer;
+export type ListRegistriesCommandOutput = ListRegistriesResponse & __MetadataBearer;
 
 export class ListRegistriesCommand extends $Command<
   ListRegistriesCommandInput,
@@ -47,9 +46,7 @@ export class ListRegistriesCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRegistriesCommandInput, ListRegistriesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

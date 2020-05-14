@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectEntitiesCommandInput = DetectEntitiesRequest;
-export type DetectEntitiesCommandOutput = DetectEntitiesResponse &
-  __MetadataBearer;
+export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBearer;
 
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,
@@ -47,9 +46,7 @@ export class DetectEntitiesCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectEntitiesCommandInput, DetectEntitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

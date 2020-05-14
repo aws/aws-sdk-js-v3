@@ -39,9 +39,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput
-  ) {
+  constructor(readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
     GetAggregateComplianceDetailsByConfigRuleCommandInput,
     GetAggregateComplianceDetailsByConfigRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
     input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  CreateTypedLinkFacetRequest,
-  CreateTypedLinkFacetResponse
-} from "../models/index";
+import { CreateTypedLinkFacetRequest, CreateTypedLinkFacetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateTypedLinkFacetCommand,
   serializeAws_restJson1_1CreateTypedLinkFacetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTypedLinkFacetCommandInput = CreateTypedLinkFacetRequest;
-export type CreateTypedLinkFacetCommandOutput = CreateTypedLinkFacetResponse &
-  __MetadataBearer;
+export type CreateTypedLinkFacetCommandOutput = CreateTypedLinkFacetResponse & __MetadataBearer;
 
 export class CreateTypedLinkFacetCommand extends $Command<
   CreateTypedLinkFacetCommandInput,
@@ -49,13 +45,8 @@ export class CreateTypedLinkFacetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTypedLinkFacetCommandInput,
-    CreateTypedLinkFacetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTypedLinkFacetCommandInput, CreateTypedLinkFacetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateTypedLinkFacetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1_1CreateTypedLinkFacetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

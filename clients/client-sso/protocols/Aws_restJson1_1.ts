@@ -10,10 +10,7 @@ import {
   ListAccountsCommandInput,
   ListAccountsCommandOutput
 } from "../commands/ListAccountsCommand";
-import {
-  LogoutCommandInput,
-  LogoutCommandOutput
-} from "../commands/LogoutCommand";
+import { LogoutCommandInput, LogoutCommandOutput } from "../commands/LogoutCommand";
 import {
   AccountInfo,
   InvalidRequestException,
@@ -159,10 +156,7 @@ export const deserializeAws_restJson1_1GetRoleCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetRoleCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRoleCredentialsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRoleCredentialsCommandError(output, context);
   }
   const contents: GetRoleCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -194,10 +188,7 @@ const deserializeAws_restJson1_1GetRoleCredentialsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -227,10 +218,7 @@ const deserializeAws_restJson1_1GetRoleCredentialsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.switchboard.portal#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -257,10 +245,7 @@ export const deserializeAws_restJson1_1ListAccountRolesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccountRolesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAccountRolesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAccountRolesCommandError(output, context);
   }
   const contents: ListAccountRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -273,10 +258,7 @@ export const deserializeAws_restJson1_1ListAccountRolesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.roleList !== undefined && data.roleList !== null) {
-    contents.roleList = deserializeAws_restJson1_1RoleListType(
-      data.roleList,
-      context
-    );
+    contents.roleList = deserializeAws_restJson1_1RoleListType(data.roleList, context);
   }
   return Promise.resolve(contents);
 };
@@ -296,10 +278,7 @@ const deserializeAws_restJson1_1ListAccountRolesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -329,10 +308,7 @@ const deserializeAws_restJson1_1ListAccountRolesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.switchboard.portal#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -369,10 +345,7 @@ export const deserializeAws_restJson1_1ListAccountsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accountList !== undefined && data.accountList !== null) {
-    contents.accountList = deserializeAws_restJson1_1AccountListType(
-      data.accountList,
-      context
-    );
+    contents.accountList = deserializeAws_restJson1_1AccountListType(data.accountList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -395,10 +368,7 @@ const deserializeAws_restJson1_1ListAccountsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -428,10 +398,7 @@ const deserializeAws_restJson1_1ListAccountsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.switchboard.portal#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -482,10 +449,7 @@ const deserializeAws_restJson1_1LogoutCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -504,10 +468,7 @@ const deserializeAws_restJson1_1LogoutCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.switchboard.portal#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -604,9 +565,7 @@ const deserializeAws_restJson1_1AccountInfo = (
   return {
     __type: "AccountInfo",
     accountId:
-      output.accountId !== undefined && output.accountId !== null
-        ? output.accountId
-        : undefined,
+      output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     accountName:
       output.accountName !== undefined && output.accountName !== null
         ? output.accountName
@@ -622,9 +581,7 @@ const deserializeAws_restJson1_1AccountListType = (
   output: any,
   context: __SerdeContext
 ): AccountInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AccountInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AccountInfo(entry, context));
 };
 
 const deserializeAws_restJson1_1RoleCredentials = (
@@ -638,9 +595,7 @@ const deserializeAws_restJson1_1RoleCredentials = (
         ? output.accessKeyId
         : undefined,
     expiration:
-      output.expiration !== undefined && output.expiration !== null
-        ? output.expiration
-        : undefined,
+      output.expiration !== undefined && output.expiration !== null ? output.expiration : undefined,
     secretAccessKey:
       output.secretAccessKey !== undefined && output.secretAccessKey !== null
         ? output.secretAccessKey
@@ -652,20 +607,13 @@ const deserializeAws_restJson1_1RoleCredentials = (
   } as any;
 };
 
-const deserializeAws_restJson1_1RoleInfo = (
-  output: any,
-  context: __SerdeContext
-): RoleInfo => {
+const deserializeAws_restJson1_1RoleInfo = (output: any, context: __SerdeContext): RoleInfo => {
   return {
     __type: "RoleInfo",
     accountId:
-      output.accountId !== undefined && output.accountId !== null
-        ? output.accountId
-        : undefined,
+      output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     roleName:
-      output.roleName !== undefined && output.roleName !== null
-        ? output.roleName
-        : undefined
+      output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined
   } as any;
 };
 
@@ -673,9 +621,7 @@ const deserializeAws_restJson1_1RoleListType = (
   output: any,
   context: __SerdeContext
 ): RoleInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1RoleInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1RoleInfo(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -692,23 +638,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

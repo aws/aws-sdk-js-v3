@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -116,8 +113,7 @@ export interface AgentNetworkInfo {
 }
 
 export namespace AgentNetworkInfo {
-  export const isa = (o: any): o is AgentNetworkInfo =>
-    __isa(o, "AgentNetworkInfo");
+  export const isa = (o: any): o is AgentNetworkInfo => __isa(o, "AgentNetworkInfo");
 }
 
 export enum AgentStatus {
@@ -143,9 +139,7 @@ export interface AssociateConfigurationItemsToApplicationRequest {
 }
 
 export namespace AssociateConfigurationItemsToApplicationRequest {
-  export const isa = (
-    o: any
-  ): o is AssociateConfigurationItemsToApplicationRequest =>
+  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationRequest =>
     __isa(o, "AssociateConfigurationItemsToApplicationRequest");
 }
 
@@ -154,9 +148,7 @@ export interface AssociateConfigurationItemsToApplicationResponse {
 }
 
 export namespace AssociateConfigurationItemsToApplicationResponse {
-  export const isa = (
-    o: any
-  ): o is AssociateConfigurationItemsToApplicationResponse =>
+  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationResponse =>
     __isa(o, "AssociateConfigurationItemsToApplicationResponse");
 }
 
@@ -164,9 +156,7 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
  * <p>The AWS user account does not have permission to perform the action. Check the IAM
  *       policy associated with this account.</p>
  */
-export interface AuthorizationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
@@ -281,24 +271,20 @@ export interface ConfigurationTag {
 }
 
 export namespace ConfigurationTag {
-  export const isa = (o: any): o is ConfigurationTag =>
-    __isa(o, "ConfigurationTag");
+  export const isa = (o: any): o is ConfigurationTag => __isa(o, "ConfigurationTag");
 }
 
 /**
  * <p></p>
  */
-export interface ConflictErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConflictErrorException extends __SmithyException, $MetadataBearer {
   name: "ConflictErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ConflictErrorException {
-  export const isa = (o: any): o is ConflictErrorException =>
-    __isa(o, "ConflictErrorException");
+  export const isa = (o: any): o is ConflictErrorException => __isa(o, "ConflictErrorException");
 }
 
 /**
@@ -489,8 +475,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const isa = (o: any): o is CreateTagsRequest =>
-    __isa(o, "CreateTagsRequest");
+  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTagsResponse {
@@ -498,8 +483,7 @@ export interface CreateTagsResponse {
 }
 
 export namespace CreateTagsResponse {
-  export const isa = (o: any): o is CreateTagsResponse =>
-    __isa(o, "CreateTagsResponse");
+  export const isa = (o: any): o is CreateTagsResponse => __isa(o, "CreateTagsResponse");
 }
 
 /**
@@ -544,8 +528,7 @@ export interface CustomerAgentInfo {
 }
 
 export namespace CustomerAgentInfo {
-  export const isa = (o: any): o is CustomerAgentInfo =>
-    __isa(o, "CustomerAgentInfo");
+  export const isa = (o: any): o is CustomerAgentInfo => __isa(o, "CustomerAgentInfo");
 }
 
 /**
@@ -590,8 +573,7 @@ export interface CustomerConnectorInfo {
 }
 
 export namespace CustomerConnectorInfo {
-  export const isa = (o: any): o is CustomerConnectorInfo =>
-    __isa(o, "CustomerConnectorInfo");
+  export const isa = (o: any): o is CustomerConnectorInfo => __isa(o, "CustomerConnectorInfo");
 }
 
 export enum DataSource {
@@ -639,8 +621,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const isa = (o: any): o is DeleteTagsRequest =>
-    __isa(o, "DeleteTagsRequest");
+  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTagsResponse {
@@ -648,8 +629,7 @@ export interface DeleteTagsResponse {
 }
 
 export namespace DeleteTagsResponse {
-  export const isa = (o: any): o is DeleteTagsResponse =>
-    __isa(o, "DeleteTagsResponse");
+  export const isa = (o: any): o is DeleteTagsResponse => __isa(o, "DeleteTagsResponse");
 }
 
 export interface DescribeAgentsRequest {
@@ -686,8 +666,7 @@ export interface DescribeAgentsRequest {
 }
 
 export namespace DescribeAgentsRequest {
-  export const isa = (o: any): o is DescribeAgentsRequest =>
-    __isa(o, "DescribeAgentsRequest");
+  export const isa = (o: any): o is DescribeAgentsRequest => __isa(o, "DescribeAgentsRequest");
 }
 
 export interface DescribeAgentsResponse {
@@ -710,8 +689,7 @@ export interface DescribeAgentsResponse {
 }
 
 export namespace DescribeAgentsResponse {
-  export const isa = (o: any): o is DescribeAgentsResponse =>
-    __isa(o, "DescribeAgentsResponse");
+  export const isa = (o: any): o is DescribeAgentsResponse => __isa(o, "DescribeAgentsResponse");
 }
 
 export interface DescribeConfigurationsRequest {
@@ -956,8 +934,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResponse {
@@ -975,8 +952,7 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
-  export const isa = (o: any): o is DescribeTagsResponse =>
-    __isa(o, "DescribeTagsResponse");
+  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 export interface DisassociateConfigurationItemsFromApplicationRequest {
@@ -993,9 +969,7 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationRequest {
-  export const isa = (
-    o: any
-  ): o is DisassociateConfigurationItemsFromApplicationRequest =>
+  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationRequest =>
     __isa(o, "DisassociateConfigurationItemsFromApplicationRequest");
 }
 
@@ -1004,9 +978,7 @@ export interface DisassociateConfigurationItemsFromApplicationResponse {
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationResponse {
-  export const isa = (
-    o: any
-  ): o is DisassociateConfigurationItemsFromApplicationResponse =>
+  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationResponse =>
     __isa(o, "DisassociateConfigurationItemsFromApplicationResponse");
 }
 
@@ -1208,9 +1180,7 @@ export namespace GetDiscoverySummaryResponse {
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
-export interface HomeRegionNotSetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HomeRegionNotSetException extends __SmithyException, $MetadataBearer {
   name: "HomeRegionNotSetException";
   $fault: "client";
   message?: string;
@@ -1359,8 +1329,7 @@ export interface ImportTaskFilter {
 }
 
 export namespace ImportTaskFilter {
-  export const isa = (o: any): o is ImportTaskFilter =>
-    __isa(o, "ImportTaskFilter");
+  export const isa = (o: any): o is ImportTaskFilter => __isa(o, "ImportTaskFilter");
 }
 
 export enum ImportTaskFilterName {
@@ -1372,9 +1341,7 @@ export enum ImportTaskFilterName {
 /**
  * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1389,9 +1356,7 @@ export namespace InvalidParameterException {
  * <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -1573,9 +1538,7 @@ export namespace NeighborConnectionDetail {
 /**
  * <p>This operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
@@ -1603,8 +1566,7 @@ export interface OrderByElement {
 }
 
 export namespace OrderByElement {
-  export const isa = (o: any): o is OrderByElement =>
-    __isa(o, "OrderByElement");
+  export const isa = (o: any): o is OrderByElement => __isa(o, "OrderByElement");
 }
 
 /**
@@ -1614,26 +1576,21 @@ export namespace OrderByElement {
  *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
  *       try again.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified configuration ID was not located. Verify the configuration ID and try
  *       again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1647,9 +1604,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
-export interface ServerInternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerInternalErrorException extends __SmithyException, $MetadataBearer {
   name: "ServerInternalErrorException";
   $fault: "server";
   message?: string;
@@ -1782,8 +1737,7 @@ export interface StartExportTaskRequest {
 }
 
 export namespace StartExportTaskRequest {
-  export const isa = (o: any): o is StartExportTaskRequest =>
-    __isa(o, "StartExportTaskRequest");
+  export const isa = (o: any): o is StartExportTaskRequest => __isa(o, "StartExportTaskRequest");
 }
 
 export interface StartExportTaskResponse {
@@ -1795,8 +1749,7 @@ export interface StartExportTaskResponse {
 }
 
 export namespace StartExportTaskResponse {
-  export const isa = (o: any): o is StartExportTaskResponse =>
-    __isa(o, "StartExportTaskResponse");
+  export const isa = (o: any): o is StartExportTaskResponse => __isa(o, "StartExportTaskResponse");
 }
 
 export interface StartImportTaskRequest {
@@ -1832,8 +1785,7 @@ export interface StartImportTaskRequest {
 }
 
 export namespace StartImportTaskRequest {
-  export const isa = (o: any): o is StartImportTaskRequest =>
-    __isa(o, "StartImportTaskRequest");
+  export const isa = (o: any): o is StartImportTaskRequest => __isa(o, "StartImportTaskRequest");
 }
 
 export interface StartImportTaskResponse {
@@ -1846,8 +1798,7 @@ export interface StartImportTaskResponse {
 }
 
 export namespace StartImportTaskResponse {
-  export const isa = (o: any): o is StartImportTaskResponse =>
-    __isa(o, "StartImportTaskResponse");
+  export const isa = (o: any): o is StartImportTaskResponse => __isa(o, "StartImportTaskResponse");
 }
 
 export interface StopContinuousExportRequest {

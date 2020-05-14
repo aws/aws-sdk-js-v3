@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteRolePermissionsBoundaryRequest } from "../models/index";
 import {
   deserializeAws_queryDeleteRolePermissionsBoundaryCommand,
@@ -49,9 +45,7 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
     DeleteRolePermissionsBoundaryCommandInput,
     DeleteRolePermissionsBoundaryCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
     input: DeleteRolePermissionsBoundaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRolePermissionsBoundaryCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteRolePermissionsBoundaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRolePermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryDeleteRolePermissionsBoundaryCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteRolePermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

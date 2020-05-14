@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import {
   RejectResourceShareInvitationRequest,
   RejectResourceShareInvitationResponse
@@ -53,9 +49,7 @@ export class RejectResourceShareInvitationCommand extends $Command<
     RejectResourceShareInvitationCommandInput,
     RejectResourceShareInvitationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class RejectResourceShareInvitationCommand extends $Command<
     input: RejectResourceShareInvitationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RejectResourceShareInvitationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RejectResourceShareInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectResourceShareInvitationCommandOutput> {
-    return deserializeAws_restJson1_1RejectResourceShareInvitationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RejectResourceShareInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

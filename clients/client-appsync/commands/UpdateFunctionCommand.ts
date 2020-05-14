@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFunctionCommandInput = UpdateFunctionRequest;
-export type UpdateFunctionCommandOutput = UpdateFunctionResponse &
-  __MetadataBearer;
+export type UpdateFunctionCommandOutput = UpdateFunctionResponse & __MetadataBearer;
 
 export class UpdateFunctionCommand extends $Command<
   UpdateFunctionCommandInput,
@@ -47,9 +46,7 @@ export class UpdateFunctionCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFunctionCommandInput, UpdateFunctionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

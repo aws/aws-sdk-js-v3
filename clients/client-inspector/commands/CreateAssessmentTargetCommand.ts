@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  CreateAssessmentTargetRequest,
-  CreateAssessmentTargetResponse
-} from "../models/index";
+import { CreateAssessmentTargetRequest, CreateAssessmentTargetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateAssessmentTargetCommand,
   serializeAws_json1_1CreateAssessmentTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAssessmentTargetCommandInput = CreateAssessmentTargetRequest;
-export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse &
-  __MetadataBearer;
+export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse & __MetadataBearer;
 
 export class CreateAssessmentTargetCommand extends $Command<
   CreateAssessmentTargetCommandInput,
@@ -49,13 +45,8 @@ export class CreateAssessmentTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAssessmentTargetCommandInput,
-    CreateAssessmentTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAssessmentTargetCommandInput, CreateAssessmentTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

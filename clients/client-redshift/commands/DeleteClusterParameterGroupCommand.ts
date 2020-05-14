@@ -45,13 +45,8 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteClusterParameterGroupCommandInput,
-    DeleteClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteClusterParameterGroupCommandInput, DeleteClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

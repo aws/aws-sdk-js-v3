@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetJobBookmarkCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJobBookmarkCommandInput = GetJobBookmarkRequest;
-export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse &
-  __MetadataBearer;
+export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse & __MetadataBearer;
 
 export class GetJobBookmarkCommand extends $Command<
   GetJobBookmarkCommandInput,
@@ -47,9 +42,7 @@ export class GetJobBookmarkCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

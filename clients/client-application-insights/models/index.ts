@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -32,8 +29,7 @@ export interface ApplicationComponent {
 }
 
 export namespace ApplicationComponent {
-  export const isa = (o: any): o is ApplicationComponent =>
-    __isa(o, "ApplicationComponent");
+  export const isa = (o: any): o is ApplicationComponent => __isa(o, "ApplicationComponent");
 }
 
 /**
@@ -83,24 +79,20 @@ export interface ApplicationInfo {
 }
 
 export namespace ApplicationInfo {
-  export const isa = (o: any): o is ApplicationInfo =>
-    __isa(o, "ApplicationInfo");
+  export const isa = (o: any): o is ApplicationInfo => __isa(o, "ApplicationInfo");
 }
 
 /**
  * <p>The request is not understood by the server.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -154,8 +146,7 @@ export interface ConfigurationEvent {
 }
 
 export namespace ConfigurationEvent {
-  export const isa = (o: any): o is ConfigurationEvent =>
-    __isa(o, "ConfigurationEvent");
+  export const isa = (o: any): o is ConfigurationEvent => __isa(o, "ConfigurationEvent");
 }
 
 export type ConfigurationEventResourceType =
@@ -233,8 +224,7 @@ export interface CreateComponentRequest {
 }
 
 export namespace CreateComponentRequest {
-  export const isa = (o: any): o is CreateComponentRequest =>
-    __isa(o, "CreateComponentRequest");
+  export const isa = (o: any): o is CreateComponentRequest => __isa(o, "CreateComponentRequest");
 }
 
 export interface CreateComponentResponse {
@@ -242,8 +232,7 @@ export interface CreateComponentResponse {
 }
 
 export namespace CreateComponentResponse {
-  export const isa = (o: any): o is CreateComponentResponse =>
-    __isa(o, "CreateComponentResponse");
+  export const isa = (o: any): o is CreateComponentResponse => __isa(o, "CreateComponentResponse");
 }
 
 export interface CreateLogPatternRequest {
@@ -275,8 +264,7 @@ export interface CreateLogPatternRequest {
 }
 
 export namespace CreateLogPatternRequest {
-  export const isa = (o: any): o is CreateLogPatternRequest =>
-    __isa(o, "CreateLogPatternRequest");
+  export const isa = (o: any): o is CreateLogPatternRequest => __isa(o, "CreateLogPatternRequest");
 }
 
 export interface CreateLogPatternResponse {
@@ -333,8 +321,7 @@ export interface DeleteComponentRequest {
 }
 
 export namespace DeleteComponentRequest {
-  export const isa = (o: any): o is DeleteComponentRequest =>
-    __isa(o, "DeleteComponentRequest");
+  export const isa = (o: any): o is DeleteComponentRequest => __isa(o, "DeleteComponentRequest");
 }
 
 export interface DeleteComponentResponse {
@@ -342,8 +329,7 @@ export interface DeleteComponentResponse {
 }
 
 export namespace DeleteComponentResponse {
-  export const isa = (o: any): o is DeleteComponentResponse =>
-    __isa(o, "DeleteComponentResponse");
+  export const isa = (o: any): o is DeleteComponentResponse => __isa(o, "DeleteComponentResponse");
 }
 
 export interface DeleteLogPatternRequest {
@@ -365,8 +351,7 @@ export interface DeleteLogPatternRequest {
 }
 
 export namespace DeleteLogPatternRequest {
-  export const isa = (o: any): o is DeleteLogPatternRequest =>
-    __isa(o, "DeleteLogPatternRequest");
+  export const isa = (o: any): o is DeleteLogPatternRequest => __isa(o, "DeleteLogPatternRequest");
 }
 
 export interface DeleteLogPatternResponse {
@@ -425,9 +410,7 @@ export interface DescribeComponentConfigurationRecommendationRequest {
 }
 
 export namespace DescribeComponentConfigurationRecommendationRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeComponentConfigurationRecommendationRequest =>
+  export const isa = (o: any): o is DescribeComponentConfigurationRecommendationRequest =>
     __isa(o, "DescribeComponentConfigurationRecommendationRequest");
 }
 
@@ -440,9 +423,7 @@ export interface DescribeComponentConfigurationRecommendationResponse {
 }
 
 export namespace DescribeComponentConfigurationRecommendationResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeComponentConfigurationRecommendationResponse =>
+  export const isa = (o: any): o is DescribeComponentConfigurationRecommendationResponse =>
     __isa(o, "DescribeComponentConfigurationRecommendationResponse");
 }
 
@@ -629,8 +610,7 @@ export interface DescribeProblemRequest {
 }
 
 export namespace DescribeProblemRequest {
-  export const isa = (o: any): o is DescribeProblemRequest =>
-    __isa(o, "DescribeProblemRequest");
+  export const isa = (o: any): o is DescribeProblemRequest => __isa(o, "DescribeProblemRequest");
 }
 
 export interface DescribeProblemResponse {
@@ -642,8 +622,7 @@ export interface DescribeProblemResponse {
 }
 
 export namespace DescribeProblemResponse {
-  export const isa = (o: any): o is DescribeProblemResponse =>
-    __isa(o, "DescribeProblemResponse");
+  export const isa = (o: any): o is DescribeProblemResponse => __isa(o, "DescribeProblemResponse");
 }
 
 export type FeedbackKey = "INSIGHTS_FEEDBACK";
@@ -653,17 +632,14 @@ export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 /**
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListApplicationsRequest {
@@ -681,8 +657,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListApplicationsResponse {
@@ -724,8 +699,7 @@ export interface ListComponentsRequest {
 }
 
 export namespace ListComponentsRequest {
-  export const isa = (o: any): o is ListComponentsRequest =>
-    __isa(o, "ListComponentsRequest");
+  export const isa = (o: any): o is ListComponentsRequest => __isa(o, "ListComponentsRequest");
 }
 
 export interface ListComponentsResponse {
@@ -742,8 +716,7 @@ export interface ListComponentsResponse {
 }
 
 export namespace ListComponentsResponse {
-  export const isa = (o: any): o is ListComponentsResponse =>
-    __isa(o, "ListComponentsResponse");
+  export const isa = (o: any): o is ListComponentsResponse => __isa(o, "ListComponentsResponse");
 }
 
 export interface ListConfigurationHistoryRequest {
@@ -888,8 +861,7 @@ export interface ListLogPatternsRequest {
 }
 
 export namespace ListLogPatternsRequest {
-  export const isa = (o: any): o is ListLogPatternsRequest =>
-    __isa(o, "ListLogPatternsRequest");
+  export const isa = (o: any): o is ListLogPatternsRequest => __isa(o, "ListLogPatternsRequest");
 }
 
 export interface ListLogPatternsResponse {
@@ -912,8 +884,7 @@ export interface ListLogPatternsResponse {
 }
 
 export namespace ListLogPatternsResponse {
-  export const isa = (o: any): o is ListLogPatternsResponse =>
-    __isa(o, "ListLogPatternsResponse");
+  export const isa = (o: any): o is ListLogPatternsResponse => __isa(o, "ListLogPatternsResponse");
 }
 
 export interface ListProblemsRequest {
@@ -948,8 +919,7 @@ export interface ListProblemsRequest {
 }
 
 export namespace ListProblemsRequest {
-  export const isa = (o: any): o is ListProblemsRequest =>
-    __isa(o, "ListProblemsRequest");
+  export const isa = (o: any): o is ListProblemsRequest => __isa(o, "ListProblemsRequest");
 }
 
 export interface ListProblemsResponse {
@@ -967,8 +937,7 @@ export interface ListProblemsResponse {
 }
 
 export namespace ListProblemsResponse {
-  export const isa = (o: any): o is ListProblemsResponse =>
-    __isa(o, "ListProblemsResponse");
+  export const isa = (o: any): o is ListProblemsResponse => __isa(o, "ListProblemsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1182,32 +1151,26 @@ export interface RelatedObservations {
 }
 
 export namespace RelatedObservations {
-  export const isa = (o: any): o is RelatedObservations =>
-    __isa(o, "RelatedObservations");
+  export const isa = (o: any): o is RelatedObservations => __isa(o, "RelatedObservations");
 }
 
 /**
  * <p>The resource is already created or in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The resource does not exist in the customer account.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1286,8 +1249,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1295,16 +1257,13 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Tags are already registered for the specified application ARN.</p>
  */
-export interface TagsAlreadyExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagsAlreadyExistException extends __SmithyException, $MetadataBearer {
   name: "TagsAlreadyExistException";
   $fault: "client";
   Message?: string;
@@ -1315,20 +1274,13 @@ export namespace TagsAlreadyExistException {
     __isa(o, "TagsAlreadyExistException");
 }
 
-export type Tier =
-  | "DEFAULT"
-  | "DOT_NET_CORE"
-  | "DOT_NET_WEB"
-  | "DOT_NET_WORKER"
-  | "SQL_SERVER";
+export type Tier = "DEFAULT" | "DOT_NET_CORE" | "DOT_NET_WEB" | "DOT_NET_WORKER" | "SQL_SERVER";
 
 /**
  * <p>The number of the provided tags is beyond the limit, or
  *          the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
@@ -1339,8 +1291,7 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
@@ -1361,8 +1312,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1370,8 +1320,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateApplicationRequest {
@@ -1490,8 +1439,7 @@ export interface UpdateComponentRequest {
 }
 
 export namespace UpdateComponentRequest {
-  export const isa = (o: any): o is UpdateComponentRequest =>
-    __isa(o, "UpdateComponentRequest");
+  export const isa = (o: any): o is UpdateComponentRequest => __isa(o, "UpdateComponentRequest");
 }
 
 export interface UpdateComponentResponse {
@@ -1499,8 +1447,7 @@ export interface UpdateComponentResponse {
 }
 
 export namespace UpdateComponentResponse {
-  export const isa = (o: any): o is UpdateComponentResponse =>
-    __isa(o, "UpdateComponentResponse");
+  export const isa = (o: any): o is UpdateComponentResponse => __isa(o, "UpdateComponentResponse");
 }
 
 export interface UpdateLogPatternRequest {
@@ -1532,8 +1479,7 @@ export interface UpdateLogPatternRequest {
 }
 
 export namespace UpdateLogPatternRequest {
-  export const isa = (o: any): o is UpdateLogPatternRequest =>
-    __isa(o, "UpdateLogPatternRequest");
+  export const isa = (o: any): o is UpdateLogPatternRequest => __isa(o, "UpdateLogPatternRequest");
 }
 
 export interface UpdateLogPatternResponse {
@@ -1557,15 +1503,12 @@ export namespace UpdateLogPatternResponse {
 /**
  * <p>The parameter is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

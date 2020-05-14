@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  CreateGlobalTableInput,
-  CreateGlobalTableOutput
-} from "../models/index";
+import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0CreateGlobalTableCommand,
   serializeAws_json1_0CreateGlobalTableCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGlobalTableCommandInput = CreateGlobalTableInput;
-export type CreateGlobalTableCommandOutput = CreateGlobalTableOutput &
-  __MetadataBearer;
+export type CreateGlobalTableCommandOutput = CreateGlobalTableOutput & __MetadataBearer;
 
 export class CreateGlobalTableCommand extends $Command<
   CreateGlobalTableCommandInput,
@@ -50,9 +46,7 @@ export class CreateGlobalTableCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

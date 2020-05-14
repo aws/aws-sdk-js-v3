@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetBaiduChannelRequest,
-  GetBaiduChannelResponse
-} from "../models/index";
+import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBaiduChannelCommand,
   serializeAws_restJson1_1GetBaiduChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBaiduChannelCommandInput = GetBaiduChannelRequest;
-export type GetBaiduChannelCommandOutput = GetBaiduChannelResponse &
-  __MetadataBearer;
+export type GetBaiduChannelCommandOutput = GetBaiduChannelResponse & __MetadataBearer;
 
 export class GetBaiduChannelCommand extends $Command<
   GetBaiduChannelCommandInput,
@@ -50,9 +46,7 @@ export class GetBaiduChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBaiduChannelCommandInput, GetBaiduChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

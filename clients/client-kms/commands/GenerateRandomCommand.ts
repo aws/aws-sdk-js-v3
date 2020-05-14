@@ -1,8 +1,4 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GenerateRandomRequest, GenerateRandomResponse } from "../models/index";
 import {
   deserializeAws_json1_1GenerateRandomCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateRandomCommandInput = GenerateRandomRequest;
-export type GenerateRandomCommandOutput = GenerateRandomResponse &
-  __MetadataBearer;
+export type GenerateRandomCommandOutput = GenerateRandomResponse & __MetadataBearer;
 
 export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandInput,
@@ -47,9 +42,7 @@ export class GenerateRandomCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateRandomCommandInput, GenerateRandomCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

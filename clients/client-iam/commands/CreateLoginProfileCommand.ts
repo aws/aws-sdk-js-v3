@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateLoginProfileRequest,
-  CreateLoginProfileResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateLoginProfileRequest, CreateLoginProfileResponse } from "../models/index";
 import {
   deserializeAws_queryCreateLoginProfileCommand,
   serializeAws_queryCreateLoginProfileCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLoginProfileCommandInput = CreateLoginProfileRequest;
-export type CreateLoginProfileCommandOutput = CreateLoginProfileResponse &
-  __MetadataBearer;
+export type CreateLoginProfileCommandOutput = CreateLoginProfileResponse & __MetadataBearer;
 
 export class CreateLoginProfileCommand extends $Command<
   CreateLoginProfileCommandInput,
@@ -50,9 +42,7 @@ export class CreateLoginProfileCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLoginProfileCommandInput, CreateLoginProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

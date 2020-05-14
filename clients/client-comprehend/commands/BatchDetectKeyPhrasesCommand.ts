@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  BatchDetectKeyPhrasesRequest,
-  BatchDetectKeyPhrasesResponse
-} from "../models/index";
+import { BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDetectKeyPhrasesCommand,
   serializeAws_json1_1BatchDetectKeyPhrasesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDetectKeyPhrasesCommandInput = BatchDetectKeyPhrasesRequest;
-export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse &
-  __MetadataBearer;
+export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse & __MetadataBearer;
 
 export class BatchDetectKeyPhrasesCommand extends $Command<
   BatchDetectKeyPhrasesCommandInput,
@@ -49,13 +45,8 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDetectKeyPhrasesCommandInput,
-    BatchDetectKeyPhrasesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDetectKeyPhrasesCommandInput, BatchDetectKeyPhrasesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  CreateExclusionsPreviewRequest,
-  CreateExclusionsPreviewResponse
-} from "../models/index";
+import { CreateExclusionsPreviewRequest, CreateExclusionsPreviewResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateExclusionsPreviewCommand,
   serializeAws_json1_1CreateExclusionsPreviewCommand
@@ -49,13 +46,8 @@ export class CreateExclusionsPreviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateExclusionsPreviewCommandInput,
-    CreateExclusionsPreviewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateExclusionsPreviewCommandInput, CreateExclusionsPreviewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateExclusionsPreviewCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateExclusionsPreviewCommandOutput> {
-    return deserializeAws_json1_1CreateExclusionsPreviewCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateExclusionsPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

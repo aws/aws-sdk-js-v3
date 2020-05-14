@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  PutImageTagMutabilityRequest,
-  PutImageTagMutabilityResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutImageTagMutabilityCommand,
   serializeAws_json1_1PutImageTagMutabilityCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutImageTagMutabilityCommandInput = PutImageTagMutabilityRequest;
-export type PutImageTagMutabilityCommandOutput = PutImageTagMutabilityResponse &
-  __MetadataBearer;
+export type PutImageTagMutabilityCommandOutput = PutImageTagMutabilityResponse & __MetadataBearer;
 
 export class PutImageTagMutabilityCommand extends $Command<
   PutImageTagMutabilityCommandInput,
@@ -49,13 +41,8 @@ export class PutImageTagMutabilityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutImageTagMutabilityCommandInput,
-    PutImageTagMutabilityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutImageTagMutabilityCommandInput, PutImageTagMutabilityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

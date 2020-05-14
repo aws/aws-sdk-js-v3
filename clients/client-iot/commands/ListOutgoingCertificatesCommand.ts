@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListOutgoingCertificatesRequest,
-  ListOutgoingCertificatesResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListOutgoingCertificatesRequest, ListOutgoingCertificatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOutgoingCertificatesCommand,
   serializeAws_restJson1_1ListOutgoingCertificatesCommand
@@ -49,13 +42,8 @@ export class ListOutgoingCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOutgoingCertificatesCommandInput,
-    ListOutgoingCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOutgoingCertificatesCommandInput, ListOutgoingCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListOutgoingCertificatesCommand extends $Command<
     input: ListOutgoingCertificatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListOutgoingCertificatesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListOutgoingCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOutgoingCertificatesCommandOutput> {
-    return deserializeAws_restJson1_1ListOutgoingCertificatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListOutgoingCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

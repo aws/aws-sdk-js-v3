@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListExperimentsRequest,
-  ListExperimentsResponse
-} from "../models/index";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListExperimentsCommand,
   serializeAws_json1_1ListExperimentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListExperimentsCommandInput = ListExperimentsRequest;
-export type ListExperimentsCommandOutput = ListExperimentsResponse &
-  __MetadataBearer;
+export type ListExperimentsCommandOutput = ListExperimentsResponse & __MetadataBearer;
 
 export class ListExperimentsCommand extends $Command<
   ListExperimentsCommandInput,
@@ -50,9 +46,7 @@ export class ListExperimentsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListExperimentsCommandInput, ListExperimentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

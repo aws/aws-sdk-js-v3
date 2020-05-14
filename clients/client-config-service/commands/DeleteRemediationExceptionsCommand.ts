@@ -49,13 +49,8 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRemediationExceptionsCommandInput,
-    DeleteRemediationExceptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRemediationExceptionsCommandInput, DeleteRemediationExceptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     input: DeleteRemediationExceptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationExceptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteRemediationExceptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

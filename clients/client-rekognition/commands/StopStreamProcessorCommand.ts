@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  StopStreamProcessorRequest,
-  StopStreamProcessorResponse
-} from "../models/index";
+import { StopStreamProcessorRequest, StopStreamProcessorResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopStreamProcessorCommand,
   serializeAws_json1_1StopStreamProcessorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopStreamProcessorCommandInput = StopStreamProcessorRequest;
-export type StopStreamProcessorCommandOutput = StopStreamProcessorResponse &
-  __MetadataBearer;
+export type StopStreamProcessorCommandOutput = StopStreamProcessorResponse & __MetadataBearer;
 
 export class StopStreamProcessorCommand extends $Command<
   StopStreamProcessorCommandInput,
@@ -49,13 +45,8 @@ export class StopStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopStreamProcessorCommandInput,
-    StopStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopStreamProcessorCommandInput, StopStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

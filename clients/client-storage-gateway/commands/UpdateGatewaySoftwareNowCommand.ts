@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowOutput
-} from "../models/index";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
   serializeAws_json1_1UpdateGatewaySoftwareNowCommand
@@ -49,13 +46,8 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateGatewaySoftwareNowCommandInput,
-    UpdateGatewaySoftwareNowCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateGatewaySoftwareNowCommandInput, UpdateGatewaySoftwareNowCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

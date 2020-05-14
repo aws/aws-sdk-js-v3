@@ -58,13 +58,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | GenerateDataSetCommandInput
-  | StartSupportDataExportCommandInput;
+export type ServiceInputTypes = GenerateDataSetCommandInput | StartSupportDataExportCommandInput;
 
-export type ServiceOutputTypes =
-  | GenerateDataSetCommandOutput
-  | StartSupportDataExportCommandOutput;
+export type ServiceOutputTypes = GenerateDataSetCommandOutput | StartSupportDataExportCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

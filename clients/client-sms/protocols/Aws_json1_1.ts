@@ -1,15 +1,9 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "../commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
 import {
   CreateReplicationJobCommandInput,
   CreateReplicationJobCommandOutput
 } from "../commands/CreateReplicationJobCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "../commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "../commands/DeleteAppCommand";
 import {
   DeleteAppLaunchConfigurationCommandInput,
   DeleteAppLaunchConfigurationCommandOutput
@@ -38,10 +32,7 @@ import {
   GenerateTemplateCommandInput,
   GenerateTemplateCommandOutput
 } from "../commands/GenerateTemplateCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "../commands/GetAppCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "../commands/GetAppCommand";
 import {
   GetAppLaunchConfigurationCommandInput,
   GetAppLaunchConfigurationCommandOutput
@@ -62,22 +53,13 @@ import {
   GetReplicationRunsCommandInput,
   GetReplicationRunsCommandOutput
 } from "../commands/GetReplicationRunsCommand";
-import {
-  GetServersCommandInput,
-  GetServersCommandOutput
-} from "../commands/GetServersCommand";
+import { GetServersCommandInput, GetServersCommandOutput } from "../commands/GetServersCommand";
 import {
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput
 } from "../commands/ImportServerCatalogCommand";
-import {
-  LaunchAppCommandInput,
-  LaunchAppCommandOutput
-} from "../commands/LaunchAppCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "../commands/ListAppsCommand";
+import { LaunchAppCommandInput, LaunchAppCommandOutput } from "../commands/LaunchAppCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
 import {
   PutAppLaunchConfigurationCommandInput,
   PutAppLaunchConfigurationCommandOutput
@@ -102,10 +84,7 @@ import {
   TerminateAppCommandInput,
   TerminateAppCommandOutput
 } from "../commands/TerminateAppCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "../commands/UpdateAppCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "../commands/UpdateAppCommand";
 import {
   UpdateReplicationJobCommandInput,
   UpdateReplicationJobCommandOutput
@@ -233,9 +212,7 @@ export const serializeAws_json1_1CreateReplicationJobCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.CreateReplicationJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateReplicationJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -258,13 +235,10 @@ export const serializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteAppLaunchConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -274,8 +248,7 @@ export const serializeAws_json1_1DeleteAppReplicationConfigurationCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration"
   };
   let body: any;
   body = JSON.stringify(
@@ -293,9 +266,7 @@ export const serializeAws_json1_1DeleteReplicationJobCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteReplicationJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,9 +279,7 @@ export const serializeAws_json1_1DeleteServerCatalogCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteServerCatalogRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteServerCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -320,13 +289,10 @@ export const serializeAws_json1_1DisassociateConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.DisassociateConnector"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DisassociateConnector"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisassociateConnectorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisassociateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -339,9 +305,7 @@ export const serializeAws_json1_1GenerateChangeSetCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateChangeSet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GenerateChangeSetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GenerateChangeSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -354,9 +318,7 @@ export const serializeAws_json1_1GenerateTemplateCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GenerateTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GenerateTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -379,13 +341,10 @@ export const serializeAws_json1_1GetAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetAppLaunchConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -395,13 +354,10 @@ export const serializeAws_json1_1GetAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetAppReplicationConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetAppReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -414,9 +370,7 @@ export const serializeAws_json1_1GetConnectorsCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetConnectors"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetConnectorsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -429,9 +383,7 @@ export const serializeAws_json1_1GetReplicationJobsCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationJobs"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetReplicationJobsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetReplicationJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -444,9 +396,7 @@ export const serializeAws_json1_1GetReplicationRunsCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationRuns"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetReplicationRunsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetReplicationRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -472,9 +422,7 @@ export const serializeAws_json1_1ImportServerCatalogCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportServerCatalog"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ImportServerCatalogRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ImportServerCatalogRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,13 +458,10 @@ export const serializeAws_json1_1PutAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutAppLaunchConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutAppLaunchConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,13 +471,10 @@ export const serializeAws_json1_1PutAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutAppReplicationConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutAppReplicationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -545,9 +487,7 @@ export const serializeAws_json1_1StartAppReplicationCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartAppReplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartAppReplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -557,13 +497,10 @@ export const serializeAws_json1_1StartOnDemandReplicationRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun"
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartOnDemandReplicationRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartOnDemandReplicationRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -576,9 +513,7 @@ export const serializeAws_json1_1StopAppReplicationCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StopAppReplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopAppReplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -591,9 +526,7 @@ export const serializeAws_json1_1TerminateAppCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.TerminateApp"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TerminateAppRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TerminateAppRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -619,9 +552,7 @@ export const serializeAws_json1_1UpdateReplicationJobCommand = async (
     "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateReplicationJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateReplicationJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -654,16 +585,12 @@ const deserializeAws_json1_1CreateAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -671,10 +598,7 @@ const deserializeAws_json1_1CreateAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -734,10 +658,7 @@ export const deserializeAws_json1_1CreateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateReplicationJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateReplicationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -761,16 +682,12 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -778,10 +695,7 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -909,16 +823,12 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -926,10 +836,7 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -989,17 +896,11 @@ export const deserializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAppLaunchConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAppLaunchConfigurationResponse(data, context);
   const response: DeleteAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAppLaunchConfigurationResponse",
@@ -1019,16 +920,12 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1036,10 +933,7 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1099,17 +993,11 @@ export const deserializeAws_json1_1DeleteAppReplicationConfigurationCommand = as
   context: __SerdeContext
 ): Promise<DeleteAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAppReplicationConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAppReplicationConfigurationResponse(data, context);
   const response: DeleteAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAppReplicationConfigurationResponse",
@@ -1129,16 +1017,12 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1146,10 +1030,7 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1209,10 +1090,7 @@ export const deserializeAws_json1_1DeleteReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteReplicationJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteReplicationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1236,16 +1114,12 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1316,10 +1190,7 @@ export const deserializeAws_json1_1DeleteServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerCatalogCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteServerCatalogCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteServerCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1343,16 +1214,12 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1412,10 +1279,7 @@ export const deserializeAws_json1_1DisassociateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateConnectorCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisassociateConnectorCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1439,16 +1303,12 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1532,16 +1392,12 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1549,10 +1405,7 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1636,16 +1489,12 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1653,10 +1502,7 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1740,16 +1586,12 @@ const deserializeAws_json1_1GetAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1757,10 +1599,7 @@ const deserializeAws_json1_1GetAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1820,17 +1659,11 @@ export const deserializeAws_json1_1GetAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAppLaunchConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAppLaunchConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAppLaunchConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetAppLaunchConfigurationResponse(data, context);
   const response: GetAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAppLaunchConfigurationResponse",
@@ -1850,16 +1683,12 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1867,10 +1696,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1930,17 +1756,11 @@ export const deserializeAws_json1_1GetAppReplicationConfigurationCommand = async
   context: __SerdeContext
 ): Promise<GetAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAppReplicationConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAppReplicationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAppReplicationConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetAppReplicationConfigurationResponse(data, context);
   const response: GetAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAppReplicationConfigurationResponse",
@@ -1960,16 +1780,12 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1977,10 +1793,7 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2064,8 +1877,7 @@ const deserializeAws_json1_1GetConnectorsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
@@ -2100,10 +1912,7 @@ export const deserializeAws_json1_1GetReplicationJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetReplicationJobsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetReplicationJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetReplicationJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2127,16 +1936,12 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2185,10 +1990,7 @@ export const deserializeAws_json1_1GetReplicationRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetReplicationRunsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetReplicationRunsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetReplicationRunsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2212,16 +2014,12 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2294,8 +2092,7 @@ const deserializeAws_json1_1GetServersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.servermigration.V2016_10_24#UnauthorizedOperationException":
@@ -2330,10 +2127,7 @@ export const deserializeAws_json1_1ImportServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<ImportServerCatalogCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ImportServerCatalogCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportServerCatalogCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2357,16 +2151,12 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2461,16 +2251,12 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2478,10 +2264,7 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2565,16 +2348,12 @@ const deserializeAws_json1_1ListAppsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2582,10 +2361,7 @@ const deserializeAws_json1_1ListAppsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2645,17 +2421,11 @@ export const deserializeAws_json1_1PutAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutAppLaunchConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAppLaunchConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAppLaunchConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutAppLaunchConfigurationResponse(data, context);
   const response: PutAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutAppLaunchConfigurationResponse",
@@ -2675,16 +2445,12 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2692,10 +2458,7 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2755,17 +2518,11 @@ export const deserializeAws_json1_1PutAppReplicationConfigurationCommand = async
   context: __SerdeContext
 ): Promise<PutAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutAppReplicationConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAppReplicationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAppReplicationConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutAppReplicationConfigurationResponse(data, context);
   const response: PutAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutAppReplicationConfigurationResponse",
@@ -2785,16 +2542,12 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2802,10 +2555,7 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2865,10 +2615,7 @@ export const deserializeAws_json1_1StartAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StartAppReplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartAppReplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAppReplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2892,16 +2639,12 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2909,10 +2652,7 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2972,17 +2712,11 @@ export const deserializeAws_json1_1StartOnDemandReplicationRunCommand = async (
   context: __SerdeContext
 ): Promise<StartOnDemandReplicationRunCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartOnDemandReplicationRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartOnDemandReplicationRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartOnDemandReplicationRunResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartOnDemandReplicationRunResponse(data, context);
   const response: StartOnDemandReplicationRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartOnDemandReplicationRunResponse",
@@ -3002,16 +2736,12 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3082,10 +2812,7 @@ export const deserializeAws_json1_1StopAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StopAppReplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopAppReplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopAppReplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3109,16 +2836,12 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3126,10 +2849,7 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3213,16 +2933,12 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3230,10 +2946,7 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3317,16 +3030,12 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3334,10 +3043,7 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3397,10 +3103,7 @@ export const deserializeAws_json1_1UpdateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReplicationJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateReplicationJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateReplicationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3424,16 +3127,12 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.servermigration.V2016_10_24#InternalError":
       response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3441,10 +3140,7 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3552,10 +3248,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
@@ -3570,10 +3263,7 @@ const deserializeAws_json1_1MissingRequiredParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MissingRequiredParameterException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MissingRequiredParameterException(body, context);
   const contents: MissingRequiredParameterException = {
     name: "MissingRequiredParameterException",
     $fault: "client",
@@ -3588,10 +3278,7 @@ const deserializeAws_json1_1NoConnectorsAvailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NoConnectorsAvailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoConnectorsAvailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NoConnectorsAvailableException(body, context);
   const contents: NoConnectorsAvailableException = {
     name: "NoConnectorsAvailableException",
     $fault: "client",
@@ -3606,10 +3293,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
   const contents: OperationNotPermittedException = {
     name: "OperationNotPermittedException",
     $fault: "client",
@@ -3642,10 +3326,7 @@ const deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ReplicationJobNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReplicationJobNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ReplicationJobNotFoundException(body, context);
   const contents: ReplicationJobNotFoundException = {
     name: "ReplicationJobNotFoundException",
     $fault: "client",
@@ -3678,10 +3359,7 @@ const deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServerCannotBeReplicatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServerCannotBeReplicatedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServerCannotBeReplicatedException(body, context);
   const contents: ServerCannotBeReplicatedException = {
     name: "ServerCannotBeReplicatedException",
     $fault: "client",
@@ -3696,10 +3374,7 @@ const deserializeAws_json1_1TemporarilyUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TemporarilyUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TemporarilyUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TemporarilyUnavailableException(body, context);
   const contents: TemporarilyUnavailableException = {
     name: "TemporarilyUnavailableException",
     $fault: "server",
@@ -3714,10 +3389,7 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnauthorizedOperationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnauthorizedOperationException(body, context);
   const contents: UnauthorizedOperationException = {
     name: "UnauthorizedOperationException",
     $fault: "client",
@@ -3727,10 +3399,7 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AppIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AppIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3744,10 +3413,7 @@ const serializeAws_json1_1CreateAppRequest = (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.roleName !== undefined && { roleName: input.roleName }),
     ...(input.serverGroups !== undefined && {
-      serverGroups: serializeAws_json1_1ServerGroups(
-        input.serverGroups,
-        context
-      )
+      serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_1Tags(input.tags, context)
@@ -3771,9 +3437,7 @@ const serializeAws_json1_1CreateReplicationJobRequest = (
     ...(input.roleName !== undefined && { roleName: input.roleName }),
     ...(input.runOnce !== undefined && { runOnce: input.runOnce }),
     ...(input.seedReplicationTime !== undefined && {
-      seedReplicationTime: Math.round(
-        input.seedReplicationTime.getTime() / 1000
-      )
+      seedReplicationTime: Math.round(input.seedReplicationTime.getTime() / 1000)
     }),
     ...(input.serverId !== undefined && { serverId: input.serverId })
   };
@@ -3881,10 +3545,7 @@ const serializeAws_json1_1GetAppReplicationConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1GetAppRequest = (
-  input: GetAppRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetAppRequest = (input: GetAppRequest, context: __SerdeContext): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId })
   };
@@ -4002,20 +3663,14 @@ const serializeAws_json1_1PutAppReplicationConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1S3Location = (
-  input: S3Location,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
     ...(input.key !== undefined && { key: input.key })
   };
 };
 
-const serializeAws_json1_1Server = (
-  input: Server,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Server = (input: Server, context: __SerdeContext): any => {
   return {
     ...(input.replicationJobId !== undefined && {
       replicationJobId: input.replicationJobId
@@ -4031,10 +3686,7 @@ const serializeAws_json1_1Server = (
   };
 };
 
-const serializeAws_json1_1ServerGroup = (
-  input: ServerGroup,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ServerGroup = (input: ServerGroup, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.serverGroupId !== undefined && {
@@ -4068,9 +3720,7 @@ const serializeAws_json1_1ServerGroupLaunchConfigurations = (
   input: ServerGroupLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ServerGroupLaunchConfiguration(entry, context));
 };
 
 const serializeAws_json1_1ServerGroupReplicationConfiguration = (
@@ -4099,10 +3749,7 @@ const serializeAws_json1_1ServerGroupReplicationConfigurations = (
   );
 };
 
-const serializeAws_json1_1ServerGroups = (
-  input: ServerGroup[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ServerGroups = (input: ServerGroup[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1ServerGroup(entry, context));
 };
 
@@ -4137,15 +3784,10 @@ const serializeAws_json1_1ServerLaunchConfigurations = (
   input: ServerLaunchConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ServerLaunchConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ServerLaunchConfiguration(entry, context));
 };
 
-const serializeAws_json1_1ServerList = (
-  input: Server[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ServerList = (input: Server[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Server(entry, context));
 };
 
@@ -4170,9 +3812,7 @@ const serializeAws_json1_1ServerReplicationConfigurations = (
   input: ServerReplicationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ServerReplicationConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ServerReplicationConfiguration(entry, context));
 };
 
 const serializeAws_json1_1ServerReplicationParameters = (
@@ -4231,10 +3871,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -4257,10 +3894,7 @@ const serializeAws_json1_1UpdateAppRequest = (
     ...(input.name !== undefined && { name: input.name }),
     ...(input.roleName !== undefined && { roleName: input.roleName }),
     ...(input.serverGroups !== undefined && {
-      serverGroups: serializeAws_json1_1ServerGroups(
-        input.serverGroups,
-        context
-      )
+      serverGroups: serializeAws_json1_1ServerGroups(input.serverGroups, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_1Tags(input.tags, context)
@@ -4279,9 +3913,7 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
     ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
     ...(input.licenseType !== undefined && { licenseType: input.licenseType }),
     ...(input.nextReplicationRunStartTime !== undefined && {
-      nextReplicationRunStartTime: Math.round(
-        input.nextReplicationRunStartTime.getTime() / 1000
-      )
+      nextReplicationRunStartTime: Math.round(input.nextReplicationRunStartTime.getTime() / 1000)
     }),
     ...(input.numberOfRecentAmisToKeep !== undefined && {
       numberOfRecentAmisToKeep: input.numberOfRecentAmisToKeep
@@ -4293,10 +3925,7 @@ const serializeAws_json1_1UpdateReplicationJobRequest = (
   };
 };
 
-const serializeAws_json1_1UserData = (
-  input: UserData,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UserData = (input: UserData, context: __SerdeContext): any => {
   return {
     ...(input.s3Location !== undefined && {
       s3Location: serializeAws_json1_1S3Location(input.s3Location, context)
@@ -4304,10 +3933,7 @@ const serializeAws_json1_1UserData = (
   };
 };
 
-const serializeAws_json1_1VmServer = (
-  input: VmServer,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1VmServer = (input: VmServer, context: __SerdeContext): any => {
   return {
     ...(input.vmManagerName !== undefined && {
       vmManagerName: input.vmManagerName
@@ -4318,10 +3944,7 @@ const serializeAws_json1_1VmServer = (
     ...(input.vmName !== undefined && { vmName: input.vmName }),
     ...(input.vmPath !== undefined && { vmPath: input.vmPath }),
     ...(input.vmServerAddress !== undefined && {
-      vmServerAddress: serializeAws_json1_1VmServerAddress(
-        input.vmServerAddress,
-        context
-      )
+      vmServerAddress: serializeAws_json1_1VmServerAddress(input.vmServerAddress, context)
     })
   };
 };
@@ -4340,21 +3963,13 @@ const serializeAws_json1_1VmServerAddressList = (
   input: VmServerAddress[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1VmServerAddress(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1VmServerAddress(entry, context));
 };
 
-const deserializeAws_json1_1AppSummary = (
-  output: any,
-  context: __SerdeContext
-): AppSummary => {
+const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
   return {
     __type: "AppSummary",
-    appId:
-      output.appId !== undefined && output.appId !== null
-        ? output.appId
-        : undefined,
+    appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -4368,8 +3983,7 @@ const deserializeAws_json1_1AppSummary = (
         ? new Date(Math.round(output.lastModified * 1000))
         : undefined,
     latestReplicationTime:
-      output.latestReplicationTime !== undefined &&
-      output.latestReplicationTime !== null
+      output.latestReplicationTime !== undefined && output.latestReplicationTime !== null
         ? new Date(Math.round(output.latestReplicationTime * 1000))
         : undefined,
     launchDetails:
@@ -4381,39 +3995,27 @@ const deserializeAws_json1_1AppSummary = (
         ? output.launchStatus
         : undefined,
     launchStatusMessage:
-      output.launchStatusMessage !== undefined &&
-      output.launchStatusMessage !== null
+      output.launchStatusMessage !== undefined && output.launchStatusMessage !== null
         ? output.launchStatusMessage
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     replicationStatus:
-      output.replicationStatus !== undefined &&
-      output.replicationStatus !== null
+      output.replicationStatus !== undefined && output.replicationStatus !== null
         ? output.replicationStatus
         : undefined,
     replicationStatusMessage:
-      output.replicationStatusMessage !== undefined &&
-      output.replicationStatusMessage !== null
+      output.replicationStatusMessage !== undefined && output.replicationStatusMessage !== null
         ? output.replicationStatusMessage
         : undefined,
     roleName:
-      output.roleName !== undefined && output.roleName !== null
-        ? output.roleName
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusMessage:
       output.statusMessage !== undefined && output.statusMessage !== null
         ? output.statusMessage
         : undefined,
     totalServerGroups:
-      output.totalServerGroups !== undefined &&
-      output.totalServerGroups !== null
+      output.totalServerGroups !== undefined && output.totalServerGroups !== null
         ? output.totalServerGroups
         : undefined,
     totalServers:
@@ -4423,19 +4025,11 @@ const deserializeAws_json1_1AppSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1Apps = (
-  output: any,
-  context: __SerdeContext
-): AppSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AppSummary(entry, context)
-  );
+const deserializeAws_json1_1Apps = (output: any, context: __SerdeContext): AppSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AppSummary(entry, context));
 };
 
-const deserializeAws_json1_1Connector = (
-  output: any,
-  context: __SerdeContext
-): Connector => {
+const deserializeAws_json1_1Connector = (output: any, context: __SerdeContext): Connector => {
   return {
     __type: "Connector",
     associatedOn:
@@ -4444,31 +4038,18 @@ const deserializeAws_json1_1Connector = (
         : undefined,
     capabilityList:
       output.capabilityList !== undefined && output.capabilityList !== null
-        ? deserializeAws_json1_1ConnectorCapabilityList(
-            output.capabilityList,
-            context
-          )
+        ? deserializeAws_json1_1ConnectorCapabilityList(output.capabilityList, context)
         : undefined,
     connectorId:
       output.connectorId !== undefined && output.connectorId !== null
         ? output.connectorId
         : undefined,
     ipAddress:
-      output.ipAddress !== undefined && output.ipAddress !== null
-        ? output.ipAddress
-        : undefined,
+      output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
     macAddress:
-      output.macAddress !== undefined && output.macAddress !== null
-        ? output.macAddress
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined,
+      output.macAddress !== undefined && output.macAddress !== null ? output.macAddress : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
     vmManagerId:
       output.vmManagerId !== undefined && output.vmManagerId !== null
         ? output.vmManagerId
@@ -4491,13 +4072,8 @@ const deserializeAws_json1_1ConnectorCapabilityList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1ConnectorList = (
-  output: any,
-  context: __SerdeContext
-): Connector[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Connector(entry, context)
-  );
+const deserializeAws_json1_1ConnectorList = (output: any, context: __SerdeContext): Connector[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Connector(entry, context));
 };
 
 const deserializeAws_json1_1CreateAppResponse = (
@@ -4620,14 +4196,9 @@ const deserializeAws_json1_1GetAppLaunchConfigurationResponse = (
 ): GetAppLaunchConfigurationResponse => {
   return {
     __type: "GetAppLaunchConfigurationResponse",
-    appId:
-      output.appId !== undefined && output.appId !== null
-        ? output.appId
-        : undefined,
+    appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     roleName:
-      output.roleName !== undefined && output.roleName !== null
-        ? output.roleName
-        : undefined,
+      output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
     serverGroupLaunchConfigurations:
       output.serverGroupLaunchConfigurations !== undefined &&
       output.serverGroupLaunchConfigurations !== null
@@ -4688,9 +4259,7 @@ const deserializeAws_json1_1GetConnectorsResponse = (
         ? deserializeAws_json1_1ConnectorList(output.connectorList, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4701,16 +4270,10 @@ const deserializeAws_json1_1GetReplicationJobsResponse = (
   return {
     __type: "GetReplicationJobsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     replicationJobList:
-      output.replicationJobList !== undefined &&
-      output.replicationJobList !== null
-        ? deserializeAws_json1_1ReplicationJobList(
-            output.replicationJobList,
-            context
-          )
+      output.replicationJobList !== undefined && output.replicationJobList !== null
+        ? deserializeAws_json1_1ReplicationJobList(output.replicationJobList, context)
         : undefined
   } as any;
 };
@@ -4722,20 +4285,14 @@ const deserializeAws_json1_1GetReplicationRunsResponse = (
   return {
     __type: "GetReplicationRunsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     replicationJob:
       output.replicationJob !== undefined && output.replicationJob !== null
         ? deserializeAws_json1_1ReplicationJob(output.replicationJob, context)
         : undefined,
     replicationRunList:
-      output.replicationRunList !== undefined &&
-      output.replicationRunList !== null
-        ? deserializeAws_json1_1ReplicationRunList(
-            output.replicationRunList,
-            context
-          )
+      output.replicationRunList !== undefined && output.replicationRunList !== null
+        ? deserializeAws_json1_1ReplicationRunList(output.replicationRunList, context)
         : undefined
   } as any;
 };
@@ -4751,12 +4308,9 @@ const deserializeAws_json1_1GetServersResponse = (
         ? new Date(Math.round(output.lastModifiedOn * 1000))
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     serverCatalogStatus:
-      output.serverCatalogStatus !== undefined &&
-      output.serverCatalogStatus !== null
+      output.serverCatalogStatus !== undefined && output.serverCatalogStatus !== null
         ? output.serverCatalogStatus
         : undefined,
     serverList:
@@ -4781,10 +4335,7 @@ const deserializeAws_json1_1InternalError = (
 ): InternalError => {
   return {
     __type: "InternalError",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4794,10 +4345,7 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   return {
     __type: "InvalidParameterException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4820,14 +4368,9 @@ const deserializeAws_json1_1LaunchDetails = (
       output.latestLaunchTime !== undefined && output.latestLaunchTime !== null
         ? new Date(Math.round(output.latestLaunchTime * 1000))
         : undefined,
-    stackId:
-      output.stackId !== undefined && output.stackId !== null
-        ? output.stackId
-        : undefined,
+    stackId: output.stackId !== undefined && output.stackId !== null ? output.stackId : undefined,
     stackName:
-      output.stackName !== undefined && output.stackName !== null
-        ? output.stackName
-        : undefined
+      output.stackName !== undefined && output.stackName !== null ? output.stackName : undefined
   } as any;
 };
 
@@ -4842,9 +4385,7 @@ const deserializeAws_json1_1ListAppsResponse = (
         ? deserializeAws_json1_1Apps(output.apps, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4854,10 +4395,7 @@ const deserializeAws_json1_1MissingRequiredParameterException = (
 ): MissingRequiredParameterException => {
   return {
     __type: "MissingRequiredParameterException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4867,10 +4405,7 @@ const deserializeAws_json1_1NoConnectorsAvailableException = (
 ): NoConnectorsAvailableException => {
   return {
     __type: "NoConnectorsAvailableException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4880,10 +4415,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 ): OperationNotPermittedException => {
   return {
     __type: "OperationNotPermittedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4916,17 +4448,11 @@ const deserializeAws_json1_1ReplicationJob = (
         ? output.description
         : undefined,
     encrypted:
-      output.encrypted !== undefined && output.encrypted !== null
-        ? output.encrypted
-        : undefined,
+      output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
     frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined,
+      output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
     kmsKeyId:
-      output.kmsKeyId !== undefined && output.kmsKeyId !== null
-        ? output.kmsKeyId
-        : undefined,
+      output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     latestAmiId:
       output.latestAmiId !== undefined && output.latestAmiId !== null
         ? output.latestAmiId
@@ -4941,8 +4467,7 @@ const deserializeAws_json1_1ReplicationJob = (
         ? new Date(Math.round(output.nextReplicationRunStartTime * 1000))
         : undefined,
     numberOfRecentAmisToKeep:
-      output.numberOfRecentAmisToKeep !== undefined &&
-      output.numberOfRecentAmisToKeep !== null
+      output.numberOfRecentAmisToKeep !== undefined && output.numberOfRecentAmisToKeep !== null
         ? output.numberOfRecentAmisToKeep
         : undefined,
     replicationJobId:
@@ -4950,38 +4475,21 @@ const deserializeAws_json1_1ReplicationJob = (
         ? output.replicationJobId
         : undefined,
     replicationRunList:
-      output.replicationRunList !== undefined &&
-      output.replicationRunList !== null
-        ? deserializeAws_json1_1ReplicationRunList(
-            output.replicationRunList,
-            context
-          )
+      output.replicationRunList !== undefined && output.replicationRunList !== null
+        ? deserializeAws_json1_1ReplicationRunList(output.replicationRunList, context)
         : undefined,
     roleName:
-      output.roleName !== undefined && output.roleName !== null
-        ? output.roleName
-        : undefined,
-    runOnce:
-      output.runOnce !== undefined && output.runOnce !== null
-        ? output.runOnce
-        : undefined,
+      output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    runOnce: output.runOnce !== undefined && output.runOnce !== null ? output.runOnce : undefined,
     seedReplicationTime:
-      output.seedReplicationTime !== undefined &&
-      output.seedReplicationTime !== null
+      output.seedReplicationTime !== undefined && output.seedReplicationTime !== null
         ? new Date(Math.round(output.seedReplicationTime * 1000))
         : undefined,
     serverId:
-      output.serverId !== undefined && output.serverId !== null
-        ? output.serverId
-        : undefined,
+      output.serverId !== undefined && output.serverId !== null ? output.serverId : undefined,
     serverType:
-      output.serverType !== undefined && output.serverType !== null
-        ? output.serverType
-        : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+      output.serverType !== undefined && output.serverType !== null ? output.serverType : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
     statusMessage:
       output.statusMessage !== undefined && output.statusMessage !== null
         ? output.statusMessage
@@ -4999,10 +4507,7 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
 ): ReplicationJobAlreadyExistsException => {
   return {
     __type: "ReplicationJobAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5010,9 +4515,7 @@ const deserializeAws_json1_1ReplicationJobList = (
   output: any,
   context: __SerdeContext
 ): ReplicationJob[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ReplicationJob(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ReplicationJob(entry, context));
 };
 
 const deserializeAws_json1_1ReplicationJobNotFoundException = (
@@ -5021,10 +4524,7 @@ const deserializeAws_json1_1ReplicationJobNotFoundException = (
 ): ReplicationJobNotFoundException => {
   return {
     __type: "ReplicationJobNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5034,10 +4534,7 @@ const deserializeAws_json1_1ReplicationRun = (
 ): ReplicationRun => {
   return {
     __type: "ReplicationRun",
-    amiId:
-      output.amiId !== undefined && output.amiId !== null
-        ? output.amiId
-        : undefined,
+    amiId: output.amiId !== undefined && output.amiId !== null ? output.amiId : undefined,
     completedTime:
       output.completedTime !== undefined && output.completedTime !== null
         ? new Date(Math.round(output.completedTime * 1000))
@@ -5047,41 +4544,27 @@ const deserializeAws_json1_1ReplicationRun = (
         ? output.description
         : undefined,
     encrypted:
-      output.encrypted !== undefined && output.encrypted !== null
-        ? output.encrypted
-        : undefined,
+      output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
     kmsKeyId:
-      output.kmsKeyId !== undefined && output.kmsKeyId !== null
-        ? output.kmsKeyId
-        : undefined,
+      output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     replicationRunId:
       output.replicationRunId !== undefined && output.replicationRunId !== null
         ? output.replicationRunId
         : undefined,
     scheduledStartTime:
-      output.scheduledStartTime !== undefined &&
-      output.scheduledStartTime !== null
+      output.scheduledStartTime !== undefined && output.scheduledStartTime !== null
         ? new Date(Math.round(output.scheduledStartTime * 1000))
         : undefined,
     stageDetails:
       output.stageDetails !== undefined && output.stageDetails !== null
-        ? deserializeAws_json1_1ReplicationRunStageDetails(
-            output.stageDetails,
-            context
-          )
+        ? deserializeAws_json1_1ReplicationRunStageDetails(output.stageDetails, context)
         : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
     statusMessage:
       output.statusMessage !== undefined && output.statusMessage !== null
         ? output.statusMessage
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -5091,10 +4574,7 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
 ): ReplicationRunLimitExceededException => {
   return {
     __type: "ReplicationRunLimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5102,9 +4582,7 @@ const deserializeAws_json1_1ReplicationRunList = (
   output: any,
   context: __SerdeContext
 ): ReplicationRun[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ReplicationRun(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ReplicationRun(entry, context));
 };
 
 const deserializeAws_json1_1ReplicationRunStageDetails = (
@@ -5113,10 +4591,7 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
 ): ReplicationRunStageDetails => {
   return {
     __type: "ReplicationRunStageDetails",
-    stage:
-      output.stage !== undefined && output.stage !== null
-        ? output.stage
-        : undefined,
+    stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
     stageProgress:
       output.stageProgress !== undefined && output.stageProgress !== null
         ? output.stageProgress
@@ -5124,25 +4599,15 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
   } as any;
 };
 
-const deserializeAws_json1_1S3Location = (
-  output: any,
-  context: __SerdeContext
-): S3Location => {
+const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     __type: "S3Location",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Server = (
-  output: any,
-  context: __SerdeContext
-): Server => {
+const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {
   return {
     __type: "Server",
     replicationJobId:
@@ -5150,18 +4615,13 @@ const deserializeAws_json1_1Server = (
         ? output.replicationJobId
         : undefined,
     replicationJobTerminated:
-      output.replicationJobTerminated !== undefined &&
-      output.replicationJobTerminated !== null
+      output.replicationJobTerminated !== undefined && output.replicationJobTerminated !== null
         ? output.replicationJobTerminated
         : undefined,
     serverId:
-      output.serverId !== undefined && output.serverId !== null
-        ? output.serverId
-        : undefined,
+      output.serverId !== undefined && output.serverId !== null ? output.serverId : undefined,
     serverType:
-      output.serverType !== undefined && output.serverType !== null
-        ? output.serverType
-        : undefined,
+      output.serverType !== undefined && output.serverType !== null ? output.serverType : undefined,
     vmServer:
       output.vmServer !== undefined && output.vmServer !== null
         ? deserializeAws_json1_1VmServer(output.vmServer, context)
@@ -5175,23 +4635,14 @@ const deserializeAws_json1_1ServerCannotBeReplicatedException = (
 ): ServerCannotBeReplicatedException => {
   return {
     __type: "ServerCannotBeReplicatedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ServerGroup = (
-  output: any,
-  context: __SerdeContext
-): ServerGroup => {
+const deserializeAws_json1_1ServerGroup = (output: any, context: __SerdeContext): ServerGroup => {
   return {
     __type: "ServerGroup",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     serverGroupId:
       output.serverGroupId !== undefined && output.serverGroupId !== null
         ? output.serverGroupId
@@ -5218,8 +4669,7 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
         ? output.serverGroupId
         : undefined,
     serverLaunchConfigurations:
-      output.serverLaunchConfigurations !== undefined &&
-      output.serverLaunchConfigurations !== null
+      output.serverLaunchConfigurations !== undefined && output.serverLaunchConfigurations !== null
         ? deserializeAws_json1_1ServerLaunchConfigurations(
             output.serverLaunchConfigurations,
             context
@@ -5271,9 +4721,7 @@ const deserializeAws_json1_1ServerGroups = (
   output: any,
   context: __SerdeContext
 ): ServerGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ServerGroup(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroup(entry, context));
 };
 
 const deserializeAws_json1_1ServerLaunchConfiguration = (
@@ -5283,22 +4731,17 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
   return {
     __type: "ServerLaunchConfiguration",
     associatePublicIpAddress:
-      output.associatePublicIpAddress !== undefined &&
-      output.associatePublicIpAddress !== null
+      output.associatePublicIpAddress !== undefined && output.associatePublicIpAddress !== null
         ? output.associatePublicIpAddress
         : undefined,
     ec2KeyName:
-      output.ec2KeyName !== undefined && output.ec2KeyName !== null
-        ? output.ec2KeyName
-        : undefined,
+      output.ec2KeyName !== undefined && output.ec2KeyName !== null ? output.ec2KeyName : undefined,
     instanceType:
       output.instanceType !== undefined && output.instanceType !== null
         ? output.instanceType
         : undefined,
     logicalId:
-      output.logicalId !== undefined && output.logicalId !== null
-        ? output.logicalId
-        : undefined,
+      output.logicalId !== undefined && output.logicalId !== null ? output.logicalId : undefined,
     securityGroup:
       output.securityGroup !== undefined && output.securityGroup !== null
         ? output.securityGroup
@@ -5307,16 +4750,12 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
       output.server !== undefined && output.server !== null
         ? deserializeAws_json1_1Server(output.server, context)
         : undefined,
-    subnet:
-      output.subnet !== undefined && output.subnet !== null
-        ? output.subnet
-        : undefined,
+    subnet: output.subnet !== undefined && output.subnet !== null ? output.subnet : undefined,
     userData:
       output.userData !== undefined && output.userData !== null
         ? deserializeAws_json1_1UserData(output.userData, context)
         : undefined,
-    vpc:
-      output.vpc !== undefined && output.vpc !== null ? output.vpc : undefined
+    vpc: output.vpc !== undefined && output.vpc !== null ? output.vpc : undefined
   } as any;
 };
 
@@ -5329,13 +4768,8 @@ const deserializeAws_json1_1ServerLaunchConfigurations = (
   );
 };
 
-const deserializeAws_json1_1ServerList = (
-  output: any,
-  context: __SerdeContext
-): Server[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Server(entry, context)
-  );
+const deserializeAws_json1_1ServerList = (output: any, context: __SerdeContext): Server[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Server(entry, context));
 };
 
 const deserializeAws_json1_1ServerReplicationConfiguration = (
@@ -5375,30 +4809,20 @@ const deserializeAws_json1_1ServerReplicationParameters = (
   return {
     __type: "ServerReplicationParameters",
     encrypted:
-      output.encrypted !== undefined && output.encrypted !== null
-        ? output.encrypted
-        : undefined,
+      output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
     frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined,
+      output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
     kmsKeyId:
-      output.kmsKeyId !== undefined && output.kmsKeyId !== null
-        ? output.kmsKeyId
-        : undefined,
+      output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     licenseType:
       output.licenseType !== undefined && output.licenseType !== null
         ? output.licenseType
         : undefined,
     numberOfRecentAmisToKeep:
-      output.numberOfRecentAmisToKeep !== undefined &&
-      output.numberOfRecentAmisToKeep !== null
+      output.numberOfRecentAmisToKeep !== undefined && output.numberOfRecentAmisToKeep !== null
         ? output.numberOfRecentAmisToKeep
         : undefined,
-    runOnce:
-      output.runOnce !== undefined && output.runOnce !== null
-        ? output.runOnce
-        : undefined,
+    runOnce: output.runOnce !== undefined && output.runOnce !== null ? output.runOnce : undefined,
     seedTime:
       output.seedTime !== undefined && output.seedTime !== null
         ? new Date(Math.round(output.seedTime * 1000))
@@ -5437,28 +4861,16 @@ const deserializeAws_json1_1StopAppReplicationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TemporarilyUnavailableException = (
@@ -5485,10 +4897,7 @@ const deserializeAws_json1_1UnauthorizedOperationException = (
 ): UnauthorizedOperationException => {
   return {
     __type: "UnauthorizedOperationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5522,10 +4931,7 @@ const deserializeAws_json1_1UpdateReplicationJobResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1UserData = (
-  output: any,
-  context: __SerdeContext
-): UserData => {
+const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): UserData => {
   return {
     __type: "UserData",
     s3Location:
@@ -5535,10 +4941,7 @@ const deserializeAws_json1_1UserData = (
   } as any;
 };
 
-const deserializeAws_json1_1VmServer = (
-  output: any,
-  context: __SerdeContext
-): VmServer => {
+const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): VmServer => {
   return {
     __type: "VmServer",
     vmManagerName:
@@ -5549,14 +4952,8 @@ const deserializeAws_json1_1VmServer = (
       output.vmManagerType !== undefined && output.vmManagerType !== null
         ? output.vmManagerType
         : undefined,
-    vmName:
-      output.vmName !== undefined && output.vmName !== null
-        ? output.vmName
-        : undefined,
-    vmPath:
-      output.vmPath !== undefined && output.vmPath !== null
-        ? output.vmPath
-        : undefined,
+    vmName: output.vmName !== undefined && output.vmName !== null ? output.vmName : undefined,
+    vmPath: output.vmPath !== undefined && output.vmPath !== null ? output.vmPath : undefined,
     vmServerAddress:
       output.vmServerAddress !== undefined && output.vmServerAddress !== null
         ? deserializeAws_json1_1VmServerAddress(output.vmServerAddress, context)
@@ -5570,10 +4967,7 @@ const deserializeAws_json1_1VmServerAddress = (
 ): VmServerAddress => {
   return {
     __type: "VmServerAddress",
-    vmId:
-      output.vmId !== undefined && output.vmId !== null
-        ? output.vmId
-        : undefined,
+    vmId: output.vmId !== undefined && output.vmId !== null ? output.vmId : undefined,
     vmManagerId:
       output.vmManagerId !== undefined && output.vmManagerId !== null
         ? output.vmManagerId
@@ -5595,16 +4989,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  UpdateRuleVersionRequest,
-  UpdateRuleVersionResult
-} from "../models/index";
+import { UpdateRuleVersionRequest, UpdateRuleVersionResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRuleVersionCommand,
   serializeAws_json1_1UpdateRuleVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRuleVersionCommandInput = UpdateRuleVersionRequest;
-export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult &
-  __MetadataBearer;
+export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult & __MetadataBearer;
 
 export class UpdateRuleVersionCommand extends $Command<
   UpdateRuleVersionCommandInput,
@@ -50,9 +46,7 @@ export class UpdateRuleVersionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuleVersionCommandInput, UpdateRuleVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

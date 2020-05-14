@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSecretValueCommandInput = GetSecretValueRequest;
-export type GetSecretValueCommandOutput = GetSecretValueResponse &
-  __MetadataBearer;
+export type GetSecretValueCommandOutput = GetSecretValueResponse & __MetadataBearer;
 
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,
@@ -47,9 +46,7 @@ export class GetSecretValueCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSecretValueCommandInput, GetSecretValueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

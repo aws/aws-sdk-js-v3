@@ -46,9 +46,7 @@ export class PutFileCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutFileCommandInput, PutFileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class PutFileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutFileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutFileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutFileCommand(input, context);
   }
 

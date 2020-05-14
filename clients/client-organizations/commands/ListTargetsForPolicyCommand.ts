@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse
-} from "../models/index";
+import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTargetsForPolicyCommand,
   serializeAws_json1_1ListTargetsForPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
-export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse &
-  __MetadataBearer;
+export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
 
 export class ListTargetsForPolicyCommand extends $Command<
   ListTargetsForPolicyCommandInput,
@@ -49,13 +45,8 @@ export class ListTargetsForPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTargetsForPolicyCommandInput,
-    ListTargetsForPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTargetsForPolicyCommandInput, ListTargetsForPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

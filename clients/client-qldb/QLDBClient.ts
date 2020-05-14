@@ -18,18 +18,9 @@ import {
   ExportJournalToS3CommandInput,
   ExportJournalToS3CommandOutput
 } from "./commands/ExportJournalToS3Command";
-import {
-  GetBlockCommandInput,
-  GetBlockCommandOutput
-} from "./commands/GetBlockCommand";
-import {
-  GetDigestCommandInput,
-  GetDigestCommandOutput
-} from "./commands/GetDigestCommand";
-import {
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput
-} from "./commands/GetRevisionCommand";
+import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand";
+import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
+import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput
@@ -38,18 +29,12 @@ import {
   ListJournalS3ExportsForLedgerCommandInput,
   ListJournalS3ExportsForLedgerCommandOutput
 } from "./commands/ListJournalS3ExportsForLedgerCommand";
-import {
-  ListLedgersCommandInput,
-  ListLedgersCommandOutput
-} from "./commands/ListLedgersCommand";
+import { ListLedgersCommandInput, ListLedgersCommandOutput } from "./commands/ListLedgersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -229,9 +214,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QLDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -240,9 +223,7 @@ export type QLDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

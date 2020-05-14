@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ListKeyPoliciesRequest,
-  ListKeyPoliciesResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ListKeyPoliciesRequest, ListKeyPoliciesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListKeyPoliciesCommand,
   serializeAws_json1_1ListKeyPoliciesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListKeyPoliciesCommandInput = ListKeyPoliciesRequest;
-export type ListKeyPoliciesCommandOutput = ListKeyPoliciesResponse &
-  __MetadataBearer;
+export type ListKeyPoliciesCommandOutput = ListKeyPoliciesResponse & __MetadataBearer;
 
 export class ListKeyPoliciesCommand extends $Command<
   ListKeyPoliciesCommandInput,
@@ -50,9 +42,7 @@ export class ListKeyPoliciesCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

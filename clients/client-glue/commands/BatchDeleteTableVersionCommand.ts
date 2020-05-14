@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchDeleteTableVersionRequest,
-  BatchDeleteTableVersionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchDeleteTableVersionRequest, BatchDeleteTableVersionResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteTableVersionCommand,
   serializeAws_json1_1BatchDeleteTableVersionCommand
@@ -49,13 +42,8 @@ export class BatchDeleteTableVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteTableVersionCommandInput,
-    BatchDeleteTableVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteTableVersionCommandInput, BatchDeleteTableVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class BatchDeleteTableVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteTableVersionCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteTableVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeleteTableVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

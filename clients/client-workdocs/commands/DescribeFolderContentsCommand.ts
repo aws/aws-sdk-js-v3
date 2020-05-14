@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DescribeFolderContentsRequest,
-  DescribeFolderContentsResponse
-} from "../models/index";
+import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFolderContentsCommand,
   serializeAws_restJson1_1DescribeFolderContentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFolderContentsCommandInput = DescribeFolderContentsRequest;
-export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse &
-  __MetadataBearer;
+export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse & __MetadataBearer;
 
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeFolderContentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFolderContentsCommandInput,
-    DescribeFolderContentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFolderContentsCommandInput, DescribeFolderContentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeFolderContentsCommand extends $Command<
     input: DescribeFolderContentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFolderContentsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeFolderContentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFolderContentsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFolderContentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

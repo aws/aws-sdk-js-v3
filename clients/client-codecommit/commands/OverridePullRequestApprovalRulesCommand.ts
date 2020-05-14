@@ -49,9 +49,7 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     OverridePullRequestApprovalRulesCommandInput,
     OverridePullRequestApprovalRulesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     input: OverridePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1OverridePullRequestApprovalRulesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1OverridePullRequestApprovalRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OverridePullRequestApprovalRulesCommandOutput> {
-    return deserializeAws_json1_1OverridePullRequestApprovalRulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1OverridePullRequestApprovalRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceResult
-} from "../models/index";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
-export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult &
-  __MetadataBearer;
+export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult & __MetadataBearer;
 
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDBInstanceCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

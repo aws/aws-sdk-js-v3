@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateConstraintCommandInput = UpdateConstraintInput;
-export type UpdateConstraintCommandOutput = UpdateConstraintOutput &
-  __MetadataBearer;
+export type UpdateConstraintCommandOutput = UpdateConstraintOutput & __MetadataBearer;
 
 export class UpdateConstraintCommand extends $Command<
   UpdateConstraintCommandInput,
@@ -47,9 +46,7 @@ export class UpdateConstraintCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateConstraintCommandInput, UpdateConstraintCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

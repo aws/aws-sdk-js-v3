@@ -1,12 +1,5 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  ListBootstrapActionsInput,
-  ListBootstrapActionsOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListBootstrapActionsCommand,
   serializeAws_json1_1ListBootstrapActionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBootstrapActionsCommandInput = ListBootstrapActionsInput;
-export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput &
-  __MetadataBearer;
+export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput & __MetadataBearer;
 
 export class ListBootstrapActionsCommand extends $Command<
   ListBootstrapActionsCommandInput,
@@ -49,13 +41,8 @@ export class ListBootstrapActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBootstrapActionsCommandInput,
-    ListBootstrapActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBootstrapActionsCommandInput, ListBootstrapActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

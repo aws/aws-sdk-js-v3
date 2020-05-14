@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  StartAssociationsOnceRequest,
-  StartAssociationsOnceResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/index";
 import {
   deserializeAws_json1_1StartAssociationsOnceCommand,
   serializeAws_json1_1StartAssociationsOnceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartAssociationsOnceCommandInput = StartAssociationsOnceRequest;
-export type StartAssociationsOnceCommandOutput = StartAssociationsOnceResult &
-  __MetadataBearer;
+export type StartAssociationsOnceCommandOutput = StartAssociationsOnceResult & __MetadataBearer;
 
 export class StartAssociationsOnceCommand extends $Command<
   StartAssociationsOnceCommandInput,
@@ -49,13 +41,8 @@ export class StartAssociationsOnceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartAssociationsOnceCommandInput,
-    StartAssociationsOnceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartAssociationsOnceCommandInput, StartAssociationsOnceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

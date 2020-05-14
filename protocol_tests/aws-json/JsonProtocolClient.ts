@@ -157,9 +157,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type JsonProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type JsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,9 +166,7 @@ export type JsonProtocolClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type JsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type JsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

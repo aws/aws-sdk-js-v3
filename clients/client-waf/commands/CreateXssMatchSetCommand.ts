@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  CreateXssMatchSetRequest,
-  CreateXssMatchSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { CreateXssMatchSetRequest, CreateXssMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateXssMatchSetCommand,
   serializeAws_json1_1CreateXssMatchSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateXssMatchSetCommandInput = CreateXssMatchSetRequest;
-export type CreateXssMatchSetCommandOutput = CreateXssMatchSetResponse &
-  __MetadataBearer;
+export type CreateXssMatchSetCommandOutput = CreateXssMatchSetResponse & __MetadataBearer;
 
 export class CreateXssMatchSetCommand extends $Command<
   CreateXssMatchSetCommandInput,
@@ -50,9 +42,7 @@ export class CreateXssMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateXssMatchSetCommandInput, CreateXssMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  ListInputSecurityGroupsRequest,
-  ListInputSecurityGroupsResponse
-} from "../models/index";
+import { ListInputSecurityGroupsRequest, ListInputSecurityGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListInputSecurityGroupsCommand,
   serializeAws_restJson1_1ListInputSecurityGroupsCommand
@@ -49,13 +46,8 @@ export class ListInputSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListInputSecurityGroupsCommandInput,
-    ListInputSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListInputSecurityGroupsCommandInput, ListInputSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListInputSecurityGroupsCommand extends $Command<
     input: ListInputSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListInputSecurityGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListInputSecurityGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInputSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListInputSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListInputSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

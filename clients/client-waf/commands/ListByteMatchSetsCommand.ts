@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  ListByteMatchSetsRequest,
-  ListByteMatchSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { ListByteMatchSetsRequest, ListByteMatchSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListByteMatchSetsCommand,
   serializeAws_json1_1ListByteMatchSetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListByteMatchSetsCommandInput = ListByteMatchSetsRequest;
-export type ListByteMatchSetsCommandOutput = ListByteMatchSetsResponse &
-  __MetadataBearer;
+export type ListByteMatchSetsCommandOutput = ListByteMatchSetsResponse & __MetadataBearer;
 
 export class ListByteMatchSetsCommand extends $Command<
   ListByteMatchSetsCommandInput,
@@ -50,9 +42,7 @@ export class ListByteMatchSetsCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListByteMatchSetsCommandInput, ListByteMatchSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  GetVaultNotificationsInput,
-  GetVaultNotificationsOutput
-} from "../models/index";
+import { GetVaultNotificationsInput, GetVaultNotificationsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVaultNotificationsCommand,
   serializeAws_restJson1_1GetVaultNotificationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVaultNotificationsCommandInput = GetVaultNotificationsInput;
-export type GetVaultNotificationsCommandOutput = GetVaultNotificationsOutput &
-  __MetadataBearer;
+export type GetVaultNotificationsCommandOutput = GetVaultNotificationsOutput & __MetadataBearer;
 
 export class GetVaultNotificationsCommand extends $Command<
   GetVaultNotificationsCommandInput,
@@ -49,13 +45,8 @@ export class GetVaultNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVaultNotificationsCommandInput,
-    GetVaultNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVaultNotificationsCommandInput, GetVaultNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetVaultNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1GetVaultNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

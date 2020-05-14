@@ -49,13 +49,8 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDescribeSimulationJobCommandInput,
-    BatchDescribeSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDescribeSimulationJobCommandInput, BatchDescribeSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     input: BatchDescribeSimulationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1BatchDescribeSimulationJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

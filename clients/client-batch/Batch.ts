@@ -116,9 +116,7 @@ export class Batch extends BatchClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -227,9 +225,7 @@ export class Batch extends BatchClient {
   ): void;
   public createJobQueue(
     args: CreateJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateJobQueueCommandOutput) => void
   ): Promise<CreateJobQueueCommandOutput> | void {
     const command = new CreateJobQueueCommand(args);
@@ -300,9 +296,7 @@ export class Batch extends BatchClient {
   ): void;
   public deleteJobQueue(
     args: DeleteJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobQueueCommandOutput) => void
   ): Promise<DeleteJobQueueCommandOutput> | void {
     const command = new DeleteJobQueueCommand(args);
@@ -480,9 +474,7 @@ export class Batch extends BatchClient {
   ): void;
   public describeJobs(
     args: DescribeJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobsCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobsCommandOutput) => void
   ): Promise<DescribeJobsCommandOutput> | void {
     const command = new DescribeJobsCommand(args);
@@ -529,9 +521,7 @@ export class Batch extends BatchClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -600,9 +590,7 @@ export class Batch extends BatchClient {
   ): void;
   public submitJob(
     args: SubmitJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitJobCommandOutput) => void),
     cb?: (err: any, data?: SubmitJobCommandOutput) => void
   ): Promise<SubmitJobCommandOutput> | void {
     const command = new SubmitJobCommand(args);
@@ -637,9 +625,7 @@ export class Batch extends BatchClient {
   ): void;
   public terminateJob(
     args: TerminateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateJobCommandOutput) => void),
     cb?: (err: any, data?: TerminateJobCommandOutput) => void
   ): Promise<TerminateJobCommandOutput> | void {
     const command = new TerminateJobCommand(args);
@@ -707,9 +693,7 @@ export class Batch extends BatchClient {
   ): void;
   public updateJobQueue(
     args: UpdateJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobQueueCommandOutput) => void
   ): Promise<UpdateJobQueueCommandOutput> | void {
     const command = new UpdateJobQueueCommand(args);

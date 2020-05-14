@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  GetSchemaCreationStatusRequest,
-  GetSchemaCreationStatusResponse
-} from "../models/index";
+import { GetSchemaCreationStatusRequest, GetSchemaCreationStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSchemaCreationStatusCommand,
   serializeAws_restJson1_1GetSchemaCreationStatusCommand
@@ -49,13 +46,8 @@ export class GetSchemaCreationStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSchemaCreationStatusCommandInput,
-    GetSchemaCreationStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSchemaCreationStatusCommandInput, GetSchemaCreationStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetSchemaCreationStatusCommand extends $Command<
     input: GetSchemaCreationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSchemaCreationStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetSchemaCreationStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSchemaCreationStatusCommandOutput> {
-    return deserializeAws_restJson1_1GetSchemaCreationStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSchemaCreationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

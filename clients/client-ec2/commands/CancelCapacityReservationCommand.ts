@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CancelCapacityReservationRequest,
-  CancelCapacityReservationResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/index";
 import {
   deserializeAws_ec2CancelCapacityReservationCommand,
   serializeAws_ec2CancelCapacityReservationCommand
@@ -49,13 +42,8 @@ export class CancelCapacityReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelCapacityReservationCommandInput,
-    CancelCapacityReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelCapacityReservationCommandInput, CancelCapacityReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

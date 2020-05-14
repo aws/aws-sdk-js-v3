@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateInstanceExportTaskRequest,
-  CreateInstanceExportTaskResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/index";
 import {
   deserializeAws_ec2CreateInstanceExportTaskCommand,
   serializeAws_ec2CreateInstanceExportTaskCommand
@@ -49,13 +42,8 @@ export class CreateInstanceExportTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceExportTaskCommandInput,
-    CreateInstanceExportTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceExportTaskCommandInput, CreateInstanceExportTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

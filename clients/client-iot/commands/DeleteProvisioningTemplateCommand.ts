@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DeleteProvisioningTemplateRequest,
   DeleteProvisioningTemplateResponse
@@ -49,13 +45,8 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteProvisioningTemplateCommandInput,
-    DeleteProvisioningTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteProvisioningTemplateCommandInput, DeleteProvisioningTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     input: DeleteProvisioningTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteProvisioningTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteProvisioningTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProvisioningTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

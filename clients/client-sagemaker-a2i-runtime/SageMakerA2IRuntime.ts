@@ -56,9 +56,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: DeleteHumanLoopCommandOutput) => void
   ): Promise<DeleteHumanLoopCommandOutput> | void {
     const command = new DeleteHumanLoopCommand(args);
@@ -126,9 +124,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public listHumanLoops(
     args: ListHumanLoopsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHumanLoopsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHumanLoopsCommandOutput) => void),
     cb?: (err: any, data?: ListHumanLoopsCommandOutput) => void
   ): Promise<ListHumanLoopsCommandOutput> | void {
     const command = new ListHumanLoopsCommand(args);
@@ -161,9 +157,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public startHumanLoop(
     args: StartHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: StartHumanLoopCommandOutput) => void
   ): Promise<StartHumanLoopCommandOutput> | void {
     const command = new StartHumanLoopCommand(args);
@@ -196,9 +190,7 @@ export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
   ): void;
   public stopHumanLoop(
     args: StopHumanLoopCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopHumanLoopCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopHumanLoopCommandOutput) => void),
     cb?: (err: any, data?: StopHumanLoopCommandOutput) => void
   ): Promise<StopHumanLoopCommandOutput> | void {
     const command = new StopHumanLoopCommand(args);

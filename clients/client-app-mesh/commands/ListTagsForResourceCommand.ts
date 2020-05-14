@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput
-} from "../models/index";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTagsForResourceCommand,
   serializeAws_restJson1_1ListTagsForResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
-export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput &
-  __MetadataBearer;
+export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
 
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,
@@ -49,13 +45,8 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListTagsForResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_restJson1_1ListTagsForResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

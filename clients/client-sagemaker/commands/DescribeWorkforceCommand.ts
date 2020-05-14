@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeWorkforceRequest,
-  DescribeWorkforceResponse
-} from "../models/index";
+import { DescribeWorkforceRequest, DescribeWorkforceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeWorkforceCommand,
   serializeAws_json1_1DescribeWorkforceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeWorkforceCommandInput = DescribeWorkforceRequest;
-export type DescribeWorkforceCommandOutput = DescribeWorkforceResponse &
-  __MetadataBearer;
+export type DescribeWorkforceCommandOutput = DescribeWorkforceResponse & __MetadataBearer;
 
 export class DescribeWorkforceCommand extends $Command<
   DescribeWorkforceCommandInput,
@@ -50,9 +46,7 @@ export class DescribeWorkforceCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

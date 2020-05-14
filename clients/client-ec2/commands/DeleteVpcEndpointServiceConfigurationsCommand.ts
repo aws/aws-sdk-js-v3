@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteVpcEndpointServiceConfigurationsRequest,
   DeleteVpcEndpointServiceConfigurationsResult
@@ -39,9 +35,7 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteVpcEndpointServiceConfigurationsCommandInput
-  ) {
+  constructor(readonly input: DeleteVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     DeleteVpcEndpointServiceConfigurationsCommandInput,
     DeleteVpcEndpointServiceConfigurationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     input: DeleteVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

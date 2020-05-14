@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetExportSnapshotRecordsRequest,
-  GetExportSnapshotRecordsResult
-} from "../models/index";
+import { GetExportSnapshotRecordsRequest, GetExportSnapshotRecordsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetExportSnapshotRecordsCommand,
   serializeAws_json1_1GetExportSnapshotRecordsCommand
@@ -49,13 +46,8 @@ export class GetExportSnapshotRecordsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetExportSnapshotRecordsCommandInput,
-    GetExportSnapshotRecordsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetExportSnapshotRecordsCommandInput, GetExportSnapshotRecordsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetExportSnapshotRecordsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetExportSnapshotRecordsCommandOutput> {
-    return deserializeAws_json1_1GetExportSnapshotRecordsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetExportSnapshotRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

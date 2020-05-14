@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ValidateTemplateCommandInput = ValidateTemplateInput;
-export type ValidateTemplateCommandOutput = ValidateTemplateOutput &
-  __MetadataBearer;
+export type ValidateTemplateCommandOutput = ValidateTemplateOutput & __MetadataBearer;
 
 export class ValidateTemplateCommand extends $Command<
   ValidateTemplateCommandInput,
@@ -47,9 +46,7 @@ export class ValidateTemplateCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ValidateTemplateCommandInput, ValidateTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

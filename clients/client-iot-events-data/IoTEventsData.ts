@@ -49,9 +49,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public batchPutMessage(
     args: BatchPutMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutMessageCommandOutput) => void),
     cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
   ): Promise<BatchPutMessageCommandOutput> | void {
     const command = new BatchPutMessageCommand(args);
@@ -120,9 +118,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public describeDetector(
     args: DescribeDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorCommandOutput) => void),
     cb?: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): Promise<DescribeDetectorCommandOutput> | void {
     const command = new DescribeDetectorCommand(args);
@@ -155,9 +151,7 @@ export class IoTEventsData extends IoTEventsDataClient {
   ): void;
   public listDetectors(
     args: ListDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorsCommandOutput) => void
   ): Promise<ListDetectorsCommandOutput> | void {
     const command = new ListDetectorsCommand(args);

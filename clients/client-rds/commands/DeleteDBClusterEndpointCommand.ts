@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBClusterEndpoint,
-  DeleteDBClusterEndpointMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBClusterEndpoint, DeleteDBClusterEndpointMessage } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterEndpointCommand,
   serializeAws_queryDeleteDBClusterEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
-export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint &
-  __MetadataBearer;
+export type DeleteDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
 
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,
@@ -49,13 +41,8 @@ export class DeleteDBClusterEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDBClusterEndpointCommandInput,
-    DeleteDBClusterEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDBClusterEndpointCommandInput, DeleteDBClusterEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

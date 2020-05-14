@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
@@ -35,9 +31,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetReputationMetricsEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +45,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     UpdateConfigurationSetReputationMetricsEnabledCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,10 +64,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(input, context);
   }
 
   private deserialize(

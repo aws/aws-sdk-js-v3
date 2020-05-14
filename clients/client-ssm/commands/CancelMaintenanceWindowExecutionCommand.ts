@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   CancelMaintenanceWindowExecutionRequest,
   CancelMaintenanceWindowExecutionResult
@@ -53,9 +49,7 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     CancelMaintenanceWindowExecutionCommandInput,
     CancelMaintenanceWindowExecutionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
     input: CancelMaintenanceWindowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

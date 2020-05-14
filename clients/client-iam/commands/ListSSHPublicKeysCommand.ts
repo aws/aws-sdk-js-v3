@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/index";
 import {
   deserializeAws_queryListSSHPublicKeysCommand,
   serializeAws_queryListSSHPublicKeysCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSSHPublicKeysCommandInput = ListSSHPublicKeysRequest;
-export type ListSSHPublicKeysCommandOutput = ListSSHPublicKeysResponse &
-  __MetadataBearer;
+export type ListSSHPublicKeysCommandOutput = ListSSHPublicKeysResponse & __MetadataBearer;
 
 export class ListSSHPublicKeysCommand extends $Command<
   ListSSHPublicKeysCommandInput,
@@ -50,9 +42,7 @@ export class ListSSHPublicKeysCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

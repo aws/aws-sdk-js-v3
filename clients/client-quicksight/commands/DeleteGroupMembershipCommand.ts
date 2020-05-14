@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DeleteGroupMembershipRequest,
-  DeleteGroupMembershipResponse
-} from "../models/index";
+import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGroupMembershipCommand,
   serializeAws_restJson1_1DeleteGroupMembershipCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGroupMembershipCommandInput = DeleteGroupMembershipRequest;
-export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse &
-  __MetadataBearer;
+export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse & __MetadataBearer;
 
 export class DeleteGroupMembershipCommand extends $Command<
   DeleteGroupMembershipCommandInput,
@@ -49,13 +45,8 @@ export class DeleteGroupMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGroupMembershipCommandInput,
-    DeleteGroupMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGroupMembershipCommandInput, DeleteGroupMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteGroupMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1_1DeleteGroupMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

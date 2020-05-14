@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetServiceLastAccessedDetailsRequest,
   GetServiceLastAccessedDetailsResponse
@@ -53,9 +49,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     GetServiceLastAccessedDetailsCommandInput,
     GetServiceLastAccessedDetailsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     input: GetServiceLastAccessedDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetServiceLastAccessedDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetServiceLastAccessedDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

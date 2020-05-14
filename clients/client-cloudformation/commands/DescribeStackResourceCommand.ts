@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DescribeStackResourceInput,
-  DescribeStackResourceOutput
-} from "../models/index";
+import { DescribeStackResourceInput, DescribeStackResourceOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeStackResourceCommand,
   serializeAws_queryDescribeStackResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStackResourceCommandInput = DescribeStackResourceInput;
-export type DescribeStackResourceCommandOutput = DescribeStackResourceOutput &
-  __MetadataBearer;
+export type DescribeStackResourceCommandOutput = DescribeStackResourceOutput & __MetadataBearer;
 
 export class DescribeStackResourceCommand extends $Command<
   DescribeStackResourceCommandInput,
@@ -49,13 +45,8 @@ export class DescribeStackResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackResourceCommandInput,
-    DescribeStackResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackResourceCommandInput, DescribeStackResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

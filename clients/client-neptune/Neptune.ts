@@ -352,31 +352,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddSourceIdentifierToSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> | void {
     const command = new AddSourceIdentifierToSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -591,9 +579,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public createDBCluster(
     args: CreateDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): Promise<CreateDBClusterCommandOutput> | void {
     const command = new CreateDBClusterCommand(args);
@@ -720,9 +706,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): Promise<CreateDBInstanceCommandOutput> | void {
     const command = new CreateDBInstanceCommand(args);
@@ -898,9 +882,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): Promise<DeleteDBClusterCommandOutput> | void {
     const command = new DeleteDBClusterCommand(args);
@@ -1021,9 +1003,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): Promise<DeleteDBInstanceCommandOutput> | void {
     const command = new DeleteDBInstanceCommand(args);
@@ -1169,14 +1149,8 @@ export class Neptune extends NeptuneClient {
     args: DescribeDBClusterParameterGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterParameterGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterParameterGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeDBClusterParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1243,31 +1217,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterSnapshotAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1541,31 +1503,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1600,10 +1550,7 @@ export class Neptune extends NeptuneClient {
     args: DescribeEngineDefaultParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultParametersCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultParametersCommand(args);
@@ -1713,9 +1660,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -1739,31 +1684,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableDBInstanceOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> | void {
     const command = new DescribeOrderableDBInstanceOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1787,31 +1720,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1836,31 +1757,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput>;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeValidDBInstanceModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> | void {
     const command = new DescribeValidDBInstanceModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1970,9 +1879,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): Promise<ModifyDBClusterCommandOutput> | void {
     const command = new ModifyDBClusterCommand(args);
@@ -2075,14 +1982,8 @@ export class Neptune extends NeptuneClient {
     args: ModifyDBClusterSnapshotAttributeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDBClusterSnapshotAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDBClusterSnapshotAttributeCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> | void {
     const command = new ModifyDBClusterSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2116,9 +2017,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): Promise<ModifyDBInstanceCommandOutput> | void {
     const command = new ModifyDBInstanceCommand(args);
@@ -2319,9 +2218,7 @@ export class Neptune extends NeptuneClient {
   ): void;
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
@@ -2380,31 +2277,19 @@ export class Neptune extends NeptuneClient {
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> | void {
     const command = new RemoveSourceIdentifierFromSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {

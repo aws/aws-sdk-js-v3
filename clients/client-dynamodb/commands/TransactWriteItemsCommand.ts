@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  TransactWriteItemsInput,
-  TransactWriteItemsOutput
-} from "../models/index";
+import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/index";
 import {
   deserializeAws_json1_0TransactWriteItemsCommand,
   serializeAws_json1_0TransactWriteItemsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TransactWriteItemsCommandInput = TransactWriteItemsInput;
-export type TransactWriteItemsCommandOutput = TransactWriteItemsOutput &
-  __MetadataBearer;
+export type TransactWriteItemsCommandOutput = TransactWriteItemsOutput & __MetadataBearer;
 
 export class TransactWriteItemsCommand extends $Command<
   TransactWriteItemsCommandInput,
@@ -50,9 +46,7 @@ export class TransactWriteItemsCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

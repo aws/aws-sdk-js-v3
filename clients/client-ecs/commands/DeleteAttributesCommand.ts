@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  DeleteAttributesRequest,
-  DeleteAttributesResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAttributesCommand,
   serializeAws_json1_1DeleteAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAttributesCommandInput = DeleteAttributesRequest;
-export type DeleteAttributesCommandOutput = DeleteAttributesResponse &
-  __MetadataBearer;
+export type DeleteAttributesCommandOutput = DeleteAttributesResponse & __MetadataBearer;
 
 export class DeleteAttributesCommand extends $Command<
   DeleteAttributesCommandInput,
@@ -50,9 +42,7 @@ export class DeleteAttributesCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAttributesCommandInput, DeleteAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

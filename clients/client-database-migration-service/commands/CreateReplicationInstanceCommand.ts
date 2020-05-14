@@ -49,13 +49,8 @@ export class CreateReplicationInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationInstanceCommandInput,
-    CreateReplicationInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationInstanceCommandInput, CreateReplicationInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreateReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

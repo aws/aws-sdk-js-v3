@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  SampleChannelDataRequest,
-  SampleChannelDataResponse
-} from "../models/index";
+import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SampleChannelDataCommand,
   serializeAws_restJson1_1SampleChannelDataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SampleChannelDataCommandInput = SampleChannelDataRequest;
-export type SampleChannelDataCommandOutput = SampleChannelDataResponse &
-  __MetadataBearer;
+export type SampleChannelDataCommandOutput = SampleChannelDataResponse & __MetadataBearer;
 
 export class SampleChannelDataCommand extends $Command<
   SampleChannelDataCommandInput,
@@ -50,9 +46,7 @@ export class SampleChannelDataCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SampleChannelDataCommandInput, SampleChannelDataCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

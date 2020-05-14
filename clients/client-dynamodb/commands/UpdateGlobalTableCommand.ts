@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  UpdateGlobalTableInput,
-  UpdateGlobalTableOutput
-} from "../models/index";
+import { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateGlobalTableCommand,
   serializeAws_json1_0UpdateGlobalTableCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGlobalTableCommandInput = UpdateGlobalTableInput;
-export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput &
-  __MetadataBearer;
+export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput & __MetadataBearer;
 
 export class UpdateGlobalTableCommand extends $Command<
   UpdateGlobalTableCommandInput,
@@ -50,9 +46,7 @@ export class UpdateGlobalTableCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

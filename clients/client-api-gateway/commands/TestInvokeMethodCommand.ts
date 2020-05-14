@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  TestInvokeMethodRequest,
-  TestInvokeMethodResponse
-} from "../models/index";
+import { TestInvokeMethodRequest, TestInvokeMethodResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1TestInvokeMethodCommand,
   serializeAws_restJson1_1TestInvokeMethodCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestInvokeMethodCommandInput = TestInvokeMethodRequest;
-export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse &
-  __MetadataBearer;
+export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse & __MetadataBearer;
 
 export class TestInvokeMethodCommand extends $Command<
   TestInvokeMethodCommandInput,
@@ -50,9 +46,7 @@ export class TestInvokeMethodCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestInvokeMethodCommandInput, TestInvokeMethodCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

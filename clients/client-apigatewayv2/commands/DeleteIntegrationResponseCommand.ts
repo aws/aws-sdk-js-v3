@@ -45,13 +45,8 @@ export class DeleteIntegrationResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIntegrationResponseCommandInput,
-    DeleteIntegrationResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIntegrationResponseCommandInput, DeleteIntegrationResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class DeleteIntegrationResponseCommand extends $Command<
     input: DeleteIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteIntegrationResponseCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteIntegrationResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIntegrationResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

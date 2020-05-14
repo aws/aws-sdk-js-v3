@@ -1,12 +1,5 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
-import {
-  DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesResult
-} from "../models/index";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { DisassociateS3ResourcesRequest, DisassociateS3ResourcesResult } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateS3ResourcesCommand,
   serializeAws_json1_1DisassociateS3ResourcesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateS3ResourcesCommandInput = DisassociateS3ResourcesRequest;
-export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult &
-  __MetadataBearer;
+export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult & __MetadataBearer;
 
 export class DisassociateS3ResourcesCommand extends $Command<
   DisassociateS3ResourcesCommandInput,
@@ -49,13 +41,8 @@ export class DisassociateS3ResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateS3ResourcesCommandInput,
-    DisassociateS3ResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateS3ResourcesCommandInput, DisassociateS3ResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DisassociateS3ResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1DisassociateS3ResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

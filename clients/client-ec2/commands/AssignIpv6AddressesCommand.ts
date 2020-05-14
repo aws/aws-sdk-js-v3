@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AssignIpv6AddressesRequest,
-  AssignIpv6AddressesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/index";
 import {
   deserializeAws_ec2AssignIpv6AddressesCommand,
   serializeAws_ec2AssignIpv6AddressesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssignIpv6AddressesCommandInput = AssignIpv6AddressesRequest;
-export type AssignIpv6AddressesCommandOutput = AssignIpv6AddressesResult &
-  __MetadataBearer;
+export type AssignIpv6AddressesCommandOutput = AssignIpv6AddressesResult & __MetadataBearer;
 
 export class AssignIpv6AddressesCommand extends $Command<
   AssignIpv6AddressesCommandInput,
@@ -49,13 +41,8 @@ export class AssignIpv6AddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssignIpv6AddressesCommandInput,
-    AssignIpv6AddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssignIpv6AddressesCommandInput, AssignIpv6AddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

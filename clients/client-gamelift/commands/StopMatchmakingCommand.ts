@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopMatchmakingCommandInput = StopMatchmakingInput;
-export type StopMatchmakingCommandOutput = StopMatchmakingOutput &
-  __MetadataBearer;
+export type StopMatchmakingCommandOutput = StopMatchmakingOutput & __MetadataBearer;
 
 export class StopMatchmakingCommand extends $Command<
   StopMatchmakingCommandInput,
@@ -47,9 +46,7 @@ export class StopMatchmakingCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopMatchmakingCommandInput, StopMatchmakingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

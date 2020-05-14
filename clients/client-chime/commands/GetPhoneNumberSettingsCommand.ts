@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetPhoneNumberSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPhoneNumberSettingsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPhoneNumberSettingsCommandInput = {};
-export type GetPhoneNumberSettingsCommandOutput = GetPhoneNumberSettingsResponse &
-  __MetadataBearer;
+export type GetPhoneNumberSettingsCommandOutput = GetPhoneNumberSettingsResponse & __MetadataBearer;
 
 export class GetPhoneNumberSettingsCommand extends $Command<
   GetPhoneNumberSettingsCommandInput,
@@ -46,13 +41,8 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPhoneNumberSettingsCommandInput,
-    GetPhoneNumberSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPhoneNumberSettingsCommandInput, GetPhoneNumberSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +61,14 @@ export class GetPhoneNumberSettingsCommand extends $Command<
     input: GetPhoneNumberSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPhoneNumberSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetPhoneNumberSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1_1GetPhoneNumberSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

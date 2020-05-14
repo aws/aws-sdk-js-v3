@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetCalendarStateRequest,
-  GetCalendarStateResponse
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCalendarStateCommand,
   serializeAws_json1_1GetCalendarStateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCalendarStateCommandInput = GetCalendarStateRequest;
-export type GetCalendarStateCommandOutput = GetCalendarStateResponse &
-  __MetadataBearer;
+export type GetCalendarStateCommandOutput = GetCalendarStateResponse & __MetadataBearer;
 
 export class GetCalendarStateCommand extends $Command<
   GetCalendarStateCommandInput,
@@ -50,9 +42,7 @@ export class GetCalendarStateCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCalendarStateCommandInput, GetCalendarStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
-import {
-  UpdateS3ResourcesRequest,
-  UpdateS3ResourcesResult
-} from "../models/index";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateS3ResourcesCommand,
   serializeAws_json1_1UpdateS3ResourcesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateS3ResourcesCommandInput = UpdateS3ResourcesRequest;
-export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult &
-  __MetadataBearer;
+export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult & __MetadataBearer;
 
 export class UpdateS3ResourcesCommand extends $Command<
   UpdateS3ResourcesCommandInput,
@@ -50,9 +42,7 @@ export class UpdateS3ResourcesCommand extends $Command<
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateS3ResourcesCommandInput, UpdateS3ResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

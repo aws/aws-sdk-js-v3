@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  UpdateGlobalNetworkRequest,
-  UpdateGlobalNetworkResponse
-} from "../models/index";
+import { UpdateGlobalNetworkRequest, UpdateGlobalNetworkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateGlobalNetworkCommand,
   serializeAws_restJson1_1UpdateGlobalNetworkCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGlobalNetworkCommandInput = UpdateGlobalNetworkRequest;
-export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse &
-  __MetadataBearer;
+export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse & __MetadataBearer;
 
 export class UpdateGlobalNetworkCommand extends $Command<
   UpdateGlobalNetworkCommandInput,
@@ -49,13 +45,8 @@ export class UpdateGlobalNetworkCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateGlobalNetworkCommandInput,
-    UpdateGlobalNetworkCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateGlobalNetworkCommandInput, UpdateGlobalNetworkCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateGlobalNetworkCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1_1UpdateGlobalNetworkCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

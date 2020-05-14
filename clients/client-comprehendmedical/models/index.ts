@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -256,8 +253,7 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
-  export const isa = (o: any): o is DetectEntitiesRequest =>
-    __isa(o, "DetectEntitiesRequest");
+  export const isa = (o: any): o is DetectEntitiesRequest => __isa(o, "DetectEntitiesRequest");
 }
 
 export interface DetectEntitiesResponse {
@@ -289,8 +285,7 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
-  export const isa = (o: any): o is DetectEntitiesResponse =>
-    __isa(o, "DetectEntitiesResponse");
+  export const isa = (o: any): o is DetectEntitiesResponse => __isa(o, "DetectEntitiesResponse");
 }
 
 export interface DetectEntitiesV2Request {
@@ -303,8 +298,7 @@ export interface DetectEntitiesV2Request {
 }
 
 export namespace DetectEntitiesV2Request {
-  export const isa = (o: any): o is DetectEntitiesV2Request =>
-    __isa(o, "DetectEntitiesV2Request");
+  export const isa = (o: any): o is DetectEntitiesV2Request => __isa(o, "DetectEntitiesV2Request");
 }
 
 export interface DetectEntitiesV2Response {
@@ -350,8 +344,7 @@ export interface DetectPHIRequest {
 }
 
 export namespace DetectPHIRequest {
-  export const isa = (o: any): o is DetectPHIRequest =>
-    __isa(o, "DetectPHIRequest");
+  export const isa = (o: any): o is DetectPHIRequest => __isa(o, "DetectPHIRequest");
 }
 
 export interface DetectPHIResponse {
@@ -378,8 +371,7 @@ export interface DetectPHIResponse {
 }
 
 export namespace DetectPHIResponse {
-  export const isa = (o: any): o is DetectPHIResponse =>
-    __isa(o, "DetectPHIResponse");
+  export const isa = (o: any): o is DetectPHIResponse => __isa(o, "DetectPHIResponse");
 }
 
 /**
@@ -536,8 +528,7 @@ export interface ICD10CMAttribute {
 }
 
 export namespace ICD10CMAttribute {
-  export const isa = (o: any): o is ICD10CMAttribute =>
-    __isa(o, "ICD10CMAttribute");
+  export const isa = (o: any): o is ICD10CMAttribute => __isa(o, "ICD10CMAttribute");
 }
 
 export enum ICD10CMAttributeType {
@@ -572,8 +563,7 @@ export interface ICD10CMConcept {
 }
 
 export namespace ICD10CMConcept {
-  export const isa = (o: any): o is ICD10CMConcept =>
-    __isa(o, "ICD10CMConcept");
+  export const isa = (o: any): o is ICD10CMConcept => __isa(o, "ICD10CMConcept");
 }
 
 /**
@@ -698,8 +688,7 @@ export interface InferICD10CMRequest {
 }
 
 export namespace InferICD10CMRequest {
-  export const isa = (o: any): o is InferICD10CMRequest =>
-    __isa(o, "InferICD10CMRequest");
+  export const isa = (o: any): o is InferICD10CMRequest => __isa(o, "InferICD10CMRequest");
 }
 
 export interface InferICD10CMResponse {
@@ -725,8 +714,7 @@ export interface InferICD10CMResponse {
 }
 
 export namespace InferICD10CMResponse {
-  export const isa = (o: any): o is InferICD10CMResponse =>
-    __isa(o, "InferICD10CMResponse");
+  export const isa = (o: any): o is InferICD10CMResponse => __isa(o, "InferICD10CMResponse");
 }
 
 export interface InferRxNormRequest {
@@ -739,8 +727,7 @@ export interface InferRxNormRequest {
 }
 
 export namespace InferRxNormRequest {
-  export const isa = (o: any): o is InferRxNormRequest =>
-    __isa(o, "InferRxNormRequest");
+  export const isa = (o: any): o is InferRxNormRequest => __isa(o, "InferRxNormRequest");
 }
 
 export interface InferRxNormResponse {
@@ -766,8 +753,7 @@ export interface InferRxNormResponse {
 }
 
 export namespace InferRxNormResponse {
-  export const isa = (o: any): o is InferRxNormResponse =>
-    __isa(o, "InferRxNormResponse");
+  export const isa = (o: any): o is InferRxNormResponse => __isa(o, "InferRxNormResponse");
 }
 
 /**
@@ -790,33 +776,27 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
  * <p> An internal server error occurred. Retry your request. </p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
  *    request.</p>
  */
-export interface InvalidEncodingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEncodingException extends __SmithyException, $MetadataBearer {
   name: "InvalidEncodingException";
   $fault: "client";
   Message?: string;
@@ -831,17 +811,14 @@ export namespace InvalidEncodingException {
  * <p> The request that you made is invalid. Check your request to determine why it's invalid and
  *    then retry the request.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export enum JobStatus {
@@ -963,17 +940,14 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
  * <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the
  *    ARN and try your request again.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1040,8 +1014,7 @@ export interface RxNormAttribute {
 }
 
 export namespace RxNormAttribute {
-  export const isa = (o: any): o is RxNormAttribute =>
-    __isa(o, "RxNormAttribute");
+  export const isa = (o: any): o is RxNormAttribute => __isa(o, "RxNormAttribute");
 }
 
 export enum RxNormAttributeType {
@@ -1192,9 +1165,7 @@ export enum RxNormTraitName {
  * <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *   </p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1381,9 +1352,7 @@ export namespace StopPHIDetectionJobResponse {
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *    use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1399,9 +1368,7 @@ export namespace TextSizeLimitExceededException {
  *    then try your request again. Contact customer support for more information about a service limit
  *    increase. </p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1451,23 +1418,19 @@ export interface UnmappedAttribute {
 }
 
 export namespace UnmappedAttribute {
-  export const isa = (o: any): o is UnmappedAttribute =>
-    __isa(o, "UnmappedAttribute");
+  export const isa = (o: any): o is UnmappedAttribute => __isa(o, "UnmappedAttribute");
 }
 
 /**
  * <p>The filter that you specified for the operation is invalid. Check the filter values that you
  *    entered and try your request again.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

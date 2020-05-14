@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetEmailTemplateRequest,
-  GetEmailTemplateResponse
-} from "../models/index";
+import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEmailTemplateCommand,
   serializeAws_restJson1_1GetEmailTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEmailTemplateCommandInput = GetEmailTemplateRequest;
-export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse &
-  __MetadataBearer;
+export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse & __MetadataBearer;
 
 export class GetEmailTemplateCommand extends $Command<
   GetEmailTemplateCommandInput,
@@ -50,9 +46,7 @@ export class GetEmailTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

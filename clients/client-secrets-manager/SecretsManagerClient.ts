@@ -34,10 +34,7 @@ import {
   ListSecretVersionIdsCommandInput,
   ListSecretVersionIdsCommandOutput
 } from "./commands/ListSecretVersionIdsCommand";
-import {
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput
-} from "./commands/ListSecretsCommand";
+import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput
@@ -54,10 +51,7 @@ import {
   RotateSecretCommandInput,
   RotateSecretCommandOutput
 } from "./commands/RotateSecretCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -247,9 +241,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecretsManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

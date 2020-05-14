@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFaceSearchCommandInput = GetFaceSearchRequest;
-export type GetFaceSearchCommandOutput = GetFaceSearchResponse &
-  __MetadataBearer;
+export type GetFaceSearchCommandOutput = GetFaceSearchResponse & __MetadataBearer;
 
 export class GetFaceSearchCommand extends $Command<
   GetFaceSearchCommandInput,
@@ -47,9 +46,7 @@ export class GetFaceSearchCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFaceSearchCommandInput, GetFaceSearchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

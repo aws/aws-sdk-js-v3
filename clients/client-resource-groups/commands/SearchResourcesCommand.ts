@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchResourcesCommandInput = SearchResourcesInput;
-export type SearchResourcesCommandOutput = SearchResourcesOutput &
-  __MetadataBearer;
+export type SearchResourcesCommandOutput = SearchResourcesOutput & __MetadataBearer;
 
 export class SearchResourcesCommand extends $Command<
   SearchResourcesCommandInput,
@@ -47,9 +46,7 @@ export class SearchResourcesCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchResourcesCommandInput, SearchResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

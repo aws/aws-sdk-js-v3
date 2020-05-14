@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   UpdateUserDefinedFunctionRequest,
   UpdateUserDefinedFunctionResponse
@@ -49,13 +45,8 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserDefinedFunctionCommandInput,
-    UpdateUserDefinedFunctionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserDefinedFunctionCommandInput, UpdateUserDefinedFunctionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

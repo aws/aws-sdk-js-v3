@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeCommandsRequest,
-  DescribeCommandsResult
-} from "../models/index";
+import { DescribeCommandsRequest, DescribeCommandsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCommandsCommand,
   serializeAws_json1_1DescribeCommandsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCommandsCommandInput = DescribeCommandsRequest;
-export type DescribeCommandsCommandOutput = DescribeCommandsResult &
-  __MetadataBearer;
+export type DescribeCommandsCommandOutput = DescribeCommandsResult & __MetadataBearer;
 
 export class DescribeCommandsCommand extends $Command<
   DescribeCommandsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeCommandsCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommandsCommandInput, DescribeCommandsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

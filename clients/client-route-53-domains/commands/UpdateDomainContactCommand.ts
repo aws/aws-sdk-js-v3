@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  UpdateDomainContactRequest,
-  UpdateDomainContactResponse
-} from "../models/index";
+import { UpdateDomainContactRequest, UpdateDomainContactResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDomainContactCommand,
   serializeAws_json1_1UpdateDomainContactCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainContactCommandInput = UpdateDomainContactRequest;
-export type UpdateDomainContactCommandOutput = UpdateDomainContactResponse &
-  __MetadataBearer;
+export type UpdateDomainContactCommandOutput = UpdateDomainContactResponse & __MetadataBearer;
 
 export class UpdateDomainContactCommand extends $Command<
   UpdateDomainContactCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDomainContactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainContactCommandInput,
-    UpdateDomainContactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainContactCommandInput, UpdateDomainContactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

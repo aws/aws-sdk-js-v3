@@ -543,9 +543,7 @@ export class WAF extends WAFClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
@@ -853,9 +851,7 @@ export class WAF extends WAFClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
@@ -902,9 +898,7 @@ export class WAF extends WAFClient {
   ): void;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): Promise<CreateRuleGroupCommandOutput> | void {
     const command = new CreateRuleGroupCommand(args);
@@ -1082,9 +1076,7 @@ export class WAF extends WAFClient {
   ): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLCommandOutput) => void),
     cb?: (err: any, data?: CreateWebACLCommandOutput) => void
   ): Promise<CreateWebACLCommandOutput> | void {
     const command = new CreateWebACLCommand(args);
@@ -1288,9 +1280,7 @@ export class WAF extends WAFClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
@@ -1550,9 +1540,7 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
@@ -1600,9 +1588,7 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
@@ -1749,9 +1735,7 @@ export class WAF extends WAFClient {
   ): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebACLCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): Promise<DeleteWebACLCommandOutput> | void {
     const command = new DeleteWebACLCommand(args);
@@ -1835,9 +1819,7 @@ export class WAF extends WAFClient {
   ): void;
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetByteMatchSetCommandOutput) => void
   ): Promise<GetByteMatchSetCommandOutput> | void {
     const command = new GetByteMatchSetCommand(args);
@@ -1876,9 +1858,7 @@ export class WAF extends WAFClient {
   ): void;
   public getChangeToken(
     args: GetChangeTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenCommandOutput) => void
   ): Promise<GetChangeTokenCommandOutput> | void {
     const command = new GetChangeTokenCommand(args);
@@ -1962,9 +1942,7 @@ export class WAF extends WAFClient {
   ): void;
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetGeoMatchSetCommandOutput) => void
   ): Promise<GetGeoMatchSetCommandOutput> | void {
     const command = new GetGeoMatchSetCommand(args);
@@ -1997,9 +1975,7 @@ export class WAF extends WAFClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
@@ -2104,9 +2080,7 @@ export class WAF extends WAFClient {
   ): void;
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleCommandOutput) => void
   ): Promise<GetRateBasedRuleCommandOutput> | void {
     const command = new GetRateBasedRuleCommand(args);
@@ -2176,9 +2150,7 @@ export class WAF extends WAFClient {
   ): void;
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexMatchSetCommandOutput) => void
   ): Promise<GetRegexMatchSetCommandOutput> | void {
     const command = new GetRegexMatchSetCommand(args);
@@ -2246,9 +2218,7 @@ export class WAF extends WAFClient {
   ): void;
   public getRule(
     args: GetRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRuleCommandOutput) => void
   ): Promise<GetRuleCommandOutput> | void {
     const command = new GetRuleCommand(args);
@@ -2282,9 +2252,7 @@ export class WAF extends WAFClient {
   ): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): Promise<GetRuleGroupCommandOutput> | void {
     const command = new GetRuleGroupCommand(args);
@@ -2426,9 +2394,7 @@ export class WAF extends WAFClient {
   ): void;
   public getWebACL(
     args: GetWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLCommandOutput) => void
   ): Promise<GetWebACLCommandOutput> | void {
     const command = new GetWebACLCommand(args);
@@ -2461,9 +2427,7 @@ export class WAF extends WAFClient {
   ): void;
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetXssMatchSetCommandOutput) => void
   ): Promise<GetXssMatchSetCommandOutput> | void {
     const command = new GetXssMatchSetCommand(args);
@@ -2566,9 +2530,7 @@ export class WAF extends WAFClient {
   ): void;
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoMatchSetsCommandOutput) => void
   ): Promise<ListGeoMatchSetsCommandOutput> | void {
     const command = new ListGeoMatchSetsCommand(args);
@@ -2601,9 +2563,7 @@ export class WAF extends WAFClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
@@ -2776,9 +2736,7 @@ export class WAF extends WAFClient {
   ): void;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): Promise<ListRuleGroupsCommandOutput> | void {
     const command = new ListRuleGroupsCommand(args);
@@ -2811,9 +2769,7 @@ export class WAF extends WAFClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
@@ -2983,9 +2939,7 @@ export class WAF extends WAFClient {
   ): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebACLsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebACLsCommandOutput) => void),
     cb?: (err: any, data?: ListWebACLsCommandOutput) => void
   ): Promise<ListWebACLsCommandOutput> | void {
     const command = new ListWebACLsCommand(args);
@@ -3018,9 +2972,7 @@ export class WAF extends WAFClient {
   ): void;
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListXssMatchSetsCommandOutput) => void
   ): Promise<ListXssMatchSetsCommandOutput> | void {
     const command = new ListXssMatchSetsCommand(args);
@@ -3169,9 +3121,7 @@ export class WAF extends WAFClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3201,9 +3151,7 @@ export class WAF extends WAFClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3439,9 +3387,7 @@ export class WAF extends WAFClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
@@ -3739,9 +3685,7 @@ export class WAF extends WAFClient {
   ): void;
   public updateRule(
     args: UpdateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleCommandOutput) => void
   ): Promise<UpdateRuleCommandOutput> | void {
     const command = new UpdateRuleCommand(args);
@@ -3798,9 +3742,7 @@ export class WAF extends WAFClient {
   ): void;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): Promise<UpdateRuleGroupCommandOutput> | void {
     const command = new UpdateRuleGroupCommand(args);
@@ -4055,9 +3997,7 @@ export class WAF extends WAFClient {
   ): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebACLCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): Promise<UpdateWebACLCommandOutput> | void {
     const command = new UpdateWebACLCommand(args);

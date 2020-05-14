@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DescribeDocumentVersionsRequest,
-  DescribeDocumentVersionsResponse
-} from "../models/index";
+import { DescribeDocumentVersionsRequest, DescribeDocumentVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDocumentVersionsCommand,
   serializeAws_restJson1_1DescribeDocumentVersionsCommand
@@ -49,13 +46,8 @@ export class DescribeDocumentVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDocumentVersionsCommandInput,
-    DescribeDocumentVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDocumentVersionsCommandInput, DescribeDocumentVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeDocumentVersionsCommand extends $Command<
     input: DescribeDocumentVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDocumentVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeDocumentVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentVersionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDocumentVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDocumentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

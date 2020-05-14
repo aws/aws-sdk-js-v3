@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  UpdateSubscriberRequest,
-  UpdateSubscriberResponse
-} from "../models/index";
+import { UpdateSubscriberRequest, UpdateSubscriberResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSubscriberCommand,
   serializeAws_json1_1UpdateSubscriberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSubscriberCommandInput = UpdateSubscriberRequest;
-export type UpdateSubscriberCommandOutput = UpdateSubscriberResponse &
-  __MetadataBearer;
+export type UpdateSubscriberCommandOutput = UpdateSubscriberResponse & __MetadataBearer;
 
 export class UpdateSubscriberCommand extends $Command<
   UpdateSubscriberCommandInput,
@@ -50,9 +46,7 @@ export class UpdateSubscriberCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

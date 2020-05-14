@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  GetInsightResultsRequest,
-  GetInsightResultsResponse
-} from "../models/index";
+import { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetInsightResultsCommand,
   serializeAws_restJson1_1GetInsightResultsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInsightResultsCommandInput = GetInsightResultsRequest;
-export type GetInsightResultsCommandOutput = GetInsightResultsResponse &
-  __MetadataBearer;
+export type GetInsightResultsCommandOutput = GetInsightResultsResponse & __MetadataBearer;
 
 export class GetInsightResultsCommand extends $Command<
   GetInsightResultsCommandInput,
@@ -50,9 +46,7 @@ export class GetInsightResultsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInsightResultsCommandInput, GetInsightResultsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

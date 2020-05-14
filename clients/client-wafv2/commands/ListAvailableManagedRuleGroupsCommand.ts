@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import {
   ListAvailableManagedRuleGroupsRequest,
   ListAvailableManagedRuleGroupsResponse
@@ -53,9 +49,7 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     ListAvailableManagedRuleGroupsCommandInput,
     ListAvailableManagedRuleGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     input: ListAvailableManagedRuleGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

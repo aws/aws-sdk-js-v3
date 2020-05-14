@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesResponse
-} from "../models/index";
+import { ListMonitoringSchedulesRequest, ListMonitoringSchedulesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListMonitoringSchedulesCommand,
   serializeAws_json1_1ListMonitoringSchedulesCommand
@@ -49,13 +46,8 @@ export class ListMonitoringSchedulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMonitoringSchedulesCommandInput,
-    ListMonitoringSchedulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMonitoringSchedulesCommandInput, ListMonitoringSchedulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListMonitoringSchedulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMonitoringSchedulesCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringSchedulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListMonitoringSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageResponse
-} from "../models/index";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchPutMessageCommand,
   serializeAws_restJson1_1BatchPutMessageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchPutMessageCommandInput = BatchPutMessageRequest;
-export type BatchPutMessageCommandOutput = BatchPutMessageResponse &
-  __MetadataBearer;
+export type BatchPutMessageCommandOutput = BatchPutMessageResponse & __MetadataBearer;
 
 export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandInput,
@@ -50,9 +46,7 @@ export class BatchPutMessageCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutMessageCommandInput, BatchPutMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  DeregisterRobotRequest,
-  DeregisterRobotResponse
-} from "../models/index";
+import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeregisterRobotCommand,
   serializeAws_restJson1_1DeregisterRobotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterRobotCommandInput = DeregisterRobotRequest;
-export type DeregisterRobotCommandOutput = DeregisterRobotResponse &
-  __MetadataBearer;
+export type DeregisterRobotCommandOutput = DeregisterRobotResponse & __MetadataBearer;
 
 export class DeregisterRobotCommand extends $Command<
   DeregisterRobotCommandInput,
@@ -50,9 +46,7 @@ export class DeregisterRobotCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterRobotCommandInput, DeregisterRobotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

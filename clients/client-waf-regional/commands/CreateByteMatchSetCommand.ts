@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  CreateByteMatchSetRequest,
-  CreateByteMatchSetResponse
-} from "../models/index";
+import { CreateByteMatchSetRequest, CreateByteMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateByteMatchSetCommand,
   serializeAws_json1_1CreateByteMatchSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateByteMatchSetCommandInput = CreateByteMatchSetRequest;
-export type CreateByteMatchSetCommandOutput = CreateByteMatchSetResponse &
-  __MetadataBearer;
+export type CreateByteMatchSetCommandOutput = CreateByteMatchSetResponse & __MetadataBearer;
 
 export class CreateByteMatchSetCommand extends $Command<
   CreateByteMatchSetCommandInput,
@@ -50,9 +46,7 @@ export class CreateByteMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateByteMatchSetCommandInput, CreateByteMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

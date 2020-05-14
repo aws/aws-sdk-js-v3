@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOperationsCommandInput = ListOperationsRequest;
-export type ListOperationsCommandOutput = ListOperationsResponse &
-  __MetadataBearer;
+export type ListOperationsCommandOutput = ListOperationsResponse & __MetadataBearer;
 
 export class ListOperationsCommand extends $Command<
   ListOperationsCommandInput,
@@ -47,9 +46,7 @@ export class ListOperationsCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOperationsCommandInput, ListOperationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

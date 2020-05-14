@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  UpdateLinkAttributesRequest,
-  UpdateLinkAttributesResponse
-} from "../models/index";
+import { UpdateLinkAttributesRequest, UpdateLinkAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLinkAttributesCommand,
   serializeAws_restJson1_1UpdateLinkAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
-export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse &
-  __MetadataBearer;
+export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse & __MetadataBearer;
 
 export class UpdateLinkAttributesCommand extends $Command<
   UpdateLinkAttributesCommandInput,
@@ -49,13 +45,8 @@ export class UpdateLinkAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateLinkAttributesCommandInput,
-    UpdateLinkAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateLinkAttributesCommandInput, UpdateLinkAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateLinkAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateLinkAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

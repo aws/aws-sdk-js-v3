@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeGameSessionDetailsInput,
-  DescribeGameSessionDetailsOutput
-} from "../models/index";
+import { DescribeGameSessionDetailsInput, DescribeGameSessionDetailsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeGameSessionDetailsCommand,
   serializeAws_json1_1DescribeGameSessionDetailsCommand
@@ -49,13 +46,8 @@ export class DescribeGameSessionDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGameSessionDetailsCommandInput,
-    DescribeGameSessionDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGameSessionDetailsCommandInput, DescribeGameSessionDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeGameSessionDetailsCommand extends $Command<
     input: DescribeGameSessionDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionDetailsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeGameSessionDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionDetailsCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

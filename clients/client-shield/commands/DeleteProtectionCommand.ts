@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  DeleteProtectionRequest,
-  DeleteProtectionResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteProtectionCommand,
   serializeAws_json1_1DeleteProtectionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteProtectionCommandInput = DeleteProtectionRequest;
-export type DeleteProtectionCommandOutput = DeleteProtectionResponse &
-  __MetadataBearer;
+export type DeleteProtectionCommandOutput = DeleteProtectionResponse & __MetadataBearer;
 
 export class DeleteProtectionCommand extends $Command<
   DeleteProtectionCommandInput,
@@ -50,9 +42,7 @@ export class DeleteProtectionCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteProtectionCommandInput, DeleteProtectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

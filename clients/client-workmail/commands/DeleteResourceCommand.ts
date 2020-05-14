@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResourceCommandInput = DeleteResourceRequest;
-export type DeleteResourceCommandOutput = DeleteResourceResponse &
-  __MetadataBearer;
+export type DeleteResourceCommandOutput = DeleteResourceResponse & __MetadataBearer;
 
 export class DeleteResourceCommand extends $Command<
   DeleteResourceCommandInput,
@@ -47,9 +46,7 @@ export class DeleteResourceCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteResourceCommandInput, DeleteResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

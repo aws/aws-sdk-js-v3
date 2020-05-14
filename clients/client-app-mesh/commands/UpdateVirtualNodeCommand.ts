@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  UpdateVirtualNodeInput,
-  UpdateVirtualNodeOutput
-} from "../models/index";
+import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVirtualNodeCommand,
   serializeAws_restJson1_1UpdateVirtualNodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
-export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput &
-  __MetadataBearer;
+export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput & __MetadataBearer;
 
 export class UpdateVirtualNodeCommand extends $Command<
   UpdateVirtualNodeCommandInput,
@@ -50,9 +46,7 @@ export class UpdateVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -171,31 +171,19 @@ export class ACMPCA extends ACMPCAClient {
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput>;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    cb: (
-      err: any,
-      data?: CreateCertificateAuthorityAuditReportCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateCertificateAuthorityAuditReportCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateCertificateAuthorityAuditReportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateCertificateAuthorityAuditReportCommandOutput
-    ) => void
+      | ((err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void),
+    cb?: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> | void {
     const command = new CreateCertificateAuthorityAuditReportCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -235,9 +223,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public createPermission(
     args: CreatePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePermissionCommandOutput) => void),
     cb?: (err: any, data?: CreatePermissionCommandOutput) => void
   ): Promise<CreatePermissionCommandOutput> | void {
     const command = new CreatePermissionCommand(args);
@@ -328,9 +314,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public deletePermission(
     args: DeletePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionCommandOutput) => void),
     cb?: (err: any, data?: DeletePermissionCommandOutput) => void
   ): Promise<DeletePermissionCommandOutput> | void {
     const command = new DeletePermissionCommand(args);
@@ -431,31 +415,19 @@ export class ACMPCA extends ACMPCAClient {
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput>;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeCertificateAuthorityAuditReportCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeCertificateAuthorityAuditReportCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCertificateAuthorityAuditReportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeCertificateAuthorityAuditReportCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> | void {
     const command = new DescribeCertificateAuthorityAuditReportCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -492,9 +464,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public getCertificate(
     args: GetCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetCertificateCommandOutput) => void
   ): Promise<GetCertificateCommandOutput> | void {
     const command = new GetCertificateCommand(args);
@@ -520,31 +490,19 @@ export class ACMPCA extends ACMPCAClient {
   ): Promise<GetCertificateAuthorityCertificateCommandOutput>;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    cb: (
-      err: any,
-      data?: GetCertificateAuthorityCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
   ): void;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCertificateAuthorityCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
   ): void;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCertificateAuthorityCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCertificateAuthorityCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void),
+    cb?: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
   ): Promise<GetCertificateAuthorityCertificateCommandOutput> | void {
     const command = new GetCertificateAuthorityCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -653,31 +611,19 @@ export class ACMPCA extends ACMPCAClient {
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput>;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    cb: (
-      err: any,
-      data?: ImportCertificateAuthorityCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
   ): void;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ImportCertificateAuthorityCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
   ): void;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ImportCertificateAuthorityCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ImportCertificateAuthorityCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void),
+    cb?: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput> | void {
     const command = new ImportCertificateAuthorityCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -716,9 +662,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public issueCertificate(
     args: IssueCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IssueCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IssueCertificateCommandOutput) => void),
     cb?: (err: any, data?: IssueCertificateCommandOutput) => void
   ): Promise<IssueCertificateCommandOutput> | void {
     const command = new IssueCertificateCommand(args);
@@ -787,9 +731,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
@@ -825,9 +767,7 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);

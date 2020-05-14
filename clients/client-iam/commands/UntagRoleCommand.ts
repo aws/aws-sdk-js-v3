@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagRoleRequest } from "../models/index";
 import {
   deserializeAws_queryUntagRoleCommand,
@@ -46,9 +42,7 @@ export class UntagRoleCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagRoleCommandInput, UntagRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class UntagRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UntagRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UntagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagRoleCommand(input, context);
   }
 

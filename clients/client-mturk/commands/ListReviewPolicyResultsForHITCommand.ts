@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   ListReviewPolicyResultsForHITRequest,
   ListReviewPolicyResultsForHITResponse
@@ -53,9 +49,7 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     ListReviewPolicyResultsForHITCommandInput,
     ListReviewPolicyResultsForHITCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     input: ListReviewPolicyResultsForHITCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListReviewPolicyResultsForHITCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> {
-    return deserializeAws_json1_1ListReviewPolicyResultsForHITCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListReviewPolicyResultsForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

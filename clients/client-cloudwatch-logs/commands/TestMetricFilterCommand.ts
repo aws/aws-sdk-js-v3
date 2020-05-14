@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  TestMetricFilterRequest,
-  TestMetricFilterResponse
-} from "../models/index";
+import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/index";
 import {
   deserializeAws_json1_1TestMetricFilterCommand,
   serializeAws_json1_1TestMetricFilterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestMetricFilterCommandInput = TestMetricFilterRequest;
-export type TestMetricFilterCommandOutput = TestMetricFilterResponse &
-  __MetadataBearer;
+export type TestMetricFilterCommandOutput = TestMetricFilterResponse & __MetadataBearer;
 
 export class TestMetricFilterCommand extends $Command<
   TestMetricFilterCommandInput,
@@ -50,9 +46,7 @@ export class TestMetricFilterCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestMetricFilterCommandInput, TestMetricFilterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

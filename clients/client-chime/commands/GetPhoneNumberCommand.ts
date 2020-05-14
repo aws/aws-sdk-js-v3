@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetPhoneNumberRequest, GetPhoneNumberResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPhoneNumberCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPhoneNumberCommandInput = GetPhoneNumberRequest;
-export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse &
-  __MetadataBearer;
+export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse & __MetadataBearer;
 
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,
@@ -47,9 +42,7 @@ export class GetPhoneNumberCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPhoneNumberCommandInput, GetPhoneNumberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

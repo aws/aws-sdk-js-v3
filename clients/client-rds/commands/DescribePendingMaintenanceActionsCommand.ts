@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribePendingMaintenanceActionsMessage,
   PendingMaintenanceActionsMessage
@@ -53,9 +49,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     DescribePendingMaintenanceActionsCommandInput,
     DescribePendingMaintenanceActionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribePendingMaintenanceActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribePendingMaintenanceActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

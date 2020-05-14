@@ -1,10 +1,6 @@
 export type RequestHandlerOutput<ResponseType> = { response: ResponseType };
 
-export interface RequestHandler<
-  RequestType,
-  ResponseType,
-  HandlerOptions = {}
-> {
+export interface RequestHandler<RequestType, ResponseType, HandlerOptions = {}> {
   /**
    * metadata contains information of a handler. For example
    * 'h2' refers this handler is for handling HTTP/2 requests,

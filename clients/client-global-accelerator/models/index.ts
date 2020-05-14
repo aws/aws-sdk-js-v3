@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -98,16 +95,13 @@ export interface AcceleratorAttributes {
 }
 
 export namespace AcceleratorAttributes {
-  export const isa = (o: any): o is AcceleratorAttributes =>
-    __isa(o, "AcceleratorAttributes");
+  export const isa = (o: any): o is AcceleratorAttributes => __isa(o, "AcceleratorAttributes");
 }
 
 /**
  * <p>The accelerator that you specified could not be disabled.</p>
  */
-export interface AcceleratorNotDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotDisabledException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotDisabledException";
   $fault: "client";
   Message?: string;
@@ -121,9 +115,7 @@ export namespace AcceleratorNotDisabledException {
 /**
  * <p>The accelerator that you specified doesn't exist.</p>
  */
-export interface AcceleratorNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AcceleratorNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AcceleratorNotFoundException";
   $fault: "client";
   Message?: string;
@@ -139,26 +131,21 @@ export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 /**
  * <p>You don't have access permission.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
  */
-export interface AssociatedEndpointGroupFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedEndpointGroupFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
   Message?: string;
@@ -173,9 +160,7 @@ export namespace AssociatedEndpointGroupFoundException {
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
  */
-export interface AssociatedListenerFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedListenerFoundException extends __SmithyException, $MetadataBearer {
   name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
@@ -356,8 +341,7 @@ export interface CreateListenerRequest {
 }
 
 export namespace CreateListenerRequest {
-  export const isa = (o: any): o is CreateListenerRequest =>
-    __isa(o, "CreateListenerRequest");
+  export const isa = (o: any): o is CreateListenerRequest => __isa(o, "CreateListenerRequest");
 }
 
 export interface CreateListenerResponse {
@@ -369,8 +353,7 @@ export interface CreateListenerResponse {
 }
 
 export namespace CreateListenerResponse {
-  export const isa = (o: any): o is CreateListenerResponse =>
-    __isa(o, "CreateListenerResponse");
+  export const isa = (o: any): o is CreateListenerResponse => __isa(o, "CreateListenerResponse");
 }
 
 export interface DeleteAcceleratorRequest {
@@ -408,8 +391,7 @@ export interface DeleteListenerRequest {
 }
 
 export namespace DeleteListenerRequest {
-  export const isa = (o: any): o is DeleteListenerRequest =>
-    __isa(o, "DeleteListenerRequest");
+  export const isa = (o: any): o is DeleteListenerRequest => __isa(o, "DeleteListenerRequest");
 }
 
 export interface DescribeAcceleratorAttributesRequest {
@@ -499,8 +481,7 @@ export interface DescribeListenerRequest {
 }
 
 export namespace DescribeListenerRequest {
-  export const isa = (o: any): o is DescribeListenerRequest =>
-    __isa(o, "DescribeListenerRequest");
+  export const isa = (o: any): o is DescribeListenerRequest => __isa(o, "DescribeListenerRequest");
 }
 
 export interface DescribeListenerResponse {
@@ -549,8 +530,7 @@ export interface EndpointConfiguration {
 }
 
 export namespace EndpointConfiguration {
-  export const isa = (o: any): o is EndpointConfiguration =>
-    __isa(o, "EndpointConfiguration");
+  export const isa = (o: any): o is EndpointConfiguration => __isa(o, "EndpointConfiguration");
 }
 
 /**
@@ -626,8 +606,7 @@ export interface EndpointDescription {
 }
 
 export namespace EndpointDescription {
-  export const isa = (o: any): o is EndpointDescription =>
-    __isa(o, "EndpointDescription");
+  export const isa = (o: any): o is EndpointDescription => __isa(o, "EndpointDescription");
 }
 
 /**
@@ -699,9 +678,7 @@ export namespace EndpointGroup {
 /**
  * <p>The endpoint group that you specified already exists.</p>
  */
-export interface EndpointGroupAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -715,9 +692,7 @@ export namespace EndpointGroupAlreadyExistsException {
 /**
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
-export interface EndpointGroupNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointGroupNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EndpointGroupNotFoundException";
   $fault: "client";
   Message?: string;
@@ -739,9 +714,7 @@ export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
 /**
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
@@ -755,9 +728,7 @@ export namespace InternalServiceErrorException {
 /**
  * <p>An argument that you specified is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -771,9 +742,7 @@ export namespace InvalidArgumentException {
 /**
  * <p>There isn't another item to return.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -787,9 +756,7 @@ export namespace InvalidNextTokenException {
 /**
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
-export interface InvalidPortRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPortRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPortRangeException";
   $fault: "client";
   Message?: string;
@@ -827,17 +794,14 @@ export namespace IpSet {
 /**
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAcceleratorsRequest {
@@ -854,8 +818,7 @@ export interface ListAcceleratorsRequest {
 }
 
 export namespace ListAcceleratorsRequest {
-  export const isa = (o: any): o is ListAcceleratorsRequest =>
-    __isa(o, "ListAcceleratorsRequest");
+  export const isa = (o: any): o is ListAcceleratorsRequest => __isa(o, "ListAcceleratorsRequest");
 }
 
 export interface ListAcceleratorsResponse {
@@ -936,8 +899,7 @@ export interface ListListenersRequest {
 }
 
 export namespace ListListenersRequest {
-  export const isa = (o: any): o is ListListenersRequest =>
-    __isa(o, "ListListenersRequest");
+  export const isa = (o: any): o is ListListenersRequest => __isa(o, "ListListenersRequest");
 }
 
 export interface ListListenersResponse {
@@ -954,8 +916,7 @@ export interface ListListenersResponse {
 }
 
 export namespace ListListenersResponse {
-  export const isa = (o: any): o is ListListenersResponse =>
-    __isa(o, "ListListenersResponse");
+  export const isa = (o: any): o is ListListenersResponse => __isa(o, "ListListenersResponse");
 }
 
 /**
@@ -1002,9 +963,7 @@ export namespace Listener {
 /**
  * <p>The listener that you specified doesn't exist.</p>
  */
-export interface ListenerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1237,8 +1196,7 @@ export interface UpdateListenerRequest {
 }
 
 export namespace UpdateListenerRequest {
-  export const isa = (o: any): o is UpdateListenerRequest =>
-    __isa(o, "UpdateListenerRequest");
+  export const isa = (o: any): o is UpdateListenerRequest => __isa(o, "UpdateListenerRequest");
 }
 
 export interface UpdateListenerResponse {
@@ -1250,6 +1208,5 @@ export interface UpdateListenerResponse {
 }
 
 export namespace UpdateListenerResponse {
-  export const isa = (o: any): o is UpdateListenerResponse =>
-    __isa(o, "UpdateListenerResponse");
+  export const isa = (o: any): o is UpdateListenerResponse => __isa(o, "UpdateListenerResponse");
 }

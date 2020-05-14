@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  CreateVirtualServiceInput,
-  CreateVirtualServiceOutput
-} from "../models/index";
+import { CreateVirtualServiceInput, CreateVirtualServiceOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVirtualServiceCommand,
   serializeAws_restJson1_1CreateVirtualServiceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVirtualServiceCommandInput = CreateVirtualServiceInput;
-export type CreateVirtualServiceCommandOutput = CreateVirtualServiceOutput &
-  __MetadataBearer;
+export type CreateVirtualServiceCommandOutput = CreateVirtualServiceOutput & __MetadataBearer;
 
 export class CreateVirtualServiceCommand extends $Command<
   CreateVirtualServiceCommandInput,
@@ -49,13 +45,8 @@ export class CreateVirtualServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVirtualServiceCommandInput,
-    CreateVirtualServiceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVirtualServiceCommandInput, CreateVirtualServiceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateVirtualServiceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1CreateVirtualServiceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

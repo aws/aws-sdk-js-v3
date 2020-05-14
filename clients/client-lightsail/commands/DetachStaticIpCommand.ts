@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachStaticIpCommandInput = DetachStaticIpRequest;
-export type DetachStaticIpCommandOutput = DetachStaticIpResult &
-  __MetadataBearer;
+export type DetachStaticIpCommandOutput = DetachStaticIpResult & __MetadataBearer;
 
 export class DetachStaticIpCommand extends $Command<
   DetachStaticIpCommandInput,
@@ -47,9 +46,7 @@ export class DetachStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachStaticIpCommandInput, DetachStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

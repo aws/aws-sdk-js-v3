@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  GetObjectInformationRequest,
-  GetObjectInformationResponse
-} from "../models/index";
+import { GetObjectInformationRequest, GetObjectInformationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetObjectInformationCommand,
   serializeAws_restJson1_1GetObjectInformationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetObjectInformationCommandInput = GetObjectInformationRequest;
-export type GetObjectInformationCommandOutput = GetObjectInformationResponse &
-  __MetadataBearer;
+export type GetObjectInformationCommandOutput = GetObjectInformationResponse & __MetadataBearer;
 
 export class GetObjectInformationCommand extends $Command<
   GetObjectInformationCommandInput,
@@ -49,13 +45,8 @@ export class GetObjectInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetObjectInformationCommandInput,
-    GetObjectInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetObjectInformationCommandInput, GetObjectInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetObjectInformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetObjectInformationCommandOutput> {
-    return deserializeAws_restJson1_1GetObjectInformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetObjectInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

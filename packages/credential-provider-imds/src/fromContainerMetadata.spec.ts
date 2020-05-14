@@ -5,10 +5,7 @@ import {
   fromContainerMetadata
 } from "./fromContainerMetadata";
 import { httpGet } from "./remoteProvider/httpGet";
-import {
-  fromImdsCredentials,
-  ImdsCredentials
-} from "./remoteProvider/ImdsCredentials";
+import { fromImdsCredentials, ImdsCredentials } from "./remoteProvider/ImdsCredentials";
 
 const mockHttpGet = <any>httpGet;
 jest.mock("./remoteProvider/httpGet", () => ({ httpGet: jest.fn() }));
@@ -72,9 +69,7 @@ describe("fromContainerMetadata", () => {
     it("should resolve credentials by fetching them from the container metadata service", async () => {
       mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
 
-      expect(await fromContainerMetadata()()).toEqual(
-        fromImdsCredentials(creds)
-      );
+      expect(await fromContainerMetadata()()).toEqual(fromImdsCredentials(creds));
     });
 
     it("should retry the fetching operation up to maxRetries times", async () => {
@@ -84,9 +79,7 @@ describe("fromContainerMetadata", () => {
       }
       mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
-      expect(await fromContainerMetadata({ maxRetries })()).toEqual(
-        fromImdsCredentials(creds)
-      );
+      expect(await fromContainerMetadata({ maxRetries })()).toEqual(fromImdsCredentials(creds));
       expect(mockHttpGet.mock.calls.length).toEqual(maxRetries);
     });
 
@@ -94,16 +87,12 @@ describe("fromContainerMetadata", () => {
       for (let key of Object.keys(creds)) {
         const invalidCreds: any = { ...creds };
         delete invalidCreds[key];
-        mockHttpGet.mockReturnValueOnce(
-          Promise.resolve(JSON.stringify(invalidCreds))
-        );
+        mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(invalidCreds)));
       }
       mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
       await fromContainerMetadata({ maxRetries: 100 })();
-      expect(mockHttpGet.mock.calls.length).toEqual(
-        Object.keys(creds).length + 1
-      );
+      expect(mockHttpGet.mock.calls.length).toEqual(Object.keys(creds).length + 1);
     });
 
     it("should pass relevant configuration to httpGet", async () => {

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterCommandInput = DeleteClusterRequest;
-export type DeleteClusterCommandOutput = DeleteClusterResponse &
-  __MetadataBearer;
+export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
@@ -47,9 +46,7 @@ export class DeleteClusterCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

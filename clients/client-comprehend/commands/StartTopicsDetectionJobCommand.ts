@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  StartTopicsDetectionJobRequest,
-  StartTopicsDetectionJobResponse
-} from "../models/index";
+import { StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartTopicsDetectionJobCommand,
   serializeAws_json1_1StartTopicsDetectionJobCommand
@@ -49,13 +46,8 @@ export class StartTopicsDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartTopicsDetectionJobCommandInput,
-    StartTopicsDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartTopicsDetectionJobCommandInput, StartTopicsDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class StartTopicsDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartTopicsDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

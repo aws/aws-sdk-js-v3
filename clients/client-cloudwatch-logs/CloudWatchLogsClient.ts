@@ -134,18 +134,9 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput
 } from "./commands/PutSubscriptionFilterCommand";
-import {
-  StartQueryCommandInput,
-  StartQueryCommandOutput
-} from "./commands/StartQueryCommand";
-import {
-  StopQueryCommandInput,
-  StopQueryCommandOutput
-} from "./commands/StopQueryCommand";
-import {
-  TagLogGroupCommandInput,
-  TagLogGroupCommandOutput
-} from "./commands/TagLogGroupCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
+import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
 import {
   TestMetricFilterCommandInput,
   TestMetricFilterCommandOutput
@@ -373,9 +364,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchLogsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchLogsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionResponse
-} from "../models/index";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateEventSubscriptionCommand,
   serializeAws_json1_1CreateEventSubscriptionCommand
@@ -49,13 +46,8 @@ export class CreateEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEventSubscriptionCommandInput,
-    CreateEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateEventSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateEventSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

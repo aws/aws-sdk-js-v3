@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  BatchSuspendUserRequest,
-  BatchSuspendUserResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { BatchSuspendUserRequest, BatchSuspendUserResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchSuspendUserCommand,
   serializeAws_restJson1_1BatchSuspendUserCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchSuspendUserCommandInput = BatchSuspendUserRequest;
-export type BatchSuspendUserCommandOutput = BatchSuspendUserResponse &
-  __MetadataBearer;
+export type BatchSuspendUserCommandOutput = BatchSuspendUserResponse & __MetadataBearer;
 
 export class BatchSuspendUserCommand extends $Command<
   BatchSuspendUserCommandInput,
@@ -50,9 +42,7 @@ export class BatchSuspendUserCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchSuspendUserCommandInput, BatchSuspendUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

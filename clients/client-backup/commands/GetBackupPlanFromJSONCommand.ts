@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupPlanFromJSONInput,
-  GetBackupPlanFromJSONOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackupPlanFromJSONCommand,
   serializeAws_restJson1_1GetBackupPlanFromJSONCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBackupPlanFromJSONCommandInput = GetBackupPlanFromJSONInput;
-export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput &
-  __MetadataBearer;
+export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput & __MetadataBearer;
 
 export class GetBackupPlanFromJSONCommand extends $Command<
   GetBackupPlanFromJSONCommandInput,
@@ -49,13 +41,8 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupPlanFromJSONCommandInput,
-    GetBackupPlanFromJSONCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupPlanFromJSONCommandInput, GetBackupPlanFromJSONCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupPlanFromJSONCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupPlanFromJSONCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupPlanFromJSONCommand(output, context);
   }
 
   // Start section: command_body_extra

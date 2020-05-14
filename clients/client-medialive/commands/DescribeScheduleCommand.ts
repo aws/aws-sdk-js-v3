@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DescribeScheduleRequest,
-  DescribeScheduleResponse
-} from "../models/index";
+import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeScheduleCommand,
   serializeAws_restJson1_1DescribeScheduleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScheduleCommandInput = DescribeScheduleRequest;
-export type DescribeScheduleCommandOutput = DescribeScheduleResponse &
-  __MetadataBearer;
+export type DescribeScheduleCommandOutput = DescribeScheduleResponse & __MetadataBearer;
 
 export class DescribeScheduleCommand extends $Command<
   DescribeScheduleCommandInput,
@@ -50,9 +46,7 @@ export class DescribeScheduleCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeScheduleCommandInput, DescribeScheduleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

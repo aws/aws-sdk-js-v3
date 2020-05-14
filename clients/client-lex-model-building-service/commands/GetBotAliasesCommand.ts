@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBotAliasesCommandInput = GetBotAliasesRequest;
-export type GetBotAliasesCommandOutput = GetBotAliasesResponse &
-  __MetadataBearer;
+export type GetBotAliasesCommandOutput = GetBotAliasesResponse & __MetadataBearer;
 
 export class GetBotAliasesCommand extends $Command<
   GetBotAliasesCommandInput,
@@ -47,9 +46,7 @@ export class GetBotAliasesCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBotAliasesCommandInput, GetBotAliasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

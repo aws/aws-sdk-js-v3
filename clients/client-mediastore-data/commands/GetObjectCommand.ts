@@ -46,9 +46,7 @@ export class GetObjectCommand extends $Command<
     configuration: MediaStoreDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetObjectCommandInput, GetObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class GetObjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetObjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetObjectCommand(input, context);
   }
 

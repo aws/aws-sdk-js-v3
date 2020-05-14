@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateScheduledAuditRequest,
-  UpdateScheduledAuditResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateScheduledAuditRequest, UpdateScheduledAuditResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateScheduledAuditCommand,
   serializeAws_restJson1_1UpdateScheduledAuditCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateScheduledAuditCommandInput = UpdateScheduledAuditRequest;
-export type UpdateScheduledAuditCommandOutput = UpdateScheduledAuditResponse &
-  __MetadataBearer;
+export type UpdateScheduledAuditCommandOutput = UpdateScheduledAuditResponse & __MetadataBearer;
 
 export class UpdateScheduledAuditCommand extends $Command<
   UpdateScheduledAuditCommandInput,
@@ -49,13 +41,8 @@ export class UpdateScheduledAuditCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateScheduledAuditCommandInput,
-    UpdateScheduledAuditCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateScheduledAuditCommandInput, UpdateScheduledAuditCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateScheduledAuditCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1_1UpdateScheduledAuditCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInstanceCommandInput = CreateInstanceRequest;
-export type CreateInstanceCommandOutput = CreateInstanceResult &
-  __MetadataBearer;
+export type CreateInstanceCommandOutput = CreateInstanceResult & __MetadataBearer;
 
 export class CreateInstanceCommand extends $Command<
   CreateInstanceCommandInput,
@@ -47,9 +46,7 @@ export class CreateInstanceCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInstanceCommandInput, CreateInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

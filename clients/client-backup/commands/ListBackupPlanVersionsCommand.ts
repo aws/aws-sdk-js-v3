@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  ListBackupPlanVersionsInput,
-  ListBackupPlanVersionsOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListBackupPlanVersionsInput, ListBackupPlanVersionsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBackupPlanVersionsCommand,
   serializeAws_restJson1_1ListBackupPlanVersionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBackupPlanVersionsCommandInput = ListBackupPlanVersionsInput;
-export type ListBackupPlanVersionsCommandOutput = ListBackupPlanVersionsOutput &
-  __MetadataBearer;
+export type ListBackupPlanVersionsCommandOutput = ListBackupPlanVersionsOutput & __MetadataBearer;
 
 export class ListBackupPlanVersionsCommand extends $Command<
   ListBackupPlanVersionsCommandInput,
@@ -49,13 +41,8 @@ export class ListBackupPlanVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBackupPlanVersionsCommandInput,
-    ListBackupPlanVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBackupPlanVersionsCommandInput, ListBackupPlanVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ListBackupPlanVersionsCommand extends $Command<
     input: ListBackupPlanVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListBackupPlanVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListBackupPlanVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBackupPlanVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListBackupPlanVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupPlanVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

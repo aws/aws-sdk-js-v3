@@ -10,18 +10,12 @@ import {
   BatchDisassociateUserStackCommandInput,
   BatchDisassociateUserStackCommandOutput
 } from "./commands/BatchDisassociateUserStackCommand";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput
 } from "./commands/CreateDirectoryConfigCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateImageBuilderCommandInput,
   CreateImageBuilderCommandOutput
@@ -30,10 +24,7 @@ import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput
 } from "./commands/CreateImageBuilderStreamingURLCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStreamingURLCommandInput,
   CreateStreamingURLCommandOutput
@@ -42,42 +33,27 @@ import {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput
 } from "./commands/CreateUsageReportSubscriptionCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput
 } from "./commands/DeleteDirectoryConfigCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteImageBuilderCommandInput,
   DeleteImageBuilderCommandOutput
 } from "./commands/DeleteImageBuilderCommand";
-import {
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "./commands/DeleteImageCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
   DeleteImagePermissionsCommandInput,
   DeleteImagePermissionsCommandOutput
 } from "./commands/DeleteImagePermissionsCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteUsageReportSubscriptionCommandInput,
   DeleteUsageReportSubscriptionCommandOutput
 } from "./commands/DeleteUsageReportSubscriptionCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeDirectoryConfigsCommandInput,
   DescribeDirectoryConfigsCommandOutput
@@ -118,18 +94,12 @@ import {
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput
 } from "./commands/DescribeUsersCommand";
-import {
-  DisableUserCommandInput,
-  DisableUserCommandOutput
-} from "./commands/DisableUserCommand";
+import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
 import {
   DisassociateFleetCommandInput,
   DisassociateFleetCommandOutput
 } from "./commands/DisassociateFleetCommand";
-import {
-  EnableUserCommandInput,
-  EnableUserCommandOutput
-} from "./commands/EnableUserCommand";
+import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import {
   ExpireSessionCommandInput,
   ExpireSessionCommandOutput
@@ -146,26 +116,17 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  StartFleetCommandInput,
-  StartFleetCommandOutput
-} from "./commands/StartFleetCommand";
+import { StartFleetCommandInput, StartFleetCommandOutput } from "./commands/StartFleetCommand";
 import {
   StartImageBuilderCommandInput,
   StartImageBuilderCommandOutput
 } from "./commands/StartImageBuilderCommand";
-import {
-  StopFleetCommandInput,
-  StopFleetCommandOutput
-} from "./commands/StopFleetCommand";
+import { StopFleetCommandInput, StopFleetCommandOutput } from "./commands/StopFleetCommand";
 import {
   StopImageBuilderCommandInput,
   StopImageBuilderCommandOutput
 } from "./commands/StopImageBuilderCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -174,18 +135,12 @@ import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput
 } from "./commands/UpdateDirectoryConfigCommand";
-import {
-  UpdateFleetCommandInput,
-  UpdateFleetCommandOutput
-} from "./commands/UpdateFleetCommand";
+import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommandInput,
   UpdateImagePermissionsCommandOutput
 } from "./commands/UpdateImagePermissionsCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -421,9 +376,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppStreamClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppStreamClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -432,9 +385,7 @@ export type AppStreamClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

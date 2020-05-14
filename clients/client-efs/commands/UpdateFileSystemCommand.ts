@@ -1,12 +1,5 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  FileSystemDescription,
-  UpdateFileSystemRequest
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { FileSystemDescription, UpdateFileSystemRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFileSystemCommand,
   serializeAws_restJson1_1UpdateFileSystemCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFileSystemCommandInput = UpdateFileSystemRequest;
-export type UpdateFileSystemCommandOutput = FileSystemDescription &
-  __MetadataBearer;
+export type UpdateFileSystemCommandOutput = FileSystemDescription & __MetadataBearer;
 
 export class UpdateFileSystemCommand extends $Command<
   UpdateFileSystemCommandInput,
@@ -50,9 +42,7 @@ export class UpdateFileSystemCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

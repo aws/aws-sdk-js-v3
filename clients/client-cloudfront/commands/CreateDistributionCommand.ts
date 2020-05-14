@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  CreateDistributionRequest,
-  CreateDistributionResult
-} from "../models/index";
+import { CreateDistributionRequest, CreateDistributionResult } from "../models/index";
 import {
   deserializeAws_restXmlCreateDistributionCommand,
   serializeAws_restXmlCreateDistributionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDistributionCommandInput = CreateDistributionRequest;
-export type CreateDistributionCommandOutput = CreateDistributionResult &
-  __MetadataBearer;
+export type CreateDistributionCommandOutput = CreateDistributionResult & __MetadataBearer;
 
 export class CreateDistributionCommand extends $Command<
   CreateDistributionCommandInput,
@@ -50,9 +46,7 @@ export class CreateDistributionCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDistributionCommandInput, CreateDistributionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

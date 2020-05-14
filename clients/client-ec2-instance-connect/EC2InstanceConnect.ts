@@ -30,9 +30,7 @@ export class EC2InstanceConnect extends EC2InstanceConnectClient {
   ): void;
   public sendSSHPublicKey(
     args: SendSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: SendSSHPublicKeyCommandOutput) => void
   ): Promise<SendSSHPublicKeyCommandOutput> | void {
     const command = new SendSSHPublicKeyCommand(args);

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult
@@ -39,9 +35,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ReplaceIamInstanceProfileAssociationCommandInput
-  ) {
+  constructor(readonly input: ReplaceIamInstanceProfileAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     ReplaceIamInstanceProfileAssociationCommandInput,
     ReplaceIamInstanceProfileAssociationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     input: ReplaceIamInstanceProfileAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

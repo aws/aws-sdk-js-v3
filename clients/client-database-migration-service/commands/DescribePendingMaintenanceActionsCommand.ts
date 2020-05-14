@@ -53,9 +53,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     DescribePendingMaintenanceActionsCommandInput,
     DescribePendingMaintenanceActionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     input: DescribePendingMaintenanceActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingMaintenanceActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribePendingMaintenanceActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingMaintenanceActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePendingMaintenanceActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

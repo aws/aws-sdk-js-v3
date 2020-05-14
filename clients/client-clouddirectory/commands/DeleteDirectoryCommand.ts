@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  DeleteDirectoryRequest,
-  DeleteDirectoryResponse
-} from "../models/index";
+import { DeleteDirectoryRequest, DeleteDirectoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDirectoryCommand,
   serializeAws_restJson1_1DeleteDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDirectoryCommandInput = DeleteDirectoryRequest;
-export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse &
-  __MetadataBearer;
+export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse & __MetadataBearer;
 
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTDataPlaneClient";
-import {
-  DeleteThingShadowRequest,
-  DeleteThingShadowResponse
-} from "../models/index";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteThingShadowCommand,
   serializeAws_restJson1_1DeleteThingShadowCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteThingShadowCommandInput = DeleteThingShadowRequest;
-export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse &
-  __MetadataBearer;
+export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse & __MetadataBearer;
 
 export class DeleteThingShadowCommand extends $Command<
   DeleteThingShadowCommandInput,
@@ -50,9 +46,7 @@ export class DeleteThingShadowCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

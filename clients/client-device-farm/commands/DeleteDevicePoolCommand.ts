@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  DeleteDevicePoolRequest,
-  DeleteDevicePoolResult
-} from "../models/index";
+import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDevicePoolCommand,
   serializeAws_json1_1DeleteDevicePoolCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDevicePoolCommandInput = DeleteDevicePoolRequest;
-export type DeleteDevicePoolCommandOutput = DeleteDevicePoolResult &
-  __MetadataBearer;
+export type DeleteDevicePoolCommandOutput = DeleteDevicePoolResult & __MetadataBearer;
 
 export class DeleteDevicePoolCommand extends $Command<
   DeleteDevicePoolCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDevicePoolCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

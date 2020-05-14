@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  DeleteGeoMatchSetRequest,
-  DeleteGeoMatchSetResponse
-} from "../models/index";
+import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteGeoMatchSetCommand,
   serializeAws_json1_1DeleteGeoMatchSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGeoMatchSetCommandInput = DeleteGeoMatchSetRequest;
-export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse &
-  __MetadataBearer;
+export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse & __MetadataBearer;
 
 export class DeleteGeoMatchSetCommand extends $Command<
   DeleteGeoMatchSetCommandInput,
@@ -50,9 +46,7 @@ export class DeleteGeoMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

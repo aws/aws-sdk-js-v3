@@ -46,9 +46,7 @@ export class GetItemCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetItemCommandInput, GetItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class GetItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetItemCommand(input, context);
   }
 

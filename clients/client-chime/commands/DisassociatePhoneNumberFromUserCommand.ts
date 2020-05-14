@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociatePhoneNumberFromUserRequest,
   DisassociatePhoneNumberFromUserResponse
@@ -53,9 +49,7 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     DisassociatePhoneNumberFromUserCommandInput,
     DisassociatePhoneNumberFromUserCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     input: DisassociatePhoneNumberFromUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumberFromUserCommandOutput> {
-    return deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommand(output, context);
   }
 
   // Start section: command_body_extra

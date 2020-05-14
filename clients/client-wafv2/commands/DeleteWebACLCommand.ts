@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteWebACLCommand,
@@ -46,9 +42,7 @@ export class DeleteWebACLCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteWebACLCommandInput, DeleteWebACLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

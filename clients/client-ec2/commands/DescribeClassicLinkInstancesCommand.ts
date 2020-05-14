@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeClassicLinkInstancesRequest,
   DescribeClassicLinkInstancesResult
@@ -49,13 +45,8 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClassicLinkInstancesCommandInput,
-    DescribeClassicLinkInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClassicLinkInstancesCommandInput, DescribeClassicLinkInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClassicLinkInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeClassicLinkInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

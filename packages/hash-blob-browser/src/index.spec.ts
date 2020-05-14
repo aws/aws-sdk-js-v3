@@ -11,8 +11,6 @@ describe("blobHasher", () => {
     const result = await blobHasher(Sha256, blob);
 
     expect(result instanceof Uint8Array).toBe(true);
-    expect(toHex(result)).toBe(
-      "24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0"
-    );
+    expect(toHex(result)).toBe("24dabf4db3774a3224d571d4c089a9c570c3045dbe1e67ee9ee2e2677f57dbe0");
   });
 });

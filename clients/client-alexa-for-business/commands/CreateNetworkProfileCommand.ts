@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  CreateNetworkProfileRequest,
-  CreateNetworkProfileResponse
-} from "../models/index";
+import { CreateNetworkProfileRequest, CreateNetworkProfileResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateNetworkProfileCommand,
   serializeAws_json1_1CreateNetworkProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNetworkProfileCommandInput = CreateNetworkProfileRequest;
-export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResponse &
-  __MetadataBearer;
+export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResponse & __MetadataBearer;
 
 export class CreateNetworkProfileCommand extends $Command<
   CreateNetworkProfileCommandInput,
@@ -49,13 +45,8 @@ export class CreateNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNetworkProfileCommandInput,
-    CreateNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNetworkProfileCommandInput, CreateNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

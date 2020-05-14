@@ -1,12 +1,5 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
-import {
-  StartQueryExecutionInput,
-  StartQueryExecutionOutput
-} from "../models/index";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { StartQueryExecutionInput, StartQueryExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartQueryExecutionCommand,
   serializeAws_json1_1StartQueryExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartQueryExecutionCommandInput = StartQueryExecutionInput;
-export type StartQueryExecutionCommandOutput = StartQueryExecutionOutput &
-  __MetadataBearer;
+export type StartQueryExecutionCommandOutput = StartQueryExecutionOutput & __MetadataBearer;
 
 export class StartQueryExecutionCommand extends $Command<
   StartQueryExecutionCommandInput,
@@ -49,13 +41,8 @@ export class StartQueryExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartQueryExecutionCommandInput,
-    StartQueryExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartQueryExecutionCommandInput, StartQueryExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

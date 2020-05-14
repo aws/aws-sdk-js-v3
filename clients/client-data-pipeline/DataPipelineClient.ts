@@ -2,10 +2,7 @@ import {
   ActivatePipelineCommandInput,
   ActivatePipelineCommandOutput
 } from "./commands/ActivatePipelineCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput
@@ -38,10 +35,7 @@ import {
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput
 } from "./commands/ListPipelinesCommand";
-import {
-  PollForTaskCommandInput,
-  PollForTaskCommandOutput
-} from "./commands/PollForTaskCommand";
+import { PollForTaskCommandInput, PollForTaskCommandOutput } from "./commands/PollForTaskCommand";
 import {
   PutPipelineDefinitionCommandInput,
   PutPipelineDefinitionCommandOutput
@@ -50,10 +44,7 @@ import {
   QueryObjectsCommandInput,
   QueryObjectsCommandOutput
 } from "./commands/QueryObjectsCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   ReportTaskProgressCommandInput,
   ReportTaskProgressCommandOutput
@@ -62,10 +53,7 @@ import {
   ReportTaskRunnerHeartbeatCommandInput,
   ReportTaskRunnerHeartbeatCommandOutput
 } from "./commands/ReportTaskRunnerHeartbeatCommand";
-import {
-  SetStatusCommandInput,
-  SetStatusCommandOutput
-} from "./commands/SetStatusCommand";
+import { SetStatusCommandInput, SetStatusCommandOutput } from "./commands/SetStatusCommand";
 import {
   SetTaskStatusCommandInput,
   SetTaskStatusCommandOutput
@@ -253,9 +241,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataPipelineClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataPipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +250,7 @@ export type DataPipelineClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

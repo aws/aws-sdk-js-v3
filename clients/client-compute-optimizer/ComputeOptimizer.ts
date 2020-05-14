@@ -59,31 +59,19 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput>;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): void;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): void;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAutoScalingGroupRecommendationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> | void {
     const command = new GetAutoScalingGroupRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -144,31 +132,19 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput>;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
-    cb: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): void;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): void;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetEC2RecommendationProjectedMetricsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+      | ((err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void),
+    cb?: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> | void {
     const command = new GetEC2RecommendationProjectedMetricsCommand(args);
     if (typeof optionsOrCb === "function") {

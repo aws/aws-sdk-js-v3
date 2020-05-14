@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisClient";
-import {
-  EnableEnhancedMonitoringInput,
-  EnhancedMonitoringOutput
-} from "../models/index";
+import { EnableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/index";
 import {
   deserializeAws_json1_1EnableEnhancedMonitoringCommand,
   serializeAws_json1_1EnableEnhancedMonitoringCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableEnhancedMonitoringCommandInput = EnableEnhancedMonitoringInput;
-export type EnableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput &
-  __MetadataBearer;
+export type EnableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput & __MetadataBearer;
 
 export class EnableEnhancedMonitoringCommand extends $Command<
   EnableEnhancedMonitoringCommandInput,
@@ -49,13 +45,8 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableEnhancedMonitoringCommandInput,
-    EnableEnhancedMonitoringCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableEnhancedMonitoringCommandInput, EnableEnhancedMonitoringCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableEnhancedMonitoringCommandOutput> {
-    return deserializeAws_json1_1EnableEnhancedMonitoringCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1EnableEnhancedMonitoringCommand(output, context);
   }
 
   // Start section: command_body_extra

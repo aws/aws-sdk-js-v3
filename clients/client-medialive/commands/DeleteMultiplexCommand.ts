@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DeleteMultiplexRequest,
-  DeleteMultiplexResponse
-} from "../models/index";
+import { DeleteMultiplexRequest, DeleteMultiplexResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteMultiplexCommand,
   serializeAws_restJson1_1DeleteMultiplexCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMultiplexCommandInput = DeleteMultiplexRequest;
-export type DeleteMultiplexCommandOutput = DeleteMultiplexResponse &
-  __MetadataBearer;
+export type DeleteMultiplexCommandOutput = DeleteMultiplexResponse & __MetadataBearer;
 
 export class DeleteMultiplexCommand extends $Command<
   DeleteMultiplexCommandInput,
@@ -50,9 +46,7 @@ export class DeleteMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

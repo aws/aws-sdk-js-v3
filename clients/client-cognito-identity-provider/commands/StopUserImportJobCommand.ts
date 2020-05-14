@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  StopUserImportJobRequest,
-  StopUserImportJobResponse
-} from "../models/index";
+import { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopUserImportJobCommand,
   serializeAws_json1_1StopUserImportJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopUserImportJobCommandInput = StopUserImportJobRequest;
-export type StopUserImportJobCommandOutput = StopUserImportJobResponse &
-  __MetadataBearer;
+export type StopUserImportJobCommandOutput = StopUserImportJobResponse & __MetadataBearer;
 
 export class StopUserImportJobCommand extends $Command<
   StopUserImportJobCommandInput,
@@ -50,9 +46,7 @@ export class StopUserImportJobCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopUserImportJobCommandInput, StopUserImportJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

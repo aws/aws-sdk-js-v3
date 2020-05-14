@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListDeviceInstancesRequest,
-  ListDeviceInstancesResult
-} from "../models/index";
+import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListDeviceInstancesCommand,
   serializeAws_json1_1ListDeviceInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeviceInstancesCommandInput = ListDeviceInstancesRequest;
-export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult &
-  __MetadataBearer;
+export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult & __MetadataBearer;
 
 export class ListDeviceInstancesCommand extends $Command<
   ListDeviceInstancesCommandInput,
@@ -49,13 +45,8 @@ export class ListDeviceInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeviceInstancesCommandInput,
-    ListDeviceInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeviceInstancesCommandInput, ListDeviceInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

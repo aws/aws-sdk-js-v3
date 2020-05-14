@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  PhoneNumberValidateRequest,
-  PhoneNumberValidateResponse
-} from "../models/index";
+import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PhoneNumberValidateCommand,
   serializeAws_restJson1_1PhoneNumberValidateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PhoneNumberValidateCommandInput = PhoneNumberValidateRequest;
-export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse &
-  __MetadataBearer;
+export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse & __MetadataBearer;
 
 export class PhoneNumberValidateCommand extends $Command<
   PhoneNumberValidateCommandInput,
@@ -49,13 +45,8 @@ export class PhoneNumberValidateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PhoneNumberValidateCommandInput,
-    PhoneNumberValidateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PhoneNumberValidateCommandInput, PhoneNumberValidateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class PhoneNumberValidateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PhoneNumberValidateCommandOutput> {
-    return deserializeAws_restJson1_1PhoneNumberValidateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PhoneNumberValidateCommand(output, context);
   }
 
   // Start section: command_body_extra

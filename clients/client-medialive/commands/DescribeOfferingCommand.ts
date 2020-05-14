@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DescribeOfferingRequest,
-  DescribeOfferingResponse
-} from "../models/index";
+import { DescribeOfferingRequest, DescribeOfferingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeOfferingCommand,
   serializeAws_restJson1_1DescribeOfferingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeOfferingCommandInput = DescribeOfferingRequest;
-export type DescribeOfferingCommandOutput = DescribeOfferingResponse &
-  __MetadataBearer;
+export type DescribeOfferingCommandOutput = DescribeOfferingResponse & __MetadataBearer;
 
 export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandInput,
@@ -50,9 +46,7 @@ export class DescribeOfferingCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeOfferingCommandInput, DescribeOfferingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

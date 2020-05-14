@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import { CheckCapacityRequest, CheckCapacityResponse } from "../models/index";
 import {
   deserializeAws_json1_1CheckCapacityCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CheckCapacityCommandInput = CheckCapacityRequest;
-export type CheckCapacityCommandOutput = CheckCapacityResponse &
-  __MetadataBearer;
+export type CheckCapacityCommandOutput = CheckCapacityResponse & __MetadataBearer;
 
 export class CheckCapacityCommand extends $Command<
   CheckCapacityCommandInput,
@@ -47,9 +42,7 @@ export class CheckCapacityCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CheckCapacityCommandInput, CheckCapacityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  DescribeDiscovererRequest,
-  DescribeDiscovererResponse
-} from "../models/index";
+import { DescribeDiscovererRequest, DescribeDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDiscovererCommand,
   serializeAws_restJson1_1DescribeDiscovererCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDiscovererCommandInput = DescribeDiscovererRequest;
-export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse &
-  __MetadataBearer;
+export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse & __MetadataBearer;
 
 export class DescribeDiscovererCommand extends $Command<
   DescribeDiscovererCommandInput,
@@ -50,9 +46,7 @@ export class DescribeDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

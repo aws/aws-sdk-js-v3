@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DescribeEntityRecognizerRequest,
-  DescribeEntityRecognizerResponse
-} from "../models/index";
+import { DescribeEntityRecognizerRequest, DescribeEntityRecognizerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEntityRecognizerCommand,
   serializeAws_json1_1DescribeEntityRecognizerCommand
@@ -49,13 +46,8 @@ export class DescribeEntityRecognizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEntityRecognizerCommandInput,
-    DescribeEntityRecognizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEntityRecognizerCommandInput, DescribeEntityRecognizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeEntityRecognizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityRecognizerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  ListApprovalRuleTemplatesInput,
-  ListApprovalRuleTemplatesOutput
-} from "../models/index";
+import { ListApprovalRuleTemplatesInput, ListApprovalRuleTemplatesOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListApprovalRuleTemplatesCommand,
   serializeAws_json1_1ListApprovalRuleTemplatesCommand
@@ -49,13 +46,8 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApprovalRuleTemplatesCommandInput,
-    ListApprovalRuleTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApprovalRuleTemplatesCommandInput, ListApprovalRuleTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApprovalRuleTemplatesCommandOutput> {
-    return deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListApprovalRuleTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

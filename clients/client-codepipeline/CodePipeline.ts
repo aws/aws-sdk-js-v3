@@ -403,9 +403,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public acknowledgeJob(
     args: AcknowledgeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcknowledgeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcknowledgeJobCommandOutput) => void),
     cb?: (err: any, data?: AcknowledgeJobCommandOutput) => void
   ): Promise<AcknowledgeJobCommandOutput> | void {
     const command = new AcknowledgeJobCommand(args);
@@ -516,9 +514,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
@@ -594,9 +590,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
@@ -633,9 +627,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
@@ -672,10 +664,7 @@ export class CodePipeline extends CodePipelineClient {
     args: DeregisterWebhookWithThirdPartyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterWebhookWithThirdPartyCommandOutput
-        ) => void),
+      | ((err: any, data?: DeregisterWebhookWithThirdPartyCommandOutput) => void),
     cb?: (err: any, data?: DeregisterWebhookWithThirdPartyCommandOutput) => void
   ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> | void {
     const command = new DeregisterWebhookWithThirdPartyCommand(args);
@@ -785,9 +774,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getJobDetails(
     args: GetJobDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobDetailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetJobDetailsCommandOutput) => void
   ): Promise<GetJobDetailsCommandOutput> | void {
     const command = new GetJobDetailsCommand(args);
@@ -822,9 +809,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getPipeline(
     args: GetPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPipelineCommandOutput) => void),
     cb?: (err: any, data?: GetPipelineCommandOutput) => void
   ): Promise<GetPipelineCommandOutput> | void {
     const command = new GetPipelineCommand(args);
@@ -900,9 +885,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public getPipelineState(
     args: GetPipelineStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPipelineStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPipelineStateCommandOutput) => void),
     cb?: (err: any, data?: GetPipelineStateCommandOutput) => void
   ): Promise<GetPipelineStateCommandOutput> | void {
     const command = new GetPipelineStateCommand(args);
@@ -1013,9 +996,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listActionTypes(
     args: ListActionTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActionTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActionTypesCommandOutput) => void),
     cb?: (err: any, data?: ListActionTypesCommandOutput) => void
   ): Promise<ListActionTypesCommandOutput> | void {
     const command = new ListActionTypesCommand(args);
@@ -1083,9 +1064,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
@@ -1156,9 +1135,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public listWebhooks(
     args: ListWebhooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebhooksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebhooksCommandOutput) => void),
     cb?: (err: any, data?: ListWebhooksCommandOutput) => void
   ): Promise<ListWebhooksCommandOutput> | void {
     const command = new ListWebhooksCommand(args);
@@ -1200,9 +1177,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public pollForJobs(
     args: PollForJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForJobsCommandOutput) => void),
     cb?: (err: any, data?: PollForJobsCommandOutput) => void
   ): Promise<PollForJobsCommandOutput> | void {
     const command = new PollForJobsCommand(args);
@@ -1497,9 +1472,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public putWebhook(
     args: PutWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutWebhookCommandOutput) => void),
     cb?: (err: any, data?: PutWebhookCommandOutput) => void
   ): Promise<PutWebhookCommandOutput> | void {
     const command = new PutWebhookCommand(args);
@@ -1683,9 +1656,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1718,9 +1689,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1756,9 +1725,7 @@ export class CodePipeline extends CodePipelineClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);

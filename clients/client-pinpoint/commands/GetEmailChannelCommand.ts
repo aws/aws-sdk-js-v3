@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetEmailChannelRequest,
-  GetEmailChannelResponse
-} from "../models/index";
+import { GetEmailChannelRequest, GetEmailChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEmailChannelCommand,
   serializeAws_restJson1_1GetEmailChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEmailChannelCommandInput = GetEmailChannelRequest;
-export type GetEmailChannelCommandOutput = GetEmailChannelResponse &
-  __MetadataBearer;
+export type GetEmailChannelCommandOutput = GetEmailChannelResponse & __MetadataBearer;
 
 export class GetEmailChannelCommand extends $Command<
   GetEmailChannelCommandInput,
@@ -50,9 +46,7 @@ export class GetEmailChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEmailChannelCommandInput, GetEmailChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

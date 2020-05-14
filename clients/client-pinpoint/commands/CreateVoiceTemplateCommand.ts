@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  CreateVoiceTemplateRequest,
-  CreateVoiceTemplateResponse
-} from "../models/index";
+import { CreateVoiceTemplateRequest, CreateVoiceTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVoiceTemplateCommand,
   serializeAws_restJson1_1CreateVoiceTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVoiceTemplateCommandInput = CreateVoiceTemplateRequest;
-export type CreateVoiceTemplateCommandOutput = CreateVoiceTemplateResponse &
-  __MetadataBearer;
+export type CreateVoiceTemplateCommandOutput = CreateVoiceTemplateResponse & __MetadataBearer;
 
 export class CreateVoiceTemplateCommand extends $Command<
   CreateVoiceTemplateCommandInput,
@@ -49,13 +45,8 @@ export class CreateVoiceTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVoiceTemplateCommandInput,
-    CreateVoiceTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVoiceTemplateCommandInput, CreateVoiceTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateVoiceTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1_1CreateVoiceTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

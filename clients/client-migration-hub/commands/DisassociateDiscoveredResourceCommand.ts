@@ -53,9 +53,7 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     DisassociateDiscoveredResourceCommandInput,
     DisassociateDiscoveredResourceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     input: DisassociateDiscoveredResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateDiscoveredResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateDiscoveredResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDiscoveredResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateDiscoveredResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateDiscoveredResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

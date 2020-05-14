@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NullAndEmptyHeadersServerCommandInput = NullAndEmptyHeadersIO;
-export type NullAndEmptyHeadersServerCommandOutput = NullAndEmptyHeadersIO &
-  __MetadataBearer;
+export type NullAndEmptyHeadersServerCommandOutput = NullAndEmptyHeadersIO & __MetadataBearer;
 
 export class NullAndEmptyHeadersServerCommand extends $Command<
   NullAndEmptyHeadersServerCommandInput,
@@ -46,13 +45,8 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    NullAndEmptyHeadersServerCommandInput,
-    NullAndEmptyHeadersServerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<NullAndEmptyHeadersServerCommandInput, NullAndEmptyHeadersServerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +65,14 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
     input: NullAndEmptyHeadersServerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1NullAndEmptyHeadersServerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NullAndEmptyHeadersServerCommandOutput> {
-    return deserializeAws_restJson1_1NullAndEmptyHeadersServerCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1NullAndEmptyHeadersServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsResult
-} from "../models/index";
+import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetAccountSettingsCommand,
   serializeAws_json1_1GetAccountSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResult &
-  __MetadataBearer;
+export type GetAccountSettingsCommandOutput = GetAccountSettingsResult & __MetadataBearer;
 
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,
@@ -50,9 +46,7 @@ export class GetAccountSettingsCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

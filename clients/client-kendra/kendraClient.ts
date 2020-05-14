@@ -10,30 +10,15 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput
 } from "./commands/CreateDataSourceCommand";
-import {
-  CreateFaqCommandInput,
-  CreateFaqCommandOutput
-} from "./commands/CreateFaqCommand";
-import {
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput
-} from "./commands/CreateIndexCommand";
-import {
-  DeleteFaqCommandInput,
-  DeleteFaqCommandOutput
-} from "./commands/DeleteFaqCommand";
-import {
-  DeleteIndexCommandInput,
-  DeleteIndexCommandOutput
-} from "./commands/DeleteIndexCommand";
+import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
+import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DescribeDataSourceCommandInput,
   DescribeDataSourceCommandOutput
 } from "./commands/DescribeDataSourceCommand";
-import {
-  DescribeFaqCommandInput,
-  DescribeFaqCommandOutput
-} from "./commands/DescribeFaqCommand";
+import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput
@@ -46,14 +31,8 @@ import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput
 } from "./commands/ListDataSourcesCommand";
-import {
-  ListFaqsCommandInput,
-  ListFaqsCommandOutput
-} from "./commands/ListFaqsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand";
+import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -71,10 +50,7 @@ import {
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput
 } from "./commands/UpdateDataSourceCommand";
-import {
-  UpdateIndexCommandInput,
-  UpdateIndexCommandOutput
-} from "./commands/UpdateIndexCommand";
+import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -256,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type kendraClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type kendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -267,9 +241,7 @@ export type kendraClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type kendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

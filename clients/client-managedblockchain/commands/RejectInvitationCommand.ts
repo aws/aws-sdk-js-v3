@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RejectInvitationCommandInput = RejectInvitationInput;
-export type RejectInvitationCommandOutput = RejectInvitationOutput &
-  __MetadataBearer;
+export type RejectInvitationCommandOutput = RejectInvitationOutput & __MetadataBearer;
 
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,
@@ -47,9 +46,7 @@ export class RejectInvitationCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RejectInvitationCommandInput, RejectInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

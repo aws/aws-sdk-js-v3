@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   RegisterTaskWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowResult
@@ -53,9 +49,7 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
     RegisterTaskWithMaintenanceWindowCommandInput,
     RegisterTaskWithMaintenanceWindowCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
     input: RegisterTaskWithMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

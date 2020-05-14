@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ListResourceRecordSetsRequest,
-  ListResourceRecordSetsResponse
-} from "../models/index";
+import { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/index";
 import {
   deserializeAws_restXmlListResourceRecordSetsCommand,
   serializeAws_restXmlListResourceRecordSetsCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourceRecordSetsCommandInput = ListResourceRecordSetsRequest;
-export type ListResourceRecordSetsCommandOutput = ListResourceRecordSetsResponse &
-  __MetadataBearer;
+export type ListResourceRecordSetsCommandOutput = ListResourceRecordSetsResponse & __MetadataBearer;
 
 export class ListResourceRecordSetsCommand extends $Command<
   ListResourceRecordSetsCommandInput,
@@ -50,13 +46,8 @@ export class ListResourceRecordSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourceRecordSetsCommandInput,
-    ListResourceRecordSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourceRecordSetsCommandInput, ListResourceRecordSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

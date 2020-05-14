@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  ListHandshakesForAccountRequest,
-  ListHandshakesForAccountResponse
-} from "../models/index";
+import { ListHandshakesForAccountRequest, ListHandshakesForAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHandshakesForAccountCommand,
   serializeAws_json1_1ListHandshakesForAccountCommand
@@ -49,13 +46,8 @@ export class ListHandshakesForAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHandshakesForAccountCommandInput,
-    ListHandshakesForAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHandshakesForAccountCommandInput, ListHandshakesForAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListHandshakesForAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHandshakesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListHandshakesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

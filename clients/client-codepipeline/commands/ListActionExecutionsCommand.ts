@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  ListActionExecutionsInput,
-  ListActionExecutionsOutput
-} from "../models/index";
+import { ListActionExecutionsInput, ListActionExecutionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListActionExecutionsCommand,
   serializeAws_json1_1ListActionExecutionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListActionExecutionsCommandInput = ListActionExecutionsInput;
-export type ListActionExecutionsCommandOutput = ListActionExecutionsOutput &
-  __MetadataBearer;
+export type ListActionExecutionsCommandOutput = ListActionExecutionsOutput & __MetadataBearer;
 
 export class ListActionExecutionsCommand extends $Command<
   ListActionExecutionsCommandInput,
@@ -49,13 +45,8 @@ export class ListActionExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListActionExecutionsCommandInput,
-    ListActionExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListActionExecutionsCommandInput, ListActionExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

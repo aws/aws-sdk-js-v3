@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  UpdateConnectivityInfoRequest,
-  UpdateConnectivityInfoResponse
-} from "../models/index";
+import { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateConnectivityInfoCommand,
   serializeAws_restJson1_1UpdateConnectivityInfoCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateConnectivityInfoCommandInput = UpdateConnectivityInfoRequest;
-export type UpdateConnectivityInfoCommandOutput = UpdateConnectivityInfoResponse &
-  __MetadataBearer;
+export type UpdateConnectivityInfoCommandOutput = UpdateConnectivityInfoResponse & __MetadataBearer;
 
 export class UpdateConnectivityInfoCommand extends $Command<
   UpdateConnectivityInfoCommandInput,
@@ -49,13 +45,8 @@ export class UpdateConnectivityInfoCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConnectivityInfoCommandInput,
-    UpdateConnectivityInfoCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConnectivityInfoCommandInput, UpdateConnectivityInfoCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateConnectivityInfoCommand extends $Command<
     input: UpdateConnectivityInfoCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConnectivityInfoCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateConnectivityInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConnectivityInfoCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  CreateDeviceDefinitionRequest,
-  CreateDeviceDefinitionResponse
-} from "../models/index";
+import { CreateDeviceDefinitionRequest, CreateDeviceDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDeviceDefinitionCommand,
   serializeAws_restJson1_1CreateDeviceDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeviceDefinitionCommandInput = CreateDeviceDefinitionRequest;
-export type CreateDeviceDefinitionCommandOutput = CreateDeviceDefinitionResponse &
-  __MetadataBearer;
+export type CreateDeviceDefinitionCommandOutput = CreateDeviceDefinitionResponse & __MetadataBearer;
 
 export class CreateDeviceDefinitionCommand extends $Command<
   CreateDeviceDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class CreateDeviceDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeviceDefinitionCommandInput,
-    CreateDeviceDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeviceDefinitionCommandInput, CreateDeviceDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateDeviceDefinitionCommand extends $Command<
     input: CreateDeviceDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeviceDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDeviceDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeviceDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeviceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

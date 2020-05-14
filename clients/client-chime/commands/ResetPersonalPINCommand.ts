@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  ResetPersonalPINRequest,
-  ResetPersonalPINResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { ResetPersonalPINRequest, ResetPersonalPINResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ResetPersonalPINCommand,
   serializeAws_restJson1_1ResetPersonalPINCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetPersonalPINCommandInput = ResetPersonalPINRequest;
-export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse &
-  __MetadataBearer;
+export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse & __MetadataBearer;
 
 export class ResetPersonalPINCommand extends $Command<
   ResetPersonalPINCommandInput,
@@ -50,9 +42,7 @@ export class ResetPersonalPINCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetPersonalPINCommandInput, ResetPersonalPINCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  CreateJobTemplateRequest,
-  CreateJobTemplateResponse
-} from "../models/index";
+import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateJobTemplateCommand,
   serializeAws_restJson1_1CreateJobTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateJobTemplateCommandInput = CreateJobTemplateRequest;
-export type CreateJobTemplateCommandOutput = CreateJobTemplateResponse &
-  __MetadataBearer;
+export type CreateJobTemplateCommandOutput = CreateJobTemplateResponse & __MetadataBearer;
 
 export class CreateJobTemplateCommand extends $Command<
   CreateJobTemplateCommandInput,
@@ -50,9 +46,7 @@ export class CreateJobTemplateCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

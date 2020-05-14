@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DescribeActivitiesRequest,
-  DescribeActivitiesResponse
-} from "../models/index";
+import { DescribeActivitiesRequest, DescribeActivitiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeActivitiesCommand,
   serializeAws_restJson1_1DescribeActivitiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeActivitiesCommandInput = DescribeActivitiesRequest;
-export type DescribeActivitiesCommandOutput = DescribeActivitiesResponse &
-  __MetadataBearer;
+export type DescribeActivitiesCommandOutput = DescribeActivitiesResponse & __MetadataBearer;
 
 export class DescribeActivitiesCommand extends $Command<
   DescribeActivitiesCommandInput,
@@ -50,9 +46,7 @@ export class DescribeActivitiesCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeActivitiesCommandInput, DescribeActivitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetLoadBalancersRequest,
-  GetLoadBalancersResult
-} from "../models/index";
+import { GetLoadBalancersRequest, GetLoadBalancersResult } from "../models/index";
 import {
   deserializeAws_json1_1GetLoadBalancersCommand,
   serializeAws_json1_1GetLoadBalancersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLoadBalancersCommandInput = GetLoadBalancersRequest;
-export type GetLoadBalancersCommandOutput = GetLoadBalancersResult &
-  __MetadataBearer;
+export type GetLoadBalancersCommandOutput = GetLoadBalancersResult & __MetadataBearer;
 
 export class GetLoadBalancersCommand extends $Command<
   GetLoadBalancersCommandInput,
@@ -50,9 +46,7 @@ export class GetLoadBalancersCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLoadBalancersCommandInput, GetLoadBalancersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -10,10 +10,7 @@ import {
   GetResourcesCommandInput,
   GetResourcesCommandOutput
 } from "./commands/GetResourcesCommand";
-import {
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput
-} from "./commands/GetTagKeysCommand";
+import { GetTagKeysCommandInput, GetTagKeysCommandOutput } from "./commands/GetTagKeysCommand";
 import {
   GetTagValuesCommandInput,
   GetTagValuesCommandOutput

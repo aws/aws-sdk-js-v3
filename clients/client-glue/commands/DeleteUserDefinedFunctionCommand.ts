@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   DeleteUserDefinedFunctionRequest,
   DeleteUserDefinedFunctionResponse
@@ -49,13 +45,8 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteUserDefinedFunctionCommandInput,
-    DeleteUserDefinedFunctionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteUserDefinedFunctionCommandInput, DeleteUserDefinedFunctionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

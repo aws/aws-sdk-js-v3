@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  ListMultiplexesRequest,
-  ListMultiplexesResponse
-} from "../models/index";
+import { ListMultiplexesRequest, ListMultiplexesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListMultiplexesCommand,
   serializeAws_restJson1_1ListMultiplexesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMultiplexesCommandInput = ListMultiplexesRequest;
-export type ListMultiplexesCommandOutput = ListMultiplexesResponse &
-  __MetadataBearer;
+export type ListMultiplexesCommandOutput = ListMultiplexesResponse & __MetadataBearer;
 
 export class ListMultiplexesCommand extends $Command<
   ListMultiplexesCommandInput,
@@ -50,9 +46,7 @@ export class ListMultiplexesCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMultiplexesCommandInput, ListMultiplexesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

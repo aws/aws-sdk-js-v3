@@ -46,9 +46,7 @@ export class JsonListsCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<JsonListsCommandInput, JsonListsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class JsonListsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: JsonListsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: JsonListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1JsonListsCommand(input, context);
   }
 

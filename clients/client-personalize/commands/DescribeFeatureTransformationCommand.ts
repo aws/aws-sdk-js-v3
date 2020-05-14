@@ -53,9 +53,7 @@ export class DescribeFeatureTransformationCommand extends $Command<
     DescribeFeatureTransformationCommandInput,
     DescribeFeatureTransformationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeFeatureTransformationCommand extends $Command<
     input: DescribeFeatureTransformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureTransformationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeFeatureTransformationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFeatureTransformationCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureTransformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFeatureTransformationCommand(output, context);
   }
 
   // Start section: command_body_extra

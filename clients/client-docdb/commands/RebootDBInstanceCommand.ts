@@ -1,12 +1,5 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
-import {
-  RebootDBInstanceMessage,
-  RebootDBInstanceResult
-} from "../models/index";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
-export type RebootDBInstanceCommandOutput = RebootDBInstanceResult &
-  __MetadataBearer;
+export type RebootDBInstanceCommandOutput = RebootDBInstanceResult & __MetadataBearer;
 
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,
@@ -50,9 +42,7 @@ export class RebootDBInstanceCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ActivateGatewayCommandInput = ActivateGatewayInput;
-export type ActivateGatewayCommandOutput = ActivateGatewayOutput &
-  __MetadataBearer;
+export type ActivateGatewayCommandOutput = ActivateGatewayOutput & __MetadataBearer;
 
 export class ActivateGatewayCommand extends $Command<
   ActivateGatewayCommandInput,
@@ -47,9 +46,7 @@ export class ActivateGatewayCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ActivateGatewayCommandInput, ActivateGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutInsightRuleCommandInput = PutInsightRuleInput;
-export type PutInsightRuleCommandOutput = PutInsightRuleOutput &
-  __MetadataBearer;
+export type PutInsightRuleCommandOutput = PutInsightRuleOutput & __MetadataBearer;
 
 export class PutInsightRuleCommand extends $Command<
   PutInsightRuleCommandInput,
@@ -47,9 +46,7 @@ export class PutInsightRuleCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutInsightRuleCommandInput, PutInsightRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

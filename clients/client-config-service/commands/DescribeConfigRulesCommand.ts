@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  DescribeConfigRulesRequest,
-  DescribeConfigRulesResponse
-} from "../models/index";
+import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConfigRulesCommand,
   serializeAws_json1_1DescribeConfigRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConfigRulesCommandInput = DescribeConfigRulesRequest;
-export type DescribeConfigRulesCommandOutput = DescribeConfigRulesResponse &
-  __MetadataBearer;
+export type DescribeConfigRulesCommandOutput = DescribeConfigRulesResponse & __MetadataBearer;
 
 export class DescribeConfigRulesCommand extends $Command<
   DescribeConfigRulesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeConfigRulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigRulesCommandInput,
-    DescribeConfigRulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigRulesCommandInput, DescribeConfigRulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

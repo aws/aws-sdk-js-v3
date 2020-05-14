@@ -28,9 +28,7 @@ export class PersonalizeEvents extends PersonalizeEventsClient {
   ): void;
   public putEvents(
     args: PutEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);

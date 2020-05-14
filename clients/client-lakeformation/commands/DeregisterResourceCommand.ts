@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  DeregisterResourceRequest,
-  DeregisterResourceResponse
-} from "../models/index";
+import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterResourceCommand,
   serializeAws_json1_1DeregisterResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterResourceCommandInput = DeregisterResourceRequest;
-export type DeregisterResourceCommandOutput = DeregisterResourceResponse &
-  __MetadataBearer;
+export type DeregisterResourceCommandOutput = DeregisterResourceResponse & __MetadataBearer;
 
 export class DeregisterResourceCommand extends $Command<
   DeregisterResourceCommandInput,
@@ -50,9 +46,7 @@ export class DeregisterResourceCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterResourceCommandInput, DeregisterResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInputSecurityGroupCommandInput,
-    DescribeInputSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInputSecurityGroupCommandInput, DescribeInputSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeInputSecurityGroupCommand extends $Command<
     input: DescribeInputSecurityGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeInputSecurityGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeInputSecurityGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1_1DescribeInputSecurityGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

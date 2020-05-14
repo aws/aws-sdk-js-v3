@@ -53,9 +53,7 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     GetGroupCertificateConfigurationCommandInput,
     GetGroupCertificateConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     input: GetGroupCertificateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetGroupCertificateConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetGroupCertificateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupCertificateConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

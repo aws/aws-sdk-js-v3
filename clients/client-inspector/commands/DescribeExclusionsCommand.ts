@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  DescribeExclusionsRequest,
-  DescribeExclusionsResponse
-} from "../models/index";
+import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeExclusionsCommand,
   serializeAws_json1_1DescribeExclusionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeExclusionsCommandInput = DescribeExclusionsRequest;
-export type DescribeExclusionsCommandOutput = DescribeExclusionsResponse &
-  __MetadataBearer;
+export type DescribeExclusionsCommandOutput = DescribeExclusionsResponse & __MetadataBearer;
 
 export class DescribeExclusionsCommand extends $Command<
   DescribeExclusionsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeExclusionsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeExclusionsCommandInput, DescribeExclusionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

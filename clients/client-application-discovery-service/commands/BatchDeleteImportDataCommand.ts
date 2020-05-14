@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  BatchDeleteImportDataRequest,
-  BatchDeleteImportDataResponse
-} from "../models/index";
+import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteImportDataCommand,
   serializeAws_json1_1BatchDeleteImportDataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteImportDataCommandInput = BatchDeleteImportDataRequest;
-export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse &
-  __MetadataBearer;
+export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse & __MetadataBearer;
 
 export class BatchDeleteImportDataCommand extends $Command<
   BatchDeleteImportDataCommandInput,
@@ -49,13 +45,8 @@ export class BatchDeleteImportDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteImportDataCommandInput,
-    BatchDeleteImportDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteImportDataCommandInput, BatchDeleteImportDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

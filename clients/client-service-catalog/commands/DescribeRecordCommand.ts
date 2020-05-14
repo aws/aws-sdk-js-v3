@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRecordCommandInput = DescribeRecordInput;
-export type DescribeRecordCommandOutput = DescribeRecordOutput &
-  __MetadataBearer;
+export type DescribeRecordCommandOutput = DescribeRecordOutput & __MetadataBearer;
 
 export class DescribeRecordCommand extends $Command<
   DescribeRecordCommandInput,
@@ -47,9 +46,7 @@ export class DescribeRecordCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRecordCommandInput, DescribeRecordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

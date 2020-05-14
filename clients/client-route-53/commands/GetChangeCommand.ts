@@ -47,9 +47,7 @@ export class GetChangeCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetChangeCommandInput, GetChangeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -65,10 +63,7 @@ export class GetChangeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetChangeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetChangeCommand(input, context);
   }
 

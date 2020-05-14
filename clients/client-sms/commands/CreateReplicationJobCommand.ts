@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  CreateReplicationJobRequest,
-  CreateReplicationJobResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { CreateReplicationJobRequest, CreateReplicationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateReplicationJobCommand,
   serializeAws_json1_1CreateReplicationJobCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateReplicationJobCommandInput = CreateReplicationJobRequest;
-export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse &
-  __MetadataBearer;
+export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse & __MetadataBearer;
 
 export class CreateReplicationJobCommand extends $Command<
   CreateReplicationJobCommandInput,
@@ -49,13 +41,8 @@ export class CreateReplicationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationJobCommandInput,
-    CreateReplicationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationJobCommandInput, CreateReplicationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  ListMultipartUploadsOutput,
-  ListMultipartUploadsRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/index";
 import {
   deserializeAws_restXmlListMultipartUploadsCommand,
   serializeAws_restXmlListMultipartUploadsCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMultipartUploadsCommandInput = ListMultipartUploadsRequest;
-export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput &
-  __MetadataBearer;
+export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput & __MetadataBearer;
 
 export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandInput,
@@ -50,13 +42,8 @@ export class ListMultipartUploadsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMultipartUploadsCommandInput,
-    ListMultipartUploadsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

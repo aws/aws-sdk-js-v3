@@ -1,15 +1,6 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CreateTrailCommandInput,
-  CreateTrailCommandOutput
-} from "./commands/CreateTrailCommand";
-import {
-  DeleteTrailCommandInput,
-  DeleteTrailCommandOutput
-} from "./commands/DeleteTrailCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
+import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
 import {
   DescribeTrailsCommandInput,
   DescribeTrailsCommandOutput
@@ -22,10 +13,7 @@ import {
   GetInsightSelectorsCommandInput,
   GetInsightSelectorsCommandOutput
 } from "./commands/GetInsightSelectorsCommand";
-import {
-  GetTrailCommandInput,
-  GetTrailCommandOutput
-} from "./commands/GetTrailCommand";
+import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import {
   GetTrailStatusCommandInput,
   GetTrailStatusCommandOutput
@@ -34,14 +22,8 @@ import {
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput
 } from "./commands/ListPublicKeysCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  ListTrailsCommandInput,
-  ListTrailsCommandOutput
-} from "./commands/ListTrailsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListTrailsCommandInput, ListTrailsCommandOutput } from "./commands/ListTrailsCommand";
 import {
   LookupEventsCommandInput,
   LookupEventsCommandOutput
@@ -54,22 +36,13 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput
 } from "./commands/PutInsightSelectorsCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   StartLoggingCommandInput,
   StartLoggingCommandOutput
 } from "./commands/StartLoggingCommand";
-import {
-  StopLoggingCommandInput,
-  StopLoggingCommandOutput
-} from "./commands/StopLoggingCommand";
-import {
-  UpdateTrailCommandInput,
-  UpdateTrailCommandOutput
-} from "./commands/UpdateTrailCommand";
+import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
+import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -247,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudTrailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudTrailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +229,7 @@ export type CloudTrailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

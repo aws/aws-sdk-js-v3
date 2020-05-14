@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  StartAppReplicationRequest,
-  StartAppReplicationResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { StartAppReplicationRequest, StartAppReplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartAppReplicationCommand,
   serializeAws_json1_1StartAppReplicationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartAppReplicationCommandInput = StartAppReplicationRequest;
-export type StartAppReplicationCommandOutput = StartAppReplicationResponse &
-  __MetadataBearer;
+export type StartAppReplicationCommandOutput = StartAppReplicationResponse & __MetadataBearer;
 
 export class StartAppReplicationCommand extends $Command<
   StartAppReplicationCommandInput,
@@ -49,13 +41,8 @@ export class StartAppReplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartAppReplicationCommandInput,
-    StartAppReplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartAppReplicationCommandInput, StartAppReplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

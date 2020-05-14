@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchEventsClient";
-import {
-  ListEventSourcesRequest,
-  ListEventSourcesResponse
-} from "../models/index";
+import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListEventSourcesCommand,
   serializeAws_json1_1ListEventSourcesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEventSourcesCommandInput = ListEventSourcesRequest;
-export type ListEventSourcesCommandOutput = ListEventSourcesResponse &
-  __MetadataBearer;
+export type ListEventSourcesCommandOutput = ListEventSourcesResponse & __MetadataBearer;
 
 export class ListEventSourcesCommand extends $Command<
   ListEventSourcesCommandInput,
@@ -50,9 +46,7 @@ export class ListEventSourcesCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventSourcesCommandInput, ListEventSourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

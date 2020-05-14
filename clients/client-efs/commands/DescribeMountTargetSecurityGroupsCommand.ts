@@ -1,8 +1,4 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   DescribeMountTargetSecurityGroupsRequest,
   DescribeMountTargetSecurityGroupsResponse
@@ -53,9 +49,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     DescribeMountTargetSecurityGroupsCommandInput,
     DescribeMountTargetSecurityGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -28,9 +28,7 @@ export class QLDBSession extends QLDBSessionClient {
   ): void;
   public sendCommand(
     args: SendCommandCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendCommandCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCommandCommandOutput) => void),
     cb?: (err: any, data?: SendCommandCommandOutput) => void
   ): Promise<SendCommandCommandOutput> | void {
     const command = new SendCommandCommand(args);

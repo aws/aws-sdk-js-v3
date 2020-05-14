@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult
@@ -39,9 +35,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeIamInstanceProfileAssociationsCommandInput
-  ) {
+  constructor(readonly input: DescribeIamInstanceProfileAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     DescribeIamInstanceProfileAssociationsCommandInput,
     DescribeIamInstanceProfileAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
     input: DescribeIamInstanceProfileAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

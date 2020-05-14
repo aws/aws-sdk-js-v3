@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  DeleteWorkspaceImageRequest,
-  DeleteWorkspaceImageResult
-} from "../models/index";
+import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteWorkspaceImageCommand,
   serializeAws_json1_1DeleteWorkspaceImageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteWorkspaceImageCommandInput = DeleteWorkspaceImageRequest;
-export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult &
-  __MetadataBearer;
+export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult & __MetadataBearer;
 
 export class DeleteWorkspaceImageCommand extends $Command<
   DeleteWorkspaceImageCommandInput,
@@ -49,13 +45,8 @@ export class DeleteWorkspaceImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteWorkspaceImageCommandInput,
-    DeleteWorkspaceImageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteWorkspaceImageCommandInput, DeleteWorkspaceImageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

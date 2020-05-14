@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetPatchBaselineRequest,
-  GetPatchBaselineResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetPatchBaselineRequest, GetPatchBaselineResult } from "../models/index";
 import {
   deserializeAws_json1_1GetPatchBaselineCommand,
   serializeAws_json1_1GetPatchBaselineCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPatchBaselineCommandInput = GetPatchBaselineRequest;
-export type GetPatchBaselineCommandOutput = GetPatchBaselineResult &
-  __MetadataBearer;
+export type GetPatchBaselineCommandOutput = GetPatchBaselineResult & __MetadataBearer;
 
 export class GetPatchBaselineCommand extends $Command<
   GetPatchBaselineCommandInput,
@@ -50,9 +42,7 @@ export class GetPatchBaselineCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

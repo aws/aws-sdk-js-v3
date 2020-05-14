@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterParameterGroupDetails,
-  DescribeClusterParametersMessage
-} from "../models/index";
+import { ClusterParameterGroupDetails, DescribeClusterParametersMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterParametersCommand,
   serializeAws_queryDescribeClusterParametersCommand
@@ -49,13 +46,8 @@ export class DescribeClusterParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterParametersCommandInput,
-    DescribeClusterParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterParametersCommandInput, DescribeClusterParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeClusterParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeClusterParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

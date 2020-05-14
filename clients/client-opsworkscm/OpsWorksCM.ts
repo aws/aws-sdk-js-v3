@@ -220,9 +220,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public associateNode(
     args: AssociateNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateNodeCommandOutput) => void),
     cb?: (err: any, data?: AssociateNodeCommandOutput) => void
   ): Promise<AssociateNodeCommandOutput> | void {
     const command = new AssociateNodeCommand(args);
@@ -272,9 +270,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public createBackup(
     args: CreateBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupCommandOutput) => void
   ): Promise<CreateBackupCommandOutput> | void {
     const command = new CreateBackupCommand(args);
@@ -334,9 +330,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public createServer(
     args: CreateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServerCommandOutput) => void),
     cb?: (err: any, data?: CreateServerCommandOutput) => void
   ): Promise<CreateServerCommandOutput> | void {
     const command = new CreateServerCommand(args);
@@ -376,9 +370,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
@@ -426,9 +418,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public deleteServer(
     args: DeleteServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCommandOutput) => void
   ): Promise<DeleteServerCommandOutput> | void {
     const command = new DeleteServerCommand(args);
@@ -511,9 +501,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
@@ -555,9 +543,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -642,9 +628,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeServers(
     args: DescribeServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServersCommandOutput) => void),
     cb?: (err: any, data?: DescribeServersCommandOutput) => void
   ): Promise<DescribeServersCommandOutput> | void {
     const command = new DescribeServersCommand(args);
@@ -684,9 +668,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public disassociateNode(
     args: DisassociateNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateNodeCommandOutput) => void),
     cb?: (err: any, data?: DisassociateNodeCommandOutput) => void
   ): Promise<DisassociateNodeCommandOutput> | void {
     const command = new DisassociateNodeCommand(args);
@@ -815,9 +797,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public restoreServer(
     args: RestoreServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreServerCommandOutput) => void),
     cb?: (err: any, data?: RestoreServerCommandOutput) => void
   ): Promise<RestoreServerCommandOutput> | void {
     const command = new RestoreServerCommand(args);
@@ -857,9 +837,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public startMaintenance(
     args: StartMaintenanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMaintenanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMaintenanceCommandOutput) => void),
     cb?: (err: any, data?: StartMaintenanceCommandOutput) => void
   ): Promise<StartMaintenanceCommandOutput> | void {
     const command = new StartMaintenanceCommand(args);
@@ -892,9 +870,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -927,9 +903,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -967,9 +941,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public updateServer(
     args: UpdateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerCommandOutput) => void
   ): Promise<UpdateServerCommandOutput> | void {
     const command = new UpdateServerCommand(args);

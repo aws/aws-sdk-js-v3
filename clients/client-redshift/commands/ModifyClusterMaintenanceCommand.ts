@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ModifyClusterMaintenanceMessage,
-  ModifyClusterMaintenanceResult
-} from "../models/index";
+import { ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterMaintenanceCommand,
   serializeAws_queryModifyClusterMaintenanceCommand
@@ -49,13 +46,8 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterMaintenanceCommandInput,
-    ModifyClusterMaintenanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterMaintenanceCommandInput, ModifyClusterMaintenanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

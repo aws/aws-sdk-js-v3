@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTrafficMirrorFilterRuleRequest,
   DeleteTrafficMirrorFilterRuleResult
@@ -53,9 +49,7 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     DeleteTrafficMirrorFilterRuleCommandInput,
     DeleteTrafficMirrorFilterRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +75,7 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

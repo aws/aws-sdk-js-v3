@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetGroupRequest, GetGroupResponse } from "../models/index";
 import {
   deserializeAws_queryGetGroupCommand,
@@ -46,9 +42,7 @@ export class GetGroupCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGroupCommandInput, GetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetGroupCommand(input, context);
   }
 

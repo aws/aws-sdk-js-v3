@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  UpdateAssociationStatusRequest,
-  UpdateAssociationStatusResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { UpdateAssociationStatusRequest, UpdateAssociationStatusResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateAssociationStatusCommand,
   serializeAws_json1_1UpdateAssociationStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAssociationStatusCommandInput = UpdateAssociationStatusRequest;
-export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult &
-  __MetadataBearer;
+export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult & __MetadataBearer;
 
 export class UpdateAssociationStatusCommand extends $Command<
   UpdateAssociationStatusCommandInput,
@@ -49,13 +41,8 @@ export class UpdateAssociationStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAssociationStatusCommandInput,
-    UpdateAssociationStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAssociationStatusCommandInput, UpdateAssociationStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateAssociationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateAssociationStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

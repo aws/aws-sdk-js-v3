@@ -64,9 +64,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public closeTunnel(
     args: CloseTunnelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CloseTunnelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CloseTunnelCommandOutput) => void),
     cb?: (err: any, data?: CloseTunnelCommandOutput) => void
   ): Promise<CloseTunnelCommandOutput> | void {
     const command = new CloseTunnelCommand(args);
@@ -99,9 +97,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public describeTunnel(
     args: DescribeTunnelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTunnelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTunnelCommandOutput) => void),
     cb?: (err: any, data?: DescribeTunnelCommandOutput) => void
   ): Promise<DescribeTunnelCommandOutput> | void {
     const command = new DescribeTunnelCommand(args);
@@ -170,9 +166,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public listTunnels(
     args: ListTunnelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTunnelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTunnelsCommandOutput) => void),
     cb?: (err: any, data?: ListTunnelsCommandOutput) => void
   ): Promise<ListTunnelsCommandOutput> | void {
     const command = new ListTunnelsCommand(args);
@@ -206,9 +200,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public openTunnel(
     args: OpenTunnelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: OpenTunnelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OpenTunnelCommandOutput) => void),
     cb?: (err: any, data?: OpenTunnelCommandOutput) => void
   ): Promise<OpenTunnelCommandOutput> | void {
     const command = new OpenTunnelCommand(args);
@@ -241,9 +233,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -276,9 +266,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

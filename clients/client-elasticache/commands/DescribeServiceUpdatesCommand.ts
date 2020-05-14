@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  DescribeServiceUpdatesMessage,
-  ServiceUpdatesMessage
-} from "../models/index";
+import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeServiceUpdatesCommand,
   serializeAws_queryDescribeServiceUpdatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeServiceUpdatesCommandInput = DescribeServiceUpdatesMessage;
-export type DescribeServiceUpdatesCommandOutput = ServiceUpdatesMessage &
-  __MetadataBearer;
+export type DescribeServiceUpdatesCommandOutput = ServiceUpdatesMessage & __MetadataBearer;
 
 export class DescribeServiceUpdatesCommand extends $Command<
   DescribeServiceUpdatesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeServiceUpdatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeServiceUpdatesCommandInput,
-    DescribeServiceUpdatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeServiceUpdatesCommandInput, DescribeServiceUpdatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

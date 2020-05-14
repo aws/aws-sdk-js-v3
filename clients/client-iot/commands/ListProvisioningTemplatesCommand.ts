@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListProvisioningTemplatesRequest,
   ListProvisioningTemplatesResponse
@@ -49,13 +45,8 @@ export class ListProvisioningTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProvisioningTemplatesCommandInput,
-    ListProvisioningTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProvisioningTemplatesCommandInput, ListProvisioningTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListProvisioningTemplatesCommand extends $Command<
     input: ListProvisioningTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProvisioningTemplatesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListProvisioningTemplatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningTemplatesCommandOutput> {
-    return deserializeAws_restJson1_1ListProvisioningTemplatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProvisioningTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  CreateSmsTemplateRequest,
-  CreateSmsTemplateResponse
-} from "../models/index";
+import { CreateSmsTemplateRequest, CreateSmsTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSmsTemplateCommand,
   serializeAws_restJson1_1CreateSmsTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSmsTemplateCommandInput = CreateSmsTemplateRequest;
-export type CreateSmsTemplateCommandOutput = CreateSmsTemplateResponse &
-  __MetadataBearer;
+export type CreateSmsTemplateCommandOutput = CreateSmsTemplateResponse & __MetadataBearer;
 
 export class CreateSmsTemplateCommand extends $Command<
   CreateSmsTemplateCommandInput,
@@ -50,9 +46,7 @@ export class CreateSmsTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSmsTemplateCommandInput, CreateSmsTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

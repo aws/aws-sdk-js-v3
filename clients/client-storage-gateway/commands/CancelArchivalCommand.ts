@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelArchivalCommandInput = CancelArchivalInput;
-export type CancelArchivalCommandOutput = CancelArchivalOutput &
-  __MetadataBearer;
+export type CancelArchivalCommandOutput = CancelArchivalOutput & __MetadataBearer;
 
 export class CancelArchivalCommand extends $Command<
   CancelArchivalCommandInput,
@@ -47,9 +46,7 @@ export class CancelArchivalCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelArchivalCommandInput, CancelArchivalCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

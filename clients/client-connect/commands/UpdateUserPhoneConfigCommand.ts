@@ -45,13 +45,8 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserPhoneConfigCommandInput,
-    UpdateUserPhoneConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserPhoneConfigCommandInput, UpdateUserPhoneConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserPhoneConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

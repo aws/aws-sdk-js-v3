@@ -45,13 +45,8 @@ export class DeleteForecastExportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteForecastExportJobCommandInput,
-    DeleteForecastExportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteForecastExportJobCommandInput, DeleteForecastExportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteForecastExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DeleteForecastExportJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

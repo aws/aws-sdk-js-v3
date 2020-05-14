@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/index";
 import {
   deserializeAws_queryListAccessKeysCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccessKeysCommandInput = ListAccessKeysRequest;
-export type ListAccessKeysCommandOutput = ListAccessKeysResponse &
-  __MetadataBearer;
+export type ListAccessKeysCommandOutput = ListAccessKeysResponse & __MetadataBearer;
 
 export class ListAccessKeysCommand extends $Command<
   ListAccessKeysCommandInput,
@@ -47,9 +42,7 @@ export class ListAccessKeysCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccessKeysCommandInput, ListAccessKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  SetUserPoolMfaConfigRequest,
-  SetUserPoolMfaConfigResponse
-} from "../models/index";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/index";
 import {
   deserializeAws_json1_1SetUserPoolMfaConfigCommand,
   serializeAws_json1_1SetUserPoolMfaConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetUserPoolMfaConfigCommandInput = SetUserPoolMfaConfigRequest;
-export type SetUserPoolMfaConfigCommandOutput = SetUserPoolMfaConfigResponse &
-  __MetadataBearer;
+export type SetUserPoolMfaConfigCommandOutput = SetUserPoolMfaConfigResponse & __MetadataBearer;
 
 export class SetUserPoolMfaConfigCommand extends $Command<
   SetUserPoolMfaConfigCommandInput,
@@ -49,13 +45,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetUserPoolMfaConfigCommandInput,
-    SetUserPoolMfaConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetUserPoolMfaConfigCommandInput, SetUserPoolMfaConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

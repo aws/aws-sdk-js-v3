@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetArchiveRuleCommandInput = GetArchiveRuleRequest;
-export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse &
-  __MetadataBearer;
+export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse & __MetadataBearer;
 
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,
@@ -47,9 +46,7 @@ export class GetArchiveRuleCommand extends $Command<
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

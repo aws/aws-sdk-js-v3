@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListThingsInBillingGroupRequest,
-  ListThingsInBillingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListThingsInBillingGroupRequest, ListThingsInBillingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingsInBillingGroupCommand,
   serializeAws_restJson1_1ListThingsInBillingGroupCommand
@@ -49,13 +42,8 @@ export class ListThingsInBillingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThingsInBillingGroupCommandInput,
-    ListThingsInBillingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThingsInBillingGroupCommandInput, ListThingsInBillingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListThingsInBillingGroupCommand extends $Command<
     input: ListThingsInBillingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingsInBillingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListThingsInBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingsInBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1ListThingsInBillingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingsInBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

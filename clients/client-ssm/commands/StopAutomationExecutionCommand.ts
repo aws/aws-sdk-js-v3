@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  StopAutomationExecutionRequest,
-  StopAutomationExecutionResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { StopAutomationExecutionRequest, StopAutomationExecutionResult } from "../models/index";
 import {
   deserializeAws_json1_1StopAutomationExecutionCommand,
   serializeAws_json1_1StopAutomationExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopAutomationExecutionCommandInput = StopAutomationExecutionRequest;
-export type StopAutomationExecutionCommandOutput = StopAutomationExecutionResult &
-  __MetadataBearer;
+export type StopAutomationExecutionCommandOutput = StopAutomationExecutionResult & __MetadataBearer;
 
 export class StopAutomationExecutionCommand extends $Command<
   StopAutomationExecutionCommandInput,
@@ -49,13 +41,8 @@ export class StopAutomationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopAutomationExecutionCommandInput,
-    StopAutomationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopAutomationExecutionCommandInput, StopAutomationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class StopAutomationExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1StopAutomationExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

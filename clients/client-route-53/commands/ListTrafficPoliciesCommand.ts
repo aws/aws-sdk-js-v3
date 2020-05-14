@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ListTrafficPoliciesRequest,
-  ListTrafficPoliciesResponse
-} from "../models/index";
+import { ListTrafficPoliciesRequest, ListTrafficPoliciesResponse } from "../models/index";
 import {
   deserializeAws_restXmlListTrafficPoliciesCommand,
   serializeAws_restXmlListTrafficPoliciesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTrafficPoliciesCommandInput = ListTrafficPoliciesRequest;
-export type ListTrafficPoliciesCommandOutput = ListTrafficPoliciesResponse &
-  __MetadataBearer;
+export type ListTrafficPoliciesCommandOutput = ListTrafficPoliciesResponse & __MetadataBearer;
 
 export class ListTrafficPoliciesCommand extends $Command<
   ListTrafficPoliciesCommandInput,
@@ -49,13 +45,8 @@ export class ListTrafficPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTrafficPoliciesCommandInput,
-    ListTrafficPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTrafficPoliciesCommandInput, ListTrafficPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

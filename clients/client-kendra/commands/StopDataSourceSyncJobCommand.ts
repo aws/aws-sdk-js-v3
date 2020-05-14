@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
 import { StopDataSourceSyncJobRequest } from "../models/index";
 import {
   deserializeAws_json1_1StopDataSourceSyncJobCommand,
@@ -45,13 +41,8 @@ export class StopDataSourceSyncJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopDataSourceSyncJobCommandInput,
-    StopDataSourceSyncJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopDataSourceSyncJobCommandInput, StopDataSourceSyncJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

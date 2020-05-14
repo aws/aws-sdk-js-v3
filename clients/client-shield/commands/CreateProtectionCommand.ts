@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  CreateProtectionRequest,
-  CreateProtectionResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { CreateProtectionRequest, CreateProtectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateProtectionCommand,
   serializeAws_json1_1CreateProtectionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateProtectionCommandInput = CreateProtectionRequest;
-export type CreateProtectionCommandOutput = CreateProtectionResponse &
-  __MetadataBearer;
+export type CreateProtectionCommandOutput = CreateProtectionResponse & __MetadataBearer;
 
 export class CreateProtectionCommand extends $Command<
   CreateProtectionCommandInput,
@@ -50,9 +42,7 @@ export class CreateProtectionCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProtectionCommandInput, CreateProtectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

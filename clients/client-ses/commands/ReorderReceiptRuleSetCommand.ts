@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  ReorderReceiptRuleSetRequest,
-  ReorderReceiptRuleSetResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/index";
 import {
   deserializeAws_queryReorderReceiptRuleSetCommand,
   serializeAws_queryReorderReceiptRuleSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ReorderReceiptRuleSetCommandInput = ReorderReceiptRuleSetRequest;
-export type ReorderReceiptRuleSetCommandOutput = ReorderReceiptRuleSetResponse &
-  __MetadataBearer;
+export type ReorderReceiptRuleSetCommandOutput = ReorderReceiptRuleSetResponse & __MetadataBearer;
 
 export class ReorderReceiptRuleSetCommand extends $Command<
   ReorderReceiptRuleSetCommandInput,
@@ -49,13 +41,8 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ReorderReceiptRuleSetCommandInput,
-    ReorderReceiptRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ReorderReceiptRuleSetCommandInput, ReorderReceiptRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

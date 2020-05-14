@@ -39,9 +39,7 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
-  ) {
+  constructor(readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

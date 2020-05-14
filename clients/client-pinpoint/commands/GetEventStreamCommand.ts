@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEventStreamCommandInput = GetEventStreamRequest;
-export type GetEventStreamCommandOutput = GetEventStreamResponse &
-  __MetadataBearer;
+export type GetEventStreamCommandOutput = GetEventStreamResponse & __MetadataBearer;
 
 export class GetEventStreamCommand extends $Command<
   GetEventStreamCommandInput,
@@ -47,9 +46,7 @@ export class GetEventStreamCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEventStreamCommandInput, GetEventStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

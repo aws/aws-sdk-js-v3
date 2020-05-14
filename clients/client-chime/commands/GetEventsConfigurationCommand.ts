@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetEventsConfigurationRequest,
-  GetEventsConfigurationResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetEventsConfigurationRequest, GetEventsConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEventsConfigurationCommand,
   serializeAws_restJson1_1GetEventsConfigurationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEventsConfigurationCommandInput = GetEventsConfigurationRequest;
-export type GetEventsConfigurationCommandOutput = GetEventsConfigurationResponse &
-  __MetadataBearer;
+export type GetEventsConfigurationCommandOutput = GetEventsConfigurationResponse & __MetadataBearer;
 
 export class GetEventsConfigurationCommand extends $Command<
   GetEventsConfigurationCommandInput,
@@ -49,13 +41,8 @@ export class GetEventsConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEventsConfigurationCommandInput,
-    GetEventsConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEventsConfigurationCommandInput, GetEventsConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class GetEventsConfigurationCommand extends $Command<
     input: GetEventsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEventsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetEventsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetEventsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

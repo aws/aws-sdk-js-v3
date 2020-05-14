@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPipelineStateCommandInput = GetPipelineStateInput;
-export type GetPipelineStateCommandOutput = GetPipelineStateOutput &
-  __MetadataBearer;
+export type GetPipelineStateCommandOutput = GetPipelineStateOutput & __MetadataBearer;
 
 export class GetPipelineStateCommand extends $Command<
   GetPipelineStateCommandInput,
@@ -47,9 +46,7 @@ export class GetPipelineStateCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPipelineStateCommandInput, GetPipelineStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CopySnapshotRequest, CopySnapshotResult } from "../models/index";
 import {
   deserializeAws_ec2CopySnapshotCommand,
@@ -47,9 +43,7 @@ export class CopySnapshotCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopySnapshotCommandInput, CopySnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCopySnapshotPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

@@ -53,9 +53,7 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     ModifyDBClusterParameterGroupCommandInput,
     ModifyDBClusterParameterGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     input: ModifyDBClusterParameterGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

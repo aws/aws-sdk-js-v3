@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMClient";
-import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceResponse
-} from "../models/index";
+import { AddTagsToResourceRequest, AddTagsToResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddTagsToResourceCommandInput = AddTagsToResourceRequest;
-export type AddTagsToResourceCommandOutput = AddTagsToResourceResponse &
-  __MetadataBearer;
+export type AddTagsToResourceCommandOutput = AddTagsToResourceResponse & __MetadataBearer;
 
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
@@ -50,9 +46,7 @@ export class AddTagsToResourceCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

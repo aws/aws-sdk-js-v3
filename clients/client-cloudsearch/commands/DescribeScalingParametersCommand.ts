@@ -49,13 +49,8 @@ export class DescribeScalingParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingParametersCommandInput,
-    DescribeScalingParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingParametersCommandInput, DescribeScalingParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeScalingParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingParametersCommandOutput> {
-    return deserializeAws_queryDescribeScalingParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

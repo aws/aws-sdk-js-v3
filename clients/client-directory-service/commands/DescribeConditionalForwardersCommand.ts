@@ -53,9 +53,7 @@ export class DescribeConditionalForwardersCommand extends $Command<
     DescribeConditionalForwardersCommandInput,
     DescribeConditionalForwardersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeConditionalForwardersCommand extends $Command<
     input: DescribeConditionalForwardersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConditionalForwardersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeConditionalForwardersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConditionalForwardersCommandOutput> {
-    return deserializeAws_json1_1DescribeConditionalForwardersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeConditionalForwardersCommand(output, context);
   }
 
   // Start section: command_body_extra

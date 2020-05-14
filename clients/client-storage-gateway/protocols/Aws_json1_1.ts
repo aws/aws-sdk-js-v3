@@ -2,10 +2,7 @@ import {
   ActivateGatewayCommandInput,
   ActivateGatewayCommandOutput
 } from "../commands/ActivateGatewayCommand";
-import {
-  AddCacheCommandInput,
-  AddCacheCommandOutput
-} from "../commands/AddCacheCommand";
+import { AddCacheCommandInput, AddCacheCommandOutput } from "../commands/AddCacheCommand";
 import {
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput
@@ -62,10 +59,7 @@ import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput
 } from "../commands/CreateTapeWithBarcodeCommand";
-import {
-  CreateTapesCommandInput,
-  CreateTapesCommandOutput
-} from "../commands/CreateTapesCommand";
+import { CreateTapesCommandInput, CreateTapesCommandOutput } from "../commands/CreateTapesCommand";
 import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput
@@ -90,10 +84,7 @@ import {
   DeleteTapeArchiveCommandInput,
   DeleteTapeArchiveCommandOutput
 } from "../commands/DeleteTapeArchiveCommand";
-import {
-  DeleteTapeCommandInput,
-  DeleteTapeCommandOutput
-} from "../commands/DeleteTapeCommand";
+import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "../commands/DeleteTapeCommand";
 import {
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput
@@ -178,10 +169,7 @@ import {
   DisableGatewayCommandInput,
   DisableGatewayCommandOutput
 } from "../commands/DisableGatewayCommand";
-import {
-  JoinDomainCommandInput,
-  JoinDomainCommandOutput
-} from "../commands/JoinDomainCommand";
+import { JoinDomainCommandInput, JoinDomainCommandOutput } from "../commands/JoinDomainCommand";
 import {
   ListFileSharesCommandInput,
   ListFileSharesCommandOutput
@@ -198,10 +186,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTapesCommandInput,
-  ListTapesCommandOutput
-} from "../commands/ListTapesCommand";
+import { ListTapesCommandInput, ListTapesCommandOutput } from "../commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommandInput,
   ListVolumeInitiatorsCommandOutput
@@ -210,10 +195,7 @@ import {
   ListVolumeRecoveryPointsCommandInput,
   ListVolumeRecoveryPointsCommandOutput
 } from "../commands/ListVolumeRecoveryPointsCommand";
-import {
-  ListVolumesCommandInput,
-  ListVolumesCommandOutput
-} from "../commands/ListVolumesCommand";
+import { ListVolumesCommandInput, ListVolumesCommandOutput } from "../commands/ListVolumesCommand";
 import {
   NotifyWhenUploadedCommandInput,
   NotifyWhenUploadedCommandOutput
@@ -226,10 +208,7 @@ import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
 } from "../commands/RemoveTagsFromResourceCommand";
-import {
-  ResetCacheCommandInput,
-  ResetCacheCommandOutput
-} from "../commands/ResetCacheCommand";
+import { ResetCacheCommandInput, ResetCacheCommandOutput } from "../commands/ResetCacheCommand";
 import {
   RetrieveTapeArchiveCommandInput,
   RetrieveTapeArchiveCommandOutput
@@ -496,9 +475,7 @@ export const serializeAws_json1_1ActivateGatewayCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ActivateGateway"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ActivateGatewayInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ActivateGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -524,9 +501,7 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.AddTagsToResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddTagsToResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddTagsToResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -539,9 +514,7 @@ export const serializeAws_json1_1AddUploadBufferCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.AddUploadBuffer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddUploadBufferInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddUploadBufferInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -554,9 +527,7 @@ export const serializeAws_json1_1AddWorkingStorageCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.AddWorkingStorage"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddWorkingStorageInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddWorkingStorageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -569,9 +540,7 @@ export const serializeAws_json1_1AssignTapePoolCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.AssignTapePool"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssignTapePoolInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssignTapePoolInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -597,9 +566,7 @@ export const serializeAws_json1_1CancelArchivalCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CancelArchival"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CancelArchivalInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CancelArchivalInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -612,9 +579,7 @@ export const serializeAws_json1_1CancelRetrievalCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CancelRetrieval"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CancelRetrievalInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CancelRetrievalInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -627,9 +592,7 @@ export const serializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateCachediSCSIVolume"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -642,9 +605,7 @@ export const serializeAws_json1_1CreateNFSFileShareCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateNFSFileShare"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateNFSFileShareInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateNFSFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -657,9 +618,7 @@ export const serializeAws_json1_1CreateSMBFileShareCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateSMBFileShare"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSMBFileShareInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSMBFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -672,9 +631,7 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateSnapshot"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSnapshotInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSnapshotInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,15 +641,11 @@ export const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
+    "X-Amz-Target": "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(
-      input,
-      context
-    )
+    serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -706,9 +659,7 @@ export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateStorediSCSIVolume"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,9 +672,7 @@ export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.CreateTapeWithBarcode"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateTapeWithBarcodeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateTapeWithBarcodeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -749,9 +698,7 @@ export const serializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DeleteBandwidthRateLimit"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -764,9 +711,7 @@ export const serializeAws_json1_1DeleteChapCredentialsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DeleteChapCredentials"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteChapCredentialsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -779,9 +724,7 @@ export const serializeAws_json1_1DeleteFileShareCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DeleteFileShare"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteFileShareInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -807,9 +750,7 @@ export const serializeAws_json1_1DeleteSnapshotScheduleCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DeleteSnapshotSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSnapshotScheduleInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -835,9 +776,7 @@ export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DeleteTapeArchive"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTapeArchiveInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTapeArchiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -863,9 +802,7 @@ export const serializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async 
     "X-Amz-Target": "StorageGateway_20130630.DescribeAvailabilityMonitorTest"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -878,9 +815,7 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeBandwidthRateLimit"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -906,9 +841,7 @@ export const serializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeCachediSCSIVolumes"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -921,9 +854,7 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeChapCredentials"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeChapCredentialsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -936,9 +867,7 @@ export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeGatewayInformation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeGatewayInformationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeGatewayInformationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -951,9 +880,7 @@ export const serializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeMaintenanceStartTime"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -966,9 +893,7 @@ export const serializeAws_json1_1DescribeNFSFileSharesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeNFSFileShares"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeNFSFileSharesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeNFSFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -981,9 +906,7 @@ export const serializeAws_json1_1DescribeSMBFileSharesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeSMBFileShares"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSMBFileSharesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSMBFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -996,9 +919,7 @@ export const serializeAws_json1_1DescribeSMBSettingsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeSMBSettings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSMBSettingsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSMBSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1011,9 +932,7 @@ export const serializeAws_json1_1DescribeSnapshotScheduleCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeSnapshotSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSnapshotScheduleInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1026,9 +945,7 @@ export const serializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeStorediSCSIVolumes"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1041,9 +958,7 @@ export const serializeAws_json1_1DescribeTapeArchivesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeTapeArchives"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTapeArchivesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTapeArchivesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1056,9 +971,7 @@ export const serializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeTapeRecoveryPoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1084,9 +997,7 @@ export const serializeAws_json1_1DescribeUploadBufferCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeUploadBuffer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUploadBufferInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeUploadBufferInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1099,9 +1010,7 @@ export const serializeAws_json1_1DescribeVTLDevicesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeVTLDevices"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeVTLDevicesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeVTLDevicesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1114,9 +1023,7 @@ export const serializeAws_json1_1DescribeWorkingStorageCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DescribeWorkingStorage"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkingStorageInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkingStorageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1142,9 +1049,7 @@ export const serializeAws_json1_1DisableGatewayCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.DisableGateway"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisableGatewayInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisableGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1170,9 +1075,7 @@ export const serializeAws_json1_1ListFileSharesCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ListFileShares"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListFileSharesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListFileSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1198,9 +1101,7 @@ export const serializeAws_json1_1ListLocalDisksCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ListLocalDisks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListLocalDisksInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListLocalDisksInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1213,9 +1114,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1241,9 +1140,7 @@ export const serializeAws_json1_1ListVolumeInitiatorsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ListVolumeInitiators"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListVolumeInitiatorsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListVolumeInitiatorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1256,9 +1153,7 @@ export const serializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ListVolumeRecoveryPoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1284,9 +1179,7 @@ export const serializeAws_json1_1NotifyWhenUploadedCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.NotifyWhenUploaded"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1NotifyWhenUploadedInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1NotifyWhenUploadedInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1312,9 +1205,7 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.RemoveTagsFromResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RemoveTagsFromResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RemoveTagsFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1340,9 +1231,7 @@ export const serializeAws_json1_1RetrieveTapeArchiveCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeArchive"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RetrieveTapeArchiveInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RetrieveTapeArchiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1355,9 +1244,7 @@ export const serializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeRecoveryPoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1370,9 +1257,7 @@ export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.SetLocalConsolePassword"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SetLocalConsolePasswordInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SetLocalConsolePasswordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1385,9 +1270,7 @@ export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.SetSMBGuestPassword"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SetSMBGuestPasswordInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SetSMBGuestPasswordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1400,9 +1283,7 @@ export const serializeAws_json1_1ShutdownGatewayCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.ShutdownGateway"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ShutdownGatewayInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ShutdownGatewayInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1415,9 +1296,7 @@ export const serializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.StartAvailabilityMonitorTest"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1443,9 +1322,7 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateBandwidthRateLimit"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1458,9 +1335,7 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateChapCredentials"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateChapCredentialsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateChapCredentialsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1473,9 +1348,7 @@ export const serializeAws_json1_1UpdateGatewayInformationCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateGatewayInformation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateGatewayInformationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateGatewayInformationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1488,9 +1361,7 @@ export const serializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateGatewaySoftwareNow"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1503,9 +1374,7 @@ export const serializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateMaintenanceStartTime"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1518,9 +1387,7 @@ export const serializeAws_json1_1UpdateNFSFileShareCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateNFSFileShare"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateNFSFileShareInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateNFSFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1533,9 +1400,7 @@ export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateSMBFileShare"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateSMBFileShareInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1548,9 +1413,7 @@ export const serializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateSMBSecurityStrategy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1563,9 +1426,7 @@ export const serializeAws_json1_1UpdateSnapshotScheduleCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateSnapshotSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateSnapshotScheduleInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateSnapshotScheduleInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1578,9 +1439,7 @@ export const serializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
     "X-Amz-Target": "StorageGateway_20130630.UpdateVTLDeviceType"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1613,16 +1472,12 @@ const deserializeAws_json1_1ActivateGatewayCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1684,16 +1539,12 @@ const deserializeAws_json1_1AddCacheCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1755,16 +1606,12 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1826,16 +1673,12 @@ const deserializeAws_json1_1AddUploadBufferCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1897,16 +1740,12 @@ const deserializeAws_json1_1AddWorkingStorageCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1968,16 +1807,12 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2039,16 +1874,12 @@ const deserializeAws_json1_1AttachVolumeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2110,16 +1941,12 @@ const deserializeAws_json1_1CancelArchivalCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2181,16 +2008,12 @@ const deserializeAws_json1_1CancelRetrievalCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2228,10 +2051,7 @@ export const deserializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
   context: __SerdeContext
 ): Promise<CreateCachediSCSIVolumeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2255,16 +2075,12 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2302,10 +2118,7 @@ export const deserializeAws_json1_1CreateNFSFileShareCommand = async (
   context: __SerdeContext
 ): Promise<CreateNFSFileShareCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateNFSFileShareCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateNFSFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2329,16 +2142,12 @@ const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2376,10 +2185,7 @@ export const deserializeAws_json1_1CreateSMBFileShareCommand = async (
   context: __SerdeContext
 ): Promise<CreateSMBFileShareCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSMBFileShareCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSMBFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2403,16 +2209,12 @@ const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2474,16 +2276,12 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2502,10 +2300,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
     case "ServiceUnavailableError":
     case "com.amazonaws.awsappliancecontrolplaneapi#ServiceUnavailableError":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2532,17 +2327,11 @@ export const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand 
   context: __SerdeContext
 ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput(data, context);
   const response: CreateSnapshotFromVolumeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSnapshotFromVolumeRecoveryPointOutput",
@@ -2562,16 +2351,12 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2590,10 +2375,7 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
     case "ServiceUnavailableError":
     case "com.amazonaws.awsappliancecontrolplaneapi#ServiceUnavailableError":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2620,10 +2402,7 @@ export const deserializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   context: __SerdeContext
 ): Promise<CreateStorediSCSIVolumeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2647,16 +2426,12 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2694,10 +2469,7 @@ export const deserializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   context: __SerdeContext
 ): Promise<CreateTapeWithBarcodeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateTapeWithBarcodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateTapeWithBarcodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2721,16 +2493,12 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2792,16 +2560,12 @@ const deserializeAws_json1_1CreateTapesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2839,17 +2603,11 @@ export const deserializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBandwidthRateLimitOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBandwidthRateLimitOutput(data, context);
   const response: DeleteBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBandwidthRateLimitOutput",
@@ -2869,16 +2627,12 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2916,10 +2670,7 @@ export const deserializeAws_json1_1DeleteChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChapCredentialsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteChapCredentialsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2943,16 +2694,12 @@ const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3014,16 +2761,12 @@ const deserializeAws_json1_1DeleteFileShareCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3085,16 +2828,12 @@ const deserializeAws_json1_1DeleteGatewayCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3132,10 +2871,7 @@ export const deserializeAws_json1_1DeleteSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSnapshotScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3159,16 +2895,12 @@ const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3230,16 +2962,12 @@ const deserializeAws_json1_1DeleteTapeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3301,16 +3029,12 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3372,16 +3096,12 @@ const deserializeAws_json1_1DeleteVolumeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3419,17 +3139,11 @@ export const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput(data, context);
   const response: DescribeAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAvailabilityMonitorTestOutput",
@@ -3449,16 +3163,12 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async 
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3496,17 +3206,11 @@ export const deserializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBandwidthRateLimitOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBandwidthRateLimitOutput(data, context);
   const response: DescribeBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBandwidthRateLimitOutput",
@@ -3526,16 +3230,12 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3597,16 +3297,12 @@ const deserializeAws_json1_1DescribeCacheCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3644,17 +3340,11 @@ export const deserializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCachediSCSIVolumesOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCachediSCSIVolumesOutput(data, context);
   const response: DescribeCachediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCachediSCSIVolumesOutput",
@@ -3674,16 +3364,12 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3721,10 +3407,7 @@ export const deserializeAws_json1_1DescribeChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChapCredentialsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeChapCredentialsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3748,16 +3431,12 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3795,17 +3474,11 @@ export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGatewayInformationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeGatewayInformationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGatewayInformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGatewayInformationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeGatewayInformationOutput(data, context);
   const response: DescribeGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGatewayInformationOutput",
@@ -3825,16 +3498,12 @@ const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3872,17 +3541,11 @@ export const deserializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMaintenanceStartTimeOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMaintenanceStartTimeOutput(data, context);
   const response: DescribeMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMaintenanceStartTimeOutput",
@@ -3902,16 +3565,12 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3949,10 +3608,7 @@ export const deserializeAws_json1_1DescribeNFSFileSharesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNFSFileSharesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeNFSFileSharesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeNFSFileSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3976,16 +3632,12 @@ const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4023,10 +3675,7 @@ export const deserializeAws_json1_1DescribeSMBFileSharesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSMBFileSharesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSMBFileSharesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSMBFileSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4050,16 +3699,12 @@ const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4097,10 +3742,7 @@ export const deserializeAws_json1_1DescribeSMBSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSMBSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSMBSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSMBSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4124,16 +3766,12 @@ const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4171,17 +3809,11 @@ export const deserializeAws_json1_1DescribeSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSnapshotScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSnapshotScheduleOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSnapshotScheduleOutput(data, context);
   const response: DescribeSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSnapshotScheduleOutput",
@@ -4201,16 +3833,12 @@ const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4248,17 +3876,11 @@ export const deserializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStorediSCSIVolumesOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeStorediSCSIVolumesOutput(data, context);
   const response: DescribeStorediSCSIVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStorediSCSIVolumesOutput",
@@ -4278,16 +3900,12 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4325,10 +3943,7 @@ export const deserializeAws_json1_1DescribeTapeArchivesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTapeArchivesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTapeArchivesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTapeArchivesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4352,16 +3967,12 @@ const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4399,17 +4010,11 @@ export const deserializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapeRecoveryPointsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTapeRecoveryPointsOutput(data, context);
   const response: DescribeTapeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTapeRecoveryPointsOutput",
@@ -4429,16 +4034,12 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4500,16 +4101,12 @@ const deserializeAws_json1_1DescribeTapesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4547,10 +4144,7 @@ export const deserializeAws_json1_1DescribeUploadBufferCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUploadBufferCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUploadBufferCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUploadBufferCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4574,16 +4168,12 @@ const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4621,10 +4211,7 @@ export const deserializeAws_json1_1DescribeVTLDevicesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVTLDevicesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeVTLDevicesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVTLDevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4648,16 +4235,12 @@ const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4695,10 +4278,7 @@ export const deserializeAws_json1_1DescribeWorkingStorageCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkingStorageCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkingStorageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkingStorageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4722,16 +4302,12 @@ const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4793,16 +4369,12 @@ const deserializeAws_json1_1DetachVolumeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4864,16 +4436,12 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4935,16 +4503,12 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5006,16 +4570,12 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5077,16 +4637,12 @@ const deserializeAws_json1_1ListGatewaysCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5148,16 +4704,12 @@ const deserializeAws_json1_1ListLocalDisksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5195,10 +4747,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5222,16 +4771,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5293,16 +4838,12 @@ const deserializeAws_json1_1ListTapesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5340,10 +4881,7 @@ export const deserializeAws_json1_1ListVolumeInitiatorsCommand = async (
   context: __SerdeContext
 ): Promise<ListVolumeInitiatorsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListVolumeInitiatorsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListVolumeInitiatorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5367,16 +4905,12 @@ const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5414,17 +4948,11 @@ export const deserializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
   context: __SerdeContext
 ): Promise<ListVolumeRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumeRecoveryPointsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListVolumeRecoveryPointsOutput(data, context);
   const response: ListVolumeRecoveryPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListVolumeRecoveryPointsOutput",
@@ -5444,16 +4972,12 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5515,16 +5039,12 @@ const deserializeAws_json1_1ListVolumesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5562,10 +5082,7 @@ export const deserializeAws_json1_1NotifyWhenUploadedCommand = async (
   context: __SerdeContext
 ): Promise<NotifyWhenUploadedCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1NotifyWhenUploadedCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1NotifyWhenUploadedCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5589,16 +5106,12 @@ const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5660,16 +5173,12 @@ const deserializeAws_json1_1RefreshCacheCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5707,10 +5216,7 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveTagsFromResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveTagsFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5734,16 +5240,12 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5805,16 +5307,12 @@ const deserializeAws_json1_1ResetCacheCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5852,10 +5350,7 @@ export const deserializeAws_json1_1RetrieveTapeArchiveCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveTapeArchiveCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RetrieveTapeArchiveCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RetrieveTapeArchiveCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5879,16 +5374,12 @@ const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5926,17 +5417,11 @@ export const deserializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetrieveTapeRecoveryPointOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RetrieveTapeRecoveryPointOutput(data, context);
   const response: RetrieveTapeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RetrieveTapeRecoveryPointOutput",
@@ -5956,16 +5441,12 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6003,10 +5484,7 @@ export const deserializeAws_json1_1SetLocalConsolePasswordCommand = async (
   context: __SerdeContext
 ): Promise<SetLocalConsolePasswordCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetLocalConsolePasswordCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetLocalConsolePasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6030,16 +5508,12 @@ const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6077,10 +5551,7 @@ export const deserializeAws_json1_1SetSMBGuestPasswordCommand = async (
   context: __SerdeContext
 ): Promise<SetSMBGuestPasswordCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetSMBGuestPasswordCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetSMBGuestPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6104,16 +5575,12 @@ const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6175,16 +5642,12 @@ const deserializeAws_json1_1ShutdownGatewayCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6222,17 +5685,11 @@ export const deserializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
   context: __SerdeContext
 ): Promise<StartAvailabilityMonitorTestCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartAvailabilityMonitorTestOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartAvailabilityMonitorTestOutput(data, context);
   const response: StartAvailabilityMonitorTestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartAvailabilityMonitorTestOutput",
@@ -6252,16 +5709,12 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6323,16 +5776,12 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6370,17 +5819,11 @@ export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBandwidthRateLimitCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBandwidthRateLimitOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateBandwidthRateLimitOutput(data, context);
   const response: UpdateBandwidthRateLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBandwidthRateLimitOutput",
@@ -6400,16 +5843,12 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6447,10 +5886,7 @@ export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChapCredentialsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateChapCredentialsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateChapCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6474,16 +5910,12 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6521,17 +5953,11 @@ export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayInformationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateGatewayInformationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateGatewayInformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayInformationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewayInformationOutput(data, context);
   const response: UpdateGatewayInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewayInformationOutput",
@@ -6551,16 +5977,12 @@ const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6598,17 +6020,11 @@ export const deserializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewaySoftwareNowOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewaySoftwareNowOutput(data, context);
   const response: UpdateGatewaySoftwareNowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewaySoftwareNowOutput",
@@ -6628,16 +6044,12 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6675,17 +6087,11 @@ export const deserializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMaintenanceStartTimeOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateMaintenanceStartTimeOutput(data, context);
   const response: UpdateMaintenanceStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateMaintenanceStartTimeOutput",
@@ -6705,16 +6111,12 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6752,10 +6154,7 @@ export const deserializeAws_json1_1UpdateNFSFileShareCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNFSFileShareCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateNFSFileShareCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateNFSFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6779,16 +6178,12 @@ const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6826,10 +6221,7 @@ export const deserializeAws_json1_1UpdateSMBFileShareCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSMBFileShareCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSMBFileShareCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSMBFileShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6853,16 +6245,12 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6900,17 +6288,11 @@ export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBSecurityStrategyOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSMBSecurityStrategyOutput(data, context);
   const response: UpdateSMBSecurityStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSMBSecurityStrategyOutput",
@@ -6930,16 +6312,12 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6977,10 +6355,7 @@ export const deserializeAws_json1_1UpdateSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSnapshotScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSnapshotScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSnapshotScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7004,16 +6379,12 @@ const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7051,10 +6422,7 @@ export const deserializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVTLDeviceTypeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7078,16 +6446,12 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.awsappliancecontrolplaneapi#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7125,10 +6489,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -7143,10 +6504,7 @@ const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidGatewayRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGatewayRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidGatewayRequestException(body, context);
   const contents: InvalidGatewayRequestException = {
     name: "InvalidGatewayRequestException",
     $fault: "client",
@@ -7161,10 +6519,7 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableError(body, context);
   const contents: ServiceUnavailableError = {
     name: "ServiceUnavailableError",
     $fault: "server",
@@ -7321,10 +6676,7 @@ const serializeAws_json1_1DescribeWorkingStorageInput = (
   };
 };
 
-const serializeAws_json1_1DiskIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -7382,12 +6734,10 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
 ): any => {
   return {
     ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined && {
-      AverageDownloadRateLimitInBitsPerSec:
-        input.AverageDownloadRateLimitInBitsPerSec
+      AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec
     }),
     ...(input.AverageUploadRateLimitInBitsPerSec !== undefined && {
-      AverageUploadRateLimitInBitsPerSec:
-        input.AverageUploadRateLimitInBitsPerSec
+      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec
     }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN })
   };
@@ -7452,17 +6802,11 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
   };
 };
 
-const serializeAws_json1_1VolumeARNs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1VolumeARNs = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1AddCacheInput = (
-  input: AddCacheInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AddCacheInput = (input: AddCacheInput, context: __SerdeContext): any => {
   return {
     ...(input.DiskIds !== undefined && {
       DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context)
@@ -7649,10 +6993,7 @@ const serializeAws_json1_1CreateNFSFileShareInput = (
 ): any => {
   return {
     ...(input.ClientList !== undefined && {
-      ClientList: serializeAws_json1_1FileShareClientList(
-        input.ClientList,
-        context
-      )
+      ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context)
     }),
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
     ...(input.DefaultStorageClass !== undefined && {
@@ -7692,10 +7033,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (
 ): any => {
   return {
     ...(input.AdminUserList !== undefined && {
-      AdminUserList: serializeAws_json1_1FileShareUserList(
-        input.AdminUserList,
-        context
-      )
+      AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context)
     }),
     ...(input.Authentication !== undefined && {
       Authentication: input.Authentication
@@ -7709,10 +7047,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (
       GuessMIMETypeEnabled: input.GuessMIMETypeEnabled
     }),
     ...(input.InvalidUserList !== undefined && {
-      InvalidUserList: serializeAws_json1_1FileShareUserList(
-        input.InvalidUserList,
-        context
-      )
+      InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context)
     }),
     ...(input.KMSEncrypted !== undefined && {
       KMSEncrypted: input.KMSEncrypted
@@ -7732,10 +7067,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (
       Tags: serializeAws_json1_1Tags(input.Tags, context)
     }),
     ...(input.ValidUserList !== undefined && {
-      ValidUserList: serializeAws_json1_1FileShareUserList(
-        input.ValidUserList,
-        context
-      )
+      ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context)
     })
   };
 };
@@ -7861,10 +7193,7 @@ const serializeAws_json1_1DescribeNFSFileSharesInput = (
 ): any => {
   return {
     ...(input.FileShareARNList !== undefined && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(
-        input.FileShareARNList,
-        context
-      )
+      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context)
     })
   };
 };
@@ -7875,10 +7204,7 @@ const serializeAws_json1_1DescribeSMBFileSharesInput = (
 ): any => {
   return {
     ...(input.FileShareARNList !== undefined && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(
-        input.FileShareARNList,
-        context
-      )
+      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context)
     })
   };
 };
@@ -7939,10 +7265,7 @@ const serializeAws_json1_1DescribeVTLDevicesInput = (
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.VTLDeviceARNs !== undefined && {
-      VTLDeviceARNs: serializeAws_json1_1VTLDeviceARNs(
-        input.VTLDeviceARNs,
-        context
-      )
+      VTLDeviceARNs: serializeAws_json1_1VTLDeviceARNs(input.VTLDeviceARNs, context)
     })
   };
 };
@@ -7966,38 +7289,23 @@ const serializeAws_json1_1DisableGatewayInput = (
   };
 };
 
-const serializeAws_json1_1FileShareARNList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FileShareARNList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1FileShareClientList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FileShareClientList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1FileShareUserList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FileShareUserList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1FolderList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FolderList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Hosts = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Hosts = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -8007,10 +7315,7 @@ const serializeAws_json1_1JoinDomainInput = (
 ): any => {
   return {
     ...(input.DomainControllers !== undefined && {
-      DomainControllers: serializeAws_json1_1Hosts(
-        input.DomainControllers,
-        context
-      )
+      DomainControllers: serializeAws_json1_1Hosts(input.DomainControllers, context)
     }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
@@ -8188,24 +7493,15 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TapeARNs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TapeARNs = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -8231,10 +7527,7 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (
 ): any => {
   return {
     ...(input.ClientList !== undefined && {
-      ClientList: serializeAws_json1_1FileShareClientList(
-        input.ClientList,
-        context
-      )
+      ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context)
     }),
     ...(input.DefaultStorageClass !== undefined && {
       DefaultStorageClass: input.DefaultStorageClass
@@ -8270,10 +7563,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (
 ): any => {
   return {
     ...(input.AdminUserList !== undefined && {
-      AdminUserList: serializeAws_json1_1FileShareUserList(
-        input.AdminUserList,
-        context
-      )
+      AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context)
     }),
     ...(input.DefaultStorageClass !== undefined && {
       DefaultStorageClass: input.DefaultStorageClass
@@ -8285,10 +7575,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (
       GuessMIMETypeEnabled: input.GuessMIMETypeEnabled
     }),
     ...(input.InvalidUserList !== undefined && {
-      InvalidUserList: serializeAws_json1_1FileShareUserList(
-        input.InvalidUserList,
-        context
-      )
+      InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context)
     }),
     ...(input.KMSEncrypted !== undefined && {
       KMSEncrypted: input.KMSEncrypted
@@ -8303,10 +7590,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (
       SMBACLEnabled: input.SMBACLEnabled
     }),
     ...(input.ValidUserList !== undefined && {
-      ValidUserList: serializeAws_json1_1FileShareUserList(
-        input.ValidUserList,
-        context
-      )
+      ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context)
     })
   };
 };
@@ -8335,10 +7619,7 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
   };
 };
 
-const serializeAws_json1_1VTLDeviceARNs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -8349,9 +7630,7 @@ const deserializeAws_json1_1ActivateGatewayOutput = (
   return {
     __type: "ActivateGatewayOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8362,9 +7641,7 @@ const deserializeAws_json1_1AddWorkingStorageOutput = (
   return {
     __type: "AddWorkingStorageOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8372,15 +7649,10 @@ const deserializeAws_json1_1ChapCredentials = (
   output: any,
   context: __SerdeContext
 ): ChapInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ChapInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ChapInfo(entry, context));
 };
 
-const deserializeAws_json1_1ChapInfo = (
-  output: any,
-  context: __SerdeContext
-): ChapInfo => {
+const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
   return {
     __type: "ChapInfo",
     InitiatorName:
@@ -8393,14 +7665,11 @@ const deserializeAws_json1_1ChapInfo = (
         ? output.SecretToAuthenticateInitiator
         : undefined,
     SecretToAuthenticateTarget:
-      output.SecretToAuthenticateTarget !== undefined &&
-      output.SecretToAuthenticateTarget !== null
+      output.SecretToAuthenticateTarget !== undefined && output.SecretToAuthenticateTarget !== null
         ? output.SecretToAuthenticateTarget
         : undefined,
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined
   } as any;
 };
 
@@ -8411,13 +7680,9 @@ const deserializeAws_json1_1CreateSnapshotOutput = (
   return {
     __type: "CreateSnapshotOutput",
     SnapshotId:
-      output.SnapshotId !== undefined && output.SnapshotId !== null
-        ? output.SnapshotId
-        : undefined,
+      output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -8428,16 +7693,11 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   return {
     __type: "CreateStorediSCSIVolumeOutput",
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined,
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined &&
-      output.VolumeSizeInBytes !== null
+      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
         ? output.VolumeSizeInBytes
         : undefined
   } as any;
@@ -8450,9 +7710,7 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitOutput = (
   return {
     __type: "DeleteBandwidthRateLimitOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8467,9 +7725,7 @@ const deserializeAws_json1_1DeleteChapCredentialsOutput = (
         ? output.InitiatorName
         : undefined,
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined
   } as any;
 };
 
@@ -8480,9 +7736,7 @@ const deserializeAws_json1_1DeleteGatewayOutput = (
   return {
     __type: "DeleteGatewayOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8493,9 +7747,7 @@ const deserializeAws_json1_1DeleteVolumeOutput = (
   return {
     __type: "DeleteVolumeOutput",
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -8516,9 +7768,7 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
         ? output.AverageUploadRateLimitInBitsPerSec
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8546,26 +7796,20 @@ const deserializeAws_json1_1DescribeWorkingStorageOutput = (
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     WorkingStorageAllocatedInBytes:
       output.WorkingStorageAllocatedInBytes !== undefined &&
       output.WorkingStorageAllocatedInBytes !== null
         ? output.WorkingStorageAllocatedInBytes
         : undefined,
     WorkingStorageUsedInBytes:
-      output.WorkingStorageUsedInBytes !== undefined &&
-      output.WorkingStorageUsedInBytes !== null
+      output.WorkingStorageUsedInBytes !== undefined && output.WorkingStorageUsedInBytes !== null
         ? output.WorkingStorageUsedInBytes
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DiskIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DiskIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8573,9 +7817,7 @@ const deserializeAws_json1_1GatewayNetworkInterfaces = (
   output: any,
   context: __SerdeContext
 ): NetworkInterface[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1NetworkInterface(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1NetworkInterface(entry, context));
 };
 
 const deserializeAws_json1_1InternalServerError = (
@@ -8588,10 +7830,7 @@ const deserializeAws_json1_1InternalServerError = (
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8605,10 +7844,7 @@ const deserializeAws_json1_1InvalidGatewayRequestException = (
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8627,9 +7863,7 @@ const deserializeAws_json1_1NetworkInterface = (
         ? output.Ipv6Address
         : undefined,
     MacAddress:
-      output.MacAddress !== undefined && output.MacAddress !== null
-        ? output.MacAddress
-        : undefined
+      output.MacAddress !== undefined && output.MacAddress !== null ? output.MacAddress : undefined
   } as any;
 };
 
@@ -8643,10 +7877,7 @@ const deserializeAws_json1_1ServiceUnavailableError = (
       output.error !== undefined && output.error !== null
         ? deserializeAws_json1_1StorageGatewayError(output.error, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8657,9 +7888,7 @@ const deserializeAws_json1_1ShutdownGatewayOutput = (
   return {
     __type: "ShutdownGatewayOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8670,9 +7899,7 @@ const deserializeAws_json1_1StartGatewayOutput = (
   return {
     __type: "StartGatewayOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8683,9 +7910,7 @@ const deserializeAws_json1_1StorageGatewayError = (
   return {
     __type: "StorageGatewayError",
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
         ? deserializeAws_json1_1errorDetails(output.errorDetails, context)
@@ -8700,9 +7925,7 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
   return {
     __type: "UpdateBandwidthRateLimitOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8717,9 +7940,7 @@ const deserializeAws_json1_1UpdateChapCredentialsOutput = (
         ? output.InitiatorName
         : undefined,
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined
   } as any;
 };
 
@@ -8730,9 +7951,7 @@ const deserializeAws_json1_1UpdateGatewayInformationOutput = (
   return {
     __type: "UpdateGatewayInformationOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayName:
       output.GatewayName !== undefined && output.GatewayName !== null
         ? output.GatewayName
@@ -8747,9 +7966,7 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowOutput = (
   return {
     __type: "UpdateGatewaySoftwareNowOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8760,9 +7977,7 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
   return {
     __type: "UpdateMaintenanceStartTimeOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8773,9 +7988,7 @@ const deserializeAws_json1_1UpdateSnapshotScheduleOutput = (
   return {
     __type: "UpdateSnapshotScheduleOutput",
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -8790,23 +8003,17 @@ const deserializeAws_json1_1VolumeiSCSIAttributes = (
         ? output.ChapEnabled
         : undefined,
     LunNumber:
-      output.LunNumber !== undefined && output.LunNumber !== null
-        ? output.LunNumber
-        : undefined,
+      output.LunNumber !== undefined && output.LunNumber !== null ? output.LunNumber : undefined,
     NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined &&
-      output.NetworkInterfaceId !== null
+      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
         ? output.NetworkInterfaceId
         : undefined,
     NetworkInterfacePort:
-      output.NetworkInterfacePort !== undefined &&
-      output.NetworkInterfacePort !== null
+      output.NetworkInterfacePort !== undefined && output.NetworkInterfacePort !== null
         ? output.NetworkInterfacePort
         : undefined,
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined
   } as any;
 };
 
@@ -8830,9 +8037,7 @@ const deserializeAws_json1_1AddCacheOutput = (
   return {
     __type: "AddCacheOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8843,9 +8048,7 @@ const deserializeAws_json1_1AddUploadBufferOutput = (
   return {
     __type: "AddUploadBufferOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8856,13 +8059,9 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeOutput = (
   return {
     __type: "CreateCachediSCSIVolumeOutput",
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined,
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -8873,16 +8072,11 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
   return {
     __type: "CreateSnapshotFromVolumeRecoveryPointOutput",
     SnapshotId:
-      output.SnapshotId !== undefined && output.SnapshotId !== null
-        ? output.SnapshotId
-        : undefined,
+      output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeRecoveryPointTime:
-      output.VolumeRecoveryPointTime !== undefined &&
-      output.VolumeRecoveryPointTime !== null
+      output.VolumeRecoveryPointTime !== undefined && output.VolumeRecoveryPointTime !== null
         ? output.VolumeRecoveryPointTime
         : undefined
   } as any;
@@ -8895,9 +8089,7 @@ const deserializeAws_json1_1DeleteSnapshotScheduleOutput = (
   return {
     __type: "DeleteSnapshotScheduleOutput",
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -8908,28 +8100,23 @@ const deserializeAws_json1_1DescribeCacheOutput = (
   return {
     __type: "DescribeCacheOutput",
     CacheAllocatedInBytes:
-      output.CacheAllocatedInBytes !== undefined &&
-      output.CacheAllocatedInBytes !== null
+      output.CacheAllocatedInBytes !== undefined && output.CacheAllocatedInBytes !== null
         ? output.CacheAllocatedInBytes
         : undefined,
     CacheDirtyPercentage:
-      output.CacheDirtyPercentage !== undefined &&
-      output.CacheDirtyPercentage !== null
+      output.CacheDirtyPercentage !== undefined && output.CacheDirtyPercentage !== null
         ? output.CacheDirtyPercentage
         : undefined,
     CacheHitPercentage:
-      output.CacheHitPercentage !== undefined &&
-      output.CacheHitPercentage !== null
+      output.CacheHitPercentage !== undefined && output.CacheHitPercentage !== null
         ? output.CacheHitPercentage
         : undefined,
     CacheMissPercentage:
-      output.CacheMissPercentage !== undefined &&
-      output.CacheMissPercentage !== null
+      output.CacheMissPercentage !== undefined && output.CacheMissPercentage !== null
         ? output.CacheMissPercentage
         : undefined,
     CacheUsedPercentage:
-      output.CacheUsedPercentage !== undefined &&
-      output.CacheUsedPercentage !== null
+      output.CacheUsedPercentage !== undefined && output.CacheUsedPercentage !== null
         ? output.CacheUsedPercentage
         : undefined,
     DiskIds:
@@ -8937,9 +8124,7 @@ const deserializeAws_json1_1DescribeCacheOutput = (
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -8954,17 +8139,14 @@ const deserializeAws_json1_1DescribeUploadBufferOutput = (
         ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     UploadBufferAllocatedInBytes:
       output.UploadBufferAllocatedInBytes !== undefined &&
       output.UploadBufferAllocatedInBytes !== null
         ? output.UploadBufferAllocatedInBytes
         : undefined,
     UploadBufferUsedInBytes:
-      output.UploadBufferUsedInBytes !== undefined &&
-      output.UploadBufferUsedInBytes !== null
+      output.UploadBufferUsedInBytes !== undefined && output.UploadBufferUsedInBytes !== null
         ? output.UploadBufferUsedInBytes
         : undefined
   } as any;
@@ -8977,16 +8159,10 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
   return {
     __type: "ListVolumeRecoveryPointsOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     VolumeRecoveryPointInfos:
-      output.VolumeRecoveryPointInfos !== undefined &&
-      output.VolumeRecoveryPointInfos !== null
-        ? deserializeAws_json1_1VolumeRecoveryPointInfos(
-            output.VolumeRecoveryPointInfos,
-            context
-          )
+      output.VolumeRecoveryPointInfos !== undefined && output.VolumeRecoveryPointInfos !== null
+        ? deserializeAws_json1_1VolumeRecoveryPointInfos(output.VolumeRecoveryPointInfos, context)
         : undefined
   } as any;
 };
@@ -8998,22 +8174,17 @@ const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   return {
     __type: "VolumeRecoveryPointInfo",
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeRecoveryPointTime:
-      output.VolumeRecoveryPointTime !== undefined &&
-      output.VolumeRecoveryPointTime !== null
+      output.VolumeRecoveryPointTime !== undefined && output.VolumeRecoveryPointTime !== null
         ? output.VolumeRecoveryPointTime
         : undefined,
     VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined &&
-      output.VolumeSizeInBytes !== null
+      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
         ? output.VolumeSizeInBytes
         : undefined,
     VolumeUsageInBytes:
-      output.VolumeUsageInBytes !== undefined &&
-      output.VolumeUsageInBytes !== null
+      output.VolumeUsageInBytes !== undefined && output.VolumeUsageInBytes !== null
         ? output.VolumeUsageInBytes
         : undefined
   } as any;
@@ -9047,10 +8218,7 @@ const deserializeAws_json1_1AssignTapePoolOutput = (
 ): AssignTapePoolOutput => {
   return {
     __type: "AssignTapePoolOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9061,13 +8229,9 @@ const deserializeAws_json1_1AttachVolumeOutput = (
   return {
     __type: "AttachVolumeOutput",
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined,
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -9081,38 +8245,27 @@ const deserializeAws_json1_1CachediSCSIVolume = (
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     SourceSnapshotId:
       output.SourceSnapshotId !== undefined && output.SourceSnapshotId !== null
         ? output.SourceSnapshotId
         : undefined,
     TargetName:
-      output.TargetName !== undefined && output.TargetName !== null
-        ? output.TargetName
-        : undefined,
+      output.TargetName !== undefined && output.TargetName !== null ? output.TargetName : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined &&
-      output.VolumeAttachmentStatus !== null
+      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
         ? output.VolumeAttachmentStatus
         : undefined,
     VolumeId:
-      output.VolumeId !== undefined && output.VolumeId !== null
-        ? output.VolumeId
-        : undefined,
+      output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
     VolumeProgress:
       output.VolumeProgress !== undefined && output.VolumeProgress !== null
         ? output.VolumeProgress
         : undefined,
     VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined &&
-      output.VolumeSizeInBytes !== null
+      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
         ? output.VolumeSizeInBytes
         : undefined,
     VolumeStatus:
@@ -9120,21 +8273,14 @@ const deserializeAws_json1_1CachediSCSIVolume = (
         ? output.VolumeStatus
         : undefined,
     VolumeType:
-      output.VolumeType !== undefined && output.VolumeType !== null
-        ? output.VolumeType
-        : undefined,
+      output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,
     VolumeUsedInBytes:
-      output.VolumeUsedInBytes !== undefined &&
-      output.VolumeUsedInBytes !== null
+      output.VolumeUsedInBytes !== undefined && output.VolumeUsedInBytes !== null
         ? output.VolumeUsedInBytes
         : undefined,
     VolumeiSCSIAttributes:
-      output.VolumeiSCSIAttributes !== undefined &&
-      output.VolumeiSCSIAttributes !== null
-        ? deserializeAws_json1_1VolumeiSCSIAttributes(
-            output.VolumeiSCSIAttributes,
-            context
-          )
+      output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
+        ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
         : undefined
   } as any;
 };
@@ -9154,10 +8300,7 @@ const deserializeAws_json1_1CancelArchivalOutput = (
 ): CancelArchivalOutput => {
   return {
     __type: "CancelArchivalOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9167,10 +8310,7 @@ const deserializeAws_json1_1CancelRetrievalOutput = (
 ): CancelRetrievalOutput => {
   return {
     __type: "CancelRetrievalOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9206,10 +8346,7 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
 ): CreateTapeWithBarcodeOutput => {
   return {
     __type: "CreateTapeWithBarcodeOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9245,10 +8382,7 @@ const deserializeAws_json1_1DeleteTapeArchiveOutput = (
 ): DeleteTapeArchiveOutput => {
   return {
     __type: "DeleteTapeArchiveOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9258,10 +8392,7 @@ const deserializeAws_json1_1DeleteTapeOutput = (
 ): DeleteTapeOutput => {
   return {
     __type: "DeleteTapeOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -9272,17 +8403,12 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
   return {
     __type: "DescribeAvailabilityMonitorTestOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -9293,12 +8419,8 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
   return {
     __type: "DescribeCachediSCSIVolumesOutput",
     CachediSCSIVolumes:
-      output.CachediSCSIVolumes !== undefined &&
-      output.CachediSCSIVolumes !== null
-        ? deserializeAws_json1_1CachediSCSIVolumes(
-            output.CachediSCSIVolumes,
-            context
-          )
+      output.CachediSCSIVolumes !== undefined && output.CachediSCSIVolumes !== null
+        ? deserializeAws_json1_1CachediSCSIVolumes(output.CachediSCSIVolumes, context)
         : undefined
   } as any;
 };
@@ -9310,8 +8432,7 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
   return {
     __type: "DescribeGatewayInformationOutput",
     CloudWatchLogGroupARN:
-      output.CloudWatchLogGroupARN !== undefined &&
-      output.CloudWatchLogGroupARN !== null
+      output.CloudWatchLogGroupARN !== undefined && output.CloudWatchLogGroupARN !== null
         ? output.CloudWatchLogGroupARN
         : undefined,
     Ec2InstanceId:
@@ -9319,29 +8440,20 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
         ? output.Ec2InstanceId
         : undefined,
     Ec2InstanceRegion:
-      output.Ec2InstanceRegion !== undefined &&
-      output.Ec2InstanceRegion !== null
+      output.Ec2InstanceRegion !== undefined && output.Ec2InstanceRegion !== null
         ? output.Ec2InstanceRegion
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayId:
-      output.GatewayId !== undefined && output.GatewayId !== null
-        ? output.GatewayId
-        : undefined,
+      output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
     GatewayName:
       output.GatewayName !== undefined && output.GatewayName !== null
         ? output.GatewayName
         : undefined,
     GatewayNetworkInterfaces:
-      output.GatewayNetworkInterfaces !== undefined &&
-      output.GatewayNetworkInterfaces !== null
-        ? deserializeAws_json1_1GatewayNetworkInterfaces(
-            output.GatewayNetworkInterfaces,
-            context
-          )
+      output.GatewayNetworkInterfaces !== undefined && output.GatewayNetworkInterfaces !== null
+        ? deserializeAws_json1_1GatewayNetworkInterfaces(output.GatewayNetworkInterfaces, context)
         : undefined,
     GatewayState:
       output.GatewayState !== undefined && output.GatewayState !== null
@@ -9360,13 +8472,11 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
         ? output.HostEnvironment
         : undefined,
     LastSoftwareUpdate:
-      output.LastSoftwareUpdate !== undefined &&
-      output.LastSoftwareUpdate !== null
+      output.LastSoftwareUpdate !== undefined && output.LastSoftwareUpdate !== null
         ? output.LastSoftwareUpdate
         : undefined,
     NextUpdateAvailabilityDate:
-      output.NextUpdateAvailabilityDate !== undefined &&
-      output.NextUpdateAvailabilityDate !== null
+      output.NextUpdateAvailabilityDate !== undefined && output.NextUpdateAvailabilityDate !== null
         ? output.NextUpdateAvailabilityDate
         : undefined,
     Tags:
@@ -9387,29 +8497,19 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   return {
     __type: "DescribeMaintenanceStartTimeOutput",
     DayOfMonth:
-      output.DayOfMonth !== undefined && output.DayOfMonth !== null
-        ? output.DayOfMonth
-        : undefined,
+      output.DayOfMonth !== undefined && output.DayOfMonth !== null ? output.DayOfMonth : undefined,
     DayOfWeek:
-      output.DayOfWeek !== undefined && output.DayOfWeek !== null
-        ? output.DayOfWeek
-        : undefined,
+      output.DayOfWeek !== undefined && output.DayOfWeek !== null ? output.DayOfWeek : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     HourOfDay:
-      output.HourOfDay !== undefined && output.HourOfDay !== null
-        ? output.HourOfDay
-        : undefined,
+      output.HourOfDay !== undefined && output.HourOfDay !== null ? output.HourOfDay : undefined,
     MinuteOfHour:
       output.MinuteOfHour !== undefined && output.MinuteOfHour !== null
         ? output.MinuteOfHour
         : undefined,
     Timezone:
-      output.Timezone !== undefined && output.Timezone !== null
-        ? output.Timezone
-        : undefined
+      output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined
   } as any;
 };
 
@@ -9420,12 +8520,8 @@ const deserializeAws_json1_1DescribeNFSFileSharesOutput = (
   return {
     __type: "DescribeNFSFileSharesOutput",
     NFSFileShareInfoList:
-      output.NFSFileShareInfoList !== undefined &&
-      output.NFSFileShareInfoList !== null
-        ? deserializeAws_json1_1NFSFileShareInfoList(
-            output.NFSFileShareInfoList,
-            context
-          )
+      output.NFSFileShareInfoList !== undefined && output.NFSFileShareInfoList !== null
+        ? deserializeAws_json1_1NFSFileShareInfoList(output.NFSFileShareInfoList, context)
         : undefined
   } as any;
 };
@@ -9437,12 +8533,8 @@ const deserializeAws_json1_1DescribeSMBFileSharesOutput = (
   return {
     __type: "DescribeSMBFileSharesOutput",
     SMBFileShareInfoList:
-      output.SMBFileShareInfoList !== undefined &&
-      output.SMBFileShareInfoList !== null
-        ? deserializeAws_json1_1SMBFileShareInfoList(
-            output.SMBFileShareInfoList,
-            context
-          )
+      output.SMBFileShareInfoList !== undefined && output.SMBFileShareInfoList !== null
+        ? deserializeAws_json1_1SMBFileShareInfoList(output.SMBFileShareInfoList, context)
         : undefined
   } as any;
 };
@@ -9454,26 +8546,19 @@ const deserializeAws_json1_1DescribeSMBSettingsOutput = (
   return {
     __type: "DescribeSMBSettingsOutput",
     ActiveDirectoryStatus:
-      output.ActiveDirectoryStatus !== undefined &&
-      output.ActiveDirectoryStatus !== null
+      output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
         ? output.ActiveDirectoryStatus
         : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     SMBGuestPasswordSet:
-      output.SMBGuestPasswordSet !== undefined &&
-      output.SMBGuestPasswordSet !== null
+      output.SMBGuestPasswordSet !== undefined && output.SMBGuestPasswordSet !== null
         ? output.SMBGuestPasswordSet
         : undefined,
     SMBSecurityStrategy:
-      output.SMBSecurityStrategy !== undefined &&
-      output.SMBSecurityStrategy !== null
+      output.SMBSecurityStrategy !== undefined && output.SMBSecurityStrategy !== null
         ? output.SMBSecurityStrategy
         : undefined
   } as any;
@@ -9490,26 +8575,18 @@ const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
         ? output.Description
         : undefined,
     RecurrenceInHours:
-      output.RecurrenceInHours !== undefined &&
-      output.RecurrenceInHours !== null
+      output.RecurrenceInHours !== undefined && output.RecurrenceInHours !== null
         ? output.RecurrenceInHours
         : undefined,
-    StartAt:
-      output.StartAt !== undefined && output.StartAt !== null
-        ? output.StartAt
-        : undefined,
+    StartAt: output.StartAt !== undefined && output.StartAt !== null ? output.StartAt : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
         : undefined,
     Timezone:
-      output.Timezone !== undefined && output.Timezone !== null
-        ? output.Timezone
-        : undefined,
+      output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -9520,12 +8597,8 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesOutput = (
   return {
     __type: "DescribeStorediSCSIVolumesOutput",
     StorediSCSIVolumes:
-      output.StorediSCSIVolumes !== undefined &&
-      output.StorediSCSIVolumes !== null
-        ? deserializeAws_json1_1StorediSCSIVolumes(
-            output.StorediSCSIVolumes,
-            context
-          )
+      output.StorediSCSIVolumes !== undefined && output.StorediSCSIVolumes !== null
+        ? deserializeAws_json1_1StorediSCSIVolumes(output.StorediSCSIVolumes, context)
         : undefined
   } as any;
 };
@@ -9536,10 +8609,7 @@ const deserializeAws_json1_1DescribeTapeArchivesOutput = (
 ): DescribeTapeArchivesOutput => {
   return {
     __type: "DescribeTapeArchivesOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeArchives:
       output.TapeArchives !== undefined && output.TapeArchives !== null
         ? deserializeAws_json1_1TapeArchives(output.TapeArchives, context)
@@ -9554,20 +8624,11 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
   return {
     __type: "DescribeTapeRecoveryPointsOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeRecoveryPointInfos:
-      output.TapeRecoveryPointInfos !== undefined &&
-      output.TapeRecoveryPointInfos !== null
-        ? deserializeAws_json1_1TapeRecoveryPointInfos(
-            output.TapeRecoveryPointInfos,
-            context
-          )
+      output.TapeRecoveryPointInfos !== undefined && output.TapeRecoveryPointInfos !== null
+        ? deserializeAws_json1_1TapeRecoveryPointInfos(output.TapeRecoveryPointInfos, context)
         : undefined
   } as any;
 };
@@ -9578,10 +8639,7 @@ const deserializeAws_json1_1DescribeTapesOutput = (
 ): DescribeTapesOutput => {
   return {
     __type: "DescribeTapesOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     Tapes:
       output.Tapes !== undefined && output.Tapes !== null
         ? deserializeAws_json1_1Tapes(output.Tapes, context)
@@ -9596,13 +8654,8 @@ const deserializeAws_json1_1DescribeVTLDevicesOutput = (
   return {
     __type: "DescribeVTLDevicesOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     VTLDevices:
       output.VTLDevices !== undefined && output.VTLDevices !== null
         ? deserializeAws_json1_1VTLDevices(output.VTLDevices, context)
@@ -9617,9 +8670,7 @@ const deserializeAws_json1_1DetachVolumeOutput = (
   return {
     __type: "DetachVolumeOutput",
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined
   } as any;
 };
 
@@ -9634,19 +8685,15 @@ const deserializeAws_json1_1DeviceiSCSIAttributes = (
         ? output.ChapEnabled
         : undefined,
     NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined &&
-      output.NetworkInterfaceId !== null
+      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
         ? output.NetworkInterfaceId
         : undefined,
     NetworkInterfacePort:
-      output.NetworkInterfacePort !== undefined &&
-      output.NetworkInterfacePort !== null
+      output.NetworkInterfacePort !== undefined && output.NetworkInterfacePort !== null
         ? output.NetworkInterfacePort
         : undefined,
     TargetARN:
-      output.TargetARN !== undefined && output.TargetARN !== null
-        ? output.TargetARN
-        : undefined
+      output.TargetARN !== undefined && output.TargetARN !== null ? output.TargetARN : undefined
   } as any;
 };
 
@@ -9657,56 +8704,36 @@ const deserializeAws_json1_1DisableGatewayOutput = (
   return {
     __type: "DisableGatewayOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Disk = (
-  output: any,
-  context: __SerdeContext
-): Disk => {
+const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
     __type: "Disk",
     DiskAllocationResource:
-      output.DiskAllocationResource !== undefined &&
-      output.DiskAllocationResource !== null
+      output.DiskAllocationResource !== undefined && output.DiskAllocationResource !== null
         ? output.DiskAllocationResource
         : undefined,
     DiskAllocationType:
-      output.DiskAllocationType !== undefined &&
-      output.DiskAllocationType !== null
+      output.DiskAllocationType !== undefined && output.DiskAllocationType !== null
         ? output.DiskAllocationType
         : undefined,
     DiskAttributeList:
-      output.DiskAttributeList !== undefined &&
-      output.DiskAttributeList !== null
-        ? deserializeAws_json1_1DiskAttributeList(
-            output.DiskAttributeList,
-            context
-          )
+      output.DiskAttributeList !== undefined && output.DiskAttributeList !== null
+        ? deserializeAws_json1_1DiskAttributeList(output.DiskAttributeList, context)
         : undefined,
-    DiskId:
-      output.DiskId !== undefined && output.DiskId !== null
-        ? output.DiskId
-        : undefined,
+    DiskId: output.DiskId !== undefined && output.DiskId !== null ? output.DiskId : undefined,
     DiskNode:
-      output.DiskNode !== undefined && output.DiskNode !== null
-        ? output.DiskNode
-        : undefined,
+      output.DiskNode !== undefined && output.DiskNode !== null ? output.DiskNode : undefined,
     DiskPath:
-      output.DiskPath !== undefined && output.DiskPath !== null
-        ? output.DiskPath
-        : undefined,
+      output.DiskPath !== undefined && output.DiskPath !== null ? output.DiskPath : undefined,
     DiskSizeInBytes:
       output.DiskSizeInBytes !== undefined && output.DiskSizeInBytes !== null
         ? output.DiskSizeInBytes
         : undefined,
     DiskStatus:
-      output.DiskStatus !== undefined && output.DiskStatus !== null
-        ? output.DiskStatus
-        : undefined
+      output.DiskStatus !== undefined && output.DiskStatus !== null ? output.DiskStatus : undefined
   } as any;
 };
 
@@ -9717,13 +8744,8 @@ const deserializeAws_json1_1DiskAttributeList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Disks = (
-  output: any,
-  context: __SerdeContext
-): Disk[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Disk(entry, context)
-  );
+const deserializeAws_json1_1Disks = (output: any, context: __SerdeContext): Disk[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Disk(entry, context));
 };
 
 const deserializeAws_json1_1FileShareClientList = (
@@ -9756,9 +8778,7 @@ const deserializeAws_json1_1FileShareInfo = (
         ? output.FileShareType
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -9766,9 +8786,7 @@ const deserializeAws_json1_1FileShareInfoList = (
   output: any,
   context: __SerdeContext
 ): FileShareInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FileShareInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1FileShareInfo(entry, context));
 };
 
 const deserializeAws_json1_1FileShareUserList = (
@@ -9778,10 +8796,7 @@ const deserializeAws_json1_1FileShareUserList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1GatewayInfo = (
-  output: any,
-  context: __SerdeContext
-): GatewayInfo => {
+const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
   return {
     __type: "GatewayInfo",
     Ec2InstanceId:
@@ -9789,25 +8804,19 @@ const deserializeAws_json1_1GatewayInfo = (
         ? output.Ec2InstanceId
         : undefined,
     Ec2InstanceRegion:
-      output.Ec2InstanceRegion !== undefined &&
-      output.Ec2InstanceRegion !== null
+      output.Ec2InstanceRegion !== undefined && output.Ec2InstanceRegion !== null
         ? output.Ec2InstanceRegion
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayId:
-      output.GatewayId !== undefined && output.GatewayId !== null
-        ? output.GatewayId
-        : undefined,
+      output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
     GatewayName:
       output.GatewayName !== undefined && output.GatewayName !== null
         ? output.GatewayName
         : undefined,
     GatewayOperationalState:
-      output.GatewayOperationalState !== undefined &&
-      output.GatewayOperationalState !== null
+      output.GatewayOperationalState !== undefined && output.GatewayOperationalState !== null
         ? output.GatewayOperationalState
         : undefined,
     GatewayType:
@@ -9817,19 +8826,11 @@ const deserializeAws_json1_1GatewayInfo = (
   } as any;
 };
 
-const deserializeAws_json1_1Gateways = (
-  output: any,
-  context: __SerdeContext
-): GatewayInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1GatewayInfo(entry, context)
-  );
+const deserializeAws_json1_1Gateways = (output: any, context: __SerdeContext): GatewayInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1GatewayInfo(entry, context));
 };
 
-const deserializeAws_json1_1Initiators = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1Initiators = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9840,14 +8841,11 @@ const deserializeAws_json1_1JoinDomainOutput = (
   return {
     __type: "JoinDomainOutput",
     ActiveDirectoryStatus:
-      output.ActiveDirectoryStatus !== undefined &&
-      output.ActiveDirectoryStatus !== null
+      output.ActiveDirectoryStatus !== undefined && output.ActiveDirectoryStatus !== null
         ? output.ActiveDirectoryStatus
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -9858,21 +8856,12 @@ const deserializeAws_json1_1ListFileSharesOutput = (
   return {
     __type: "ListFileSharesOutput",
     FileShareInfoList:
-      output.FileShareInfoList !== undefined &&
-      output.FileShareInfoList !== null
-        ? deserializeAws_json1_1FileShareInfoList(
-            output.FileShareInfoList,
-            context
-          )
+      output.FileShareInfoList !== undefined && output.FileShareInfoList !== null
+        ? deserializeAws_json1_1FileShareInfoList(output.FileShareInfoList, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     NextMarker:
-      output.NextMarker !== undefined && output.NextMarker !== null
-        ? output.NextMarker
-        : undefined
+      output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined
   } as any;
 };
 
@@ -9886,10 +8875,7 @@ const deserializeAws_json1_1ListGatewaysOutput = (
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_json1_1Gateways(output.Gateways, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -9904,9 +8890,7 @@ const deserializeAws_json1_1ListLocalDisksOutput = (
         ? deserializeAws_json1_1Disks(output.Disks, context)
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -9916,10 +8900,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   return {
     __type: "ListTagsForResourceOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
@@ -9937,10 +8918,7 @@ const deserializeAws_json1_1ListTapesOutput = (
 ): ListTapesOutput => {
   return {
     __type: "ListTapesOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     TapeInfos:
       output.TapeInfos !== undefined && output.TapeInfos !== null
         ? deserializeAws_json1_1TapeInfos(output.TapeInfos, context)
@@ -9968,13 +8946,8 @@ const deserializeAws_json1_1ListVolumesOutput = (
   return {
     __type: "ListVolumesOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     VolumeInfos:
       output.VolumeInfos !== undefined && output.VolumeInfos !== null
         ? deserializeAws_json1_1VolumeInfos(output.VolumeInfos, context)
@@ -9993,17 +8966,9 @@ const deserializeAws_json1_1NFSFileShareDefaults = (
         ? output.DirectoryMode
         : undefined,
     FileMode:
-      output.FileMode !== undefined && output.FileMode !== null
-        ? output.FileMode
-        : undefined,
-    GroupId:
-      output.GroupId !== undefined && output.GroupId !== null
-        ? output.GroupId
-        : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined
+      output.FileMode !== undefined && output.FileMode !== null ? output.FileMode : undefined,
+    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined
   } as any;
 };
 
@@ -10018,8 +8983,7 @@ const deserializeAws_json1_1NFSFileShareInfo = (
         ? deserializeAws_json1_1FileShareClientList(output.ClientList, context)
         : undefined,
     DefaultStorageClass:
-      output.DefaultStorageClass !== undefined &&
-      output.DefaultStorageClass !== null
+      output.DefaultStorageClass !== undefined && output.DefaultStorageClass !== null
         ? output.DefaultStorageClass
         : undefined,
     FileShareARN:
@@ -10035,58 +8999,35 @@ const deserializeAws_json1_1NFSFileShareInfo = (
         ? output.FileShareStatus
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GuessMIMETypeEnabled:
-      output.GuessMIMETypeEnabled !== undefined &&
-      output.GuessMIMETypeEnabled !== null
+      output.GuessMIMETypeEnabled !== undefined && output.GuessMIMETypeEnabled !== null
         ? output.GuessMIMETypeEnabled
         : undefined,
     KMSEncrypted:
       output.KMSEncrypted !== undefined && output.KMSEncrypted !== null
         ? output.KMSEncrypted
         : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     LocationARN:
       output.LocationARN !== undefined && output.LocationARN !== null
         ? output.LocationARN
         : undefined,
     NFSFileShareDefaults:
-      output.NFSFileShareDefaults !== undefined &&
-      output.NFSFileShareDefaults !== null
-        ? deserializeAws_json1_1NFSFileShareDefaults(
-            output.NFSFileShareDefaults,
-            context
-          )
+      output.NFSFileShareDefaults !== undefined && output.NFSFileShareDefaults !== null
+        ? deserializeAws_json1_1NFSFileShareDefaults(output.NFSFileShareDefaults, context)
         : undefined,
     ObjectACL:
-      output.ObjectACL !== undefined && output.ObjectACL !== null
-        ? output.ObjectACL
-        : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined,
+      output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     ReadOnly:
-      output.ReadOnly !== undefined && output.ReadOnly !== null
-        ? output.ReadOnly
-        : undefined,
+      output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
     RequesterPays:
       output.RequesterPays !== undefined && output.RequesterPays !== null
         ? output.RequesterPays
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
-    Squash:
-      output.Squash !== undefined && output.Squash !== null
-        ? output.Squash
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
+    Squash: output.Squash !== undefined && output.Squash !== null ? output.Squash : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
@@ -10098,9 +9039,7 @@ const deserializeAws_json1_1NFSFileShareInfoList = (
   output: any,
   context: __SerdeContext
 ): NFSFileShareInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1NFSFileShareInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1NFSFileShareInfo(entry, context));
 };
 
 const deserializeAws_json1_1NotifyWhenUploadedOutput = (
@@ -10157,9 +9096,7 @@ const deserializeAws_json1_1ResetCacheOutput = (
   return {
     __type: "ResetCacheOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -10169,10 +9106,7 @@ const deserializeAws_json1_1RetrieveTapeArchiveOutput = (
 ): RetrieveTapeArchiveOutput => {
   return {
     __type: "RetrieveTapeArchiveOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -10182,10 +9116,7 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointOutput = (
 ): RetrieveTapeRecoveryPointOutput => {
   return {
     __type: "RetrieveTapeRecoveryPointOutput",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined
   } as any;
 };
 
@@ -10204,8 +9135,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (
         ? output.Authentication
         : undefined,
     DefaultStorageClass:
-      output.DefaultStorageClass !== undefined &&
-      output.DefaultStorageClass !== null
+      output.DefaultStorageClass !== undefined && output.DefaultStorageClass !== null
         ? output.DefaultStorageClass
         : undefined,
     FileShareARN:
@@ -10221,53 +9151,34 @@ const deserializeAws_json1_1SMBFileShareInfo = (
         ? output.FileShareStatus
         : undefined,
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GuessMIMETypeEnabled:
-      output.GuessMIMETypeEnabled !== undefined &&
-      output.GuessMIMETypeEnabled !== null
+      output.GuessMIMETypeEnabled !== undefined && output.GuessMIMETypeEnabled !== null
         ? output.GuessMIMETypeEnabled
         : undefined,
     InvalidUserList:
       output.InvalidUserList !== undefined && output.InvalidUserList !== null
-        ? deserializeAws_json1_1FileShareUserList(
-            output.InvalidUserList,
-            context
-          )
+        ? deserializeAws_json1_1FileShareUserList(output.InvalidUserList, context)
         : undefined,
     KMSEncrypted:
       output.KMSEncrypted !== undefined && output.KMSEncrypted !== null
         ? output.KMSEncrypted
         : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     LocationARN:
       output.LocationARN !== undefined && output.LocationARN !== null
         ? output.LocationARN
         : undefined,
     ObjectACL:
-      output.ObjectACL !== undefined && output.ObjectACL !== null
-        ? output.ObjectACL
-        : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined,
+      output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     ReadOnly:
-      output.ReadOnly !== undefined && output.ReadOnly !== null
-        ? output.ReadOnly
-        : undefined,
+      output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
     RequesterPays:
       output.RequesterPays !== undefined && output.RequesterPays !== null
         ? output.RequesterPays
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     SMBACLEnabled:
       output.SMBACLEnabled !== undefined && output.SMBACLEnabled !== null
         ? output.SMBACLEnabled
@@ -10287,9 +9198,7 @@ const deserializeAws_json1_1SMBFileShareInfoList = (
   output: any,
   context: __SerdeContext
 ): SMBFileShareInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SMBFileShareInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1SMBFileShareInfo(entry, context));
 };
 
 const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
@@ -10299,9 +9208,7 @@ const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
   return {
     __type: "SetLocalConsolePasswordOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -10312,9 +9219,7 @@ const deserializeAws_json1_1SetSMBGuestPasswordOutput = (
   return {
     __type: "SetSMBGuestPasswordOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -10325,9 +9230,7 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
   return {
     __type: "StartAvailabilityMonitorTestOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -10341,13 +9244,9 @@ const deserializeAws_json1_1StorediSCSIVolume = (
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     PreservedExistingData:
-      output.PreservedExistingData !== undefined &&
-      output.PreservedExistingData !== null
+      output.PreservedExistingData !== undefined && output.PreservedExistingData !== null
         ? output.PreservedExistingData
         : undefined,
     SourceSnapshotId:
@@ -10355,16 +9254,11 @@ const deserializeAws_json1_1StorediSCSIVolume = (
         ? output.SourceSnapshotId
         : undefined,
     TargetName:
-      output.TargetName !== undefined && output.TargetName !== null
-        ? output.TargetName
-        : undefined,
+      output.TargetName !== undefined && output.TargetName !== null ? output.TargetName : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined &&
-      output.VolumeAttachmentStatus !== null
+      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
         ? output.VolumeAttachmentStatus
         : undefined,
     VolumeDiskId:
@@ -10372,16 +9266,13 @@ const deserializeAws_json1_1StorediSCSIVolume = (
         ? output.VolumeDiskId
         : undefined,
     VolumeId:
-      output.VolumeId !== undefined && output.VolumeId !== null
-        ? output.VolumeId
-        : undefined,
+      output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
     VolumeProgress:
       output.VolumeProgress !== undefined && output.VolumeProgress !== null
         ? output.VolumeProgress
         : undefined,
     VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined &&
-      output.VolumeSizeInBytes !== null
+      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
         ? output.VolumeSizeInBytes
         : undefined,
     VolumeStatus:
@@ -10389,21 +9280,14 @@ const deserializeAws_json1_1StorediSCSIVolume = (
         ? output.VolumeStatus
         : undefined,
     VolumeType:
-      output.VolumeType !== undefined && output.VolumeType !== null
-        ? output.VolumeType
-        : undefined,
+      output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,
     VolumeUsedInBytes:
-      output.VolumeUsedInBytes !== undefined &&
-      output.VolumeUsedInBytes !== null
+      output.VolumeUsedInBytes !== undefined && output.VolumeUsedInBytes !== null
         ? output.VolumeUsedInBytes
         : undefined,
     VolumeiSCSIAttributes:
-      output.VolumeiSCSIAttributes !== undefined &&
-      output.VolumeiSCSIAttributes !== null
-        ? deserializeAws_json1_1VolumeiSCSIAttributes(
-            output.VolumeiSCSIAttributes,
-            context
-          )
+      output.VolumeiSCSIAttributes !== undefined && output.VolumeiSCSIAttributes !== null
+        ? deserializeAws_json1_1VolumeiSCSIAttributes(output.VolumeiSCSIAttributes, context)
         : undefined
   } as any;
 };
@@ -10417,52 +9301,26 @@ const deserializeAws_json1_1StorediSCSIVolumes = (
   );
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1Tape = (
-  output: any,
-  context: __SerdeContext
-): Tape => {
+const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
   return {
     __type: "Tape",
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
-    PoolId:
-      output.PoolId !== undefined && output.PoolId !== null
-        ? output.PoolId
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
     Progress:
-      output.Progress !== undefined && output.Progress !== null
-        ? output.Progress
-        : undefined,
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined,
+      output.Progress !== undefined && output.Progress !== null ? output.Progress : undefined,
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode:
       output.TapeBarcode !== undefined && output.TapeBarcode !== null
         ? output.TapeBarcode
@@ -10476,53 +9334,34 @@ const deserializeAws_json1_1Tape = (
         ? output.TapeSizeInBytes
         : undefined,
     TapeStatus:
-      output.TapeStatus !== undefined && output.TapeStatus !== null
-        ? output.TapeStatus
-        : undefined,
+      output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
     TapeUsedInBytes:
       output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null
         ? output.TapeUsedInBytes
         : undefined,
     VTLDevice:
-      output.VTLDevice !== undefined && output.VTLDevice !== null
-        ? output.VTLDevice
-        : undefined
+      output.VTLDevice !== undefined && output.VTLDevice !== null ? output.VTLDevice : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TapeARNs = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1TapeArchive = (
-  output: any,
-  context: __SerdeContext
-): TapeArchive => {
+const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext): TapeArchive => {
   return {
     __type: "TapeArchive",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
         : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
-    PoolId:
-      output.PoolId !== undefined && output.PoolId !== null
-        ? output.PoolId
-        : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
     RetrievedTo:
       output.RetrievedTo !== undefined && output.RetrievedTo !== null
         ? output.RetrievedTo
         : undefined,
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined,
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode:
       output.TapeBarcode !== undefined && output.TapeBarcode !== null
         ? output.TapeBarcode
@@ -10536,9 +9375,7 @@ const deserializeAws_json1_1TapeArchive = (
         ? output.TapeSizeInBytes
         : undefined,
     TapeStatus:
-      output.TapeStatus !== undefined && output.TapeStatus !== null
-        ? output.TapeStatus
-        : undefined,
+      output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
     TapeUsedInBytes:
       output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null
         ? output.TapeUsedInBytes
@@ -10550,29 +9387,16 @@ const deserializeAws_json1_1TapeArchives = (
   output: any,
   context: __SerdeContext
 ): TapeArchive[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TapeArchive(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TapeArchive(entry, context));
 };
 
-const deserializeAws_json1_1TapeInfo = (
-  output: any,
-  context: __SerdeContext
-): TapeInfo => {
+const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
   return {
     __type: "TapeInfo",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
-    PoolId:
-      output.PoolId !== undefined && output.PoolId !== null
-        ? output.PoolId
-        : undefined,
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode:
       output.TapeBarcode !== undefined && output.TapeBarcode !== null
         ? output.TapeBarcode
@@ -10582,19 +9406,12 @@ const deserializeAws_json1_1TapeInfo = (
         ? output.TapeSizeInBytes
         : undefined,
     TapeStatus:
-      output.TapeStatus !== undefined && output.TapeStatus !== null
-        ? output.TapeStatus
-        : undefined
+      output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TapeInfos = (
-  output: any,
-  context: __SerdeContext
-): TapeInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TapeInfo(entry, context)
-  );
+const deserializeAws_json1_1TapeInfos = (output: any, context: __SerdeContext): TapeInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TapeInfo(entry, context));
 };
 
 const deserializeAws_json1_1TapeRecoveryPointInfo = (
@@ -10603,13 +9420,9 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (
 ): TapeRecoveryPointInfo => {
   return {
     __type: "TapeRecoveryPointInfo",
-    TapeARN:
-      output.TapeARN !== undefined && output.TapeARN !== null
-        ? output.TapeARN
-        : undefined,
+    TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeRecoveryPointTime:
-      output.TapeRecoveryPointTime !== undefined &&
-      output.TapeRecoveryPointTime !== null
+      output.TapeRecoveryPointTime !== undefined && output.TapeRecoveryPointTime !== null
         ? new Date(Math.round(output.TapeRecoveryPointTime * 1000))
         : undefined,
     TapeSizeInBytes:
@@ -10617,9 +9430,7 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (
         ? output.TapeSizeInBytes
         : undefined,
     TapeStatus:
-      output.TapeStatus !== undefined && output.TapeStatus !== null
-        ? output.TapeStatus
-        : undefined
+      output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined
   } as any;
 };
 
@@ -10632,13 +9443,8 @@ const deserializeAws_json1_1TapeRecoveryPointInfos = (
   );
 };
 
-const deserializeAws_json1_1Tapes = (
-  output: any,
-  context: __SerdeContext
-): Tape[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tape(entry, context)
-  );
+const deserializeAws_json1_1Tapes = (output: any, context: __SerdeContext): Tape[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tape(entry, context));
 };
 
 const deserializeAws_json1_1UpdateNFSFileShareOutput = (
@@ -10674,9 +9480,7 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyOutput = (
   return {
     __type: "UpdateSMBSecurityStrategyOutput",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined
   } as any;
 };
 
@@ -10693,27 +9497,19 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1VTLDevice = (
-  output: any,
-  context: __SerdeContext
-): VTLDevice => {
+const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): VTLDevice => {
   return {
     __type: "VTLDevice",
     DeviceiSCSIAttributes:
-      output.DeviceiSCSIAttributes !== undefined &&
-      output.DeviceiSCSIAttributes !== null
-        ? deserializeAws_json1_1DeviceiSCSIAttributes(
-            output.DeviceiSCSIAttributes,
-            context
-          )
+      output.DeviceiSCSIAttributes !== undefined && output.DeviceiSCSIAttributes !== null
+        ? deserializeAws_json1_1DeviceiSCSIAttributes(output.DeviceiSCSIAttributes, context)
         : undefined,
     VTLDeviceARN:
       output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null
         ? output.VTLDeviceARN
         : undefined,
     VTLDeviceProductIdentifier:
-      output.VTLDeviceProductIdentifier !== undefined &&
-      output.VTLDeviceProductIdentifier !== null
+      output.VTLDeviceProductIdentifier !== undefined && output.VTLDeviceProductIdentifier !== null
         ? output.VTLDeviceProductIdentifier
         : undefined,
     VTLDeviceType:
@@ -10727,61 +9523,36 @@ const deserializeAws_json1_1VTLDevice = (
   } as any;
 };
 
-const deserializeAws_json1_1VTLDevices = (
-  output: any,
-  context: __SerdeContext
-): VTLDevice[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1VTLDevice(entry, context)
-  );
+const deserializeAws_json1_1VTLDevices = (output: any, context: __SerdeContext): VTLDevice[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VTLDevice(entry, context));
 };
 
-const deserializeAws_json1_1VolumeInfo = (
-  output: any,
-  context: __SerdeContext
-): VolumeInfo => {
+const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {
   return {
     __type: "VolumeInfo",
     GatewayARN:
-      output.GatewayARN !== undefined && output.GatewayARN !== null
-        ? output.GatewayARN
-        : undefined,
+      output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     GatewayId:
-      output.GatewayId !== undefined && output.GatewayId !== null
-        ? output.GatewayId
-        : undefined,
+      output.GatewayId !== undefined && output.GatewayId !== null ? output.GatewayId : undefined,
     VolumeARN:
-      output.VolumeARN !== undefined && output.VolumeARN !== null
-        ? output.VolumeARN
-        : undefined,
+      output.VolumeARN !== undefined && output.VolumeARN !== null ? output.VolumeARN : undefined,
     VolumeAttachmentStatus:
-      output.VolumeAttachmentStatus !== undefined &&
-      output.VolumeAttachmentStatus !== null
+      output.VolumeAttachmentStatus !== undefined && output.VolumeAttachmentStatus !== null
         ? output.VolumeAttachmentStatus
         : undefined,
     VolumeId:
-      output.VolumeId !== undefined && output.VolumeId !== null
-        ? output.VolumeId
-        : undefined,
+      output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
     VolumeSizeInBytes:
-      output.VolumeSizeInBytes !== undefined &&
-      output.VolumeSizeInBytes !== null
+      output.VolumeSizeInBytes !== undefined && output.VolumeSizeInBytes !== null
         ? output.VolumeSizeInBytes
         : undefined,
     VolumeType:
-      output.VolumeType !== undefined && output.VolumeType !== null
-        ? output.VolumeType
-        : undefined
+      output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1VolumeInfos = (
-  output: any,
-  context: __SerdeContext
-): VolumeInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1VolumeInfo(entry, context)
-  );
+const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext): VolumeInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VolumeInfo(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -10798,16 +9569,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

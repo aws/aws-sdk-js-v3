@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  StopActivityStreamRequest,
-  StopActivityStreamResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/index";
 import {
   deserializeAws_queryStopActivityStreamCommand,
   serializeAws_queryStopActivityStreamCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopActivityStreamCommandInput = StopActivityStreamRequest;
-export type StopActivityStreamCommandOutput = StopActivityStreamResponse &
-  __MetadataBearer;
+export type StopActivityStreamCommandOutput = StopActivityStreamResponse & __MetadataBearer;
 
 export class StopActivityStreamCommand extends $Command<
   StopActivityStreamCommandInput,
@@ -50,9 +42,7 @@ export class StopActivityStreamCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopActivityStreamCommandInput, StopActivityStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

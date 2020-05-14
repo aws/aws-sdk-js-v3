@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DescribeStreamProcessorRequest,
-  DescribeStreamProcessorResponse
-} from "../models/index";
+import { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStreamProcessorCommand,
   serializeAws_json1_1DescribeStreamProcessorCommand
@@ -49,13 +46,8 @@ export class DescribeStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStreamProcessorCommandInput,
-    DescribeStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStreamProcessorCommandInput, DescribeStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeStreamProcessorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamProcessorCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

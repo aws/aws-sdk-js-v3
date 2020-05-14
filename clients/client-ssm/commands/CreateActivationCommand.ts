@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreateActivationRequest,
-  CreateActivationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreateActivationRequest, CreateActivationResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateActivationCommand,
   serializeAws_json1_1CreateActivationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateActivationCommandInput = CreateActivationRequest;
-export type CreateActivationCommandOutput = CreateActivationResult &
-  __MetadataBearer;
+export type CreateActivationCommandOutput = CreateActivationResult & __MetadataBearer;
 
 export class CreateActivationCommand extends $Command<
   CreateActivationCommandInput,
@@ -50,9 +42,7 @@ export class CreateActivationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateActivationCommandInput, CreateActivationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

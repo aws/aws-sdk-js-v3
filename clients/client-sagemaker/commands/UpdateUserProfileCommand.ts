@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  UpdateUserProfileRequest,
-  UpdateUserProfileResponse
-} from "../models/index";
+import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
-export type UpdateUserProfileCommandOutput = UpdateUserProfileResponse &
-  __MetadataBearer;
+export type UpdateUserProfileCommandOutput = UpdateUserProfileResponse & __MetadataBearer;
 
 export class UpdateUserProfileCommand extends $Command<
   UpdateUserProfileCommandInput,
@@ -50,9 +46,7 @@ export class UpdateUserProfileCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

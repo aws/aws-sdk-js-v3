@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CreateCacheSecurityGroupMessage,
-  CreateCacheSecurityGroupResult
-} from "../models/index";
+import { CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateCacheSecurityGroupCommand,
   serializeAws_queryCreateCacheSecurityGroupCommand
@@ -49,13 +46,8 @@ export class CreateCacheSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCacheSecurityGroupCommandInput,
-    CreateCacheSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCacheSecurityGroupCommandInput, CreateCacheSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

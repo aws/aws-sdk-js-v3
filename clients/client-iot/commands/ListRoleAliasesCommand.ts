@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListRoleAliasesRequest,
-  ListRoleAliasesResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListRoleAliasesRequest, ListRoleAliasesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRoleAliasesCommand,
   serializeAws_restJson1_1ListRoleAliasesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRoleAliasesCommandInput = ListRoleAliasesRequest;
-export type ListRoleAliasesCommandOutput = ListRoleAliasesResponse &
-  __MetadataBearer;
+export type ListRoleAliasesCommandOutput = ListRoleAliasesResponse & __MetadataBearer;
 
 export class ListRoleAliasesCommand extends $Command<
   ListRoleAliasesCommandInput,
@@ -50,9 +42,7 @@ export class ListRoleAliasesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

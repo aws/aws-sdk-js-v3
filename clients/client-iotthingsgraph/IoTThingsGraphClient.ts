@@ -50,10 +50,7 @@ import {
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput
 } from "./commands/DissociateEntityFromThingCommand";
-import {
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput
-} from "./commands/GetEntitiesCommand";
+import { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
 import {
   GetFlowTemplateCommandInput,
   GetFlowTemplateCommandOutput
@@ -114,10 +111,7 @@ import {
   SearchThingsCommandInput,
   SearchThingsCommandOutput
 } from "./commands/SearchThingsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UndeploySystemInstanceCommandInput,
   UndeploySystemInstanceCommandOutput
@@ -349,9 +343,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTThingsGraphClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTThingsGraphClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DescribeSessionsRequest,
-  DescribeSessionsResult
-} from "../models/index";
+import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSessionsCommand,
   serializeAws_json1_1DescribeSessionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSessionsCommandInput = DescribeSessionsRequest;
-export type DescribeSessionsCommandOutput = DescribeSessionsResult &
-  __MetadataBearer;
+export type DescribeSessionsCommandOutput = DescribeSessionsResult & __MetadataBearer;
 
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSessionsCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSessionsCommandInput, DescribeSessionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -2,10 +2,7 @@ import {
   BatchMeterUsageCommandInput,
   BatchMeterUsageCommandOutput
 } from "./commands/BatchMeterUsageCommand";
-import {
-  MeterUsageCommandInput,
-  MeterUsageCommandOutput
-} from "./commands/MeterUsageCommand";
+import { MeterUsageCommandInput, MeterUsageCommandOutput } from "./commands/MeterUsageCommand";
 import {
   RegisterUsageCommandInput,
   RegisterUsageCommandOutput
@@ -163,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MarketplaceMeteringClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MarketplaceMeteringClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

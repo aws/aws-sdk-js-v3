@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  GetLoggingConfigurationRequest,
-  GetLoggingConfigurationResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLoggingConfigurationCommand,
   serializeAws_json1_1GetLoggingConfigurationCommand
@@ -49,13 +42,8 @@ export class GetLoggingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLoggingConfigurationCommandInput,
-    GetLoggingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLoggingConfigurationCommandInput, GetLoggingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class GetLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLoggingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

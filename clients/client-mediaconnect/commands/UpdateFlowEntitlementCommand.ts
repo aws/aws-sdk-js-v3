@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  UpdateFlowEntitlementRequest,
-  UpdateFlowEntitlementResponse
-} from "../models/index";
+import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFlowEntitlementCommand,
   serializeAws_restJson1_1UpdateFlowEntitlementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFlowEntitlementCommandInput = UpdateFlowEntitlementRequest;
-export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse &
-  __MetadataBearer;
+export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse & __MetadataBearer;
 
 export class UpdateFlowEntitlementCommand extends $Command<
   UpdateFlowEntitlementCommandInput,
@@ -49,13 +45,8 @@ export class UpdateFlowEntitlementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFlowEntitlementCommandInput,
-    UpdateFlowEntitlementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFlowEntitlementCommandInput, UpdateFlowEntitlementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateFlowEntitlementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFlowEntitlementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

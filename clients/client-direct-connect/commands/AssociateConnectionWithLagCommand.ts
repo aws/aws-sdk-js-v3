@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateConnectionWithLagCommandInput = AssociateConnectionWithLagRequest;
-export type AssociateConnectionWithLagCommandOutput = Connection &
-  __MetadataBearer;
+export type AssociateConnectionWithLagCommandOutput = Connection & __MetadataBearer;
 
 export class AssociateConnectionWithLagCommand extends $Command<
   AssociateConnectionWithLagCommandInput,
@@ -46,13 +45,8 @@ export class AssociateConnectionWithLagCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateConnectionWithLagCommandInput,
-    AssociateConnectionWithLagCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateConnectionWithLagCommandInput, AssociateConnectionWithLagCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +65,14 @@ export class AssociateConnectionWithLagCommand extends $Command<
     input: AssociateConnectionWithLagCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateConnectionWithLagCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateConnectionWithLagCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateConnectionWithLagCommandOutput> {
-    return deserializeAws_json1_1AssociateConnectionWithLagCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateConnectionWithLagCommand(output, context);
   }
 
   // Start section: command_body_extra

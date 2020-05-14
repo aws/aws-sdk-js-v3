@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListTypedLinkFacetNamesRequest,
-  ListTypedLinkFacetNamesResponse
-} from "../models/index";
+import { ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand,
   serializeAws_restJson1_1ListTypedLinkFacetNamesCommand
@@ -49,13 +46,8 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTypedLinkFacetNamesCommandInput,
-    ListTypedLinkFacetNamesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTypedLinkFacetNamesCommandInput, ListTypedLinkFacetNamesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
     input: ListTypedLinkFacetNamesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTypedLinkFacetNamesCommandOutput> {
-    return deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

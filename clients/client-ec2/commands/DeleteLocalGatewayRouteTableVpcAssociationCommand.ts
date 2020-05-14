@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult
@@ -39,9 +35,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput
-  ) {
+  constructor(readonly input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

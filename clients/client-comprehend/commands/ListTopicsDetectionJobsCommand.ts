@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  ListTopicsDetectionJobsRequest,
-  ListTopicsDetectionJobsResponse
-} from "../models/index";
+import { ListTopicsDetectionJobsRequest, ListTopicsDetectionJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTopicsDetectionJobsCommand,
   serializeAws_json1_1ListTopicsDetectionJobsCommand
@@ -49,13 +46,8 @@ export class ListTopicsDetectionJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTopicsDetectionJobsCommandInput,
-    ListTopicsDetectionJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTopicsDetectionJobsCommandInput, ListTopicsDetectionJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListTopicsDetectionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicsDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListTopicsDetectionJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTopicsDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

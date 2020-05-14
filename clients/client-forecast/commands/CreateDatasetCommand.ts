@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatasetCommandInput = CreateDatasetRequest;
-export type CreateDatasetCommandOutput = CreateDatasetResponse &
-  __MetadataBearer;
+export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
 
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,
@@ -47,9 +46,7 @@ export class CreateDatasetCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatasetCommandInput, CreateDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,16 +1,11 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Your request was throttled because you have exceeded the limit of allowed client
  *             calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -24,9 +19,7 @@ export namespace ClientLimitExceededException {
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -40,25 +33,20 @@ export namespace InvalidArgumentException {
 /**
  * <p>The caller is not authorized to perform this operation.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>The specified resource is not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -147,17 +135,14 @@ export namespace IceServer {
 /**
  * <p>The specified client is invalid.</p>
  */
-export interface InvalidClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClientException {
-  export const isa = (o: any): o is InvalidClientException =>
-    __isa(o, "InvalidClientException");
+  export const isa = (o: any): o is InvalidClientException => __isa(o, "InvalidClientException");
 }
 
 export interface SendAlexaOfferToMasterRequest {
@@ -206,15 +191,12 @@ export enum Service {
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
  */
-export interface SessionExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SessionExpiredException extends __SmithyException, $MetadataBearer {
   name: "SessionExpiredException";
   $fault: "client";
   message?: string;
 }
 
 export namespace SessionExpiredException {
-  export const isa = (o: any): o is SessionExpiredException =>
-    __isa(o, "SessionExpiredException");
+  export const isa = (o: any): o is SessionExpiredException => __isa(o, "SessionExpiredException");
 }

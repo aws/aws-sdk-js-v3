@@ -73,10 +73,7 @@ describe("s3 presigner", () => {
         "Content-Type": "application/octet-stream"
       }
     };
-    const signed = await signer.presign(
-      requestWithContentTypeHeader,
-      presigningOptions
-    );
+    const signed = await signer.presign(requestWithContentTypeHeader, presigningOptions);
     expect(signed.query).toMatchObject({
       [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER
     });

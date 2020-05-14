@@ -49,13 +49,8 @@ export class ListPublishingDestinationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPublishingDestinationsCommandInput,
-    ListPublishingDestinationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPublishingDestinationsCommandInput, ListPublishingDestinationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListPublishingDestinationsCommand extends $Command<
     input: ListPublishingDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPublishingDestinationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListPublishingDestinationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPublishingDestinationsCommandOutput> {
-    return deserializeAws_restJson1_1ListPublishingDestinationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPublishingDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

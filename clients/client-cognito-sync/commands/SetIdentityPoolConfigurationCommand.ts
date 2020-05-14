@@ -49,13 +49,8 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetIdentityPoolConfigurationCommandInput,
-    SetIdentityPoolConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetIdentityPoolConfigurationCommandInput, SetIdentityPoolConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     input: SetIdentityPoolConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SetIdentityPoolConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1SetIdentityPoolConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityPoolConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

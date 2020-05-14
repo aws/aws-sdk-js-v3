@@ -39,9 +39,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeOrderableReplicationInstancesCommandInput
-  ) {
+  constructor(readonly input: DescribeOrderableReplicationInstancesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     DescribeOrderableReplicationInstancesCommandInput,
     DescribeOrderableReplicationInstancesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     input: DescribeOrderableReplicationInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrderableReplicationInstancesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeOrderableReplicationInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

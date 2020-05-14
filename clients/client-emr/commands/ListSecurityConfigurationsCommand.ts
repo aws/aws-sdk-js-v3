@@ -1,12 +1,5 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  ListSecurityConfigurationsInput,
-  ListSecurityConfigurationsOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { ListSecurityConfigurationsInput, ListSecurityConfigurationsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListSecurityConfigurationsCommand,
   serializeAws_json1_1ListSecurityConfigurationsCommand
@@ -49,13 +42,8 @@ export class ListSecurityConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSecurityConfigurationsCommandInput,
-    ListSecurityConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSecurityConfigurationsCommandInput, ListSecurityConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListSecurityConfigurationsCommand extends $Command<
     input: ListSecurityConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecurityConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListSecurityConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

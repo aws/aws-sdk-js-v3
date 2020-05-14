@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DeleteClusterSnapshotMessage,
-  DeleteClusterSnapshotResult
-} from "../models/index";
+import { DeleteClusterSnapshotMessage, DeleteClusterSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryDeleteClusterSnapshotCommand,
   serializeAws_queryDeleteClusterSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterSnapshotCommandInput = DeleteClusterSnapshotMessage;
-export type DeleteClusterSnapshotCommandOutput = DeleteClusterSnapshotResult &
-  __MetadataBearer;
+export type DeleteClusterSnapshotCommandOutput = DeleteClusterSnapshotResult & __MetadataBearer;
 
 export class DeleteClusterSnapshotCommand extends $Command<
   DeleteClusterSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class DeleteClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteClusterSnapshotCommandInput,
-    DeleteClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteClusterSnapshotCommandInput, DeleteClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

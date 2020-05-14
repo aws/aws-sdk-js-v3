@@ -45,13 +45,8 @@ export class AllQueryStringTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AllQueryStringTypesCommandInput,
-    AllQueryStringTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AllQueryStringTypesCommandInput, AllQueryStringTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class AllQueryStringTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllQueryStringTypesCommandOutput> {
-    return deserializeAws_restJson1_1AllQueryStringTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AllQueryStringTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

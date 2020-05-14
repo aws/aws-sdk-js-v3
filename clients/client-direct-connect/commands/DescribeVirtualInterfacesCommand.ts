@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  DescribeVirtualInterfacesRequest,
-  VirtualInterfaces
-} from "../models/index";
+import { DescribeVirtualInterfacesRequest, VirtualInterfaces } from "../models/index";
 import {
   deserializeAws_json1_1DescribeVirtualInterfacesCommand,
   serializeAws_json1_1DescribeVirtualInterfacesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVirtualInterfacesCommandInput = DescribeVirtualInterfacesRequest;
-export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces &
-  __MetadataBearer;
+export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces & __MetadataBearer;
 
 export class DescribeVirtualInterfacesCommand extends $Command<
   DescribeVirtualInterfacesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVirtualInterfacesCommandInput,
-    DescribeVirtualInterfacesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVirtualInterfacesCommandInput, DescribeVirtualInterfacesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeVirtualInterfacesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualInterfacesCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualInterfacesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVirtualInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

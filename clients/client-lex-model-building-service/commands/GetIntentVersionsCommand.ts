@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetIntentVersionsRequest,
-  GetIntentVersionsResponse
-} from "../models/index";
+import { GetIntentVersionsRequest, GetIntentVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntentVersionsCommand,
   serializeAws_restJson1_1GetIntentVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIntentVersionsCommandInput = GetIntentVersionsRequest;
-export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse &
-  __MetadataBearer;
+export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse & __MetadataBearer;
 
 export class GetIntentVersionsCommand extends $Command<
   GetIntentVersionsCommandInput,
@@ -50,9 +46,7 @@ export class GetIntentVersionsCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

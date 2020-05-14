@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DeleteAnalysisSchemeRequest,
-  DeleteAnalysisSchemeResponse
-} from "../models/index";
+import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteAnalysisSchemeCommand,
   serializeAws_queryDeleteAnalysisSchemeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAnalysisSchemeCommandInput = DeleteAnalysisSchemeRequest;
-export type DeleteAnalysisSchemeCommandOutput = DeleteAnalysisSchemeResponse &
-  __MetadataBearer;
+export type DeleteAnalysisSchemeCommandOutput = DeleteAnalysisSchemeResponse & __MetadataBearer;
 
 export class DeleteAnalysisSchemeCommand extends $Command<
   DeleteAnalysisSchemeCommandInput,
@@ -49,13 +45,8 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAnalysisSchemeCommandInput,
-    DeleteAnalysisSchemeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAnalysisSchemeCommandInput, DeleteAnalysisSchemeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

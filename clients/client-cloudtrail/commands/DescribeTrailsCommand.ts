@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTrailsCommandInput = DescribeTrailsRequest;
-export type DescribeTrailsCommandOutput = DescribeTrailsResponse &
-  __MetadataBearer;
+export type DescribeTrailsCommandOutput = DescribeTrailsResponse & __MetadataBearer;
 
 export class DescribeTrailsCommand extends $Command<
   DescribeTrailsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeTrailsCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTrailsCommandInput, DescribeTrailsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -168,31 +168,19 @@ export class Route53Resolver extends Route53ResolverClient {
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput>;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public associateResolverEndpointIpAddress(
     args: AssociateResolverEndpointIpAddressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateResolverEndpointIpAddressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateResolverEndpointIpAddressCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput> | void {
     const command = new AssociateResolverEndpointIpAddressCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -420,31 +408,19 @@ export class Route53Resolver extends Route53ResolverClient {
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput>;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): void;
   public disassociateResolverEndpointIpAddress(
     args: DisassociateResolverEndpointIpAddressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateResolverEndpointIpAddressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateResolverEndpointIpAddressCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> | void {
     const command = new DisassociateResolverEndpointIpAddressCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -552,9 +528,7 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public getResolverRule(
     args: GetResolverRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResolverRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRuleCommandOutput) => void),
     cb?: (err: any, data?: GetResolverRuleCommandOutput) => void
   ): Promise<GetResolverRuleCommandOutput> | void {
     const command = new GetResolverRuleCommand(args);
@@ -661,10 +635,7 @@ export class Route53Resolver extends Route53ResolverClient {
     args: ListResolverEndpointIpAddressesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResolverEndpointIpAddressesCommandOutput
-        ) => void),
+      | ((err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void),
     cb?: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
   ): Promise<ListResolverEndpointIpAddressesCommandOutput> | void {
     const command = new ListResolverEndpointIpAddressesCommand(args);
@@ -872,9 +843,7 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -907,9 +876,7 @@ export class Route53Resolver extends Route53ResolverClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

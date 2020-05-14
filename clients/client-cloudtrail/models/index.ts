@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,8 +21,7 @@ export interface AddTagsRequest {
 }
 
 export namespace AddTagsRequest {
-  export const isa = (o: any): o is AddTagsRequest =>
-    __isa(o, "AddTagsRequest");
+  export const isa = (o: any): o is AddTagsRequest => __isa(o, "AddTagsRequest");
 }
 
 /**
@@ -36,8 +32,7 @@ export interface AddTagsResponse {
 }
 
 export namespace AddTagsResponse {
-  export const isa = (o: any): o is AddTagsResponse =>
-    __isa(o, "AddTagsResponse");
+  export const isa = (o: any): o is AddTagsResponse => __isa(o, "AddTagsResponse");
 }
 
 /**
@@ -46,9 +41,7 @@ export namespace AddTagsResponse {
  *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
  */
-export interface CloudTrailARNInvalidException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudTrailARNInvalidException extends __SmithyException, $MetadataBearer {
   name: "CloudTrailARNInvalidException";
   $fault: "client";
   /**
@@ -67,9 +60,7 @@ export namespace CloudTrailARNInvalidException {
  *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other AWS Services</a>
  *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  */
-export interface CloudTrailAccessNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudTrailAccessNotEnabledException extends __SmithyException, $MetadataBearer {
   name: "CloudTrailAccessNotEnabledException";
   $fault: "client";
   /**
@@ -98,9 +89,7 @@ export interface CloudWatchLogsDeliveryUnavailableException
 }
 
 export namespace CloudWatchLogsDeliveryUnavailableException {
-  export const isa = (
-    o: any
-  ): o is CloudWatchLogsDeliveryUnavailableException =>
+  export const isa = (o: any): o is CloudWatchLogsDeliveryUnavailableException =>
     __isa(o, "CloudWatchLogsDeliveryUnavailableException");
 }
 
@@ -214,8 +203,7 @@ export interface CreateTrailRequest {
 }
 
 export namespace CreateTrailRequest {
-  export const isa = (o: any): o is CreateTrailRequest =>
-    __isa(o, "CreateTrailRequest");
+  export const isa = (o: any): o is CreateTrailRequest => __isa(o, "CreateTrailRequest");
 }
 
 /**
@@ -301,8 +289,7 @@ export interface CreateTrailResponse {
 }
 
 export namespace CreateTrailResponse {
-  export const isa = (o: any): o is CreateTrailResponse =>
-    __isa(o, "CreateTrailResponse");
+  export const isa = (o: any): o is CreateTrailResponse => __isa(o, "CreateTrailResponse");
 }
 
 /**
@@ -425,8 +412,7 @@ export interface DeleteTrailRequest {
 }
 
 export namespace DeleteTrailRequest {
-  export const isa = (o: any): o is DeleteTrailRequest =>
-    __isa(o, "DeleteTrailRequest");
+  export const isa = (o: any): o is DeleteTrailRequest => __isa(o, "DeleteTrailRequest");
 }
 
 /**
@@ -437,8 +423,7 @@ export interface DeleteTrailResponse {
 }
 
 export namespace DeleteTrailResponse {
-  export const isa = (o: any): o is DeleteTrailResponse =>
-    __isa(o, "DeleteTrailResponse");
+  export const isa = (o: any): o is DeleteTrailResponse => __isa(o, "DeleteTrailResponse");
 }
 
 /**
@@ -477,8 +462,7 @@ export interface DescribeTrailsRequest {
 }
 
 export namespace DescribeTrailsRequest {
-  export const isa = (o: any): o is DescribeTrailsRequest =>
-    __isa(o, "DescribeTrailsRequest");
+  export const isa = (o: any): o is DescribeTrailsRequest => __isa(o, "DescribeTrailsRequest");
 }
 
 /**
@@ -495,8 +479,7 @@ export interface DescribeTrailsResponse {
 }
 
 export namespace DescribeTrailsResponse {
-  export const isa = (o: any): o is DescribeTrailsResponse =>
-    __isa(o, "DescribeTrailsResponse");
+  export const isa = (o: any): o is DescribeTrailsResponse => __isa(o, "DescribeTrailsResponse");
 }
 
 /**
@@ -724,8 +707,7 @@ export interface GetTrailRequest {
 }
 
 export namespace GetTrailRequest {
-  export const isa = (o: any): o is GetTrailRequest =>
-    __isa(o, "GetTrailRequest");
+  export const isa = (o: any): o is GetTrailRequest => __isa(o, "GetTrailRequest");
 }
 
 export interface GetTrailResponse {
@@ -737,8 +719,7 @@ export interface GetTrailResponse {
 }
 
 export namespace GetTrailResponse {
-  export const isa = (o: any): o is GetTrailResponse =>
-    __isa(o, "GetTrailResponse");
+  export const isa = (o: any): o is GetTrailResponse => __isa(o, "GetTrailResponse");
 }
 
 /**
@@ -756,8 +737,7 @@ export interface GetTrailStatusRequest {
 }
 
 export namespace GetTrailStatusRequest {
-  export const isa = (o: any): o is GetTrailStatusRequest =>
-    __isa(o, "GetTrailStatusRequest");
+  export const isa = (o: any): o is GetTrailStatusRequest => __isa(o, "GetTrailStatusRequest");
 }
 
 /**
@@ -870,16 +850,13 @@ export interface GetTrailStatusResponse {
 }
 
 export namespace GetTrailStatusResponse {
-  export const isa = (o: any): o is GetTrailStatusResponse =>
-    __isa(o, "GetTrailStatusResponse");
+  export const isa = (o: any): o is GetTrailStatusResponse => __isa(o, "GetTrailStatusResponse");
 }
 
 /**
  * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.</p>
  */
-export interface InsightNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsightNotEnabledException extends __SmithyException, $MetadataBearer {
   name: "InsightNotEnabledException";
   $fault: "client";
   /**
@@ -905,8 +882,7 @@ export interface InsightSelector {
 }
 
 export namespace InsightSelector {
-  export const isa = (o: any): o is InsightSelector =>
-    __isa(o, "InsightSelector");
+  export const isa = (o: any): o is InsightSelector => __isa(o, "InsightSelector");
 }
 
 export enum InsightType {
@@ -930,18 +906,14 @@ export interface InsufficientDependencyServiceAccessPermissionException
 }
 
 export namespace InsufficientDependencyServiceAccessPermissionException {
-  export const isa = (
-    o: any
-  ): o is InsufficientDependencyServiceAccessPermissionException =>
+  export const isa = (o: any): o is InsufficientDependencyServiceAccessPermissionException =>
     __isa(o, "InsufficientDependencyServiceAccessPermissionException");
 }
 
 /**
  * <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
  */
-export interface InsufficientEncryptionPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientEncryptionPolicyException extends __SmithyException, $MetadataBearer {
   name: "InsufficientEncryptionPolicyException";
   $fault: "client";
   /**
@@ -958,9 +930,7 @@ export namespace InsufficientEncryptionPolicyException {
 /**
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
-export interface InsufficientS3BucketPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientS3BucketPolicyException extends __SmithyException, $MetadataBearer {
   name: "InsufficientS3BucketPolicyException";
   $fault: "client";
   /**
@@ -977,9 +947,7 @@ export namespace InsufficientS3BucketPolicyException {
 /**
  * <p>This exception is thrown when the policy on the SNS topic is not sufficient.</p>
  */
-export interface InsufficientSnsTopicPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientSnsTopicPolicyException extends __SmithyException, $MetadataBearer {
   name: "InsufficientSnsTopicPolicyException";
   $fault: "client";
   /**
@@ -1015,9 +983,7 @@ export namespace InvalidCloudWatchLogsLogGroupArnException {
 /**
  * <p>This exception is thrown when the provided role is not valid.</p>
  */
-export interface InvalidCloudWatchLogsRoleArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCloudWatchLogsRoleArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidCloudWatchLogsRoleArnException";
   $fault: "client";
   /**
@@ -1034,9 +1000,7 @@ export namespace InvalidCloudWatchLogsRoleArnException {
 /**
  * <p>Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.</p>
  */
-export interface InvalidEventCategoryException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEventCategoryException extends __SmithyException, $MetadataBearer {
   name: "InvalidEventCategoryException";
   $fault: "client";
   /**
@@ -1071,9 +1035,7 @@ export namespace InvalidEventCategoryException {
  *             </li>
  *          </ul>
  */
-export interface InvalidEventSelectorsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEventSelectorsException extends __SmithyException, $MetadataBearer {
   name: "InvalidEventSelectorsException";
   $fault: "client";
   /**
@@ -1090,9 +1052,7 @@ export namespace InvalidEventSelectorsException {
 /**
  * <p>This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.</p>
  */
-export interface InvalidHomeRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidHomeRegionException extends __SmithyException, $MetadataBearer {
   name: "InvalidHomeRegionException";
   $fault: "client";
   /**
@@ -1110,9 +1070,7 @@ export namespace InvalidHomeRegionException {
  * <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request
  *          is not valid, or the specified insight type in the <code>InsightSelectors</code> statement is not a valid insight type.</p>
  */
-export interface InvalidInsightSelectorsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInsightSelectorsException extends __SmithyException, $MetadataBearer {
   name: "InvalidInsightSelectorsException";
   $fault: "client";
   /**
@@ -1129,9 +1087,7 @@ export namespace InvalidInsightSelectorsException {
 /**
  * <p>This exception is thrown when the KMS key ARN is invalid.</p>
  */
-export interface InvalidKmsKeyIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidKmsKeyIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidKmsKeyIdException";
   $fault: "client";
   /**
@@ -1148,9 +1104,7 @@ export namespace InvalidKmsKeyIdException {
 /**
  * <p>Occurs when an invalid lookup attribute is specified.</p>
  */
-export interface InvalidLookupAttributesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLookupAttributesException extends __SmithyException, $MetadataBearer {
   name: "InvalidLookupAttributesException";
   $fault: "client";
   /**
@@ -1167,9 +1121,7 @@ export namespace InvalidLookupAttributesException {
 /**
  * <p>This exception is thrown if the limit specified is invalid.</p>
  */
-export interface InvalidMaxResultsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
   /**
@@ -1186,9 +1138,7 @@ export namespace InvalidMaxResultsException {
 /**
  * <p>Invalid token or token that was previously used in a request with different parameters. This exception is thrown if the token is invalid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1205,9 +1155,7 @@ export namespace InvalidNextTokenException {
 /**
  * <p>This exception is thrown when the combination of parameters provided is not valid.</p>
  */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -1224,9 +1172,7 @@ export namespace InvalidParameterCombinationException {
 /**
  * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  */
-export interface InvalidS3BucketNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3BucketNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3BucketNameException";
   $fault: "client";
   /**
@@ -1243,9 +1189,7 @@ export namespace InvalidS3BucketNameException {
 /**
  * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  */
-export interface InvalidS3PrefixException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3PrefixException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3PrefixException";
   $fault: "client";
   /**
@@ -1262,9 +1206,7 @@ export namespace InvalidS3PrefixException {
 /**
  * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  */
-export interface InvalidSnsTopicNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSnsTopicNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidSnsTopicNameException";
   $fault: "client";
   /**
@@ -1282,9 +1224,7 @@ export namespace InvalidSnsTopicNameException {
  * <p>This exception is thrown when the specified tag key or values are not valid.
  *          It can also occur if there are duplicate tags or too many tags on the resource.</p>
  */
-export interface InvalidTagParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagParameterException";
   $fault: "client";
   /**
@@ -1301,9 +1241,7 @@ export namespace InvalidTagParameterException {
 /**
  * <p>Occurs if the timestamp values are invalid. Either the start time occurs after the end time or the time range is outside the range of possible values.</p>
  */
-export interface InvalidTimeRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -1320,9 +1258,7 @@ export namespace InvalidTimeRangeException {
 /**
  * <p>Reserved for future use.</p>
  */
-export interface InvalidTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidTokenException";
   $fault: "client";
   /**
@@ -1332,8 +1268,7 @@ export interface InvalidTokenException
 }
 
 export namespace InvalidTokenException {
-  export const isa = (o: any): o is InvalidTokenException =>
-    __isa(o, "InvalidTokenException");
+  export const isa = (o: any): o is InvalidTokenException => __isa(o, "InvalidTokenException");
 }
 
 /**
@@ -1357,9 +1292,7 @@ export namespace InvalidTokenException {
  *             </li>
  *          </ul>
  */
-export interface InvalidTrailNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTrailNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidTrailNameException";
   $fault: "client";
   /**
@@ -1392,9 +1325,7 @@ export namespace KmsException {
 /**
  * <p>This exception is no longer in use.</p>
  */
-export interface KmsKeyDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KmsKeyDisabledException extends __SmithyException, $MetadataBearer {
   name: "KmsKeyDisabledException";
   $fault: "client";
   /**
@@ -1404,16 +1335,13 @@ export interface KmsKeyDisabledException
 }
 
 export namespace KmsKeyDisabledException {
-  export const isa = (o: any): o is KmsKeyDisabledException =>
-    __isa(o, "KmsKeyDisabledException");
+  export const isa = (o: any): o is KmsKeyDisabledException => __isa(o, "KmsKeyDisabledException");
 }
 
 /**
  * <p>This exception is thrown when the KMS key does not exist, or when the S3 bucket and the KMS key are not in the same region.</p>
  */
-export interface KmsKeyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KmsKeyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KmsKeyNotFoundException";
   $fault: "client";
   /**
@@ -1423,8 +1351,7 @@ export interface KmsKeyNotFoundException
 }
 
 export namespace KmsKeyNotFoundException {
-  export const isa = (o: any): o is KmsKeyNotFoundException =>
-    __isa(o, "KmsKeyNotFoundException");
+  export const isa = (o: any): o is KmsKeyNotFoundException => __isa(o, "KmsKeyNotFoundException");
 }
 
 /**
@@ -1449,8 +1376,7 @@ export interface ListPublicKeysRequest {
 }
 
 export namespace ListPublicKeysRequest {
-  export const isa = (o: any): o is ListPublicKeysRequest =>
-    __isa(o, "ListPublicKeysRequest");
+  export const isa = (o: any): o is ListPublicKeysRequest => __isa(o, "ListPublicKeysRequest");
 }
 
 /**
@@ -1473,8 +1399,7 @@ export interface ListPublicKeysResponse {
 }
 
 export namespace ListPublicKeysResponse {
-  export const isa = (o: any): o is ListPublicKeysResponse =>
-    __isa(o, "ListPublicKeysResponse");
+  export const isa = (o: any): o is ListPublicKeysResponse => __isa(o, "ListPublicKeysResponse");
 }
 
 /**
@@ -1497,8 +1422,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
@@ -1518,8 +1442,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListTrailsRequest {
@@ -1534,8 +1457,7 @@ export interface ListTrailsRequest {
 }
 
 export namespace ListTrailsRequest {
-  export const isa = (o: any): o is ListTrailsRequest =>
-    __isa(o, "ListTrailsRequest");
+  export const isa = (o: any): o is ListTrailsRequest => __isa(o, "ListTrailsRequest");
 }
 
 export interface ListTrailsResponse {
@@ -1555,8 +1477,7 @@ export interface ListTrailsResponse {
 }
 
 export namespace ListTrailsResponse {
-  export const isa = (o: any): o is ListTrailsResponse =>
-    __isa(o, "ListTrailsResponse");
+  export const isa = (o: any): o is ListTrailsResponse => __isa(o, "ListTrailsResponse");
 }
 
 /**
@@ -1576,8 +1497,7 @@ export interface LookupAttribute {
 }
 
 export namespace LookupAttribute {
-  export const isa = (o: any): o is LookupAttribute =>
-    __isa(o, "LookupAttribute");
+  export const isa = (o: any): o is LookupAttribute => __isa(o, "LookupAttribute");
 }
 
 export enum LookupAttributeKey {
@@ -1630,8 +1550,7 @@ export interface LookupEventsRequest {
 }
 
 export namespace LookupEventsRequest {
-  export const isa = (o: any): o is LookupEventsRequest =>
-    __isa(o, "LookupEventsRequest");
+  export const isa = (o: any): o is LookupEventsRequest => __isa(o, "LookupEventsRequest");
 }
 
 /**
@@ -1654,16 +1573,13 @@ export interface LookupEventsResponse {
 }
 
 export namespace LookupEventsResponse {
-  export const isa = (o: any): o is LookupEventsResponse =>
-    __isa(o, "LookupEventsResponse");
+  export const isa = (o: any): o is LookupEventsResponse => __isa(o, "LookupEventsResponse");
 }
 
 /**
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
-export interface MaximumNumberOfTrailsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumNumberOfTrailsExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumNumberOfTrailsExceededException";
   $fault: "client";
   /**
@@ -1682,9 +1598,7 @@ export namespace MaximumNumberOfTrailsExceededException {
  *          organization in AWS Organizations. For more information, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
-export interface NotOrganizationMasterAccountException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotOrganizationMasterAccountException extends __SmithyException, $MetadataBearer {
   name: "NotOrganizationMasterAccountException";
   $fault: "client";
   /**
@@ -1701,9 +1615,7 @@ export namespace NotOrganizationMasterAccountException {
 /**
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   /**
@@ -1742,9 +1654,7 @@ export namespace OrganizationNotInAllFeaturesModeException {
  * <p>This exception is thrown when the request is made from an AWS account that is not a member of an organization.
  *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
  */
-export interface OrganizationsNotInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
   name: "OrganizationsNotInUseException";
   $fault: "client";
   /**
@@ -1913,8 +1823,7 @@ export interface RemoveTagsRequest {
 }
 
 export namespace RemoveTagsRequest {
-  export const isa = (o: any): o is RemoveTagsRequest =>
-    __isa(o, "RemoveTagsRequest");
+  export const isa = (o: any): o is RemoveTagsRequest => __isa(o, "RemoveTagsRequest");
 }
 
 /**
@@ -1925,8 +1834,7 @@ export interface RemoveTagsResponse {
 }
 
 export namespace RemoveTagsResponse {
-  export const isa = (o: any): o is RemoveTagsResponse =>
-    __isa(o, "RemoveTagsResponse");
+  export const isa = (o: any): o is RemoveTagsResponse => __isa(o, "RemoveTagsResponse");
 }
 
 /**
@@ -1955,9 +1863,7 @@ export namespace Resource {
 /**
  * <p>This exception is thrown when the specified resource is not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1994,9 +1900,7 @@ export namespace ResourceTag {
 /**
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
-export interface ResourceTypeNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ResourceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -2013,9 +1917,7 @@ export namespace ResourceTypeNotSupportedException {
 /**
  * <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  */
-export interface S3BucketDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface S3BucketDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "S3BucketDoesNotExistException";
   $fault: "client";
   /**
@@ -2044,8 +1946,7 @@ export interface StartLoggingRequest {
 }
 
 export namespace StartLoggingRequest {
-  export const isa = (o: any): o is StartLoggingRequest =>
-    __isa(o, "StartLoggingRequest");
+  export const isa = (o: any): o is StartLoggingRequest => __isa(o, "StartLoggingRequest");
 }
 
 /**
@@ -2056,8 +1957,7 @@ export interface StartLoggingResponse {
 }
 
 export namespace StartLoggingResponse {
-  export const isa = (o: any): o is StartLoggingResponse =>
-    __isa(o, "StartLoggingResponse");
+  export const isa = (o: any): o is StartLoggingResponse => __isa(o, "StartLoggingResponse");
 }
 
 /**
@@ -2075,8 +1975,7 @@ export interface StopLoggingRequest {
 }
 
 export namespace StopLoggingRequest {
-  export const isa = (o: any): o is StopLoggingRequest =>
-    __isa(o, "StopLoggingRequest");
+  export const isa = (o: any): o is StopLoggingRequest => __isa(o, "StopLoggingRequest");
 }
 
 /**
@@ -2087,8 +1986,7 @@ export interface StopLoggingResponse {
 }
 
 export namespace StopLoggingResponse {
-  export const isa = (o: any): o is StopLoggingResponse =>
-    __isa(o, "StopLoggingResponse");
+  export const isa = (o: any): o is StopLoggingResponse => __isa(o, "StopLoggingResponse");
 }
 
 /**
@@ -2114,9 +2012,7 @@ export namespace Tag {
 /**
  * <p>The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.</p>
  */
-export interface TagsLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagsLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagsLimitExceededException";
   $fault: "client";
   /**
@@ -2236,9 +2132,7 @@ export namespace Trail {
 /**
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
-export interface TrailAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrailAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "TrailAlreadyExistsException";
   $fault: "client";
   /**
@@ -2280,9 +2174,7 @@ export namespace TrailInfo {
 /**
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
-export interface TrailNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrailNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TrailNotFoundException";
   $fault: "client";
   /**
@@ -2292,16 +2184,13 @@ export interface TrailNotFoundException
 }
 
 export namespace TrailNotFoundException {
-  export const isa = (o: any): o is TrailNotFoundException =>
-    __isa(o, "TrailNotFoundException");
+  export const isa = (o: any): o is TrailNotFoundException => __isa(o, "TrailNotFoundException");
 }
 
 /**
  * <p>This exception is no longer in use.</p>
  */
-export interface TrailNotProvidedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrailNotProvidedException extends __SmithyException, $MetadataBearer {
   name: "TrailNotProvidedException";
   $fault: "client";
   /**
@@ -2318,9 +2207,7 @@ export namespace TrailNotProvidedException {
 /**
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
-export interface UnsupportedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
   /**
@@ -2447,8 +2334,7 @@ export interface UpdateTrailRequest {
 }
 
 export namespace UpdateTrailRequest {
-  export const isa = (o: any): o is UpdateTrailRequest =>
-    __isa(o, "UpdateTrailRequest");
+  export const isa = (o: any): o is UpdateTrailRequest => __isa(o, "UpdateTrailRequest");
 }
 
 /**
@@ -2536,6 +2422,5 @@ export interface UpdateTrailResponse {
 }
 
 export namespace UpdateTrailResponse {
-  export const isa = (o: any): o is UpdateTrailResponse =>
-    __isa(o, "UpdateTrailResponse");
+  export const isa = (o: any): o is UpdateTrailResponse => __isa(o, "UpdateTrailResponse");
 }

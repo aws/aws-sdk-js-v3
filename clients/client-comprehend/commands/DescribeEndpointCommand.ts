@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DescribeEndpointRequest,
-  DescribeEndpointResponse
-} from "../models/index";
+import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEndpointCommand,
   serializeAws_json1_1DescribeEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEndpointCommandInput = DescribeEndpointRequest;
-export type DescribeEndpointCommandOutput = DescribeEndpointResponse &
-  __MetadataBearer;
+export type DescribeEndpointCommandOutput = DescribeEndpointResponse & __MetadataBearer;
 
 export class DescribeEndpointCommand extends $Command<
   DescribeEndpointCommandInput,
@@ -50,9 +46,7 @@ export class DescribeEndpointCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEndpointCommandInput, DescribeEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

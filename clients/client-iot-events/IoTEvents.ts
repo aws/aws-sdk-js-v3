@@ -140,9 +140,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public createInput(
     args: CreateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInputCommandOutput) => void),
     cb?: (err: any, data?: CreateInputCommandOutput) => void
   ): Promise<CreateInputCommandOutput> | void {
     const command = new CreateInputCommand(args);
@@ -211,9 +209,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public deleteInput(
     args: DeleteInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInputCommandOutput) => void),
     cb?: (err: any, data?: DeleteInputCommandOutput) => void
   ): Promise<DeleteInputCommandOutput> | void {
     const command = new DeleteInputCommand(args);
@@ -282,9 +278,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public describeInput(
     args: DescribeInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputCommandOutput) => void),
     cb?: (err: any, data?: DescribeInputCommandOutput) => void
   ): Promise<DescribeInputCommandOutput> | void {
     const command = new DescribeInputCommand(args);
@@ -424,9 +418,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public listInputs(
     args: ListInputsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputsCommandOutput) => void),
     cb?: (err: any, data?: ListInputsCommandOutput) => void
   ): Promise<ListInputsCommandOutput> | void {
     const command = new ListInputsCommand(args);
@@ -534,9 +526,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -569,9 +559,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -640,9 +628,7 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public updateInput(
     args: UpdateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputCommandOutput) => void),
     cb?: (err: any, data?: UpdateInputCommandOutput) => void
   ): Promise<UpdateInputCommandOutput> | void {
     const command = new UpdateInputCommand(args);

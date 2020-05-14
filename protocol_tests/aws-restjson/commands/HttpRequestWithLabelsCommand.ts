@@ -45,13 +45,8 @@ export class HttpRequestWithLabelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    HttpRequestWithLabelsCommandInput,
-    HttpRequestWithLabelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<HttpRequestWithLabelsCommandInput, HttpRequestWithLabelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class HttpRequestWithLabelsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsCommandOutput> {
-    return deserializeAws_restJson1_1HttpRequestWithLabelsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1HttpRequestWithLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

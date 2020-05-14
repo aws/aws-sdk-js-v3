@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupSelectionInput,
-  GetBackupSelectionOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupSelectionInput, GetBackupSelectionOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackupSelectionCommand,
   serializeAws_restJson1_1GetBackupSelectionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBackupSelectionCommandInput = GetBackupSelectionInput;
-export type GetBackupSelectionCommandOutput = GetBackupSelectionOutput &
-  __MetadataBearer;
+export type GetBackupSelectionCommandOutput = GetBackupSelectionOutput & __MetadataBearer;
 
 export class GetBackupSelectionCommand extends $Command<
   GetBackupSelectionCommandInput,
@@ -50,9 +42,7 @@ export class GetBackupSelectionCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBackupSelectionCommandInput, GetBackupSelectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateRouteTableRequest,
-  CreateRouteTableResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateRouteTableRequest, CreateRouteTableResult } from "../models/index";
 import {
   deserializeAws_ec2CreateRouteTableCommand,
   serializeAws_ec2CreateRouteTableCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRouteTableCommandInput = CreateRouteTableRequest;
-export type CreateRouteTableCommandOutput = CreateRouteTableResult &
-  __MetadataBearer;
+export type CreateRouteTableCommandOutput = CreateRouteTableResult & __MetadataBearer;
 
 export class CreateRouteTableCommand extends $Command<
   CreateRouteTableCommandInput,
@@ -50,9 +42,7 @@ export class CreateRouteTableCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRouteTableCommandInput, CreateRouteTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

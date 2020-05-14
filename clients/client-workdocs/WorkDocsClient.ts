@@ -30,10 +30,7 @@ import {
   CreateNotificationSubscriptionCommandInput,
   CreateNotificationSubscriptionCommandOutput
 } from "./commands/CreateNotificationSubscriptionCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   DeactivateUserCommandInput,
   DeactivateUserCommandOutput
@@ -66,10 +63,7 @@ import {
   DeleteNotificationSubscriptionCommandInput,
   DeleteNotificationSubscriptionCommandOutput
 } from "./commands/DeleteNotificationSubscriptionCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeActivitiesCommandInput,
   DescribeActivitiesCommandOutput
@@ -110,10 +104,7 @@ import {
   GetCurrentUserCommandInput,
   GetCurrentUserCommandOutput
 } from "./commands/GetCurrentUserCommand";
-import {
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput
-} from "./commands/GetDocumentCommand";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
 import {
   GetDocumentPathCommandInput,
   GetDocumentPathCommandOutput
@@ -122,10 +113,7 @@ import {
   GetDocumentVersionCommandInput,
   GetDocumentVersionCommandOutput
 } from "./commands/GetDocumentVersionCommand";
-import {
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "./commands/GetFolderCommand";
+import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
 import {
   GetFolderPathCommandInput,
   GetFolderPathCommandOutput
@@ -158,10 +146,7 @@ import {
   UpdateFolderCommandInput,
   UpdateFolderCommandOutput
 } from "./commands/UpdateFolderCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -385,9 +370,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkDocsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkDocsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -396,9 +379,7 @@ export type WorkDocsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

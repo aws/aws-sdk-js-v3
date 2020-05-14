@@ -49,9 +49,7 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     OmitsNullSerializesEmptyStringCommandInput,
     OmitsNullSerializesEmptyStringCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     input: OmitsNullSerializesEmptyStringCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlOmitsNullSerializesEmptyStringCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlOmitsNullSerializesEmptyStringCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> {
-    return deserializeAws_restXmlOmitsNullSerializesEmptyStringCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlOmitsNullSerializesEmptyStringCommand(output, context);
   }
 
   // Start section: command_body_extra

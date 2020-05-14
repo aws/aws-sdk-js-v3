@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetOperationsForResourceRequest,
-  GetOperationsForResourceResult
-} from "../models/index";
+import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/index";
 import {
   deserializeAws_json1_1GetOperationsForResourceCommand,
   serializeAws_json1_1GetOperationsForResourceCommand
@@ -49,13 +46,8 @@ export class GetOperationsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOperationsForResourceCommandInput,
-    GetOperationsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOperationsForResourceCommandInput, GetOperationsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetOperationsForResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOperationsForResourceCommandOutput> {
-    return deserializeAws_json1_1GetOperationsForResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetOperationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

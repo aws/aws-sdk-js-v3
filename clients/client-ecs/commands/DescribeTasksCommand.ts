@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DescribeTasksRequest, DescribeTasksResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTasksCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTasksCommandInput = DescribeTasksRequest;
-export type DescribeTasksCommandOutput = DescribeTasksResponse &
-  __MetadataBearer;
+export type DescribeTasksCommandOutput = DescribeTasksResponse & __MetadataBearer;
 
 export class DescribeTasksCommand extends $Command<
   DescribeTasksCommandInput,
@@ -47,9 +42,7 @@ export class DescribeTasksCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTasksCommandInput, DescribeTasksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

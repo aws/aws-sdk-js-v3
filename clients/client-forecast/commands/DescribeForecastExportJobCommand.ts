@@ -49,13 +49,8 @@ export class DescribeForecastExportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeForecastExportJobCommandInput,
-    DescribeForecastExportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeForecastExportJobCommandInput, DescribeForecastExportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeForecastExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeForecastExportJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

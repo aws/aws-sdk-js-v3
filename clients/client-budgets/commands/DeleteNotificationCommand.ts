@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  DeleteNotificationRequest,
-  DeleteNotificationResponse
-} from "../models/index";
+import { DeleteNotificationRequest, DeleteNotificationResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteNotificationCommand,
   serializeAws_json1_1DeleteNotificationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteNotificationCommandInput = DeleteNotificationRequest;
-export type DeleteNotificationCommandOutput = DeleteNotificationResponse &
-  __MetadataBearer;
+export type DeleteNotificationCommandOutput = DeleteNotificationResponse & __MetadataBearer;
 
 export class DeleteNotificationCommand extends $Command<
   DeleteNotificationCommandInput,
@@ -50,9 +46,7 @@ export class DeleteNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteNotificationCommandInput, DeleteNotificationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

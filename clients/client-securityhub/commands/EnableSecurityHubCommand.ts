@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  EnableSecurityHubRequest,
-  EnableSecurityHubResponse
-} from "../models/index";
+import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1EnableSecurityHubCommand,
   serializeAws_restJson1_1EnableSecurityHubCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableSecurityHubCommandInput = EnableSecurityHubRequest;
-export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse &
-  __MetadataBearer;
+export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse & __MetadataBearer;
 
 export class EnableSecurityHubCommand extends $Command<
   EnableSecurityHubCommandInput,
@@ -50,9 +46,7 @@ export class EnableSecurityHubCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

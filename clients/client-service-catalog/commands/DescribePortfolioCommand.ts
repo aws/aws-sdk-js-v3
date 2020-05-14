@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribePortfolioInput,
-  DescribePortfolioOutput
-} from "../models/index";
+import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribePortfolioCommand,
   serializeAws_json1_1DescribePortfolioCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePortfolioCommandInput = DescribePortfolioInput;
-export type DescribePortfolioCommandOutput = DescribePortfolioOutput &
-  __MetadataBearer;
+export type DescribePortfolioCommandOutput = DescribePortfolioOutput & __MetadataBearer;
 
 export class DescribePortfolioCommand extends $Command<
   DescribePortfolioCommandInput,
@@ -50,9 +46,7 @@ export class DescribePortfolioCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePortfolioCommandInput, DescribePortfolioCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

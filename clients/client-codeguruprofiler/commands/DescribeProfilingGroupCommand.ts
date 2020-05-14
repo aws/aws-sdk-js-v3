@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  DescribeProfilingGroupRequest,
-  DescribeProfilingGroupResponse
-} from "../models/index";
+import { DescribeProfilingGroupRequest, DescribeProfilingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeProfilingGroupCommand,
   serializeAws_restJson1_1DescribeProfilingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProfilingGroupCommandInput = DescribeProfilingGroupRequest;
-export type DescribeProfilingGroupCommandOutput = DescribeProfilingGroupResponse &
-  __MetadataBearer;
+export type DescribeProfilingGroupCommandOutput = DescribeProfilingGroupResponse & __MetadataBearer;
 
 export class DescribeProfilingGroupCommand extends $Command<
   DescribeProfilingGroupCommandInput,
@@ -49,13 +45,8 @@ export class DescribeProfilingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProfilingGroupCommandInput,
-    DescribeProfilingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProfilingGroupCommandInput, DescribeProfilingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeProfilingGroupCommand extends $Command<
     input: DescribeProfilingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeProfilingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeProfilingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DescribeProfilingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

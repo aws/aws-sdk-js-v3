@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStreamCommandInput = DescribeStreamInput;
-export type DescribeStreamCommandOutput = DescribeStreamOutput &
-  __MetadataBearer;
+export type DescribeStreamCommandOutput = DescribeStreamOutput & __MetadataBearer;
 
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,
@@ -47,9 +46,7 @@ export class DescribeStreamCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeStreamCommandInput, DescribeStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

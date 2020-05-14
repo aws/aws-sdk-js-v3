@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutAccountSuppressionAttributesRequest,
   PutAccountSuppressionAttributesResponse
@@ -53,9 +49,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     PutAccountSuppressionAttributesCommandInput,
     PutAccountSuppressionAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
     input: PutAccountSuppressionAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutAccountSuppressionAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutAccountSuppressionAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSuppressionAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutAccountSuppressionAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutAccountSuppressionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  UpdateComponentRequest,
-  UpdateComponentResponse
-} from "../models/index";
+import { UpdateComponentRequest, UpdateComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateComponentCommand,
   serializeAws_json1_1UpdateComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateComponentCommandInput = UpdateComponentRequest;
-export type UpdateComponentCommandOutput = UpdateComponentResponse &
-  __MetadataBearer;
+export type UpdateComponentCommandOutput = UpdateComponentResponse & __MetadataBearer;
 
 export class UpdateComponentCommand extends $Command<
   UpdateComponentCommandInput,
@@ -50,9 +46,7 @@ export class UpdateComponentCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateComponentCommandInput, UpdateComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

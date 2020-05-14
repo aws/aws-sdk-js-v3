@@ -191,9 +191,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createHapg(
     args: CreateHapgCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHapgCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHapgCommandOutput) => void),
     cb?: (err: any, data?: CreateHapgCommandOutput) => void
   ): Promise<CreateHapgCommandOutput> | void {
     const command = new CreateHapgCommand(args);
@@ -245,9 +243,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createHsm(
     args: CreateHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmCommandOutput) => void
   ): Promise<CreateHsmCommandOutput> | void {
     const command = new CreateHsmCommand(args);
@@ -290,9 +286,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createLunaClient(
     args: CreateLunaClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLunaClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLunaClientCommandOutput) => void),
     cb?: (err: any, data?: CreateLunaClientCommandOutput) => void
   ): Promise<CreateLunaClientCommandOutput> | void {
     const command = new CreateLunaClientCommand(args);
@@ -335,9 +329,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteHapg(
     args: DeleteHapgCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHapgCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHapgCommandOutput) => void),
     cb?: (err: any, data?: DeleteHapgCommandOutput) => void
   ): Promise<DeleteHapgCommandOutput> | void {
     const command = new DeleteHapgCommand(args);
@@ -381,9 +373,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteHsm(
     args: DeleteHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmCommandOutput) => void
   ): Promise<DeleteHsmCommandOutput> | void {
     const command = new DeleteHsmCommand(args);
@@ -426,9 +416,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteLunaClient(
     args: DeleteLunaClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLunaClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLunaClientCommandOutput) => void),
     cb?: (err: any, data?: DeleteLunaClientCommandOutput) => void
   ): Promise<DeleteLunaClientCommandOutput> | void {
     const command = new DeleteLunaClientCommand(args);
@@ -471,9 +459,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public describeHapg(
     args: DescribeHapgCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHapgCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHapgCommandOutput) => void),
     cb?: (err: any, data?: DescribeHapgCommandOutput) => void
   ): Promise<DescribeHapgCommandOutput> | void {
     const command = new DescribeHapgCommand(args);
@@ -517,9 +503,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public describeHsm(
     args: DescribeHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHsmCommandOutput) => void),
     cb?: (err: any, data?: DescribeHsmCommandOutput) => void
   ): Promise<DescribeHsmCommandOutput> | void {
     const command = new DescribeHsmCommand(args);
@@ -608,9 +592,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public getConfig(
     args: GetConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigCommandOutput) => void),
     cb?: (err: any, data?: GetConfigCommandOutput) => void
   ): Promise<GetConfigCommandOutput> | void {
     const command = new GetConfigCommand(args);
@@ -702,9 +684,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listHapgs(
     args: ListHapgsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHapgsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHapgsCommandOutput) => void),
     cb?: (err: any, data?: ListHapgsCommandOutput) => void
   ): Promise<ListHapgsCommandOutput> | void {
     const command = new ListHapgsCommand(args);
@@ -752,9 +732,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listHsms(
     args: ListHsmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHsmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHsmsCommandOutput) => void),
     cb?: (err: any, data?: ListHsmsCommandOutput) => void
   ): Promise<ListHsmsCommandOutput> | void {
     const command = new ListHsmsCommand(args);
@@ -801,9 +779,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listLunaClients(
     args: ListLunaClientsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLunaClientsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLunaClientsCommandOutput) => void),
     cb?: (err: any, data?: ListLunaClientsCommandOutput) => void
   ): Promise<ListLunaClientsCommandOutput> | void {
     const command = new ListLunaClientsCommand(args);
@@ -891,9 +867,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyHapg(
     args: ModifyHapgCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyHapgCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHapgCommandOutput) => void),
     cb?: (err: any, data?: ModifyHapgCommandOutput) => void
   ): Promise<ModifyHapgCommandOutput> | void {
     const command = new ModifyHapgCommand(args);
@@ -942,9 +916,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyHsm(
     args: ModifyHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHsmCommandOutput) => void),
     cb?: (err: any, data?: ModifyHsmCommandOutput) => void
   ): Promise<ModifyHsmCommandOutput> | void {
     const command = new ModifyHsmCommand(args);
@@ -989,9 +961,7 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyLunaClient(
     args: ModifyLunaClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyLunaClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLunaClientCommandOutput) => void),
     cb?: (err: any, data?: ModifyLunaClientCommandOutput) => void
   ): Promise<ModifyLunaClientCommandOutput> | void {
     const command = new ModifyLunaClientCommand(args);

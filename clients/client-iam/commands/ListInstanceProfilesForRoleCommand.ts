@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListInstanceProfilesForRoleRequest,
   ListInstanceProfilesForRoleResponse
@@ -49,13 +45,8 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListInstanceProfilesForRoleCommandInput,
-    ListInstanceProfilesForRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListInstanceProfilesForRoleCommandInput, ListInstanceProfilesForRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListInstanceProfilesForRoleCommandOutput> {
-    return deserializeAws_queryListInstanceProfilesForRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListInstanceProfilesForRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

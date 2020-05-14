@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  CreateNFSFileShareInput,
-  CreateNFSFileShareOutput
-} from "../models/index";
+import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateNFSFileShareCommand,
   serializeAws_json1_1CreateNFSFileShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNFSFileShareCommandInput = CreateNFSFileShareInput;
-export type CreateNFSFileShareCommandOutput = CreateNFSFileShareOutput &
-  __MetadataBearer;
+export type CreateNFSFileShareCommandOutput = CreateNFSFileShareOutput & __MetadataBearer;
 
 export class CreateNFSFileShareCommand extends $Command<
   CreateNFSFileShareCommandInput,
@@ -50,9 +46,7 @@ export class CreateNFSFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNFSFileShareCommandInput, CreateNFSFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMinuteUsageCommandInput = GetMinuteUsageRequest;
-export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse &
-  __MetadataBearer;
+export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse & __MetadataBearer;
 
 export class GetMinuteUsageCommand extends $Command<
   GetMinuteUsageCommandInput,
@@ -47,9 +46,7 @@ export class GetMinuteUsageCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

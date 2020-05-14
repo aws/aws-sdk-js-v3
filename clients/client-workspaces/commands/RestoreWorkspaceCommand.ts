@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  RestoreWorkspaceRequest,
-  RestoreWorkspaceResult
-} from "../models/index";
+import { RestoreWorkspaceRequest, RestoreWorkspaceResult } from "../models/index";
 import {
   deserializeAws_json1_1RestoreWorkspaceCommand,
   serializeAws_json1_1RestoreWorkspaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreWorkspaceCommandInput = RestoreWorkspaceRequest;
-export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult &
-  __MetadataBearer;
+export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult & __MetadataBearer;
 
 export class RestoreWorkspaceCommand extends $Command<
   RestoreWorkspaceCommandInput,
@@ -50,9 +46,7 @@ export class RestoreWorkspaceCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

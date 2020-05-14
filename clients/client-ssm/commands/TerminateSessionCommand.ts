@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  TerminateSessionRequest,
-  TerminateSessionResponse
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/index";
 import {
   deserializeAws_json1_1TerminateSessionCommand,
   serializeAws_json1_1TerminateSessionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateSessionCommandInput = TerminateSessionRequest;
-export type TerminateSessionCommandOutput = TerminateSessionResponse &
-  __MetadataBearer;
+export type TerminateSessionCommandOutput = TerminateSessionResponse & __MetadataBearer;
 
 export class TerminateSessionCommand extends $Command<
   TerminateSessionCommandInput,
@@ -50,9 +42,7 @@ export class TerminateSessionCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateSessionCommandInput, TerminateSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

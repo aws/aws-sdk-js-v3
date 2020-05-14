@@ -773,31 +773,19 @@ export class IAM extends IAMClient {
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput>;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
-    cb: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): void;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): void;
   public addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddClientIDToOpenIDConnectProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddClientIDToOpenIDConnectProviderCommandOutput
-    ) => void
+      | ((err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void),
+    cb?: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> | void {
     const command = new AddClientIDToOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -876,9 +864,7 @@ export class IAM extends IAMClient {
   ): void;
   public addUserToGroup(
     args: AddUserToGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddUserToGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddUserToGroupCommandOutput) => void),
     cb?: (err: any, data?: AddUserToGroupCommandOutput) => void
   ): Promise<AddUserToGroupCommandOutput> | void {
     const command = new AddUserToGroupCommand(args);
@@ -961,9 +947,7 @@ export class IAM extends IAMClient {
   ): void;
   public attachRolePolicy(
     args: AttachRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachRolePolicyCommandOutput) => void
   ): Promise<AttachRolePolicyCommandOutput> | void {
     const command = new AttachRolePolicyCommand(args);
@@ -1000,9 +984,7 @@ export class IAM extends IAMClient {
   ): void;
   public attachUserPolicy(
     args: AttachUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachUserPolicyCommandOutput) => void
   ): Promise<AttachUserPolicyCommandOutput> | void {
     const command = new AttachUserPolicyCommand(args);
@@ -1039,9 +1021,7 @@ export class IAM extends IAMClient {
   ): void;
   public changePassword(
     args: ChangePasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangePasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangePasswordCommandOutput) => void),
     cb?: (err: any, data?: ChangePasswordCommandOutput) => void
   ): Promise<ChangePasswordCommandOutput> | void {
     const command = new ChangePasswordCommand(args);
@@ -1087,9 +1067,7 @@ export class IAM extends IAMClient {
   ): void;
   public createAccessKey(
     args: CreateAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateAccessKeyCommandOutput) => void
   ): Promise<CreateAccessKeyCommandOutput> | void {
     const command = new CreateAccessKeyCommand(args);
@@ -1162,9 +1140,7 @@ export class IAM extends IAMClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -1335,9 +1311,7 @@ export class IAM extends IAMClient {
   ): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyCommandOutput) => void
   ): Promise<CreatePolicyCommandOutput> | void {
     const command = new CreatePolicyCommand(args);
@@ -1416,9 +1390,7 @@ export class IAM extends IAMClient {
   ): void;
   public createRole(
     args: CreateRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoleCommandOutput) => void),
     cb?: (err: any, data?: CreateRoleCommandOutput) => void
   ): Promise<CreateRoleCommandOutput> | void {
     const command = new CreateRoleCommand(args);
@@ -1557,10 +1529,7 @@ export class IAM extends IAMClient {
     args: CreateServiceSpecificCredentialCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateServiceSpecificCredentialCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceSpecificCredentialCommandOutput) => void
   ): Promise<CreateServiceSpecificCredentialCommandOutput> | void {
     const command = new CreateServiceSpecificCredentialCommand(args);
@@ -1596,9 +1565,7 @@ export class IAM extends IAMClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -1721,9 +1688,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccessKeyCommandOutput) => void
   ): Promise<DeleteAccessKeyCommandOutput> | void {
     const command = new DeleteAccessKeyCommand(args);
@@ -1830,9 +1795,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -2053,9 +2016,7 @@ export class IAM extends IAMClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
@@ -2134,9 +2095,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteRole(
     args: DeleteRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoleCommandOutput) => void
   ): Promise<DeleteRoleCommandOutput> | void {
     const command = new DeleteRoleCommand(args);
@@ -2214,9 +2173,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteRolePolicyCommandOutput) => void
   ): Promise<DeleteRolePolicyCommandOutput> | void {
     const command = new DeleteRolePolicyCommand(args);
@@ -2428,10 +2385,7 @@ export class IAM extends IAMClient {
     args: DeleteServiceSpecificCredentialCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteServiceSpecificCredentialCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceSpecificCredentialCommandOutput) => void
   ): Promise<DeleteServiceSpecificCredentialCommandOutput> | void {
     const command = new DeleteServiceSpecificCredentialCommand(args);
@@ -2536,9 +2490,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -2616,9 +2568,7 @@ export class IAM extends IAMClient {
   ): void;
   public deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPolicyCommandOutput) => void
   ): Promise<DeleteUserPolicyCommandOutput> | void {
     const command = new DeleteUserPolicyCommand(args);
@@ -2734,9 +2684,7 @@ export class IAM extends IAMClient {
   ): void;
   public detachRolePolicy(
     args: DetachRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachRolePolicyCommandOutput) => void
   ): Promise<DetachRolePolicyCommandOutput> | void {
     const command = new DetachRolePolicyCommand(args);
@@ -2773,9 +2721,7 @@ export class IAM extends IAMClient {
   ): void;
   public detachUserPolicy(
     args: DetachUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachUserPolicyCommandOutput) => void
   ): Promise<DetachUserPolicyCommandOutput> | void {
     const command = new DetachUserPolicyCommand(args);
@@ -2810,9 +2756,7 @@ export class IAM extends IAMClient {
   ): void;
   public enableMFADevice(
     args: EnableMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: EnableMFADeviceCommandOutput) => void
   ): Promise<EnableMFADeviceCommandOutput> | void {
     const command = new EnableMFADeviceCommand(args);
@@ -2998,31 +2942,19 @@ export class IAM extends IAMClient {
   ): Promise<GenerateOrganizationsAccessReportCommandOutput>;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): void;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): void;
   public generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateOrganizationsAccessReportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateOrganizationsAccessReportCommandOutput
-    ) => void
+      | ((err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void),
+    cb?: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> | void {
     const command = new GenerateOrganizationsAccessReportCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3091,31 +3023,19 @@ export class IAM extends IAMClient {
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput>;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): void;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): void;
   public generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateServiceLastAccessedDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateServiceLastAccessedDetailsCommandOutput
-    ) => void
+      | ((err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> | void {
     const command = new GenerateServiceLastAccessedDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3199,10 +3119,7 @@ export class IAM extends IAMClient {
     args: GetAccountAuthorizationDetailsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAccountAuthorizationDetailsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetAccountAuthorizationDetailsCommandOutput) => void),
     cb?: (err: any, data?: GetAccountAuthorizationDetailsCommandOutput) => void
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> | void {
     const command = new GetAccountAuthorizationDetailsCommand(args);
@@ -3370,14 +3287,8 @@ export class IAM extends IAMClient {
     args: GetContextKeysForPrincipalPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetContextKeysForPrincipalPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetContextKeysForPrincipalPolicyCommandOutput
-    ) => void
+      | ((err: any, data?: GetContextKeysForPrincipalPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetContextKeysForPrincipalPolicyCommandOutput) => void
   ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> | void {
     const command = new GetContextKeysForPrincipalPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3447,9 +3358,7 @@ export class IAM extends IAMClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
@@ -3495,9 +3404,7 @@ export class IAM extends IAMClient {
   ): void;
   public getGroupPolicy(
     args: GetGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetGroupPolicyCommandOutput) => void
   ): Promise<GetGroupPolicyCommandOutput> | void {
     const command = new GetGroupPolicyCommand(args);
@@ -3570,9 +3477,7 @@ export class IAM extends IAMClient {
   ): void;
   public getLoginProfile(
     args: GetLoginProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoginProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoginProfileCommandOutput) => void),
     cb?: (err: any, data?: GetLoginProfileCommandOutput) => void
   ): Promise<GetLoginProfileCommandOutput> | void {
     const command = new GetLoginProfileCommand(args);
@@ -3701,9 +3606,7 @@ export class IAM extends IAMClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
@@ -3752,9 +3655,7 @@ export class IAM extends IAMClient {
   ): void;
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): Promise<GetPolicyVersionCommandOutput> | void {
     const command = new GetPolicyVersionCommand(args);
@@ -3796,9 +3697,7 @@ export class IAM extends IAMClient {
   ): void;
   public getRole(
     args: GetRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoleCommandOutput) => void),
     cb?: (err: any, data?: GetRoleCommandOutput) => void
   ): Promise<GetRoleCommandOutput> | void {
     const command = new GetRoleCommand(args);
@@ -3845,9 +3744,7 @@ export class IAM extends IAMClient {
   ): void;
   public getRolePolicy(
     args: GetRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetRolePolicyCommandOutput) => void
   ): Promise<GetRolePolicyCommandOutput> | void {
     const command = new GetRolePolicyCommand(args);
@@ -3884,9 +3781,7 @@ export class IAM extends IAMClient {
   ): void;
   public getSAMLProvider(
     args: GetSAMLProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSAMLProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSAMLProviderCommandOutput) => void),
     cb?: (err: any, data?: GetSAMLProviderCommandOutput) => void
   ): Promise<GetSAMLProviderCommandOutput> | void {
     const command = new GetSAMLProviderCommand(args);
@@ -3923,9 +3818,7 @@ export class IAM extends IAMClient {
   ): void;
   public getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSSHPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
   ): Promise<GetSSHPublicKeyCommandOutput> | void {
     const command = new GetSSHPublicKeyCommand(args);
@@ -4091,31 +3984,19 @@ export class IAM extends IAMClient {
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput>;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): void;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): void;
   public getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput
-    ) => void
+      | ((err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> | void {
     const command = new GetServiceLastAccessedDetailsWithEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4142,31 +4023,19 @@ export class IAM extends IAMClient {
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput>;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): void;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): void;
   public getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceLinkedRoleDeletionStatusCommandOutput
-    ) => void
+      | ((err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> | void {
     const command = new GetServiceLinkedRoleDeletionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4201,9 +4070,7 @@ export class IAM extends IAMClient {
   ): void;
   public getUser(
     args: GetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
     cb?: (err: any, data?: GetUserCommandOutput) => void
   ): Promise<GetUserCommandOutput> | void {
     const command = new GetUserCommand(args);
@@ -4248,9 +4115,7 @@ export class IAM extends IAMClient {
   ): void;
   public getUserPolicy(
     args: GetUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetUserPolicyCommandOutput) => void
   ): Promise<GetUserPolicyCommandOutput> | void {
     const command = new GetUserPolicyCommand(args);
@@ -4295,9 +4160,7 @@ export class IAM extends IAMClient {
   ): void;
   public listAccessKeys(
     args: ListAccessKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccessKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessKeysCommandOutput) => void),
     cb?: (err: any, data?: ListAccessKeysCommandOutput) => void
   ): Promise<ListAccessKeysCommandOutput> | void {
     const command = new ListAccessKeysCommand(args);
@@ -4586,9 +4449,7 @@ export class IAM extends IAMClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
@@ -4742,9 +4603,7 @@ export class IAM extends IAMClient {
   ): void;
   public listMFADevices(
     args: ListMFADevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMFADevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMFADevicesCommandOutput) => void),
     cb?: (err: any, data?: ListMFADevicesCommandOutput) => void
   ): Promise<ListMFADevicesCommandOutput> | void {
     const command = new ListMFADevicesCommand(args);
@@ -4823,9 +4682,7 @@ export class IAM extends IAMClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
@@ -4888,31 +4745,19 @@ export class IAM extends IAMClient {
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput>;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
-    cb: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+    cb: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): void;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+    cb: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): void;
   public listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPoliciesGrantingServiceAccessCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListPoliciesGrantingServiceAccessCommandOutput
-    ) => void
+      | ((err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void),
+    cb?: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> | void {
     const command = new ListPoliciesGrantingServiceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4990,9 +4835,7 @@ export class IAM extends IAMClient {
   ): void;
   public listRolePolicies(
     args: ListRolePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRolePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRolePoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListRolePoliciesCommandOutput) => void
   ): Promise<ListRolePoliciesCommandOutput> | void {
     const command = new ListRolePoliciesCommand(args);
@@ -5027,9 +4870,7 @@ export class IAM extends IAMClient {
   ): void;
   public listRoleTags(
     args: ListRoleTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoleTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoleTagsCommandOutput) => void),
     cb?: (err: any, data?: ListRoleTagsCommandOutput) => void
   ): Promise<ListRoleTagsCommandOutput> | void {
     const command = new ListRoleTagsCommand(args);
@@ -5066,9 +4907,7 @@ export class IAM extends IAMClient {
   ): void;
   public listRoles(
     args: ListRolesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRolesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRolesCommandOutput) => void),
     cb?: (err: any, data?: ListRolesCommandOutput) => void
   ): Promise<ListRolesCommandOutput> | void {
     const command = new ListRolesCommand(args);
@@ -5230,10 +5069,7 @@ export class IAM extends IAMClient {
     args: ListServiceSpecificCredentialsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceSpecificCredentialsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListServiceSpecificCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ListServiceSpecificCredentialsCommandOutput) => void
   ): Promise<ListServiceSpecificCredentialsCommandOutput> | void {
     const command = new ListServiceSpecificCredentialsCommand(args);
@@ -5317,9 +5153,7 @@ export class IAM extends IAMClient {
   ): void;
   public listUserPolicies(
     args: ListUserPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListUserPoliciesCommandOutput) => void
   ): Promise<ListUserPoliciesCommandOutput> | void {
     const command = new ListUserPoliciesCommand(args);
@@ -5354,9 +5188,7 @@ export class IAM extends IAMClient {
   ): void;
   public listUserTags(
     args: ListUserTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserTagsCommandOutput) => void),
     cb?: (err: any, data?: ListUserTagsCommandOutput) => void
   ): Promise<ListUserTagsCommandOutput> | void {
     const command = new ListUserTagsCommand(args);
@@ -5393,9 +5225,7 @@ export class IAM extends IAMClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -5482,9 +5312,7 @@ export class IAM extends IAMClient {
   ): void;
   public putGroupPolicy(
     args: PutGroupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutGroupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutGroupPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutGroupPolicyCommandOutput) => void
   ): Promise<PutGroupPolicyCommandOutput> | void {
     const command = new PutGroupPolicyCommand(args);
@@ -5583,9 +5411,7 @@ export class IAM extends IAMClient {
   ): void;
   public putRolePolicy(
     args: PutRolePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRolePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRolePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutRolePolicyCommandOutput) => void
   ): Promise<PutRolePolicyCommandOutput> | void {
     const command = new PutRolePolicyCommand(args);
@@ -5678,9 +5504,7 @@ export class IAM extends IAMClient {
   ): void;
   public putUserPolicy(
     args: PutUserPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutUserPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutUserPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutUserPolicyCommandOutput) => void
   ): Promise<PutUserPolicyCommandOutput> | void {
     const command = new PutUserPolicyCommand(args);
@@ -5707,31 +5531,19 @@ export class IAM extends IAMClient {
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput>;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): void;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): void;
   public removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void),
+    cb?: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> | void {
     const command = new RemoveClientIDFromOpenIDConnectProviderCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5845,10 +5657,7 @@ export class IAM extends IAMClient {
     args: ResetServiceSpecificCredentialCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResetServiceSpecificCredentialCommandOutput
-        ) => void),
+      | ((err: any, data?: ResetServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: ResetServiceSpecificCredentialCommandOutput) => void
   ): Promise<ResetServiceSpecificCredentialCommandOutput> | void {
     const command = new ResetServiceSpecificCredentialCommand(args);
@@ -5884,9 +5693,7 @@ export class IAM extends IAMClient {
   ): void;
   public resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResyncMFADeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResyncMFADeviceCommandOutput) => void),
     cb?: (err: any, data?: ResyncMFADeviceCommandOutput) => void
   ): Promise<ResyncMFADeviceCommandOutput> | void {
     const command = new ResyncMFADeviceCommand(args);
@@ -5965,31 +5772,19 @@ export class IAM extends IAMClient {
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput>;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
-    cb: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+    cb: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): void;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+    cb: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): void;
   public setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetSecurityTokenServicePreferencesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetSecurityTokenServicePreferencesCommandOutput
-    ) => void
+      | ((err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void),
+    cb?: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> | void {
     const command = new SetSecurityTokenServicePreferencesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6168,9 +5963,7 @@ export class IAM extends IAMClient {
   ): void;
   public tagRole(
     args: TagRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagRoleCommandOutput) => void),
     cb?: (err: any, data?: TagRoleCommandOutput) => void
   ): Promise<TagRoleCommandOutput> | void {
     const command = new TagRoleCommand(args);
@@ -6247,9 +6040,7 @@ export class IAM extends IAMClient {
   ): void;
   public tagUser(
     args: TagUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagUserCommandOutput) => void),
     cb?: (err: any, data?: TagUserCommandOutput) => void
   ): Promise<TagUserCommandOutput> | void {
     const command = new TagUserCommand(args);
@@ -6284,9 +6075,7 @@ export class IAM extends IAMClient {
   ): void;
   public untagRole(
     args: UntagRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagRoleCommandOutput) => void),
     cb?: (err: any, data?: UntagRoleCommandOutput) => void
   ): Promise<UntagRoleCommandOutput> | void {
     const command = new UntagRoleCommand(args);
@@ -6321,9 +6110,7 @@ export class IAM extends IAMClient {
   ): void;
   public untagUser(
     args: UntagUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagUserCommandOutput) => void),
     cb?: (err: any, data?: UntagUserCommandOutput) => void
   ): Promise<UntagUserCommandOutput> | void {
     const command = new UntagUserCommand(args);
@@ -6364,9 +6151,7 @@ export class IAM extends IAMClient {
   ): void;
   public updateAccessKey(
     args: UpdateAccessKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAccessKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccessKeyCommandOutput) => void
   ): Promise<UpdateAccessKeyCommandOutput> | void {
     const command = new UpdateAccessKeyCommand(args);
@@ -6499,9 +6284,7 @@ export class IAM extends IAMClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
@@ -6576,31 +6359,19 @@ export class IAM extends IAMClient {
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput>;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): void;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): void;
   public updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateOpenIDConnectProviderThumbprintCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> | void {
     const command = new UpdateOpenIDConnectProviderThumbprintCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6632,9 +6403,7 @@ export class IAM extends IAMClient {
   ): void;
   public updateRole(
     args: UpdateRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoleCommandOutput) => void
   ): Promise<UpdateRoleCommandOutput> | void {
     const command = new UpdateRoleCommand(args);
@@ -6843,10 +6612,7 @@ export class IAM extends IAMClient {
     args: UpdateServiceSpecificCredentialCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateServiceSpecificCredentialCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateServiceSpecificCredentialCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceSpecificCredentialCommandOutput) => void
   ): Promise<UpdateServiceSpecificCredentialCommandOutput> | void {
     const command = new UpdateServiceSpecificCredentialCommand(args);
@@ -6934,9 +6700,7 @@ export class IAM extends IAMClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetPartitionsRequest, GetPartitionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetPartitionsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPartitionsCommandInput = GetPartitionsRequest;
-export type GetPartitionsCommandOutput = GetPartitionsResponse &
-  __MetadataBearer;
+export type GetPartitionsCommandOutput = GetPartitionsResponse & __MetadataBearer;
 
 export class GetPartitionsCommand extends $Command<
   GetPartitionsCommandInput,
@@ -47,9 +42,7 @@ export class GetPartitionsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPartitionsCommandInput, GetPartitionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

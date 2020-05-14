@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEndpointsCommandInput = ListEndpointsRequest;
-export type ListEndpointsCommandOutput = ListEndpointsResponse &
-  __MetadataBearer;
+export type ListEndpointsCommandOutput = ListEndpointsResponse & __MetadataBearer;
 
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,
@@ -47,9 +46,7 @@ export class ListEndpointsCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEndpointsCommandInput, ListEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

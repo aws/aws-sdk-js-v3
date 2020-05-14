@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { ChangeMessageVisibilityRequest } from "../models/index";
 import {
   deserializeAws_queryChangeMessageVisibilityCommand,
@@ -45,13 +41,8 @@ export class ChangeMessageVisibilityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeMessageVisibilityCommandInput,
-    ChangeMessageVisibilityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeMessageVisibilityCommandInput, ChangeMessageVisibilityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeNetworkInterfacesRequest,
-  DescribeNetworkInterfacesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeNetworkInterfacesCommand,
   serializeAws_ec2DescribeNetworkInterfacesCommand
@@ -49,13 +42,8 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNetworkInterfacesCommandInput,
-    DescribeNetworkInterfacesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNetworkInterfacesCommandInput, DescribeNetworkInterfacesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

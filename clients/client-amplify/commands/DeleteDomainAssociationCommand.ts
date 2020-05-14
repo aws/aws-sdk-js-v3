@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  DeleteDomainAssociationRequest,
-  DeleteDomainAssociationResult
-} from "../models/index";
+import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDomainAssociationCommand,
   serializeAws_restJson1_1DeleteDomainAssociationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDomainAssociationCommandInput = DeleteDomainAssociationRequest;
-export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult &
-  __MetadataBearer;
+export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult & __MetadataBearer;
 
 export class DeleteDomainAssociationCommand extends $Command<
   DeleteDomainAssociationCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDomainAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDomainAssociationCommandInput,
-    DeleteDomainAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDomainAssociationCommandInput, DeleteDomainAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteDomainAssociationCommand extends $Command<
     input: DeleteDomainAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDomainAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDomainAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDomainAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

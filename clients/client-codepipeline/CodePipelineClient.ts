@@ -42,10 +42,7 @@ import {
   GetJobDetailsCommandInput,
   GetJobDetailsCommandOutput
 } from "./commands/GetJobDetailsCommand";
-import {
-  GetPipelineCommandInput,
-  GetPipelineCommandOutput
-} from "./commands/GetPipelineCommand";
+import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand";
 import {
   GetPipelineExecutionCommandInput,
   GetPipelineExecutionCommandOutput
@@ -82,10 +79,7 @@ import {
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput
 } from "./commands/ListWebhooksCommand";
-import {
-  PollForJobsCommandInput,
-  PollForJobsCommandOutput
-} from "./commands/PollForJobsCommand";
+import { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
   PollForThirdPartyJobsCommandOutput
@@ -114,10 +108,7 @@ import {
   PutThirdPartyJobSuccessResultCommandInput,
   PutThirdPartyJobSuccessResultCommandOutput
 } from "./commands/PutThirdPartyJobSuccessResultCommand";
-import {
-  PutWebhookCommandInput,
-  PutWebhookCommandOutput
-} from "./commands/PutWebhookCommand";
+import { PutWebhookCommandInput, PutWebhookCommandOutput } from "./commands/PutWebhookCommand";
 import {
   RegisterWebhookWithThirdPartyCommandInput,
   RegisterWebhookWithThirdPartyCommandOutput
@@ -134,10 +125,7 @@ import {
   StopPipelineExecutionCommandInput,
   StopPipelineExecutionCommandOutput
 } from "./commands/StopPipelineExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -361,9 +349,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodePipelineClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodePipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +358,7 @@ export type CodePipelineClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

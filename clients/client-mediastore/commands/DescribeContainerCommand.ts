@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  DescribeContainerInput,
-  DescribeContainerOutput
-} from "../models/index";
+import { DescribeContainerInput, DescribeContainerOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeContainerCommand,
   serializeAws_json1_1DescribeContainerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeContainerCommandInput = DescribeContainerInput;
-export type DescribeContainerCommandOutput = DescribeContainerOutput &
-  __MetadataBearer;
+export type DescribeContainerCommandOutput = DescribeContainerOutput & __MetadataBearer;
 
 export class DescribeContainerCommand extends $Command<
   DescribeContainerCommandInput,
@@ -50,9 +46,7 @@ export class DescribeContainerCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeContainerCommandInput, DescribeContainerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

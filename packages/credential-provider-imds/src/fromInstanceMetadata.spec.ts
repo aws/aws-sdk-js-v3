@@ -1,9 +1,6 @@
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
 import { httpGet } from "./remoteProvider/httpGet";
-import {
-  fromImdsCredentials,
-  ImdsCredentials
-} from "./remoteProvider/ImdsCredentials";
+import { fromImdsCredentials, ImdsCredentials } from "./remoteProvider/ImdsCredentials";
 
 const mockHttpGet = <any>httpGet;
 jest.mock("./remoteProvider/httpGet", () => ({ httpGet: jest.fn() }));
@@ -33,9 +30,7 @@ describe("fromInstanceMetadata", () => {
     }
     mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
-    expect(await fromInstanceMetadata({ maxRetries })()).toEqual(
-      fromImdsCredentials(creds)
-    );
+    expect(await fromInstanceMetadata({ maxRetries })()).toEqual(fromImdsCredentials(creds));
     expect(mockHttpGet.mock.calls.length).toEqual(maxRetries + 1);
   });
 
@@ -44,16 +39,12 @@ describe("fromInstanceMetadata", () => {
     for (let key of Object.keys(creds)) {
       const invalidCreds: any = { ...creds };
       delete invalidCreds[key];
-      mockHttpGet.mockReturnValueOnce(
-        Promise.resolve(JSON.stringify(invalidCreds))
-      );
+      mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(invalidCreds)));
     }
     mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
     await fromInstanceMetadata({ maxRetries: 100 })();
-    expect(mockHttpGet.mock.calls.length).toEqual(
-      Object.keys(creds).length + 2
-    );
+    expect(mockHttpGet.mock.calls.length).toEqual(Object.keys(creds).length + 2);
   });
 
   it("should pass relevant configuration to httpGet", async () => {

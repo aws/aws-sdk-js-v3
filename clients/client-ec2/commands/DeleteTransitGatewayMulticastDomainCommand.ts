@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayMulticastDomainRequest,
   DeleteTransitGatewayMulticastDomainResult
@@ -53,9 +49,7 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     DeleteTransitGatewayMulticastDomainCommandInput,
     DeleteTransitGatewayMulticastDomainCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     input: DeleteTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

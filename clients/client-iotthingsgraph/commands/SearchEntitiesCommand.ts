@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchEntitiesCommandInput = SearchEntitiesRequest;
-export type SearchEntitiesCommandOutput = SearchEntitiesResponse &
-  __MetadataBearer;
+export type SearchEntitiesCommandOutput = SearchEntitiesResponse & __MetadataBearer;
 
 export class SearchEntitiesCommand extends $Command<
   SearchEntitiesCommandInput,
@@ -47,9 +46,7 @@ export class SearchEntitiesCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchEntitiesCommandInput, SearchEntitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

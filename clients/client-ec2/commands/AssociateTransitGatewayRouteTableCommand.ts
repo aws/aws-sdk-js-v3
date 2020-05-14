@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AssociateTransitGatewayRouteTableRequest,
   AssociateTransitGatewayRouteTableResult
@@ -53,9 +49,7 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     AssociateTransitGatewayRouteTableCommandInput,
     AssociateTransitGatewayRouteTableCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     input: AssociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateTransitGatewayRouteTableCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2AssociateTransitGatewayRouteTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2AssociateTransitGatewayRouteTableCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2AssociateTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

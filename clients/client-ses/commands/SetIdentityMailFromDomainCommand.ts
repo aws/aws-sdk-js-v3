@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SetIdentityMailFromDomainRequest,
   SetIdentityMailFromDomainResponse
@@ -49,13 +45,8 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetIdentityMailFromDomainCommandInput,
-    SetIdentityMailFromDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetIdentityMailFromDomainCommandInput, SetIdentityMailFromDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityMailFromDomainCommandOutput> {
-    return deserializeAws_querySetIdentityMailFromDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityMailFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ResourceGroupsTaggingAPIClient";
-import {
-  StartReportCreationInput,
-  StartReportCreationOutput
-} from "../models/index";
+import { StartReportCreationInput, StartReportCreationOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartReportCreationCommand,
   serializeAws_json1_1StartReportCreationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartReportCreationCommandInput = StartReportCreationInput;
-export type StartReportCreationCommandOutput = StartReportCreationOutput &
-  __MetadataBearer;
+export type StartReportCreationCommandOutput = StartReportCreationOutput & __MetadataBearer;
 
 export class StartReportCreationCommand extends $Command<
   StartReportCreationCommandInput,
@@ -49,13 +45,8 @@ export class StartReportCreationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartReportCreationCommandInput,
-    StartReportCreationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartReportCreationCommandInput, StartReportCreationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

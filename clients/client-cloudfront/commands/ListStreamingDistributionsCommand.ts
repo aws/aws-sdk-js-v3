@@ -49,13 +49,8 @@ export class ListStreamingDistributionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListStreamingDistributionsCommandInput,
-    ListStreamingDistributionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListStreamingDistributionsCommandInput, ListStreamingDistributionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListStreamingDistributionsCommand extends $Command<
     input: ListStreamingDistributionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListStreamingDistributionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListStreamingDistributionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStreamingDistributionsCommandOutput> {
-    return deserializeAws_restXmlListStreamingDistributionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListStreamingDistributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

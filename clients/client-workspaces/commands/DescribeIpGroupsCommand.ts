@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  DescribeIpGroupsRequest,
-  DescribeIpGroupsResult
-} from "../models/index";
+import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeIpGroupsCommand,
   serializeAws_json1_1DescribeIpGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeIpGroupsCommandInput = DescribeIpGroupsRequest;
-export type DescribeIpGroupsCommandOutput = DescribeIpGroupsResult &
-  __MetadataBearer;
+export type DescribeIpGroupsCommandOutput = DescribeIpGroupsResult & __MetadataBearer;
 
 export class DescribeIpGroupsCommand extends $Command<
   DescribeIpGroupsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeIpGroupsCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

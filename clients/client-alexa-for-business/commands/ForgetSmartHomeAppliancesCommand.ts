@@ -49,13 +49,8 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ForgetSmartHomeAppliancesCommandInput,
-    ForgetSmartHomeAppliancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ForgetSmartHomeAppliancesCommandInput, ForgetSmartHomeAppliancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ForgetSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

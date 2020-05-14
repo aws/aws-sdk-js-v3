@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResult
-} from "../models/index";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
   serializeAws_queryModifyEventSubscriptionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult &
-  __MetadataBearer;
+export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
 
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
@@ -49,13 +45,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyEventSubscriptionCommandInput,
-    ModifyEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyEventSubscriptionCommandInput, ModifyEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

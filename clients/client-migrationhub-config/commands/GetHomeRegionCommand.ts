@@ -46,9 +46,7 @@ export class GetHomeRegionCommand extends $Command<
     configuration: MigrationHubConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHomeRegionCommandInput, GetHomeRegionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

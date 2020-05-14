@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
-export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput &
-  __MetadataBearer;
+export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput & __MetadataBearer;
 
 export class ListVirtualNodesCommand extends $Command<
   ListVirtualNodesCommandInput,
@@ -47,9 +46,7 @@ export class ListVirtualNodesCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

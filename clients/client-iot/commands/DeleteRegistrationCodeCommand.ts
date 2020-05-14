@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteRegistrationCodeRequest,
-  DeleteRegistrationCodeResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRegistrationCodeCommand,
   serializeAws_restJson1_1DeleteRegistrationCodeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRegistrationCodeCommandInput = DeleteRegistrationCodeRequest;
-export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse &
-  __MetadataBearer;
+export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse & __MetadataBearer;
 
 export class DeleteRegistrationCodeCommand extends $Command<
   DeleteRegistrationCodeCommandInput,
@@ -49,13 +41,8 @@ export class DeleteRegistrationCodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRegistrationCodeCommandInput,
-    DeleteRegistrationCodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRegistrationCodeCommandInput, DeleteRegistrationCodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class DeleteRegistrationCodeCommand extends $Command<
     input: DeleteRegistrationCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRegistrationCodeCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteRegistrationCodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRegistrationCodeCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRegistrationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

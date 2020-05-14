@@ -39,9 +39,7 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetOrganizationConfigRuleDetailedStatusCommandInput
-  ) {
+  constructor(readonly input: GetOrganizationConfigRuleDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     GetOrganizationConfigRuleDetailedStatusCommandInput,
     GetOrganizationConfigRuleDetailedStatusCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     input: GetOrganizationConfigRuleDetailedStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

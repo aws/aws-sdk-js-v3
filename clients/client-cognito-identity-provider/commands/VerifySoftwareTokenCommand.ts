@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  VerifySoftwareTokenRequest,
-  VerifySoftwareTokenResponse
-} from "../models/index";
+import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/index";
 import {
   deserializeAws_json1_1VerifySoftwareTokenCommand,
   serializeAws_json1_1VerifySoftwareTokenCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type VerifySoftwareTokenCommandInput = VerifySoftwareTokenRequest;
-export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse &
-  __MetadataBearer;
+export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse & __MetadataBearer;
 
 export class VerifySoftwareTokenCommand extends $Command<
   VerifySoftwareTokenCommandInput,
@@ -49,13 +45,8 @@ export class VerifySoftwareTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    VerifySoftwareTokenCommandInput,
-    VerifySoftwareTokenCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<VerifySoftwareTokenCommandInput, VerifySoftwareTokenCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

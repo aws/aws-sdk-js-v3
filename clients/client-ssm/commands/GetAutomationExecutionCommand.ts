@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetAutomationExecutionRequest,
-  GetAutomationExecutionResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/index";
 import {
   deserializeAws_json1_1GetAutomationExecutionCommand,
   serializeAws_json1_1GetAutomationExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAutomationExecutionCommandInput = GetAutomationExecutionRequest;
-export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult &
-  __MetadataBearer;
+export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult & __MetadataBearer;
 
 export class GetAutomationExecutionCommand extends $Command<
   GetAutomationExecutionCommandInput,
@@ -49,13 +41,8 @@ export class GetAutomationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAutomationExecutionCommandInput,
-    GetAutomationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAutomationExecutionCommandInput, GetAutomationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

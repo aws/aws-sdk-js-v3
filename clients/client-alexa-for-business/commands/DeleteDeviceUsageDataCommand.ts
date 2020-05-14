@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteDeviceUsageDataRequest,
-  DeleteDeviceUsageDataResponse
-} from "../models/index";
+import { DeleteDeviceUsageDataRequest, DeleteDeviceUsageDataResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDeviceUsageDataCommand,
   serializeAws_json1_1DeleteDeviceUsageDataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDeviceUsageDataCommandInput = DeleteDeviceUsageDataRequest;
-export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse &
-  __MetadataBearer;
+export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse & __MetadataBearer;
 
 export class DeleteDeviceUsageDataCommand extends $Command<
   DeleteDeviceUsageDataCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDeviceUsageDataCommandInput,
-    DeleteDeviceUsageDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDeviceUsageDataCommandInput, DeleteDeviceUsageDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { SubscribeInput, SubscribeResponse } from "../models/index";
 import {
   deserializeAws_querySubscribeCommand,
@@ -46,9 +42,7 @@ export class SubscribeCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeCommandInput, SubscribeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class SubscribeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubscribeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySubscribeCommand(input, context);
   }
 

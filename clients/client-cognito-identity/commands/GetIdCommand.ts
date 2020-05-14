@@ -46,9 +46,7 @@ export class GetIdCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIdCommandInput, GetIdCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class GetIdCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetIdCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetIdCommand(input, context);
   }
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CancelSpotFleetRequestsRequest,
-  CancelSpotFleetRequestsResponse
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelSpotFleetRequestsRequest, CancelSpotFleetRequestsResponse } from "../models/index";
 import {
   deserializeAws_ec2CancelSpotFleetRequestsCommand,
   serializeAws_ec2CancelSpotFleetRequestsCommand
@@ -49,13 +42,8 @@ export class CancelSpotFleetRequestsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSpotFleetRequestsCommandInput,
-    CancelSpotFleetRequestsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSpotFleetRequestsCommandInput, CancelSpotFleetRequestsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  CancelSimulationJobRequest,
-  CancelSimulationJobResponse
-} from "../models/index";
+import { CancelSimulationJobRequest, CancelSimulationJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelSimulationJobCommand,
   serializeAws_restJson1_1CancelSimulationJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
-export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse &
-  __MetadataBearer;
+export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse & __MetadataBearer;
 
 export class CancelSimulationJobCommand extends $Command<
   CancelSimulationJobCommandInput,
@@ -49,13 +45,8 @@ export class CancelSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSimulationJobCommandInput,
-    CancelSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSimulationJobCommandInput, CancelSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CancelSimulationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1CancelSimulationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

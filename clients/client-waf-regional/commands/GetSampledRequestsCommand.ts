@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  GetSampledRequestsRequest,
-  GetSampledRequestsResponse
-} from "../models/index";
+import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSampledRequestsCommand,
   serializeAws_json1_1GetSampledRequestsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSampledRequestsCommandInput = GetSampledRequestsRequest;
-export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse &
-  __MetadataBearer;
+export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse & __MetadataBearer;
 
 export class GetSampledRequestsCommand extends $Command<
   GetSampledRequestsCommandInput,
@@ -50,9 +46,7 @@ export class GetSampledRequestsCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

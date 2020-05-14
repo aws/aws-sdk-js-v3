@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionConcurrencyRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand,
@@ -45,13 +41,8 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteFunctionConcurrencyCommandInput,
-    DeleteFunctionConcurrencyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteFunctionConcurrencyCommandInput, DeleteFunctionConcurrencyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     input: DeleteFunctionConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteFunctionConcurrencyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

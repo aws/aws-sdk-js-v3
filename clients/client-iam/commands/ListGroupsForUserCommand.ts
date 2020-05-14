@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListGroupsForUserRequest,
-  ListGroupsForUserResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListGroupsForUserRequest, ListGroupsForUserResponse } from "../models/index";
 import {
   deserializeAws_queryListGroupsForUserCommand,
   serializeAws_queryListGroupsForUserCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupsForUserCommandInput = ListGroupsForUserRequest;
-export type ListGroupsForUserCommandOutput = ListGroupsForUserResponse &
-  __MetadataBearer;
+export type ListGroupsForUserCommandOutput = ListGroupsForUserResponse & __MetadataBearer;
 
 export class ListGroupsForUserCommand extends $Command<
   ListGroupsForUserCommandInput,
@@ -50,9 +42,7 @@ export class ListGroupsForUserCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

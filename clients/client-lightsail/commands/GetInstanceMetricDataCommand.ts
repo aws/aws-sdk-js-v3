@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetInstanceMetricDataRequest,
-  GetInstanceMetricDataResult
-} from "../models/index";
+import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceMetricDataCommand,
   serializeAws_json1_1GetInstanceMetricDataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInstanceMetricDataCommandInput = GetInstanceMetricDataRequest;
-export type GetInstanceMetricDataCommandOutput = GetInstanceMetricDataResult &
-  __MetadataBearer;
+export type GetInstanceMetricDataCommandOutput = GetInstanceMetricDataResult & __MetadataBearer;
 
 export class GetInstanceMetricDataCommand extends $Command<
   GetInstanceMetricDataCommandInput,
@@ -49,13 +45,8 @@ export class GetInstanceMetricDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInstanceMetricDataCommandInput,
-    GetInstanceMetricDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInstanceMetricDataCommandInput, GetInstanceMetricDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

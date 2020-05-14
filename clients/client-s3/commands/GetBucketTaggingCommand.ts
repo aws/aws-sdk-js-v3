@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketTaggingOutput,
-  GetBucketTaggingRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketTaggingOutput, GetBucketTaggingRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketTaggingCommand,
   serializeAws_restXmlGetBucketTaggingCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketTaggingCommandInput = GetBucketTaggingRequest;
-export type GetBucketTaggingCommandOutput = GetBucketTaggingOutput &
-  __MetadataBearer;
+export type GetBucketTaggingCommandOutput = GetBucketTaggingOutput & __MetadataBearer;
 
 export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandInput,
@@ -51,9 +43,7 @@ export class GetBucketTaggingCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

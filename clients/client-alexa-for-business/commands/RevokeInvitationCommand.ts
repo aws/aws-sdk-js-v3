@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  RevokeInvitationRequest,
-  RevokeInvitationResponse
-} from "../models/index";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/index";
 import {
   deserializeAws_json1_1RevokeInvitationCommand,
   serializeAws_json1_1RevokeInvitationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
-export type RevokeInvitationCommandOutput = RevokeInvitationResponse &
-  __MetadataBearer;
+export type RevokeInvitationCommandOutput = RevokeInvitationResponse & __MetadataBearer;
 
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,
@@ -50,9 +46,7 @@ export class RevokeInvitationCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeInvitationCommandInput, RevokeInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

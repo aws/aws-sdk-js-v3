@@ -31,8 +31,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
     const hostPattern = /^[a-zA-Z0-9]{1}$|^[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]$/;
     if (!hostPattern.test(accountId)) {
       throw new Error(
-        "ValidationError: AccountId should be hostname compatible. AccountId: " +
-          accountId
+        "ValidationError: AccountId should be hostname compatible. AccountId: " + accountId
       );
     }
     if (HttpRequest.isInstance(request) && input.AccountId) {
@@ -47,8 +46,7 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   };
 }
 
-export const prependAccountIdMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const prependAccountIdMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   tags: ["PREPEND_ACCOUNT_ID_MIDDLEWARE"],
   name: "prependAccountIdMiddleware",
@@ -56,13 +54,8 @@ export const prependAccountIdMiddlewareOptions: BuildHandlerOptions &
   toMiddleware: "hostHeaderMiddleware"
 };
 
-export const getPrependAccountIdPlugin = (
-  unused: any
-): Pluggable<any, any> => ({
+export const getPrependAccountIdPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      prependAccountIdMiddleware(),
-      prependAccountIdMiddlewareOptions
-    );
+    clientStack.addRelativeTo(prependAccountIdMiddleware(), prependAccountIdMiddlewareOptions);
   }
 });

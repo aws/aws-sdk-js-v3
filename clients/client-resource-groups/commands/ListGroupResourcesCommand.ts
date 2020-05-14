@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ResourceGroupsClient";
-import {
-  ListGroupResourcesInput,
-  ListGroupResourcesOutput
-} from "../models/index";
+import { ListGroupResourcesInput, ListGroupResourcesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroupResourcesCommand,
   serializeAws_restJson1_1ListGroupResourcesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupResourcesCommandInput = ListGroupResourcesInput;
-export type ListGroupResourcesCommandOutput = ListGroupResourcesOutput &
-  __MetadataBearer;
+export type ListGroupResourcesCommandOutput = ListGroupResourcesOutput & __MetadataBearer;
 
 export class ListGroupResourcesCommand extends $Command<
   ListGroupResourcesCommandInput,
@@ -50,9 +46,7 @@ export class ListGroupResourcesCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

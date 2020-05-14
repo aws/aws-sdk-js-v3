@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult
@@ -39,9 +35,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeTransitGatewayVpcAttachmentsCommandInput
-  ) {
+  constructor(readonly input: DescribeTransitGatewayVpcAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     DescribeTransitGatewayVpcAttachmentsCommandInput,
     DescribeTransitGatewayVpcAttachmentsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
     input: DescribeTransitGatewayVpcAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

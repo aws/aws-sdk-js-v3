@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketInventoryConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketInventoryConfigurationCommand,
@@ -50,9 +46,7 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     PutBucketInventoryConfigurationCommandInput,
     PutBucketInventoryConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
     input: PutBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketInventoryConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketInventoryConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketInventoryConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

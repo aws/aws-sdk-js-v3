@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import {
   CreateCertificateAuthorityAuditReportRequest,
   CreateCertificateAuthorityAuditReportResponse
@@ -39,9 +35,7 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateCertificateAuthorityAuditReportCommandInput
-  ) {
+  constructor(readonly input: CreateCertificateAuthorityAuditReportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     CreateCertificateAuthorityAuditReportCommandInput,
     CreateCertificateAuthorityAuditReportCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     input: CreateCertificateAuthorityAuditReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> {
-    return deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand(output, context);
   }
 
   // Start section: command_body_extra

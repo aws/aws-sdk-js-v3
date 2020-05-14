@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   RevokeDBSecurityGroupIngressMessage,
   RevokeDBSecurityGroupIngressResult
@@ -49,13 +45,8 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeDBSecurityGroupIngressCommandInput,
-    RevokeDBSecurityGroupIngressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeDBSecurityGroupIngressCommandInput, RevokeDBSecurityGroupIngressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     input: RevokeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

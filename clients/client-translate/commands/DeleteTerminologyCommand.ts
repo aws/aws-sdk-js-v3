@@ -46,9 +46,7 @@ export class DeleteTerminologyCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

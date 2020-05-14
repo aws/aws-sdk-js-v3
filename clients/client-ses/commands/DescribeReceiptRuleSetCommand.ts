@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DescribeReceiptRuleSetRequest,
-  DescribeReceiptRuleSetResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeReceiptRuleSetCommand,
   serializeAws_queryDescribeReceiptRuleSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReceiptRuleSetCommandInput = DescribeReceiptRuleSetRequest;
-export type DescribeReceiptRuleSetCommandOutput = DescribeReceiptRuleSetResponse &
-  __MetadataBearer;
+export type DescribeReceiptRuleSetCommandOutput = DescribeReceiptRuleSetResponse & __MetadataBearer;
 
 export class DescribeReceiptRuleSetCommand extends $Command<
   DescribeReceiptRuleSetCommandInput,
@@ -49,13 +41,8 @@ export class DescribeReceiptRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReceiptRuleSetCommandInput,
-    DescribeReceiptRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReceiptRuleSetCommandInput, DescribeReceiptRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

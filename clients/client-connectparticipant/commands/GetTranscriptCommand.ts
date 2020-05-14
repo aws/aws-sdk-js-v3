@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTranscriptCommandInput = GetTranscriptRequest;
-export type GetTranscriptCommandOutput = GetTranscriptResponse &
-  __MetadataBearer;
+export type GetTranscriptCommandOutput = GetTranscriptResponse & __MetadataBearer;
 
 export class GetTranscriptCommand extends $Command<
   GetTranscriptCommandInput,
@@ -47,9 +46,7 @@ export class GetTranscriptCommand extends $Command<
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTranscriptCommandInput, GetTranscriptCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -56,9 +56,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
@@ -101,9 +99,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public getRecords(
     args: GetRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetRecordsCommandOutput) => void
   ): Promise<GetRecordsCommandOutput> | void {
     const command = new GetRecordsCommand(args);
@@ -143,9 +139,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetShardIteratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetShardIteratorCommandOutput) => void),
     cb?: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): Promise<GetShardIteratorCommandOutput> | void {
     const command = new GetShardIteratorCommand(args);
@@ -183,9 +177,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);

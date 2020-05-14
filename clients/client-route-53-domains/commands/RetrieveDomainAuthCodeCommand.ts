@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeResponse
-} from "../models/index";
+import { RetrieveDomainAuthCodeRequest, RetrieveDomainAuthCodeResponse } from "../models/index";
 import {
   deserializeAws_json1_1RetrieveDomainAuthCodeCommand,
   serializeAws_json1_1RetrieveDomainAuthCodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RetrieveDomainAuthCodeCommandInput = RetrieveDomainAuthCodeRequest;
-export type RetrieveDomainAuthCodeCommandOutput = RetrieveDomainAuthCodeResponse &
-  __MetadataBearer;
+export type RetrieveDomainAuthCodeCommandOutput = RetrieveDomainAuthCodeResponse & __MetadataBearer;
 
 export class RetrieveDomainAuthCodeCommand extends $Command<
   RetrieveDomainAuthCodeCommandInput,
@@ -49,13 +45,8 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RetrieveDomainAuthCodeCommandInput,
-    RetrieveDomainAuthCodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RetrieveDomainAuthCodeCommandInput, RetrieveDomainAuthCodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

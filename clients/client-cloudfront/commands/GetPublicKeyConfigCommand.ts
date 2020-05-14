@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  GetPublicKeyConfigRequest,
-  GetPublicKeyConfigResult
-} from "../models/index";
+import { GetPublicKeyConfigRequest, GetPublicKeyConfigResult } from "../models/index";
 import {
   deserializeAws_restXmlGetPublicKeyConfigCommand,
   serializeAws_restXmlGetPublicKeyConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPublicKeyConfigCommandInput = GetPublicKeyConfigRequest;
-export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult &
-  __MetadataBearer;
+export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult & __MetadataBearer;
 
 export class GetPublicKeyConfigCommand extends $Command<
   GetPublicKeyConfigCommandInput,
@@ -50,9 +46,7 @@ export class GetPublicKeyConfigCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

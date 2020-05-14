@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetLoggerDefinitionRequest,
-  GetLoggerDefinitionResponse
-} from "../models/index";
+import { GetLoggerDefinitionRequest, GetLoggerDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLoggerDefinitionCommand,
   serializeAws_restJson1_1GetLoggerDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLoggerDefinitionCommandInput = GetLoggerDefinitionRequest;
-export type GetLoggerDefinitionCommandOutput = GetLoggerDefinitionResponse &
-  __MetadataBearer;
+export type GetLoggerDefinitionCommandOutput = GetLoggerDefinitionResponse & __MetadataBearer;
 
 export class GetLoggerDefinitionCommand extends $Command<
   GetLoggerDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class GetLoggerDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLoggerDefinitionCommandInput,
-    GetLoggerDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLoggerDefinitionCommandInput, GetLoggerDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetLoggerDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1GetLoggerDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

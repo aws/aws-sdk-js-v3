@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  DeleteRepositoryPolicyRequest,
-  DeleteRepositoryPolicyResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRepositoryPolicyCommand,
   serializeAws_json1_1DeleteRepositoryPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRepositoryPolicyCommandInput = DeleteRepositoryPolicyRequest;
-export type DeleteRepositoryPolicyCommandOutput = DeleteRepositoryPolicyResponse &
-  __MetadataBearer;
+export type DeleteRepositoryPolicyCommandOutput = DeleteRepositoryPolicyResponse & __MetadataBearer;
 
 export class DeleteRepositoryPolicyCommand extends $Command<
   DeleteRepositoryPolicyCommandInput,
@@ -49,13 +41,8 @@ export class DeleteRepositoryPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRepositoryPolicyCommandInput,
-    DeleteRepositoryPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRepositoryPolicyCommandInput, DeleteRepositoryPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

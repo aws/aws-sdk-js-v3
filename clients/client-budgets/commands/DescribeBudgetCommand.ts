@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBudgetCommandInput = DescribeBudgetRequest;
-export type DescribeBudgetCommandOutput = DescribeBudgetResponse &
-  __MetadataBearer;
+export type DescribeBudgetCommandOutput = DescribeBudgetResponse & __MetadataBearer;
 
 export class DescribeBudgetCommand extends $Command<
   DescribeBudgetCommandInput,
@@ -47,9 +46,7 @@ export class DescribeBudgetCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeBudgetCommandInput, DescribeBudgetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

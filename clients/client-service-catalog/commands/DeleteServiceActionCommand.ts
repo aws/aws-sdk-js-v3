@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DeleteServiceActionInput,
-  DeleteServiceActionOutput
-} from "../models/index";
+import { DeleteServiceActionInput, DeleteServiceActionOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteServiceActionCommand,
   serializeAws_json1_1DeleteServiceActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteServiceActionCommandInput = DeleteServiceActionInput;
-export type DeleteServiceActionCommandOutput = DeleteServiceActionOutput &
-  __MetadataBearer;
+export type DeleteServiceActionCommandOutput = DeleteServiceActionOutput & __MetadataBearer;
 
 export class DeleteServiceActionCommand extends $Command<
   DeleteServiceActionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteServiceActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteServiceActionCommandInput,
-    DeleteServiceActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteServiceActionCommandInput, DeleteServiceActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

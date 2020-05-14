@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   AuthorizeDBSecurityGroupIngressMessage,
   AuthorizeDBSecurityGroupIngressResult
@@ -53,9 +49,7 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     AuthorizeDBSecurityGroupIngressCommandInput,
     AuthorizeDBSecurityGroupIngressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     input: AuthorizeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

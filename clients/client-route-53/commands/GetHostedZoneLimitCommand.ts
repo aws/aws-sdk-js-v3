@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetHostedZoneLimitRequest,
-  GetHostedZoneLimitResponse
-} from "../models/index";
+import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetHostedZoneLimitCommand,
   serializeAws_restXmlGetHostedZoneLimitCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHostedZoneLimitCommandInput = GetHostedZoneLimitRequest;
-export type GetHostedZoneLimitCommandOutput = GetHostedZoneLimitResponse &
-  __MetadataBearer;
+export type GetHostedZoneLimitCommandOutput = GetHostedZoneLimitResponse & __MetadataBearer;
 
 export class GetHostedZoneLimitCommand extends $Command<
   GetHostedZoneLimitCommandInput,
@@ -51,9 +47,7 @@ export class GetHostedZoneLimitCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHostedZoneLimitCommandInput, GetHostedZoneLimitCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

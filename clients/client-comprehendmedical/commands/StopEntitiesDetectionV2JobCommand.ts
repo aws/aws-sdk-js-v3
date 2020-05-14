@@ -49,13 +49,8 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopEntitiesDetectionV2JobCommandInput,
-    StopEntitiesDetectionV2JobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopEntitiesDetectionV2JobCommandInput, StopEntitiesDetectionV2JobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     input: StopEntitiesDetectionV2JobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEntitiesDetectionV2JobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StopEntitiesDetectionV2JobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCommandInput = CreateSnapshotRequest;
-export type CreateSnapshotCommandOutput = CreateSnapshotResult &
-  __MetadataBearer;
+export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
 
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,
@@ -47,9 +46,7 @@ export class CreateSnapshotCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSnapshotCommandInput, CreateSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

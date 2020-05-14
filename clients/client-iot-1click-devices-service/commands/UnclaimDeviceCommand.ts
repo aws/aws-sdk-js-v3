@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
-export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse &
-  __MetadataBearer;
+export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse & __MetadataBearer;
 
 export class UnclaimDeviceCommand extends $Command<
   UnclaimDeviceCommandInput,
@@ -47,9 +46,7 @@ export class UnclaimDeviceCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnclaimDeviceCommandInput, UnclaimDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

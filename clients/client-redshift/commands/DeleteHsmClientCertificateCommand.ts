@@ -45,13 +45,8 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteHsmClientCertificateCommandInput,
-    DeleteHsmClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteHsmClientCertificateCommandInput, DeleteHsmClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryDeleteHsmClientCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

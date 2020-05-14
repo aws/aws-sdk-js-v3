@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListObjectPoliciesRequest,
-  ListObjectPoliciesResponse
-} from "../models/index";
+import { ListObjectPoliciesRequest, ListObjectPoliciesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectPoliciesCommand,
   serializeAws_restJson1_1ListObjectPoliciesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectPoliciesCommandInput = ListObjectPoliciesRequest;
-export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse &
-  __MetadataBearer;
+export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse & __MetadataBearer;
 
 export class ListObjectPoliciesCommand extends $Command<
   ListObjectPoliciesCommandInput,
@@ -50,9 +46,7 @@ export class ListObjectPoliciesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectPoliciesCommandInput, ListObjectPoliciesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

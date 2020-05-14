@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateDynamicThingGroupRequest,
-  UpdateDynamicThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDynamicThingGroupCommand,
   serializeAws_restJson1_1UpdateDynamicThingGroupCommand
@@ -49,13 +42,8 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDynamicThingGroupCommandInput,
-    UpdateDynamicThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDynamicThingGroupCommandInput, UpdateDynamicThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     input: UpdateDynamicThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDynamicThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateDynamicThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDynamicThingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDynamicThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   DeleteBotChannelAssociationCommandInput,
   DeleteBotChannelAssociationCommandOutput
 } from "../commands/DeleteBotChannelAssociationCommand";
-import {
-  DeleteBotCommandInput,
-  DeleteBotCommandOutput
-} from "../commands/DeleteBotCommand";
+import { DeleteBotCommandInput, DeleteBotCommandOutput } from "../commands/DeleteBotCommand";
 import {
   DeleteBotVersionCommandInput,
   DeleteBotVersionCommandOutput
@@ -46,10 +43,7 @@ import {
   DeleteUtterancesCommandInput,
   DeleteUtterancesCommandOutput
 } from "../commands/DeleteUtterancesCommand";
-import {
-  GetBotAliasCommandInput,
-  GetBotAliasCommandOutput
-} from "../commands/GetBotAliasCommand";
+import { GetBotAliasCommandInput, GetBotAliasCommandOutput } from "../commands/GetBotAliasCommand";
 import {
   GetBotAliasesCommandInput,
   GetBotAliasesCommandOutput
@@ -62,18 +56,12 @@ import {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput
 } from "../commands/GetBotChannelAssociationsCommand";
-import {
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "../commands/GetBotCommand";
+import { GetBotCommandInput, GetBotCommandOutput } from "../commands/GetBotCommand";
 import {
   GetBotVersionsCommandInput,
   GetBotVersionsCommandOutput
 } from "../commands/GetBotVersionsCommand";
-import {
-  GetBotsCommandInput,
-  GetBotsCommandOutput
-} from "../commands/GetBotsCommand";
+import { GetBotsCommandInput, GetBotsCommandOutput } from "../commands/GetBotsCommand";
 import {
   GetBuiltinIntentCommandInput,
   GetBuiltinIntentCommandOutput
@@ -86,30 +74,15 @@ import {
   GetBuiltinSlotTypesCommandInput,
   GetBuiltinSlotTypesCommandOutput
 } from "../commands/GetBuiltinSlotTypesCommand";
-import {
-  GetExportCommandInput,
-  GetExportCommandOutput
-} from "../commands/GetExportCommand";
-import {
-  GetImportCommandInput,
-  GetImportCommandOutput
-} from "../commands/GetImportCommand";
-import {
-  GetIntentCommandInput,
-  GetIntentCommandOutput
-} from "../commands/GetIntentCommand";
+import { GetExportCommandInput, GetExportCommandOutput } from "../commands/GetExportCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetImportCommand";
+import { GetIntentCommandInput, GetIntentCommandOutput } from "../commands/GetIntentCommand";
 import {
   GetIntentVersionsCommandInput,
   GetIntentVersionsCommandOutput
 } from "../commands/GetIntentVersionsCommand";
-import {
-  GetIntentsCommandInput,
-  GetIntentsCommandOutput
-} from "../commands/GetIntentsCommand";
-import {
-  GetSlotTypeCommandInput,
-  GetSlotTypeCommandOutput
-} from "../commands/GetSlotTypeCommand";
+import { GetIntentsCommandInput, GetIntentsCommandOutput } from "../commands/GetIntentsCommand";
+import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "../commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommandInput,
   GetSlotTypeVersionsCommandOutput
@@ -122,26 +95,11 @@ import {
   GetUtterancesViewCommandInput,
   GetUtterancesViewCommandOutput
 } from "../commands/GetUtterancesViewCommand";
-import {
-  PutBotAliasCommandInput,
-  PutBotAliasCommandOutput
-} from "../commands/PutBotAliasCommand";
-import {
-  PutBotCommandInput,
-  PutBotCommandOutput
-} from "../commands/PutBotCommand";
-import {
-  PutIntentCommandInput,
-  PutIntentCommandOutput
-} from "../commands/PutIntentCommand";
-import {
-  PutSlotTypeCommandInput,
-  PutSlotTypeCommandOutput
-} from "../commands/PutSlotTypeCommand";
-import {
-  StartImportCommandInput,
-  StartImportCommandOutput
-} from "../commands/StartImportCommand";
+import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "../commands/PutBotAliasCommand";
+import { PutBotCommandInput, PutBotCommandOutput } from "../commands/PutBotCommand";
+import { PutIntentCommandInput, PutIntentCommandOutput } from "../commands/PutIntentCommand";
+import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "../commands/PutSlotTypeCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import {
   BadRequestException,
   BotAliasMetadata,
@@ -204,10 +162,7 @@ export const serializeAws_restJson1_1CreateBotVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -240,10 +195,7 @@ export const serializeAws_restJson1_1CreateIntentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -276,10 +228,7 @@ export const serializeAws_restJson1_1CreateSlotTypeVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -312,10 +261,7 @@ export const serializeAws_restJson1_1DeleteBotCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -345,10 +291,7 @@ export const serializeAws_restJson1_1DeleteBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -357,10 +300,7 @@ export const serializeAws_restJson1_1DeleteBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -390,10 +330,7 @@ export const serializeAws_restJson1_1DeleteBotChannelAssociationCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -402,10 +339,7 @@ export const serializeAws_restJson1_1DeleteBotChannelAssociationCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -414,10 +348,7 @@ export const serializeAws_restJson1_1DeleteBotChannelAssociationCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -447,10 +378,7 @@ export const serializeAws_restJson1_1DeleteBotVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -459,10 +387,7 @@ export const serializeAws_restJson1_1DeleteBotVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{version}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -492,10 +417,7 @@ export const serializeAws_restJson1_1DeleteIntentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -525,10 +447,7 @@ export const serializeAws_restJson1_1DeleteIntentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -537,10 +456,7 @@ export const serializeAws_restJson1_1DeleteIntentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{version}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -570,10 +486,7 @@ export const serializeAws_restJson1_1DeleteSlotTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -603,10 +516,7 @@ export const serializeAws_restJson1_1DeleteSlotTypeVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -615,10 +525,7 @@ export const serializeAws_restJson1_1DeleteSlotTypeVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{version}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -648,10 +555,7 @@ export const serializeAws_restJson1_1DeleteUtterancesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -660,10 +564,7 @@ export const serializeAws_restJson1_1DeleteUtterancesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: userId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{userId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: userId.");
   }
@@ -693,19 +594,14 @@ export const serializeAws_restJson1_1GetBotCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.versionOrAlias !== undefined) {
     const labelValue: string = input.versionOrAlias;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: versionOrAlias."
-      );
+      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
     }
     resolvedPath = resolvedPath.replace(
       "{versionOrAlias}",
@@ -740,10 +636,7 @@ export const serializeAws_restJson1_1GetBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -752,10 +645,7 @@ export const serializeAws_restJson1_1GetBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -785,10 +675,7 @@ export const serializeAws_restJson1_1GetBotAliasesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -828,10 +715,7 @@ export const serializeAws_restJson1_1GetBotChannelAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -840,10 +724,7 @@ export const serializeAws_restJson1_1GetBotChannelAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -852,10 +733,7 @@ export const serializeAws_restJson1_1GetBotChannelAssociationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -885,10 +763,7 @@ export const serializeAws_restJson1_1GetBotChannelAssociationsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
@@ -897,10 +772,7 @@ export const serializeAws_restJson1_1GetBotChannelAssociationsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -940,10 +812,7 @@ export const serializeAws_restJson1_1GetBotVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1011,10 +880,7 @@ export const serializeAws_restJson1_1GetBuiltinIntentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: signature.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{signature}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{signature}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: signature.");
   }
@@ -1138,10 +1004,7 @@ export const serializeAws_restJson1_1GetImportCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: importId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{importId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{importId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: importId.");
   }
@@ -1171,10 +1034,7 @@ export const serializeAws_restJson1_1GetIntentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1183,10 +1043,7 @@ export const serializeAws_restJson1_1GetIntentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{version}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -1216,10 +1073,7 @@ export const serializeAws_restJson1_1GetIntentVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1287,10 +1141,7 @@ export const serializeAws_restJson1_1GetSlotTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1299,10 +1150,7 @@ export const serializeAws_restJson1_1GetSlotTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: version.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{version}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: version.");
   }
@@ -1332,10 +1180,7 @@ export const serializeAws_restJson1_1GetSlotTypeVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1403,10 +1248,7 @@ export const serializeAws_restJson1_1GetUtterancesViewCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -1444,30 +1286,21 @@ export const serializeAws_restJson1_1PutBotCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.abortStatement !== undefined && {
-      abortStatement: serializeAws_restJson1_1Statement(
-        input.abortStatement,
-        context
-      )
+      abortStatement: serializeAws_restJson1_1Statement(input.abortStatement, context)
     }),
     ...(input.checksum !== undefined && { checksum: input.checksum }),
     ...(input.childDirected !== undefined && {
       childDirected: input.childDirected
     }),
     ...(input.clarificationPrompt !== undefined && {
-      clarificationPrompt: serializeAws_restJson1_1Prompt(
-        input.clarificationPrompt,
-        context
-      )
+      clarificationPrompt: serializeAws_restJson1_1Prompt(input.clarificationPrompt, context)
     }),
     ...(input.createVersion !== undefined && {
       createVersion: input.createVersion
@@ -1513,10 +1346,7 @@ export const serializeAws_restJson1_1PutBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: botName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{botName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
   }
@@ -1525,10 +1355,7 @@ export const serializeAws_restJson1_1PutBotAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1569,10 +1396,7 @@ export const serializeAws_restJson1_1PutIntentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1580,32 +1404,20 @@ export const serializeAws_restJson1_1PutIntentCommand = async (
   body = JSON.stringify({
     ...(input.checksum !== undefined && { checksum: input.checksum }),
     ...(input.conclusionStatement !== undefined && {
-      conclusionStatement: serializeAws_restJson1_1Statement(
-        input.conclusionStatement,
-        context
-      )
+      conclusionStatement: serializeAws_restJson1_1Statement(input.conclusionStatement, context)
     }),
     ...(input.confirmationPrompt !== undefined && {
-      confirmationPrompt: serializeAws_restJson1_1Prompt(
-        input.confirmationPrompt,
-        context
-      )
+      confirmationPrompt: serializeAws_restJson1_1Prompt(input.confirmationPrompt, context)
     }),
     ...(input.createVersion !== undefined && {
       createVersion: input.createVersion
     }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.dialogCodeHook !== undefined && {
-      dialogCodeHook: serializeAws_restJson1_1CodeHook(
-        input.dialogCodeHook,
-        context
-      )
+      dialogCodeHook: serializeAws_restJson1_1CodeHook(input.dialogCodeHook, context)
     }),
     ...(input.followUpPrompt !== undefined && {
-      followUpPrompt: serializeAws_restJson1_1FollowUpPrompt(
-        input.followUpPrompt,
-        context
-      )
+      followUpPrompt: serializeAws_restJson1_1FollowUpPrompt(input.followUpPrompt, context)
     }),
     ...(input.fulfillmentActivity !== undefined && {
       fulfillmentActivity: serializeAws_restJson1_1FulfillmentActivity(
@@ -1617,16 +1429,10 @@ export const serializeAws_restJson1_1PutIntentCommand = async (
       parentIntentSignature: input.parentIntentSignature
     }),
     ...(input.rejectionStatement !== undefined && {
-      rejectionStatement: serializeAws_restJson1_1Statement(
-        input.rejectionStatement,
-        context
-      )
+      rejectionStatement: serializeAws_restJson1_1Statement(input.rejectionStatement, context)
     }),
     ...(input.sampleUtterances !== undefined && {
-      sampleUtterances: serializeAws_restJson1_1IntentUtteranceList(
-        input.sampleUtterances,
-        context
-      )
+      sampleUtterances: serializeAws_restJson1_1IntentUtteranceList(input.sampleUtterances, context)
     }),
     ...(input.slots !== undefined && {
       slots: serializeAws_restJson1_1SlotList(input.slots, context)
@@ -1657,10 +1463,7 @@ export const serializeAws_restJson1_1PutSlotTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1672,10 +1475,7 @@ export const serializeAws_restJson1_1PutSlotTypeCommand = async (
     }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.enumerationValues !== undefined && {
-      enumerationValues: serializeAws_restJson1_1EnumerationValues(
-        input.enumerationValues,
-        context
-      )
+      enumerationValues: serializeAws_restJson1_1EnumerationValues(input.enumerationValues, context)
     }),
     ...(input.valueSelectionStrategy !== undefined && {
       valueSelectionStrategy: input.valueSelectionStrategy
@@ -1730,10 +1530,7 @@ export const deserializeAws_restJson1_1CreateBotVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateBotVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBotVersionCommandError(output, context);
   }
   const contents: CreateBotVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1757,10 +1554,7 @@ export const deserializeAws_restJson1_1CreateBotVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1_1Statement(
-      data.abortStatement,
-      context
-    );
+    contents.abortStatement = deserializeAws_restJson1_1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
@@ -1768,10 +1562,7 @@ export const deserializeAws_restJson1_1CreateBotVersionCommand = async (
   if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (
-    data.clarificationPrompt !== undefined &&
-    data.clarificationPrompt !== null
-  ) {
+  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
@@ -1789,22 +1580,14 @@ export const deserializeAws_restJson1_1CreateBotVersionCommand = async (
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (
-    data.idleSessionTTLInSeconds !== undefined &&
-    data.idleSessionTTLInSeconds !== null
-  ) {
+  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1IntentList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
@@ -1839,10 +1622,7 @@ const deserializeAws_restJson1_1CreateBotVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1850,10 +1630,7 @@ const deserializeAws_restJson1_1CreateBotVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1872,10 +1649,7 @@ const deserializeAws_restJson1_1CreateBotVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1883,10 +1657,7 @@ const deserializeAws_restJson1_1CreateBotVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1924,10 +1695,7 @@ export const deserializeAws_restJson1_1CreateIntentVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateIntentVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIntentVersionCommandError(output, context);
   }
   const contents: CreateIntentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1952,19 +1720,13 @@ export const deserializeAws_restJson1_1CreateIntentVersionCommand = async (
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (
-    data.conclusionStatement !== undefined &&
-    data.conclusionStatement !== null
-  ) {
+  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (
-    data.confirmationPrompt !== undefined &&
-    data.confirmationPrompt !== null
-  ) {
+  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
@@ -1977,10 +1739,7 @@ export const deserializeAws_restJson1_1CreateIntentVersionCommand = async (
     contents.description = data.description;
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
-      data.dialogCodeHook,
-      context
-    );
+    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(data.dialogCodeHook, context);
   }
   if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
@@ -1988,33 +1747,22 @@ export const deserializeAws_restJson1_1CreateIntentVersionCommand = async (
       context
     );
   }
-  if (
-    data.fulfillmentActivity !== undefined &&
-    data.fulfillmentActivity !== null
-  ) {
+  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.parentIntentSignature !== undefined &&
-    data.parentIntentSignature !== null
-  ) {
+  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (
-    data.rejectionStatement !== undefined &&
-    data.rejectionStatement !== null
-  ) {
+  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
@@ -2050,10 +1798,7 @@ const deserializeAws_restJson1_1CreateIntentVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2061,10 +1806,7 @@ const deserializeAws_restJson1_1CreateIntentVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2083,10 +1825,7 @@ const deserializeAws_restJson1_1CreateIntentVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2094,10 +1833,7 @@ const deserializeAws_restJson1_1CreateIntentVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2135,10 +1871,7 @@ export const deserializeAws_restJson1_1CreateSlotTypeVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(output, context);
   }
   const contents: CreateSlotTypeVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2169,17 +1902,12 @@ export const deserializeAws_restJson1_1CreateSlotTypeVersionCommand = async (
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.valueSelectionStrategy !== undefined &&
-    data.valueSelectionStrategy !== null
-  ) {
+  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
   if (data.version !== undefined && data.version !== null) {
@@ -2203,10 +1931,7 @@ const deserializeAws_restJson1_1CreateSlotTypeVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2214,10 +1939,7 @@ const deserializeAws_restJson1_1CreateSlotTypeVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2236,10 +1958,7 @@ const deserializeAws_restJson1_1CreateSlotTypeVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2247,10 +1966,7 @@ const deserializeAws_restJson1_1CreateSlotTypeVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2312,10 +2028,7 @@ const deserializeAws_restJson1_1DeleteBotCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2323,10 +2036,7 @@ const deserializeAws_restJson1_1DeleteBotCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2345,10 +2055,7 @@ const deserializeAws_restJson1_1DeleteBotCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2356,10 +2063,7 @@ const deserializeAws_restJson1_1DeleteBotCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2367,10 +2071,7 @@ const deserializeAws_restJson1_1DeleteBotCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2397,10 +2098,7 @@ export const deserializeAws_restJson1_1DeleteBotAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBotAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBotAliasCommandError(output, context);
   }
   const contents: DeleteBotAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2424,10 +2122,7 @@ const deserializeAws_restJson1_1DeleteBotAliasCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2435,10 +2130,7 @@ const deserializeAws_restJson1_1DeleteBotAliasCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2457,10 +2149,7 @@ const deserializeAws_restJson1_1DeleteBotAliasCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2468,10 +2157,7 @@ const deserializeAws_restJson1_1DeleteBotAliasCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2479,10 +2165,7 @@ const deserializeAws_restJson1_1DeleteBotAliasCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2509,10 +2192,7 @@ export const deserializeAws_restJson1_1DeleteBotChannelAssociationCommand = asyn
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError(output, context);
   }
   const contents: DeleteBotChannelAssociationCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2536,10 +2216,7 @@ const deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError = async 
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2547,10 +2224,7 @@ const deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError = async 
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2569,10 +2243,7 @@ const deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError = async 
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2580,10 +2251,7 @@ const deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError = async 
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2610,10 +2278,7 @@ export const deserializeAws_restJson1_1DeleteBotVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBotVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBotVersionCommandError(output, context);
   }
   const contents: DeleteBotVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2637,10 +2302,7 @@ const deserializeAws_restJson1_1DeleteBotVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2648,10 +2310,7 @@ const deserializeAws_restJson1_1DeleteBotVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2670,10 +2329,7 @@ const deserializeAws_restJson1_1DeleteBotVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2681,10 +2337,7 @@ const deserializeAws_restJson1_1DeleteBotVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2692,10 +2345,7 @@ const deserializeAws_restJson1_1DeleteBotVersionCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2746,10 +2396,7 @@ const deserializeAws_restJson1_1DeleteIntentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2757,10 +2404,7 @@ const deserializeAws_restJson1_1DeleteIntentCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2779,10 +2423,7 @@ const deserializeAws_restJson1_1DeleteIntentCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2790,10 +2431,7 @@ const deserializeAws_restJson1_1DeleteIntentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2801,10 +2439,7 @@ const deserializeAws_restJson1_1DeleteIntentCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2831,10 +2466,7 @@ export const deserializeAws_restJson1_1DeleteIntentVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteIntentVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIntentVersionCommandError(output, context);
   }
   const contents: DeleteIntentVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2858,10 +2490,7 @@ const deserializeAws_restJson1_1DeleteIntentVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2869,10 +2498,7 @@ const deserializeAws_restJson1_1DeleteIntentVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2891,10 +2517,7 @@ const deserializeAws_restJson1_1DeleteIntentVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2902,10 +2525,7 @@ const deserializeAws_restJson1_1DeleteIntentVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2913,10 +2533,7 @@ const deserializeAws_restJson1_1DeleteIntentVersionCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2943,10 +2560,7 @@ export const deserializeAws_restJson1_1DeleteSlotTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteSlotTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSlotTypeCommandError(output, context);
   }
   const contents: DeleteSlotTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2970,10 +2584,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2981,10 +2592,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3003,10 +2611,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3014,10 +2619,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3025,10 +2627,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3055,10 +2654,7 @@ export const deserializeAws_restJson1_1DeleteSlotTypeVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(output, context);
   }
   const contents: DeleteSlotTypeVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -3082,10 +2678,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3093,10 +2686,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3115,10 +2705,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3126,10 +2713,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3137,10 +2721,7 @@ const deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.deepsense.modelbuilding#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3167,10 +2748,7 @@ export const deserializeAws_restJson1_1DeleteUtterancesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteUtterancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteUtterancesCommandError(output, context);
   }
   const contents: DeleteUtterancesCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -3194,10 +2772,7 @@ const deserializeAws_restJson1_1DeleteUtterancesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3216,10 +2791,7 @@ const deserializeAws_restJson1_1DeleteUtterancesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3227,10 +2799,7 @@ const deserializeAws_restJson1_1DeleteUtterancesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3281,10 +2850,7 @@ export const deserializeAws_restJson1_1GetBotCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1_1Statement(
-      data.abortStatement,
-      context
-    );
+    contents.abortStatement = deserializeAws_restJson1_1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
@@ -3292,10 +2858,7 @@ export const deserializeAws_restJson1_1GetBotCommand = async (
   if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (
-    data.clarificationPrompt !== undefined &&
-    data.clarificationPrompt !== null
-  ) {
+  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
@@ -3313,22 +2876,14 @@ export const deserializeAws_restJson1_1GetBotCommand = async (
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (
-    data.idleSessionTTLInSeconds !== undefined &&
-    data.idleSessionTTLInSeconds !== null
-  ) {
+  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1IntentList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
@@ -3363,10 +2918,7 @@ const deserializeAws_restJson1_1GetBotCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3385,10 +2937,7 @@ const deserializeAws_restJson1_1GetBotCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3396,10 +2945,7 @@ const deserializeAws_restJson1_1GetBotCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3463,9 +3009,7 @@ export const deserializeAws_restJson1_1GetBotAliasCommand = async (
     contents.description = data.description;
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
@@ -3488,10 +3032,7 @@ const deserializeAws_restJson1_1GetBotAliasCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3510,10 +3051,7 @@ const deserializeAws_restJson1_1GetBotAliasCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3521,10 +3059,7 @@ const deserializeAws_restJson1_1GetBotAliasCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3561,10 +3096,7 @@ export const deserializeAws_restJson1_1GetBotAliasesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BotAliases !== undefined && data.BotAliases !== null) {
-    contents.BotAliases = deserializeAws_restJson1_1BotAliasMetadataList(
-      data.BotAliases,
-      context
-    );
+    contents.BotAliases = deserializeAws_restJson1_1BotAliasMetadataList(data.BotAliases, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -3587,10 +3119,7 @@ const deserializeAws_restJson1_1GetBotAliasesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3609,10 +3138,7 @@ const deserializeAws_restJson1_1GetBotAliasesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3639,10 +3165,7 @@ export const deserializeAws_restJson1_1GetBotChannelAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBotChannelAssociationCommandError(output, context);
   }
   const contents: GetBotChannelAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3706,10 +3229,7 @@ const deserializeAws_restJson1_1GetBotChannelAssociationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3728,10 +3248,7 @@ const deserializeAws_restJson1_1GetBotChannelAssociationCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3739,10 +3256,7 @@ const deserializeAws_restJson1_1GetBotChannelAssociationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3769,10 +3283,7 @@ export const deserializeAws_restJson1_1GetBotChannelAssociationsCommand = async 
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(output, context);
   }
   const contents: GetBotChannelAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3781,10 +3292,7 @@ export const deserializeAws_restJson1_1GetBotChannelAssociationsCommand = async 
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.botChannelAssociations !== undefined &&
-    data.botChannelAssociations !== null
-  ) {
+  if (data.botChannelAssociations !== undefined && data.botChannelAssociations !== null) {
     contents.botChannelAssociations = deserializeAws_restJson1_1BotChannelAssociationList(
       data.botChannelAssociations,
       context
@@ -3811,10 +3319,7 @@ const deserializeAws_restJson1_1GetBotChannelAssociationsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3833,10 +3338,7 @@ const deserializeAws_restJson1_1GetBotChannelAssociationsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3863,10 +3365,7 @@ export const deserializeAws_restJson1_1GetBotVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBotVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBotVersionsCommandError(output, context);
   }
   const contents: GetBotVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3876,10 +3375,7 @@ export const deserializeAws_restJson1_1GetBotVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.bots !== undefined && data.bots !== null) {
-    contents.bots = deserializeAws_restJson1_1BotMetadataList(
-      data.bots,
-      context
-    );
+    contents.bots = deserializeAws_restJson1_1BotMetadataList(data.bots, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -3902,10 +3398,7 @@ const deserializeAws_restJson1_1GetBotVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3924,10 +3417,7 @@ const deserializeAws_restJson1_1GetBotVersionsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3935,10 +3425,7 @@ const deserializeAws_restJson1_1GetBotVersionsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3975,10 +3462,7 @@ export const deserializeAws_restJson1_1GetBotsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.bots !== undefined && data.bots !== null) {
-    contents.bots = deserializeAws_restJson1_1BotMetadataList(
-      data.bots,
-      context
-    );
+    contents.bots = deserializeAws_restJson1_1BotMetadataList(data.bots, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4001,10 +3485,7 @@ const deserializeAws_restJson1_1GetBotsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4023,10 +3504,7 @@ const deserializeAws_restJson1_1GetBotsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4034,10 +3512,7 @@ const deserializeAws_restJson1_1GetBotsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4064,10 +3539,7 @@ export const deserializeAws_restJson1_1GetBuiltinIntentCommand = async (
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBuiltinIntentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBuiltinIntentCommandError(output, context);
   }
   const contents: GetBuiltinIntentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4081,10 +3553,7 @@ export const deserializeAws_restJson1_1GetBuiltinIntentCommand = async (
     contents.signature = data.signature;
   }
   if (data.slots !== undefined && data.slots !== null) {
-    contents.slots = deserializeAws_restJson1_1BuiltinIntentSlotList(
-      data.slots,
-      context
-    );
+    contents.slots = deserializeAws_restJson1_1BuiltinIntentSlotList(data.slots, context);
   }
   if (data.supportedLocales !== undefined && data.supportedLocales !== null) {
     contents.supportedLocales = deserializeAws_restJson1_1LocaleList(
@@ -4110,10 +3579,7 @@ const deserializeAws_restJson1_1GetBuiltinIntentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4132,10 +3598,7 @@ const deserializeAws_restJson1_1GetBuiltinIntentCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4143,10 +3606,7 @@ const deserializeAws_restJson1_1GetBuiltinIntentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4173,10 +3633,7 @@ export const deserializeAws_restJson1_1GetBuiltinIntentsCommand = async (
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBuiltinIntentsCommandError(output, context);
   }
   const contents: GetBuiltinIntentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4186,10 +3643,7 @@ export const deserializeAws_restJson1_1GetBuiltinIntentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1BuiltinIntentMetadataList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1BuiltinIntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4212,10 +3666,7 @@ const deserializeAws_restJson1_1GetBuiltinIntentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4234,10 +3685,7 @@ const deserializeAws_restJson1_1GetBuiltinIntentsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4264,10 +3712,7 @@ export const deserializeAws_restJson1_1GetBuiltinSlotTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(output, context);
   }
   const contents: GetBuiltinSlotTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4303,10 +3748,7 @@ const deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4325,10 +3767,7 @@ const deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4408,10 +3847,7 @@ const deserializeAws_restJson1_1GetExportCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4430,10 +3866,7 @@ const deserializeAws_restJson1_1GetExportCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4441,10 +3874,7 @@ const deserializeAws_restJson1_1GetExportCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4489,10 +3919,7 @@ export const deserializeAws_restJson1_1GetImportCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = deserializeAws_restJson1_1StringList(
-      data.failureReason,
-      context
-    );
+    contents.failureReason = deserializeAws_restJson1_1StringList(data.failureReason, context);
   }
   if (data.importId !== undefined && data.importId !== null) {
     contents.importId = data.importId;
@@ -4527,10 +3954,7 @@ const deserializeAws_restJson1_1GetImportCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4549,10 +3973,7 @@ const deserializeAws_restJson1_1GetImportCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4560,10 +3981,7 @@ const deserializeAws_restJson1_1GetImportCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4615,19 +4033,13 @@ export const deserializeAws_restJson1_1GetIntentCommand = async (
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (
-    data.conclusionStatement !== undefined &&
-    data.conclusionStatement !== null
-  ) {
+  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (
-    data.confirmationPrompt !== undefined &&
-    data.confirmationPrompt !== null
-  ) {
+  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
@@ -4640,10 +4052,7 @@ export const deserializeAws_restJson1_1GetIntentCommand = async (
     contents.description = data.description;
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
-      data.dialogCodeHook,
-      context
-    );
+    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(data.dialogCodeHook, context);
   }
   if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
@@ -4651,33 +4060,22 @@ export const deserializeAws_restJson1_1GetIntentCommand = async (
       context
     );
   }
-  if (
-    data.fulfillmentActivity !== undefined &&
-    data.fulfillmentActivity !== null
-  ) {
+  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.parentIntentSignature !== undefined &&
-    data.parentIntentSignature !== null
-  ) {
+  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (
-    data.rejectionStatement !== undefined &&
-    data.rejectionStatement !== null
-  ) {
+  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
@@ -4713,10 +4111,7 @@ const deserializeAws_restJson1_1GetIntentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4735,10 +4130,7 @@ const deserializeAws_restJson1_1GetIntentCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4746,10 +4138,7 @@ const deserializeAws_restJson1_1GetIntentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4776,10 +4165,7 @@ export const deserializeAws_restJson1_1GetIntentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntentVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntentVersionsCommandError(output, context);
   }
   const contents: GetIntentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4789,10 +4175,7 @@ export const deserializeAws_restJson1_1GetIntentVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1IntentMetadataList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1IntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4815,10 +4198,7 @@ const deserializeAws_restJson1_1GetIntentVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4837,10 +4217,7 @@ const deserializeAws_restJson1_1GetIntentVersionsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4848,10 +4225,7 @@ const deserializeAws_restJson1_1GetIntentVersionsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4888,10 +4262,7 @@ export const deserializeAws_restJson1_1GetIntentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1IntentMetadataList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1IntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4914,10 +4285,7 @@ const deserializeAws_restJson1_1GetIntentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4936,10 +4304,7 @@ const deserializeAws_restJson1_1GetIntentsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4947,10 +4312,7 @@ const deserializeAws_restJson1_1GetIntentsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5008,17 +4370,12 @@ export const deserializeAws_restJson1_1GetSlotTypeCommand = async (
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.valueSelectionStrategy !== undefined &&
-    data.valueSelectionStrategy !== null
-  ) {
+  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
   if (data.version !== undefined && data.version !== null) {
@@ -5042,10 +4399,7 @@ const deserializeAws_restJson1_1GetSlotTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5064,10 +4418,7 @@ const deserializeAws_restJson1_1GetSlotTypeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5075,10 +4426,7 @@ const deserializeAws_restJson1_1GetSlotTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5105,10 +4453,7 @@ export const deserializeAws_restJson1_1GetSlotTypeVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(output, context);
   }
   const contents: GetSlotTypeVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5121,10 +4466,7 @@ export const deserializeAws_restJson1_1GetSlotTypeVersionsCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.slotTypes !== undefined && data.slotTypes !== null) {
-    contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(
-      data.slotTypes,
-      context
-    );
+    contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(data.slotTypes, context);
   }
   return Promise.resolve(contents);
 };
@@ -5144,10 +4486,7 @@ const deserializeAws_restJson1_1GetSlotTypeVersionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5166,10 +4505,7 @@ const deserializeAws_restJson1_1GetSlotTypeVersionsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5177,10 +4513,7 @@ const deserializeAws_restJson1_1GetSlotTypeVersionsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5220,10 +4553,7 @@ export const deserializeAws_restJson1_1GetSlotTypesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.slotTypes !== undefined && data.slotTypes !== null) {
-    contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(
-      data.slotTypes,
-      context
-    );
+    contents.slotTypes = deserializeAws_restJson1_1SlotTypeMetadataList(data.slotTypes, context);
   }
   return Promise.resolve(contents);
 };
@@ -5243,10 +4573,7 @@ const deserializeAws_restJson1_1GetSlotTypesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5265,10 +4592,7 @@ const deserializeAws_restJson1_1GetSlotTypesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5276,10 +4600,7 @@ const deserializeAws_restJson1_1GetSlotTypesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5306,10 +4627,7 @@ export const deserializeAws_restJson1_1GetUtterancesViewCommand = async (
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetUtterancesViewCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetUtterancesViewCommandError(output, context);
   }
   const contents: GetUtterancesViewCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5322,10 +4640,7 @@ export const deserializeAws_restJson1_1GetUtterancesViewCommand = async (
     contents.botName = data.botName;
   }
   if (data.utterances !== undefined && data.utterances !== null) {
-    contents.utterances = deserializeAws_restJson1_1ListsOfUtterances(
-      data.utterances,
-      context
-    );
+    contents.utterances = deserializeAws_restJson1_1ListsOfUtterances(data.utterances, context);
   }
   return Promise.resolve(contents);
 };
@@ -5345,10 +4660,7 @@ const deserializeAws_restJson1_1GetUtterancesViewCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5367,10 +4679,7 @@ const deserializeAws_restJson1_1GetUtterancesViewCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5422,10 +4731,7 @@ export const deserializeAws_restJson1_1PutBotCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1_1Statement(
-      data.abortStatement,
-      context
-    );
+    contents.abortStatement = deserializeAws_restJson1_1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
@@ -5433,10 +4739,7 @@ export const deserializeAws_restJson1_1PutBotCommand = async (
   if (data.childDirected !== undefined && data.childDirected !== null) {
     contents.childDirected = data.childDirected;
   }
-  if (
-    data.clarificationPrompt !== undefined &&
-    data.clarificationPrompt !== null
-  ) {
+  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1_1Prompt(
       data.clarificationPrompt,
       context
@@ -5457,22 +4760,14 @@ export const deserializeAws_restJson1_1PutBotCommand = async (
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
-  if (
-    data.idleSessionTTLInSeconds !== undefined &&
-    data.idleSessionTTLInSeconds !== null
-  ) {
+  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
     contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
   }
   if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1_1IntentList(
-      data.intents,
-      context
-    );
+    contents.intents = deserializeAws_restJson1_1IntentList(data.intents, context);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
     contents.locale = data.locale;
@@ -5507,10 +4802,7 @@ const deserializeAws_restJson1_1PutBotCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5518,10 +4810,7 @@ const deserializeAws_restJson1_1PutBotCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5540,10 +4829,7 @@ const deserializeAws_restJson1_1PutBotCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5618,9 +4904,7 @@ export const deserializeAws_restJson1_1PutBotAliasCommand = async (
     contents.description = data.description;
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
@@ -5643,10 +4927,7 @@ const deserializeAws_restJson1_1PutBotAliasCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5654,10 +4935,7 @@ const deserializeAws_restJson1_1PutBotAliasCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5676,10 +4954,7 @@ const deserializeAws_restJson1_1PutBotAliasCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5743,19 +5018,13 @@ export const deserializeAws_restJson1_1PutIntentCommand = async (
   if (data.checksum !== undefined && data.checksum !== null) {
     contents.checksum = data.checksum;
   }
-  if (
-    data.conclusionStatement !== undefined &&
-    data.conclusionStatement !== null
-  ) {
+  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1_1Statement(
       data.conclusionStatement,
       context
     );
   }
-  if (
-    data.confirmationPrompt !== undefined &&
-    data.confirmationPrompt !== null
-  ) {
+  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
     contents.confirmationPrompt = deserializeAws_restJson1_1Prompt(
       data.confirmationPrompt,
       context
@@ -5771,10 +5040,7 @@ export const deserializeAws_restJson1_1PutIntentCommand = async (
     contents.description = data.description;
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(
-      data.dialogCodeHook,
-      context
-    );
+    contents.dialogCodeHook = deserializeAws_restJson1_1CodeHook(data.dialogCodeHook, context);
   }
   if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
     contents.followUpPrompt = deserializeAws_restJson1_1FollowUpPrompt(
@@ -5782,33 +5048,22 @@ export const deserializeAws_restJson1_1PutIntentCommand = async (
       context
     );
   }
-  if (
-    data.fulfillmentActivity !== undefined &&
-    data.fulfillmentActivity !== null
-  ) {
+  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
     contents.fulfillmentActivity = deserializeAws_restJson1_1FulfillmentActivity(
       data.fulfillmentActivity,
       context
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.parentIntentSignature !== undefined &&
-    data.parentIntentSignature !== null
-  ) {
+  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
     contents.parentIntentSignature = data.parentIntentSignature;
   }
-  if (
-    data.rejectionStatement !== undefined &&
-    data.rejectionStatement !== null
-  ) {
+  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1_1Statement(
       data.rejectionStatement,
       context
@@ -5844,10 +5099,7 @@ const deserializeAws_restJson1_1PutIntentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5855,10 +5107,7 @@ const deserializeAws_restJson1_1PutIntentCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5877,10 +5126,7 @@ const deserializeAws_restJson1_1PutIntentCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5953,17 +5199,12 @@ export const deserializeAws_restJson1_1PutSlotTypeCommand = async (
     );
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(data.lastUpdatedDate * 1000)
-    );
+    contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
   }
-  if (
-    data.valueSelectionStrategy !== undefined &&
-    data.valueSelectionStrategy !== null
-  ) {
+  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
     contents.valueSelectionStrategy = data.valueSelectionStrategy;
   }
   if (data.version !== undefined && data.version !== null) {
@@ -5987,10 +5228,7 @@ const deserializeAws_restJson1_1PutSlotTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5998,10 +5236,7 @@ const deserializeAws_restJson1_1PutSlotTypeCommandError = async (
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6020,10 +5255,7 @@ const deserializeAws_restJson1_1PutSlotTypeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6110,10 +5342,7 @@ const deserializeAws_restJson1_1StartImportCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6132,10 +5361,7 @@ const deserializeAws_restJson1_1StartImportCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6287,10 +5513,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1CodeHook = (
-  input: CodeHook,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CodeHook = (input: CodeHook, context: __SerdeContext): any => {
   return {
     ...(input.messageVersion !== undefined && {
       messageVersion: input.messageVersion
@@ -6306,10 +5529,7 @@ const serializeAws_restJson1_1ConversationLogsRequest = (
   return {
     ...(input.iamRoleArn !== undefined && { iamRoleArn: input.iamRoleArn }),
     ...(input.logSettings !== undefined && {
-      logSettings: serializeAws_restJson1_1LogSettingsRequestList(
-        input.logSettings,
-        context
-      )
+      logSettings: serializeAws_restJson1_1LogSettingsRequestList(input.logSettings, context)
     })
   };
 };
@@ -6330,9 +5550,7 @@ const serializeAws_restJson1_1EnumerationValues = (
   input: EnumerationValue[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1EnumerationValue(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1EnumerationValue(entry, context));
 };
 
 const serializeAws_restJson1_1FollowUpPrompt = (
@@ -6344,10 +5562,7 @@ const serializeAws_restJson1_1FollowUpPrompt = (
       prompt: serializeAws_restJson1_1Prompt(input.prompt, context)
     }),
     ...(input.rejectionStatement !== undefined && {
-      rejectionStatement: serializeAws_restJson1_1Statement(
-        input.rejectionStatement,
-        context
-      )
+      rejectionStatement: serializeAws_restJson1_1Statement(input.rejectionStatement, context)
     })
   };
 };
@@ -6364,10 +5579,7 @@ const serializeAws_restJson1_1FulfillmentActivity = (
   };
 };
 
-const serializeAws_restJson1_1Intent = (
-  input: Intent,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Intent = (input: Intent, context: __SerdeContext): any => {
   return {
     ...(input.intentName !== undefined && { intentName: input.intentName }),
     ...(input.intentVersion !== undefined && {
@@ -6376,10 +5588,7 @@ const serializeAws_restJson1_1Intent = (
   };
 };
 
-const serializeAws_restJson1_1IntentList = (
-  input: Intent[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IntentList = (input: Intent[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Intent(entry, context));
 };
 
@@ -6406,15 +5615,10 @@ const serializeAws_restJson1_1LogSettingsRequestList = (
   input: LogSettingsRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1LogSettingsRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1LogSettingsRequest(entry, context));
 };
 
-const serializeAws_restJson1_1Message = (
-  input: Message,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Message = (input: Message, context: __SerdeContext): any => {
   return {
     ...(input.content !== undefined && { content: input.content }),
     ...(input.contentType !== undefined && { contentType: input.contentType }),
@@ -6422,17 +5626,11 @@ const serializeAws_restJson1_1Message = (
   };
 };
 
-const serializeAws_restJson1_1MessageList = (
-  input: Message[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MessageList = (input: Message[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Message(entry, context));
 };
 
-const serializeAws_restJson1_1Prompt = (
-  input: Prompt,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Prompt = (input: Prompt, context: __SerdeContext): any => {
   return {
     ...(input.maxAttempts !== undefined && { maxAttempts: input.maxAttempts }),
     ...(input.messages !== undefined && {
@@ -6444,10 +5642,7 @@ const serializeAws_restJson1_1Prompt = (
   };
 };
 
-const serializeAws_restJson1_1Slot = (
-  input: Slot,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Slot = (input: Slot, context: __SerdeContext): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.name !== undefined && { name: input.name }),
@@ -6459,10 +5654,7 @@ const serializeAws_restJson1_1Slot = (
       responseCard: input.responseCard
     }),
     ...(input.sampleUtterances !== undefined && {
-      sampleUtterances: serializeAws_restJson1_1SlotUtteranceList(
-        input.sampleUtterances,
-        context
-      )
+      sampleUtterances: serializeAws_restJson1_1SlotUtteranceList(input.sampleUtterances, context)
     }),
     ...(input.slotConstraint !== undefined && {
       slotConstraint: input.slotConstraint
@@ -6472,18 +5664,12 @@ const serializeAws_restJson1_1Slot = (
       slotTypeVersion: input.slotTypeVersion
     }),
     ...(input.valueElicitationPrompt !== undefined && {
-      valueElicitationPrompt: serializeAws_restJson1_1Prompt(
-        input.valueElicitationPrompt,
-        context
-      )
+      valueElicitationPrompt: serializeAws_restJson1_1Prompt(input.valueElicitationPrompt, context)
     })
   };
 };
 
-const serializeAws_restJson1_1SlotList = (
-  input: Slot[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SlotList = (input: Slot[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Slot(entry, context));
 };
 
@@ -6494,10 +5680,7 @@ const serializeAws_restJson1_1SlotUtteranceList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Statement = (
-  input: Statement,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Statement = (input: Statement, context: __SerdeContext): any => {
   return {
     ...(input.messages !== undefined && {
       messages: serializeAws_restJson1_1MessageList(input.messages, context)
@@ -6508,10 +5691,7 @@ const serializeAws_restJson1_1Statement = (
   };
 };
 
-const serializeAws_restJson1_1SynonymList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SynonymList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -6521,24 +5701,14 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
 ): BotAliasMetadata => {
   return {
     __type: "BotAliasMetadata",
-    botName:
-      output.botName !== undefined && output.botName !== null
-        ? output.botName
-        : undefined,
+    botName: output.botName !== undefined && output.botName !== null ? output.botName : undefined,
     botVersion:
-      output.botVersion !== undefined && output.botVersion !== null
-        ? output.botVersion
-        : undefined,
+      output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
     checksum:
-      output.checksum !== undefined && output.checksum !== null
-        ? output.checksum
-        : undefined,
+      output.checksum !== undefined && output.checksum !== null ? output.checksum : undefined,
     conversationLogs:
       output.conversationLogs !== undefined && output.conversationLogs !== null
-        ? deserializeAws_restJson1_1ConversationLogsResponse(
-            output.conversationLogs,
-            context
-          )
+        ? deserializeAws_restJson1_1ConversationLogsResponse(output.conversationLogs, context)
         : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
@@ -6552,10 +5722,7 @@ const deserializeAws_restJson1_1BotAliasMetadata = (
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -6575,20 +5742,12 @@ const deserializeAws_restJson1_1BotChannelAssociation = (
   return {
     __type: "BotChannelAssociation",
     botAlias:
-      output.botAlias !== undefined && output.botAlias !== null
-        ? output.botAlias
-        : undefined,
+      output.botAlias !== undefined && output.botAlias !== null ? output.botAlias : undefined,
     botConfiguration:
       output.botConfiguration !== undefined && output.botConfiguration !== null
-        ? deserializeAws_restJson1_1ChannelConfigurationMap(
-            output.botConfiguration,
-            context
-          )
+        ? deserializeAws_restJson1_1ChannelConfigurationMap(output.botConfiguration, context)
         : undefined,
-    botName:
-      output.botName !== undefined && output.botName !== null
-        ? output.botName
-        : undefined,
+    botName: output.botName !== undefined && output.botName !== null ? output.botName : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -6601,18 +5760,9 @@ const deserializeAws_restJson1_1BotChannelAssociation = (
       output.failureReason !== undefined && output.failureReason !== null
         ? output.failureReason
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -6643,18 +5793,9 @@ const deserializeAws_restJson1_1BotMetadata = (
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -6662,9 +5803,7 @@ const deserializeAws_restJson1_1BotMetadataList = (
   output: any,
   context: __SerdeContext
 ): BotMetadata[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BotMetadata(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BotMetadata(entry, context));
 };
 
 const deserializeAws_restJson1_1BuiltinIntentMetadata = (
@@ -6674,9 +5813,7 @@ const deserializeAws_restJson1_1BuiltinIntentMetadata = (
   return {
     __type: "BuiltinIntentMetadata",
     signature:
-      output.signature !== undefined && output.signature !== null
-        ? output.signature
-        : undefined,
+      output.signature !== undefined && output.signature !== null ? output.signature : undefined,
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
         ? deserializeAws_restJson1_1LocaleList(output.supportedLocales, context)
@@ -6699,10 +5836,7 @@ const deserializeAws_restJson1_1BuiltinIntentSlot = (
 ): BuiltinIntentSlot => {
   return {
     __type: "BuiltinIntentSlot",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -6722,9 +5856,7 @@ const deserializeAws_restJson1_1BuiltinSlotTypeMetadata = (
   return {
     __type: "BuiltinSlotTypeMetadata",
     signature:
-      output.signature !== undefined && output.signature !== null
-        ? output.signature
-        : undefined,
+      output.signature !== undefined && output.signature !== null ? output.signature : undefined,
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
         ? deserializeAws_restJson1_1LocaleList(output.supportedLocales, context)
@@ -6754,18 +5886,14 @@ const deserializeAws_restJson1_1ChannelConfigurationMap = (
   );
 };
 
-const deserializeAws_restJson1_1CodeHook = (
-  output: any,
-  context: __SerdeContext
-): CodeHook => {
+const deserializeAws_restJson1_1CodeHook = (output: any, context: __SerdeContext): CodeHook => {
   return {
     __type: "CodeHook",
     messageVersion:
       output.messageVersion !== undefined && output.messageVersion !== null
         ? output.messageVersion
         : undefined,
-    uri:
-      output.uri !== undefined && output.uri !== null ? output.uri : undefined
+    uri: output.uri !== undefined && output.uri !== null ? output.uri : undefined
   } as any;
 };
 
@@ -6776,15 +5904,10 @@ const deserializeAws_restJson1_1ConversationLogsResponse = (
   return {
     __type: "ConversationLogsResponse",
     iamRoleArn:
-      output.iamRoleArn !== undefined && output.iamRoleArn !== null
-        ? output.iamRoleArn
-        : undefined,
+      output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
     logSettings:
       output.logSettings !== undefined && output.logSettings !== null
-        ? deserializeAws_restJson1_1LogSettingsResponseList(
-            output.logSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1LogSettingsResponseList(output.logSettings, context)
         : undefined
   } as any;
 };
@@ -6799,10 +5922,7 @@ const deserializeAws_restJson1_1EnumerationValue = (
       output.synonyms !== undefined && output.synonyms !== null
         ? deserializeAws_restJson1_1SynonymList(output.synonyms, context)
         : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -6826,12 +5946,8 @@ const deserializeAws_restJson1_1FollowUpPrompt = (
         ? deserializeAws_restJson1_1Prompt(output.prompt, context)
         : undefined,
     rejectionStatement:
-      output.rejectionStatement !== undefined &&
-      output.rejectionStatement !== null
-        ? deserializeAws_restJson1_1Statement(
-            output.rejectionStatement,
-            context
-          )
+      output.rejectionStatement !== undefined && output.rejectionStatement !== null
+        ? deserializeAws_restJson1_1Statement(output.rejectionStatement, context)
         : undefined
   } as any;
 };
@@ -6846,23 +5962,15 @@ const deserializeAws_restJson1_1FulfillmentActivity = (
       output.codeHook !== undefined && output.codeHook !== null
         ? deserializeAws_restJson1_1CodeHook(output.codeHook, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Intent = (
-  output: any,
-  context: __SerdeContext
-): Intent => {
+const deserializeAws_restJson1_1Intent = (output: any, context: __SerdeContext): Intent => {
   return {
     __type: "Intent",
     intentName:
-      output.intentName !== undefined && output.intentName !== null
-        ? output.intentName
-        : undefined,
+      output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
     intentVersion:
       output.intentVersion !== undefined && output.intentVersion !== null
         ? output.intentVersion
@@ -6870,13 +5978,8 @@ const deserializeAws_restJson1_1Intent = (
   } as any;
 };
 
-const deserializeAws_restJson1_1IntentList = (
-  output: any,
-  context: __SerdeContext
-): Intent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Intent(entry, context)
-  );
+const deserializeAws_restJson1_1IntentList = (output: any, context: __SerdeContext): Intent[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Intent(entry, context));
 };
 
 const deserializeAws_restJson1_1IntentMetadata = (
@@ -6897,14 +6000,8 @@ const deserializeAws_restJson1_1IntentMetadata = (
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -6960,13 +6057,8 @@ const deserializeAws_restJson1_1LogSettingsResponse = (
         ? output.destination
         : undefined,
     kmsKeyArn:
-      output.kmsKeyArn !== undefined && output.kmsKeyArn !== null
-        ? output.kmsKeyArn
-        : undefined,
-    logType:
-      output.logType !== undefined && output.logType !== null
-        ? output.logType
-        : undefined,
+      output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
+    logType: output.logType !== undefined && output.logType !== null ? output.logType : undefined,
     resourceArn:
       output.resourceArn !== undefined && output.resourceArn !== null
         ? output.resourceArn
@@ -6987,16 +6079,10 @@ const deserializeAws_restJson1_1LogSettingsResponseList = (
   );
 };
 
-const deserializeAws_restJson1_1Message = (
-  output: any,
-  context: __SerdeContext
-): Message => {
+const deserializeAws_restJson1_1Message = (output: any, context: __SerdeContext): Message => {
   return {
     __type: "Message",
-    content:
-      output.content !== undefined && output.content !== null
-        ? output.content
-        : undefined,
+    content: output.content !== undefined && output.content !== null ? output.content : undefined,
     contentType:
       output.contentType !== undefined && output.contentType !== null
         ? output.contentType
@@ -7008,19 +6094,11 @@ const deserializeAws_restJson1_1Message = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MessageList = (
-  output: any,
-  context: __SerdeContext
-): Message[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Message(entry, context)
-  );
+const deserializeAws_restJson1_1MessageList = (output: any, context: __SerdeContext): Message[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Message(entry, context));
 };
 
-const deserializeAws_restJson1_1Prompt = (
-  output: any,
-  context: __SerdeContext
-): Prompt => {
+const deserializeAws_restJson1_1Prompt = (output: any, context: __SerdeContext): Prompt => {
   return {
     __type: "Prompt",
     maxAttempts:
@@ -7044,81 +6122,52 @@ const deserializeAws_restJson1_1ResourceReference = (
 ): ResourceReference => {
   return {
     __type: "ResourceReference",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Slot = (
-  output: any,
-  context: __SerdeContext
-): Slot => {
+const deserializeAws_restJson1_1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
     __type: "Slot",
     description:
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     obfuscationSetting:
-      output.obfuscationSetting !== undefined &&
-      output.obfuscationSetting !== null
+      output.obfuscationSetting !== undefined && output.obfuscationSetting !== null
         ? output.obfuscationSetting
         : undefined,
     priority:
-      output.priority !== undefined && output.priority !== null
-        ? output.priority
-        : undefined,
+      output.priority !== undefined && output.priority !== null ? output.priority : undefined,
     responseCard:
       output.responseCard !== undefined && output.responseCard !== null
         ? output.responseCard
         : undefined,
     sampleUtterances:
       output.sampleUtterances !== undefined && output.sampleUtterances !== null
-        ? deserializeAws_restJson1_1SlotUtteranceList(
-            output.sampleUtterances,
-            context
-          )
+        ? deserializeAws_restJson1_1SlotUtteranceList(output.sampleUtterances, context)
         : undefined,
     slotConstraint:
       output.slotConstraint !== undefined && output.slotConstraint !== null
         ? output.slotConstraint
         : undefined,
     slotType:
-      output.slotType !== undefined && output.slotType !== null
-        ? output.slotType
-        : undefined,
+      output.slotType !== undefined && output.slotType !== null ? output.slotType : undefined,
     slotTypeVersion:
       output.slotTypeVersion !== undefined && output.slotTypeVersion !== null
         ? output.slotTypeVersion
         : undefined,
     valueElicitationPrompt:
-      output.valueElicitationPrompt !== undefined &&
-      output.valueElicitationPrompt !== null
-        ? deserializeAws_restJson1_1Prompt(
-            output.valueElicitationPrompt,
-            context
-          )
+      output.valueElicitationPrompt !== undefined && output.valueElicitationPrompt !== null
+        ? deserializeAws_restJson1_1Prompt(output.valueElicitationPrompt, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SlotList = (
-  output: any,
-  context: __SerdeContext
-): Slot[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Slot(entry, context)
-  );
+const deserializeAws_restJson1_1SlotList = (output: any, context: __SerdeContext): Slot[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Slot(entry, context));
 };
 
 const deserializeAws_restJson1_1SlotTypeMetadata = (
@@ -7139,14 +6188,8 @@ const deserializeAws_restJson1_1SlotTypeMetadata = (
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -7166,10 +6209,7 @@ const deserializeAws_restJson1_1SlotUtteranceList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Statement = (
-  output: any,
-  context: __SerdeContext
-): Statement => {
+const deserializeAws_restJson1_1Statement = (output: any, context: __SerdeContext): Statement => {
   return {
     __type: "Statement",
     messages:
@@ -7183,17 +6223,11 @@ const deserializeAws_restJson1_1Statement = (
   } as any;
 };
 
-const deserializeAws_restJson1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1SynonymList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1SynonymList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7203,10 +6237,7 @@ const deserializeAws_restJson1_1UtteranceData = (
 ): UtteranceData => {
   return {
     __type: "UtteranceData",
-    count:
-      output.count !== undefined && output.count !== null
-        ? output.count
-        : undefined,
+    count: output.count !== undefined && output.count !== null ? output.count : undefined,
     distinctUsers:
       output.distinctUsers !== undefined && output.distinctUsers !== null
         ? output.distinctUsers
@@ -7233,9 +6264,7 @@ const deserializeAws_restJson1_1UtteranceList = (
   return {
     __type: "UtteranceList",
     botVersion:
-      output.botVersion !== undefined && output.botVersion !== null
-        ? output.botVersion
-        : undefined,
+      output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
     utterances:
       output.utterances !== undefined && output.utterances !== null
         ? deserializeAws_restJson1_1ListOfUtterance(output.utterances, context)
@@ -7257,23 +6286,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

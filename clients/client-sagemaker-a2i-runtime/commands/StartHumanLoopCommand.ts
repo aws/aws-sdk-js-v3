@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartHumanLoopCommandInput = StartHumanLoopRequest;
-export type StartHumanLoopCommandOutput = StartHumanLoopResponse &
-  __MetadataBearer;
+export type StartHumanLoopCommandOutput = StartHumanLoopResponse & __MetadataBearer;
 
 export class StartHumanLoopCommand extends $Command<
   StartHumanLoopCommandInput,
@@ -47,9 +46,7 @@ export class StartHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartHumanLoopCommandInput, StartHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

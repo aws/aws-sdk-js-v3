@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  GetQualificationTypeRequest,
-  GetQualificationTypeResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { GetQualificationTypeRequest, GetQualificationTypeResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetQualificationTypeCommand,
   serializeAws_json1_1GetQualificationTypeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetQualificationTypeCommandInput = GetQualificationTypeRequest;
-export type GetQualificationTypeCommandOutput = GetQualificationTypeResponse &
-  __MetadataBearer;
+export type GetQualificationTypeCommandOutput = GetQualificationTypeResponse & __MetadataBearer;
 
 export class GetQualificationTypeCommand extends $Command<
   GetQualificationTypeCommandInput,
@@ -49,13 +41,8 @@ export class GetQualificationTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetQualificationTypeCommandInput,
-    GetQualificationTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetQualificationTypeCommandInput, GetQualificationTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

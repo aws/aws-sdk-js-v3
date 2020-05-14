@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ImportKeyMaterialRequest,
-  ImportKeyMaterialResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/index";
 import {
   deserializeAws_json1_1ImportKeyMaterialCommand,
   serializeAws_json1_1ImportKeyMaterialCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportKeyMaterialCommandInput = ImportKeyMaterialRequest;
-export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse &
-  __MetadataBearer;
+export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse & __MetadataBearer;
 
 export class ImportKeyMaterialCommand extends $Command<
   ImportKeyMaterialCommandInput,
@@ -50,9 +42,7 @@ export class ImportKeyMaterialCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  ListPlatformVersionsRequest,
-  ListPlatformVersionsResult
-} from "../models/index";
+import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/index";
 import {
   deserializeAws_queryListPlatformVersionsCommand,
   serializeAws_queryListPlatformVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPlatformVersionsCommandInput = ListPlatformVersionsRequest;
-export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult &
-  __MetadataBearer;
+export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult & __MetadataBearer;
 
 export class ListPlatformVersionsCommand extends $Command<
   ListPlatformVersionsCommandInput,
@@ -49,13 +45,8 @@ export class ListPlatformVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPlatformVersionsCommandInput,
-    ListPlatformVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPlatformVersionsCommandInput, ListPlatformVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

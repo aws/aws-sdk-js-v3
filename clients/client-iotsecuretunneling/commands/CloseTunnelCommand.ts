@@ -46,9 +46,7 @@ export class CloseTunnelCommand extends $Command<
     configuration: IoTSecureTunnelingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CloseTunnelCommandInput, CloseTunnelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

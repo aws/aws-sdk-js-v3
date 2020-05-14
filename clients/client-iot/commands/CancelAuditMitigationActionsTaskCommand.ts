@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CancelAuditMitigationActionsTaskRequest,
   CancelAuditMitigationActionsTaskResponse
@@ -53,9 +49,7 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     CancelAuditMitigationActionsTaskCommandInput,
     CancelAuditMitigationActionsTaskCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     input: CancelAuditMitigationActionsTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelAuditMitigationActionsTaskCommandOutput> {
-    return deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  BatchGetVariableRequest,
-  BatchGetVariableResult
-} from "../models/index";
+import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetVariableCommand,
   serializeAws_json1_1BatchGetVariableCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetVariableCommandInput = BatchGetVariableRequest;
-export type BatchGetVariableCommandOutput = BatchGetVariableResult &
-  __MetadataBearer;
+export type BatchGetVariableCommandOutput = BatchGetVariableResult & __MetadataBearer;
 
 export class BatchGetVariableCommand extends $Command<
   BatchGetVariableCommandInput,
@@ -50,9 +46,7 @@ export class BatchGetVariableCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetVariableCommandInput, BatchGetVariableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

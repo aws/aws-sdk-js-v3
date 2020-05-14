@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteNatGatewayRequest,
-  DeleteNatGatewayResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteNatGatewayCommand,
   serializeAws_ec2DeleteNatGatewayCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
-export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult &
-  __MetadataBearer;
+export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult & __MetadataBearer;
 
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,
@@ -50,9 +42,7 @@ export class DeleteNatGatewayCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

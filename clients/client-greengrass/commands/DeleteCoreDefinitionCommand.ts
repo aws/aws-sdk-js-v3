@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  DeleteCoreDefinitionRequest,
-  DeleteCoreDefinitionResponse
-} from "../models/index";
+import { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteCoreDefinitionCommand,
   serializeAws_restJson1_1DeleteCoreDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCoreDefinitionCommandInput = DeleteCoreDefinitionRequest;
-export type DeleteCoreDefinitionCommandOutput = DeleteCoreDefinitionResponse &
-  __MetadataBearer;
+export type DeleteCoreDefinitionCommandOutput = DeleteCoreDefinitionResponse & __MetadataBearer;
 
 export class DeleteCoreDefinitionCommand extends $Command<
   DeleteCoreDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteCoreDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCoreDefinitionCommandInput,
-    DeleteCoreDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCoreDefinitionCommandInput, DeleteCoreDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteCoreDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCoreDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCoreDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCoreDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

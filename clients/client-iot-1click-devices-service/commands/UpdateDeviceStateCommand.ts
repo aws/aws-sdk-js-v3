@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  UpdateDeviceStateRequest,
-  UpdateDeviceStateResponse
-} from "../models/index";
+import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDeviceStateCommand,
   serializeAws_restJson1_1UpdateDeviceStateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDeviceStateCommandInput = UpdateDeviceStateRequest;
-export type UpdateDeviceStateCommandOutput = UpdateDeviceStateResponse &
-  __MetadataBearer;
+export type UpdateDeviceStateCommandOutput = UpdateDeviceStateResponse & __MetadataBearer;
 
 export class UpdateDeviceStateCommand extends $Command<
   UpdateDeviceStateCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDeviceStateCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeviceStateCommandInput, UpdateDeviceStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,9 +49,7 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     RemoveTagsFromOnPremisesInstancesCommandInput,
     RemoveTagsFromOnPremisesInstancesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     input: RemoveTagsFromOnPremisesInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

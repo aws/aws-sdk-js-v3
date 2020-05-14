@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeUploadBufferInput,
-  DescribeUploadBufferOutput
-} from "../models/index";
+import { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUploadBufferCommand,
   serializeAws_json1_1DescribeUploadBufferCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUploadBufferCommandInput = DescribeUploadBufferInput;
-export type DescribeUploadBufferCommandOutput = DescribeUploadBufferOutput &
-  __MetadataBearer;
+export type DescribeUploadBufferCommandOutput = DescribeUploadBufferOutput & __MetadataBearer;
 
 export class DescribeUploadBufferCommand extends $Command<
   DescribeUploadBufferCommandInput,
@@ -49,13 +45,8 @@ export class DescribeUploadBufferCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUploadBufferCommandInput,
-    DescribeUploadBufferCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUploadBufferCommandInput, DescribeUploadBufferCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

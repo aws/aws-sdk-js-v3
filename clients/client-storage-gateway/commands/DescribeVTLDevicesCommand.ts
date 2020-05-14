@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeVTLDevicesInput,
-  DescribeVTLDevicesOutput
-} from "../models/index";
+import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeVTLDevicesCommand,
   serializeAws_json1_1DescribeVTLDevicesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVTLDevicesCommandInput = DescribeVTLDevicesInput;
-export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput &
-  __MetadataBearer;
+export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput & __MetadataBearer;
 
 export class DescribeVTLDevicesCommand extends $Command<
   DescribeVTLDevicesCommandInput,
@@ -50,9 +46,7 @@ export class DescribeVTLDevicesCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVTLDevicesCommandInput, DescribeVTLDevicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

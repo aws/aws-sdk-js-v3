@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  CreateRegexMatchSetRequest,
-  CreateRegexMatchSetResponse
-} from "../models/index";
+import { CreateRegexMatchSetRequest, CreateRegexMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRegexMatchSetCommand,
   serializeAws_json1_1CreateRegexMatchSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRegexMatchSetCommandInput = CreateRegexMatchSetRequest;
-export type CreateRegexMatchSetCommandOutput = CreateRegexMatchSetResponse &
-  __MetadataBearer;
+export type CreateRegexMatchSetCommandOutput = CreateRegexMatchSetResponse & __MetadataBearer;
 
 export class CreateRegexMatchSetCommand extends $Command<
   CreateRegexMatchSetCommandInput,
@@ -49,13 +45,8 @@ export class CreateRegexMatchSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRegexMatchSetCommandInput,
-    CreateRegexMatchSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRegexMatchSetCommandInput, CreateRegexMatchSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

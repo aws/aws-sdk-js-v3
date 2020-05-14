@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  GetAccuracyMetricsRequest,
-  GetAccuracyMetricsResponse
-} from "../models/index";
+import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAccuracyMetricsCommand,
   serializeAws_json1_1GetAccuracyMetricsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccuracyMetricsCommandInput = GetAccuracyMetricsRequest;
-export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse &
-  __MetadataBearer;
+export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse & __MetadataBearer;
 
 export class GetAccuracyMetricsCommand extends $Command<
   GetAccuracyMetricsCommandInput,
@@ -50,9 +46,7 @@ export class GetAccuracyMetricsCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

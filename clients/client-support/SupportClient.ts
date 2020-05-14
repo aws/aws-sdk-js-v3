@@ -6,10 +6,7 @@ import {
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput
 } from "./commands/AddCommunicationToCaseCommand";
-import {
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput
-} from "./commands/CreateCaseCommand";
+import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
 import {
   DescribeAttachmentCommandInput,
   DescribeAttachmentCommandOutput
@@ -50,10 +47,7 @@ import {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import {
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput
-} from "./commands/ResolveCaseCommand";
+import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -223,9 +217,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SupportClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SupportClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,9 +226,7 @@ export type SupportClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

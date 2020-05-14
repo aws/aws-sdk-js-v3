@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBClusterSnapshotMessage,
-  DescribeDBClusterSnapshotsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBClusterSnapshotMessage, DescribeDBClusterSnapshotsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotsCommand,
   serializeAws_queryDescribeDBClusterSnapshotsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterSnapshotsCommandInput = DescribeDBClusterSnapshotsMessage;
-export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage &
-  __MetadataBearer;
+export type DescribeDBClusterSnapshotsCommandOutput = DBClusterSnapshotMessage & __MetadataBearer;
 
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBClusterSnapshotsCommandInput,
-    DescribeDBClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBClusterSnapshotsCommandInput, DescribeDBClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

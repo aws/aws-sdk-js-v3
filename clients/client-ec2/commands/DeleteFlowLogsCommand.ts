@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteFlowLogsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFlowLogsCommandInput = DeleteFlowLogsRequest;
-export type DeleteFlowLogsCommandOutput = DeleteFlowLogsResult &
-  __MetadataBearer;
+export type DeleteFlowLogsCommandOutput = DeleteFlowLogsResult & __MetadataBearer;
 
 export class DeleteFlowLogsCommand extends $Command<
   DeleteFlowLogsCommandInput,
@@ -47,9 +42,7 @@ export class DeleteFlowLogsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

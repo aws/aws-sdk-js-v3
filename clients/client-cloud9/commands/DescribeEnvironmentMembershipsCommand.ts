@@ -1,8 +1,4 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   DescribeEnvironmentMembershipsRequest,
   DescribeEnvironmentMembershipsResult
@@ -53,9 +49,7 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     DescribeEnvironmentMembershipsCommandInput,
     DescribeEnvironmentMembershipsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     input: DescribeEnvironmentMembershipsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeEnvironmentMembershipsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

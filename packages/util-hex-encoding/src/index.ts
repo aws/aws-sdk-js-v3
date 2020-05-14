@@ -27,9 +27,7 @@ export function fromHex(encoded: string): Uint8Array {
     if (encodedByte in HEX_TO_SHORT) {
       out[i / 2] = HEX_TO_SHORT[encodedByte];
     } else {
-      throw new Error(
-        `Cannot decode unrecognized sequence ${encodedByte} as hexadecimal`
-      );
+      throw new Error(`Cannot decode unrecognized sequence ${encodedByte} as hexadecimal`);
     }
   }
 

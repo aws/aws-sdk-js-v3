@@ -53,9 +53,7 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     DescribeDirectConnectGatewaysCommandInput,
     DescribeDirectConnectGatewaysCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     input: DescribeDirectConnectGatewaysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

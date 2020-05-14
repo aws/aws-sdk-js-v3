@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  GetFederationTokenRequest,
-  GetFederationTokenResponse
-} from "../models/index";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFederationTokenCommand,
   serializeAws_restJson1_1GetFederationTokenCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFederationTokenCommandInput = GetFederationTokenRequest;
-export type GetFederationTokenCommandOutput = GetFederationTokenResponse &
-  __MetadataBearer;
+export type GetFederationTokenCommandOutput = GetFederationTokenResponse & __MetadataBearer;
 
 export class GetFederationTokenCommand extends $Command<
   GetFederationTokenCommandInput,
@@ -50,9 +46,7 @@ export class GetFederationTokenCommand extends $Command<
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFederationTokenCommandInput, GetFederationTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

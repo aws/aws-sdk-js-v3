@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetVoiceChannelRequest,
-  GetVoiceChannelResponse
-} from "../models/index";
+import { GetVoiceChannelRequest, GetVoiceChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceChannelCommand,
   serializeAws_restJson1_1GetVoiceChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVoiceChannelCommandInput = GetVoiceChannelRequest;
-export type GetVoiceChannelCommandOutput = GetVoiceChannelResponse &
-  __MetadataBearer;
+export type GetVoiceChannelCommandOutput = GetVoiceChannelResponse & __MetadataBearer;
 
 export class GetVoiceChannelCommand extends $Command<
   GetVoiceChannelCommandInput,
@@ -50,9 +46,7 @@ export class GetVoiceChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVoiceChannelCommandInput, GetVoiceChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

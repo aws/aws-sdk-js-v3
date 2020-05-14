@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  CreateBackendEnvironmentRequest,
-  CreateBackendEnvironmentResult
-} from "../models/index";
+import { CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateBackendEnvironmentCommand,
   serializeAws_restJson1_1CreateBackendEnvironmentCommand
@@ -49,13 +46,8 @@ export class CreateBackendEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBackendEnvironmentCommandInput,
-    CreateBackendEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBackendEnvironmentCommandInput, CreateBackendEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class CreateBackendEnvironmentCommand extends $Command<
     input: CreateBackendEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateBackendEnvironmentCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateBackendEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1CreateBackendEnvironmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

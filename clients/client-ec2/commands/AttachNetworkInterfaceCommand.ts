@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AttachNetworkInterfaceRequest,
-  AttachNetworkInterfaceResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/index";
 import {
   deserializeAws_ec2AttachNetworkInterfaceCommand,
   serializeAws_ec2AttachNetworkInterfaceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachNetworkInterfaceCommandInput = AttachNetworkInterfaceRequest;
-export type AttachNetworkInterfaceCommandOutput = AttachNetworkInterfaceResult &
-  __MetadataBearer;
+export type AttachNetworkInterfaceCommandOutput = AttachNetworkInterfaceResult & __MetadataBearer;
 
 export class AttachNetworkInterfaceCommand extends $Command<
   AttachNetworkInterfaceCommandInput,
@@ -49,13 +41,8 @@ export class AttachNetworkInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachNetworkInterfaceCommandInput,
-    AttachNetworkInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachNetworkInterfaceCommandInput, AttachNetworkInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

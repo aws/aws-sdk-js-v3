@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface BatchGrantPermissionsRequest {
@@ -131,8 +128,7 @@ export interface CatalogResource {
 }
 
 export namespace CatalogResource {
-  export const isa = (o: any): o is CatalogResource =>
-    __isa(o, "CatalogResource");
+  export const isa = (o: any): o is CatalogResource => __isa(o, "CatalogResource");
 }
 
 /**
@@ -147,8 +143,7 @@ export interface ColumnWildcard {
 }
 
 export namespace ColumnWildcard {
-  export const isa = (o: any): o is ColumnWildcard =>
-    __isa(o, "ColumnWildcard");
+  export const isa = (o: any): o is ColumnWildcard => __isa(o, "ColumnWildcard");
 }
 
 /**
@@ -163,8 +158,7 @@ export interface DataLakePrincipal {
 }
 
 export namespace DataLakePrincipal {
-  export const isa = (o: any): o is DataLakePrincipal =>
-    __isa(o, "DataLakePrincipal");
+  export const isa = (o: any): o is DataLakePrincipal => __isa(o, "DataLakePrincipal");
 }
 
 export enum DataLakeResourceType {
@@ -196,8 +190,7 @@ export interface DataLakeSettings {
 }
 
 export namespace DataLakeSettings {
-  export const isa = (o: any): o is DataLakeSettings =>
-    __isa(o, "DataLakeSettings");
+  export const isa = (o: any): o is DataLakeSettings => __isa(o, "DataLakeSettings");
 }
 
 /**
@@ -212,8 +205,7 @@ export interface DataLocationResource {
 }
 
 export namespace DataLocationResource {
-  export const isa = (o: any): o is DataLocationResource =>
-    __isa(o, "DataLocationResource");
+  export const isa = (o: any): o is DataLocationResource => __isa(o, "DataLocationResource");
 }
 
 /**
@@ -228,8 +220,7 @@ export interface DatabaseResource {
 }
 
 export namespace DatabaseResource {
-  export const isa = (o: any): o is DatabaseResource =>
-    __isa(o, "DatabaseResource");
+  export const isa = (o: any): o is DatabaseResource => __isa(o, "DatabaseResource");
 }
 
 export interface DeregisterResourceRequest {
@@ -263,8 +254,7 @@ export interface DescribeResourceRequest {
 }
 
 export namespace DescribeResourceRequest {
-  export const isa = (o: any): o is DescribeResourceRequest =>
-    __isa(o, "DescribeResourceRequest");
+  export const isa = (o: any): o is DescribeResourceRequest => __isa(o, "DescribeResourceRequest");
 }
 
 export interface DescribeResourceResponse {
@@ -382,8 +372,7 @@ export interface GrantPermissionsRequest {
 }
 
 export namespace GrantPermissionsRequest {
-  export const isa = (o: any): o is GrantPermissionsRequest =>
-    __isa(o, "GrantPermissionsRequest");
+  export const isa = (o: any): o is GrantPermissionsRequest => __isa(o, "GrantPermissionsRequest");
 }
 
 export interface GrantPermissionsResponse {
@@ -430,8 +419,7 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
@@ -448,8 +436,7 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListResourcesRequest {
@@ -471,8 +458,7 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
-  export const isa = (o: any): o is ListResourcesRequest =>
-    __isa(o, "ListResourcesRequest");
+  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
@@ -489,8 +475,7 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
-  export const isa = (o: any): o is ListResourcesResponse =>
-    __isa(o, "ListResourcesResponse");
+  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 export enum Permission {
@@ -522,8 +507,7 @@ export interface PrincipalPermissions {
 }
 
 export namespace PrincipalPermissions {
-  export const isa = (o: any): o is PrincipalPermissions =>
-    __isa(o, "PrincipalPermissions");
+  export const isa = (o: any): o is PrincipalPermissions => __isa(o, "PrincipalPermissions");
 }
 
 /**
@@ -603,8 +587,7 @@ export interface RegisterResourceRequest {
 }
 
 export namespace RegisterResourceRequest {
-  export const isa = (o: any): o is RegisterResourceRequest =>
-    __isa(o, "RegisterResourceRequest");
+  export const isa = (o: any): o is RegisterResourceRequest => __isa(o, "RegisterResourceRequest");
 }
 
 export interface RegisterResourceResponse {
@@ -760,8 +743,7 @@ export interface UpdateResourceRequest {
 }
 
 export namespace UpdateResourceRequest {
-  export const isa = (o: any): o is UpdateResourceRequest =>
-    __isa(o, "UpdateResourceRequest");
+  export const isa = (o: any): o is UpdateResourceRequest => __isa(o, "UpdateResourceRequest");
 }
 
 export interface UpdateResourceResponse {
@@ -769,16 +751,13 @@ export interface UpdateResourceResponse {
 }
 
 export namespace UpdateResourceResponse {
-  export const isa = (o: any): o is UpdateResourceResponse =>
-    __isa(o, "UpdateResourceResponse");
+  export const isa = (o: any): o is UpdateResourceResponse => __isa(o, "UpdateResourceResponse");
 }
 
 /**
  * <p>A resource to be created or added already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -788,16 +767,13 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -814,9 +790,7 @@ export namespace ConcurrentModificationException {
 /**
  * <p>A specified entity does not exist</p>
  */
-export interface EntityNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -826,8 +800,7 @@ export interface EntityNotFoundException
 }
 
 export namespace EntityNotFoundException {
-  export const isa = (o: any): o is EntityNotFoundException =>
-    __isa(o, "EntityNotFoundException");
+  export const isa = (o: any): o is EntityNotFoundException => __isa(o, "EntityNotFoundException");
 }
 
 /**
@@ -853,9 +826,7 @@ export namespace ErrorDetail {
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   /**
@@ -872,9 +843,7 @@ export namespace InternalServiceException {
 /**
  * <p>The input provided was not valid.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -884,16 +853,13 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The operation timed out.</p>
  */
-export interface OperationTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationTimeoutException extends __SmithyException, $MetadataBearer {
   name: "OperationTimeoutException";
   $fault: "client";
   /**
@@ -949,8 +915,7 @@ export interface FilterCondition {
 }
 
 export namespace FilterCondition {
-  export const isa = (o: any): o is FilterCondition =>
-    __isa(o, "FilterCondition");
+  export const isa = (o: any): o is FilterCondition => __isa(o, "FilterCondition");
 }
 
 /**

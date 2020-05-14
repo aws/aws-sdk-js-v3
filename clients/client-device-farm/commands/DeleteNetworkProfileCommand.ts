@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  DeleteNetworkProfileRequest,
-  DeleteNetworkProfileResult
-} from "../models/index";
+import { DeleteNetworkProfileRequest, DeleteNetworkProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteNetworkProfileCommand,
   serializeAws_json1_1DeleteNetworkProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteNetworkProfileCommandInput = DeleteNetworkProfileRequest;
-export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResult &
-  __MetadataBearer;
+export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResult & __MetadataBearer;
 
 export class DeleteNetworkProfileCommand extends $Command<
   DeleteNetworkProfileCommandInput,
@@ -49,13 +45,8 @@ export class DeleteNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNetworkProfileCommandInput,
-    DeleteNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNetworkProfileCommandInput, DeleteNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

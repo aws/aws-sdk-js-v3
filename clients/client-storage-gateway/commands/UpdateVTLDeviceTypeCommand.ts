@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateVTLDeviceTypeInput,
-  UpdateVTLDeviceTypeOutput
-} from "../models/index";
+import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateVTLDeviceTypeCommand,
   serializeAws_json1_1UpdateVTLDeviceTypeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVTLDeviceTypeCommandInput = UpdateVTLDeviceTypeInput;
-export type UpdateVTLDeviceTypeCommandOutput = UpdateVTLDeviceTypeOutput &
-  __MetadataBearer;
+export type UpdateVTLDeviceTypeCommandOutput = UpdateVTLDeviceTypeOutput & __MetadataBearer;
 
 export class UpdateVTLDeviceTypeCommand extends $Command<
   UpdateVTLDeviceTypeCommandInput,
@@ -49,13 +45,8 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVTLDeviceTypeCommandInput,
-    UpdateVTLDeviceTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVTLDeviceTypeCommandInput, UpdateVTLDeviceTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

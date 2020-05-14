@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  DeleteSubscriberRequest,
-  DeleteSubscriberResponse
-} from "../models/index";
+import { DeleteSubscriberRequest, DeleteSubscriberResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSubscriberCommand,
   serializeAws_json1_1DeleteSubscriberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSubscriberCommandInput = DeleteSubscriberRequest;
-export type DeleteSubscriberCommandOutput = DeleteSubscriberResponse &
-  __MetadataBearer;
+export type DeleteSubscriberCommandOutput = DeleteSubscriberResponse & __MetadataBearer;
 
 export class DeleteSubscriberCommand extends $Command<
   DeleteSubscriberCommandInput,
@@ -50,9 +46,7 @@ export class DeleteSubscriberCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

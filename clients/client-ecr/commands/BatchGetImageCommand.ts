@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { BatchGetImageRequest, BatchGetImageResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetImageCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetImageCommandInput = BatchGetImageRequest;
-export type BatchGetImageCommandOutput = BatchGetImageResponse &
-  __MetadataBearer;
+export type BatchGetImageCommandOutput = BatchGetImageResponse & __MetadataBearer;
 
 export class BatchGetImageCommand extends $Command<
   BatchGetImageCommandInput,
@@ -47,9 +42,7 @@ export class BatchGetImageCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetImageCommandInput, BatchGetImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

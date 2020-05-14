@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  PollForThirdPartyJobsInput,
-  PollForThirdPartyJobsOutput
-} from "../models/index";
+import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/index";
 import {
   deserializeAws_json1_1PollForThirdPartyJobsCommand,
   serializeAws_json1_1PollForThirdPartyJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PollForThirdPartyJobsCommandInput = PollForThirdPartyJobsInput;
-export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput &
-  __MetadataBearer;
+export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput & __MetadataBearer;
 
 export class PollForThirdPartyJobsCommand extends $Command<
   PollForThirdPartyJobsCommandInput,
@@ -49,13 +45,8 @@ export class PollForThirdPartyJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PollForThirdPartyJobsCommandInput,
-    PollForThirdPartyJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PollForThirdPartyJobsCommandInput, PollForThirdPartyJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class DeletePublishingDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePublishingDestinationCommandInput,
-    DeletePublishingDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePublishingDestinationCommandInput, DeletePublishingDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeletePublishingDestinationCommand extends $Command<
     input: DeletePublishingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePublishingDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeletePublishingDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DeletePublishingDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeletePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

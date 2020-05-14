@@ -198,9 +198,7 @@ export class SNS extends SNSClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
@@ -412,9 +410,7 @@ export class SNS extends SNSClient {
   ): void;
   public createTopic(
     args: CreateTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTopicCommandOutput) => void),
     cb?: (err: any, data?: CreateTopicCommandOutput) => void
   ): Promise<CreateTopicCommandOutput> | void {
     const command = new CreateTopicCommand(args);
@@ -451,9 +447,7 @@ export class SNS extends SNSClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
@@ -526,9 +520,7 @@ export class SNS extends SNSClient {
   ): void;
   public deleteTopic(
     args: DeleteTopicCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTopicCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTopicCommandOutput) => void),
     cb?: (err: any, data?: DeleteTopicCommandOutput) => void
   ): Promise<DeleteTopicCommandOutput> | void {
     const command = new DeleteTopicCommand(args);
@@ -602,14 +594,8 @@ export class SNS extends SNSClient {
     args: GetPlatformApplicationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetPlatformApplicationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetPlatformApplicationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: GetPlatformApplicationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetPlatformApplicationAttributesCommandOutput) => void
   ): Promise<GetPlatformApplicationAttributesCommandOutput> | void {
     const command = new GetPlatformApplicationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -642,9 +628,7 @@ export class SNS extends SNSClient {
   ): void;
   public getSMSAttributes(
     args: GetSMSAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSMSAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSMSAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetSMSAttributesCommandOutput) => void
   ): Promise<GetSMSAttributesCommandOutput> | void {
     const command = new GetSMSAttributesCommand(args);
@@ -748,31 +732,19 @@ export class SNS extends SNSClient {
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput>;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): void;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): void;
   public listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListEndpointsByPlatformApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListEndpointsByPlatformApplicationCommandOutput
-    ) => void
+      | ((err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void),
+    cb?: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> | void {
     const command = new ListEndpointsByPlatformApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1008,9 +980,7 @@ export class SNS extends SNSClient {
   ): void;
   public listTopics(
     args: ListTopicsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTopicsCommandOutput) => void),
     cb?: (err: any, data?: ListTopicsCommandOutput) => void
   ): Promise<ListTopicsCommandOutput> | void {
     const command = new ListTopicsCommand(args);
@@ -1045,9 +1015,7 @@ export class SNS extends SNSClient {
   ): void;
   public optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: OptInPhoneNumberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OptInPhoneNumberCommandOutput) => void),
     cb?: (err: any, data?: OptInPhoneNumberCommandOutput) => void
   ): Promise<OptInPhoneNumberCommandOutput> | void {
     const command = new OptInPhoneNumberCommand(args);
@@ -1093,9 +1061,7 @@ export class SNS extends SNSClient {
   ): void;
   public publish(
     args: PublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishCommandOutput) => void),
     cb?: (err: any, data?: PublishCommandOutput) => void
   ): Promise<PublishCommandOutput> | void {
     const command = new PublishCommand(args);
@@ -1128,9 +1094,7 @@ export class SNS extends SNSClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
@@ -1205,14 +1169,8 @@ export class SNS extends SNSClient {
     args: SetPlatformApplicationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetPlatformApplicationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetPlatformApplicationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: SetPlatformApplicationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: SetPlatformApplicationAttributesCommandOutput) => void
   ): Promise<SetPlatformApplicationAttributesCommandOutput> | void {
     const command = new SetPlatformApplicationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1249,9 +1207,7 @@ export class SNS extends SNSClient {
   ): void;
   public setSMSAttributes(
     args: SetSMSAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSMSAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSMSAttributesCommandOutput) => void),
     cb?: (err: any, data?: SetSMSAttributesCommandOutput) => void
   ): Promise<SetSMSAttributesCommandOutput> | void {
     const command = new SetSMSAttributesCommand(args);
@@ -1359,9 +1315,7 @@ export class SNS extends SNSClient {
   ): void;
   public subscribe(
     args: SubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeCommandOutput) => void),
     cb?: (err: any, data?: SubscribeCommandOutput) => void
   ): Promise<SubscribeCommandOutput> | void {
     const command = new SubscribeCommand(args);
@@ -1417,9 +1371,7 @@ export class SNS extends SNSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1458,9 +1410,7 @@ export class SNS extends SNSClient {
   ): void;
   public unsubscribe(
     args: UnsubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeCommandOutput) => void
   ): Promise<UnsubscribeCommandOutput> | void {
     const command = new UnsubscribeCommand(args);
@@ -1495,9 +1445,7 @@ export class SNS extends SNSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

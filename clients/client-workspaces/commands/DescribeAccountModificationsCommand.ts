@@ -49,13 +49,8 @@ export class DescribeAccountModificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountModificationsCommandInput,
-    DescribeAccountModificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountModificationsCommandInput, DescribeAccountModificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeAccountModificationsCommand extends $Command<
     input: DescribeAccountModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountModificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAccountModificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountModificationsCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountModificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAccountModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

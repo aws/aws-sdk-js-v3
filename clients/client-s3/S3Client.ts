@@ -6,10 +6,7 @@ import {
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput
 } from "./commands/CompleteMultipartUploadCommand";
-import {
-  CopyObjectCommandInput,
-  CopyObjectCommandOutput
-} from "./commands/CopyObjectCommand";
+import { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand";
 import {
   CreateBucketCommandInput,
   CreateBucketCommandOutput
@@ -154,10 +151,7 @@ import {
   GetObjectAclCommandInput,
   GetObjectAclCommandOutput
 } from "./commands/GetObjectAclCommand";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "./commands/GetObjectCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import {
   GetObjectLegalHoldCommandInput,
   GetObjectLegalHoldCommandOutput
@@ -182,14 +176,8 @@ import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput
 } from "./commands/GetPublicAccessBlockCommand";
-import {
-  HeadBucketCommandInput,
-  HeadBucketCommandOutput
-} from "./commands/HeadBucketCommand";
-import {
-  HeadObjectCommandInput,
-  HeadObjectCommandOutput
-} from "./commands/HeadObjectCommand";
+import { HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand";
+import { HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand";
 import {
   ListBucketAnalyticsConfigurationsCommandInput,
   ListBucketAnalyticsConfigurationsCommandOutput
@@ -202,10 +190,7 @@ import {
   ListBucketMetricsConfigurationsCommandInput,
   ListBucketMetricsConfigurationsCommandOutput
 } from "./commands/ListBucketMetricsConfigurationsCommand";
-import {
-  ListBucketsCommandInput,
-  ListBucketsCommandOutput
-} from "./commands/ListBucketsCommand";
+import { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
 import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput
@@ -214,18 +199,12 @@ import {
   ListObjectVersionsCommandInput,
   ListObjectVersionsCommandOutput
 } from "./commands/ListObjectVersionsCommand";
-import {
-  ListObjectsCommandInput,
-  ListObjectsCommandOutput
-} from "./commands/ListObjectsCommand";
+import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
 import {
   ListObjectsV2CommandInput,
   ListObjectsV2CommandOutput
 } from "./commands/ListObjectsV2Command";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput
@@ -294,10 +273,7 @@ import {
   PutObjectAclCommandInput,
   PutObjectAclCommandOutput
 } from "./commands/PutObjectAclCommand";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "./commands/PutObjectCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
 import {
   PutObjectLegalHoldCommandInput,
   PutObjectLegalHoldCommandOutput
@@ -326,10 +302,7 @@ import {
   SelectObjectContentCommandInput,
   SelectObjectContentCommandOutput
 } from "./commands/SelectObjectContentCommand";
-import {
-  UploadPartCommandInput,
-  UploadPartCommandOutput
-} from "./commands/UploadPartCommand";
+import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
 import {
   UploadPartCopyCommandInput,
   UploadPartCopyCommandOutput
@@ -680,9 +653,7 @@ export interface ClientDefaults
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type S3ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -693,9 +664,7 @@ export type S3ClientConfig = Partial<
   HostHeaderInputConfig &
   EventStreamSerdeInputConfig;
 
-export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

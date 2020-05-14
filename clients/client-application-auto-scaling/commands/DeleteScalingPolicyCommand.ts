@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  DeleteScalingPolicyRequest,
-  DeleteScalingPolicyResponse
-} from "../models/index";
+import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
   serializeAws_json1_1DeleteScalingPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyRequest;
-export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse &
-  __MetadataBearer;
+export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse & __MetadataBearer;
 
 export class DeleteScalingPolicyCommand extends $Command<
   DeleteScalingPolicyCommandInput,
@@ -49,13 +45,8 @@ export class DeleteScalingPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteScalingPolicyCommandInput,
-    DeleteScalingPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteScalingPolicyCommandInput, DeleteScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

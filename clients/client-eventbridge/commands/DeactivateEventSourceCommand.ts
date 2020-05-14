@@ -45,13 +45,8 @@ export class DeactivateEventSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeactivateEventSourceCommandInput,
-    DeactivateEventSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeactivateEventSourceCommandInput, DeactivateEventSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

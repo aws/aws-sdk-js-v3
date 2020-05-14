@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeDomainControllersRequest,
-  DescribeDomainControllersResult
-} from "../models/index";
+import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDomainControllersCommand,
   serializeAws_json1_1DescribeDomainControllersCommand
@@ -49,13 +46,8 @@ export class DescribeDomainControllersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDomainControllersCommandInput,
-    DescribeDomainControllersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDomainControllersCommandInput, DescribeDomainControllersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeDomainControllersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainControllersCommandOutput> {
-    return deserializeAws_json1_1DescribeDomainControllersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

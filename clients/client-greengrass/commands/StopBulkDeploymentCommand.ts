@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  StopBulkDeploymentRequest,
-  StopBulkDeploymentResponse
-} from "../models/index";
+import { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StopBulkDeploymentCommand,
   serializeAws_restJson1_1StopBulkDeploymentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopBulkDeploymentCommandInput = StopBulkDeploymentRequest;
-export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse &
-  __MetadataBearer;
+export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse & __MetadataBearer;
 
 export class StopBulkDeploymentCommand extends $Command<
   StopBulkDeploymentCommandInput,
@@ -50,9 +46,7 @@ export class StopBulkDeploymentCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PreviewAgentsCommandInput = PreviewAgentsRequest;
-export type PreviewAgentsCommandOutput = PreviewAgentsResponse &
-  __MetadataBearer;
+export type PreviewAgentsCommandOutput = PreviewAgentsResponse & __MetadataBearer;
 
 export class PreviewAgentsCommand extends $Command<
   PreviewAgentsCommandInput,
@@ -47,9 +46,7 @@ export class PreviewAgentsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PreviewAgentsCommandInput, PreviewAgentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

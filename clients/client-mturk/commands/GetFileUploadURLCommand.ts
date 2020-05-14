@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  GetFileUploadURLRequest,
-  GetFileUploadURLResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetFileUploadURLCommand,
   serializeAws_json1_1GetFileUploadURLCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFileUploadURLCommandInput = GetFileUploadURLRequest;
-export type GetFileUploadURLCommandOutput = GetFileUploadURLResponse &
-  __MetadataBearer;
+export type GetFileUploadURLCommandOutput = GetFileUploadURLResponse & __MetadataBearer;
 
 export class GetFileUploadURLCommand extends $Command<
   GetFileUploadURLCommandInput,
@@ -50,9 +42,7 @@ export class GetFileUploadURLCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

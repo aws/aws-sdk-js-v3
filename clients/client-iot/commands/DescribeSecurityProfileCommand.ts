@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeSecurityProfileRequest,
-  DescribeSecurityProfileResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSecurityProfileCommand,
   serializeAws_restJson1_1DescribeSecurityProfileCommand
@@ -49,13 +42,8 @@ export class DescribeSecurityProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSecurityProfileCommandInput,
-    DescribeSecurityProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSecurityProfileCommandInput, DescribeSecurityProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DescribeSecurityProfileCommand extends $Command<
     input: DescribeSecurityProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSecurityProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSecurityProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

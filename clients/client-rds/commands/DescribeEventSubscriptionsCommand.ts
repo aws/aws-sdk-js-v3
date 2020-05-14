@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeEventSubscriptionsMessage,
-  EventSubscriptionsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeEventSubscriptionsCommand,
   serializeAws_queryDescribeEventSubscriptionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventSubscriptionsCommandInput = DescribeEventSubscriptionsMessage;
-export type DescribeEventSubscriptionsCommandOutput = EventSubscriptionsMessage &
-  __MetadataBearer;
+export type DescribeEventSubscriptionsCommandOutput = EventSubscriptionsMessage & __MetadataBearer;
 
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventSubscriptionsCommandInput,
-    DescribeEventSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventSubscriptionsCommandInput, DescribeEventSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

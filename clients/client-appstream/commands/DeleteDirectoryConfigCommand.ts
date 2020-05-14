@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DeleteDirectoryConfigRequest,
-  DeleteDirectoryConfigResult
-} from "../models/index";
+import { DeleteDirectoryConfigRequest, DeleteDirectoryConfigResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDirectoryConfigCommand,
   serializeAws_json1_1DeleteDirectoryConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDirectoryConfigCommandInput = DeleteDirectoryConfigRequest;
-export type DeleteDirectoryConfigCommandOutput = DeleteDirectoryConfigResult &
-  __MetadataBearer;
+export type DeleteDirectoryConfigCommandOutput = DeleteDirectoryConfigResult & __MetadataBearer;
 
 export class DeleteDirectoryConfigCommand extends $Command<
   DeleteDirectoryConfigCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDirectoryConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDirectoryConfigCommandInput,
-    DeleteDirectoryConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDirectoryConfigCommandInput, DeleteDirectoryConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

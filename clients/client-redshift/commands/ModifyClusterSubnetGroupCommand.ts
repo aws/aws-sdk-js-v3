@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ModifyClusterSubnetGroupMessage,
-  ModifyClusterSubnetGroupResult
-} from "../models/index";
+import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterSubnetGroupCommand,
   serializeAws_queryModifyClusterSubnetGroupCommand
@@ -49,13 +46,8 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterSubnetGroupCommandInput,
-    ModifyClusterSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterSubnetGroupCommandInput, ModifyClusterSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TransactGetItemsCommandInput = TransactGetItemsInput;
-export type TransactGetItemsCommandOutput = TransactGetItemsOutput &
-  __MetadataBearer;
+export type TransactGetItemsCommandOutput = TransactGetItemsOutput & __MetadataBearer;
 
 export class TransactGetItemsCommand extends $Command<
   TransactGetItemsCommandInput,
@@ -47,9 +46,7 @@ export class TransactGetItemsCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactGetItemsCommandInput, TransactGetItemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

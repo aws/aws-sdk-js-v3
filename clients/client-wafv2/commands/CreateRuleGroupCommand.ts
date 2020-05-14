@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  CreateRuleGroupRequest,
-  CreateRuleGroupResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRuleGroupCommand,
   serializeAws_json1_1CreateRuleGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
-export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse &
-  __MetadataBearer;
+export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
@@ -50,9 +42,7 @@ export class CreateRuleGroupCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

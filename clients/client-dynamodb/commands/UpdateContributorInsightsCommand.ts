@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  UpdateContributorInsightsInput,
-  UpdateContributorInsightsOutput
-} from "../models/index";
+import { UpdateContributorInsightsInput, UpdateContributorInsightsOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateContributorInsightsCommand,
   serializeAws_json1_0UpdateContributorInsightsCommand
@@ -49,13 +46,8 @@ export class UpdateContributorInsightsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateContributorInsightsCommandInput,
-    UpdateContributorInsightsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateContributorInsightsCommandInput, UpdateContributorInsightsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateContributorInsightsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0UpdateContributorInsightsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateContributorInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

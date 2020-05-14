@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  ListDeploymentsRequest,
-  ListDeploymentsResponse
-} from "../models/index";
+import { ListDeploymentsRequest, ListDeploymentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDeploymentsCommand,
   serializeAws_restJson1_1ListDeploymentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentsCommandInput = ListDeploymentsRequest;
-export type ListDeploymentsCommandOutput = ListDeploymentsResponse &
-  __MetadataBearer;
+export type ListDeploymentsCommandOutput = ListDeploymentsResponse & __MetadataBearer;
 
 export class ListDeploymentsCommand extends $Command<
   ListDeploymentsCommandInput,
@@ -50,9 +46,7 @@ export class ListDeploymentsCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentsCommandInput, ListDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

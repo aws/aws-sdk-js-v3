@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  InitiateMultipartUploadInput,
-  InitiateMultipartUploadOutput
-} from "../models/index";
+import { InitiateMultipartUploadInput, InitiateMultipartUploadOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1InitiateMultipartUploadCommand,
   serializeAws_restJson1_1InitiateMultipartUploadCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InitiateMultipartUploadCommandInput = InitiateMultipartUploadInput;
-export type InitiateMultipartUploadCommandOutput = InitiateMultipartUploadOutput &
-  __MetadataBearer;
+export type InitiateMultipartUploadCommandOutput = InitiateMultipartUploadOutput & __MetadataBearer;
 
 export class InitiateMultipartUploadCommand extends $Command<
   InitiateMultipartUploadCommandInput,
@@ -49,13 +45,8 @@ export class InitiateMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InitiateMultipartUploadCommandInput,
-    InitiateMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InitiateMultipartUploadCommandInput, InitiateMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class InitiateMultipartUploadCommand extends $Command<
     input: InitiateMultipartUploadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InitiateMultipartUploadCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1InitiateMultipartUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InitiateMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1_1InitiateMultipartUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InitiateMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

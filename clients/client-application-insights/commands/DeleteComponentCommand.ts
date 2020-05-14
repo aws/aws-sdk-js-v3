@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DeleteComponentRequest,
-  DeleteComponentResponse
-} from "../models/index";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteComponentCommand,
   serializeAws_json1_1DeleteComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteComponentCommandInput = DeleteComponentRequest;
-export type DeleteComponentCommandOutput = DeleteComponentResponse &
-  __MetadataBearer;
+export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
 
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,
@@ -50,9 +46,7 @@ export class DeleteComponentCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteComponentCommandInput, DeleteComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

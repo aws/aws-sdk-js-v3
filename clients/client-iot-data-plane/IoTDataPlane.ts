@@ -87,9 +87,7 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public getThingShadow(
     args: GetThingShadowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetThingShadowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetThingShadowCommandOutput) => void),
     cb?: (err: any, data?: GetThingShadowCommandOutput) => void
   ): Promise<GetThingShadowCommandOutput> | void {
     const command = new GetThingShadowCommand(args);
@@ -124,9 +122,7 @@ export class IoTDataPlane extends IoTDataPlaneClient {
   ): void;
   public publish(
     args: PublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishCommandOutput) => void),
     cb?: (err: any, data?: PublishCommandOutput) => void
   ): Promise<PublishCommandOutput> | void {
     const command = new PublishCommand(args);

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateCampaignCommandInput = UpdateCampaignRequest;
-export type UpdateCampaignCommandOutput = UpdateCampaignResponse &
-  __MetadataBearer;
+export type UpdateCampaignCommandOutput = UpdateCampaignResponse & __MetadataBearer;
 
 export class UpdateCampaignCommand extends $Command<
   UpdateCampaignCommandInput,
@@ -47,9 +46,7 @@ export class UpdateCampaignCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateCampaignCommandInput, UpdateCampaignCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

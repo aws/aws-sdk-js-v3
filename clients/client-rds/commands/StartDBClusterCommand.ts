@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StartDBClusterMessage, StartDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryStartDBClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDBClusterCommandInput = StartDBClusterMessage;
-export type StartDBClusterCommandOutput = StartDBClusterResult &
-  __MetadataBearer;
+export type StartDBClusterCommandOutput = StartDBClusterResult & __MetadataBearer;
 
 export class StartDBClusterCommand extends $Command<
   StartDBClusterCommandInput,
@@ -47,9 +42,7 @@ export class StartDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDBClusterCommandInput, StartDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

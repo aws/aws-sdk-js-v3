@@ -53,9 +53,7 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     DisassociateContactFromAddressBookCommandInput,
     DisassociateContactFromAddressBookCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     input: DisassociateContactFromAddressBookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateContactFromAddressBookCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateContactFromAddressBookCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateContactFromAddressBookCommandOutput> {
-    return deserializeAws_json1_1DisassociateContactFromAddressBookCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateContactFromAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

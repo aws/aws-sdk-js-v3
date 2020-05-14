@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentHealthRequest,
-  DescribeEnvironmentHealthResult
-} from "../models/index";
+import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/index";
 import {
   deserializeAws_queryDescribeEnvironmentHealthCommand,
   serializeAws_queryDescribeEnvironmentHealthCommand
@@ -49,13 +46,8 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentHealthCommandInput,
-    DescribeEnvironmentHealthCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentHealthCommandInput, DescribeEnvironmentHealthCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentHealthCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentHealthCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEnvironmentHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

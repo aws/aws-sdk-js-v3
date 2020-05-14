@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutGatewayResponseCommandInput = PutGatewayResponseRequest;
-export type PutGatewayResponseCommandOutput = GatewayResponse &
-  __MetadataBearer;
+export type PutGatewayResponseCommandOutput = GatewayResponse & __MetadataBearer;
 
 export class PutGatewayResponseCommand extends $Command<
   PutGatewayResponseCommandInput,
@@ -47,9 +46,7 @@ export class PutGatewayResponseCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutGatewayResponseCommandInput, PutGatewayResponseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3ControlClient";
-import {
-  UpdateJobPriorityRequest,
-  UpdateJobPriorityResult
-} from "../models/index";
+import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/index";
 import {
   deserializeAws_restXmlUpdateJobPriorityCommand,
   serializeAws_restXmlUpdateJobPriorityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJobPriorityCommandInput = UpdateJobPriorityRequest;
-export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult &
-  __MetadataBearer;
+export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult & __MetadataBearer;
 
 export class UpdateJobPriorityCommand extends $Command<
   UpdateJobPriorityCommandInput,
@@ -50,9 +46,7 @@ export class UpdateJobPriorityCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

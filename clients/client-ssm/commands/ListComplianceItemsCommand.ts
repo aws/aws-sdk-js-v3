@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListComplianceItemsRequest,
-  ListComplianceItemsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListComplianceItemsRequest, ListComplianceItemsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListComplianceItemsCommand,
   serializeAws_json1_1ListComplianceItemsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListComplianceItemsCommandInput = ListComplianceItemsRequest;
-export type ListComplianceItemsCommandOutput = ListComplianceItemsResult &
-  __MetadataBearer;
+export type ListComplianceItemsCommandOutput = ListComplianceItemsResult & __MetadataBearer;
 
 export class ListComplianceItemsCommand extends $Command<
   ListComplianceItemsCommandInput,
@@ -49,13 +41,8 @@ export class ListComplianceItemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListComplianceItemsCommandInput,
-    ListComplianceItemsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListComplianceItemsCommandInput, ListComplianceItemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

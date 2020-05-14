@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AssociateSubnetCidrBlockRequest,
-  AssociateSubnetCidrBlockResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/index";
 import {
   deserializeAws_ec2AssociateSubnetCidrBlockCommand,
   serializeAws_ec2AssociateSubnetCidrBlockCommand
@@ -49,13 +42,8 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSubnetCidrBlockCommandInput,
-    AssociateSubnetCidrBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSubnetCidrBlockCommandInput, AssociateSubnetCidrBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

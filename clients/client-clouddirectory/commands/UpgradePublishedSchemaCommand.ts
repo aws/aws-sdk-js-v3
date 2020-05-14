@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  UpgradePublishedSchemaRequest,
-  UpgradePublishedSchemaResponse
-} from "../models/index";
+import { UpgradePublishedSchemaRequest, UpgradePublishedSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpgradePublishedSchemaCommand,
   serializeAws_restJson1_1UpgradePublishedSchemaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpgradePublishedSchemaCommandInput = UpgradePublishedSchemaRequest;
-export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse &
-  __MetadataBearer;
+export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse & __MetadataBearer;
 
 export class UpgradePublishedSchemaCommand extends $Command<
   UpgradePublishedSchemaCommandInput,
@@ -49,13 +45,8 @@ export class UpgradePublishedSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpgradePublishedSchemaCommandInput,
-    UpgradePublishedSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpgradePublishedSchemaCommandInput, UpgradePublishedSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpgradePublishedSchemaCommand extends $Command<
     input: UpgradePublishedSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpgradePublishedSchemaCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpgradePublishedSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpgradePublishedSchemaCommandOutput> {
-    return deserializeAws_restJson1_1UpgradePublishedSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpgradePublishedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

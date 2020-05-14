@@ -53,9 +53,7 @@ export class DescribeProvisioningParametersCommand extends $Command<
     DescribeProvisioningParametersCommandInput,
     DescribeProvisioningParametersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeProvisioningParametersCommand extends $Command<
     input: DescribeProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeProvisioningParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

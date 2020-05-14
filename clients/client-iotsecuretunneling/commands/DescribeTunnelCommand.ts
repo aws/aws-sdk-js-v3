@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTunnelCommandInput = DescribeTunnelRequest;
-export type DescribeTunnelCommandOutput = DescribeTunnelResponse &
-  __MetadataBearer;
+export type DescribeTunnelCommandOutput = DescribeTunnelResponse & __MetadataBearer;
 
 export class DescribeTunnelCommand extends $Command<
   DescribeTunnelCommandInput,
@@ -47,9 +46,7 @@ export class DescribeTunnelCommand extends $Command<
     configuration: IoTSecureTunnelingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTunnelCommandInput, DescribeTunnelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

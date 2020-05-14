@@ -53,9 +53,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     DescribeOrderableDBInstanceOptionsCommandInput,
     DescribeOrderableDBInstanceOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

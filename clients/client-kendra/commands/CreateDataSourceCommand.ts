@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
-import {
-  CreateDataSourceRequest,
-  CreateDataSourceResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDataSourceCommand,
   serializeAws_json1_1CreateDataSourceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataSourceCommandInput = CreateDataSourceRequest;
-export type CreateDataSourceCommandOutput = CreateDataSourceResponse &
-  __MetadataBearer;
+export type CreateDataSourceCommandOutput = CreateDataSourceResponse & __MetadataBearer;
 
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,
@@ -50,9 +42,7 @@ export class CreateDataSourceCommand extends $Command<
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSourceCommandInput, CreateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

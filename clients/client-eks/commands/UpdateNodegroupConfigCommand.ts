@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  UpdateNodegroupConfigRequest,
-  UpdateNodegroupConfigResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateNodegroupConfigCommand,
   serializeAws_restJson1_1UpdateNodegroupConfigCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNodegroupConfigCommandInput = UpdateNodegroupConfigRequest;
-export type UpdateNodegroupConfigCommandOutput = UpdateNodegroupConfigResponse &
-  __MetadataBearer;
+export type UpdateNodegroupConfigCommandOutput = UpdateNodegroupConfigResponse & __MetadataBearer;
 
 export class UpdateNodegroupConfigCommand extends $Command<
   UpdateNodegroupConfigCommandInput,
@@ -49,13 +41,8 @@ export class UpdateNodegroupConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNodegroupConfigCommandInput,
-    UpdateNodegroupConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNodegroupConfigCommandInput, UpdateNodegroupConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateNodegroupConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNodegroupConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateNodegroupConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateNodegroupConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

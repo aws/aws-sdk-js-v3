@@ -1,11 +1,5 @@
-import {
-  CreateMeshCommandInput,
-  CreateMeshCommandOutput
-} from "../commands/CreateMeshCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "../commands/CreateRouteCommand";
+import { CreateMeshCommandInput, CreateMeshCommandOutput } from "../commands/CreateMeshCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "../commands/CreateRouteCommand";
 import {
   CreateVirtualNodeCommandInput,
   CreateVirtualNodeCommandOutput
@@ -18,14 +12,8 @@ import {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput
 } from "../commands/CreateVirtualServiceCommand";
-import {
-  DeleteMeshCommandInput,
-  DeleteMeshCommandOutput
-} from "../commands/DeleteMeshCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "../commands/DeleteRouteCommand";
+import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "../commands/DeleteMeshCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "../commands/DeleteRouteCommand";
 import {
   DeleteVirtualNodeCommandInput,
   DeleteVirtualNodeCommandOutput
@@ -58,14 +46,8 @@ import {
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput
 } from "../commands/DescribeVirtualServiceCommand";
-import {
-  ListMeshesCommandInput,
-  ListMeshesCommandOutput
-} from "../commands/ListMeshesCommand";
-import {
-  ListRoutesCommandInput,
-  ListRoutesCommandOutput
-} from "../commands/ListRoutesCommand";
+import { ListMeshesCommandInput, ListMeshesCommandOutput } from "../commands/ListMeshesCommand";
+import { ListRoutesCommandInput, ListRoutesCommandOutput } from "../commands/ListRoutesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -82,22 +64,13 @@ import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput
 } from "../commands/ListVirtualServicesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
-import {
-  UpdateMeshCommandInput,
-  UpdateMeshCommandOutput
-} from "../commands/UpdateMeshCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "../commands/UpdateRouteCommand";
+import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "../commands/UpdateMeshCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "../commands/UpdateRouteCommand";
 import {
   UpdateVirtualNodeCommandInput,
   UpdateVirtualNodeCommandOutput
@@ -234,35 +207,27 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -300,10 +265,7 @@ export const serializeAws_restJson1_1CreateVirtualNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -345,10 +307,7 @@ export const serializeAws_restJson1_1CreateVirtualRouterCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -390,10 +349,7 @@ export const serializeAws_restJson1_1CreateVirtualServiceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -435,10 +391,7 @@ export const serializeAws_restJson1_1DeleteMeshCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -469,10 +422,7 @@ export const serializeAws_restJson1_1DeleteRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -481,28 +431,21 @@ export const serializeAws_restJson1_1DeleteRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{routeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{routeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -524,26 +467,20 @@ export const serializeAws_restJson1_1DeleteVirtualNodeCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualNodeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualNodeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
@@ -572,35 +509,27 @@ export const serializeAws_restJson1_1DeleteVirtualRouterCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -622,35 +551,27 @@ export const serializeAws_restJson1_1DeleteVirtualServiceCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualServiceName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualServiceName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualServiceName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualServiceName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -678,10 +599,7 @@ export const serializeAws_restJson1_1DescribeMeshCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -712,10 +630,7 @@ export const serializeAws_restJson1_1DescribeRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -724,28 +639,21 @@ export const serializeAws_restJson1_1DescribeRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{routeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{routeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -767,26 +675,20 @@ export const serializeAws_restJson1_1DescribeVirtualNodeCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualNodeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualNodeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
@@ -815,35 +717,27 @@ export const serializeAws_restJson1_1DescribeVirtualRouterCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -865,35 +759,27 @@ export const serializeAws_restJson1_1DescribeVirtualServiceCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualServiceName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualServiceName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualServiceName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualServiceName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -941,35 +827,27 @@ export const serializeAws_restJson1_1ListRoutesCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   const query: any = {
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
@@ -1029,10 +907,7 @@ export const serializeAws_restJson1_1ListVirtualNodesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -1067,10 +942,7 @@ export const serializeAws_restJson1_1ListVirtualRoutersCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -1105,10 +977,7 @@ export const serializeAws_restJson1_1ListVirtualServicesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -1203,10 +1072,7 @@ export const serializeAws_restJson1_1UpdateMeshCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -1243,10 +1109,7 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
@@ -1255,28 +1118,21 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{routeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{routeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1304,26 +1160,20 @@ export const serializeAws_restJson1_1UpdateVirtualNodeCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
     const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualNodeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualNodeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
@@ -1358,35 +1208,27 @@ export const serializeAws_restJson1_1UpdateVirtualRouterCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
     const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualRouterName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualRouterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualRouterName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualRouterName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1414,35 +1256,27 @@ export const serializeAws_restJson1_1UpdateVirtualServiceCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
+  let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
     const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{meshName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{meshName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
     const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: virtualServiceName."
-      );
+      throw new Error("Empty value provided for input HTTP label: virtualServiceName.");
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: virtualServiceName."
-    );
+    throw new Error("No value provided for input HTTP label: virtualServiceName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1495,10 +1329,7 @@ const deserializeAws_restJson1_1CreateMeshCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1506,10 +1337,7 @@ const deserializeAws_restJson1_1CreateMeshCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1517,10 +1345,7 @@ const deserializeAws_restJson1_1CreateMeshCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1539,10 +1364,7 @@ const deserializeAws_restJson1_1CreateMeshCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1550,10 +1372,7 @@ const deserializeAws_restJson1_1CreateMeshCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1629,10 +1448,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1640,10 +1456,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1651,10 +1464,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1673,10 +1483,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1684,10 +1491,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1736,10 +1540,7 @@ export const deserializeAws_restJson1_1CreateVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateVirtualNodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVirtualNodeCommandError(output, context);
   }
   const contents: CreateVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1747,10 +1548,7 @@ export const deserializeAws_restJson1_1CreateVirtualNodeCommand = async (
     virtualNode: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(
-    data,
-    context
-  );
+  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -1769,10 +1567,7 @@ const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1780,10 +1575,7 @@ const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1791,10 +1583,7 @@ const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1813,10 +1602,7 @@ const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1824,10 +1610,7 @@ const deserializeAws_restJson1_1CreateVirtualNodeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1876,10 +1659,7 @@ export const deserializeAws_restJson1_1CreateVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateVirtualRouterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVirtualRouterCommandError(output, context);
   }
   const contents: CreateVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1887,10 +1667,7 @@ export const deserializeAws_restJson1_1CreateVirtualRouterCommand = async (
     virtualRouter: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(
-    data,
-    context
-  );
+  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -1909,10 +1686,7 @@ const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1920,10 +1694,7 @@ const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1931,10 +1702,7 @@ const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1953,10 +1721,7 @@ const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1964,10 +1729,7 @@ const deserializeAws_restJson1_1CreateVirtualRouterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2016,10 +1778,7 @@ export const deserializeAws_restJson1_1CreateVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateVirtualServiceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVirtualServiceCommandError(output, context);
   }
   const contents: CreateVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2027,10 +1786,7 @@ export const deserializeAws_restJson1_1CreateVirtualServiceCommand = async (
     virtualService: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(
-    data,
-    context
-  );
+  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -2049,10 +1805,7 @@ const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2060,10 +1813,7 @@ const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2071,10 +1821,7 @@ const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2093,10 +1840,7 @@ const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2104,10 +1848,7 @@ const deserializeAws_restJson1_1CreateVirtualServiceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2183,10 +1924,7 @@ const deserializeAws_restJson1_1DeleteMeshCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2194,10 +1932,7 @@ const deserializeAws_restJson1_1DeleteMeshCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2216,10 +1951,7 @@ const deserializeAws_restJson1_1DeleteMeshCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2227,10 +1959,7 @@ const deserializeAws_restJson1_1DeleteMeshCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.lattice.v20190125#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2306,10 +2035,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2317,10 +2043,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2339,10 +2062,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2350,10 +2070,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.lattice.v20190125#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2402,10 +2119,7 @@ export const deserializeAws_restJson1_1DeleteVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteVirtualNodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVirtualNodeCommandError(output, context);
   }
   const contents: DeleteVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2413,10 +2127,7 @@ export const deserializeAws_restJson1_1DeleteVirtualNodeCommand = async (
     virtualNode: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(
-    data,
-    context
-  );
+  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -2435,10 +2146,7 @@ const deserializeAws_restJson1_1DeleteVirtualNodeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2446,10 +2154,7 @@ const deserializeAws_restJson1_1DeleteVirtualNodeCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2468,10 +2173,7 @@ const deserializeAws_restJson1_1DeleteVirtualNodeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2479,10 +2181,7 @@ const deserializeAws_restJson1_1DeleteVirtualNodeCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.lattice.v20190125#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2531,10 +2230,7 @@ export const deserializeAws_restJson1_1DeleteVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteVirtualRouterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVirtualRouterCommandError(output, context);
   }
   const contents: DeleteVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2542,10 +2238,7 @@ export const deserializeAws_restJson1_1DeleteVirtualRouterCommand = async (
     virtualRouter: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(
-    data,
-    context
-  );
+  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -2564,10 +2257,7 @@ const deserializeAws_restJson1_1DeleteVirtualRouterCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2575,10 +2265,7 @@ const deserializeAws_restJson1_1DeleteVirtualRouterCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2597,10 +2284,7 @@ const deserializeAws_restJson1_1DeleteVirtualRouterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2608,10 +2292,7 @@ const deserializeAws_restJson1_1DeleteVirtualRouterCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.lattice.v20190125#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2660,10 +2341,7 @@ export const deserializeAws_restJson1_1DeleteVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteVirtualServiceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVirtualServiceCommandError(output, context);
   }
   const contents: DeleteVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2671,10 +2349,7 @@ export const deserializeAws_restJson1_1DeleteVirtualServiceCommand = async (
     virtualService: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(
-    data,
-    context
-  );
+  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -2693,10 +2368,7 @@ const deserializeAws_restJson1_1DeleteVirtualServiceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2704,10 +2376,7 @@ const deserializeAws_restJson1_1DeleteVirtualServiceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2726,10 +2395,7 @@ const deserializeAws_restJson1_1DeleteVirtualServiceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2805,10 +2471,7 @@ const deserializeAws_restJson1_1DescribeMeshCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2816,10 +2479,7 @@ const deserializeAws_restJson1_1DescribeMeshCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2838,10 +2498,7 @@ const deserializeAws_restJson1_1DescribeMeshCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2917,10 +2574,7 @@ const deserializeAws_restJson1_1DescribeRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2928,10 +2582,7 @@ const deserializeAws_restJson1_1DescribeRouteCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2950,10 +2601,7 @@ const deserializeAws_restJson1_1DescribeRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3002,10 +2650,7 @@ export const deserializeAws_restJson1_1DescribeVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeVirtualNodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVirtualNodeCommandError(output, context);
   }
   const contents: DescribeVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3013,10 +2658,7 @@ export const deserializeAws_restJson1_1DescribeVirtualNodeCommand = async (
     virtualNode: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(
-    data,
-    context
-  );
+  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -3035,10 +2677,7 @@ const deserializeAws_restJson1_1DescribeVirtualNodeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3046,10 +2685,7 @@ const deserializeAws_restJson1_1DescribeVirtualNodeCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3068,10 +2704,7 @@ const deserializeAws_restJson1_1DescribeVirtualNodeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3120,10 +2753,7 @@ export const deserializeAws_restJson1_1DescribeVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeVirtualRouterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVirtualRouterCommandError(output, context);
   }
   const contents: DescribeVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3131,10 +2761,7 @@ export const deserializeAws_restJson1_1DescribeVirtualRouterCommand = async (
     virtualRouter: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(
-    data,
-    context
-  );
+  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -3153,10 +2780,7 @@ const deserializeAws_restJson1_1DescribeVirtualRouterCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3164,10 +2788,7 @@ const deserializeAws_restJson1_1DescribeVirtualRouterCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3186,10 +2807,7 @@ const deserializeAws_restJson1_1DescribeVirtualRouterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3238,10 +2856,7 @@ export const deserializeAws_restJson1_1DescribeVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeVirtualServiceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVirtualServiceCommandError(output, context);
   }
   const contents: DescribeVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3249,10 +2864,7 @@ export const deserializeAws_restJson1_1DescribeVirtualServiceCommand = async (
     virtualService: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(
-    data,
-    context
-  );
+  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -3271,10 +2883,7 @@ const deserializeAws_restJson1_1DescribeVirtualServiceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3282,10 +2891,7 @@ const deserializeAws_restJson1_1DescribeVirtualServiceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3304,10 +2910,7 @@ const deserializeAws_restJson1_1DescribeVirtualServiceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3389,10 +2992,7 @@ const deserializeAws_restJson1_1ListMeshesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3400,10 +3000,7 @@ const deserializeAws_restJson1_1ListMeshesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3422,10 +3019,7 @@ const deserializeAws_restJson1_1ListMeshesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3507,10 +3101,7 @@ const deserializeAws_restJson1_1ListRoutesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3518,10 +3109,7 @@ const deserializeAws_restJson1_1ListRoutesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3540,10 +3128,7 @@ const deserializeAws_restJson1_1ListRoutesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3592,10 +3177,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3628,10 +3210,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3639,10 +3218,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3661,10 +3237,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3713,10 +3286,7 @@ export const deserializeAws_restJson1_1ListVirtualNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListVirtualNodesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVirtualNodesCommandError(output, context);
   }
   const contents: ListVirtualNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3729,10 +3299,7 @@ export const deserializeAws_restJson1_1ListVirtualNodesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.virtualNodes !== undefined && data.virtualNodes !== null) {
-    contents.virtualNodes = deserializeAws_restJson1_1VirtualNodeList(
-      data.virtualNodes,
-      context
-    );
+    contents.virtualNodes = deserializeAws_restJson1_1VirtualNodeList(data.virtualNodes, context);
   }
   return Promise.resolve(contents);
 };
@@ -3752,10 +3319,7 @@ const deserializeAws_restJson1_1ListVirtualNodesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3763,10 +3327,7 @@ const deserializeAws_restJson1_1ListVirtualNodesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3785,10 +3346,7 @@ const deserializeAws_restJson1_1ListVirtualNodesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3837,10 +3395,7 @@ export const deserializeAws_restJson1_1ListVirtualRoutersCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualRoutersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListVirtualRoutersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVirtualRoutersCommandError(output, context);
   }
   const contents: ListVirtualRoutersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3876,10 +3431,7 @@ const deserializeAws_restJson1_1ListVirtualRoutersCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3887,10 +3439,7 @@ const deserializeAws_restJson1_1ListVirtualRoutersCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3909,10 +3458,7 @@ const deserializeAws_restJson1_1ListVirtualRoutersCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3961,10 +3507,7 @@ export const deserializeAws_restJson1_1ListVirtualServicesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualServicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListVirtualServicesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVirtualServicesCommandError(output, context);
   }
   const contents: ListVirtualServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4000,10 +3543,7 @@ const deserializeAws_restJson1_1ListVirtualServicesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4011,10 +3551,7 @@ const deserializeAws_restJson1_1ListVirtualServicesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4033,10 +3570,7 @@ const deserializeAws_restJson1_1ListVirtualServicesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4110,10 +3644,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4121,10 +3652,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4143,10 +3671,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4176,10 +3701,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.lattice.v20190125#TooManyTagsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4231,10 +3753,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4242,10 +3761,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4264,10 +3780,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4343,10 +3856,7 @@ const deserializeAws_restJson1_1UpdateMeshCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4354,10 +3864,7 @@ const deserializeAws_restJson1_1UpdateMeshCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4365,10 +3872,7 @@ const deserializeAws_restJson1_1UpdateMeshCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4387,10 +3891,7 @@ const deserializeAws_restJson1_1UpdateMeshCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4466,10 +3967,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4477,10 +3975,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4488,10 +3983,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4510,10 +4002,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4521,10 +4010,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4573,10 +4059,7 @@ export const deserializeAws_restJson1_1UpdateVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateVirtualNodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateVirtualNodeCommandError(output, context);
   }
   const contents: UpdateVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4584,10 +4067,7 @@ export const deserializeAws_restJson1_1UpdateVirtualNodeCommand = async (
     virtualNode: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(
-    data,
-    context
-  );
+  contents.virtualNode = deserializeAws_restJson1_1VirtualNodeData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -4606,10 +4086,7 @@ const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4617,10 +4094,7 @@ const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4628,10 +4102,7 @@ const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4650,10 +4121,7 @@ const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4661,10 +4129,7 @@ const deserializeAws_restJson1_1UpdateVirtualNodeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4713,10 +4178,7 @@ export const deserializeAws_restJson1_1UpdateVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateVirtualRouterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateVirtualRouterCommandError(output, context);
   }
   const contents: UpdateVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4724,10 +4186,7 @@ export const deserializeAws_restJson1_1UpdateVirtualRouterCommand = async (
     virtualRouter: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(
-    data,
-    context
-  );
+  contents.virtualRouter = deserializeAws_restJson1_1VirtualRouterData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -4746,10 +4205,7 @@ const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4757,10 +4213,7 @@ const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4768,10 +4221,7 @@ const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4790,10 +4240,7 @@ const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4801,10 +4248,7 @@ const deserializeAws_restJson1_1UpdateVirtualRouterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4853,10 +4297,7 @@ export const deserializeAws_restJson1_1UpdateVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateVirtualServiceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateVirtualServiceCommandError(output, context);
   }
   const contents: UpdateVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4864,10 +4305,7 @@ export const deserializeAws_restJson1_1UpdateVirtualServiceCommand = async (
     virtualService: undefined
   };
   const data: any = await parseBody(output.body, context);
-  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(
-    data,
-    context
-  );
+  contents.virtualService = deserializeAws_restJson1_1VirtualServiceData(data, context);
   return Promise.resolve(contents);
 };
 
@@ -4886,10 +4324,7 @@ const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.lattice.v20190125#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4897,10 +4332,7 @@ const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.lattice.v20190125#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4908,10 +4340,7 @@ const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.lattice.v20190125#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4930,10 +4359,7 @@ const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.lattice.v20190125#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4941,10 +4367,7 @@ const deserializeAws_restJson1_1UpdateVirtualServiceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.lattice.v20190125#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5158,10 +4581,7 @@ const deserializeAws_restJson1_1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1AccessLog = (
-  input: AccessLog,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AccessLog = (input: AccessLog, context: __SerdeContext): any => {
   return AccessLog.visit(input, {
     file: value => serializeAws_restJson1_1FileAccessLog(value, context),
     _: value => value
@@ -5182,9 +4602,7 @@ const serializeAws_restJson1_1AwsCloudMapInstanceAttributes = (
   input: AwsCloudMapInstanceAttribute[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AwsCloudMapInstanceAttribute(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AwsCloudMapInstanceAttribute(entry, context));
 };
 
 const serializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
@@ -5193,10 +4611,7 @@ const serializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
 ): any => {
   return {
     ...(input.attributes !== undefined && {
-      attributes: serializeAws_restJson1_1AwsCloudMapInstanceAttributes(
-        input.attributes,
-        context
-      )
+      attributes: serializeAws_restJson1_1AwsCloudMapInstanceAttributes(input.attributes, context)
     }),
     ...(input.namespaceName !== undefined && {
       namespaceName: input.namespaceName
@@ -5205,21 +4620,14 @@ const serializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
   };
 };
 
-const serializeAws_restJson1_1Backend = (
-  input: Backend,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Backend = (input: Backend, context: __SerdeContext): any => {
   return Backend.visit(input, {
-    virtualService: value =>
-      serializeAws_restJson1_1VirtualServiceBackend(value, context),
+    virtualService: value => serializeAws_restJson1_1VirtualServiceBackend(value, context),
     _: value => value
   });
 };
 
-const serializeAws_restJson1_1Backends = (
-  input: Backend[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Backends = (input: Backend[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Backend(entry, context));
 };
 
@@ -5232,10 +4640,7 @@ const serializeAws_restJson1_1DnsServiceDiscovery = (
   };
 };
 
-const serializeAws_restJson1_1Duration = (
-  input: Duration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Duration = (input: Duration, context: __SerdeContext): any => {
   return {
     ...(input.unit !== undefined && { unit: input.unit }),
     ...(input.value !== undefined && { value: input.value })
@@ -5266,29 +4671,17 @@ const serializeAws_restJson1_1GrpcRetryPolicy = (
 ): any => {
   return {
     ...(input.grpcRetryEvents !== undefined && {
-      grpcRetryEvents: serializeAws_restJson1_1GrpcRetryPolicyEvents(
-        input.grpcRetryEvents,
-        context
-      )
+      grpcRetryEvents: serializeAws_restJson1_1GrpcRetryPolicyEvents(input.grpcRetryEvents, context)
     }),
     ...(input.httpRetryEvents !== undefined && {
-      httpRetryEvents: serializeAws_restJson1_1HttpRetryPolicyEvents(
-        input.httpRetryEvents,
-        context
-      )
+      httpRetryEvents: serializeAws_restJson1_1HttpRetryPolicyEvents(input.httpRetryEvents, context)
     }),
     ...(input.maxRetries !== undefined && { maxRetries: input.maxRetries }),
     ...(input.perRetryTimeout !== undefined && {
-      perRetryTimeout: serializeAws_restJson1_1Duration(
-        input.perRetryTimeout,
-        context
-      )
+      perRetryTimeout: serializeAws_restJson1_1Duration(input.perRetryTimeout, context)
     }),
     ...(input.tcpRetryEvents !== undefined && {
-      tcpRetryEvents: serializeAws_restJson1_1TcpRetryPolicyEvents(
-        input.tcpRetryEvents,
-        context
-      )
+      tcpRetryEvents: serializeAws_restJson1_1TcpRetryPolicyEvents(input.tcpRetryEvents, context)
     })
   };
 };
@@ -5300,10 +4693,7 @@ const serializeAws_restJson1_1GrpcRetryPolicyEvents = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1GrpcRoute = (
-  input: GrpcRoute,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1GrpcRoute = (input: GrpcRoute, context: __SerdeContext): any => {
   return {
     ...(input.action !== undefined && {
       action: serializeAws_restJson1_1GrpcRouteAction(input.action, context)
@@ -5312,10 +4702,7 @@ const serializeAws_restJson1_1GrpcRoute = (
       match: serializeAws_restJson1_1GrpcRouteMatch(input.match, context)
     }),
     ...(input.retryPolicy !== undefined && {
-      retryPolicy: serializeAws_restJson1_1GrpcRetryPolicy(
-        input.retryPolicy,
-        context
-      )
+      retryPolicy: serializeAws_restJson1_1GrpcRetryPolicy(input.retryPolicy, context)
     })
   };
 };
@@ -5326,10 +4713,7 @@ const serializeAws_restJson1_1GrpcRouteAction = (
 ): any => {
   return {
     ...(input.weightedTargets !== undefined && {
-      weightedTargets: serializeAws_restJson1_1WeightedTargets(
-        input.weightedTargets,
-        context
-      )
+      weightedTargets: serializeAws_restJson1_1WeightedTargets(input.weightedTargets, context)
     })
   };
 };
@@ -5340,10 +4724,7 @@ const serializeAws_restJson1_1GrpcRouteMatch = (
 ): any => {
   return {
     ...(input.metadata !== undefined && {
-      metadata: serializeAws_restJson1_1GrpcRouteMetadataList(
-        input.metadata,
-        context
-      )
+      metadata: serializeAws_restJson1_1GrpcRouteMetadataList(input.metadata, context)
     }),
     ...(input.methodName !== undefined && { methodName: input.methodName }),
     ...(input.serviceName !== undefined && { serviceName: input.serviceName })
@@ -5357,10 +4738,7 @@ const serializeAws_restJson1_1GrpcRouteMetadata = (
   return {
     ...(input.invert !== undefined && { invert: input.invert }),
     ...(input.match !== undefined && {
-      match: serializeAws_restJson1_1GrpcRouteMetadataMatchMethod(
-        input.match,
-        context
-      )
+      match: serializeAws_restJson1_1GrpcRouteMetadataMatchMethod(input.match, context)
     }),
     ...(input.name !== undefined && { name: input.name })
   };
@@ -5370,9 +4748,7 @@ const serializeAws_restJson1_1GrpcRouteMetadataList = (
   input: GrpcRouteMetadata[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1GrpcRouteMetadata(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1GrpcRouteMetadata(entry, context));
 };
 
 const serializeAws_restJson1_1GrpcRouteMetadataMatchMethod = (
@@ -5432,23 +4808,14 @@ const serializeAws_restJson1_1HttpRetryPolicy = (
 ): any => {
   return {
     ...(input.httpRetryEvents !== undefined && {
-      httpRetryEvents: serializeAws_restJson1_1HttpRetryPolicyEvents(
-        input.httpRetryEvents,
-        context
-      )
+      httpRetryEvents: serializeAws_restJson1_1HttpRetryPolicyEvents(input.httpRetryEvents, context)
     }),
     ...(input.maxRetries !== undefined && { maxRetries: input.maxRetries }),
     ...(input.perRetryTimeout !== undefined && {
-      perRetryTimeout: serializeAws_restJson1_1Duration(
-        input.perRetryTimeout,
-        context
-      )
+      perRetryTimeout: serializeAws_restJson1_1Duration(input.perRetryTimeout, context)
     }),
     ...(input.tcpRetryEvents !== undefined && {
-      tcpRetryEvents: serializeAws_restJson1_1TcpRetryPolicyEvents(
-        input.tcpRetryEvents,
-        context
-      )
+      tcpRetryEvents: serializeAws_restJson1_1TcpRetryPolicyEvents(input.tcpRetryEvents, context)
     })
   };
 };
@@ -5460,10 +4827,7 @@ const serializeAws_restJson1_1HttpRetryPolicyEvents = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1HttpRoute = (
-  input: HttpRoute,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1HttpRoute = (input: HttpRoute, context: __SerdeContext): any => {
   return {
     ...(input.action !== undefined && {
       action: serializeAws_restJson1_1HttpRouteAction(input.action, context)
@@ -5472,10 +4836,7 @@ const serializeAws_restJson1_1HttpRoute = (
       match: serializeAws_restJson1_1HttpRouteMatch(input.match, context)
     }),
     ...(input.retryPolicy !== undefined && {
-      retryPolicy: serializeAws_restJson1_1HttpRetryPolicy(
-        input.retryPolicy,
-        context
-      )
+      retryPolicy: serializeAws_restJson1_1HttpRetryPolicy(input.retryPolicy, context)
     })
   };
 };
@@ -5486,10 +4847,7 @@ const serializeAws_restJson1_1HttpRouteAction = (
 ): any => {
   return {
     ...(input.weightedTargets !== undefined && {
-      weightedTargets: serializeAws_restJson1_1WeightedTargets(
-        input.weightedTargets,
-        context
-      )
+      weightedTargets: serializeAws_restJson1_1WeightedTargets(input.weightedTargets, context)
     })
   };
 };
@@ -5511,9 +4869,7 @@ const serializeAws_restJson1_1HttpRouteHeaders = (
   input: HttpRouteHeader[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1HttpRouteHeader(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1HttpRouteHeader(entry, context));
 };
 
 const serializeAws_restJson1_1HttpRouteMatch = (
@@ -5530,37 +4886,22 @@ const serializeAws_restJson1_1HttpRouteMatch = (
   };
 };
 
-const serializeAws_restJson1_1Listener = (
-  input: Listener,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Listener = (input: Listener, context: __SerdeContext): any => {
   return {
     ...(input.healthCheck !== undefined && {
-      healthCheck: serializeAws_restJson1_1HealthCheckPolicy(
-        input.healthCheck,
-        context
-      )
+      healthCheck: serializeAws_restJson1_1HealthCheckPolicy(input.healthCheck, context)
     }),
     ...(input.portMapping !== undefined && {
-      portMapping: serializeAws_restJson1_1PortMapping(
-        input.portMapping,
-        context
-      )
+      portMapping: serializeAws_restJson1_1PortMapping(input.portMapping, context)
     })
   };
 };
 
-const serializeAws_restJson1_1Listeners = (
-  input: Listener[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Listeners = (input: Listener[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Listener(entry, context));
 };
 
-const serializeAws_restJson1_1Logging = (
-  input: Logging,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Logging = (input: Logging, context: __SerdeContext): any => {
   return {
     ...(input.accessLog !== undefined && {
       accessLog: serializeAws_restJson1_1AccessLog(input.accessLog, context)
@@ -5568,44 +4909,29 @@ const serializeAws_restJson1_1Logging = (
   };
 };
 
-const serializeAws_restJson1_1MatchRange = (
-  input: MatchRange,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MatchRange = (input: MatchRange, context: __SerdeContext): any => {
   return {
     ...(input.end !== undefined && { end: input.end }),
     ...(input.start !== undefined && { start: input.start })
   };
 };
 
-const serializeAws_restJson1_1MeshSpec = (
-  input: MeshSpec,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MeshSpec = (input: MeshSpec, context: __SerdeContext): any => {
   return {
     ...(input.egressFilter !== undefined && {
-      egressFilter: serializeAws_restJson1_1EgressFilter(
-        input.egressFilter,
-        context
-      )
+      egressFilter: serializeAws_restJson1_1EgressFilter(input.egressFilter, context)
     })
   };
 };
 
-const serializeAws_restJson1_1PortMapping = (
-  input: PortMapping,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PortMapping = (input: PortMapping, context: __SerdeContext): any => {
   return {
     ...(input.port !== undefined && { port: input.port }),
     ...(input.protocol !== undefined && { protocol: input.protocol })
   };
 };
 
-const serializeAws_restJson1_1RouteSpec = (
-  input: RouteSpec,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RouteSpec = (input: RouteSpec, context: __SerdeContext): any => {
   return {
     ...(input.grpcRoute !== undefined && {
       grpcRoute: serializeAws_restJson1_1GrpcRoute(input.grpcRoute, context)
@@ -5628,31 +4954,21 @@ const serializeAws_restJson1_1ServiceDiscovery = (
   context: __SerdeContext
 ): any => {
   return ServiceDiscovery.visit(input, {
-    awsCloudMap: value =>
-      serializeAws_restJson1_1AwsCloudMapServiceDiscovery(value, context),
+    awsCloudMap: value => serializeAws_restJson1_1AwsCloudMapServiceDiscovery(value, context),
     dns: value => serializeAws_restJson1_1DnsServiceDiscovery(value, context),
     _: value => value
   });
 };
 
-const serializeAws_restJson1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TagList = (
-  input: TagRef[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagList = (input: TagRef[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1TagRef(entry, context));
 };
 
-const serializeAws_restJson1_1TagRef = (
-  input: TagRef,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagRef = (input: TagRef, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && { key: input.key }),
     ...(input.value !== undefined && { value: input.value })
@@ -5666,10 +4982,7 @@ const serializeAws_restJson1_1TcpRetryPolicyEvents = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TcpRoute = (
-  input: TcpRoute,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TcpRoute = (input: TcpRoute, context: __SerdeContext): any => {
   return {
     ...(input.action !== undefined && {
       action: serializeAws_restJson1_1TcpRouteAction(input.action, context)
@@ -5683,10 +4996,7 @@ const serializeAws_restJson1_1TcpRouteAction = (
 ): any => {
   return {
     ...(input.weightedTargets !== undefined && {
-      weightedTargets: serializeAws_restJson1_1WeightedTargets(
-        input.weightedTargets,
-        context
-      )
+      weightedTargets: serializeAws_restJson1_1WeightedTargets(input.weightedTargets, context)
     })
   };
 };
@@ -5717,10 +5027,7 @@ const serializeAws_restJson1_1VirtualNodeSpec = (
       logging: serializeAws_restJson1_1Logging(input.logging, context)
     }),
     ...(input.serviceDiscovery !== undefined && {
-      serviceDiscovery: serializeAws_restJson1_1ServiceDiscovery(
-        input.serviceDiscovery,
-        context
-      )
+      serviceDiscovery: serializeAws_restJson1_1ServiceDiscovery(input.serviceDiscovery, context)
     })
   };
 };
@@ -5731,10 +5038,7 @@ const serializeAws_restJson1_1VirtualRouterListener = (
 ): any => {
   return {
     ...(input.portMapping !== undefined && {
-      portMapping: serializeAws_restJson1_1PortMapping(
-        input.portMapping,
-        context
-      )
+      portMapping: serializeAws_restJson1_1PortMapping(input.portMapping, context)
     })
   };
 };
@@ -5743,9 +5047,7 @@ const serializeAws_restJson1_1VirtualRouterListeners = (
   input: VirtualRouterListener[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1VirtualRouterListener(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1VirtualRouterListener(entry, context));
 };
 
 const serializeAws_restJson1_1VirtualRouterServiceProvider = (
@@ -5765,10 +5067,7 @@ const serializeAws_restJson1_1VirtualRouterSpec = (
 ): any => {
   return {
     ...(input.listeners !== undefined && {
-      listeners: serializeAws_restJson1_1VirtualRouterListeners(
-        input.listeners,
-        context
-      )
+      listeners: serializeAws_restJson1_1VirtualRouterListeners(input.listeners, context)
     })
   };
 };
@@ -5789,10 +5088,8 @@ const serializeAws_restJson1_1VirtualServiceProvider = (
   context: __SerdeContext
 ): any => {
   return VirtualServiceProvider.visit(input, {
-    virtualNode: value =>
-      serializeAws_restJson1_1VirtualNodeServiceProvider(value, context),
-    virtualRouter: value =>
-      serializeAws_restJson1_1VirtualRouterServiceProvider(value, context),
+    virtualNode: value => serializeAws_restJson1_1VirtualNodeServiceProvider(value, context),
+    virtualRouter: value => serializeAws_restJson1_1VirtualRouterServiceProvider(value, context),
     _: value => value
   });
 };
@@ -5803,10 +5100,7 @@ const serializeAws_restJson1_1VirtualServiceSpec = (
 ): any => {
   return {
     ...(input.provider !== undefined && {
-      provider: serializeAws_restJson1_1VirtualServiceProvider(
-        input.provider,
-        context
-      )
+      provider: serializeAws_restJson1_1VirtualServiceProvider(input.provider, context)
     })
   };
 };
@@ -5825,15 +5119,10 @@ const serializeAws_restJson1_1WeightedTargets = (
   input: WeightedTarget[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1WeightedTarget(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1WeightedTarget(entry, context));
 };
 
-const deserializeAws_restJson1_1AccessLog = (
-  output: any,
-  context: __SerdeContext
-): AccessLog => {
+const deserializeAws_restJson1_1AccessLog = (output: any, context: __SerdeContext): AccessLog => {
   if (output.file !== undefined && output.file !== null) {
     return {
       file: deserializeAws_restJson1_1FileAccessLog(output.file, context)
@@ -5848,12 +5137,8 @@ const deserializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
 ): AwsCloudMapInstanceAttribute => {
   return {
     __type: "AwsCloudMapInstanceAttribute",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -5874,10 +5159,7 @@ const deserializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
     __type: "AwsCloudMapServiceDiscovery",
     attributes:
       output.attributes !== undefined && output.attributes !== null
-        ? deserializeAws_restJson1_1AwsCloudMapInstanceAttributes(
-            output.attributes,
-            context
-          )
+        ? deserializeAws_restJson1_1AwsCloudMapInstanceAttributes(output.attributes, context)
         : undefined,
     namespaceName:
       output.namespaceName !== undefined && output.namespaceName !== null
@@ -5890,10 +5172,7 @@ const deserializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Backend = (
-  output: any,
-  context: __SerdeContext
-): Backend => {
+const deserializeAws_restJson1_1Backend = (output: any, context: __SerdeContext): Backend => {
   if (output.virtualService !== undefined && output.virtualService !== null) {
     return {
       virtualService: deserializeAws_restJson1_1VirtualServiceBackend(
@@ -5905,13 +5184,8 @@ const deserializeAws_restJson1_1Backend = (
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1_1Backends = (
-  output: any,
-  context: __SerdeContext
-): Backend[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Backend(entry, context)
-  );
+const deserializeAws_restJson1_1Backends = (output: any, context: __SerdeContext): Backend[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Backend(entry, context));
 };
 
 const deserializeAws_restJson1_1DnsServiceDiscovery = (
@@ -5921,26 +5195,15 @@ const deserializeAws_restJson1_1DnsServiceDiscovery = (
   return {
     __type: "DnsServiceDiscovery",
     hostname:
-      output.hostname !== undefined && output.hostname !== null
-        ? output.hostname
-        : undefined
+      output.hostname !== undefined && output.hostname !== null ? output.hostname : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Duration = (
-  output: any,
-  context: __SerdeContext
-): Duration => {
+const deserializeAws_restJson1_1Duration = (output: any, context: __SerdeContext): Duration => {
   return {
     __type: "Duration",
-    unit:
-      output.unit !== undefined && output.unit !== null
-        ? output.unit
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -5950,10 +5213,7 @@ const deserializeAws_restJson1_1EgressFilter = (
 ): EgressFilter => {
   return {
     __type: "EgressFilter",
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -5963,10 +5223,7 @@ const deserializeAws_restJson1_1FileAccessLog = (
 ): FileAccessLog => {
   return {
     __type: "FileAccessLog",
-    path:
-      output.path !== undefined && output.path !== null
-        ? output.path
-        : undefined
+    path: output.path !== undefined && output.path !== null ? output.path : undefined
   } as any;
 };
 
@@ -5978,32 +5235,21 @@ const deserializeAws_restJson1_1GrpcRetryPolicy = (
     __type: "GrpcRetryPolicy",
     grpcRetryEvents:
       output.grpcRetryEvents !== undefined && output.grpcRetryEvents !== null
-        ? deserializeAws_restJson1_1GrpcRetryPolicyEvents(
-            output.grpcRetryEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1GrpcRetryPolicyEvents(output.grpcRetryEvents, context)
         : undefined,
     httpRetryEvents:
       output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
-        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(
-            output.httpRetryEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(output.httpRetryEvents, context)
         : undefined,
     maxRetries:
-      output.maxRetries !== undefined && output.maxRetries !== null
-        ? output.maxRetries
-        : undefined,
+      output.maxRetries !== undefined && output.maxRetries !== null ? output.maxRetries : undefined,
     perRetryTimeout:
       output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
         ? deserializeAws_restJson1_1Duration(output.perRetryTimeout, context)
         : undefined,
     tcpRetryEvents:
       output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null
-        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(
-            output.tcpRetryEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(output.tcpRetryEvents, context)
         : undefined
   } as any;
 };
@@ -6015,10 +5261,7 @@ const deserializeAws_restJson1_1GrpcRetryPolicyEvents = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1GrpcRoute = (
-  output: any,
-  context: __SerdeContext
-): GrpcRoute => {
+const deserializeAws_restJson1_1GrpcRoute = (output: any, context: __SerdeContext): GrpcRoute => {
   return {
     __type: "GrpcRoute",
     action:
@@ -6044,10 +5287,7 @@ const deserializeAws_restJson1_1GrpcRouteAction = (
     __type: "GrpcRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
-        ? deserializeAws_restJson1_1WeightedTargets(
-            output.weightedTargets,
-            context
-          )
+        ? deserializeAws_restJson1_1WeightedTargets(output.weightedTargets, context)
         : undefined
   } as any;
 };
@@ -6060,15 +5300,10 @@ const deserializeAws_restJson1_1GrpcRouteMatch = (
     __type: "GrpcRouteMatch",
     metadata:
       output.metadata !== undefined && output.metadata !== null
-        ? deserializeAws_restJson1_1GrpcRouteMetadataList(
-            output.metadata,
-            context
-          )
+        ? deserializeAws_restJson1_1GrpcRouteMetadataList(output.metadata, context)
         : undefined,
     methodName:
-      output.methodName !== undefined && output.methodName !== null
-        ? output.methodName
-        : undefined,
+      output.methodName !== undefined && output.methodName !== null ? output.methodName : undefined,
     serviceName:
       output.serviceName !== undefined && output.serviceName !== null
         ? output.serviceName
@@ -6082,21 +5317,12 @@ const deserializeAws_restJson1_1GrpcRouteMetadata = (
 ): GrpcRouteMetadata => {
   return {
     __type: "GrpcRouteMetadata",
-    invert:
-      output.invert !== undefined && output.invert !== null
-        ? output.invert
-        : undefined,
+    invert: output.invert !== undefined && output.invert !== null ? output.invert : undefined,
     match:
       output.match !== undefined && output.match !== null
-        ? deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod(
-            output.match,
-            context
-          )
+        ? deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod(output.match, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -6187,25 +5413,16 @@ const deserializeAws_restJson1_1HealthCheckPolicy = (
       output.intervalMillis !== undefined && output.intervalMillis !== null
         ? output.intervalMillis
         : undefined,
-    path:
-      output.path !== undefined && output.path !== null
-        ? output.path
-        : undefined,
-    port:
-      output.port !== undefined && output.port !== null
-        ? output.port
-        : undefined,
+    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    port: output.port !== undefined && output.port !== null ? output.port : undefined,
     protocol:
-      output.protocol !== undefined && output.protocol !== null
-        ? output.protocol
-        : undefined,
+      output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     timeoutMillis:
       output.timeoutMillis !== undefined && output.timeoutMillis !== null
         ? output.timeoutMillis
         : undefined,
     unhealthyThreshold:
-      output.unhealthyThreshold !== undefined &&
-      output.unhealthyThreshold !== null
+      output.unhealthyThreshold !== undefined && output.unhealthyThreshold !== null
         ? output.unhealthyThreshold
         : undefined
   } as any;
@@ -6219,25 +5436,17 @@ const deserializeAws_restJson1_1HttpRetryPolicy = (
     __type: "HttpRetryPolicy",
     httpRetryEvents:
       output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
-        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(
-            output.httpRetryEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(output.httpRetryEvents, context)
         : undefined,
     maxRetries:
-      output.maxRetries !== undefined && output.maxRetries !== null
-        ? output.maxRetries
-        : undefined,
+      output.maxRetries !== undefined && output.maxRetries !== null ? output.maxRetries : undefined,
     perRetryTimeout:
       output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
         ? deserializeAws_restJson1_1Duration(output.perRetryTimeout, context)
         : undefined,
     tcpRetryEvents:
       output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null
-        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(
-            output.tcpRetryEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(output.tcpRetryEvents, context)
         : undefined
   } as any;
 };
@@ -6249,10 +5458,7 @@ const deserializeAws_restJson1_1HttpRetryPolicyEvents = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1HttpRoute = (
-  output: any,
-  context: __SerdeContext
-): HttpRoute => {
+const deserializeAws_restJson1_1HttpRoute = (output: any, context: __SerdeContext): HttpRoute => {
   return {
     __type: "HttpRoute",
     action:
@@ -6278,10 +5484,7 @@ const deserializeAws_restJson1_1HttpRouteAction = (
     __type: "HttpRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
-        ? deserializeAws_restJson1_1WeightedTargets(
-            output.weightedTargets,
-            context
-          )
+        ? deserializeAws_restJson1_1WeightedTargets(output.weightedTargets, context)
         : undefined
   } as any;
 };
@@ -6292,18 +5495,12 @@ const deserializeAws_restJson1_1HttpRouteHeader = (
 ): HttpRouteHeader => {
   return {
     __type: "HttpRouteHeader",
-    invert:
-      output.invert !== undefined && output.invert !== null
-        ? output.invert
-        : undefined,
+    invert: output.invert !== undefined && output.invert !== null ? output.invert : undefined,
     match:
       output.match !== undefined && output.match !== null
         ? deserializeAws_restJson1_1HeaderMatchMethod(output.match, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -6326,33 +5523,18 @@ const deserializeAws_restJson1_1HttpRouteMatch = (
       output.headers !== undefined && output.headers !== null
         ? deserializeAws_restJson1_1HttpRouteHeaders(output.headers, context)
         : undefined,
-    method:
-      output.method !== undefined && output.method !== null
-        ? output.method
-        : undefined,
-    prefix:
-      output.prefix !== undefined && output.prefix !== null
-        ? output.prefix
-        : undefined,
-    scheme:
-      output.scheme !== undefined && output.scheme !== null
-        ? output.scheme
-        : undefined
+    method: output.method !== undefined && output.method !== null ? output.method : undefined,
+    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    scheme: output.scheme !== undefined && output.scheme !== null ? output.scheme : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Listener = (
-  output: any,
-  context: __SerdeContext
-): Listener => {
+const deserializeAws_restJson1_1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
     __type: "Listener",
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
-        ? deserializeAws_restJson1_1HealthCheckPolicy(
-            output.healthCheck,
-            context
-          )
+        ? deserializeAws_restJson1_1HealthCheckPolicy(output.healthCheck, context)
         : undefined,
     portMapping:
       output.portMapping !== undefined && output.portMapping !== null
@@ -6361,19 +5543,11 @@ const deserializeAws_restJson1_1Listener = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Listeners = (
-  output: any,
-  context: __SerdeContext
-): Listener[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Listener(entry, context)
-  );
+const deserializeAws_restJson1_1Listeners = (output: any, context: __SerdeContext): Listener[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Listener(entry, context));
 };
 
-const deserializeAws_restJson1_1Logging = (
-  output: any,
-  context: __SerdeContext
-): Logging => {
+const deserializeAws_restJson1_1Logging = (output: any, context: __SerdeContext): Logging => {
   return {
     __type: "Logging",
     accessLog:
@@ -6383,31 +5557,19 @@ const deserializeAws_restJson1_1Logging = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MatchRange = (
-  output: any,
-  context: __SerdeContext
-): MatchRange => {
+const deserializeAws_restJson1_1MatchRange = (output: any, context: __SerdeContext): MatchRange => {
   return {
     __type: "MatchRange",
-    end:
-      output.end !== undefined && output.end !== null ? output.end : undefined,
-    start:
-      output.start !== undefined && output.start !== null
-        ? output.start
-        : undefined
+    end: output.end !== undefined && output.end !== null ? output.end : undefined,
+    start: output.start !== undefined && output.start !== null ? output.start : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MeshData = (
-  output: any,
-  context: __SerdeContext
-): MeshData => {
+const deserializeAws_restJson1_1MeshData = (output: any, context: __SerdeContext): MeshData => {
   return {
     __type: "MeshData",
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
@@ -6423,34 +5585,20 @@ const deserializeAws_restJson1_1MeshData = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MeshList = (
-  output: any,
-  context: __SerdeContext
-): MeshRef[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MeshRef(entry, context)
-  );
+const deserializeAws_restJson1_1MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1MeshRef(entry, context));
 };
 
-const deserializeAws_restJson1_1MeshRef = (
-  output: any,
-  context: __SerdeContext
-): MeshRef => {
+const deserializeAws_restJson1_1MeshRef = (output: any, context: __SerdeContext): MeshRef => {
   return {
     __type: "MeshRef",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MeshSpec = (
-  output: any,
-  context: __SerdeContext
-): MeshSpec => {
+const deserializeAws_restJson1_1MeshSpec = (output: any, context: __SerdeContext): MeshSpec => {
   return {
     __type: "MeshSpec",
     egressFilter:
@@ -6460,16 +5608,10 @@ const deserializeAws_restJson1_1MeshSpec = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MeshStatus = (
-  output: any,
-  context: __SerdeContext
-): MeshStatus => {
+const deserializeAws_restJson1_1MeshStatus = (output: any, context: __SerdeContext): MeshStatus => {
   return {
     __type: "MeshStatus",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -6479,14 +5621,9 @@ const deserializeAws_restJson1_1PortMapping = (
 ): PortMapping => {
   return {
     __type: "PortMapping",
-    port:
-      output.port !== undefined && output.port !== null
-        ? output.port
-        : undefined,
+    port: output.port !== undefined && output.port !== null ? output.port : undefined,
     protocol:
-      output.protocol !== undefined && output.protocol !== null
-        ? output.protocol
-        : undefined
+      output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined
   } as any;
 };
 
@@ -6496,8 +5633,7 @@ const deserializeAws_restJson1_1ResourceMetadata = (
 ): ResourceMetadata => {
   return {
     __type: "ResourceMetadata",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -6506,33 +5642,22 @@ const deserializeAws_restJson1_1ResourceMetadata = (
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    uid:
-      output.uid !== undefined && output.uid !== null ? output.uid : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    uid: output.uid !== undefined && output.uid !== null ? output.uid : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RouteData = (
-  output: any,
-  context: __SerdeContext
-): RouteData => {
+const deserializeAws_restJson1_1RouteData = (output: any, context: __SerdeContext): RouteData => {
   return {
     __type: "RouteData",
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
         : undefined,
     routeName:
-      output.routeName !== undefined && output.routeName !== null
-        ? output.routeName
-        : undefined,
+      output.routeName !== undefined && output.routeName !== null ? output.routeName : undefined,
     spec:
       output.spec !== undefined && output.spec !== null
         ? deserializeAws_restJson1_1RouteSpec(output.spec, context)
@@ -6542,50 +5667,32 @@ const deserializeAws_restJson1_1RouteData = (
         ? deserializeAws_restJson1_1RouteStatus(output.status, context)
         : undefined,
     virtualRouterName:
-      output.virtualRouterName !== undefined &&
-      output.virtualRouterName !== null
+      output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RouteList = (
-  output: any,
-  context: __SerdeContext
-): RouteRef[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1RouteRef(entry, context)
-  );
+const deserializeAws_restJson1_1RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1RouteRef(entry, context));
 };
 
-const deserializeAws_restJson1_1RouteRef = (
-  output: any,
-  context: __SerdeContext
-): RouteRef => {
+const deserializeAws_restJson1_1RouteRef = (output: any, context: __SerdeContext): RouteRef => {
   return {
     __type: "RouteRef",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     routeName:
-      output.routeName !== undefined && output.routeName !== null
-        ? output.routeName
-        : undefined,
+      output.routeName !== undefined && output.routeName !== null ? output.routeName : undefined,
     virtualRouterName:
-      output.virtualRouterName !== undefined &&
-      output.virtualRouterName !== null
+      output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RouteSpec = (
-  output: any,
-  context: __SerdeContext
-): RouteSpec => {
+const deserializeAws_restJson1_1RouteSpec = (output: any, context: __SerdeContext): RouteSpec => {
   return {
     __type: "RouteSpec",
     grpcRoute:
@@ -6601,9 +5708,7 @@ const deserializeAws_restJson1_1RouteSpec = (
         ? deserializeAws_restJson1_1HttpRoute(output.httpRoute, context)
         : undefined,
     priority:
-      output.priority !== undefined && output.priority !== null
-        ? output.priority
-        : undefined,
+      output.priority !== undefined && output.priority !== null ? output.priority : undefined,
     tcpRoute:
       output.tcpRoute !== undefined && output.tcpRoute !== null
         ? deserializeAws_restJson1_1TcpRoute(output.tcpRoute, context)
@@ -6617,10 +5722,7 @@ const deserializeAws_restJson1_1RouteStatus = (
 ): RouteStatus => {
   return {
     __type: "RouteStatus",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -6644,27 +5746,15 @@ const deserializeAws_restJson1_1ServiceDiscovery = (
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): TagRef[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TagRef(entry, context)
-  );
+const deserializeAws_restJson1_1TagList = (output: any, context: __SerdeContext): TagRef[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TagRef(entry, context));
 };
 
-const deserializeAws_restJson1_1TagRef = (
-  output: any,
-  context: __SerdeContext
-): TagRef => {
+const deserializeAws_restJson1_1TagRef = (output: any, context: __SerdeContext): TagRef => {
   return {
     __type: "TagRef",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -6675,10 +5765,7 @@ const deserializeAws_restJson1_1TcpRetryPolicyEvents = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1TcpRoute = (
-  output: any,
-  context: __SerdeContext
-): TcpRoute => {
+const deserializeAws_restJson1_1TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
   return {
     __type: "TcpRoute",
     action:
@@ -6696,10 +5783,7 @@ const deserializeAws_restJson1_1TcpRouteAction = (
     __type: "TcpRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
-        ? deserializeAws_restJson1_1WeightedTargets(
-            output.weightedTargets,
-            context
-          )
+        ? deserializeAws_restJson1_1WeightedTargets(output.weightedTargets, context)
         : undefined
   } as any;
 };
@@ -6711,9 +5795,7 @@ const deserializeAws_restJson1_1VirtualNodeData = (
   return {
     __type: "VirtualNodeData",
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
@@ -6748,12 +5830,9 @@ const deserializeAws_restJson1_1VirtualNodeRef = (
 ): VirtualNodeRef => {
   return {
     __type: "VirtualNodeRef",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     virtualNodeName:
       output.virtualNodeName !== undefined && output.virtualNodeName !== null
         ? output.virtualNodeName
@@ -6794,10 +5873,7 @@ const deserializeAws_restJson1_1VirtualNodeSpec = (
         : undefined,
     serviceDiscovery:
       output.serviceDiscovery !== undefined && output.serviceDiscovery !== null
-        ? deserializeAws_restJson1_1ServiceDiscovery(
-            output.serviceDiscovery,
-            context
-          )
+        ? deserializeAws_restJson1_1ServiceDiscovery(output.serviceDiscovery, context)
         : undefined
   } as any;
 };
@@ -6808,10 +5884,7 @@ const deserializeAws_restJson1_1VirtualNodeStatus = (
 ): VirtualNodeStatus => {
   return {
     __type: "VirtualNodeStatus",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -6822,9 +5895,7 @@ const deserializeAws_restJson1_1VirtualRouterData = (
   return {
     __type: "VirtualRouterData",
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
@@ -6838,8 +5909,7 @@ const deserializeAws_restJson1_1VirtualRouterData = (
         ? deserializeAws_restJson1_1VirtualRouterStatus(output.status, context)
         : undefined,
     virtualRouterName:
-      output.virtualRouterName !== undefined &&
-      output.virtualRouterName !== null
+      output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
         : undefined
   } as any;
@@ -6882,15 +5952,11 @@ const deserializeAws_restJson1_1VirtualRouterRef = (
 ): VirtualRouterRef => {
   return {
     __type: "VirtualRouterRef",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     virtualRouterName:
-      output.virtualRouterName !== undefined &&
-      output.virtualRouterName !== null
+      output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
         : undefined
   } as any;
@@ -6903,8 +5969,7 @@ const deserializeAws_restJson1_1VirtualRouterServiceProvider = (
   return {
     __type: "VirtualRouterServiceProvider",
     virtualRouterName:
-      output.virtualRouterName !== undefined &&
-      output.virtualRouterName !== null
+      output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
         : undefined
   } as any;
@@ -6918,10 +5983,7 @@ const deserializeAws_restJson1_1VirtualRouterSpec = (
     __type: "VirtualRouterSpec",
     listeners:
       output.listeners !== undefined && output.listeners !== null
-        ? deserializeAws_restJson1_1VirtualRouterListeners(
-            output.listeners,
-            context
-          )
+        ? deserializeAws_restJson1_1VirtualRouterListeners(output.listeners, context)
         : undefined
   } as any;
 };
@@ -6932,10 +5994,7 @@ const deserializeAws_restJson1_1VirtualRouterStatus = (
 ): VirtualRouterStatus => {
   return {
     __type: "VirtualRouterStatus",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -6946,8 +6005,7 @@ const deserializeAws_restJson1_1VirtualServiceBackend = (
   return {
     __type: "VirtualServiceBackend",
     virtualServiceName:
-      output.virtualServiceName !== undefined &&
-      output.virtualServiceName !== null
+      output.virtualServiceName !== undefined && output.virtualServiceName !== null
         ? output.virtualServiceName
         : undefined
   } as any;
@@ -6960,9 +6018,7 @@ const deserializeAws_restJson1_1VirtualServiceData = (
   return {
     __type: "VirtualServiceData",
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
@@ -6976,8 +6032,7 @@ const deserializeAws_restJson1_1VirtualServiceData = (
         ? deserializeAws_restJson1_1VirtualServiceStatus(output.status, context)
         : undefined,
     virtualServiceName:
-      output.virtualServiceName !== undefined &&
-      output.virtualServiceName !== null
+      output.virtualServiceName !== undefined && output.virtualServiceName !== null
         ? output.virtualServiceName
         : undefined
   } as any;
@@ -6998,10 +6053,7 @@ const deserializeAws_restJson1_1VirtualServiceProvider = (
 ): VirtualServiceProvider => {
   if (output.virtualNode !== undefined && output.virtualNode !== null) {
     return {
-      virtualNode: deserializeAws_restJson1_1VirtualNodeServiceProvider(
-        output.virtualNode,
-        context
-      )
+      virtualNode: deserializeAws_restJson1_1VirtualNodeServiceProvider(output.virtualNode, context)
     };
   }
   if (output.virtualRouter !== undefined && output.virtualRouter !== null) {
@@ -7021,15 +6073,11 @@ const deserializeAws_restJson1_1VirtualServiceRef = (
 ): VirtualServiceRef => {
   return {
     __type: "VirtualServiceRef",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     meshName:
-      output.meshName !== undefined && output.meshName !== null
-        ? output.meshName
-        : undefined,
+      output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     virtualServiceName:
-      output.virtualServiceName !== undefined &&
-      output.virtualServiceName !== null
+      output.virtualServiceName !== undefined && output.virtualServiceName !== null
         ? output.virtualServiceName
         : undefined
   } as any;
@@ -7043,10 +6091,7 @@ const deserializeAws_restJson1_1VirtualServiceSpec = (
     __type: "VirtualServiceSpec",
     provider:
       output.provider !== undefined && output.provider !== null
-        ? deserializeAws_restJson1_1VirtualServiceProvider(
-            output.provider,
-            context
-          )
+        ? deserializeAws_restJson1_1VirtualServiceProvider(output.provider, context)
         : undefined
   } as any;
 };
@@ -7057,10 +6102,7 @@ const deserializeAws_restJson1_1VirtualServiceStatus = (
 ): VirtualServiceStatus => {
   return {
     __type: "VirtualServiceStatus",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -7074,10 +6116,7 @@ const deserializeAws_restJson1_1WeightedTarget = (
       output.virtualNode !== undefined && output.virtualNode !== null
         ? output.virtualNode
         : undefined,
-    weight:
-      output.weight !== undefined && output.weight !== null
-        ? output.weight
-        : undefined
+    weight: output.weight !== undefined && output.weight !== null ? output.weight : undefined
   } as any;
 };
 
@@ -7104,23 +6143,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

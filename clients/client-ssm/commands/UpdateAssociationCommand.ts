@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  UpdateAssociationRequest,
-  UpdateAssociationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { UpdateAssociationRequest, UpdateAssociationResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateAssociationCommand,
   serializeAws_json1_1UpdateAssociationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAssociationCommandInput = UpdateAssociationRequest;
-export type UpdateAssociationCommandOutput = UpdateAssociationResult &
-  __MetadataBearer;
+export type UpdateAssociationCommandOutput = UpdateAssociationResult & __MetadataBearer;
 
 export class UpdateAssociationCommand extends $Command<
   UpdateAssociationCommandInput,
@@ -50,9 +42,7 @@ export class UpdateAssociationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAssociationCommandInput, UpdateAssociationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

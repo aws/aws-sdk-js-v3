@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DeleteEntityRecognizerRequest,
-  DeleteEntityRecognizerResponse
-} from "../models/index";
+import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteEntityRecognizerCommand,
   serializeAws_json1_1DeleteEntityRecognizerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEntityRecognizerCommandInput = DeleteEntityRecognizerRequest;
-export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse &
-  __MetadataBearer;
+export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse & __MetadataBearer;
 
 export class DeleteEntityRecognizerCommand extends $Command<
   DeleteEntityRecognizerCommandInput,
@@ -49,13 +45,8 @@ export class DeleteEntityRecognizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEntityRecognizerCommandInput,
-    DeleteEntityRecognizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEntityRecognizerCommandInput, DeleteEntityRecognizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

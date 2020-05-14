@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DescribeParameterGroupsRequest, DescribeParameterGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeParameterGroupsCommand,
   serializeAws_json1_1DescribeParameterGroupsCommand
@@ -49,13 +42,8 @@ export class DescribeParameterGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeParameterGroupsCommandInput,
-    DescribeParameterGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeParameterGroupsCommandInput, DescribeParameterGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeParameterGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeParameterGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeParameterGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

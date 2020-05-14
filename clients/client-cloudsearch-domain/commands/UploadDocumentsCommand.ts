@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchDomainClient";
-import {
-  UploadDocumentsRequest,
-  UploadDocumentsResponse
-} from "../models/index";
+import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UploadDocumentsCommand,
   serializeAws_restJson1_1UploadDocumentsCommand
@@ -27,14 +24,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type UploadDocumentsCommandInput = Omit<
-  UploadDocumentsRequest,
-  "documents"
-> & {
+export type UploadDocumentsCommandInput = Omit<UploadDocumentsRequest, "documents"> & {
   documents: UploadDocumentsRequest["documents"] | string | Uint8Array | Buffer;
 };
-export type UploadDocumentsCommandOutput = UploadDocumentsResponse &
-  __MetadataBearer;
+export type UploadDocumentsCommandOutput = UploadDocumentsResponse & __MetadataBearer;
 
 export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandInput,
@@ -55,9 +48,7 @@ export class UploadDocumentsCommand extends $Command<
     configuration: CloudSearchDomainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadDocumentsCommandInput, UploadDocumentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

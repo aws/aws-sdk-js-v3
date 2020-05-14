@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDashboardsCommandInput = ListDashboardsInput;
-export type ListDashboardsCommandOutput = ListDashboardsOutput &
-  __MetadataBearer;
+export type ListDashboardsCommandOutput = ListDashboardsOutput & __MetadataBearer;
 
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,
@@ -47,9 +46,7 @@ export class ListDashboardsCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDashboardsCommandInput, ListDashboardsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -10,10 +10,7 @@ import {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput
 } from "./commands/CreateDistributionConfigurationCommand";
-import {
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateImagePipelineCommandInput,
   CreateImagePipelineCommandOutput
@@ -34,10 +31,7 @@ import {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput
 } from "./commands/DeleteDistributionConfigurationCommand";
-import {
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "./commands/DeleteImageCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
   DeleteImagePipelineCommandInput,
   DeleteImagePipelineCommandOutput
@@ -62,10 +56,7 @@ import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput
 } from "./commands/GetDistributionConfigurationCommand";
-import {
-  GetImageCommandInput,
-  GetImageCommandOutput
-} from "./commands/GetImageCommand";
+import { GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
 import {
   GetImagePipelineCommandInput,
   GetImagePipelineCommandOutput
@@ -118,10 +109,7 @@ import {
   ListImageRecipesCommandInput,
   ListImageRecipesCommandOutput
 } from "./commands/ListImageRecipesCommand";
-import {
-  ListImagesCommandInput,
-  ListImagesCommandOutput
-} from "./commands/ListImagesCommand";
+import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
   ListInfrastructureConfigurationsCommandOutput
@@ -146,10 +134,7 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput
 } from "./commands/StartImagePipelineExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -391,9 +376,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type imagebuilderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type imagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -402,9 +385,7 @@ export type imagebuilderClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,8 +1,4 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreateNamedQueryInput, CreateNamedQueryOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateNamedQueryCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNamedQueryCommandInput = CreateNamedQueryInput;
-export type CreateNamedQueryCommandOutput = CreateNamedQueryOutput &
-  __MetadataBearer;
+export type CreateNamedQueryCommandOutput = CreateNamedQueryOutput & __MetadataBearer;
 
 export class CreateNamedQueryCommand extends $Command<
   CreateNamedQueryCommandInput,
@@ -47,9 +42,7 @@ export class CreateNamedQueryCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

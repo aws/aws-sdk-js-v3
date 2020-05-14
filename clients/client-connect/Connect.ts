@@ -175,9 +175,7 @@ export class Connect extends ConnectClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -210,9 +208,7 @@ export class Connect extends ConnectClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -247,9 +243,7 @@ export class Connect extends ConnectClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
@@ -319,10 +313,7 @@ export class Connect extends ConnectClient {
     args: DescribeUserHierarchyStructureCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeUserHierarchyStructureCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void
   ): Promise<DescribeUserHierarchyStructureCommandOutput> | void {
     const command = new DescribeUserHierarchyStructureCommand(args);
@@ -464,9 +455,7 @@ export class Connect extends ConnectClient {
   ): void;
   public getMetricData(
     args: GetMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
@@ -499,9 +488,7 @@ export class Connect extends ConnectClient {
   ): void;
   public listContactFlows(
     args: ListContactFlowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContactFlowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactFlowsCommandOutput) => void),
     cb?: (err: any, data?: ListContactFlowsCommandOutput) => void
   ): Promise<ListContactFlowsCommandOutput> | void {
     const command = new ListContactFlowsCommand(args);
@@ -569,9 +556,7 @@ export class Connect extends ConnectClient {
   ): void;
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
     cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): Promise<ListPhoneNumbersCommandOutput> | void {
     const command = new ListPhoneNumbersCommand(args);
@@ -604,9 +589,7 @@ export class Connect extends ConnectClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
@@ -782,9 +765,7 @@ export class Connect extends ConnectClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -822,9 +803,7 @@ export class Connect extends ConnectClient {
   ): void;
   public startChatContact(
     args: StartChatContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChatContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChatContactCommandOutput) => void),
     cb?: (err: any, data?: StartChatContactCommandOutput) => void
   ): Promise<StartChatContactCommandOutput> | void {
     const command = new StartChatContactCommand(args);
@@ -895,9 +874,7 @@ export class Connect extends ConnectClient {
   ): void;
   public stopContact(
     args: StopContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopContactCommandOutput) => void),
     cb?: (err: any, data?: StopContactCommandOutput) => void
   ): Promise<StopContactCommandOutput> | void {
     const command = new StopContactCommand(args);
@@ -931,9 +908,7 @@ export class Connect extends ConnectClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -966,9 +941,7 @@ export class Connect extends ConnectClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

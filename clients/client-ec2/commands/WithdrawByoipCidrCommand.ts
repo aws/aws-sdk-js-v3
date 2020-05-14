@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  WithdrawByoipCidrRequest,
-  WithdrawByoipCidrResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/index";
 import {
   deserializeAws_ec2WithdrawByoipCidrCommand,
   serializeAws_ec2WithdrawByoipCidrCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type WithdrawByoipCidrCommandInput = WithdrawByoipCidrRequest;
-export type WithdrawByoipCidrCommandOutput = WithdrawByoipCidrResult &
-  __MetadataBearer;
+export type WithdrawByoipCidrCommandOutput = WithdrawByoipCidrResult & __MetadataBearer;
 
 export class WithdrawByoipCidrCommand extends $Command<
   WithdrawByoipCidrCommandInput,
@@ -50,9 +42,7 @@ export class WithdrawByoipCidrCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

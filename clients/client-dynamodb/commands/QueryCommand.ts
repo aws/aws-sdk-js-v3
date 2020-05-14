@@ -46,9 +46,7 @@ export class QueryCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class QueryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: QueryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0QueryCommand(input, context);
   }
 

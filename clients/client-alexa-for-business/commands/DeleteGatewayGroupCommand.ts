@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteGatewayGroupRequest,
-  DeleteGatewayGroupResponse
-} from "../models/index";
+import { DeleteGatewayGroupRequest, DeleteGatewayGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteGatewayGroupCommand,
   serializeAws_json1_1DeleteGatewayGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGatewayGroupCommandInput = DeleteGatewayGroupRequest;
-export type DeleteGatewayGroupCommandOutput = DeleteGatewayGroupResponse &
-  __MetadataBearer;
+export type DeleteGatewayGroupCommandOutput = DeleteGatewayGroupResponse & __MetadataBearer;
 
 export class DeleteGatewayGroupCommand extends $Command<
   DeleteGatewayGroupCommandInput,
@@ -50,9 +46,7 @@ export class DeleteGatewayGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGatewayGroupCommandInput, DeleteGatewayGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

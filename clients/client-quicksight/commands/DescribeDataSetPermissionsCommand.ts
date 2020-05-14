@@ -49,13 +49,8 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDataSetPermissionsCommandInput,
-    DescribeDataSetPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDataSetPermissionsCommandInput, DescribeDataSetPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     input: DescribeDataSetPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDataSetPermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeDataSetPermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSetPermissionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDataSetPermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSetPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

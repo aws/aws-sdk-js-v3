@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportSnapshotCommandInput = ExportSnapshotRequest;
-export type ExportSnapshotCommandOutput = ExportSnapshotResult &
-  __MetadataBearer;
+export type ExportSnapshotCommandOutput = ExportSnapshotResult & __MetadataBearer;
 
 export class ExportSnapshotCommand extends $Command<
   ExportSnapshotCommandInput,
@@ -47,9 +46,7 @@ export class ExportSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportSnapshotCommandInput, ExportSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

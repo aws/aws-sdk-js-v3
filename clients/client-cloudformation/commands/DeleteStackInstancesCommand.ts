@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DeleteStackInstancesInput,
-  DeleteStackInstancesOutput
-} from "../models/index";
+import { DeleteStackInstancesInput, DeleteStackInstancesOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteStackInstancesCommand,
   serializeAws_queryDeleteStackInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStackInstancesCommandInput = DeleteStackInstancesInput;
-export type DeleteStackInstancesCommandOutput = DeleteStackInstancesOutput &
-  __MetadataBearer;
+export type DeleteStackInstancesCommandOutput = DeleteStackInstancesOutput & __MetadataBearer;
 
 export class DeleteStackInstancesCommand extends $Command<
   DeleteStackInstancesCommandInput,
@@ -49,13 +45,8 @@ export class DeleteStackInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteStackInstancesCommandInput,
-    DeleteStackInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteStackInstancesCommandInput, DeleteStackInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  UploadEntityDefinitionsRequest,
-  UploadEntityDefinitionsResponse
-} from "../models/index";
+import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1UploadEntityDefinitionsCommand,
   serializeAws_json1_1UploadEntityDefinitionsCommand
@@ -49,13 +46,8 @@ export class UploadEntityDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UploadEntityDefinitionsCommandInput,
-    UploadEntityDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UploadEntityDefinitionsCommandInput, UploadEntityDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UploadEntityDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UploadEntityDefinitionsCommandOutput> {
-    return deserializeAws_json1_1UploadEntityDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UploadEntityDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

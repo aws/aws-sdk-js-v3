@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import {
   PutAppReplicationConfigurationRequest,
   PutAppReplicationConfigurationResponse
@@ -53,9 +49,7 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     PutAppReplicationConfigurationCommandInput,
     PutAppReplicationConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     input: PutAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppReplicationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutAppReplicationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppReplicationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  ListTemplateVersionsRequest,
-  ListTemplateVersionsResponse
-} from "../models/index";
+import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTemplateVersionsCommand,
   serializeAws_restJson1_1ListTemplateVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTemplateVersionsCommandInput = ListTemplateVersionsRequest;
-export type ListTemplateVersionsCommandOutput = ListTemplateVersionsResponse &
-  __MetadataBearer;
+export type ListTemplateVersionsCommandOutput = ListTemplateVersionsResponse & __MetadataBearer;
 
 export class ListTemplateVersionsCommand extends $Command<
   ListTemplateVersionsCommandInput,
@@ -49,13 +45,8 @@ export class ListTemplateVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTemplateVersionsCommandInput,
-    ListTemplateVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTemplateVersionsCommandInput, ListTemplateVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListTemplateVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTemplateVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListTemplateVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

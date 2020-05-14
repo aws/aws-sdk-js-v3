@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient";
-import {
-  ListTaskExecutionsRequest,
-  ListTaskExecutionsResponse
-} from "../models/index";
+import { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTaskExecutionsCommand,
   serializeAws_json1_1ListTaskExecutionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTaskExecutionsCommandInput = ListTaskExecutionsRequest;
-export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse &
-  __MetadataBearer;
+export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse & __MetadataBearer;
 
 export class ListTaskExecutionsCommand extends $Command<
   ListTaskExecutionsCommandInput,
@@ -50,9 +46,7 @@ export class ListTaskExecutionsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

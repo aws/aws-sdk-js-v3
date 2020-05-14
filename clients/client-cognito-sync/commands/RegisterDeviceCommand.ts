@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterDeviceCommandInput = RegisterDeviceRequest;
-export type RegisterDeviceCommandOutput = RegisterDeviceResponse &
-  __MetadataBearer;
+export type RegisterDeviceCommandOutput = RegisterDeviceResponse & __MetadataBearer;
 
 export class RegisterDeviceCommand extends $Command<
   RegisterDeviceCommandInput,
@@ -47,9 +46,7 @@ export class RegisterDeviceCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterDeviceCommandInput, RegisterDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

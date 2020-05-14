@@ -124,11 +124,7 @@ import {
   InvokeAsyncCommandInput,
   InvokeAsyncCommandOutput
 } from "./commands/InvokeAsyncCommand";
-import {
-  InvokeCommand,
-  InvokeCommandInput,
-  InvokeCommandOutput
-} from "./commands/InvokeCommand";
+import { InvokeCommand, InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
@@ -326,9 +322,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
@@ -366,9 +360,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
@@ -509,9 +501,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public createFunction(
     args: CreateFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionCommandOutput) => void
   ): Promise<CreateFunctionCommandOutput> | void {
     const command = new CreateFunctionCommand(args);
@@ -544,9 +534,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
@@ -622,9 +610,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public deleteFunction(
     args: DeleteFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): Promise<DeleteFunctionCommandOutput> | void {
     const command = new DeleteFunctionCommand(args);
@@ -695,10 +681,7 @@ export class Lambda extends LambdaClient {
     args: DeleteFunctionEventInvokeConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFunctionEventInvokeConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> | void {
     const command = new DeleteFunctionEventInvokeConfigCommand(args);
@@ -759,31 +742,19 @@ export class Lambda extends LambdaClient {
   ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput>;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
   public deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteProvisionedConcurrencyConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteProvisionedConcurrencyConfigCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new DeleteProvisionedConcurrencyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -850,9 +821,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public getAlias(
     args: GetAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAliasCommandOutput) => void),
     cb?: (err: any, data?: GetAliasCommandOutput) => void
   ): Promise<GetAliasCommandOutput> | void {
     const command = new GetAliasCommand(args);
@@ -923,9 +892,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public getFunction(
     args: GetFunctionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFunctionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionCommandOutput) => void
   ): Promise<GetFunctionCommandOutput> | void {
     const command = new GetFunctionCommand(args);
@@ -1069,9 +1036,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public getLayerVersion(
     args: GetLayerVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLayerVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLayerVersionCommandOutput) => void),
     cb?: (err: any, data?: GetLayerVersionCommandOutput) => void
   ): Promise<GetLayerVersionCommandOutput> | void {
     const command = new GetLayerVersionCommand(args);
@@ -1177,9 +1142,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
@@ -1214,10 +1177,7 @@ export class Lambda extends LambdaClient {
     args: GetProvisionedConcurrencyConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetProvisionedConcurrencyConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void),
     cb?: (err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<GetProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new GetProvisionedConcurrencyConfigCommand(args);
@@ -1265,10 +1225,7 @@ export class Lambda extends LambdaClient {
     args: InvokeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InvokeCommandOutput>;
-  public invoke(
-    args: InvokeCommandInput,
-    cb: (err: any, data?: InvokeCommandOutput) => void
-  ): void;
+  public invoke(args: InvokeCommandInput, cb: (err: any, data?: InvokeCommandOutput) => void): void;
   public invoke(
     args: InvokeCommandInput,
     options: __HttpHandlerOptions,
@@ -1276,9 +1233,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public invoke(
     args: InvokeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeCommandOutput) => void),
     cb?: (err: any, data?: InvokeCommandOutput) => void
   ): Promise<InvokeCommandOutput> | void {
     const command = new InvokeCommand(args);
@@ -1314,9 +1269,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public invokeAsync(
     args: InvokeAsyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeAsyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeAsyncCommandOutput) => void),
     cb?: (err: any, data?: InvokeAsyncCommandOutput) => void
   ): Promise<InvokeAsyncCommandOutput> | void {
     const command = new InvokeAsyncCommand(args);
@@ -1350,9 +1303,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
@@ -1424,10 +1375,7 @@ export class Lambda extends LambdaClient {
     args: ListFunctionEventInvokeConfigsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFunctionEventInvokeConfigsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListFunctionEventInvokeConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionEventInvokeConfigsCommandOutput) => void
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput> | void {
     const command = new ListFunctionEventInvokeConfigsCommand(args);
@@ -1462,9 +1410,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public listFunctions(
     args: ListFunctionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFunctionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionsCommandOutput) => void
   ): Promise<ListFunctionsCommandOutput> | void {
     const command = new ListFunctionsCommand(args);
@@ -1536,9 +1482,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public listLayers(
     args: ListLayersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLayersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLayersCommandOutput) => void),
     cb?: (err: any, data?: ListLayersCommandOutput) => void
   ): Promise<ListLayersCommandOutput> | void {
     const command = new ListLayersCommand(args);
@@ -1562,31 +1506,19 @@ export class Lambda extends LambdaClient {
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput>;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
-    cb: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): void;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): void;
   public listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisionedConcurrencyConfigsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisionedConcurrencyConfigsCommandOutput
-    ) => void
+      | ((err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> | void {
     const command = new ListProvisionedConcurrencyConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1619,9 +1551,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -1736,9 +1666,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public publishVersion(
     args: PublishVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishVersionCommandOutput) => void),
     cb?: (err: any, data?: PublishVersionCommandOutput) => void
   ): Promise<PublishVersionCommandOutput> | void {
     const command = new PublishVersionCommand(args);
@@ -1856,10 +1784,7 @@ export class Lambda extends LambdaClient {
     args: PutProvisionedConcurrencyConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutProvisionedConcurrencyConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void),
     cb?: (err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput> | void {
     const command = new PutProvisionedConcurrencyConfigCommand(args);
@@ -1930,9 +1855,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
@@ -1965,9 +1888,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2000,9 +1921,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2035,9 +1954,7 @@ export class Lambda extends LambdaClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
@@ -2219,10 +2136,7 @@ export class Lambda extends LambdaClient {
     args: UpdateFunctionEventInvokeConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFunctionEventInvokeConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> | void {
     const command = new UpdateFunctionEventInvokeConfigCommand(args);

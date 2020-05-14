@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -60,8 +57,7 @@ export interface DASHFragmentSelector {
 }
 
 export namespace DASHFragmentSelector {
-  export const isa = (o: any): o is DASHFragmentSelector =>
-    __isa(o, "DASHFragmentSelector");
+  export const isa = (o: any): o is DASHFragmentSelector => __isa(o, "DASHFragmentSelector");
 }
 
 export enum DASHFragmentSelectorType {
@@ -122,8 +118,7 @@ export interface DASHTimestampRange {
 }
 
 export namespace DASHTimestampRange {
-  export const isa = (o: any): o is DASHTimestampRange =>
-    __isa(o, "DASHTimestampRange");
+  export const isa = (o: any): o is DASHTimestampRange => __isa(o, "DASHTimestampRange");
 }
 
 /**
@@ -199,8 +194,7 @@ export interface FragmentSelector {
 }
 
 export namespace FragmentSelector {
-  export const isa = (o: any): o is FragmentSelector =>
-    __isa(o, "FragmentSelector");
+  export const isa = (o: any): o is FragmentSelector => __isa(o, "FragmentSelector");
 }
 
 export enum FragmentSelectorType {
@@ -715,8 +709,7 @@ export interface HLSFragmentSelector {
 }
 
 export namespace HLSFragmentSelector {
-  export const isa = (o: any): o is HLSFragmentSelector =>
-    __isa(o, "HLSFragmentSelector");
+  export const isa = (o: any): o is HLSFragmentSelector => __isa(o, "HLSFragmentSelector");
 }
 
 export enum HLSFragmentSelectorType {
@@ -776,8 +769,7 @@ export interface HLSTimestampRange {
 }
 
 export namespace HLSTimestampRange {
-  export const isa = (o: any): o is HLSTimestampRange =>
-    __isa(o, "HLSTimestampRange");
+  export const isa = (o: any): o is HLSTimestampRange => __isa(o, "HLSTimestampRange");
 }
 
 export interface ListFragmentsInput {
@@ -808,8 +800,7 @@ export interface ListFragmentsInput {
 }
 
 export namespace ListFragmentsInput {
-  export const isa = (o: any): o is ListFragmentsInput =>
-    __isa(o, "ListFragmentsInput");
+  export const isa = (o: any): o is ListFragmentsInput => __isa(o, "ListFragmentsInput");
 }
 
 export interface ListFragmentsOutput {
@@ -829,8 +820,7 @@ export interface ListFragmentsOutput {
 }
 
 export namespace ListFragmentsOutput {
-  export const isa = (o: any): o is ListFragmentsOutput =>
-    __isa(o, "ListFragmentsOutput");
+  export const isa = (o: any): o is ListFragmentsOutput => __isa(o, "ListFragmentsOutput");
 }
 
 /**
@@ -851,17 +841,14 @@ export interface TimestampRange {
 }
 
 export namespace TimestampRange {
-  export const isa = (o: any): o is TimestampRange =>
-    __isa(o, "TimestampRange");
+  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -876,9 +863,7 @@ export namespace ClientLimitExceededException {
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
  *             used.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -893,9 +878,7 @@ export namespace InvalidArgumentException {
  * <p>The codec private data in at least one of the tracks of the video stream is not valid
  *             for this operation.</p>
  */
-export interface InvalidCodecPrivateDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCodecPrivateDataException extends __SmithyException, $MetadataBearer {
   name: "InvalidCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -909,9 +892,7 @@ export namespace InvalidCodecPrivateDataException {
 /**
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
-export interface MissingCodecPrivateDataException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingCodecPrivateDataException extends __SmithyException, $MetadataBearer {
   name: "MissingCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -926,9 +907,7 @@ export namespace MissingCodecPrivateDataException {
  * <p>A streaming session was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
-export interface NoDataRetentionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoDataRetentionException extends __SmithyException, $MetadataBearer {
   name: "NoDataRetentionException";
   $fault: "client";
   Message?: string;
@@ -943,17 +922,14 @@ export namespace NoDataRetentionException {
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *             stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -968,9 +944,7 @@ export namespace NotAuthorizedException {
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -987,9 +961,7 @@ export namespace ResourceNotFoundException {
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  */
-export interface UnsupportedStreamMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedStreamMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedStreamMediaTypeException";
   $fault: "client";
   Message?: string;

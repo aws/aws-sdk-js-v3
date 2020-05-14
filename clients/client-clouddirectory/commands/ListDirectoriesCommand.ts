@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListDirectoriesRequest,
-  ListDirectoriesResponse
-} from "../models/index";
+import { ListDirectoriesRequest, ListDirectoriesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDirectoriesCommand,
   serializeAws_restJson1_1ListDirectoriesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDirectoriesCommandInput = ListDirectoriesRequest;
-export type ListDirectoriesCommandOutput = ListDirectoriesResponse &
-  __MetadataBearer;
+export type ListDirectoriesCommandOutput = ListDirectoriesResponse & __MetadataBearer;
 
 export class ListDirectoriesCommand extends $Command<
   ListDirectoriesCommandInput,
@@ -50,9 +46,7 @@ export class ListDirectoriesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDirectoriesCommandInput, ListDirectoriesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

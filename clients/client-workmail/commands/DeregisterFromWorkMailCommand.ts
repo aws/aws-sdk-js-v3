@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  DeregisterFromWorkMailRequest,
-  DeregisterFromWorkMailResponse
-} from "../models/index";
+import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterFromWorkMailCommand,
   serializeAws_json1_1DeregisterFromWorkMailCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterFromWorkMailCommandInput = DeregisterFromWorkMailRequest;
-export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse &
-  __MetadataBearer;
+export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse & __MetadataBearer;
 
 export class DeregisterFromWorkMailCommand extends $Command<
   DeregisterFromWorkMailCommandInput,
@@ -49,13 +45,8 @@ export class DeregisterFromWorkMailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterFromWorkMailCommandInput,
-    DeregisterFromWorkMailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterFromWorkMailCommandInput, DeregisterFromWorkMailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

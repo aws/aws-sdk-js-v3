@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyDBProxyRequest, ModifyDBProxyResponse } from "../models/index";
 import {
   deserializeAws_queryModifyDBProxyCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBProxyCommandInput = ModifyDBProxyRequest;
-export type ModifyDBProxyCommandOutput = ModifyDBProxyResponse &
-  __MetadataBearer;
+export type ModifyDBProxyCommandOutput = ModifyDBProxyResponse & __MetadataBearer;
 
 export class ModifyDBProxyCommand extends $Command<
   ModifyDBProxyCommandInput,
@@ -47,9 +42,7 @@ export class ModifyDBProxyCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBProxyCommandInput, ModifyDBProxyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

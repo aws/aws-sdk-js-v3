@@ -580,14 +580,8 @@ export class Greengrass extends GreengrassClient {
     args: CreateConnectorDefinitionVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConnectorDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConnectorDefinitionVersionCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConnectorDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectorDefinitionVersionCommandOutput) => void
   ): Promise<CreateConnectorDefinitionVersionCommandOutput> | void {
     const command = new CreateConnectorDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -689,9 +683,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -831,10 +823,7 @@ export class Greengrass extends GreengrassClient {
     args: CreateFunctionDefinitionVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFunctionDefinitionVersionCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateFunctionDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionDefinitionVersionCommandOutput) => void
   ): Promise<CreateFunctionDefinitionVersionCommandOutput> | void {
     const command = new CreateFunctionDefinitionVersionCommand(args);
@@ -867,9 +856,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -904,10 +891,7 @@ export class Greengrass extends GreengrassClient {
     args: CreateGroupCertificateAuthorityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateGroupCertificateAuthorityCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateGroupCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCertificateAuthorityCommandOutput) => void
   ): Promise<CreateGroupCertificateAuthorityCommandOutput> | void {
     const command = new CreateGroupCertificateAuthorityCommand(args);
@@ -1082,10 +1066,7 @@ export class Greengrass extends GreengrassClient {
     args: CreateResourceDefinitionVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateResourceDefinitionVersionCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateResourceDefinitionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceDefinitionVersionCommandOutput) => void
   ): Promise<CreateResourceDefinitionVersionCommandOutput> | void {
     const command = new CreateResourceDefinitionVersionCommand(args);
@@ -1179,31 +1160,19 @@ export class Greengrass extends GreengrassClient {
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput>;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
   public createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSubscriptionDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSubscriptionDefinitionVersionCommandOutput
-    ) => void
+      | ((err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> | void {
     const command = new CreateSubscriptionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1375,9 +1344,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -1541,31 +1508,19 @@ export class Greengrass extends GreengrassClient {
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): void;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): void;
   public disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceRoleFromAccountCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceRoleFromAccountCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> | void {
     const command = new DisassociateServiceRoleFromAccountCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2017,9 +1972,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
@@ -2089,14 +2042,8 @@ export class Greengrass extends GreengrassClient {
     args: GetGroupCertificateConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetGroupCertificateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetGroupCertificateConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetGroupCertificateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupCertificateConfigurationCommandOutput) => void
   ): Promise<GetGroupCertificateConfigurationCommandOutput> | void {
     const command = new GetGroupCertificateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2128,9 +2075,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public getGroupVersion(
     args: GetGroupVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupVersionCommandOutput) => void),
     cb?: (err: any, data?: GetGroupVersionCommandOutput) => void
   ): Promise<GetGroupVersionCommandOutput> | void {
     const command = new GetGroupVersionCommand(args);
@@ -2375,14 +2320,8 @@ export class Greengrass extends GreengrassClient {
     args: GetSubscriptionDefinitionVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSubscriptionDefinitionVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSubscriptionDefinitionVersionCommandOutput
-    ) => void
+      | ((err: any, data?: GetSubscriptionDefinitionVersionCommandOutput) => void),
+    cb?: (err: any, data?: GetSubscriptionDefinitionVersionCommandOutput) => void
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput> | void {
     const command = new GetSubscriptionDefinitionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2405,31 +2344,19 @@ export class Greengrass extends GreengrassClient {
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput>;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): void;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): void;
   public listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBulkDeploymentDetailedReportsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBulkDeploymentDetailedReportsCommandOutput
-    ) => void
+      | ((err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void),
+    cb?: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> | void {
     const command = new ListBulkDeploymentDetailedReportsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2498,10 +2425,7 @@ export class Greengrass extends GreengrassClient {
     args: ListConnectorDefinitionVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListConnectorDefinitionVersionsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
   ): Promise<ListConnectorDefinitionVersionsCommandOutput> | void {
     const command = new ListConnectorDefinitionVersionsCommand(args);
@@ -2639,9 +2563,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
@@ -2746,10 +2668,7 @@ export class Greengrass extends GreengrassClient {
     args: ListFunctionDefinitionVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFunctionDefinitionVersionsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListFunctionDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionDefinitionVersionsCommandOutput) => void
   ): Promise<ListFunctionDefinitionVersionsCommandOutput> | void {
     const command = new ListFunctionDefinitionVersionsCommand(args);
@@ -2819,10 +2738,7 @@ export class Greengrass extends GreengrassClient {
     args: ListGroupCertificateAuthoritiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListGroupCertificateAuthoritiesCommandOutput
-        ) => void),
+      | ((err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void),
     cb?: (err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> | void {
     const command = new ListGroupCertificateAuthoritiesCommand(args);
@@ -2890,9 +2806,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
@@ -2997,10 +2911,7 @@ export class Greengrass extends GreengrassClient {
     args: ListResourceDefinitionVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResourceDefinitionVersionsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListResourceDefinitionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceDefinitionVersionsCommandOutput) => void
   ): Promise<ListResourceDefinitionVersionsCommandOutput> | void {
     const command = new ListResourceDefinitionVersionsCommand(args);
@@ -3059,31 +2970,19 @@ export class Greengrass extends GreengrassClient {
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput>;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
-    cb: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): void;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): void;
   public listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListSubscriptionDefinitionVersionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListSubscriptionDefinitionVersionsCommandOutput
-    ) => void
+      | ((err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> | void {
     const command = new ListSubscriptionDefinitionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3185,9 +3084,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public resetDeployments(
     args: ResetDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ResetDeploymentsCommandOutput) => void
   ): Promise<ResetDeploymentsCommandOutput> | void {
     const command = new ResetDeploymentsCommand(args);
@@ -3290,9 +3187,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3325,9 +3220,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3535,9 +3428,7 @@ export class Greengrass extends GreengrassClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
@@ -3561,31 +3452,19 @@ export class Greengrass extends GreengrassClient {
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput>;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): void;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): void;
   public updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateGroupCertificateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateGroupCertificateConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput> | void {
     const command = new UpdateGroupCertificateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { CreateMeetingRequest, CreateMeetingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateMeetingCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMeetingCommandInput = CreateMeetingRequest;
-export type CreateMeetingCommandOutput = CreateMeetingResponse &
-  __MetadataBearer;
+export type CreateMeetingCommandOutput = CreateMeetingResponse & __MetadataBearer;
 
 export class CreateMeetingCommand extends $Command<
   CreateMeetingCommandInput,
@@ -47,9 +42,7 @@ export class CreateMeetingCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMeetingCommandInput, CreateMeetingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

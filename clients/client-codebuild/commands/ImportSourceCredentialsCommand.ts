@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  ImportSourceCredentialsInput,
-  ImportSourceCredentialsOutput
-} from "../models/index";
+import { ImportSourceCredentialsInput, ImportSourceCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ImportSourceCredentialsCommand,
   serializeAws_json1_1ImportSourceCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportSourceCredentialsCommandInput = ImportSourceCredentialsInput;
-export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput &
-  __MetadataBearer;
+export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput & __MetadataBearer;
 
 export class ImportSourceCredentialsCommand extends $Command<
   ImportSourceCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class ImportSourceCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportSourceCredentialsCommandInput,
-    ImportSourceCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportSourceCredentialsCommandInput, ImportSourceCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ImportSourceCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1ImportSourceCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGraphqlApiCommandInput = GetGraphqlApiRequest;
-export type GetGraphqlApiCommandOutput = GetGraphqlApiResponse &
-  __MetadataBearer;
+export type GetGraphqlApiCommandOutput = GetGraphqlApiResponse & __MetadataBearer;
 
 export class GetGraphqlApiCommand extends $Command<
   GetGraphqlApiCommandInput,
@@ -47,9 +46,7 @@ export class GetGraphqlApiCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

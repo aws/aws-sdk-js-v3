@@ -1,8 +1,4 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEventsRequest, DescribeEventsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventsCommandInput = DescribeEventsRequest;
-export type DescribeEventsCommandOutput = DescribeEventsResponse &
-  __MetadataBearer;
+export type DescribeEventsCommandOutput = DescribeEventsResponse & __MetadataBearer;
 
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
@@ -47,9 +42,7 @@ export class DescribeEventsCommand extends $Command<
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventsCommandInput, DescribeEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

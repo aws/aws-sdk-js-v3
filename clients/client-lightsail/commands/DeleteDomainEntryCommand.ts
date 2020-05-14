@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteDomainEntryRequest,
-  DeleteDomainEntryResult
-} from "../models/index";
+import { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDomainEntryCommand,
   serializeAws_json1_1DeleteDomainEntryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDomainEntryCommandInput = DeleteDomainEntryRequest;
-export type DeleteDomainEntryCommandOutput = DeleteDomainEntryResult &
-  __MetadataBearer;
+export type DeleteDomainEntryCommandOutput = DeleteDomainEntryResult & __MetadataBearer;
 
 export class DeleteDomainEntryCommand extends $Command<
   DeleteDomainEntryCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDomainEntryCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

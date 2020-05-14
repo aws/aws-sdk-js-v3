@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  StartImageBuilderRequest,
-  StartImageBuilderResult
-} from "../models/index";
+import { StartImageBuilderRequest, StartImageBuilderResult } from "../models/index";
 import {
   deserializeAws_json1_1StartImageBuilderCommand,
   serializeAws_json1_1StartImageBuilderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartImageBuilderCommandInput = StartImageBuilderRequest;
-export type StartImageBuilderCommandOutput = StartImageBuilderResult &
-  __MetadataBearer;
+export type StartImageBuilderCommandOutput = StartImageBuilderResult & __MetadataBearer;
 
 export class StartImageBuilderCommand extends $Command<
   StartImageBuilderCommandInput,
@@ -50,9 +46,7 @@ export class StartImageBuilderCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartImageBuilderCommandInput, StartImageBuilderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

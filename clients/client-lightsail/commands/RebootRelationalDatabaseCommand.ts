@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  RebootRelationalDatabaseRequest,
-  RebootRelationalDatabaseResult
-} from "../models/index";
+import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1RebootRelationalDatabaseCommand,
   serializeAws_json1_1RebootRelationalDatabaseCommand
@@ -49,13 +46,8 @@ export class RebootRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RebootRelationalDatabaseCommandInput,
-    RebootRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RebootRelationalDatabaseCommandInput, RebootRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class RebootRelationalDatabaseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebootRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1RebootRelationalDatabaseCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RebootRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

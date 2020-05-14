@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  ModifyClientPropertiesRequest,
-  ModifyClientPropertiesResult
-} from "../models/index";
+import { ModifyClientPropertiesRequest, ModifyClientPropertiesResult } from "../models/index";
 import {
   deserializeAws_json1_1ModifyClientPropertiesCommand,
   serializeAws_json1_1ModifyClientPropertiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClientPropertiesCommandInput = ModifyClientPropertiesRequest;
-export type ModifyClientPropertiesCommandOutput = ModifyClientPropertiesResult &
-  __MetadataBearer;
+export type ModifyClientPropertiesCommandOutput = ModifyClientPropertiesResult & __MetadataBearer;
 
 export class ModifyClientPropertiesCommand extends $Command<
   ModifyClientPropertiesCommandInput,
@@ -49,13 +45,8 @@ export class ModifyClientPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClientPropertiesCommandInput,
-    ModifyClientPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClientPropertiesCommandInput, ModifyClientPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

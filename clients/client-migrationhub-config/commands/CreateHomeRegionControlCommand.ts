@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubConfigClient";
-import {
-  CreateHomeRegionControlRequest,
-  CreateHomeRegionControlResult
-} from "../models/index";
+import { CreateHomeRegionControlRequest, CreateHomeRegionControlResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateHomeRegionControlCommand,
   serializeAws_json1_1CreateHomeRegionControlCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHomeRegionControlCommandInput = CreateHomeRegionControlRequest;
-export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult &
-  __MetadataBearer;
+export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult & __MetadataBearer;
 
 export class CreateHomeRegionControlCommand extends $Command<
   CreateHomeRegionControlCommandInput,
@@ -49,13 +45,8 @@ export class CreateHomeRegionControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateHomeRegionControlCommandInput,
-    CreateHomeRegionControlCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateHomeRegionControlCommandInput, CreateHomeRegionControlCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateHomeRegionControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHomeRegionControlCommandOutput> {
-    return deserializeAws_json1_1CreateHomeRegionControlCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateHomeRegionControlCommand(output, context);
   }
 
   // Start section: command_body_extra

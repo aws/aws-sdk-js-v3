@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAgentCommandInput = DescribeAgentRequest;
-export type DescribeAgentCommandOutput = DescribeAgentResponse &
-  __MetadataBearer;
+export type DescribeAgentCommandOutput = DescribeAgentResponse & __MetadataBearer;
 
 export class DescribeAgentCommand extends $Command<
   DescribeAgentCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAgentCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAgentCommandInput, DescribeAgentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

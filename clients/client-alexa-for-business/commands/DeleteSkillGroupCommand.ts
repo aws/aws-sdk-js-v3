@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteSkillGroupRequest,
-  DeleteSkillGroupResponse
-} from "../models/index";
+import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSkillGroupCommand,
   serializeAws_json1_1DeleteSkillGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSkillGroupCommandInput = DeleteSkillGroupRequest;
-export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse &
-  __MetadataBearer;
+export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse & __MetadataBearer;
 
 export class DeleteSkillGroupCommand extends $Command<
   DeleteSkillGroupCommandInput,
@@ -50,9 +46,7 @@ export class DeleteSkillGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSkillGroupCommandInput, DeleteSkillGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

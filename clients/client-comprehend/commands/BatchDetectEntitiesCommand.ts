@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  BatchDetectEntitiesRequest,
-  BatchDetectEntitiesResponse
-} from "../models/index";
+import { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDetectEntitiesCommand,
   serializeAws_json1_1BatchDetectEntitiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDetectEntitiesCommandInput = BatchDetectEntitiesRequest;
-export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse &
-  __MetadataBearer;
+export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse & __MetadataBearer;
 
 export class BatchDetectEntitiesCommand extends $Command<
   BatchDetectEntitiesCommandInput,
@@ -49,13 +45,8 @@ export class BatchDetectEntitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDetectEntitiesCommandInput,
-    BatchDetectEntitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDetectEntitiesCommandInput, BatchDetectEntitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

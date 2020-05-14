@@ -49,13 +49,8 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAcceptedPortfolioSharesCommandInput,
-    ListAcceptedPortfolioSharesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAcceptedPortfolioSharesCommandInput, ListAcceptedPortfolioSharesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     input: ListAcceptedPortfolioSharesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAcceptedPortfolioSharesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAcceptedPortfolioSharesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAcceptedPortfolioSharesCommandOutput> {
-    return deserializeAws_json1_1ListAcceptedPortfolioSharesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAcceptedPortfolioSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

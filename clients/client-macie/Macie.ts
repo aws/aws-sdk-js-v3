@@ -250,9 +250,7 @@ export class Macie extends MacieClient {
   ): void;
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListS3ResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListS3ResourcesCommandOutput) => void
   ): Promise<ListS3ResourcesCommandOutput> | void {
     const command = new ListS3ResourcesCommand(args);

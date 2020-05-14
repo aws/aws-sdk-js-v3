@@ -1,8 +1,4 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { ResendValidationEmailRequest } from "../models/index";
 import {
   deserializeAws_json1_1ResendValidationEmailCommand,
@@ -45,13 +41,8 @@ export class ResendValidationEmailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResendValidationEmailCommandInput,
-    ResendValidationEmailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResendValidationEmailCommandInput, ResendValidationEmailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

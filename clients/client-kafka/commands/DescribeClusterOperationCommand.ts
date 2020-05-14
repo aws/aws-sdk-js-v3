@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  DescribeClusterOperationRequest,
-  DescribeClusterOperationResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { DescribeClusterOperationRequest, DescribeClusterOperationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeClusterOperationCommand,
   serializeAws_restJson1_1DescribeClusterOperationCommand
@@ -49,13 +42,8 @@ export class DescribeClusterOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterOperationCommandInput,
-    DescribeClusterOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterOperationCommandInput, DescribeClusterOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DescribeClusterOperationCommand extends $Command<
     input: DescribeClusterOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeClusterOperationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeClusterOperationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterOperationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeClusterOperationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeClusterOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

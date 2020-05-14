@@ -39,9 +39,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutConfigurationSetReputationOptionsCommandInput
-  ) {
+  constructor(readonly input: PutConfigurationSetReputationOptionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     PutConfigurationSetReputationOptionsCommandInput,
     PutConfigurationSetReputationOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     input: PutConfigurationSetReputationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

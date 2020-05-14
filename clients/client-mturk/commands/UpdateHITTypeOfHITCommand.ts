@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  UpdateHITTypeOfHITRequest,
-  UpdateHITTypeOfHITResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { UpdateHITTypeOfHITRequest, UpdateHITTypeOfHITResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateHITTypeOfHITCommand,
   serializeAws_json1_1UpdateHITTypeOfHITCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateHITTypeOfHITCommandInput = UpdateHITTypeOfHITRequest;
-export type UpdateHITTypeOfHITCommandOutput = UpdateHITTypeOfHITResponse &
-  __MetadataBearer;
+export type UpdateHITTypeOfHITCommandOutput = UpdateHITTypeOfHITResponse & __MetadataBearer;
 
 export class UpdateHITTypeOfHITCommand extends $Command<
   UpdateHITTypeOfHITCommandInput,
@@ -50,9 +42,7 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateHITTypeOfHITCommandInput, UpdateHITTypeOfHITCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

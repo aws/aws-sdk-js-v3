@@ -1,12 +1,5 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient";
-import {
-  CreateComputeEnvironmentRequest,
-  CreateComputeEnvironmentResponse
-} from "../models/index";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
+import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateComputeEnvironmentCommand,
   serializeAws_restJson1_1CreateComputeEnvironmentCommand
@@ -49,13 +42,8 @@ export class CreateComputeEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateComputeEnvironmentCommandInput,
-    CreateComputeEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateComputeEnvironmentCommandInput, CreateComputeEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateComputeEnvironmentCommand extends $Command<
     input: CreateComputeEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateComputeEnvironmentCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateComputeEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

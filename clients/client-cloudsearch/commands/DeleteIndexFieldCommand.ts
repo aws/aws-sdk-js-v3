@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DeleteIndexFieldRequest,
-  DeleteIndexFieldResponse
-} from "../models/index";
+import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteIndexFieldCommand,
   serializeAws_queryDeleteIndexFieldCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteIndexFieldCommandInput = DeleteIndexFieldRequest;
-export type DeleteIndexFieldCommandOutput = DeleteIndexFieldResponse &
-  __MetadataBearer;
+export type DeleteIndexFieldCommandOutput = DeleteIndexFieldResponse & __MetadataBearer;
 
 export class DeleteIndexFieldCommand extends $Command<
   DeleteIndexFieldCommandInput,
@@ -50,9 +46,7 @@ export class DeleteIndexFieldCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteIndexFieldCommandInput, DeleteIndexFieldCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

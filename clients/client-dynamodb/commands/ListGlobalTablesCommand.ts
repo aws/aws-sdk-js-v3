@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGlobalTablesCommandInput = ListGlobalTablesInput;
-export type ListGlobalTablesCommandOutput = ListGlobalTablesOutput &
-  __MetadataBearer;
+export type ListGlobalTablesCommandOutput = ListGlobalTablesOutput & __MetadataBearer;
 
 export class ListGlobalTablesCommand extends $Command<
   ListGlobalTablesCommandInput,
@@ -47,9 +46,7 @@ export class ListGlobalTablesCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

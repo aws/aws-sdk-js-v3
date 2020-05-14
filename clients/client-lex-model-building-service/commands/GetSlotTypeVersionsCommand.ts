@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetSlotTypeVersionsRequest,
-  GetSlotTypeVersionsResponse
-} from "../models/index";
+import { GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSlotTypeVersionsCommand,
   serializeAws_restJson1_1GetSlotTypeVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSlotTypeVersionsCommandInput = GetSlotTypeVersionsRequest;
-export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse &
-  __MetadataBearer;
+export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse & __MetadataBearer;
 
 export class GetSlotTypeVersionsCommand extends $Command<
   GetSlotTypeVersionsCommandInput,
@@ -49,13 +45,8 @@ export class GetSlotTypeVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSlotTypeVersionsCommandInput,
-    GetSlotTypeVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSlotTypeVersionsCommandInput, GetSlotTypeVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetSlotTypeVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSlotTypeVersionsCommandOutput> {
-    return deserializeAws_restJson1_1GetSlotTypeVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSlotTypeVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

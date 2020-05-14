@@ -299,9 +299,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public activateUser(
     args: ActivateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateUserCommandOutput) => void),
     cb?: (err: any, data?: ActivateUserCommandOutput) => void
   ): Promise<ActivateUserCommandOutput> | void {
     const command = new ActivateUserCommand(args);
@@ -371,9 +369,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createComment(
     args: CreateCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCommentCommandOutput) => void),
     cb?: (err: any, data?: CreateCommentCommandOutput) => void
   ): Promise<CreateCommentCommandOutput> | void {
     const command = new CreateCommentCommand(args);
@@ -442,9 +438,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createFolder(
     args: CreateFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFolderCommandOutput) => void),
     cb?: (err: any, data?: CreateFolderCommandOutput) => void
   ): Promise<CreateFolderCommandOutput> | void {
     const command = new CreateFolderCommand(args);
@@ -478,9 +472,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createLabels(
     args: CreateLabelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLabelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelsCommandOutput) => void),
     cb?: (err: any, data?: CreateLabelsCommandOutput) => void
   ): Promise<CreateLabelsCommandOutput> | void {
     const command = new CreateLabelsCommand(args);
@@ -519,10 +511,7 @@ export class WorkDocs extends WorkDocsClient {
     args: CreateNotificationSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateNotificationSubscriptionCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateNotificationSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
   ): Promise<CreateNotificationSubscriptionCommandOutput> | void {
     const command = new CreateNotificationSubscriptionCommand(args);
@@ -556,9 +545,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -592,9 +579,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deactivateUser(
     args: DeactivateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeactivateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateUserCommandOutput) => void),
     cb?: (err: any, data?: DeactivateUserCommandOutput) => void
   ): Promise<DeactivateUserCommandOutput> | void {
     const command = new DeactivateUserCommand(args);
@@ -627,9 +612,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteComment(
     args: DeleteCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCommentCommandOutput) => void),
     cb?: (err: any, data?: DeleteCommentCommandOutput) => void
   ): Promise<DeleteCommentCommandOutput> | void {
     const command = new DeleteCommentCommand(args);
@@ -697,9 +680,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteDocument(
     args: DeleteDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): Promise<DeleteDocumentCommandOutput> | void {
     const command = new DeleteDocumentCommand(args);
@@ -732,9 +713,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteFolder(
     args: DeleteFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderCommandOutput) => void),
     cb?: (err: any, data?: DeleteFolderCommandOutput) => void
   ): Promise<DeleteFolderCommandOutput> | void {
     const command = new DeleteFolderCommand(args);
@@ -802,9 +781,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteLabels(
     args: DeleteLabelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLabelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelsCommandOutput) => void),
     cb?: (err: any, data?: DeleteLabelsCommandOutput) => void
   ): Promise<DeleteLabelsCommandOutput> | void {
     const command = new DeleteLabelsCommand(args);
@@ -839,10 +816,7 @@ export class WorkDocs extends WorkDocsClient {
     args: DeleteNotificationSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNotificationSubscriptionCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
   ): Promise<DeleteNotificationSubscriptionCommandOutput> | void {
     const command = new DeleteNotificationSubscriptionCommand(args);
@@ -875,9 +849,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -945,9 +917,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeComments(
     args: DescribeCommentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCommentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCommentsCommandOutput) => void
   ): Promise<DescribeCommentsCommandOutput> | void {
     const command = new DescribeCommentsCommand(args);
@@ -1057,9 +1027,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeGroups(
     args: DescribeGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupsCommandOutput) => void
   ): Promise<DescribeGroupsCommandOutput> | void {
     const command = new DescribeGroupsCommand(args);
@@ -1083,31 +1051,19 @@ export class WorkDocs extends WorkDocsClient {
   ): Promise<DescribeNotificationSubscriptionsCommandOutput>;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): void;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): void;
   public describeNotificationSubscriptions(
     args: DescribeNotificationSubscriptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationSubscriptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNotificationSubscriptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> | void {
     const command = new DescribeNotificationSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1221,9 +1177,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public describeUsers(
     args: DescribeUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
     cb?: (err: any, data?: DescribeUsersCommandOutput) => void
   ): Promise<DescribeUsersCommandOutput> | void {
     const command = new DescribeUsersCommand(args);
@@ -1257,9 +1211,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getCurrentUser(
     args: GetCurrentUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCurrentUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCurrentUserCommandOutput) => void),
     cb?: (err: any, data?: GetCurrentUserCommandOutput) => void
   ): Promise<GetCurrentUserCommandOutput> | void {
     const command = new GetCurrentUserCommand(args);
@@ -1292,9 +1244,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getDocument(
     args: GetDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentCommandOutput) => void
   ): Promise<GetDocumentCommandOutput> | void {
     const command = new GetDocumentCommand(args);
@@ -1332,9 +1282,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getDocumentPath(
     args: GetDocumentPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentPathCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentPathCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentPathCommandOutput) => void
   ): Promise<GetDocumentPathCommandOutput> | void {
     const command = new GetDocumentPathCommand(args);
@@ -1402,9 +1350,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getFolder(
     args: GetFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderCommandOutput) => void),
     cb?: (err: any, data?: GetFolderCommandOutput) => void
   ): Promise<GetFolderCommandOutput> | void {
     const command = new GetFolderCommand(args);
@@ -1442,9 +1388,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getFolderPath(
     args: GetFolderPathCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderPathCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderPathCommandOutput) => void),
     cb?: (err: any, data?: GetFolderPathCommandOutput) => void
   ): Promise<GetFolderPathCommandOutput> | void {
     const command = new GetFolderPathCommand(args);
@@ -1478,9 +1422,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
@@ -1625,9 +1567,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateDocument(
     args: UpdateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
   ): Promise<UpdateDocumentCommandOutput> | void {
     const command = new UpdateDocumentCommand(args);
@@ -1699,9 +1639,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateFolder(
     args: UpdateFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFolderCommandOutput) => void),
     cb?: (err: any, data?: UpdateFolderCommandOutput) => void
   ): Promise<UpdateFolderCommandOutput> | void {
     const command = new UpdateFolderCommand(args);
@@ -1735,9 +1673,7 @@ export class WorkDocs extends WorkDocsClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

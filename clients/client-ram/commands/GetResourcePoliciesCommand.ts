@@ -1,12 +1,5 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetResourcePoliciesCommand,
   serializeAws_restJson1_1GetResourcePoliciesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResourcePoliciesCommandInput = GetResourcePoliciesRequest;
-export type GetResourcePoliciesCommandOutput = GetResourcePoliciesResponse &
-  __MetadataBearer;
+export type GetResourcePoliciesCommandOutput = GetResourcePoliciesResponse & __MetadataBearer;
 
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,
@@ -49,13 +41,8 @@ export class GetResourcePoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetResourcePoliciesCommandInput,
-    GetResourcePoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetResourcePoliciesCommandInput, GetResourcePoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class GetResourcePoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourcePoliciesCommandOutput> {
-    return deserializeAws_restJson1_1GetResourcePoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

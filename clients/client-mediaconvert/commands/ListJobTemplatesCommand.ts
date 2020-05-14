@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  ListJobTemplatesRequest,
-  ListJobTemplatesResponse
-} from "../models/index";
+import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListJobTemplatesCommand,
   serializeAws_restJson1_1ListJobTemplatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListJobTemplatesCommandInput = ListJobTemplatesRequest;
-export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse &
-  __MetadataBearer;
+export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse & __MetadataBearer;
 
 export class ListJobTemplatesCommand extends $Command<
   ListJobTemplatesCommandInput,
@@ -50,9 +46,7 @@ export class ListJobTemplatesCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

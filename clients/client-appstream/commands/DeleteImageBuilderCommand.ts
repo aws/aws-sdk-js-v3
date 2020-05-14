@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DeleteImageBuilderRequest,
-  DeleteImageBuilderResult
-} from "../models/index";
+import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteImageBuilderCommand,
   serializeAws_json1_1DeleteImageBuilderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteImageBuilderCommandInput = DeleteImageBuilderRequest;
-export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult &
-  __MetadataBearer;
+export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult & __MetadataBearer;
 
 export class DeleteImageBuilderCommand extends $Command<
   DeleteImageBuilderCommandInput,
@@ -50,9 +46,7 @@ export class DeleteImageBuilderCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

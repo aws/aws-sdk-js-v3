@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -49,9 +46,7 @@ export namespace MessageTag {
  * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
  *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
  */
-export interface AccountSendingPausedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountSendingPausedException extends __SmithyException, $MetadataBearer {
   name: "AccountSendingPausedException";
   $fault: "client";
   message?: string;
@@ -84,16 +79,13 @@ export interface AddHeaderAction {
 }
 
 export namespace AddHeaderAction {
-  export const isa = (o: any): o is AddHeaderAction =>
-    __isa(o, "AddHeaderAction");
+  export const isa = (o: any): o is AddHeaderAction => __isa(o, "AddHeaderAction");
 }
 
 /**
  * <p>Indicates that a resource could not be created because of a naming conflict.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -106,8 +98,7 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export enum BehaviorOnMXFailure {
@@ -230,8 +221,7 @@ export interface BouncedRecipientInfo {
 }
 
 export namespace BouncedRecipientInfo {
-  export const isa = (o: any): o is BouncedRecipientInfo =>
-    __isa(o, "BouncedRecipientInfo");
+  export const isa = (o: any): o is BouncedRecipientInfo => __isa(o, "BouncedRecipientInfo");
 }
 
 /**
@@ -270,8 +260,7 @@ export interface BulkEmailDestination {
 }
 
 export namespace BulkEmailDestination {
-  export const isa = (o: any): o is BulkEmailDestination =>
-    __isa(o, "BulkEmailDestination");
+  export const isa = (o: any): o is BulkEmailDestination => __isa(o, "BulkEmailDestination");
 }
 
 /**
@@ -400,9 +389,7 @@ export enum BulkEmailStatus {
 /**
  * <p>Indicates that the delete operation could not be completed.</p>
  */
-export interface CannotDeleteException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
   name: "CannotDeleteException";
   $fault: "client";
   /**
@@ -415,8 +402,7 @@ export interface CannotDeleteException
 }
 
 export namespace CannotDeleteException {
-  export const isa = (o: any): o is CannotDeleteException =>
-    __isa(o, "CannotDeleteException");
+  export const isa = (o: any): o is CannotDeleteException => __isa(o, "CannotDeleteException");
 }
 
 /**
@@ -483,8 +469,7 @@ export interface CloudWatchDestination {
 }
 
 export namespace CloudWatchDestination {
-  export const isa = (o: any): o is CloudWatchDestination =>
-    __isa(o, "CloudWatchDestination");
+  export const isa = (o: any): o is CloudWatchDestination => __isa(o, "CloudWatchDestination");
 }
 
 /**
@@ -564,17 +549,14 @@ export interface ConfigurationSet {
 }
 
 export namespace ConfigurationSet {
-  export const isa = (o: any): o is ConfigurationSet =>
-    __isa(o, "ConfigurationSet");
+  export const isa = (o: any): o is ConfigurationSet => __isa(o, "ConfigurationSet");
 }
 
 /**
  * <p>Indicates that the configuration set could not be created because of a naming
  *             conflict.</p>
  */
-export interface ConfigurationSetAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConfigurationSetAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ConfigurationSetAlreadyExistsException";
   $fault: "client";
   /**
@@ -600,9 +582,7 @@ export enum ConfigurationSetAttribute {
 /**
  * <p>Indicates that the configuration set does not exist.</p>
  */
-export interface ConfigurationSetDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConfigurationSetDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ConfigurationSetDoesNotExistException";
   $fault: "client";
   /**
@@ -622,9 +602,7 @@ export namespace ConfigurationSetDoesNotExistException {
  * <p>Indicates that email sending is disabled for the configuration set.</p>
  *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
  */
-export interface ConfigurationSetSendingPausedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConfigurationSetSendingPausedException extends __SmithyException, $MetadataBearer {
   name: "ConfigurationSetSendingPausedException";
   $fault: "client";
   /**
@@ -686,9 +664,7 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
     __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
@@ -700,9 +676,7 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
     __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
@@ -760,9 +734,7 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace CreateConfigurationSetTrackingOptionsRequest {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetTrackingOptionsRequest =>
+  export const isa = (o: any): o is CreateConfigurationSetTrackingOptionsRequest =>
     __isa(o, "CreateConfigurationSetTrackingOptionsRequest");
 }
 
@@ -774,9 +746,7 @@ export interface CreateConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace CreateConfigurationSetTrackingOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetTrackingOptionsResponse =>
+  export const isa = (o: any): o is CreateConfigurationSetTrackingOptionsResponse =>
     __isa(o, "CreateConfigurationSetTrackingOptionsResponse");
 }
 
@@ -822,9 +792,7 @@ export interface CreateCustomVerificationEmailTemplateRequest {
 }
 
 export namespace CreateCustomVerificationEmailTemplateRequest {
-  export const isa = (
-    o: any
-  ): o is CreateCustomVerificationEmailTemplateRequest =>
+  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateRequest =>
     __isa(o, "CreateCustomVerificationEmailTemplateRequest");
 }
 
@@ -957,8 +925,7 @@ export interface CreateTemplateRequest {
 }
 
 export namespace CreateTemplateRequest {
-  export const isa = (o: any): o is CreateTemplateRequest =>
-    __isa(o, "CreateTemplateRequest");
+  export const isa = (o: any): o is CreateTemplateRequest => __isa(o, "CreateTemplateRequest");
 }
 
 export interface CreateTemplateResponse {
@@ -966,8 +933,7 @@ export interface CreateTemplateResponse {
 }
 
 export namespace CreateTemplateResponse {
-  export const isa = (o: any): o is CreateTemplateResponse =>
-    __isa(o, "CreateTemplateResponse");
+  export const isa = (o: any): o is CreateTemplateResponse => __isa(o, "CreateTemplateResponse");
 }
 
 export enum CustomMailFromStatus {
@@ -989,9 +955,7 @@ export interface CustomVerificationEmailInvalidContentException
 }
 
 export namespace CustomVerificationEmailInvalidContentException {
-  export const isa = (
-    o: any
-  ): o is CustomVerificationEmailInvalidContentException =>
+  export const isa = (o: any): o is CustomVerificationEmailInvalidContentException =>
     __isa(o, "CustomVerificationEmailInvalidContentException");
 }
 
@@ -1052,9 +1016,7 @@ export interface CustomVerificationEmailTemplateAlreadyExistsException
 }
 
 export namespace CustomVerificationEmailTemplateAlreadyExistsException {
-  export const isa = (
-    o: any
-  ): o is CustomVerificationEmailTemplateAlreadyExistsException =>
+  export const isa = (o: any): o is CustomVerificationEmailTemplateAlreadyExistsException =>
     __isa(o, "CustomVerificationEmailTemplateAlreadyExistsException");
 }
 
@@ -1076,9 +1038,7 @@ export interface CustomVerificationEmailTemplateDoesNotExistException
 }
 
 export namespace CustomVerificationEmailTemplateDoesNotExistException {
-  export const isa = (
-    o: any
-  ): o is CustomVerificationEmailTemplateDoesNotExistException =>
+  export const isa = (o: any): o is CustomVerificationEmailTemplateDoesNotExistException =>
     __isa(o, "CustomVerificationEmailTemplateDoesNotExistException");
 }
 
@@ -1103,9 +1063,7 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
     __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
@@ -1117,9 +1075,7 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
     __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
@@ -1168,9 +1124,7 @@ export interface DeleteConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace DeleteConfigurationSetTrackingOptionsRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetTrackingOptionsRequest =>
+  export const isa = (o: any): o is DeleteConfigurationSetTrackingOptionsRequest =>
     __isa(o, "DeleteConfigurationSetTrackingOptionsRequest");
 }
 
@@ -1182,9 +1136,7 @@ export interface DeleteConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace DeleteConfigurationSetTrackingOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetTrackingOptionsResponse =>
+  export const isa = (o: any): o is DeleteConfigurationSetTrackingOptionsResponse =>
     __isa(o, "DeleteConfigurationSetTrackingOptionsResponse");
 }
 
@@ -1200,9 +1152,7 @@ export interface DeleteCustomVerificationEmailTemplateRequest {
 }
 
 export namespace DeleteCustomVerificationEmailTemplateRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteCustomVerificationEmailTemplateRequest =>
+  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateRequest =>
     __isa(o, "DeleteCustomVerificationEmailTemplateRequest");
 }
 
@@ -1259,8 +1209,7 @@ export interface DeleteIdentityRequest {
 }
 
 export namespace DeleteIdentityRequest {
-  export const isa = (o: any): o is DeleteIdentityRequest =>
-    __isa(o, "DeleteIdentityRequest");
+  export const isa = (o: any): o is DeleteIdentityRequest => __isa(o, "DeleteIdentityRequest");
 }
 
 /**
@@ -1271,8 +1220,7 @@ export interface DeleteIdentityResponse {
 }
 
 export namespace DeleteIdentityResponse {
-  export const isa = (o: any): o is DeleteIdentityResponse =>
-    __isa(o, "DeleteIdentityResponse");
+  export const isa = (o: any): o is DeleteIdentityResponse => __isa(o, "DeleteIdentityResponse");
 }
 
 /**
@@ -1384,8 +1332,7 @@ export interface DeleteTemplateRequest {
 }
 
 export namespace DeleteTemplateRequest {
-  export const isa = (o: any): o is DeleteTemplateRequest =>
-    __isa(o, "DeleteTemplateRequest");
+  export const isa = (o: any): o is DeleteTemplateRequest => __isa(o, "DeleteTemplateRequest");
 }
 
 export interface DeleteTemplateResponse {
@@ -1393,8 +1340,7 @@ export interface DeleteTemplateResponse {
 }
 
 export namespace DeleteTemplateResponse {
-  export const isa = (o: any): o is DeleteTemplateResponse =>
-    __isa(o, "DeleteTemplateResponse");
+  export const isa = (o: any): o is DeleteTemplateResponse => __isa(o, "DeleteTemplateResponse");
 }
 
 /**
@@ -1430,8 +1376,7 @@ export interface DeliveryOptions {
 }
 
 export namespace DeliveryOptions {
-  export const isa = (o: any): o is DeliveryOptions =>
-    __isa(o, "DeliveryOptions");
+  export const isa = (o: any): o is DeliveryOptions => __isa(o, "DeliveryOptions");
 }
 
 /**
@@ -1725,17 +1670,14 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
-  export const isa = (o: any): o is EventDestination =>
-    __isa(o, "EventDestination");
+  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
  * <p>Indicates that the event destination could not be created because of a naming
  *             conflict.</p>
  */
-export interface EventDestinationAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EventDestinationAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EventDestinationAlreadyExistsException";
   $fault: "client";
   /**
@@ -1759,9 +1701,7 @@ export namespace EventDestinationAlreadyExistsException {
 /**
  * <p>Indicates that the event destination does not exist.</p>
  */
-export interface EventDestinationDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EventDestinationDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "EventDestinationDoesNotExistException";
   $fault: "client";
   /**
@@ -1815,17 +1755,14 @@ export interface ExtensionField {
 }
 
 export namespace ExtensionField {
-  export const isa = (o: any): o is ExtensionField =>
-    __isa(o, "ExtensionField");
+  export const isa = (o: any): o is ExtensionField => __isa(o, "ExtensionField");
 }
 
 /**
  * <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  */
-export interface FromEmailAddressNotVerifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FromEmailAddressNotVerifiedException extends __SmithyException, $MetadataBearer {
   name: "FromEmailAddressNotVerifiedException";
   $fault: "client";
   /**
@@ -1916,9 +1853,7 @@ export interface GetCustomVerificationEmailTemplateResponse {
 }
 
 export namespace GetCustomVerificationEmailTemplateResponse {
-  export const isa = (
-    o: any
-  ): o is GetCustomVerificationEmailTemplateResponse =>
+  export const isa = (o: any): o is GetCustomVerificationEmailTemplateResponse =>
     __isa(o, "GetCustomVerificationEmailTemplateResponse");
 }
 
@@ -1974,9 +1909,7 @@ export interface GetIdentityMailFromDomainAttributesRequest {
 }
 
 export namespace GetIdentityMailFromDomainAttributesRequest {
-  export const isa = (
-    o: any
-  ): o is GetIdentityMailFromDomainAttributesRequest =>
+  export const isa = (o: any): o is GetIdentityMailFromDomainAttributesRequest =>
     __isa(o, "GetIdentityMailFromDomainAttributesRequest");
 }
 
@@ -1988,15 +1921,11 @@ export interface GetIdentityMailFromDomainAttributesResponse {
   /**
    * <p>A map of identities to custom MAIL FROM attributes.</p>
    */
-  MailFromDomainAttributes:
-    | { [key: string]: IdentityMailFromDomainAttributes }
-    | undefined;
+  MailFromDomainAttributes: { [key: string]: IdentityMailFromDomainAttributes } | undefined;
 }
 
 export namespace GetIdentityMailFromDomainAttributesResponse {
-  export const isa = (
-    o: any
-  ): o is GetIdentityMailFromDomainAttributesResponse =>
+  export const isa = (o: any): o is GetIdentityMailFromDomainAttributesResponse =>
     __isa(o, "GetIdentityMailFromDomainAttributesResponse");
 }
 
@@ -2029,9 +1958,7 @@ export interface GetIdentityNotificationAttributesResponse {
   /**
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
    */
-  NotificationAttributes:
-    | { [key: string]: IdentityNotificationAttributes }
-    | undefined;
+  NotificationAttributes: { [key: string]: IdentityNotificationAttributes } | undefined;
 }
 
 export namespace GetIdentityNotificationAttributesResponse {
@@ -2113,9 +2040,7 @@ export interface GetIdentityVerificationAttributesResponse {
   /**
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
    */
-  VerificationAttributes:
-    | { [key: string]: IdentityVerificationAttributes }
-    | undefined;
+  VerificationAttributes: { [key: string]: IdentityVerificationAttributes } | undefined;
 }
 
 export namespace GetIdentityVerificationAttributesResponse {
@@ -2152,8 +2077,7 @@ export interface GetSendQuotaResponse {
 }
 
 export namespace GetSendQuotaResponse {
-  export const isa = (o: any): o is GetSendQuotaResponse =>
-    __isa(o, "GetSendQuotaResponse");
+  export const isa = (o: any): o is GetSendQuotaResponse => __isa(o, "GetSendQuotaResponse");
 }
 
 /**
@@ -2182,8 +2106,7 @@ export interface GetTemplateRequest {
 }
 
 export namespace GetTemplateRequest {
-  export const isa = (o: any): o is GetTemplateRequest =>
-    __isa(o, "GetTemplateRequest");
+  export const isa = (o: any): o is GetTemplateRequest => __isa(o, "GetTemplateRequest");
 }
 
 export interface GetTemplateResponse {
@@ -2196,8 +2119,7 @@ export interface GetTemplateResponse {
 }
 
 export namespace GetTemplateResponse {
-  export const isa = (o: any): o is GetTemplateResponse =>
-    __isa(o, "GetTemplateResponse");
+  export const isa = (o: any): o is GetTemplateResponse => __isa(o, "GetTemplateResponse");
 }
 
 /**
@@ -2232,8 +2154,7 @@ export interface IdentityDkimAttributes {
 }
 
 export namespace IdentityDkimAttributes {
-  export const isa = (o: any): o is IdentityDkimAttributes =>
-    __isa(o, "IdentityDkimAttributes");
+  export const isa = (o: any): o is IdentityDkimAttributes => __isa(o, "IdentityDkimAttributes");
 }
 
 /**
@@ -2368,9 +2289,7 @@ export namespace IdentityVerificationAttributes {
  * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidCloudWatchDestinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCloudWatchDestinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidCloudWatchDestinationException";
   $fault: "client";
   /**
@@ -2395,9 +2314,7 @@ export namespace InvalidCloudWatchDestinationException {
  * <p>Indicates that the configuration set is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidConfigurationSetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConfigurationSetException extends __SmithyException, $MetadataBearer {
   name: "InvalidConfigurationSetException";
   $fault: "client";
   message?: string;
@@ -2411,9 +2328,7 @@ export namespace InvalidConfigurationSetException {
 /**
  * <p>Indicates that provided delivery option is invalid.</p>
  */
-export interface InvalidDeliveryOptionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeliveryOptionsException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeliveryOptionsException";
   $fault: "client";
   message?: string;
@@ -2428,9 +2343,7 @@ export namespace InvalidDeliveryOptionsException {
  * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
  *             message for details.</p>
  */
-export interface InvalidFirehoseDestinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFirehoseDestinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidFirehoseDestinationException";
   $fault: "client";
   /**
@@ -2457,9 +2370,7 @@ export namespace InvalidFirehoseDestinationException {
  *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidLambdaFunctionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLambdaFunctionException extends __SmithyException, $MetadataBearer {
   name: "InvalidLambdaFunctionException";
   $fault: "client";
   /**
@@ -2479,26 +2390,21 @@ export namespace InvalidLambdaFunctionException {
  * <p>Indicates that the provided policy is invalid. Check the error stack for more
  *             information about what caused the error.</p>
  */
-export interface InvalidPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidPolicyException {
-  export const isa = (o: any): o is InvalidPolicyException =>
-    __isa(o, "InvalidPolicyException");
+  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
  * <p>Indicates that one or more of the replacement values you provided is invalid. This
  *             error may occur when the TemplateData object contains invalid JSON.</p>
  */
-export interface InvalidRenderingParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRenderingParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidRenderingParameterException";
   $fault: "client";
   TemplateName?: string;
@@ -2516,9 +2422,7 @@ export namespace InvalidRenderingParameterException {
  *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidS3ConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3ConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3ConfigurationException";
   $fault: "client";
   /**
@@ -2538,9 +2442,7 @@ export namespace InvalidS3ConfigurationException {
  * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  */
-export interface InvalidSNSDestinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSNSDestinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidSNSDestinationException";
   $fault: "client";
   /**
@@ -2567,9 +2469,7 @@ export namespace InvalidSNSDestinationException {
  *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidSnsTopicException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSnsTopicException extends __SmithyException, $MetadataBearer {
   name: "InvalidSnsTopicException";
   $fault: "client";
   /**
@@ -2589,9 +2489,7 @@ export namespace InvalidSnsTopicException {
  * <p>Indicates that the template that you specified could not be rendered. This issue may
  *             occur when a template refers to a partial that does not exist.</p>
  */
-export interface InvalidTemplateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTemplateException extends __SmithyException, $MetadataBearer {
   name: "InvalidTemplateException";
   $fault: "client";
   TemplateName?: string;
@@ -2616,9 +2514,7 @@ export namespace InvalidTemplateException {
  *             </li>
  *          </ul>
  */
-export interface InvalidTrackingOptionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTrackingOptionsException extends __SmithyException, $MetadataBearer {
   name: "InvalidTrackingOptionsException";
   $fault: "client";
   message?: string;
@@ -2710,17 +2606,14 @@ export namespace LambdaAction {
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2799,9 +2692,7 @@ export interface ListCustomVerificationEmailTemplatesRequest {
 }
 
 export namespace ListCustomVerificationEmailTemplatesRequest {
-  export const isa = (
-    o: any
-  ): o is ListCustomVerificationEmailTemplatesRequest =>
+  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesRequest =>
     __isa(o, "ListCustomVerificationEmailTemplatesRequest");
 }
 
@@ -2825,9 +2716,7 @@ export interface ListCustomVerificationEmailTemplatesResponse {
 }
 
 export namespace ListCustomVerificationEmailTemplatesResponse {
-  export const isa = (
-    o: any
-  ): o is ListCustomVerificationEmailTemplatesResponse =>
+  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesResponse =>
     __isa(o, "ListCustomVerificationEmailTemplatesResponse");
 }
 
@@ -2857,8 +2746,7 @@ export interface ListIdentitiesRequest {
 }
 
 export namespace ListIdentitiesRequest {
-  export const isa = (o: any): o is ListIdentitiesRequest =>
-    __isa(o, "ListIdentitiesRequest");
+  export const isa = (o: any): o is ListIdentitiesRequest => __isa(o, "ListIdentitiesRequest");
 }
 
 /**
@@ -2879,8 +2767,7 @@ export interface ListIdentitiesResponse {
 }
 
 export namespace ListIdentitiesResponse {
-  export const isa = (o: any): o is ListIdentitiesResponse =>
-    __isa(o, "ListIdentitiesResponse");
+  export const isa = (o: any): o is ListIdentitiesResponse => __isa(o, "ListIdentitiesResponse");
 }
 
 /**
@@ -3014,8 +2901,7 @@ export interface ListTemplatesRequest {
 }
 
 export namespace ListTemplatesRequest {
-  export const isa = (o: any): o is ListTemplatesRequest =>
-    __isa(o, "ListTemplatesRequest");
+  export const isa = (o: any): o is ListTemplatesRequest => __isa(o, "ListTemplatesRequest");
 }
 
 export interface ListTemplatesResponse {
@@ -3035,8 +2921,7 @@ export interface ListTemplatesResponse {
 }
 
 export namespace ListTemplatesResponse {
-  export const isa = (o: any): o is ListTemplatesResponse =>
-    __isa(o, "ListTemplatesResponse");
+  export const isa = (o: any): o is ListTemplatesResponse => __isa(o, "ListTemplatesResponse");
 }
 
 /**
@@ -3062,9 +2947,7 @@ export namespace ListVerifiedEmailAddressesResponse {
  *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface MailFromDomainNotVerifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
   name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
@@ -3138,8 +3021,7 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageRejected {
-  export const isa = (o: any): o is MessageRejected =>
-    __isa(o, "MessageRejected");
+  export const isa = (o: any): o is MessageRejected => __isa(o, "MessageRejected");
 }
 
 /**
@@ -3147,9 +3029,7 @@ export namespace MessageRejected {
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
  */
-export interface MissingRenderingAttributeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRenderingAttributeException extends __SmithyException, $MetadataBearer {
   name: "MissingRenderingAttributeException";
   $fault: "client";
   TemplateName?: string;
@@ -3166,9 +3046,7 @@ export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 /**
  * <p>Indicates that the account has not been granted production access.</p>
  */
-export interface ProductionAccessNotGrantedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProductionAccessNotGrantedException extends __SmithyException, $MetadataBearer {
   name: "ProductionAccessNotGrantedException";
   $fault: "client";
   message?: string;
@@ -3211,9 +3089,7 @@ export interface PutConfigurationSetDeliveryOptionsResponse {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetDeliveryOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsResponse =>
     __isa(o, "PutConfigurationSetDeliveryOptionsResponse");
 }
 
@@ -3411,8 +3287,7 @@ export interface ReceiptIpFilter {
 }
 
 export namespace ReceiptIpFilter {
-  export const isa = (o: any): o is ReceiptIpFilter =>
-    __isa(o, "ReceiptIpFilter");
+  export const isa = (o: any): o is ReceiptIpFilter => __isa(o, "ReceiptIpFilter");
 }
 
 /**
@@ -3514,8 +3389,7 @@ export interface ReceiptRuleSetMetadata {
 }
 
 export namespace ReceiptRuleSetMetadata {
-  export const isa = (o: any): o is ReceiptRuleSetMetadata =>
-    __isa(o, "ReceiptRuleSetMetadata");
+  export const isa = (o: any): o is ReceiptRuleSetMetadata => __isa(o, "ReceiptRuleSetMetadata");
 }
 
 /**
@@ -3578,8 +3452,7 @@ export interface RecipientDsnFields {
 }
 
 export namespace RecipientDsnFields {
-  export const isa = (o: any): o is RecipientDsnFields =>
-    __isa(o, "RecipientDsnFields");
+  export const isa = (o: any): o is RecipientDsnFields => __isa(o, "RecipientDsnFields");
 }
 
 /**
@@ -3653,16 +3526,13 @@ export interface ReputationOptions {
 }
 
 export namespace ReputationOptions {
-  export const isa = (o: any): o is ReputationOptions =>
-    __isa(o, "ReputationOptions");
+  export const isa = (o: any): o is ReputationOptions => __isa(o, "ReputationOptions");
 }
 
 /**
  * <p>Indicates that the provided receipt rule does not exist.</p>
  */
-export interface RuleDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RuleDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RuleDoesNotExistException";
   $fault: "client";
   /**
@@ -3681,9 +3551,7 @@ export namespace RuleDoesNotExistException {
 /**
  * <p>Indicates that the provided receipt rule set does not exist.</p>
  */
-export interface RuleSetDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RuleSetDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RuleSetDoesNotExistException";
   $fault: "client";
   /**
@@ -3838,8 +3706,7 @@ export interface SNSDestination {
 }
 
 export namespace SNSDestination {
-  export const isa = (o: any): o is SNSDestination =>
-    __isa(o, "SNSDestination");
+  export const isa = (o: any): o is SNSDestination => __isa(o, "SNSDestination");
 }
 
 /**
@@ -3888,8 +3755,7 @@ export interface SendBounceRequest {
 }
 
 export namespace SendBounceRequest {
-  export const isa = (o: any): o is SendBounceRequest =>
-    __isa(o, "SendBounceRequest");
+  export const isa = (o: any): o is SendBounceRequest => __isa(o, "SendBounceRequest");
 }
 
 /**
@@ -3904,8 +3770,7 @@ export interface SendBounceResponse {
 }
 
 export namespace SendBounceResponse {
-  export const isa = (o: any): o is SendBounceResponse =>
-    __isa(o, "SendBounceResponse");
+  export const isa = (o: any): o is SendBounceResponse => __isa(o, "SendBounceResponse");
 }
 
 /**
@@ -4227,8 +4092,7 @@ export interface SendEmailRequest {
 }
 
 export namespace SendEmailRequest {
-  export const isa = (o: any): o is SendEmailRequest =>
-    __isa(o, "SendEmailRequest");
+  export const isa = (o: any): o is SendEmailRequest => __isa(o, "SendEmailRequest");
 }
 
 /**
@@ -4243,8 +4107,7 @@ export interface SendEmailResponse {
 }
 
 export namespace SendEmailResponse {
-  export const isa = (o: any): o is SendEmailResponse =>
-    __isa(o, "SendEmailResponse");
+  export const isa = (o: any): o is SendEmailResponse => __isa(o, "SendEmailResponse");
 }
 
 /**
@@ -4391,8 +4254,7 @@ export interface SendRawEmailRequest {
 }
 
 export namespace SendRawEmailRequest {
-  export const isa = (o: any): o is SendRawEmailRequest =>
-    __isa(o, "SendRawEmailRequest");
+  export const isa = (o: any): o is SendRawEmailRequest => __isa(o, "SendRawEmailRequest");
 }
 
 /**
@@ -4408,8 +4270,7 @@ export interface SendRawEmailResponse {
 }
 
 export namespace SendRawEmailResponse {
-  export const isa = (o: any): o is SendRawEmailResponse =>
-    __isa(o, "SendRawEmailResponse");
+  export const isa = (o: any): o is SendRawEmailResponse => __isa(o, "SendRawEmailResponse");
 }
 
 /**
@@ -4637,9 +4498,7 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
 }
 
 export namespace SetIdentityFeedbackForwardingEnabledRequest {
-  export const isa = (
-    o: any
-  ): o is SetIdentityFeedbackForwardingEnabledRequest =>
+  export const isa = (o: any): o is SetIdentityFeedbackForwardingEnabledRequest =>
     __isa(o, "SetIdentityFeedbackForwardingEnabledRequest");
 }
 
@@ -4651,9 +4510,7 @@ export interface SetIdentityFeedbackForwardingEnabledResponse {
 }
 
 export namespace SetIdentityFeedbackForwardingEnabledResponse {
-  export const isa = (
-    o: any
-  ): o is SetIdentityFeedbackForwardingEnabledResponse =>
+  export const isa = (o: any): o is SetIdentityFeedbackForwardingEnabledResponse =>
     __isa(o, "SetIdentityFeedbackForwardingEnabledResponse");
 }
 
@@ -4688,9 +4545,7 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
 }
 
 export namespace SetIdentityHeadersInNotificationsEnabledRequest {
-  export const isa = (
-    o: any
-  ): o is SetIdentityHeadersInNotificationsEnabledRequest =>
+  export const isa = (o: any): o is SetIdentityHeadersInNotificationsEnabledRequest =>
     __isa(o, "SetIdentityHeadersInNotificationsEnabledRequest");
 }
 
@@ -4702,9 +4557,7 @@ export interface SetIdentityHeadersInNotificationsEnabledResponse {
 }
 
 export namespace SetIdentityHeadersInNotificationsEnabledResponse {
-  export const isa = (
-    o: any
-  ): o is SetIdentityHeadersInNotificationsEnabledResponse =>
+  export const isa = (o: any): o is SetIdentityHeadersInNotificationsEnabledResponse =>
     __isa(o, "SetIdentityHeadersInNotificationsEnabledResponse");
 }
 
@@ -4920,9 +4773,7 @@ export namespace Template {
  * <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  */
-export interface TemplateDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "TemplateDoesNotExistException";
   $fault: "client";
   TemplateName?: string;
@@ -4951,8 +4802,7 @@ export interface TemplateMetadata {
 }
 
 export namespace TemplateMetadata {
-  export const isa = (o: any): o is TemplateMetadata =>
-    __isa(o, "TemplateMetadata");
+  export const isa = (o: any): o is TemplateMetadata => __isa(o, "TemplateMetadata");
 }
 
 export interface TestRenderTemplateRequest {
@@ -5011,17 +4861,14 @@ export interface TrackingOptions {
 }
 
 export namespace TrackingOptions {
-  export const isa = (o: any): o is TrackingOptions =>
-    __isa(o, "TrackingOptions");
+  export const isa = (o: any): o is TrackingOptions => __isa(o, "TrackingOptions");
 }
 
 /**
  * <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  */
-export interface TrackingOptionsAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrackingOptionsAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "TrackingOptionsAlreadyExistsException";
   $fault: "client";
   /**
@@ -5041,9 +4888,7 @@ export namespace TrackingOptionsAlreadyExistsException {
 /**
  * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  */
-export interface TrackingOptionsDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrackingOptionsDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "TrackingOptionsDoesNotExistException";
   $fault: "client";
   /**
@@ -5100,9 +4945,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
     __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
@@ -5114,9 +4957,7 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
     __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
@@ -5139,9 +4980,7 @@ export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
 }
 
 export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetReputationMetricsEnabledRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetReputationMetricsEnabledRequest =>
     __isa(o, "UpdateConfigurationSetReputationMetricsEnabledRequest");
 }
 
@@ -5164,9 +5003,7 @@ export interface UpdateConfigurationSetSendingEnabledRequest {
 }
 
 export namespace UpdateConfigurationSetSendingEnabledRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetSendingEnabledRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetSendingEnabledRequest =>
     __isa(o, "UpdateConfigurationSetSendingEnabledRequest");
 }
 
@@ -5192,9 +5029,7 @@ export interface UpdateConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace UpdateConfigurationSetTrackingOptionsRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetTrackingOptionsRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetTrackingOptionsRequest =>
     __isa(o, "UpdateConfigurationSetTrackingOptionsRequest");
 }
 
@@ -5206,9 +5041,7 @@ export interface UpdateConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace UpdateConfigurationSetTrackingOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetTrackingOptionsResponse =>
+  export const isa = (o: any): o is UpdateConfigurationSetTrackingOptionsResponse =>
     __isa(o, "UpdateConfigurationSetTrackingOptionsResponse");
 }
 
@@ -5254,9 +5087,7 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
 }
 
 export namespace UpdateCustomVerificationEmailTemplateRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateCustomVerificationEmailTemplateRequest =>
+  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateRequest =>
     __isa(o, "UpdateCustomVerificationEmailTemplateRequest");
 }
 
@@ -5305,8 +5136,7 @@ export interface UpdateTemplateRequest {
 }
 
 export namespace UpdateTemplateRequest {
-  export const isa = (o: any): o is UpdateTemplateRequest =>
-    __isa(o, "UpdateTemplateRequest");
+  export const isa = (o: any): o is UpdateTemplateRequest => __isa(o, "UpdateTemplateRequest");
 }
 
 export interface UpdateTemplateResponse {
@@ -5314,8 +5144,7 @@ export interface UpdateTemplateResponse {
 }
 
 export namespace UpdateTemplateResponse {
-  export const isa = (o: any): o is UpdateTemplateResponse =>
-    __isa(o, "UpdateTemplateResponse");
+  export const isa = (o: any): o is UpdateTemplateResponse => __isa(o, "UpdateTemplateResponse");
 }
 
 export type VerificationStatus =
@@ -5339,8 +5168,7 @@ export interface VerifyDomainDkimRequest {
 }
 
 export namespace VerifyDomainDkimRequest {
-  export const isa = (o: any): o is VerifyDomainDkimRequest =>
-    __isa(o, "VerifyDomainDkimRequest");
+  export const isa = (o: any): o is VerifyDomainDkimRequest => __isa(o, "VerifyDomainDkimRequest");
 }
 
 /**
@@ -5487,6 +5315,5 @@ export interface WorkmailAction {
 }
 
 export namespace WorkmailAction {
-  export const isa = (o: any): o is WorkmailAction =>
-    __isa(o, "WorkmailAction");
+  export const isa = (o: any): o is WorkmailAction => __isa(o, "WorkmailAction");
 }

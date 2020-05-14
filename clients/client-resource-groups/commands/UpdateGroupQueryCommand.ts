@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGroupQueryCommandInput = UpdateGroupQueryInput;
-export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput &
-  __MetadataBearer;
+export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput & __MetadataBearer;
 
 export class UpdateGroupQueryCommand extends $Command<
   UpdateGroupQueryCommandInput,
@@ -47,9 +46,7 @@ export class UpdateGroupQueryCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

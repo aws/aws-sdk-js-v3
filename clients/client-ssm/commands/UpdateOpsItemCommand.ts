@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { UpdateOpsItemRequest, UpdateOpsItemResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateOpsItemCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateOpsItemCommandInput = UpdateOpsItemRequest;
-export type UpdateOpsItemCommandOutput = UpdateOpsItemResponse &
-  __MetadataBearer;
+export type UpdateOpsItemCommandOutput = UpdateOpsItemResponse & __MetadataBearer;
 
 export class UpdateOpsItemCommand extends $Command<
   UpdateOpsItemCommandInput,
@@ -47,9 +42,7 @@ export class UpdateOpsItemCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

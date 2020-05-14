@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPublicKeysCommandInput = ListPublicKeysRequest;
-export type ListPublicKeysCommandOutput = ListPublicKeysResult &
-  __MetadataBearer;
+export type ListPublicKeysCommandOutput = ListPublicKeysResult & __MetadataBearer;
 
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,
@@ -47,9 +46,7 @@ export class ListPublicKeysCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPublicKeysCommandInput, ListPublicKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

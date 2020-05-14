@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  StartActivityStreamRequest,
-  StartActivityStreamResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/index";
 import {
   deserializeAws_queryStartActivityStreamCommand,
   serializeAws_queryStartActivityStreamCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartActivityStreamCommandInput = StartActivityStreamRequest;
-export type StartActivityStreamCommandOutput = StartActivityStreamResponse &
-  __MetadataBearer;
+export type StartActivityStreamCommandOutput = StartActivityStreamResponse & __MetadataBearer;
 
 export class StartActivityStreamCommand extends $Command<
   StartActivityStreamCommandInput,
@@ -49,13 +41,8 @@ export class StartActivityStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartActivityStreamCommandInput,
-    StartActivityStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartActivityStreamCommandInput, StartActivityStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

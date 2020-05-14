@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient";
-import {
-  UpdateSecretVersionStageRequest,
-  UpdateSecretVersionStageResponse
-} from "../models/index";
+import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSecretVersionStageCommand,
   serializeAws_json1_1UpdateSecretVersionStageCommand
@@ -49,13 +46,8 @@ export class UpdateSecretVersionStageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSecretVersionStageCommandInput,
-    UpdateSecretVersionStageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSecretVersionStageCommandInput, UpdateSecretVersionStageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateSecretVersionStageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecretVersionStageCommandOutput> {
-    return deserializeAws_json1_1UpdateSecretVersionStageCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSecretVersionStageCommand(output, context);
   }
 
   // Start section: command_body_extra

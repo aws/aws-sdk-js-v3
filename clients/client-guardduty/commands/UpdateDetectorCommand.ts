@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDetectorCommandInput = UpdateDetectorRequest;
-export type UpdateDetectorCommandOutput = UpdateDetectorResponse &
-  __MetadataBearer;
+export type UpdateDetectorCommandOutput = UpdateDetectorResponse & __MetadataBearer;
 
 export class UpdateDetectorCommand extends $Command<
   UpdateDetectorCommandInput,
@@ -47,9 +46,7 @@ export class UpdateDetectorCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDetectorCommandInput, UpdateDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  RegisterCertificateRequest,
-  RegisterCertificateResult
-} from "../models/index";
+import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/index";
 import {
   deserializeAws_json1_1RegisterCertificateCommand,
   serializeAws_json1_1RegisterCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterCertificateCommandInput = RegisterCertificateRequest;
-export type RegisterCertificateCommandOutput = RegisterCertificateResult &
-  __MetadataBearer;
+export type RegisterCertificateCommandOutput = RegisterCertificateResult & __MetadataBearer;
 
 export class RegisterCertificateCommand extends $Command<
   RegisterCertificateCommandInput,
@@ -49,13 +45,8 @@ export class RegisterCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterCertificateCommandInput,
-    RegisterCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterCertificateCommandInput, RegisterCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

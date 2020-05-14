@@ -53,9 +53,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     AddSourceIdentifierToSubscriptionCommandInput,
     AddSourceIdentifierToSubscriptionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

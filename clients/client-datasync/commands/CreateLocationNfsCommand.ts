@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient";
-import {
-  CreateLocationNfsRequest,
-  CreateLocationNfsResponse
-} from "../models/index";
+import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateLocationNfsCommand,
   serializeAws_json1_1CreateLocationNfsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLocationNfsCommandInput = CreateLocationNfsRequest;
-export type CreateLocationNfsCommandOutput = CreateLocationNfsResponse &
-  __MetadataBearer;
+export type CreateLocationNfsCommandOutput = CreateLocationNfsResponse & __MetadataBearer;
 
 export class CreateLocationNfsCommand extends $Command<
   CreateLocationNfsCommandInput,
@@ -50,9 +46,7 @@ export class CreateLocationNfsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

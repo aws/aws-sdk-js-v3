@@ -49,13 +49,8 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationOptionsCommandInput,
-    DescribeConfigurationOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationOptionsCommandInput, DescribeConfigurationOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeConfigurationOptionsCommand extends $Command<
     input: DescribeConfigurationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeConfigurationOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationOptionsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeConfigurationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

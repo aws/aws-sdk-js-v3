@@ -53,9 +53,7 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     DescribeServiceAccessPoliciesCommandInput,
     DescribeServiceAccessPoliciesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     input: DescribeServiceAccessPoliciesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeServiceAccessPoliciesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeServiceAccessPoliciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeServiceAccessPoliciesCommandOutput> {
-    return deserializeAws_queryDescribeServiceAccessPoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeServiceAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

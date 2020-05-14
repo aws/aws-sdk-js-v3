@@ -49,13 +49,8 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminRespondToAuthChallengeCommandInput,
-    AdminRespondToAuthChallengeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminRespondToAuthChallengeCommandInput, AdminRespondToAuthChallengeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
     input: AdminRespondToAuthChallengeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AdminRespondToAuthChallengeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminRespondToAuthChallengeCommandOutput> {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminRespondToAuthChallengeCommand(output, context);
   }
 
   // Start section: command_body_extra

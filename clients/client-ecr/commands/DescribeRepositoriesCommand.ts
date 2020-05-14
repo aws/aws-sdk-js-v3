@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  DescribeRepositoriesRequest,
-  DescribeRepositoriesResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { DescribeRepositoriesRequest, DescribeRepositoriesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeRepositoriesCommand,
   serializeAws_json1_1DescribeRepositoriesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRepositoriesCommandInput = DescribeRepositoriesRequest;
-export type DescribeRepositoriesCommandOutput = DescribeRepositoriesResponse &
-  __MetadataBearer;
+export type DescribeRepositoriesCommandOutput = DescribeRepositoriesResponse & __MetadataBearer;
 
 export class DescribeRepositoriesCommand extends $Command<
   DescribeRepositoriesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeRepositoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRepositoriesCommandInput,
-    DescribeRepositoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRepositoriesCommandInput, DescribeRepositoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

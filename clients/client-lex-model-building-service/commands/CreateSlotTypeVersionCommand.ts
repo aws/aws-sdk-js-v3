@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  CreateSlotTypeVersionRequest,
-  CreateSlotTypeVersionResponse
-} from "../models/index";
+import { CreateSlotTypeVersionRequest, CreateSlotTypeVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSlotTypeVersionCommand,
   serializeAws_restJson1_1CreateSlotTypeVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSlotTypeVersionCommandInput = CreateSlotTypeVersionRequest;
-export type CreateSlotTypeVersionCommandOutput = CreateSlotTypeVersionResponse &
-  __MetadataBearer;
+export type CreateSlotTypeVersionCommandOutput = CreateSlotTypeVersionResponse & __MetadataBearer;
 
 export class CreateSlotTypeVersionCommand extends $Command<
   CreateSlotTypeVersionCommandInput,
@@ -49,13 +45,8 @@ export class CreateSlotTypeVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSlotTypeVersionCommandInput,
-    CreateSlotTypeVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSlotTypeVersionCommandInput, CreateSlotTypeVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateSlotTypeVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSlotTypeVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSlotTypeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

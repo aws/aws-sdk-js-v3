@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  PutApprovalResultInput,
-  PutApprovalResultOutput
-} from "../models/index";
+import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutApprovalResultCommand,
   serializeAws_json1_1PutApprovalResultCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutApprovalResultCommandInput = PutApprovalResultInput;
-export type PutApprovalResultCommandOutput = PutApprovalResultOutput &
-  __MetadataBearer;
+export type PutApprovalResultCommandOutput = PutApprovalResultOutput & __MetadataBearer;
 
 export class PutApprovalResultCommand extends $Command<
   PutApprovalResultCommandInput,
@@ -50,9 +46,7 @@ export class PutApprovalResultCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutApprovalResultCommandInput, PutApprovalResultCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

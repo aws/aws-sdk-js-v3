@@ -39,9 +39,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeOrganizationConformancePackStatusesCommandInput
-  ) {
+  constructor(readonly input: DescribeOrganizationConformancePackStatusesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
     DescribeOrganizationConformancePackStatusesCommandInput,
     DescribeOrganizationConformancePackStatusesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
     input: DescribeOrganizationConformancePackStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(input, context);
   }
 
   private deserialize(

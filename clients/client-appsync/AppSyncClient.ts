@@ -22,10 +22,7 @@ import {
   CreateResolverCommandInput,
   CreateResolverCommandOutput
 } from "./commands/CreateResolverCommand";
-import {
-  CreateTypeCommandInput,
-  CreateTypeCommandOutput
-} from "./commands/CreateTypeCommand";
+import { CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import {
   DeleteApiCacheCommandInput,
   DeleteApiCacheCommandOutput
@@ -50,26 +47,17 @@ import {
   DeleteResolverCommandInput,
   DeleteResolverCommandOutput
 } from "./commands/DeleteResolverCommand";
-import {
-  DeleteTypeCommandInput,
-  DeleteTypeCommandOutput
-} from "./commands/DeleteTypeCommand";
+import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import {
   FlushApiCacheCommandInput,
   FlushApiCacheCommandOutput
 } from "./commands/FlushApiCacheCommand";
-import {
-  GetApiCacheCommandInput,
-  GetApiCacheCommandOutput
-} from "./commands/GetApiCacheCommand";
+import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
 import {
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput
 } from "./commands/GetDataSourceCommand";
-import {
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput
-} from "./commands/GetFunctionCommand";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetGraphqlApiCommandInput,
   GetGraphqlApiCommandOutput
@@ -78,22 +66,13 @@ import {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput
 } from "./commands/GetIntrospectionSchemaCommand";
-import {
-  GetResolverCommandInput,
-  GetResolverCommandOutput
-} from "./commands/GetResolverCommand";
+import { GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand";
 import {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput
 } from "./commands/GetSchemaCreationStatusCommand";
-import {
-  GetTypeCommandInput,
-  GetTypeCommandOutput
-} from "./commands/GetTypeCommand";
-import {
-  ListApiKeysCommandInput,
-  ListApiKeysCommandOutput
-} from "./commands/ListApiKeysCommand";
+import { GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
+import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand";
 import {
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput
@@ -118,18 +97,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput
 } from "./commands/StartSchemaCreationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -158,10 +131,7 @@ import {
   UpdateResolverCommandInput,
   UpdateResolverCommandOutput
 } from "./commands/UpdateResolverCommand";
-import {
-  UpdateTypeCommandInput,
-  UpdateTypeCommandOutput
-} from "./commands/UpdateTypeCommand";
+import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -385,9 +355,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -396,9 +364,7 @@ export type AppSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

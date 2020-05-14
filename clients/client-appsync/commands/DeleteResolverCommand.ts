@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResolverCommandInput = DeleteResolverRequest;
-export type DeleteResolverCommandOutput = DeleteResolverResponse &
-  __MetadataBearer;
+export type DeleteResolverCommandOutput = DeleteResolverResponse & __MetadataBearer;
 
 export class DeleteResolverCommand extends $Command<
   DeleteResolverCommandInput,
@@ -47,9 +46,7 @@ export class DeleteResolverCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteResolverCommandInput, DeleteResolverCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

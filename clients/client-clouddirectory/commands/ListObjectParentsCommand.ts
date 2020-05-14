@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListObjectParentsRequest,
-  ListObjectParentsResponse
-} from "../models/index";
+import { ListObjectParentsRequest, ListObjectParentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectParentsCommand,
   serializeAws_restJson1_1ListObjectParentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectParentsCommandInput = ListObjectParentsRequest;
-export type ListObjectParentsCommandOutput = ListObjectParentsResponse &
-  __MetadataBearer;
+export type ListObjectParentsCommandOutput = ListObjectParentsResponse & __MetadataBearer;
 
 export class ListObjectParentsCommand extends $Command<
   ListObjectParentsCommandInput,
@@ -50,9 +46,7 @@ export class ListObjectParentsCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectParentsCommandInput, ListObjectParentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

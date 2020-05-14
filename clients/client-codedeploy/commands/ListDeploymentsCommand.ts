@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentsCommandInput = ListDeploymentsInput;
-export type ListDeploymentsCommandOutput = ListDeploymentsOutput &
-  __MetadataBearer;
+export type ListDeploymentsCommandOutput = ListDeploymentsOutput & __MetadataBearer;
 
 export class ListDeploymentsCommand extends $Command<
   ListDeploymentsCommandInput,
@@ -47,9 +46,7 @@ export class ListDeploymentsCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentsCommandInput, ListDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

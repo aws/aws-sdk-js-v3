@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  CreateMultipartUploadOutput,
-  CreateMultipartUploadRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { CreateMultipartUploadOutput, CreateMultipartUploadRequest } from "../models/index";
 import {
   deserializeAws_restXmlCreateMultipartUploadCommand,
   serializeAws_restXmlCreateMultipartUploadCommand
@@ -30,8 +23,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMultipartUploadCommandInput = CreateMultipartUploadRequest;
-export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput &
-  __MetadataBearer;
+export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput & __MetadataBearer;
 
 export class CreateMultipartUploadCommand extends $Command<
   CreateMultipartUploadCommandInput,
@@ -51,13 +43,8 @@ export class CreateMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateMultipartUploadCommandInput,
-    CreateMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateMultipartUploadCommandInput, CreateMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 

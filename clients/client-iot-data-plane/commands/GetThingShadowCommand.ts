@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetThingShadowCommandInput = GetThingShadowRequest;
-export type GetThingShadowCommandOutput = GetThingShadowResponse &
-  __MetadataBearer;
+export type GetThingShadowCommandOutput = GetThingShadowResponse & __MetadataBearer;
 
 export class GetThingShadowCommand extends $Command<
   GetThingShadowCommandInput,
@@ -47,9 +46,7 @@ export class GetThingShadowCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetThingShadowCommandInput, GetThingShadowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

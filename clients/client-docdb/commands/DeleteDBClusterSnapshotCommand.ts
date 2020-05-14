@@ -1,12 +1,5 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
-import {
-  DeleteDBClusterSnapshotMessage,
-  DeleteDBClusterSnapshotResult
-} from "../models/index";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterSnapshotCommand,
   serializeAws_queryDeleteDBClusterSnapshotCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterSnapshotCommandInput = DeleteDBClusterSnapshotMessage;
-export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult &
-  __MetadataBearer;
+export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult & __MetadataBearer;
 
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,
@@ -49,13 +41,8 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDBClusterSnapshotCommandInput,
-    DeleteDBClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDBClusterSnapshotCommandInput, DeleteDBClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

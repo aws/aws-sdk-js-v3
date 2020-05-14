@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSmsChannelCommandInput = GetSmsChannelRequest;
-export type GetSmsChannelCommandOutput = GetSmsChannelResponse &
-  __MetadataBearer;
+export type GetSmsChannelCommandOutput = GetSmsChannelResponse & __MetadataBearer;
 
 export class GetSmsChannelCommand extends $Command<
   GetSmsChannelCommandInput,
@@ -47,9 +46,7 @@ export class GetSmsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSmsChannelCommandInput, GetSmsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

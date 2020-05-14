@@ -49,13 +49,8 @@ export class CreateCloudFormationTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCloudFormationTemplateCommandInput,
-    CreateCloudFormationTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCloudFormationTemplateCommandInput, CreateCloudFormationTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateCloudFormationTemplateCommand extends $Command<
     input: CreateCloudFormationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCloudFormationTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateCloudFormationTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationTemplateCommandOutput> {
-    return deserializeAws_restJson1_1CreateCloudFormationTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCloudFormationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

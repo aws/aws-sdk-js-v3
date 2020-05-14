@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPlacementsCommandInput = ListPlacementsRequest;
-export type ListPlacementsCommandOutput = ListPlacementsResponse &
-  __MetadataBearer;
+export type ListPlacementsCommandOutput = ListPlacementsResponse & __MetadataBearer;
 
 export class ListPlacementsCommand extends $Command<
   ListPlacementsCommandInput,
@@ -47,9 +46,7 @@ export class ListPlacementsCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPlacementsCommandInput, ListPlacementsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

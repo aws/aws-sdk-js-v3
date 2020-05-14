@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeClientVpnConnectionsRequest,
   DescribeClientVpnConnectionsResult
@@ -49,13 +45,8 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClientVpnConnectionsCommandInput,
-    DescribeClientVpnConnectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClientVpnConnectionsCommandInput, DescribeClientVpnConnectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeClientVpnConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnConnectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeClientVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

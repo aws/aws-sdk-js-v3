@@ -26,10 +26,7 @@ import {
   GetNotificationChannelCommandInput,
   GetNotificationChannelCommandOutput
 } from "./commands/GetNotificationChannelCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetProtectionStatusCommandInput,
   GetProtectionStatusCommandOutput
@@ -54,14 +51,8 @@ import {
   PutNotificationChannelCommandInput,
   PutNotificationChannelCommandOutput
 } from "./commands/PutNotificationChannelCommand";
-import {
-  PutPolicyCommandInput,
-  PutPolicyCommandOutput
-} from "./commands/PutPolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -241,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +241,7 @@ export type FMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

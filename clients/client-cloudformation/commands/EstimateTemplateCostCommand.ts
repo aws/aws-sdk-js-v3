@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  EstimateTemplateCostInput,
-  EstimateTemplateCostOutput
-} from "../models/index";
+import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/index";
 import {
   deserializeAws_queryEstimateTemplateCostCommand,
   serializeAws_queryEstimateTemplateCostCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EstimateTemplateCostCommandInput = EstimateTemplateCostInput;
-export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput &
-  __MetadataBearer;
+export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput & __MetadataBearer;
 
 export class EstimateTemplateCostCommand extends $Command<
   EstimateTemplateCostCommandInput,
@@ -49,13 +45,8 @@ export class EstimateTemplateCostCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EstimateTemplateCostCommandInput,
-    EstimateTemplateCostCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EstimateTemplateCostCommandInput, EstimateTemplateCostCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

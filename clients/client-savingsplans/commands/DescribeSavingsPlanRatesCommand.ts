@@ -1,7 +1,4 @@
-import {
-  DescribeSavingsPlanRatesRequest,
-  DescribeSavingsPlanRatesResponse
-} from "../models/index";
+import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand,
   serializeAws_restJson1_1DescribeSavingsPlanRatesCommand
@@ -49,13 +46,8 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: savingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSavingsPlanRatesCommandInput,
-    DescribeSavingsPlanRatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSavingsPlanRatesCommandInput, DescribeSavingsPlanRatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     input: DescribeSavingsPlanRatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeSavingsPlanRatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlanRatesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand(output, context);
   }
 
   // Start section: command_body_extra

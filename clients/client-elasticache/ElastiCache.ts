@@ -315,31 +315,19 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput>;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeCacheSecurityGroupIngress(
     args: AuthorizeCacheSecurityGroupIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AuthorizeCacheSecurityGroupIngressCommandOutput
-    ) => void
+      | ((err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeCacheSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeCacheSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -569,9 +557,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
@@ -824,9 +810,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
@@ -1115,9 +1099,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
@@ -1388,10 +1370,7 @@ export class ElastiCache extends ElastiCacheClient {
     args: DescribeEngineDefaultParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultParametersCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultParametersCommand(args);
@@ -1429,9 +1408,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -1532,31 +1509,19 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput>;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): void;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): void;
   public describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedCacheNodesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedCacheNodesOfferingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedCacheNodesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> | void {
     const command = new DescribeReservedCacheNodesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1744,14 +1709,8 @@ export class ElastiCache extends ElastiCacheClient {
     args: ListAllowedNodeTypeModificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAllowedNodeTypeModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAllowedNodeTypeModificationsCommandOutput
-    ) => void
+      | ((err: any, data?: ListAllowedNodeTypeModificationsCommandOutput) => void),
+    cb?: (err: any, data?: ListAllowedNodeTypeModificationsCommandOutput) => void
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> | void {
     const command = new ListAllowedNodeTypeModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1979,31 +1938,19 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput>;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): void;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): void;
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyReplicationGroupShardConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyReplicationGroupShardConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyReplicationGroupShardConfigurationCommandOutput) => void
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> | void {
     const command = new ModifyReplicationGroupShardConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2027,31 +1974,19 @@ export class ElastiCache extends ElastiCacheClient {
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput>;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedCacheNodesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedCacheNodesOfferingCommandOutput
-    ) => void
+      | ((err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedCacheNodesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> | void {
     const command = new PurchaseReservedCacheNodesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2208,10 +2143,7 @@ export class ElastiCache extends ElastiCacheClient {
     args: RevokeCacheSecurityGroupIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RevokeCacheSecurityGroupIngressCommandOutput
-        ) => void),
+      | ((err: any, data?: RevokeCacheSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: RevokeCacheSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeCacheSecurityGroupIngressCommand(args);
@@ -2244,9 +2176,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public startMigration(
     args: StartMigrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMigrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMigrationCommandOutput) => void),
     cb?: (err: any, data?: StartMigrationCommandOutput) => void
   ): Promise<StartMigrationCommandOutput> | void {
     const command = new StartMigrationCommand(args);
@@ -2341,9 +2271,7 @@ export class ElastiCache extends ElastiCacheClient {
   ): void;
   public testFailover(
     args: TestFailoverCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestFailoverCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestFailoverCommandOutput) => void),
     cb?: (err: any, data?: TestFailoverCommandOutput) => void
   ): Promise<TestFailoverCommandOutput> | void {
     const command = new TestFailoverCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchEventsClient";
-import {
-  CreatePartnerEventSourceRequest,
-  CreatePartnerEventSourceResponse
-} from "../models/index";
+import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreatePartnerEventSourceCommand,
   serializeAws_json1_1CreatePartnerEventSourceCommand
@@ -49,13 +46,8 @@ export class CreatePartnerEventSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePartnerEventSourceCommandInput,
-    CreatePartnerEventSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePartnerEventSourceCommandInput, CreatePartnerEventSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreatePartnerEventSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1CreatePartnerEventSourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

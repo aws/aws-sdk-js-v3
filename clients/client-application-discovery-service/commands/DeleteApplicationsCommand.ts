@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DeleteApplicationsRequest,
-  DeleteApplicationsResponse
-} from "../models/index";
+import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteApplicationsCommand,
   serializeAws_json1_1DeleteApplicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteApplicationsCommandInput = DeleteApplicationsRequest;
-export type DeleteApplicationsCommandOutput = DeleteApplicationsResponse &
-  __MetadataBearer;
+export type DeleteApplicationsCommandOutput = DeleteApplicationsResponse & __MetadataBearer;
 
 export class DeleteApplicationsCommand extends $Command<
   DeleteApplicationsCommandInput,
@@ -50,9 +46,7 @@ export class DeleteApplicationsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

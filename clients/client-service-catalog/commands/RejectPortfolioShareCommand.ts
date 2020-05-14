@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  RejectPortfolioShareInput,
-  RejectPortfolioShareOutput
-} from "../models/index";
+import { RejectPortfolioShareInput, RejectPortfolioShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1RejectPortfolioShareCommand,
   serializeAws_json1_1RejectPortfolioShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RejectPortfolioShareCommandInput = RejectPortfolioShareInput;
-export type RejectPortfolioShareCommandOutput = RejectPortfolioShareOutput &
-  __MetadataBearer;
+export type RejectPortfolioShareCommandOutput = RejectPortfolioShareOutput & __MetadataBearer;
 
 export class RejectPortfolioShareCommand extends $Command<
   RejectPortfolioShareCommandInput,
@@ -49,13 +45,8 @@ export class RejectPortfolioShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectPortfolioShareCommandInput,
-    RejectPortfolioShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectPortfolioShareCommandInput, RejectPortfolioShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

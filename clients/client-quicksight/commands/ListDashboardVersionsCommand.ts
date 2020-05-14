@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  ListDashboardVersionsRequest,
-  ListDashboardVersionsResponse
-} from "../models/index";
+import { ListDashboardVersionsRequest, ListDashboardVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDashboardVersionsCommand,
   serializeAws_restJson1_1ListDashboardVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDashboardVersionsCommandInput = ListDashboardVersionsRequest;
-export type ListDashboardVersionsCommandOutput = ListDashboardVersionsResponse &
-  __MetadataBearer;
+export type ListDashboardVersionsCommandOutput = ListDashboardVersionsResponse & __MetadataBearer;
 
 export class ListDashboardVersionsCommand extends $Command<
   ListDashboardVersionsCommandInput,
@@ -49,13 +45,8 @@ export class ListDashboardVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDashboardVersionsCommandInput,
-    ListDashboardVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDashboardVersionsCommandInput, ListDashboardVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDashboardVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDashboardVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDashboardVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDashboardVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

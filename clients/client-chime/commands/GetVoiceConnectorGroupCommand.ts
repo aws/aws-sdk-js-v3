@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetVoiceConnectorGroupRequest,
-  GetVoiceConnectorGroupResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceConnectorGroupCommand,
   serializeAws_restJson1_1GetVoiceConnectorGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorGroupCommandInput = GetVoiceConnectorGroupRequest;
-export type GetVoiceConnectorGroupCommandOutput = GetVoiceConnectorGroupResponse &
-  __MetadataBearer;
+export type GetVoiceConnectorGroupCommandOutput = GetVoiceConnectorGroupResponse & __MetadataBearer;
 
 export class GetVoiceConnectorGroupCommand extends $Command<
   GetVoiceConnectorGroupCommandInput,
@@ -49,13 +41,8 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVoiceConnectorGroupCommandInput,
-    GetVoiceConnectorGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVoiceConnectorGroupCommandInput, GetVoiceConnectorGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     input: GetVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetVoiceConnectorGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceConnectorGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

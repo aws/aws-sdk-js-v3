@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  ListAccountSettingsRequest,
-  ListAccountSettingsResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAccountSettingsCommand,
   serializeAws_json1_1ListAccountSettingsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccountSettingsCommandInput = ListAccountSettingsRequest;
-export type ListAccountSettingsCommandOutput = ListAccountSettingsResponse &
-  __MetadataBearer;
+export type ListAccountSettingsCommandOutput = ListAccountSettingsResponse & __MetadataBearer;
 
 export class ListAccountSettingsCommand extends $Command<
   ListAccountSettingsCommandInput,
@@ -49,13 +41,8 @@ export class ListAccountSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAccountSettingsCommandInput,
-    ListAccountSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAccountSettingsCommandInput, ListAccountSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

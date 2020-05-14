@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  CreateIntegrationRequest,
-  CreateIntegrationResult
-} from "../models/index";
+import { CreateIntegrationRequest, CreateIntegrationResult } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateIntegrationCommand,
   serializeAws_restJson1_1CreateIntegrationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateIntegrationCommandInput = CreateIntegrationRequest;
-export type CreateIntegrationCommandOutput = CreateIntegrationResult &
-  __MetadataBearer;
+export type CreateIntegrationCommandOutput = CreateIntegrationResult & __MetadataBearer;
 
 export class CreateIntegrationCommand extends $Command<
   CreateIntegrationCommandInput,
@@ -50,9 +46,7 @@ export class CreateIntegrationCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateIntegrationCommandInput, CreateIntegrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

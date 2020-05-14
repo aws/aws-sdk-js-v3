@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  DescribeManagedRuleGroupRequest,
-  DescribeManagedRuleGroupResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeManagedRuleGroupCommand,
   serializeAws_json1_1DescribeManagedRuleGroupCommand
@@ -49,13 +42,8 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeManagedRuleGroupCommandInput,
-    DescribeManagedRuleGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeManagedRuleGroupCommandInput, DescribeManagedRuleGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeManagedRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeManagedRuleGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeManagedRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

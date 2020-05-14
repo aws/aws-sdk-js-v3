@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  ResetDeploymentsRequest,
-  ResetDeploymentsResponse
-} from "../models/index";
+import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ResetDeploymentsCommand,
   serializeAws_restJson1_1ResetDeploymentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetDeploymentsCommandInput = ResetDeploymentsRequest;
-export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse &
-  __MetadataBearer;
+export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse & __MetadataBearer;
 
 export class ResetDeploymentsCommand extends $Command<
   ResetDeploymentsCommandInput,
@@ -50,9 +46,7 @@ export class ResetDeploymentsCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

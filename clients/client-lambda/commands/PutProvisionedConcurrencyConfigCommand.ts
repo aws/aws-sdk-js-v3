@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   PutProvisionedConcurrencyConfigRequest,
   PutProvisionedConcurrencyConfigResponse
@@ -53,9 +49,7 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     PutProvisionedConcurrencyConfigCommandInput,
     PutProvisionedConcurrencyConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command<
     input: PutProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput> {
-    return deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

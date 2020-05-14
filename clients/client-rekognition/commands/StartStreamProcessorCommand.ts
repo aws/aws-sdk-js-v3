@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  StartStreamProcessorRequest,
-  StartStreamProcessorResponse
-} from "../models/index";
+import { StartStreamProcessorRequest, StartStreamProcessorResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartStreamProcessorCommand,
   serializeAws_json1_1StartStreamProcessorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartStreamProcessorCommandInput = StartStreamProcessorRequest;
-export type StartStreamProcessorCommandOutput = StartStreamProcessorResponse &
-  __MetadataBearer;
+export type StartStreamProcessorCommandOutput = StartStreamProcessorResponse & __MetadataBearer;
 
 export class StartStreamProcessorCommand extends $Command<
   StartStreamProcessorCommandInput,
@@ -49,13 +45,8 @@ export class StartStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartStreamProcessorCommandInput,
-    StartStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartStreamProcessorCommandInput, StartStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

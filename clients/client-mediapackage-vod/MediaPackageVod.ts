@@ -83,9 +83,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public createAsset(
     args: CreateAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssetCommandOutput) => void),
     cb?: (err: any, data?: CreateAssetCommandOutput) => void
   ): Promise<CreateAssetCommandOutput> | void {
     const command = new CreateAssetCommand(args);
@@ -188,9 +186,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssetCommandOutput) => void
   ): Promise<DeleteAssetCommandOutput> | void {
     const command = new DeleteAssetCommand(args);
@@ -293,9 +289,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public describeAsset(
     args: DescribeAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssetCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssetCommandOutput) => void
   ): Promise<DescribeAssetCommandOutput> | void {
     const command = new DescribeAssetCommand(args);
@@ -330,10 +324,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
     args: DescribePackagingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePackagingConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribePackagingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
   ): Promise<DescribePackagingConfigurationCommandOutput> | void {
     const command = new DescribePackagingConfigurationCommand(args);
@@ -401,9 +392,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public listAssets(
     args: ListAssetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetsCommandOutput) => void),
     cb?: (err: any, data?: ListAssetsCommandOutput) => void
   ): Promise<ListAssetsCommandOutput> | void {
     const command = new ListAssetsCommand(args);

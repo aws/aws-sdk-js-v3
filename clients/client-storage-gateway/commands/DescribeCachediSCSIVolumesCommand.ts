@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeCachediSCSIVolumesInput,
-  DescribeCachediSCSIVolumesOutput
-} from "../models/index";
+import { DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCachediSCSIVolumesCommand,
   serializeAws_json1_1DescribeCachediSCSIVolumesCommand
@@ -49,13 +46,8 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCachediSCSIVolumesCommandInput,
-    DescribeCachediSCSIVolumesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCachediSCSIVolumesCommandInput, DescribeCachediSCSIVolumesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     input: DescribeCachediSCSIVolumesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCachediSCSIVolumesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeCachediSCSIVolumesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCachediSCSIVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCachediSCSIVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

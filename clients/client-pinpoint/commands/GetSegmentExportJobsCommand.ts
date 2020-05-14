@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetSegmentExportJobsRequest,
-  GetSegmentExportJobsResponse
-} from "../models/index";
+import { GetSegmentExportJobsRequest, GetSegmentExportJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSegmentExportJobsCommand,
   serializeAws_restJson1_1GetSegmentExportJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSegmentExportJobsCommandInput = GetSegmentExportJobsRequest;
-export type GetSegmentExportJobsCommandOutput = GetSegmentExportJobsResponse &
-  __MetadataBearer;
+export type GetSegmentExportJobsCommandOutput = GetSegmentExportJobsResponse & __MetadataBearer;
 
 export class GetSegmentExportJobsCommand extends $Command<
   GetSegmentExportJobsCommandInput,
@@ -49,13 +45,8 @@ export class GetSegmentExportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSegmentExportJobsCommandInput,
-    GetSegmentExportJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSegmentExportJobsCommandInput, GetSegmentExportJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetSegmentExportJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSegmentExportJobsCommandOutput> {
-    return deserializeAws_restJson1_1GetSegmentExportJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSegmentExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

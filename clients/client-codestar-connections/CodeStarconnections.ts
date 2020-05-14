@@ -82,9 +82,7 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
@@ -117,9 +115,7 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
@@ -152,9 +148,7 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
@@ -187,9 +181,7 @@ export class CodeStarconnections extends CodeStarconnectionsClient {
   ): void;
   public listConnections(
     args: ListConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectionsCommandOutput) => void),
     cb?: (err: any, data?: ListConnectionsCommandOutput) => void
   ): Promise<ListConnectionsCommandOutput> | void {
     const command = new ListConnectionsCommand(args);

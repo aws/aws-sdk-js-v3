@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  GetJobUnlockCodeRequest,
-  GetJobUnlockCodeResult
-} from "../models/index";
+import { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/index";
 import {
   deserializeAws_json1_1GetJobUnlockCodeCommand,
   serializeAws_json1_1GetJobUnlockCodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJobUnlockCodeCommandInput = GetJobUnlockCodeRequest;
-export type GetJobUnlockCodeCommandOutput = GetJobUnlockCodeResult &
-  __MetadataBearer;
+export type GetJobUnlockCodeCommandOutput = GetJobUnlockCodeResult & __MetadataBearer;
 
 export class GetJobUnlockCodeCommand extends $Command<
   GetJobUnlockCodeCommandInput,
@@ -50,9 +46,7 @@ export class GetJobUnlockCodeCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

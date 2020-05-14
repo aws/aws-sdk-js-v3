@@ -14,10 +14,7 @@ import {
   CreateIpGroupCommandInput,
   CreateIpGroupCommandOutput
 } from "../commands/CreateIpGroupCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "../commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput
@@ -26,10 +23,7 @@ import {
   DeleteIpGroupCommandInput,
   DeleteIpGroupCommandOutput
 } from "../commands/DeleteIpGroupCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DeleteWorkspaceImageCommandInput,
   DeleteWorkspaceImageCommandOutput
@@ -312,9 +306,7 @@ export const serializeAws_json1_1AssociateIpGroupsCommand = async (
     "X-Amz-Target": "WorkspacesService.AssociateIpGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssociateIpGroupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssociateIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -327,9 +319,7 @@ export const serializeAws_json1_1AuthorizeIpRulesCommand = async (
     "X-Amz-Target": "WorkspacesService.AuthorizeIpRules"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AuthorizeIpRulesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AuthorizeIpRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -342,9 +332,7 @@ export const serializeAws_json1_1CopyWorkspaceImageCommand = async (
     "X-Amz-Target": "WorkspacesService.CopyWorkspaceImage"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CopyWorkspaceImageRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CopyWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -357,9 +345,7 @@ export const serializeAws_json1_1CreateIpGroupCommand = async (
     "X-Amz-Target": "WorkspacesService.CreateIpGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateIpGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,9 +371,7 @@ export const serializeAws_json1_1CreateWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.CreateWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -400,9 +384,7 @@ export const serializeAws_json1_1DeleteIpGroupCommand = async (
     "X-Amz-Target": "WorkspacesService.DeleteIpGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteIpGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -428,9 +410,7 @@ export const serializeAws_json1_1DeleteWorkspaceImageCommand = async (
     "X-Amz-Target": "WorkspacesService.DeleteWorkspaceImage"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteWorkspaceImageRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -443,9 +423,7 @@ export const serializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
     "X-Amz-Target": "WorkspacesService.DeregisterWorkspaceDirectory"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -458,9 +436,7 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeAccount"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAccountRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -473,9 +449,7 @@ export const serializeAws_json1_1DescribeAccountModificationsCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeAccountModifications"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAccountModificationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAccountModificationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -488,9 +462,7 @@ export const serializeAws_json1_1DescribeClientPropertiesCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeClientProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeClientPropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeClientPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -503,9 +475,7 @@ export const serializeAws_json1_1DescribeIpGroupsCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeIpGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeIpGroupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -518,9 +488,7 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeTags"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTagsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,9 +501,7 @@ export const serializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceBundles"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspaceBundlesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceBundlesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -548,9 +514,7 @@ export const serializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceDirectories"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,9 +527,7 @@ export const serializeAws_json1_1DescribeWorkspaceImagesCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImages"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspaceImagesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceImagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -578,9 +540,7 @@ export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -593,9 +553,7 @@ export const serializeAws_json1_1DescribeWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,10 +567,7 @@ export const serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = asy
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -626,9 +581,7 @@ export const serializeAws_json1_1DisassociateIpGroupsCommand = async (
     "X-Amz-Target": "WorkspacesService.DisassociateIpGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisassociateIpGroupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisassociateIpGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -641,9 +594,7 @@ export const serializeAws_json1_1ImportWorkspaceImageCommand = async (
     "X-Amz-Target": "WorkspacesService.ImportWorkspaceImage"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ImportWorkspaceImageRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ImportWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -671,9 +622,7 @@ export const serializeAws_json1_1MigrateWorkspaceCommand = async (
     "X-Amz-Target": "WorkspacesService.MigrateWorkspace"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1MigrateWorkspaceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1MigrateWorkspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -686,9 +635,7 @@ export const serializeAws_json1_1ModifyAccountCommand = async (
     "X-Amz-Target": "WorkspacesService.ModifyAccount"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyAccountRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,9 +648,7 @@ export const serializeAws_json1_1ModifyClientPropertiesCommand = async (
     "X-Amz-Target": "WorkspacesService.ModifyClientProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyClientPropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyClientPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -716,9 +661,7 @@ export const serializeAws_json1_1ModifySelfservicePermissionsCommand = async (
     "X-Amz-Target": "WorkspacesService.ModifySelfservicePermissions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifySelfservicePermissionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifySelfservicePermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -731,9 +674,7 @@ export const serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = async 
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceAccessProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -761,9 +702,7 @@ export const serializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyWorkspacePropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyWorkspacePropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -776,9 +715,7 @@ export const serializeAws_json1_1ModifyWorkspaceStateCommand = async (
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceState"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyWorkspaceStateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyWorkspaceStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -791,9 +728,7 @@ export const serializeAws_json1_1RebootWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.RebootWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RebootWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RebootWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -806,9 +741,7 @@ export const serializeAws_json1_1RebuildWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.RebuildWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RebuildWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RebuildWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -821,9 +754,7 @@ export const serializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
     "X-Amz-Target": "WorkspacesService.RegisterWorkspaceDirectory"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RegisterWorkspaceDirectoryRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RegisterWorkspaceDirectoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -836,9 +767,7 @@ export const serializeAws_json1_1RestoreWorkspaceCommand = async (
     "X-Amz-Target": "WorkspacesService.RestoreWorkspace"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RestoreWorkspaceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RestoreWorkspaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -851,9 +780,7 @@ export const serializeAws_json1_1RevokeIpRulesCommand = async (
     "X-Amz-Target": "WorkspacesService.RevokeIpRules"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RevokeIpRulesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RevokeIpRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -866,9 +793,7 @@ export const serializeAws_json1_1StartWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.StartWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -881,9 +806,7 @@ export const serializeAws_json1_1StopWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.StopWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -896,9 +819,7 @@ export const serializeAws_json1_1TerminateWorkspacesCommand = async (
     "X-Amz-Target": "WorkspacesService.TerminateWorkspaces"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TerminateWorkspacesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TerminateWorkspacesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -911,9 +832,7 @@ export const serializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
     "X-Amz-Target": "WorkspacesService.UpdateRulesOfIpGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -946,16 +865,12 @@ const deserializeAws_json1_1AssociateIpGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1007,10 +922,7 @@ const deserializeAws_json1_1AssociateIpGroupsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1061,16 +973,12 @@ const deserializeAws_json1_1AuthorizeIpRulesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1111,10 +1019,7 @@ const deserializeAws_json1_1AuthorizeIpRulesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1141,10 +1046,7 @@ export const deserializeAws_json1_1CopyWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<CopyWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CopyWorkspaceImageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CopyWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1168,16 +1070,12 @@ const deserializeAws_json1_1CopyWorkspaceImageCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1229,10 +1127,7 @@ const deserializeAws_json1_1CopyWorkspaceImageCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1294,16 +1189,12 @@ const deserializeAws_json1_1CreateIpGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1398,8 +1289,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1426,10 +1316,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1480,8 +1367,7 @@ const deserializeAws_json1_1CreateWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1551,16 +1437,12 @@ const deserializeAws_json1_1DeleteIpGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1579,10 +1461,7 @@ const deserializeAws_json1_1DeleteIpGroupCommandError = async (
     case "ResourceAssociatedException":
     case "com.amazonaws.workspaces#ResourceAssociatedException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1590,10 +1469,7 @@ const deserializeAws_json1_1DeleteIpGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1644,8 +1520,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1661,10 +1536,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1691,10 +1563,7 @@ export const deserializeAws_json1_1DeleteWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteWorkspaceImageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1718,16 +1587,12 @@ const deserializeAws_json1_1DeleteWorkspaceImageCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1746,10 +1611,7 @@ const deserializeAws_json1_1DeleteWorkspaceImageCommandError = async (
     case "ResourceAssociatedException":
     case "com.amazonaws.workspaces#ResourceAssociatedException":
       response = {
-        ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceAssociatedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1776,17 +1638,11 @@ export const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterWorkspaceDirectoryResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeregisterWorkspaceDirectoryResult(data, context);
   const response: DeregisterWorkspaceDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterWorkspaceDirectoryResult",
@@ -1806,16 +1662,12 @@ const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1856,10 +1708,7 @@ const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1910,16 +1759,12 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1946,17 +1791,11 @@ export const deserializeAws_json1_1DescribeAccountModificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountModificationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAccountModificationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAccountModificationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAccountModificationsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAccountModificationsResult(data, context);
   const response: DescribeAccountModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAccountModificationsResult",
@@ -1976,16 +1815,12 @@ const deserializeAws_json1_1DescribeAccountModificationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2012,17 +1847,11 @@ export const deserializeAws_json1_1DescribeClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeClientPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeClientPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClientPropertiesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClientPropertiesResult(data, context);
   const response: DescribeClientPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClientPropertiesResult",
@@ -2042,16 +1871,12 @@ const deserializeAws_json1_1DescribeClientPropertiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2070,10 +1895,7 @@ const deserializeAws_json1_1DescribeClientPropertiesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2124,16 +1946,12 @@ const deserializeAws_json1_1DescribeIpGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2195,16 +2013,12 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2231,17 +2045,11 @@ export const deserializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceBundlesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspaceBundlesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspaceBundlesResult(data, context);
   const response: DescribeWorkspaceBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspaceBundlesResult",
@@ -2261,8 +2069,7 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2297,17 +2104,11 @@ export const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspaceDirectoriesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspaceDirectoriesResult(data, context);
   const response: DescribeWorkspaceDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspaceDirectoriesResult",
@@ -2327,8 +2128,7 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2363,10 +2163,7 @@ export const deserializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceImagesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2390,16 +2187,12 @@ const deserializeAws_json1_1DescribeWorkspaceImagesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2426,17 +2219,11 @@ export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(data, context);
   const response: DescribeWorkspaceSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspaceSnapshotsResult",
@@ -2456,16 +2243,12 @@ const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2484,10 +2267,7 @@ const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2514,10 +2294,7 @@ export const deserializeAws_json1_1DescribeWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspacesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2541,8 +2318,7 @@ const deserializeAws_json1_1DescribeWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2588,17 +2364,11 @@ export const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = a
   context: __SerdeContext
 ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult(data, context);
   const response: DescribeWorkspacesConnectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspacesConnectionStatusResult",
@@ -2618,8 +2388,7 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError = asy
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2654,10 +2423,7 @@ export const deserializeAws_json1_1DisassociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIpGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisassociateIpGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateIpGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2681,16 +2447,12 @@ const deserializeAws_json1_1DisassociateIpGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2720,10 +2482,7 @@ const deserializeAws_json1_1DisassociateIpGroupsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2750,10 +2509,7 @@ export const deserializeAws_json1_1ImportWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<ImportWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ImportWorkspaceImageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2777,16 +2533,12 @@ const deserializeAws_json1_1ImportWorkspaceImageCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2838,10 +2590,7 @@ const deserializeAws_json1_1ImportWorkspaceImageCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2868,17 +2617,11 @@ export const deserializeAws_json1_1ListAvailableManagementCidrRangesCommand = as
   context: __SerdeContext
 ): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAvailableManagementCidrRangesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListAvailableManagementCidrRangesResult(data, context);
   const response: ListAvailableManagementCidrRangesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAvailableManagementCidrRangesResult",
@@ -2898,16 +2641,12 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2969,16 +2708,12 @@ const deserializeAws_json1_1MigrateWorkspaceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3019,10 +2754,7 @@ const deserializeAws_json1_1MigrateWorkspaceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3084,16 +2816,12 @@ const deserializeAws_json1_1ModifyAccountCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3123,10 +2851,7 @@ const deserializeAws_json1_1ModifyAccountCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3164,10 +2889,7 @@ export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyClientPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyClientPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyClientPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3191,16 +2913,12 @@ const deserializeAws_json1_1ModifyClientPropertiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3219,10 +2937,7 @@ const deserializeAws_json1_1ModifyClientPropertiesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3249,17 +2964,11 @@ export const deserializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifySelfservicePermissionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifySelfservicePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifySelfservicePermissionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ModifySelfservicePermissionsResult(data, context);
   const response: ModifySelfservicePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifySelfservicePermissionsResult",
@@ -3279,16 +2988,12 @@ const deserializeAws_json1_1ModifySelfservicePermissionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3307,10 +3012,7 @@ const deserializeAws_json1_1ModifySelfservicePermissionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3337,17 +3039,11 @@ export const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = asyn
   context: __SerdeContext
 ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyWorkspaceAccessPropertiesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyWorkspaceAccessPropertiesResult(data, context);
   const response: ModifyWorkspaceAccessPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyWorkspaceAccessPropertiesResult",
@@ -3367,16 +3063,12 @@ const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError = async 
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3384,10 +3076,7 @@ const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3414,17 +3103,11 @@ export const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = as
   context: __SerdeContext
 ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyWorkspaceCreationPropertiesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyWorkspaceCreationPropertiesResult(data, context);
   const response: ModifyWorkspaceCreationPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyWorkspaceCreationPropertiesResult",
@@ -3444,16 +3127,12 @@ const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3472,10 +3151,7 @@ const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError = asyn
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3502,17 +3178,11 @@ export const deserializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspacePropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyWorkspacePropertiesResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyWorkspacePropertiesResult(data, context);
   const response: ModifyWorkspacePropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyWorkspacePropertiesResult",
@@ -3532,16 +3202,12 @@ const deserializeAws_json1_1ModifyWorkspacePropertiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3582,10 +3248,7 @@ const deserializeAws_json1_1ModifyWorkspacePropertiesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3634,10 +3297,7 @@ export const deserializeAws_json1_1ModifyWorkspaceStateCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspaceStateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyWorkspaceStateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspaceStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3661,8 +3321,7 @@ const deserializeAws_json1_1ModifyWorkspaceStateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -3689,10 +3348,7 @@ const deserializeAws_json1_1ModifyWorkspaceStateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3743,8 +3399,7 @@ const deserializeAws_json1_1RebootWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3792,8 +3447,7 @@ const deserializeAws_json1_1RebuildWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3817,17 +3471,11 @@ export const deserializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterWorkspaceDirectoryResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterWorkspaceDirectoryResult(data, context);
   const response: RegisterWorkspaceDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterWorkspaceDirectoryResult",
@@ -3847,16 +3495,12 @@ const deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3908,10 +3552,7 @@ const deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3984,16 +3625,12 @@ const deserializeAws_json1_1RestoreWorkspaceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4012,10 +3649,7 @@ const deserializeAws_json1_1RestoreWorkspaceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4066,16 +3700,12 @@ const deserializeAws_json1_1RevokeIpRulesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4105,10 +3735,7 @@ const deserializeAws_json1_1RevokeIpRulesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4159,8 +3786,7 @@ const deserializeAws_json1_1StartWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4208,8 +3834,7 @@ const deserializeAws_json1_1StopWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4233,10 +3858,7 @@ export const deserializeAws_json1_1TerminateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<TerminateWorkspacesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1TerminateWorkspacesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1TerminateWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4260,8 +3882,7 @@ const deserializeAws_json1_1TerminateWorkspacesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4285,10 +3906,7 @@ export const deserializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRulesOfIpGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4312,16 +3930,12 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4362,10 +3976,7 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4392,10 +4003,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
@@ -4410,10 +4018,7 @@ const deserializeAws_json1_1InvalidParameterValuesExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValuesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterValuesException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterValuesException(body, context);
   const contents: InvalidParameterValuesException = {
     name: "InvalidParameterValuesException",
     $fault: "client",
@@ -4428,10 +4033,7 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(body, context);
   const contents: InvalidResourceStateException = {
     name: "InvalidResourceStateException",
     $fault: "client",
@@ -4446,10 +4048,7 @@ const deserializeAws_json1_1OperationInProgressExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationInProgressException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationInProgressException(body, context);
   const contents: OperationInProgressException = {
     name: "OperationInProgressException",
     $fault: "client",
@@ -4464,10 +4063,7 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotSupportedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationNotSupportedException(body, context);
   const contents: OperationNotSupportedException = {
     name: "OperationNotSupportedException",
     $fault: "client",
@@ -4482,10 +4078,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
@@ -4500,10 +4093,7 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAssociatedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAssociatedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAssociatedException(body, context);
   const contents: ResourceAssociatedException = {
     name: "ResourceAssociatedException",
     $fault: "client",
@@ -4518,10 +4108,7 @@ const deserializeAws_json1_1ResourceCreationFailedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceCreationFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceCreationFailedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceCreationFailedException(body, context);
   const contents: ResourceCreationFailedException = {
     name: "ResourceCreationFailedException",
     $fault: "client",
@@ -4536,10 +4123,7 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceLimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceLimitExceededException(body, context);
   const contents: ResourceLimitExceededException = {
     name: "ResourceLimitExceededException",
     $fault: "client",
@@ -4554,10 +4138,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -4572,10 +4153,7 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(body, context);
   const contents: ResourceUnavailableException = {
     name: "ResourceUnavailableException",
     $fault: "client",
@@ -4663,10 +4241,7 @@ const serializeAws_json1_1AuthorizeIpRulesRequest = (
   };
 };
 
-const serializeAws_json1_1BundleIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4734,10 +4309,7 @@ const serializeAws_json1_1CreateWorkspacesRequest = (
 ): any => {
   return {
     ...(input.Workspaces !== undefined && {
-      Workspaces: serializeAws_json1_1WorkspaceRequestList(
-        input.Workspaces,
-        context
-      )
+      Workspaces: serializeAws_json1_1WorkspaceRequestList(input.Workspaces, context)
     })
   };
 };
@@ -4803,10 +4375,7 @@ const serializeAws_json1_1DescribeClientPropertiesRequest = (
 ): any => {
   return {
     ...(input.ResourceIds !== undefined && {
-      ResourceIds: serializeAws_json1_1ResourceIdList(
-        input.ResourceIds,
-        context
-      )
+      ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context)
     })
   };
 };
@@ -4852,10 +4421,7 @@ const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
 ): any => {
   return {
     ...(input.DirectoryIds !== undefined && {
-      DirectoryIds: serializeAws_json1_1DirectoryIdList(
-        input.DirectoryIds,
-        context
-      )
+      DirectoryIds: serializeAws_json1_1DirectoryIdList(input.DirectoryIds, context)
     }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -4868,10 +4434,7 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
 ): any => {
   return {
     ...(input.ImageIds !== undefined && {
-      ImageIds: serializeAws_json1_1WorkspaceImageIdList(
-        input.ImageIds,
-        context
-      )
+      ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -4894,10 +4457,7 @@ const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
   return {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.WorkspaceIds !== undefined && {
-      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(
-        input.WorkspaceIds,
-        context
-      )
+      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context)
     })
   };
 };
@@ -4913,18 +4473,12 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
     ...(input.WorkspaceIds !== undefined && {
-      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(
-        input.WorkspaceIds,
-        context
-      )
+      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context)
     })
   };
 };
 
-const serializeAws_json1_1DirectoryIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DirectoryIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4959,34 +4513,22 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
   };
 };
 
-const serializeAws_json1_1IpGroupIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IpGroupIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1IpRevokedRuleList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IpRevokedRuleList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1IpRuleItem = (
-  input: IpRuleItem,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IpRuleItem = (input: IpRuleItem, context: __SerdeContext): any => {
   return {
     ...(input.ipRule !== undefined && { ipRule: input.ipRule }),
     ...(input.ruleDesc !== undefined && { ruleDesc: input.ruleDesc })
   };
 };
 
-const serializeAws_json1_1IpRuleList = (
-  input: IpRuleItem[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IpRuleList = (input: IpRuleItem[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1IpRuleItem(entry, context));
 };
 
@@ -5021,8 +4563,7 @@ const serializeAws_json1_1ModifyAccountRequest = (
 ): any => {
   return {
     ...(input.DedicatedTenancyManagementCidrRange !== undefined && {
-      DedicatedTenancyManagementCidrRange:
-        input.DedicatedTenancyManagementCidrRange
+      DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange
     }),
     ...(input.DedicatedTenancySupport !== undefined && {
       DedicatedTenancySupport: input.DedicatedTenancySupport
@@ -5036,10 +4577,7 @@ const serializeAws_json1_1ModifyClientPropertiesRequest = (
 ): any => {
   return {
     ...(input.ClientProperties !== undefined && {
-      ClientProperties: serializeAws_json1_1ClientProperties(
-        input.ClientProperties,
-        context
-      )
+      ClientProperties: serializeAws_json1_1ClientProperties(input.ClientProperties, context)
     }),
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
   };
@@ -5117,10 +4655,7 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   };
 };
 
-const serializeAws_json1_1RebootRequest = (
-  input: RebootRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RebootRequest = (input: RebootRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId })
   };
@@ -5199,10 +4734,7 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
   };
 };
 
-const serializeAws_json1_1ResourceIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ResourceIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5250,10 +4782,7 @@ const serializeAws_json1_1SelfservicePermissions = (
   };
 };
 
-const serializeAws_json1_1StartRequest = (
-  input: StartRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StartRequest = (input: StartRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId })
   };
@@ -5280,10 +4809,7 @@ const serializeAws_json1_1StartWorkspacesRequest = (
   };
 };
 
-const serializeAws_json1_1StopRequest = (
-  input: StopRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopRequest = (input: StopRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId })
   };
@@ -5310,10 +4836,7 @@ const serializeAws_json1_1StopWorkspacesRequest = (
   };
 };
 
-const serializeAws_json1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5324,17 +4847,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -5351,9 +4868,7 @@ const serializeAws_json1_1TerminateWorkspaceRequests = (
   input: TerminateRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1TerminateRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1TerminateRequest(entry, context));
 };
 
 const serializeAws_json1_1TerminateWorkspacesRequest = (
@@ -5432,10 +4947,7 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
   };
 };
 
-const serializeAws_json1_1WorkspaceIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1WorkspaceIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5459,8 +4971,7 @@ const serializeAws_json1_1WorkspaceProperties = (
     }),
     ...(input.RunningMode !== undefined && { RunningMode: input.RunningMode }),
     ...(input.RunningModeAutoStopTimeoutInMinutes !== undefined && {
-      RunningModeAutoStopTimeoutInMinutes:
-        input.RunningModeAutoStopTimeoutInMinutes
+      RunningModeAutoStopTimeoutInMinutes: input.RunningModeAutoStopTimeoutInMinutes
     }),
     ...(input.UserVolumeSizeGib !== undefined && {
       UserVolumeSizeGib: input.UserVolumeSizeGib
@@ -5501,9 +5012,7 @@ const serializeAws_json1_1WorkspaceRequestList = (
   input: WorkspaceRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1WorkspaceRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1WorkspaceRequest(entry, context));
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
@@ -5512,10 +5021,7 @@ const deserializeAws_json1_1AccessDeniedException = (
 ): AccessDeniedException => {
   return {
     __type: "AccessDeniedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5531,21 +5037,17 @@ const deserializeAws_json1_1AccountModification = (
         ? output.DedicatedTenancyManagementCidrRange
         : undefined,
     DedicatedTenancySupport:
-      output.DedicatedTenancySupport !== undefined &&
-      output.DedicatedTenancySupport !== null
+      output.DedicatedTenancySupport !== undefined && output.DedicatedTenancySupport !== null
         ? output.DedicatedTenancySupport
         : undefined,
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     ModificationState:
-      output.ModificationState !== undefined &&
-      output.ModificationState !== null
+      output.ModificationState !== undefined && output.ModificationState !== null
         ? output.ModificationState
         : undefined,
     StartTime:
@@ -5586,9 +5088,7 @@ const deserializeAws_json1_1BundleList = (
   output: any,
   context: __SerdeContext
 ): WorkspaceBundle[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1WorkspaceBundle(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceBundle(entry, context));
 };
 
 const deserializeAws_json1_1ClientProperties = (
@@ -5621,28 +5121,17 @@ const deserializeAws_json1_1ClientPropertiesResult = (
     __type: "ClientPropertiesResult",
     ClientProperties:
       output.ClientProperties !== undefined && output.ClientProperties !== null
-        ? deserializeAws_json1_1ClientProperties(
-            output.ClientProperties,
-            context
-          )
+        ? deserializeAws_json1_1ClientProperties(output.ClientProperties, context)
         : undefined,
     ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined
+      output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ComputeType = (
-  output: any,
-  context: __SerdeContext
-): ComputeType => {
+const deserializeAws_json1_1ComputeType = (output: any, context: __SerdeContext): ComputeType => {
   return {
     __type: "ComputeType",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -5652,10 +5141,7 @@ const deserializeAws_json1_1CopyWorkspaceImageResult = (
 ): CopyWorkspaceImageResult => {
   return {
     __type: "CopyWorkspaceImageResult",
-    ImageId:
-      output.ImageId !== undefined && output.ImageId !== null
-        ? output.ImageId
-        : undefined
+    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined
   } as any;
 };
 
@@ -5665,10 +5151,7 @@ const deserializeAws_json1_1CreateIpGroupResult = (
 ): CreateIpGroupResult => {
   return {
     __type: "CreateIpGroupResult",
-    GroupId:
-      output.GroupId !== undefined && output.GroupId !== null
-        ? output.GroupId
-        : undefined
+    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined
   } as any;
 };
 
@@ -5689,10 +5172,7 @@ const deserializeAws_json1_1CreateWorkspacesResult = (
     __type: "CreateWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedCreateWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedCreateWorkspaceRequests(output.FailedRequests, context)
         : undefined,
     PendingRequests:
       output.PendingRequests !== undefined && output.PendingRequests !== null
@@ -5715,22 +5195,17 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
   return {
     __type: "DefaultWorkspaceCreationProperties",
     CustomSecurityGroupId:
-      output.CustomSecurityGroupId !== undefined &&
-      output.CustomSecurityGroupId !== null
+      output.CustomSecurityGroupId !== undefined && output.CustomSecurityGroupId !== null
         ? output.CustomSecurityGroupId
         : undefined,
     DefaultOu:
-      output.DefaultOu !== undefined && output.DefaultOu !== null
-        ? output.DefaultOu
-        : undefined,
+      output.DefaultOu !== undefined && output.DefaultOu !== null ? output.DefaultOu : undefined,
     EnableInternetAccess:
-      output.EnableInternetAccess !== undefined &&
-      output.EnableInternetAccess !== null
+      output.EnableInternetAccess !== undefined && output.EnableInternetAccess !== null
         ? output.EnableInternetAccess
         : undefined,
     EnableMaintenanceMode:
-      output.EnableMaintenanceMode !== undefined &&
-      output.EnableMaintenanceMode !== null
+      output.EnableMaintenanceMode !== undefined && output.EnableMaintenanceMode !== null
         ? output.EnableMaintenanceMode
         : undefined,
     EnableWorkDocs:
@@ -5788,17 +5263,11 @@ const deserializeAws_json1_1DescribeAccountModificationsResult = (
   return {
     __type: "DescribeAccountModificationsResult",
     AccountModifications:
-      output.AccountModifications !== undefined &&
-      output.AccountModifications !== null
-        ? deserializeAws_json1_1AccountModificationList(
-            output.AccountModifications,
-            context
-          )
+      output.AccountModifications !== undefined && output.AccountModifications !== null
+        ? deserializeAws_json1_1AccountModificationList(output.AccountModifications, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -5814,8 +5283,7 @@ const deserializeAws_json1_1DescribeAccountResult = (
         ? output.DedicatedTenancyManagementCidrRange
         : undefined,
     DedicatedTenancySupport:
-      output.DedicatedTenancySupport !== undefined &&
-      output.DedicatedTenancySupport !== null
+      output.DedicatedTenancySupport !== undefined && output.DedicatedTenancySupport !== null
         ? output.DedicatedTenancySupport
         : undefined
   } as any;
@@ -5828,12 +5296,8 @@ const deserializeAws_json1_1DescribeClientPropertiesResult = (
   return {
     __type: "DescribeClientPropertiesResult",
     ClientPropertiesList:
-      output.ClientPropertiesList !== undefined &&
-      output.ClientPropertiesList !== null
-        ? deserializeAws_json1_1ClientPropertiesList(
-            output.ClientPropertiesList,
-            context
-          )
+      output.ClientPropertiesList !== undefined && output.ClientPropertiesList !== null
+        ? deserializeAws_json1_1ClientPropertiesList(output.ClientPropertiesList, context)
         : undefined
   } as any;
 };
@@ -5845,9 +5309,7 @@ const deserializeAws_json1_1DescribeIpGroupsResult = (
   return {
     __type: "DescribeIpGroupsResult",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Result:
       output.Result !== undefined && output.Result !== null
         ? deserializeAws_json1_1WorkspacesIpGroupsList(output.Result, context)
@@ -5879,9 +5341,7 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesResult = (
         ? deserializeAws_json1_1BundleList(output.Bundles, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -5896,9 +5356,7 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesResult = (
         ? deserializeAws_json1_1DirectoryList(output.Directories, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -5913,9 +5371,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagesResult = (
         ? deserializeAws_json1_1WorkspaceImageList(output.Images, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -5943,12 +5399,9 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult = (
   return {
     __type: "DescribeWorkspacesConnectionStatusResult",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     WorkspacesConnectionStatus:
-      output.WorkspacesConnectionStatus !== undefined &&
-      output.WorkspacesConnectionStatus !== null
+      output.WorkspacesConnectionStatus !== undefined && output.WorkspacesConnectionStatus !== null
         ? deserializeAws_json1_1WorkspaceConnectionStatusList(
             output.WorkspacesConnectionStatus,
             context
@@ -5964,9 +5417,7 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
   return {
     __type: "DescribeWorkspacesResult",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Workspaces:
       output.Workspaces !== undefined && output.Workspaces !== null
         ? deserializeAws_json1_1WorkspaceList(output.Workspaces, context)
@@ -5992,10 +5443,7 @@ const deserializeAws_json1_1DisassociateIpGroupsResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DnsIpAddresses = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DnsIpAddresses = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6006,19 +5454,14 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
   return {
     __type: "FailedCreateWorkspaceRequest",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     WorkspaceRequest:
       output.WorkspaceRequest !== undefined && output.WorkspaceRequest !== null
-        ? deserializeAws_json1_1WorkspaceRequest(
-            output.WorkspaceRequest,
-            context
-          )
+        ? deserializeAws_json1_1WorkspaceRequest(output.WorkspaceRequest, context)
         : undefined
   } as any;
 };
@@ -6084,9 +5527,7 @@ const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
   return {
     __type: "FailedWorkspaceChangeRequest",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
@@ -6104,10 +5545,7 @@ const deserializeAws_json1_1ImportWorkspaceImageResult = (
 ): ImportWorkspaceImageResult => {
   return {
     __type: "ImportWorkspaceImageResult",
-    ImageId:
-      output.ImageId !== undefined && output.ImageId !== null
-        ? output.ImageId
-        : undefined
+    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined
   } as any;
 };
 
@@ -6117,10 +5555,7 @@ const deserializeAws_json1_1InvalidParameterValuesException = (
 ): InvalidParameterValuesException => {
   return {
     __type: "InvalidParameterValuesException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6130,44 +5565,25 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 ): InvalidResourceStateException => {
   return {
     __type: "InvalidResourceStateException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IpGroupIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1IpGroupIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1IpRuleItem = (
-  output: any,
-  context: __SerdeContext
-): IpRuleItem => {
+const deserializeAws_json1_1IpRuleItem = (output: any, context: __SerdeContext): IpRuleItem => {
   return {
     __type: "IpRuleItem",
-    ipRule:
-      output.ipRule !== undefined && output.ipRule !== null
-        ? output.ipRule
-        : undefined,
+    ipRule: output.ipRule !== undefined && output.ipRule !== null ? output.ipRule : undefined,
     ruleDesc:
-      output.ruleDesc !== undefined && output.ruleDesc !== null
-        ? output.ruleDesc
-        : undefined
+      output.ruleDesc !== undefined && output.ruleDesc !== null ? output.ruleDesc : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IpRuleList = (
-  output: any,
-  context: __SerdeContext
-): IpRuleItem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IpRuleItem(entry, context)
-  );
+const deserializeAws_json1_1IpRuleList = (output: any, context: __SerdeContext): IpRuleItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1IpRuleItem(entry, context));
 };
 
 const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
@@ -6177,17 +5593,11 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
   return {
     __type: "ListAvailableManagementCidrRangesResult",
     ManagementCidrRanges:
-      output.ManagementCidrRanges !== undefined &&
-      output.ManagementCidrRanges !== null
-        ? deserializeAws_json1_1DedicatedTenancyCidrRangeList(
-            output.ManagementCidrRanges,
-            context
-          )
+      output.ManagementCidrRanges !== undefined && output.ManagementCidrRanges !== null
+        ? deserializeAws_json1_1DedicatedTenancyCidrRangeList(output.ManagementCidrRanges, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -6198,13 +5608,11 @@ const deserializeAws_json1_1MigrateWorkspaceResult = (
   return {
     __type: "MigrateWorkspaceResult",
     SourceWorkspaceId:
-      output.SourceWorkspaceId !== undefined &&
-      output.SourceWorkspaceId !== null
+      output.SourceWorkspaceId !== undefined && output.SourceWorkspaceId !== null
         ? output.SourceWorkspaceId
         : undefined,
     TargetWorkspaceId:
-      output.TargetWorkspaceId !== undefined &&
-      output.TargetWorkspaceId !== null
+      output.TargetWorkspaceId !== undefined && output.TargetWorkspaceId !== null
         ? output.TargetWorkspaceId
         : undefined
   } as any;
@@ -6217,13 +5625,8 @@ const deserializeAws_json1_1ModificationState = (
   return {
     __type: "ModificationState",
     Resource:
-      output.Resource !== undefined && output.Resource !== null
-        ? output.Resource
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+      output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -6305,10 +5708,7 @@ const deserializeAws_json1_1OperatingSystem = (
 ): OperatingSystem => {
   return {
     __type: "OperatingSystem",
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -6318,10 +5718,7 @@ const deserializeAws_json1_1OperationInProgressException = (
 ): OperationInProgressException => {
   return {
     __type: "OperationInProgressException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6331,10 +5728,7 @@ const deserializeAws_json1_1OperationNotSupportedException = (
 ): OperationNotSupportedException => {
   return {
     __type: "OperationNotSupportedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6346,10 +5740,7 @@ const deserializeAws_json1_1RebootWorkspacesResult = (
     __type: "RebootWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedRebootWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedRebootWorkspaceRequests(output.FailedRequests, context)
         : undefined
   } as any;
 };
@@ -6362,10 +5753,7 @@ const deserializeAws_json1_1RebuildWorkspacesResult = (
     __type: "RebuildWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedRebuildWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedRebuildWorkspaceRequests(output.FailedRequests, context)
         : undefined
   } as any;
 };
@@ -6385,10 +5773,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6398,10 +5783,7 @@ const deserializeAws_json1_1ResourceAssociatedException = (
 ): ResourceAssociatedException => {
   return {
     __type: "ResourceAssociatedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6411,10 +5793,7 @@ const deserializeAws_json1_1ResourceCreationFailedException = (
 ): ResourceCreationFailedException => {
   return {
     __type: "ResourceCreationFailedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6424,10 +5803,7 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
 ): ResourceLimitExceededException => {
   return {
     __type: "ResourceLimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6438,13 +5814,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   return {
     __type: "ResourceNotFoundException",
     ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6455,13 +5826,8 @@ const deserializeAws_json1_1ResourceUnavailableException = (
   return {
     __type: "ResourceUnavailableException",
     ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6483,16 +5849,11 @@ const deserializeAws_json1_1RevokeIpRulesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1RootStorage = (
-  output: any,
-  context: __SerdeContext
-): RootStorage => {
+const deserializeAws_json1_1RootStorage = (output: any, context: __SerdeContext): RootStorage => {
   return {
     __type: "RootStorage",
     Capacity:
-      output.Capacity !== undefined && output.Capacity !== null
-        ? output.Capacity
-        : undefined
+      output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined
   } as any;
 };
 
@@ -6503,13 +5864,11 @@ const deserializeAws_json1_1SelfservicePermissions = (
   return {
     __type: "SelfservicePermissions",
     ChangeComputeType:
-      output.ChangeComputeType !== undefined &&
-      output.ChangeComputeType !== null
+      output.ChangeComputeType !== undefined && output.ChangeComputeType !== null
         ? output.ChangeComputeType
         : undefined,
     IncreaseVolumeSize:
-      output.IncreaseVolumeSize !== undefined &&
-      output.IncreaseVolumeSize !== null
+      output.IncreaseVolumeSize !== undefined && output.IncreaseVolumeSize !== null
         ? output.IncreaseVolumeSize
         : undefined,
     RebuildWorkspace:
@@ -6521,17 +5880,13 @@ const deserializeAws_json1_1SelfservicePermissions = (
         ? output.RestartWorkspace
         : undefined,
     SwitchRunningMode:
-      output.SwitchRunningMode !== undefined &&
-      output.SwitchRunningMode !== null
+      output.SwitchRunningMode !== undefined && output.SwitchRunningMode !== null
         ? output.SwitchRunningMode
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Snapshot = (
-  output: any,
-  context: __SerdeContext
-): Snapshot => {
+const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
     __type: "Snapshot",
     SnapshotTime:
@@ -6541,13 +5896,8 @@ const deserializeAws_json1_1Snapshot = (
   } as any;
 };
 
-const deserializeAws_json1_1SnapshotList = (
-  output: any,
-  context: __SerdeContext
-): Snapshot[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Snapshot(entry, context)
-  );
+const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Snapshot(entry, context));
 };
 
 const deserializeAws_json1_1StartWorkspacesResult = (
@@ -6558,10 +5908,7 @@ const deserializeAws_json1_1StartWorkspacesResult = (
     __type: "StartWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedStartWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedStartWorkspaceRequests(output.FailedRequests, context)
         : undefined
   } as any;
 };
@@ -6574,43 +5921,25 @@ const deserializeAws_json1_1StopWorkspacesResult = (
     __type: "StopWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedStopWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedStopWorkspaceRequests(output.FailedRequests, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SubnetIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TerminateWorkspacesResult = (
@@ -6621,10 +5950,7 @@ const deserializeAws_json1_1TerminateWorkspacesResult = (
     __type: "TerminateWorkspacesResult",
     FailedRequests:
       output.FailedRequests !== undefined && output.FailedRequests !== null
-        ? deserializeAws_json1_1FailedTerminateWorkspaceRequests(
-            output.FailedRequests,
-            context
-          )
+        ? deserializeAws_json1_1FailedTerminateWorkspaceRequests(output.FailedRequests, context)
         : undefined
   } as any;
 };
@@ -6635,10 +5961,7 @@ const deserializeAws_json1_1UnsupportedNetworkConfigurationException = (
 ): UnsupportedNetworkConfigurationException => {
   return {
     __type: "UnsupportedNetworkConfigurationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6648,10 +5971,7 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationException = (
 ): UnsupportedWorkspaceConfigurationException => {
   return {
     __type: "UnsupportedWorkspaceConfigurationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6664,29 +5984,19 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupResult = (
   } as any;
 };
 
-const deserializeAws_json1_1UserStorage = (
-  output: any,
-  context: __SerdeContext
-): UserStorage => {
+const deserializeAws_json1_1UserStorage = (output: any, context: __SerdeContext): UserStorage => {
   return {
     __type: "UserStorage",
     Capacity:
-      output.Capacity !== undefined && output.Capacity !== null
-        ? output.Capacity
-        : undefined
+      output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Workspace = (
-  output: any,
-  context: __SerdeContext
-): Workspace => {
+const deserializeAws_json1_1Workspace = (output: any, context: __SerdeContext): Workspace => {
   return {
     __type: "Workspace",
     BundleId:
-      output.BundleId !== undefined && output.BundleId !== null
-        ? output.BundleId
-        : undefined,
+      output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     ComputerName:
       output.ComputerName !== undefined && output.ComputerName !== null
         ? output.ComputerName
@@ -6696,50 +6006,34 @@ const deserializeAws_json1_1Workspace = (
         ? output.DirectoryId
         : undefined,
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     IpAddress:
-      output.IpAddress !== undefined && output.IpAddress !== null
-        ? output.IpAddress
-        : undefined,
+      output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
     ModificationStates:
-      output.ModificationStates !== undefined &&
-      output.ModificationStates !== null
-        ? deserializeAws_json1_1ModificationStateList(
-            output.ModificationStates,
-            context
-          )
+      output.ModificationStates !== undefined && output.ModificationStates !== null
+        ? deserializeAws_json1_1ModificationStateList(output.ModificationStates, context)
         : undefined,
     RootVolumeEncryptionEnabled:
       output.RootVolumeEncryptionEnabled !== undefined &&
       output.RootVolumeEncryptionEnabled !== null
         ? output.RootVolumeEncryptionEnabled
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined,
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
     UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined,
+      output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
     UserVolumeEncryptionEnabled:
       output.UserVolumeEncryptionEnabled !== undefined &&
       output.UserVolumeEncryptionEnabled !== null
         ? output.UserVolumeEncryptionEnabled
         : undefined,
     VolumeEncryptionKey:
-      output.VolumeEncryptionKey !== undefined &&
-      output.VolumeEncryptionKey !== null
+      output.VolumeEncryptionKey !== undefined && output.VolumeEncryptionKey !== null
         ? output.VolumeEncryptionKey
         : undefined,
     WorkspaceId:
@@ -6747,12 +6041,8 @@ const deserializeAws_json1_1Workspace = (
         ? output.WorkspaceId
         : undefined,
     WorkspaceProperties:
-      output.WorkspaceProperties !== undefined &&
-      output.WorkspaceProperties !== null
-        ? deserializeAws_json1_1WorkspaceProperties(
-            output.WorkspaceProperties,
-            context
-          )
+      output.WorkspaceProperties !== undefined && output.WorkspaceProperties !== null
+        ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
         : undefined
   } as any;
 };
@@ -6764,13 +6054,11 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
   return {
     __type: "WorkspaceAccessProperties",
     DeviceTypeAndroid:
-      output.DeviceTypeAndroid !== undefined &&
-      output.DeviceTypeAndroid !== null
+      output.DeviceTypeAndroid !== undefined && output.DeviceTypeAndroid !== null
         ? output.DeviceTypeAndroid
         : undefined,
     DeviceTypeChromeOs:
-      output.DeviceTypeChromeOs !== undefined &&
-      output.DeviceTypeChromeOs !== null
+      output.DeviceTypeChromeOs !== undefined && output.DeviceTypeChromeOs !== null
         ? output.DeviceTypeChromeOs
         : undefined,
     DeviceTypeIos:
@@ -6786,13 +6074,11 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
         ? output.DeviceTypeWeb
         : undefined,
     DeviceTypeWindows:
-      output.DeviceTypeWindows !== undefined &&
-      output.DeviceTypeWindows !== null
+      output.DeviceTypeWindows !== undefined && output.DeviceTypeWindows !== null
         ? output.DeviceTypeWindows
         : undefined,
     DeviceTypeZeroClient:
-      output.DeviceTypeZeroClient !== undefined &&
-      output.DeviceTypeZeroClient !== null
+      output.DeviceTypeZeroClient !== undefined && output.DeviceTypeZeroClient !== null
         ? output.DeviceTypeZeroClient
         : undefined
   } as any;
@@ -6805,9 +6091,7 @@ const deserializeAws_json1_1WorkspaceBundle = (
   return {
     __type: "WorkspaceBundle",
     BundleId:
-      output.BundleId !== undefined && output.BundleId !== null
-        ? output.BundleId
-        : undefined,
+      output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     ComputeType:
       output.ComputeType !== undefined && output.ComputeType !== null
         ? deserializeAws_json1_1ComputeType(output.ComputeType, context)
@@ -6816,22 +6100,13 @@ const deserializeAws_json1_1WorkspaceBundle = (
       output.Description !== undefined && output.Description !== null
         ? output.Description
         : undefined,
-    ImageId:
-      output.ImageId !== undefined && output.ImageId !== null
-        ? output.ImageId
-        : undefined,
+    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Owner:
-      output.Owner !== undefined && output.Owner !== null
-        ? output.Owner
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
     RootStorage:
       output.RootStorage !== undefined && output.RootStorage !== null
         ? deserializeAws_json1_1RootStorage(output.RootStorage, context)
@@ -6885,10 +6160,7 @@ const deserializeAws_json1_1WorkspaceDirectory = (
 ): WorkspaceDirectory => {
   return {
     __type: "WorkspaceDirectory",
-    Alias:
-      output.Alias !== undefined && output.Alias !== null
-        ? output.Alias
-        : undefined,
+    Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     CustomerUserName:
       output.CustomerUserName !== undefined && output.CustomerUserName !== null
         ? output.CustomerUserName
@@ -6910,40 +6182,24 @@ const deserializeAws_json1_1WorkspaceDirectory = (
         ? deserializeAws_json1_1DnsIpAddresses(output.DnsIpAddresses, context)
         : undefined,
     IamRoleId:
-      output.IamRoleId !== undefined && output.IamRoleId !== null
-        ? output.IamRoleId
-        : undefined,
+      output.IamRoleId !== undefined && output.IamRoleId !== null ? output.IamRoleId : undefined,
     RegistrationCode:
       output.RegistrationCode !== undefined && output.RegistrationCode !== null
         ? output.RegistrationCode
         : undefined,
     SelfservicePermissions:
-      output.SelfservicePermissions !== undefined &&
-      output.SelfservicePermissions !== null
-        ? deserializeAws_json1_1SelfservicePermissions(
-            output.SelfservicePermissions,
-            context
-          )
+      output.SelfservicePermissions !== undefined && output.SelfservicePermissions !== null
+        ? deserializeAws_json1_1SelfservicePermissions(output.SelfservicePermissions, context)
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
         : undefined,
-    Tenancy:
-      output.Tenancy !== undefined && output.Tenancy !== null
-        ? output.Tenancy
-        : undefined,
+    Tenancy: output.Tenancy !== undefined && output.Tenancy !== null ? output.Tenancy : undefined,
     WorkspaceAccessProperties:
-      output.WorkspaceAccessProperties !== undefined &&
-      output.WorkspaceAccessProperties !== null
-        ? deserializeAws_json1_1WorkspaceAccessProperties(
-            output.WorkspaceAccessProperties,
-            context
-          )
+      output.WorkspaceAccessProperties !== undefined && output.WorkspaceAccessProperties !== null
+        ? deserializeAws_json1_1WorkspaceAccessProperties(output.WorkspaceAccessProperties, context)
         : undefined,
     WorkspaceCreationProperties:
       output.WorkspaceCreationProperties !== undefined &&
@@ -6954,8 +6210,7 @@ const deserializeAws_json1_1WorkspaceDirectory = (
           )
         : undefined,
     WorkspaceSecurityGroupId:
-      output.WorkspaceSecurityGroupId !== undefined &&
-      output.WorkspaceSecurityGroupId !== null
+      output.WorkspaceSecurityGroupId !== undefined && output.WorkspaceSecurityGroupId !== null
         ? output.WorkspaceSecurityGroupId
         : undefined,
     ipGroupIds:
@@ -6976,21 +6231,13 @@ const deserializeAws_json1_1WorkspaceImage = (
         ? output.Description
         : undefined,
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
-    ImageId:
-      output.ImageId !== undefined && output.ImageId !== null
-        ? output.ImageId
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OperatingSystem:
       output.OperatingSystem !== undefined && output.OperatingSystem !== null
         ? deserializeAws_json1_1OperatingSystem(output.OperatingSystem, context)
@@ -6999,10 +6246,7 @@ const deserializeAws_json1_1WorkspaceImage = (
       output.RequiredTenancy !== undefined && output.RequiredTenancy !== null
         ? output.RequiredTenancy
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -7010,18 +6254,11 @@ const deserializeAws_json1_1WorkspaceImageList = (
   output: any,
   context: __SerdeContext
 ): WorkspaceImage[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1WorkspaceImage(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceImage(entry, context));
 };
 
-const deserializeAws_json1_1WorkspaceList = (
-  output: any,
-  context: __SerdeContext
-): Workspace[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Workspace(entry, context)
-  );
+const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContext): Workspace[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Workspace(entry, context));
 };
 
 const deserializeAws_json1_1WorkspaceProperties = (
@@ -7035,8 +6272,7 @@ const deserializeAws_json1_1WorkspaceProperties = (
         ? output.ComputeTypeName
         : undefined,
     RootVolumeSizeGib:
-      output.RootVolumeSizeGib !== undefined &&
-      output.RootVolumeSizeGib !== null
+      output.RootVolumeSizeGib !== undefined && output.RootVolumeSizeGib !== null
         ? output.RootVolumeSizeGib
         : undefined,
     RunningMode:
@@ -7049,8 +6285,7 @@ const deserializeAws_json1_1WorkspaceProperties = (
         ? output.RunningModeAutoStopTimeoutInMinutes
         : undefined,
     UserVolumeSizeGib:
-      output.UserVolumeSizeGib !== undefined &&
-      output.UserVolumeSizeGib !== null
+      output.UserVolumeSizeGib !== undefined && output.UserVolumeSizeGib !== null
         ? output.UserVolumeSizeGib
         : undefined
   } as any;
@@ -7063,9 +6298,7 @@ const deserializeAws_json1_1WorkspaceRequest = (
   return {
     __type: "WorkspaceRequest",
     BundleId:
-      output.BundleId !== undefined && output.BundleId !== null
-        ? output.BundleId
-        : undefined,
+      output.BundleId !== undefined && output.BundleId !== null ? output.BundleId : undefined,
     DirectoryId:
       output.DirectoryId !== undefined && output.DirectoryId !== null
         ? output.DirectoryId
@@ -7080,26 +6313,19 @@ const deserializeAws_json1_1WorkspaceRequest = (
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
     UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined,
+      output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
     UserVolumeEncryptionEnabled:
       output.UserVolumeEncryptionEnabled !== undefined &&
       output.UserVolumeEncryptionEnabled !== null
         ? output.UserVolumeEncryptionEnabled
         : undefined,
     VolumeEncryptionKey:
-      output.VolumeEncryptionKey !== undefined &&
-      output.VolumeEncryptionKey !== null
+      output.VolumeEncryptionKey !== undefined && output.VolumeEncryptionKey !== null
         ? output.VolumeEncryptionKey
         : undefined,
     WorkspaceProperties:
-      output.WorkspaceProperties !== undefined &&
-      output.WorkspaceProperties !== null
-        ? deserializeAws_json1_1WorkspaceProperties(
-            output.WorkspaceProperties,
-            context
-          )
+      output.WorkspaceProperties !== undefined && output.WorkspaceProperties !== null
+        ? deserializeAws_json1_1WorkspaceProperties(output.WorkspaceProperties, context)
         : undefined
   } as any;
 };
@@ -7110,10 +6336,7 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundException = (
 ): WorkspacesDefaultRoleNotFoundException => {
   return {
     __type: "WorkspacesDefaultRoleNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -7124,17 +6347,10 @@ const deserializeAws_json1_1WorkspacesIpGroup = (
   return {
     __type: "WorkspacesIpGroup",
     groupDesc:
-      output.groupDesc !== undefined && output.groupDesc !== null
-        ? output.groupDesc
-        : undefined,
-    groupId:
-      output.groupId !== undefined && output.groupId !== null
-        ? output.groupId
-        : undefined,
+      output.groupDesc !== undefined && output.groupDesc !== null ? output.groupDesc : undefined,
+    groupId: output.groupId !== undefined && output.groupId !== null ? output.groupId : undefined,
     groupName:
-      output.groupName !== undefined && output.groupName !== null
-        ? output.groupName
-        : undefined,
+      output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
     userRules:
       output.userRules !== undefined && output.userRules !== null
         ? deserializeAws_json1_1IpRuleList(output.userRules, context)
@@ -7165,16 +6381,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCampaignsCommandInput = ListCampaignsRequest;
-export type ListCampaignsCommandOutput = ListCampaignsResponse &
-  __MetadataBearer;
+export type ListCampaignsCommandOutput = ListCampaignsResponse & __MetadataBearer;
 
 export class ListCampaignsCommand extends $Command<
   ListCampaignsCommandInput,
@@ -47,9 +46,7 @@ export class ListCampaignsCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListCampaignsCommandInput, ListCampaignsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

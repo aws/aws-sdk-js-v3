@@ -49,9 +49,7 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     DeleteFieldLevelEncryptionProfileCommandInput,
     DeleteFieldLevelEncryptionProfileCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
     input: DeleteFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

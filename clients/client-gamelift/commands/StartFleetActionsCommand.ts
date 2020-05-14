@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  StartFleetActionsInput,
-  StartFleetActionsOutput
-} from "../models/index";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartFleetActionsCommand,
   serializeAws_json1_1StartFleetActionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartFleetActionsCommandInput = StartFleetActionsInput;
-export type StartFleetActionsCommandOutput = StartFleetActionsOutput &
-  __MetadataBearer;
+export type StartFleetActionsCommandOutput = StartFleetActionsOutput & __MetadataBearer;
 
 export class StartFleetActionsCommand extends $Command<
   StartFleetActionsCommandInput,
@@ -50,9 +46,7 @@ export class StartFleetActionsCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartFleetActionsCommandInput, StartFleetActionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

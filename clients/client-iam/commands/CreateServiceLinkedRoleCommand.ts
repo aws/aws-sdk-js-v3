@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateServiceLinkedRoleRequest,
-  CreateServiceLinkedRoleResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/index";
 import {
   deserializeAws_queryCreateServiceLinkedRoleCommand,
   serializeAws_queryCreateServiceLinkedRoleCommand
@@ -49,13 +42,8 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateServiceLinkedRoleCommandInput,
-    CreateServiceLinkedRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateServiceLinkedRoleCommandInput, CreateServiceLinkedRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

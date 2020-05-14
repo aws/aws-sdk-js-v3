@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpCommandInput = GetDedicatedIpRequest;
-export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse &
-  __MetadataBearer;
+export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse & __MetadataBearer;
 
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,
@@ -47,9 +46,7 @@ export class GetDedicatedIpCommand extends $Command<
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

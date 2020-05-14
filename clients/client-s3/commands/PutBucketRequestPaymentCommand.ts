@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketRequestPaymentRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketRequestPaymentCommand,
@@ -46,13 +42,8 @@ export class PutBucketRequestPaymentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutBucketRequestPaymentCommandInput,
-    PutBucketRequestPaymentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutBucketRequestPaymentCommandInput, PutBucketRequestPaymentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -79,10 +70,7 @@ export class PutBucketRequestPaymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketRequestPaymentCommandOutput> {
-    return deserializeAws_restXmlPutBucketRequestPaymentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketRequestPaymentCommand(output, context);
   }
 
   // Start section: command_body_extra

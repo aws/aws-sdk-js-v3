@@ -73,9 +73,7 @@ export class KinesisVideoMedia extends KinesisVideoMediaClient {
   ): void;
   public getMedia(
     args: GetMediaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMediaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMediaCommandOutput) => void),
     cb?: (err: any, data?: GetMediaCommandOutput) => void
   ): Promise<GetMediaCommandOutput> | void {
     const command = new GetMediaCommand(args);

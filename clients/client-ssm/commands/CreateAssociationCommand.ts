@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreateAssociationRequest,
-  CreateAssociationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreateAssociationRequest, CreateAssociationResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateAssociationCommand,
   serializeAws_json1_1CreateAssociationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAssociationCommandInput = CreateAssociationRequest;
-export type CreateAssociationCommandOutput = CreateAssociationResult &
-  __MetadataBearer;
+export type CreateAssociationCommandOutput = CreateAssociationResult & __MetadataBearer;
 
 export class CreateAssociationCommand extends $Command<
   CreateAssociationCommandInput,
@@ -50,9 +42,7 @@ export class CreateAssociationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAssociationCommandInput, CreateAssociationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

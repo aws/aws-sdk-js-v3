@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetCheckerIpRangesRequest,
-  GetCheckerIpRangesResponse
-} from "../models/index";
+import { GetCheckerIpRangesRequest, GetCheckerIpRangesResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetCheckerIpRangesCommand,
   serializeAws_restXmlGetCheckerIpRangesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCheckerIpRangesCommandInput = GetCheckerIpRangesRequest;
-export type GetCheckerIpRangesCommandOutput = GetCheckerIpRangesResponse &
-  __MetadataBearer;
+export type GetCheckerIpRangesCommandOutput = GetCheckerIpRangesResponse & __MetadataBearer;
 
 export class GetCheckerIpRangesCommand extends $Command<
   GetCheckerIpRangesCommandInput,
@@ -50,9 +46,7 @@ export class GetCheckerIpRangesCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

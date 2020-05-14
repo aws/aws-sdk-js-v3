@@ -49,13 +49,8 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainContactPrivacyCommandInput,
-    UpdateDomainContactPrivacyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainContactPrivacyCommandInput, UpdateDomainContactPrivacyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     input: UpdateDomainContactPrivacyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainContactPrivacyCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateDomainContactPrivacyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainContactPrivacyCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainContactPrivacyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDomainContactPrivacyCommand(output, context);
   }
 
   // Start section: command_body_extra

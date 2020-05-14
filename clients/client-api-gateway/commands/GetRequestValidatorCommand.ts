@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRequestValidatorCommandInput = GetRequestValidatorRequest;
-export type GetRequestValidatorCommandOutput = RequestValidator &
-  __MetadataBearer;
+export type GetRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
 
 export class GetRequestValidatorCommand extends $Command<
   GetRequestValidatorCommandInput,
@@ -46,13 +45,8 @@ export class GetRequestValidatorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRequestValidatorCommandInput,
-    GetRequestValidatorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRequestValidatorCommandInput, GetRequestValidatorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class GetRequestValidatorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1GetRequestValidatorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  AllocateConnectionOnInterconnectRequest,
-  Connection
-} from "../models/index";
+import { AllocateConnectionOnInterconnectRequest, Connection } from "../models/index";
 import {
   deserializeAws_json1_1AllocateConnectionOnInterconnectCommand,
   serializeAws_json1_1AllocateConnectionOnInterconnectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocateConnectionOnInterconnectCommandInput = AllocateConnectionOnInterconnectRequest;
-export type AllocateConnectionOnInterconnectCommandOutput = Connection &
-  __MetadataBearer;
+export type AllocateConnectionOnInterconnectCommandOutput = Connection & __MetadataBearer;
 
 export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandInput,
@@ -53,9 +49,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     AllocateConnectionOnInterconnectCommandInput,
     AllocateConnectionOnInterconnectCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     input: AllocateConnectionOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateConnectionOnInterconnectCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AllocateConnectionOnInterconnectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1AllocateConnectionOnInterconnectCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AllocateConnectionOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

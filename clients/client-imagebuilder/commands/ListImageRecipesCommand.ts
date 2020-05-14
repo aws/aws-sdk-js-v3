@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  ListImageRecipesRequest,
-  ListImageRecipesResponse
-} from "../models/index";
+import { ListImageRecipesRequest, ListImageRecipesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListImageRecipesCommand,
   serializeAws_restJson1_1ListImageRecipesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListImageRecipesCommandInput = ListImageRecipesRequest;
-export type ListImageRecipesCommandOutput = ListImageRecipesResponse &
-  __MetadataBearer;
+export type ListImageRecipesCommandOutput = ListImageRecipesResponse & __MetadataBearer;
 
 export class ListImageRecipesCommand extends $Command<
   ListImageRecipesCommandInput,
@@ -50,9 +46,7 @@ export class ListImageRecipesCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListImageRecipesCommandInput, ListImageRecipesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

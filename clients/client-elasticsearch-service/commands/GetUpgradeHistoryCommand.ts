@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeHistoryRequest,
-  GetUpgradeHistoryResponse
-} from "../models/index";
+import { GetUpgradeHistoryRequest, GetUpgradeHistoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUpgradeHistoryCommand,
   serializeAws_restJson1_1GetUpgradeHistoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUpgradeHistoryCommandInput = GetUpgradeHistoryRequest;
-export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse &
-  __MetadataBearer;
+export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse & __MetadataBearer;
 
 export class GetUpgradeHistoryCommand extends $Command<
   GetUpgradeHistoryCommandInput,
@@ -50,9 +46,7 @@ export class GetUpgradeHistoryCommand extends $Command<
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

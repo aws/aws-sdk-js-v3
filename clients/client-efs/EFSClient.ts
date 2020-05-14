@@ -10,10 +10,7 @@ import {
   CreateMountTargetCommandInput,
   CreateMountTargetCommandOutput
 } from "./commands/CreateMountTargetCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteAccessPointCommandInput,
   DeleteAccessPointCommandOutput
@@ -30,10 +27,7 @@ import {
   DeleteMountTargetCommandInput,
   DeleteMountTargetCommandOutput
 } from "./commands/DeleteMountTargetCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccessPointsCommandInput,
   DescribeAccessPointsCommandOutput
@@ -78,10 +72,7 @@ import {
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput
 } from "./commands/PutLifecycleConfigurationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -277,9 +268,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EFSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EFSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -288,9 +277,7 @@ export type EFSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

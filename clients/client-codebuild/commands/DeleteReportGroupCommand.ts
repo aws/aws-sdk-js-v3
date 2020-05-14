@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  DeleteReportGroupInput,
-  DeleteReportGroupOutput
-} from "../models/index";
+import { DeleteReportGroupInput, DeleteReportGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReportGroupCommand,
   serializeAws_json1_1DeleteReportGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReportGroupCommandInput = DeleteReportGroupInput;
-export type DeleteReportGroupCommandOutput = DeleteReportGroupOutput &
-  __MetadataBearer;
+export type DeleteReportGroupCommandOutput = DeleteReportGroupOutput & __MetadataBearer;
 
 export class DeleteReportGroupCommand extends $Command<
   DeleteReportGroupCommandInput,
@@ -50,9 +46,7 @@ export class DeleteReportGroupCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetConnectivityInfoRequest,
-  GetConnectivityInfoResponse
-} from "../models/index";
+import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConnectivityInfoCommand,
   serializeAws_restJson1_1GetConnectivityInfoCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectivityInfoCommandInput = GetConnectivityInfoRequest;
-export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse &
-  __MetadataBearer;
+export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse & __MetadataBearer;
 
 export class GetConnectivityInfoCommand extends $Command<
   GetConnectivityInfoCommandInput,
@@ -49,13 +45,8 @@ export class GetConnectivityInfoCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConnectivityInfoCommandInput,
-    GetConnectivityInfoCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConnectivityInfoCommandInput, GetConnectivityInfoCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetConnectivityInfoCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1_1GetConnectivityInfoCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

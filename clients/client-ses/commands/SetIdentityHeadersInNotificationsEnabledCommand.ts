@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse
@@ -39,9 +35,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput
-  ) {
+  constructor(readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     SetIdentityHeadersInNotificationsEnabledCommandInput,
     SetIdentityHeadersInNotificationsEnabledCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     input: SetIdentityHeadersInNotificationsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

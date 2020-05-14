@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteConnectionMessage,
-  DeleteConnectionResponse
-} from "../models/index";
+import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConnectionCommandInput = DeleteConnectionMessage;
-export type DeleteConnectionCommandOutput = DeleteConnectionResponse &
-  __MetadataBearer;
+export type DeleteConnectionCommandOutput = DeleteConnectionResponse & __MetadataBearer;
 
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
@@ -50,9 +46,7 @@ export class DeleteConnectionCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

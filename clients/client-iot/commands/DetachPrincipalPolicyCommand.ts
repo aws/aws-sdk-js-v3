@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DetachPrincipalPolicyRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DetachPrincipalPolicyCommand,
@@ -45,13 +41,8 @@ export class DetachPrincipalPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetachPrincipalPolicyCommandInput,
-    DetachPrincipalPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetachPrincipalPolicyCommandInput, DetachPrincipalPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DetachPrincipalPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachPrincipalPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DetachPrincipalPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DetachPrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

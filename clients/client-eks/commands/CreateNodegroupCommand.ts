@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  CreateNodegroupRequest,
-  CreateNodegroupResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { CreateNodegroupRequest, CreateNodegroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateNodegroupCommand,
   serializeAws_restJson1_1CreateNodegroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNodegroupCommandInput = CreateNodegroupRequest;
-export type CreateNodegroupCommandOutput = CreateNodegroupResponse &
-  __MetadataBearer;
+export type CreateNodegroupCommandOutput = CreateNodegroupResponse & __MetadataBearer;
 
 export class CreateNodegroupCommand extends $Command<
   CreateNodegroupCommandInput,
@@ -50,9 +42,7 @@ export class CreateNodegroupCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNodegroupCommandInput, CreateNodegroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

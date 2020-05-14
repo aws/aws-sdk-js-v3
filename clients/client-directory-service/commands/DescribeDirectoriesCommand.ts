@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeDirectoriesRequest,
-  DescribeDirectoriesResult
-} from "../models/index";
+import { DescribeDirectoriesRequest, DescribeDirectoriesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDirectoriesCommand,
   serializeAws_json1_1DescribeDirectoriesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDirectoriesCommandInput = DescribeDirectoriesRequest;
-export type DescribeDirectoriesCommandOutput = DescribeDirectoriesResult &
-  __MetadataBearer;
+export type DescribeDirectoriesCommandOutput = DescribeDirectoriesResult & __MetadataBearer;
 
 export class DescribeDirectoriesCommand extends $Command<
   DescribeDirectoriesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeDirectoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDirectoriesCommandInput,
-    DescribeDirectoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDirectoriesCommandInput, DescribeDirectoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

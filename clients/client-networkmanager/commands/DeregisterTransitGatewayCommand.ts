@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  DeregisterTransitGatewayRequest,
-  DeregisterTransitGatewayResponse
-} from "../models/index";
+import { DeregisterTransitGatewayRequest, DeregisterTransitGatewayResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeregisterTransitGatewayCommand,
   serializeAws_restJson1_1DeregisterTransitGatewayCommand
@@ -49,13 +46,8 @@ export class DeregisterTransitGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterTransitGatewayCommandInput,
-    DeregisterTransitGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterTransitGatewayCommandInput, DeregisterTransitGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeregisterTransitGatewayCommand extends $Command<
     input: DeregisterTransitGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeregisterTransitGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeregisterTransitGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTransitGatewayCommandOutput> {
-    return deserializeAws_restJson1_1DeregisterTransitGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeregisterTransitGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

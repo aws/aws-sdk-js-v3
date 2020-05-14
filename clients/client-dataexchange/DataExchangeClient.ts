@@ -1,23 +1,14 @@
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CreateDataSetCommandInput,
   CreateDataSetCommandOutput
 } from "./commands/CreateDataSetCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateRevisionCommandInput,
   CreateRevisionCommandOutput
 } from "./commands/CreateRevisionCommand";
-import {
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput
-} from "./commands/DeleteAssetCommand";
+import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
   DeleteDataSetCommandInput,
   DeleteDataSetCommandOutput
@@ -26,22 +17,10 @@ import {
   DeleteRevisionCommandInput,
   DeleteRevisionCommandOutput
 } from "./commands/DeleteRevisionCommand";
-import {
-  GetAssetCommandInput,
-  GetAssetCommandOutput
-} from "./commands/GetAssetCommand";
-import {
-  GetDataSetCommandInput,
-  GetDataSetCommandOutput
-} from "./commands/GetDataSetCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput
-} from "./commands/GetRevisionCommand";
+import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
   ListDataSetRevisionsCommandInput,
   ListDataSetRevisionsCommandOutput
@@ -50,10 +29,7 @@ import {
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput
 } from "./commands/ListDataSetsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListRevisionAssetsCommandInput,
   ListRevisionAssetsCommandOutput
@@ -62,22 +38,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  StartJobCommandInput,
-  StartJobCommandOutput
-} from "./commands/StartJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAssetCommandInput,
-  UpdateAssetCommandOutput
-} from "./commands/UpdateAssetCommand";
+import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import {
   UpdateDataSetCommandInput,
   UpdateDataSetCommandOutput
@@ -271,9 +238,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataExchangeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataExchangeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -282,9 +247,7 @@ export type DataExchangeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataExchangeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataExchangeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

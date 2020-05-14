@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  MergeBranchesBySquashInput,
-  MergeBranchesBySquashOutput
-} from "../models/index";
+import { MergeBranchesBySquashInput, MergeBranchesBySquashOutput } from "../models/index";
 import {
   deserializeAws_json1_1MergeBranchesBySquashCommand,
   serializeAws_json1_1MergeBranchesBySquashCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type MergeBranchesBySquashCommandInput = MergeBranchesBySquashInput;
-export type MergeBranchesBySquashCommandOutput = MergeBranchesBySquashOutput &
-  __MetadataBearer;
+export type MergeBranchesBySquashCommandOutput = MergeBranchesBySquashOutput & __MetadataBearer;
 
 export class MergeBranchesBySquashCommand extends $Command<
   MergeBranchesBySquashCommandInput,
@@ -49,13 +45,8 @@ export class MergeBranchesBySquashCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergeBranchesBySquashCommandInput,
-    MergeBranchesBySquashCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergeBranchesBySquashCommandInput, MergeBranchesBySquashCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

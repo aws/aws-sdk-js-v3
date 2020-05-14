@@ -45,13 +45,8 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachElasticLoadBalancerCommandInput,
-    AttachElasticLoadBalancerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachElasticLoadBalancerCommandInput, AttachElasticLoadBalancerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachElasticLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachElasticLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AttachElasticLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

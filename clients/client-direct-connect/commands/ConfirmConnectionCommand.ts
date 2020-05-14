@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  ConfirmConnectionRequest,
-  ConfirmConnectionResponse
-} from "../models/index";
+import { ConfirmConnectionRequest, ConfirmConnectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ConfirmConnectionCommand,
   serializeAws_json1_1ConfirmConnectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmConnectionCommandInput = ConfirmConnectionRequest;
-export type ConfirmConnectionCommandOutput = ConfirmConnectionResponse &
-  __MetadataBearer;
+export type ConfirmConnectionCommandOutput = ConfirmConnectionResponse & __MetadataBearer;
 
 export class ConfirmConnectionCommand extends $Command<
   ConfirmConnectionCommandInput,
@@ -50,9 +46,7 @@ export class ConfirmConnectionCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

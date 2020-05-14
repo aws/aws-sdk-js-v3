@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  DeleteScheduledActionRequest,
-  DeleteScheduledActionResponse
-} from "../models/index";
+import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
   serializeAws_json1_1DeleteScheduledActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteScheduledActionCommandInput = DeleteScheduledActionRequest;
-export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse &
-  __MetadataBearer;
+export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse & __MetadataBearer;
 
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteScheduledActionCommandInput,
-    DeleteScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteScheduledActionCommandInput, DeleteScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAccountCommandInput = CreateAccountRequest;
-export type CreateAccountCommandOutput = CreateAccountResponse &
-  __MetadataBearer;
+export type CreateAccountCommandOutput = CreateAccountResponse & __MetadataBearer;
 
 export class CreateAccountCommand extends $Command<
   CreateAccountCommandInput,
@@ -47,9 +46,7 @@ export class CreateAccountCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccountCommandInput, CreateAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

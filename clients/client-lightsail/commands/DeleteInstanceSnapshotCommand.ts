@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteInstanceSnapshotRequest,
-  DeleteInstanceSnapshotResult
-} from "../models/index";
+import { DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteInstanceSnapshotCommand,
   serializeAws_json1_1DeleteInstanceSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInstanceSnapshotCommandInput = DeleteInstanceSnapshotRequest;
-export type DeleteInstanceSnapshotCommandOutput = DeleteInstanceSnapshotResult &
-  __MetadataBearer;
+export type DeleteInstanceSnapshotCommandOutput = DeleteInstanceSnapshotResult & __MetadataBearer;
 
 export class DeleteInstanceSnapshotCommand extends $Command<
   DeleteInstanceSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class DeleteInstanceSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteInstanceSnapshotCommandInput,
-    DeleteInstanceSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteInstanceSnapshotCommandInput, DeleteInstanceSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

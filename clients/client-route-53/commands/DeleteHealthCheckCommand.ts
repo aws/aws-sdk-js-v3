@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  DeleteHealthCheckRequest,
-  DeleteHealthCheckResponse
-} from "../models/index";
+import { DeleteHealthCheckRequest, DeleteHealthCheckResponse } from "../models/index";
 import {
   deserializeAws_restXmlDeleteHealthCheckCommand,
   serializeAws_restXmlDeleteHealthCheckCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteHealthCheckCommandInput = DeleteHealthCheckRequest;
-export type DeleteHealthCheckCommandOutput = DeleteHealthCheckResponse &
-  __MetadataBearer;
+export type DeleteHealthCheckCommandOutput = DeleteHealthCheckResponse & __MetadataBearer;
 
 export class DeleteHealthCheckCommand extends $Command<
   DeleteHealthCheckCommandInput,
@@ -50,9 +46,7 @@ export class DeleteHealthCheckCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

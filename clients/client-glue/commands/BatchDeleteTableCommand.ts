@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchDeleteTableRequest,
-  BatchDeleteTableResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteTableCommand,
   serializeAws_json1_1BatchDeleteTableCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteTableCommandInput = BatchDeleteTableRequest;
-export type BatchDeleteTableCommandOutput = BatchDeleteTableResponse &
-  __MetadataBearer;
+export type BatchDeleteTableCommandOutput = BatchDeleteTableResponse & __MetadataBearer;
 
 export class BatchDeleteTableCommand extends $Command<
   BatchDeleteTableCommandInput,
@@ -50,9 +42,7 @@ export class BatchDeleteTableCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteTableCommandInput, BatchDeleteTableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

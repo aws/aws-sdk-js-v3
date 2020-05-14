@@ -1,12 +1,5 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  UpdateEnvironmentRequest,
-  UpdateEnvironmentResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { UpdateEnvironmentRequest, UpdateEnvironmentResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateEnvironmentCommand,
   serializeAws_json1_1UpdateEnvironmentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEnvironmentCommandInput = UpdateEnvironmentRequest;
-export type UpdateEnvironmentCommandOutput = UpdateEnvironmentResult &
-  __MetadataBearer;
+export type UpdateEnvironmentCommandOutput = UpdateEnvironmentResult & __MetadataBearer;
 
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,
@@ -50,9 +42,7 @@ export class UpdateEnvironmentCommand extends $Command<
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

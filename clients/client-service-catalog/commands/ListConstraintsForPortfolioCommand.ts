@@ -49,13 +49,8 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConstraintsForPortfolioCommandInput,
-    ListConstraintsForPortfolioCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConstraintsForPortfolioCommandInput, ListConstraintsForPortfolioCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     input: ListConstraintsForPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConstraintsForPortfolioCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListConstraintsForPortfolioCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConstraintsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListConstraintsForPortfolioCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListConstraintsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

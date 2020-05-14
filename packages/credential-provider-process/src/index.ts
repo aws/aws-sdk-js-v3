@@ -7,10 +7,7 @@ import {
   SharedConfigInit
 } from "@aws-sdk/shared-ini-file-loader";
 import { exec } from "child_process";
-import {
-  getMasterProfileName,
-  parseKnownFiles
-} from "@aws-sdk/credential-provider-ini";
+import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/credential-provider-ini";
 
 const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";
@@ -55,9 +52,7 @@ async function resolveProcessCredentials(
           try {
             data = JSON.parse(processResult);
           } catch {
-            throw Error(
-              `Profile ${profileName} credential_process returned invalid JSON.`
-            );
+            throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
           }
 
           const {
@@ -69,15 +64,11 @@ async function resolveProcessCredentials(
           } = data;
 
           if (version !== 1) {
-            throw Error(
-              `Profile ${profileName} credential_process did not return Version 1.`
-            );
+            throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
           }
 
           if (accessKeyId === undefined || secretAccessKey === undefined) {
-            throw Error(
-              `Profile ${profileName} credential_process returned invalid credentials.`
-            );
+            throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
           }
 
           let expirationUnix;
@@ -104,9 +95,7 @@ async function resolveProcessCredentials(
           throw new ProviderError(error.message);
         });
     } else {
-      throw new ProviderError(
-        `Profile ${profileName} did not contain credential_process.`
-      );
+      throw new ProviderError(`Profile ${profileName} did not contain credential_process.`);
     }
   } else {
     // If the profile cannot be parsed or does not contain the default or

@@ -54,22 +54,10 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput
 } from "./commands/InputAndOutputWithHeadersCommand";
-import {
-  JsonBlobsCommandInput,
-  JsonBlobsCommandOutput
-} from "./commands/JsonBlobsCommand";
-import {
-  JsonEnumsCommandInput,
-  JsonEnumsCommandOutput
-} from "./commands/JsonEnumsCommand";
-import {
-  JsonListsCommandInput,
-  JsonListsCommandOutput
-} from "./commands/JsonListsCommand";
-import {
-  JsonMapsCommandInput,
-  JsonMapsCommandOutput
-} from "./commands/JsonMapsCommand";
+import { JsonBlobsCommandInput, JsonBlobsCommandOutput } from "./commands/JsonBlobsCommand";
+import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
+import { JsonListsCommandInput, JsonListsCommandOutput } from "./commands/JsonListsCommand";
+import { JsonMapsCommandInput, JsonMapsCommandOutput } from "./commands/JsonMapsCommand";
 import {
   JsonTimestampsCommandInput,
   JsonTimestampsCommandOutput
@@ -307,9 +295,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RestJsonProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RestJsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateLoadBalancerListenerInput,
-  CreateLoadBalancerListenerOutput
-} from "../models/index";
+import { CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput } from "../models/index";
 import {
   deserializeAws_queryCreateLoadBalancerListenersCommand,
   serializeAws_queryCreateLoadBalancerListenersCommand
@@ -49,13 +46,8 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLoadBalancerListenersCommandInput,
-    CreateLoadBalancerListenersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLoadBalancerListenersCommandInput, CreateLoadBalancerListenersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateLoadBalancerListenersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerListenersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -45,13 +45,8 @@ export class UpdateDocumentVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDocumentVersionCommandInput,
-    UpdateDocumentVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDocumentVersionCommandInput, UpdateDocumentVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class UpdateDocumentVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDocumentVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDocumentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

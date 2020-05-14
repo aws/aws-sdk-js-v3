@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  ListIdentityProvidersRequest,
-  ListIdentityProvidersResponse
-} from "../models/index";
+import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListIdentityProvidersCommand,
   serializeAws_json1_1ListIdentityProvidersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListIdentityProvidersCommandInput = ListIdentityProvidersRequest;
-export type ListIdentityProvidersCommandOutput = ListIdentityProvidersResponse &
-  __MetadataBearer;
+export type ListIdentityProvidersCommandOutput = ListIdentityProvidersResponse & __MetadataBearer;
 
 export class ListIdentityProvidersCommand extends $Command<
   ListIdentityProvidersCommandInput,
@@ -49,13 +45,8 @@ export class ListIdentityProvidersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListIdentityProvidersCommandInput,
-    ListIdentityProvidersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListIdentityProvidersCommandInput, ListIdentityProvidersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

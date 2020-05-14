@@ -74,10 +74,7 @@ import {
   StopExecutionCommandInput,
   StopExecutionCommandOutput
 } from "../commands/StopExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -214,9 +211,7 @@ export const serializeAws_json1_0CreateActivityCommand = async (
     "X-Amz-Target": "AWSStepFunctions.CreateActivity"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0CreateActivityInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0CreateActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -229,9 +224,7 @@ export const serializeAws_json1_0CreateStateMachineCommand = async (
     "X-Amz-Target": "AWSStepFunctions.CreateStateMachine"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0CreateStateMachineInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0CreateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -244,9 +237,7 @@ export const serializeAws_json1_0DeleteActivityCommand = async (
     "X-Amz-Target": "AWSStepFunctions.DeleteActivity"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DeleteActivityInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DeleteActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -259,9 +250,7 @@ export const serializeAws_json1_0DeleteStateMachineCommand = async (
     "X-Amz-Target": "AWSStepFunctions.DeleteStateMachine"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DeleteStateMachineInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DeleteStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -274,9 +263,7 @@ export const serializeAws_json1_0DescribeActivityCommand = async (
     "X-Amz-Target": "AWSStepFunctions.DescribeActivity"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeActivityInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeActivityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,9 +276,7 @@ export const serializeAws_json1_0DescribeExecutionCommand = async (
     "X-Amz-Target": "AWSStepFunctions.DescribeExecution"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeExecutionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -304,9 +289,7 @@ export const serializeAws_json1_0DescribeStateMachineCommand = async (
     "X-Amz-Target": "AWSStepFunctions.DescribeStateMachine"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeStateMachineInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,9 +302,7 @@ export const serializeAws_json1_0DescribeStateMachineForExecutionCommand = async
     "X-Amz-Target": "AWSStepFunctions.DescribeStateMachineForExecution"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -334,9 +315,7 @@ export const serializeAws_json1_0GetActivityTaskCommand = async (
     "X-Amz-Target": "AWSStepFunctions.GetActivityTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0GetActivityTaskInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0GetActivityTaskInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -349,9 +328,7 @@ export const serializeAws_json1_0GetExecutionHistoryCommand = async (
     "X-Amz-Target": "AWSStepFunctions.GetExecutionHistory"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0GetExecutionHistoryInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0GetExecutionHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -364,9 +341,7 @@ export const serializeAws_json1_0ListActivitiesCommand = async (
     "X-Amz-Target": "AWSStepFunctions.ListActivities"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListActivitiesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListActivitiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -379,9 +354,7 @@ export const serializeAws_json1_0ListExecutionsCommand = async (
     "X-Amz-Target": "AWSStepFunctions.ListExecutions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListExecutionsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -394,9 +367,7 @@ export const serializeAws_json1_0ListStateMachinesCommand = async (
     "X-Amz-Target": "AWSStepFunctions.ListStateMachines"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListStateMachinesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListStateMachinesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -409,9 +380,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "X-Amz-Target": "AWSStepFunctions.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListTagsForResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,9 +393,7 @@ export const serializeAws_json1_0SendTaskFailureCommand = async (
     "X-Amz-Target": "AWSStepFunctions.SendTaskFailure"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0SendTaskFailureInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0SendTaskFailureInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -439,9 +406,7 @@ export const serializeAws_json1_0SendTaskHeartbeatCommand = async (
     "X-Amz-Target": "AWSStepFunctions.SendTaskHeartbeat"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0SendTaskHeartbeatInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0SendTaskHeartbeatInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -454,9 +419,7 @@ export const serializeAws_json1_0SendTaskSuccessCommand = async (
     "X-Amz-Target": "AWSStepFunctions.SendTaskSuccess"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0SendTaskSuccessInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0SendTaskSuccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -469,9 +432,7 @@ export const serializeAws_json1_0StartExecutionCommand = async (
     "X-Amz-Target": "AWSStepFunctions.StartExecution"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0StartExecutionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0StartExecutionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -523,9 +484,7 @@ export const serializeAws_json1_0UpdateStateMachineCommand = async (
     "X-Amz-Target": "AWSStepFunctions.UpdateStateMachine"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateStateMachineInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateStateMachineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -558,16 +517,12 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0ActivityLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ActivityLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -575,10 +530,7 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
       response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -586,10 +538,7 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
       response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -616,10 +565,7 @@ export const deserializeAws_json1_0CreateStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0CreateStateMachineCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0CreateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -643,16 +589,12 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -660,10 +602,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
       response = {
-        ...(await deserializeAws_json1_0InvalidDefinitionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -671,10 +610,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
       response = {
-        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -682,10 +618,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
       response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -693,10 +626,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "StateMachineAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#StateMachineAlreadyExists":
       response = {
-        ...(await deserializeAws_json1_0StateMachineAlreadyExistsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineAlreadyExistsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -704,10 +634,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -715,10 +642,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "StateMachineLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#StateMachineLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0StateMachineLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -737,10 +661,7 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
       response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -791,16 +712,12 @@ const deserializeAws_json1_0DeleteActivityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -827,10 +744,7 @@ export const deserializeAws_json1_0DeleteStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DeleteStateMachineCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DeleteStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -854,16 +768,12 @@ const deserializeAws_json1_0DeleteStateMachineCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -914,16 +824,12 @@ const deserializeAws_json1_0DescribeActivityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -931,10 +837,7 @@ const deserializeAws_json1_0DescribeActivityCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -985,16 +888,12 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1002,10 +901,7 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1032,10 +928,7 @@ export const deserializeAws_json1_0DescribeStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeStateMachineCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1059,16 +952,12 @@ const deserializeAws_json1_0DescribeStateMachineCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1076,10 +965,7 @@ const deserializeAws_json1_0DescribeStateMachineCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1106,17 +992,11 @@ export const deserializeAws_json1_0DescribeStateMachineForExecutionCommand = asy
   context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(data, context);
   const response: DescribeStateMachineForExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStateMachineForExecutionOutput",
@@ -1136,16 +1016,12 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1153,10 +1029,7 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1207,16 +1080,12 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1224,10 +1093,7 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityWorkerLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1235,10 +1101,7 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1265,10 +1128,7 @@ export const deserializeAws_json1_0GetExecutionHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0GetExecutionHistoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetExecutionHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1292,16 +1152,12 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1309,10 +1165,7 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1320,10 +1173,7 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1374,16 +1224,12 @@ const deserializeAws_json1_0ListActivitiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1434,16 +1280,12 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1451,10 +1293,7 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1462,10 +1301,7 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1527,16 +1363,12 @@ const deserializeAws_json1_0ListStateMachinesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1563,10 +1395,7 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1590,16 +1419,12 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1607,10 +1432,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1661,16 +1483,12 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1678,10 +1496,7 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1689,10 +1504,7 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
       response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1743,16 +1555,12 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1760,10 +1568,7 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1771,10 +1576,7 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
       response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1825,16 +1627,12 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.swf.service.v2.model#InvalidOutput":
       response = {
-        ...(await deserializeAws_json1_0InvalidOutputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidOutputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1842,10 +1640,7 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
       response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1853,10 +1648,7 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1864,10 +1656,7 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
       response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1918,16 +1707,12 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#ExecutionAlreadyExists":
       response = {
-        ...(await deserializeAws_json1_0ExecutionAlreadyExistsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionAlreadyExistsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1935,10 +1720,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "ExecutionLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ExecutionLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0ExecutionLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1946,10 +1728,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1957,10 +1736,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "InvalidExecutionInput":
     case "com.amazonaws.swf.service.v2.model#InvalidExecutionInput":
       response = {
-        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1968,10 +1744,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
       response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1979,10 +1752,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1990,10 +1760,7 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2044,16 +1811,12 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2061,10 +1824,7 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2115,16 +1875,12 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2132,10 +1888,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2143,10 +1896,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
       response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2197,16 +1947,12 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2214,10 +1960,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2244,10 +1987,7 @@ export const deserializeAws_json1_0UpdateStateMachineCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateStateMachineCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2271,16 +2011,12 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
       response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2288,10 +2024,7 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
       response = {
-        ...(await deserializeAws_json1_0InvalidDefinitionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2299,10 +2032,7 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
       response = {
-        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2310,10 +2040,7 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "MissingRequiredParameter":
     case "com.amazonaws.swf.service.v2.model#MissingRequiredParameter":
       response = {
-        ...(await deserializeAws_json1_0MissingRequiredParameterResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0MissingRequiredParameterResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2321,10 +2048,7 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2332,10 +2056,7 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
       response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2362,10 +2083,7 @@ const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
   context: __SerdeContext
 ): Promise<ActivityDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(body, context);
   const contents: ActivityDoesNotExist = {
     name: "ActivityDoesNotExist",
     $fault: "client",
@@ -2380,10 +2098,7 @@ const deserializeAws_json1_0ActivityLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<ActivityLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(body, context);
   const contents: ActivityLimitExceeded = {
     name: "ActivityLimitExceeded",
     $fault: "client",
@@ -2398,10 +2113,7 @@ const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<ActivityWorkerLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(body, context);
   const contents: ActivityWorkerLimitExceeded = {
     name: "ActivityWorkerLimitExceeded",
     $fault: "client",
@@ -2416,10 +2128,7 @@ const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
   context: __SerdeContext
 ): Promise<ExecutionAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(body, context);
   const contents: ExecutionAlreadyExists = {
     name: "ExecutionAlreadyExists",
     $fault: "client",
@@ -2434,10 +2143,7 @@ const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
   context: __SerdeContext
 ): Promise<ExecutionDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(body, context);
   const contents: ExecutionDoesNotExist = {
     name: "ExecutionDoesNotExist",
     $fault: "client",
@@ -2452,10 +2158,7 @@ const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<ExecutionLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(body, context);
   const contents: ExecutionLimitExceeded = {
     name: "ExecutionLimitExceeded",
     $fault: "client",
@@ -2485,10 +2188,7 @@ const deserializeAws_json1_0InvalidDefinitionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidDefinition> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidDefinition(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InvalidDefinition(body, context);
   const contents: InvalidDefinition = {
     name: "InvalidDefinition",
     $fault: "client",
@@ -2503,10 +2203,7 @@ const deserializeAws_json1_0InvalidExecutionInputResponse = async (
   context: __SerdeContext
 ): Promise<InvalidExecutionInput> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(body, context);
   const contents: InvalidExecutionInput = {
     name: "InvalidExecutionInput",
     $fault: "client",
@@ -2521,10 +2218,7 @@ const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
   context: __SerdeContext
 ): Promise<InvalidLoggingConfiguration> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(body, context);
   const contents: InvalidLoggingConfiguration = {
     name: "InvalidLoggingConfiguration",
     $fault: "client",
@@ -2584,10 +2278,7 @@ const deserializeAws_json1_0MissingRequiredParameterResponse = async (
   context: __SerdeContext
 ): Promise<MissingRequiredParameter> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(body, context);
   const contents: MissingRequiredParameter = {
     name: "MissingRequiredParameter",
     $fault: "client",
@@ -2602,10 +2293,7 @@ const deserializeAws_json1_0ResourceNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ResourceNotFound(body, context);
   const contents: ResourceNotFound = {
     name: "ResourceNotFound",
     $fault: "client",
@@ -2620,10 +2308,7 @@ const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
   context: __SerdeContext
 ): Promise<StateMachineAlreadyExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(body, context);
   const contents: StateMachineAlreadyExists = {
     name: "StateMachineAlreadyExists",
     $fault: "client",
@@ -2638,10 +2323,7 @@ const deserializeAws_json1_0StateMachineDeletingResponse = async (
   context: __SerdeContext
 ): Promise<StateMachineDeleting> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineDeleting(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0StateMachineDeleting(body, context);
   const contents: StateMachineDeleting = {
     name: "StateMachineDeleting",
     $fault: "client",
@@ -2656,10 +2338,7 @@ const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
   context: __SerdeContext
 ): Promise<StateMachineDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(body, context);
   const contents: StateMachineDoesNotExist = {
     name: "StateMachineDoesNotExist",
     $fault: "client",
@@ -2674,10 +2353,7 @@ const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<StateMachineLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(body, context);
   const contents: StateMachineLimitExceeded = {
     name: "StateMachineLimitExceeded",
     $fault: "client",
@@ -2692,10 +2368,7 @@ const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
   context: __SerdeContext
 ): Promise<StateMachineTypeNotSupported> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(body, context);
   const contents: StateMachineTypeNotSupported = {
     name: "StateMachineTypeNotSupported",
     $fault: "client",
@@ -2710,10 +2383,7 @@ const deserializeAws_json1_0TaskDoesNotExistResponse = async (
   context: __SerdeContext
 ): Promise<TaskDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(body, context);
   const contents: TaskDoesNotExist = {
     name: "TaskDoesNotExist",
     $fault: "client",
@@ -2789,10 +2459,7 @@ const serializeAws_json1_0LoggingConfiguration = (
 ): any => {
   return {
     ...(input.destinations !== undefined && {
-      destinations: serializeAws_json1_0LogDestinationList(
-        input.destinations,
-        context
-      )
+      destinations: serializeAws_json1_0LogDestinationList(input.destinations, context)
     }),
     ...(input.includeExecutionData !== undefined && {
       includeExecutionData: input.includeExecutionData
@@ -3030,17 +2697,11 @@ const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_0TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_0TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0Tag(entry, context));
 };
 
@@ -3093,14 +2754,8 @@ const deserializeAws_json1_0ActivityFailedEventDetails = (
 ): ActivityFailedEventDetails => {
   return {
     __type: "ActivityFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3110,14 +2765,8 @@ const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
 ): ActivityScheduleFailedEventDetails => {
   return {
     __type: "ActivityScheduleFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3128,18 +2777,12 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
   return {
     __type: "ActivityScheduledEventDetails",
     heartbeatInSeconds:
-      output.heartbeatInSeconds !== undefined &&
-      output.heartbeatInSeconds !== null
+      output.heartbeatInSeconds !== undefined && output.heartbeatInSeconds !== null
         ? output.heartbeatInSeconds
         : undefined,
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null
         ? output.timeoutInSeconds
@@ -3154,9 +2797,7 @@ const deserializeAws_json1_0ActivityStartedEventDetails = (
   return {
     __type: "ActivityStartedEventDetails",
     workerName:
-      output.workerName !== undefined && output.workerName !== null
-        ? output.workerName
-        : undefined
+      output.workerName !== undefined && output.workerName !== null ? output.workerName : undefined
   } as any;
 };
 
@@ -3166,10 +2807,7 @@ const deserializeAws_json1_0ActivitySucceededEventDetails = (
 ): ActivitySucceededEventDetails => {
   return {
     __type: "ActivitySucceededEventDetails",
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined
+    output: output.output !== undefined && output.output !== null ? output.output : undefined
   } as any;
 };
 
@@ -3179,14 +2817,8 @@ const deserializeAws_json1_0ActivityTimedOutEventDetails = (
 ): ActivityTimedOutEventDetails => {
   return {
     __type: "ActivityTimedOutEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3209,14 +2841,8 @@ const deserializeAws_json1_0ExecutionAbortedEventDetails = (
 ): ExecutionAbortedEventDetails => {
   return {
     __type: "ExecutionAbortedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3226,14 +2852,8 @@ const deserializeAws_json1_0ExecutionFailedEventDetails = (
 ): ExecutionFailedEventDetails => {
   return {
     __type: "ExecutionFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3243,14 +2863,8 @@ const deserializeAws_json1_0ExecutionStartedEventDetails = (
 ): ExecutionStartedEventDetails => {
   return {
     __type: "ExecutionStartedEventDetails",
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -3260,10 +2874,7 @@ const deserializeAws_json1_0ExecutionSucceededEventDetails = (
 ): ExecutionSucceededEventDetails => {
   return {
     __type: "ExecutionSucceededEventDetails",
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined
+    output: output.output !== undefined && output.output !== null ? output.output : undefined
   } as any;
 };
 
@@ -3273,26 +2884,16 @@ const deserializeAws_json1_0ExecutionTimedOutEventDetails = (
 ): ExecutionTimedOutEventDetails => {
   return {
     __type: "ExecutionTimedOutEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
-const deserializeAws_json1_0HistoryEvent = (
-  output: any,
-  context: __SerdeContext
-): HistoryEvent => {
+const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
   return {
     __type: "HistoryEvent",
     activityFailedEventDetails:
-      output.activityFailedEventDetails !== undefined &&
-      output.activityFailedEventDetails !== null
+      output.activityFailedEventDetails !== undefined && output.activityFailedEventDetails !== null
         ? deserializeAws_json1_0ActivityFailedEventDetails(
             output.activityFailedEventDetails,
             context
@@ -3472,36 +3073,20 @@ const deserializeAws_json1_0HistoryEvent = (
         ? output.previousEventId
         : undefined,
     stateEnteredEventDetails:
-      output.stateEnteredEventDetails !== undefined &&
-      output.stateEnteredEventDetails !== null
-        ? deserializeAws_json1_0StateEnteredEventDetails(
-            output.stateEnteredEventDetails,
-            context
-          )
+      output.stateEnteredEventDetails !== undefined && output.stateEnteredEventDetails !== null
+        ? deserializeAws_json1_0StateEnteredEventDetails(output.stateEnteredEventDetails, context)
         : undefined,
     stateExitedEventDetails:
-      output.stateExitedEventDetails !== undefined &&
-      output.stateExitedEventDetails !== null
-        ? deserializeAws_json1_0StateExitedEventDetails(
-            output.stateExitedEventDetails,
-            context
-          )
+      output.stateExitedEventDetails !== undefined && output.stateExitedEventDetails !== null
+        ? deserializeAws_json1_0StateExitedEventDetails(output.stateExitedEventDetails, context)
         : undefined,
     taskFailedEventDetails:
-      output.taskFailedEventDetails !== undefined &&
-      output.taskFailedEventDetails !== null
-        ? deserializeAws_json1_0TaskFailedEventDetails(
-            output.taskFailedEventDetails,
-            context
-          )
+      output.taskFailedEventDetails !== undefined && output.taskFailedEventDetails !== null
+        ? deserializeAws_json1_0TaskFailedEventDetails(output.taskFailedEventDetails, context)
         : undefined,
     taskScheduledEventDetails:
-      output.taskScheduledEventDetails !== undefined &&
-      output.taskScheduledEventDetails !== null
-        ? deserializeAws_json1_0TaskScheduledEventDetails(
-            output.taskScheduledEventDetails,
-            context
-          )
+      output.taskScheduledEventDetails !== undefined && output.taskScheduledEventDetails !== null
+        ? deserializeAws_json1_0TaskScheduledEventDetails(output.taskScheduledEventDetails, context)
         : undefined,
     taskStartFailedEventDetails:
       output.taskStartFailedEventDetails !== undefined &&
@@ -3512,12 +3097,8 @@ const deserializeAws_json1_0HistoryEvent = (
           )
         : undefined,
     taskStartedEventDetails:
-      output.taskStartedEventDetails !== undefined &&
-      output.taskStartedEventDetails !== null
-        ? deserializeAws_json1_0TaskStartedEventDetails(
-            output.taskStartedEventDetails,
-            context
-          )
+      output.taskStartedEventDetails !== undefined && output.taskStartedEventDetails !== null
+        ? deserializeAws_json1_0TaskStartedEventDetails(output.taskStartedEventDetails, context)
         : undefined,
     taskSubmitFailedEventDetails:
       output.taskSubmitFailedEventDetails !== undefined &&
@@ -3528,37 +3109,22 @@ const deserializeAws_json1_0HistoryEvent = (
           )
         : undefined,
     taskSubmittedEventDetails:
-      output.taskSubmittedEventDetails !== undefined &&
-      output.taskSubmittedEventDetails !== null
-        ? deserializeAws_json1_0TaskSubmittedEventDetails(
-            output.taskSubmittedEventDetails,
-            context
-          )
+      output.taskSubmittedEventDetails !== undefined && output.taskSubmittedEventDetails !== null
+        ? deserializeAws_json1_0TaskSubmittedEventDetails(output.taskSubmittedEventDetails, context)
         : undefined,
     taskSucceededEventDetails:
-      output.taskSucceededEventDetails !== undefined &&
-      output.taskSucceededEventDetails !== null
-        ? deserializeAws_json1_0TaskSucceededEventDetails(
-            output.taskSucceededEventDetails,
-            context
-          )
+      output.taskSucceededEventDetails !== undefined && output.taskSucceededEventDetails !== null
+        ? deserializeAws_json1_0TaskSucceededEventDetails(output.taskSucceededEventDetails, context)
         : undefined,
     taskTimedOutEventDetails:
-      output.taskTimedOutEventDetails !== undefined &&
-      output.taskTimedOutEventDetails !== null
-        ? deserializeAws_json1_0TaskTimedOutEventDetails(
-            output.taskTimedOutEventDetails,
-            context
-          )
+      output.taskTimedOutEventDetails !== undefined && output.taskTimedOutEventDetails !== null
+        ? deserializeAws_json1_0TaskTimedOutEventDetails(output.taskTimedOutEventDetails, context)
         : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -3566,9 +3132,7 @@ const deserializeAws_json1_0HistoryEventList = (
   output: any,
   context: __SerdeContext
 ): HistoryEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0HistoryEvent(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0HistoryEvent(entry, context));
 };
 
 const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
@@ -3577,14 +3141,8 @@ const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
 ): LambdaFunctionFailedEventDetails => {
   return {
     __type: "LambdaFunctionFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3594,14 +3152,8 @@ const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
 ): LambdaFunctionScheduleFailedEventDetails => {
   return {
     __type: "LambdaFunctionScheduleFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3611,14 +3163,9 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
 ): LambdaFunctionScheduledEventDetails => {
   return {
     __type: "LambdaFunctionScheduledEventDetails",
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null
         ? output.timeoutInSeconds
@@ -3632,14 +3179,8 @@ const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
 ): LambdaFunctionStartFailedEventDetails => {
   return {
     __type: "LambdaFunctionStartFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3649,10 +3190,7 @@ const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
 ): LambdaFunctionSucceededEventDetails => {
   return {
     __type: "LambdaFunctionSucceededEventDetails",
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined
+    output: output.output !== undefined && output.output !== null ? output.output : undefined
   } as any;
 };
 
@@ -3662,14 +3200,8 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
 ): LambdaFunctionTimedOutEventDetails => {
   return {
     __type: "LambdaFunctionTimedOutEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined
   } as any;
 };
 
@@ -3680,12 +3212,8 @@ const deserializeAws_json1_0LogDestination = (
   return {
     __type: "LogDestination",
     cloudWatchLogsLogGroup:
-      output.cloudWatchLogsLogGroup !== undefined &&
-      output.cloudWatchLogsLogGroup !== null
-        ? deserializeAws_json1_0CloudWatchLogsLogGroup(
-            output.cloudWatchLogsLogGroup,
-            context
-          )
+      output.cloudWatchLogsLogGroup !== undefined && output.cloudWatchLogsLogGroup !== null
+        ? deserializeAws_json1_0CloudWatchLogsLogGroup(output.cloudWatchLogsLogGroup, context)
         : undefined
   } as any;
 };
@@ -3694,9 +3222,7 @@ const deserializeAws_json1_0LogDestinationList = (
   output: any,
   context: __SerdeContext
 ): LogDestination[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0LogDestination(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0LogDestination(entry, context));
 };
 
 const deserializeAws_json1_0LoggingConfiguration = (
@@ -3710,14 +3236,10 @@ const deserializeAws_json1_0LoggingConfiguration = (
         ? deserializeAws_json1_0LogDestinationList(output.destinations, context)
         : undefined,
     includeExecutionData:
-      output.includeExecutionData !== undefined &&
-      output.includeExecutionData !== null
+      output.includeExecutionData !== undefined && output.includeExecutionData !== null
         ? output.includeExecutionData
         : undefined,
-    level:
-      output.level !== undefined && output.level !== null
-        ? output.level
-        : undefined
+    level: output.level !== undefined && output.level !== null ? output.level : undefined
   } as any;
 };
 
@@ -3727,14 +3249,8 @@ const deserializeAws_json1_0MapIterationEventDetails = (
 ): MapIterationEventDetails => {
   return {
     __type: "MapIterationEventDetails",
-    index:
-      output.index !== undefined && output.index !== null
-        ? output.index
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    index: output.index !== undefined && output.index !== null ? output.index : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -3744,10 +3260,7 @@ const deserializeAws_json1_0MapStateStartedEventDetails = (
 ): MapStateStartedEventDetails => {
   return {
     __type: "MapStateStartedEventDetails",
-    length:
-      output.length !== undefined && output.length !== null
-        ? output.length
-        : undefined
+    length: output.length !== undefined && output.length !== null ? output.length : undefined
   } as any;
 };
 
@@ -3757,14 +3270,8 @@ const deserializeAws_json1_0StateEnteredEventDetails = (
 ): StateEnteredEventDetails => {
   return {
     __type: "StateEnteredEventDetails",
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -3774,14 +3281,8 @@ const deserializeAws_json1_0StateExitedEventDetails = (
 ): StateExitedEventDetails => {
   return {
     __type: "StateExitedEventDetails",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    output: output.output !== undefined && output.output !== null ? output.output : undefined
   } as any;
 };
 
@@ -3791,18 +3292,10 @@ const deserializeAws_json1_0TaskFailedEventDetails = (
 ): TaskFailedEventDetails => {
   return {
     __type: "TaskFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3817,17 +3310,10 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
   return {
     __type: "TaskScheduledEventDetails",
     parameters:
-      output.parameters !== undefined && output.parameters !== null
-        ? output.parameters
-        : undefined,
-    region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+      output.parameters !== undefined && output.parameters !== null ? output.parameters : undefined,
+    region: output.region !== undefined && output.region !== null ? output.region : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3845,18 +3331,10 @@ const deserializeAws_json1_0TaskStartFailedEventDetails = (
 ): TaskStartFailedEventDetails => {
   return {
     __type: "TaskStartFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3871,9 +3349,7 @@ const deserializeAws_json1_0TaskStartedEventDetails = (
   return {
     __type: "TaskStartedEventDetails",
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3887,18 +3363,10 @@ const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
 ): TaskSubmitFailedEventDetails => {
   return {
     __type: "TaskSubmitFailedEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3912,14 +3380,9 @@ const deserializeAws_json1_0TaskSubmittedEventDetails = (
 ): TaskSubmittedEventDetails => {
   return {
     __type: "TaskSubmittedEventDetails",
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined,
+    output: output.output !== undefined && output.output !== null ? output.output : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3933,14 +3396,9 @@ const deserializeAws_json1_0TaskSucceededEventDetails = (
 ): TaskSucceededEventDetails => {
   return {
     __type: "TaskSucceededEventDetails",
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined,
+    output: output.output !== undefined && output.output !== null ? output.output : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3954,18 +3412,10 @@ const deserializeAws_json1_0TaskTimedOutEventDetails = (
 ): TaskTimedOutEventDetails => {
   return {
     __type: "TaskTimedOutEventDetails",
-    cause:
-      output.cause !== undefined && output.cause !== null
-        ? output.cause
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
+      output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -3979,10 +3429,7 @@ const deserializeAws_json1_0ActivityDoesNotExist = (
 ): ActivityDoesNotExist => {
   return {
     __type: "ActivityDoesNotExist",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -3992,10 +3439,7 @@ const deserializeAws_json1_0ActivityLimitExceeded = (
 ): ActivityLimitExceeded => {
   return {
     __type: "ActivityLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4003,9 +3447,7 @@ const deserializeAws_json1_0ActivityList = (
   output: any,
   context: __SerdeContext
 ): ActivityListItem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ActivityListItem(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0ActivityListItem(entry, context));
 };
 
 const deserializeAws_json1_0ActivityListItem = (
@@ -4022,10 +3464,7 @@ const deserializeAws_json1_0ActivityListItem = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -4035,10 +3474,7 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 ): ActivityWorkerLimitExceeded => {
   return {
     __type: "ActivityWorkerLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4108,10 +3544,7 @@ const deserializeAws_json1_0DescribeActivityOutput = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -4125,18 +3558,9 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
       output.executionArn !== undefined && output.executionArn !== null
         ? output.executionArn
         : undefined,
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    output:
-      output.output !== undefined && output.output !== null
-        ? output.output
-        : undefined,
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    output: output.output !== undefined && output.output !== null ? output.output : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
         ? new Date(Math.round(output.startDate * 1000))
@@ -4145,10 +3569,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
       output.stateMachineArn !== undefined && output.stateMachineArn !== null
         ? output.stateMachineArn
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
         ? new Date(Math.round(output.stopDate * 1000))
@@ -4163,17 +3584,9 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
   return {
     __type: "DescribeStateMachineForExecutionOutput",
     definition:
-      output.definition !== undefined && output.definition !== null
-        ? output.definition
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+      output.definition !== undefined && output.definition !== null ? output.definition : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null
         ? output.stateMachineArn
@@ -4196,37 +3609,19 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
     definition:
-      output.definition !== undefined && output.definition !== null
-        ? output.definition
-        : undefined,
+      output.definition !== undefined && output.definition !== null ? output.definition : undefined,
     loggingConfiguration:
-      output.loggingConfiguration !== undefined &&
-      output.loggingConfiguration !== null
-        ? deserializeAws_json1_0LoggingConfiguration(
-            output.loggingConfiguration,
-            context
-          )
+      output.loggingConfiguration !== undefined && output.loggingConfiguration !== null
+        ? deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null
         ? output.stateMachineArn
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -4236,10 +3631,7 @@ const deserializeAws_json1_0ExecutionAlreadyExists = (
 ): ExecutionAlreadyExists => {
   return {
     __type: "ExecutionAlreadyExists",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4249,10 +3641,7 @@ const deserializeAws_json1_0ExecutionDoesNotExist = (
 ): ExecutionDoesNotExist => {
   return {
     __type: "ExecutionDoesNotExist",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4262,10 +3651,7 @@ const deserializeAws_json1_0ExecutionLimitExceeded = (
 ): ExecutionLimitExceeded => {
   return {
     __type: "ExecutionLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4288,10 +3674,7 @@ const deserializeAws_json1_0ExecutionListItem = (
       output.executionArn !== undefined && output.executionArn !== null
         ? output.executionArn
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
         ? new Date(Math.round(output.startDate * 1000))
@@ -4300,10 +3683,7 @@ const deserializeAws_json1_0ExecutionListItem = (
       output.stateMachineArn !== undefined && output.stateMachineArn !== null
         ? output.stateMachineArn
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopDate:
       output.stopDate !== undefined && output.stopDate !== null
         ? new Date(Math.round(output.stopDate * 1000))
@@ -4317,14 +3697,9 @@ const deserializeAws_json1_0GetActivityTaskOutput = (
 ): GetActivityTaskOutput => {
   return {
     __type: "GetActivityTaskOutput",
-    input:
-      output.input !== undefined && output.input !== null
-        ? output.input
-        : undefined,
+    input: output.input !== undefined && output.input !== null ? output.input : undefined,
     taskToken:
-      output.taskToken !== undefined && output.taskToken !== null
-        ? output.taskToken
-        : undefined
+      output.taskToken !== undefined && output.taskToken !== null ? output.taskToken : undefined
   } as any;
 };
 
@@ -4339,22 +3714,14 @@ const deserializeAws_json1_0GetExecutionHistoryOutput = (
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_0InvalidArn = (
-  output: any,
-  context: __SerdeContext
-): InvalidArn => {
+const deserializeAws_json1_0InvalidArn = (output: any, context: __SerdeContext): InvalidArn => {
   return {
     __type: "InvalidArn",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4364,10 +3731,7 @@ const deserializeAws_json1_0InvalidDefinition = (
 ): InvalidDefinition => {
   return {
     __type: "InvalidDefinition",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4377,10 +3741,7 @@ const deserializeAws_json1_0InvalidExecutionInput = (
 ): InvalidExecutionInput => {
   return {
     __type: "InvalidExecutionInput",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4390,23 +3751,14 @@ const deserializeAws_json1_0InvalidLoggingConfiguration = (
 ): InvalidLoggingConfiguration => {
   return {
     __type: "InvalidLoggingConfiguration",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0InvalidName = (
-  output: any,
-  context: __SerdeContext
-): InvalidName => {
+const deserializeAws_json1_0InvalidName = (output: any, context: __SerdeContext): InvalidName => {
   return {
     __type: "InvalidName",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4416,23 +3768,14 @@ const deserializeAws_json1_0InvalidOutput = (
 ): InvalidOutput => {
   return {
     __type: "InvalidOutput",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0InvalidToken = (
-  output: any,
-  context: __SerdeContext
-): InvalidToken => {
+const deserializeAws_json1_0InvalidToken = (output: any, context: __SerdeContext): InvalidToken => {
   return {
     __type: "InvalidToken",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4447,9 +3790,7 @@ const deserializeAws_json1_0ListActivitiesOutput = (
         ? deserializeAws_json1_0ActivityList(output.activities, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4464,9 +3805,7 @@ const deserializeAws_json1_0ListExecutionsOutput = (
         ? deserializeAws_json1_0ExecutionList(output.executions, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4477,9 +3816,7 @@ const deserializeAws_json1_0ListStateMachinesOutput = (
   return {
     __type: "ListStateMachinesOutput",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     stateMachines:
       output.stateMachines !== undefined && output.stateMachines !== null
         ? deserializeAws_json1_0StateMachineList(output.stateMachines, context)
@@ -4506,10 +3843,7 @@ const deserializeAws_json1_0MissingRequiredParameter = (
 ): MissingRequiredParameter => {
   return {
     __type: "MissingRequiredParameter",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4519,10 +3853,7 @@ const deserializeAws_json1_0ResourceNotFound = (
 ): ResourceNotFound => {
   return {
     __type: "ResourceNotFound",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceName:
       output.resourceName !== undefined && output.resourceName !== null
         ? output.resourceName
@@ -4580,10 +3911,7 @@ const deserializeAws_json1_0StateMachineAlreadyExists = (
 ): StateMachineAlreadyExists => {
   return {
     __type: "StateMachineAlreadyExists",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4593,10 +3921,7 @@ const deserializeAws_json1_0StateMachineDeleting = (
 ): StateMachineDeleting => {
   return {
     __type: "StateMachineDeleting",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4606,10 +3931,7 @@ const deserializeAws_json1_0StateMachineDoesNotExist = (
 ): StateMachineDoesNotExist => {
   return {
     __type: "StateMachineDoesNotExist",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4619,10 +3941,7 @@ const deserializeAws_json1_0StateMachineLimitExceeded = (
 ): StateMachineLimitExceeded => {
   return {
     __type: "StateMachineLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4645,18 +3964,12 @@ const deserializeAws_json1_0StateMachineListItem = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null
         ? output.stateMachineArn
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -4666,10 +3979,7 @@ const deserializeAws_json1_0StateMachineTypeNotSupported = (
 ): StateMachineTypeNotSupported => {
   return {
     __type: "StateMachineTypeNotSupported",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4686,28 +3996,16 @@ const deserializeAws_json1_0StopExecutionOutput = (
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Tag(entry, context)
-  );
+const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Tag(entry, context));
 };
 
 const deserializeAws_json1_0TagResourceOutput = (
@@ -4725,36 +4023,21 @@ const deserializeAws_json1_0TaskDoesNotExist = (
 ): TaskDoesNotExist => {
   return {
     __type: "TaskDoesNotExist",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TaskTimedOut = (
-  output: any,
-  context: __SerdeContext
-): TaskTimedOut => {
+const deserializeAws_json1_0TaskTimedOut = (output: any, context: __SerdeContext): TaskTimedOut => {
   return {
     __type: "TaskTimedOut",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TooManyTags = (
-  output: any,
-  context: __SerdeContext
-): TooManyTags => {
+const deserializeAws_json1_0TooManyTags = (output: any, context: __SerdeContext): TooManyTags => {
   return {
     __type: "TooManyTags",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceName:
       output.resourceName !== undefined && output.resourceName !== null
         ? output.resourceName
@@ -4798,16 +4081,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

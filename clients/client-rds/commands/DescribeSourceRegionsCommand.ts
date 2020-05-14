@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeSourceRegionsMessage,
-  SourceRegionMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
   serializeAws_queryDescribeSourceRegionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSourceRegionsCommandInput = DescribeSourceRegionsMessage;
-export type DescribeSourceRegionsCommandOutput = SourceRegionMessage &
-  __MetadataBearer;
+export type DescribeSourceRegionsCommandOutput = SourceRegionMessage & __MetadataBearer;
 
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeSourceRegionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSourceRegionsCommandInput,
-    DescribeSourceRegionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSourceRegionsCommandInput, DescribeSourceRegionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

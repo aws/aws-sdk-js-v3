@@ -1,7 +1,4 @@
-import {
-  DescribeRegistryRequest,
-  DescribeRegistryResponse
-} from "../models/index";
+import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeRegistryCommand,
   serializeAws_restJson1_1DescribeRegistryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRegistryCommandInput = DescribeRegistryRequest;
-export type DescribeRegistryCommandOutput = DescribeRegistryResponse &
-  __MetadataBearer;
+export type DescribeRegistryCommandOutput = DescribeRegistryResponse & __MetadataBearer;
 
 export class DescribeRegistryCommand extends $Command<
   DescribeRegistryCommandInput,
@@ -50,9 +46,7 @@ export class DescribeRegistryCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRegistryCommandInput, DescribeRegistryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

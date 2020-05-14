@@ -42,10 +42,7 @@ import {
   GetOperationDetailCommandInput,
   GetOperationDetailCommandOutput
 } from "./commands/GetOperationDetailCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListOperationsCommandInput,
   ListOperationsCommandOutput
@@ -58,10 +55,7 @@ import {
   RegisterDomainCommandInput,
   RegisterDomainCommandOutput
 } from "./commands/RegisterDomainCommand";
-import {
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput
-} from "./commands/RenewDomainCommand";
+import { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput
@@ -90,10 +84,7 @@ import {
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput
 } from "./commands/UpdateTagsForDomainCommand";
-import {
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput
-} from "./commands/ViewBillingCommand";
+import { ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -283,9 +274,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53DomainsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53DomainsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

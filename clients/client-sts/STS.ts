@@ -239,9 +239,7 @@ export class STS extends STSClient {
   ): void;
   public assumeRole(
     args: AssumeRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssumeRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssumeRoleCommandOutput) => void),
     cb?: (err: any, data?: AssumeRoleCommandOutput) => void
   ): Promise<AssumeRoleCommandOutput> | void {
     const command = new AssumeRoleCommand(args);
@@ -687,9 +685,7 @@ export class STS extends STSClient {
   ): void;
   public getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessKeyInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessKeyInfoCommandOutput) => void),
     cb?: (err: any, data?: GetAccessKeyInfoCommandOutput) => void
   ): Promise<GetAccessKeyInfoCommandOutput> | void {
     const command = new GetAccessKeyInfoCommand(args);
@@ -930,9 +926,7 @@ export class STS extends STSClient {
   ): void;
   public getSessionToken(
     args: GetSessionTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSessionTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionTokenCommandOutput) => void),
     cb?: (err: any, data?: GetSessionTokenCommandOutput) => void
   ): Promise<GetSessionTokenCommandOutput> | void {
     const command = new GetSessionTokenCommand(args);

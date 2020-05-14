@@ -50,9 +50,6 @@ export const getPredictEndpointPlugin = (
   config: ResolvedPredictEndpointMiddlewareConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      predictEndpointMiddleware(config),
-      predictEndpointMiddlewareOptions
-    );
+    clientStack.add(predictEndpointMiddleware(config), predictEndpointMiddlewareOptions);
   }
 });

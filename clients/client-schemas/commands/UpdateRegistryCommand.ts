@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRegistryCommandInput = UpdateRegistryRequest;
-export type UpdateRegistryCommandOutput = UpdateRegistryResponse &
-  __MetadataBearer;
+export type UpdateRegistryCommandOutput = UpdateRegistryResponse & __MetadataBearer;
 
 export class UpdateRegistryCommand extends $Command<
   UpdateRegistryCommandInput,
@@ -47,9 +46,7 @@ export class UpdateRegistryCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRegistryCommandInput, UpdateRegistryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

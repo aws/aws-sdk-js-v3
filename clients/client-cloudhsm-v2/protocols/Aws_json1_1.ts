@@ -6,10 +6,7 @@ import {
   CreateClusterCommandInput,
   CreateClusterCommandOutput
 } from "../commands/CreateClusterCommand";
-import {
-  CreateHsmCommandInput,
-  CreateHsmCommandOutput
-} from "../commands/CreateHsmCommand";
+import { CreateHsmCommandInput, CreateHsmCommandOutput } from "../commands/CreateHsmCommand";
 import {
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput
@@ -18,10 +15,7 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput
 } from "../commands/DeleteClusterCommand";
-import {
-  DeleteHsmCommandInput,
-  DeleteHsmCommandOutput
-} from "../commands/DeleteHsmCommand";
+import { DeleteHsmCommandInput, DeleteHsmCommandOutput } from "../commands/DeleteHsmCommand";
 import {
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput
@@ -34,18 +28,12 @@ import {
   InitializeClusterCommandInput,
   InitializeClusterCommandOutput
 } from "../commands/InitializeClusterCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "../commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   RestoreBackupCommandInput,
   RestoreBackupCommandOutput
 } from "../commands/RestoreBackupCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -112,9 +100,7 @@ export const serializeAws_json1_1CopyBackupToRegionCommand = async (
     "X-Amz-Target": "BaldrApiService.CopyBackupToRegion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CopyBackupToRegionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CopyBackupToRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -127,9 +113,7 @@ export const serializeAws_json1_1CreateClusterCommand = async (
     "X-Amz-Target": "BaldrApiService.CreateCluster"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateClusterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -155,9 +139,7 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
     "X-Amz-Target": "BaldrApiService.DeleteBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteBackupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,9 +152,7 @@ export const serializeAws_json1_1DeleteClusterCommand = async (
     "X-Amz-Target": "BaldrApiService.DeleteCluster"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteClusterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -198,9 +178,7 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
     "X-Amz-Target": "BaldrApiService.DescribeBackups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeBackupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeBackupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -213,9 +191,7 @@ export const serializeAws_json1_1DescribeClustersCommand = async (
     "X-Amz-Target": "BaldrApiService.DescribeClusters"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeClustersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeClustersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -228,9 +204,7 @@ export const serializeAws_json1_1InitializeClusterCommand = async (
     "X-Amz-Target": "BaldrApiService.InitializeCluster"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1InitializeClusterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1InitializeClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,9 +230,7 @@ export const serializeAws_json1_1RestoreBackupCommand = async (
     "X-Amz-Target": "BaldrApiService.RestoreBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RestoreBackupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RestoreBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -284,9 +256,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "BaldrApiService.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -295,10 +265,7 @@ export const deserializeAws_json1_1CopyBackupToRegionCommand = async (
   context: __SerdeContext
 ): Promise<CopyBackupToRegionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CopyBackupToRegionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CopyBackupToRegionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -322,8 +289,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -372,10 +338,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -383,10 +346,7 @@ const deserializeAws_json1_1CopyBackupToRegionCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -437,8 +397,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -487,10 +446,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -498,10 +454,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -552,8 +505,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -602,10 +554,7 @@ const deserializeAws_json1_1CreateHsmCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -656,8 +605,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -706,10 +654,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -760,8 +705,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -810,10 +754,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -821,10 +762,7 @@ const deserializeAws_json1_1DeleteClusterCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -875,8 +813,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -925,10 +862,7 @@ const deserializeAws_json1_1DeleteHsmCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -979,8 +913,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1029,10 +962,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1040,10 +970,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1094,8 +1021,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1133,10 +1059,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1144,10 +1067,7 @@ const deserializeAws_json1_1DescribeClustersCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1198,8 +1118,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1248,10 +1167,7 @@ const deserializeAws_json1_1InitializeClusterCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1302,8 +1218,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1352,10 +1267,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1363,10 +1275,7 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1417,8 +1326,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1467,10 +1375,7 @@ const deserializeAws_json1_1RestoreBackupCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1521,8 +1426,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1571,10 +1475,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1582,10 +1483,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1636,8 +1534,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmAccessDeniedException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmAccessDeniedException":
@@ -1686,10 +1583,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmServiceException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1697,10 +1591,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsm.api.service#CloudHsmTagException":
       response = {
-        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CloudHsmTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1727,10 +1618,7 @@ const deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmAccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmAccessDeniedException(body, context);
   const contents: CloudHsmAccessDeniedException = {
     name: "CloudHsmAccessDeniedException",
     $fault: "client",
@@ -1745,10 +1633,7 @@ const deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmInternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmInternalFailureException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmInternalFailureException(body, context);
   const contents: CloudHsmInternalFailureException = {
     name: "CloudHsmInternalFailureException",
     $fault: "server",
@@ -1763,10 +1648,7 @@ const deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmInvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmInvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmInvalidRequestException(body, context);
   const contents: CloudHsmInvalidRequestException = {
     name: "CloudHsmInvalidRequestException",
     $fault: "client",
@@ -1781,10 +1663,7 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmResourceNotFoundException(body, context);
   const contents: CloudHsmResourceNotFoundException = {
     name: "CloudHsmResourceNotFoundException",
     $fault: "client",
@@ -1799,10 +1678,7 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmServiceException(body, context);
   const contents: CloudHsmServiceException = {
     name: "CloudHsmServiceException",
     $fault: "client",
@@ -1817,10 +1693,7 @@ const deserializeAws_json1_1CloudHsmTagExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CloudHsmTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CloudHsmTagException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmTagException(body, context);
   const contents: CloudHsmTagException = {
     name: "CloudHsmTagException",
     $fault: "client",
@@ -1979,17 +1852,11 @@ const serializeAws_json1_1RestoreBackupRequest = (
   };
 };
 
-const serializeAws_json1_1Strings = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Strings = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2000,17 +1867,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -2038,24 +1899,17 @@ const serializeAws_json1_1UntagResourceRequest = (
   };
 };
 
-const deserializeAws_json1_1Backup = (
-  output: any,
-  context: __SerdeContext
-): Backup => {
+const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
   return {
     __type: "Backup",
     BackupId:
-      output.BackupId !== undefined && output.BackupId !== null
-        ? output.BackupId
-        : undefined,
+      output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     BackupState:
       output.BackupState !== undefined && output.BackupState !== null
         ? output.BackupState
         : undefined,
     ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
+      output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     CopyTimestamp:
       output.CopyTimestamp !== undefined && output.CopyTimestamp !== null
         ? new Date(Math.round(output.CopyTimestamp * 1000))
@@ -2087,35 +1941,23 @@ const deserializeAws_json1_1Backup = (
   } as any;
 };
 
-const deserializeAws_json1_1Backups = (
-  output: any,
-  context: __SerdeContext
-): Backup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Backup(entry, context)
-  );
+const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Backup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Backup(entry, context));
 };
 
-const deserializeAws_json1_1Certificates = (
-  output: any,
-  context: __SerdeContext
-): Certificates => {
+const deserializeAws_json1_1Certificates = (output: any, context: __SerdeContext): Certificates => {
   return {
     __type: "Certificates",
     AwsHardwareCertificate:
-      output.AwsHardwareCertificate !== undefined &&
-      output.AwsHardwareCertificate !== null
+      output.AwsHardwareCertificate !== undefined && output.AwsHardwareCertificate !== null
         ? output.AwsHardwareCertificate
         : undefined,
     ClusterCertificate:
-      output.ClusterCertificate !== undefined &&
-      output.ClusterCertificate !== null
+      output.ClusterCertificate !== undefined && output.ClusterCertificate !== null
         ? output.ClusterCertificate
         : undefined,
     ClusterCsr:
-      output.ClusterCsr !== undefined && output.ClusterCsr !== null
-        ? output.ClusterCsr
-        : undefined,
+      output.ClusterCsr !== undefined && output.ClusterCsr !== null ? output.ClusterCsr : undefined,
     HsmCertificate:
       output.HsmCertificate !== undefined && output.HsmCertificate !== null
         ? output.HsmCertificate
@@ -2128,10 +1970,7 @@ const deserializeAws_json1_1Certificates = (
   } as any;
 };
 
-const deserializeAws_json1_1Cluster = (
-  output: any,
-  context: __SerdeContext
-): Cluster => {
+const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
     __type: "Cluster",
     BackupPolicy:
@@ -2143,17 +1982,12 @@ const deserializeAws_json1_1Cluster = (
         ? deserializeAws_json1_1Certificates(output.Certificates, context)
         : undefined,
     ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
+      output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
         ? new Date(Math.round(output.CreateTimestamp * 1000))
         : undefined,
-    HsmType:
-      output.HsmType !== undefined && output.HsmType !== null
-        ? output.HsmType
-        : undefined,
+    HsmType: output.HsmType !== undefined && output.HsmType !== null ? output.HsmType : undefined,
     Hsms:
       output.Hsms !== undefined && output.Hsms !== null
         ? deserializeAws_json1_1Hsms(output.Hsms, context)
@@ -2170,39 +2004,25 @@ const deserializeAws_json1_1Cluster = (
       output.SourceBackupId !== undefined && output.SourceBackupId !== null
         ? output.SourceBackupId
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateMessage:
       output.StateMessage !== undefined && output.StateMessage !== null
         ? output.StateMessage
         : undefined,
     SubnetMapping:
       output.SubnetMapping !== undefined && output.SubnetMapping !== null
-        ? deserializeAws_json1_1ExternalSubnetMapping(
-            output.SubnetMapping,
-            context
-          )
+        ? deserializeAws_json1_1ExternalSubnetMapping(output.SubnetMapping, context)
         : undefined,
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
         : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Clusters = (
-  output: any,
-  context: __SerdeContext
-): Cluster[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Cluster(entry, context)
-  );
+const deserializeAws_json1_1Clusters = (output: any, context: __SerdeContext): Cluster[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Cluster(entry, context));
 };
 
 const deserializeAws_json1_1CopyBackupToRegionResponse = (
@@ -2212,12 +2032,8 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
   return {
     __type: "CopyBackupToRegionResponse",
     DestinationBackup:
-      output.DestinationBackup !== undefined &&
-      output.DestinationBackup !== null
-        ? deserializeAws_json1_1DestinationBackup(
-            output.DestinationBackup,
-            context
-          )
+      output.DestinationBackup !== undefined && output.DestinationBackup !== null
+        ? deserializeAws_json1_1DestinationBackup(output.DestinationBackup, context)
         : undefined
   } as any;
 };
@@ -2280,10 +2096,7 @@ const deserializeAws_json1_1DeleteHsmResponse = (
 ): DeleteHsmResponse => {
   return {
     __type: "DeleteHsmResponse",
-    HsmId:
-      output.HsmId !== undefined && output.HsmId !== null
-        ? output.HsmId
-        : undefined
+    HsmId: output.HsmId !== undefined && output.HsmId !== null ? output.HsmId : undefined
   } as any;
 };
 
@@ -2298,9 +2111,7 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
         ? deserializeAws_json1_1Backups(output.Backups, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -2315,9 +2126,7 @@ const deserializeAws_json1_1DescribeClustersResponse = (
         ? deserializeAws_json1_1Clusters(output.Clusters, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -2359,10 +2168,7 @@ const deserializeAws_json1_1ExternalSubnetMapping = (
   );
 };
 
-const deserializeAws_json1_1Hsm = (
-  output: any,
-  context: __SerdeContext
-): Hsm => {
+const deserializeAws_json1_1Hsm = (output: any, context: __SerdeContext): Hsm => {
   return {
     __type: "Hsm",
     AvailabilityZone:
@@ -2370,43 +2176,22 @@ const deserializeAws_json1_1Hsm = (
         ? output.AvailabilityZone
         : undefined,
     ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
-    EniId:
-      output.EniId !== undefined && output.EniId !== null
-        ? output.EniId
-        : undefined,
-    EniIp:
-      output.EniIp !== undefined && output.EniIp !== null
-        ? output.EniIp
-        : undefined,
-    HsmId:
-      output.HsmId !== undefined && output.HsmId !== null
-        ? output.HsmId
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+      output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
+    EniId: output.EniId !== undefined && output.EniId !== null ? output.EniId : undefined,
+    EniIp: output.EniIp !== undefined && output.EniIp !== null ? output.EniIp : undefined,
+    HsmId: output.HsmId !== undefined && output.HsmId !== null ? output.HsmId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateMessage:
       output.StateMessage !== undefined && output.StateMessage !== null
         ? output.StateMessage
         : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Hsms = (
-  output: any,
-  context: __SerdeContext
-): Hsm[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Hsm(entry, context)
-  );
+const deserializeAws_json1_1Hsms = (output: any, context: __SerdeContext): Hsm[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Hsm(entry, context));
 };
 
 const deserializeAws_json1_1InitializeClusterResponse = (
@@ -2415,10 +2200,7 @@ const deserializeAws_json1_1InitializeClusterResponse = (
 ): InitializeClusterResponse => {
   return {
     __type: "InitializeClusterResponse",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateMessage:
       output.StateMessage !== undefined && output.StateMessage !== null
         ? output.StateMessage
@@ -2433,9 +2215,7 @@ const deserializeAws_json1_1ListTagsResponse = (
   return {
     __type: "ListTagsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -2456,28 +2236,16 @@ const deserializeAws_json1_1RestoreBackupResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
@@ -2504,10 +2272,7 @@ const deserializeAws_json1_1CloudHsmAccessDeniedException = (
 ): CloudHsmAccessDeniedException => {
   return {
     __type: "CloudHsmAccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2517,10 +2282,7 @@ const deserializeAws_json1_1CloudHsmInternalFailureException = (
 ): CloudHsmInternalFailureException => {
   return {
     __type: "CloudHsmInternalFailureException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2530,10 +2292,7 @@ const deserializeAws_json1_1CloudHsmInvalidRequestException = (
 ): CloudHsmInvalidRequestException => {
   return {
     __type: "CloudHsmInvalidRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2543,10 +2302,7 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundException = (
 ): CloudHsmResourceNotFoundException => {
   return {
     __type: "CloudHsmResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2556,10 +2312,7 @@ const deserializeAws_json1_1CloudHsmServiceException = (
 ): CloudHsmServiceException => {
   return {
     __type: "CloudHsmServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2569,10 +2322,7 @@ const deserializeAws_json1_1CloudHsmTagException = (
 ): CloudHsmTagException => {
   return {
     __type: "CloudHsmTagException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2590,16 +2340,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

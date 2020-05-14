@@ -461,9 +461,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public classifyDocument(
     args: ClassifyDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ClassifyDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClassifyDocumentCommandOutput) => void),
     cb?: (err: any, data?: ClassifyDocumentCommandOutput) => void
   ): Promise<ClassifyDocumentCommandOutput> | void {
     const command = new ClassifyDocumentCommand(args);
@@ -534,9 +532,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
@@ -645,9 +641,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
@@ -712,31 +706,19 @@ export class Comprehend extends ComprehendClient {
   ): Promise<DescribeDocumentClassificationJobCommandOutput>;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): void;
   public describeDocumentClassificationJob(
     args: DescribeDocumentClassificationJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDocumentClassificationJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDocumentClassificationJobCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDocumentClassificationJobCommandOutput) => void
   ): Promise<DescribeDocumentClassificationJobCommandOutput> | void {
     const command = new DescribeDocumentClassificationJobCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -795,31 +777,19 @@ export class Comprehend extends ComprehendClient {
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput>;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public describeDominantLanguageDetectionJob(
     args: DescribeDominantLanguageDetectionJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDominantLanguageDetectionJobCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> | void {
     const command = new DescribeDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -851,9 +821,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): Promise<DescribeEndpointCommandOutput> | void {
     const command = new DescribeEndpointCommand(args);
@@ -961,10 +929,7 @@ export class Comprehend extends ComprehendClient {
     args: DescribeKeyPhrasesDetectionJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeKeyPhrasesDetectionJobCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyPhrasesDetectionJobCommandOutput) => void
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> | void {
     const command = new DescribeKeyPhrasesDetectionJobCommand(args);
@@ -1106,9 +1071,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectEntities(
     args: DetectEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesCommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesCommandOutput) => void
   ): Promise<DetectEntitiesCommandOutput> | void {
     const command = new DetectEntitiesCommand(args);
@@ -1141,9 +1104,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectKeyPhrases(
     args: DetectKeyPhrasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectKeyPhrasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectKeyPhrasesCommandOutput) => void),
     cb?: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
   ): Promise<DetectKeyPhrasesCommandOutput> | void {
     const command = new DetectKeyPhrasesCommand(args);
@@ -1177,9 +1138,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectSentiment(
     args: DetectSentimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectSentimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSentimentCommandOutput) => void),
     cb?: (err: any, data?: DetectSentimentCommandOutput) => void
   ): Promise<DetectSentimentCommandOutput> | void {
     const command = new DetectSentimentCommand(args);
@@ -1213,9 +1172,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public detectSyntax(
     args: DetectSyntaxCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectSyntaxCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectSyntaxCommandOutput) => void),
     cb?: (err: any, data?: DetectSyntaxCommandOutput) => void
   ): Promise<DetectSyntaxCommandOutput> | void {
     const command = new DetectSyntaxCommand(args);
@@ -1250,10 +1207,7 @@ export class Comprehend extends ComprehendClient {
     args: ListDocumentClassificationJobsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDocumentClassificationJobsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListDocumentClassificationJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentClassificationJobsCommandOutput) => void
   ): Promise<ListDocumentClassificationJobsCommandOutput> | void {
     const command = new ListDocumentClassificationJobsCommand(args);
@@ -1312,31 +1266,19 @@ export class Comprehend extends ComprehendClient {
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput>;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
-    cb: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): void;
   public listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDominantLanguageDetectionJobsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListDominantLanguageDetectionJobsCommandOutput
-    ) => void
+      | ((err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListDominantLanguageDetectionJobsCommandOutput) => void
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput> | void {
     const command = new ListDominantLanguageDetectionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1368,9 +1310,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public listEndpoints(
     args: ListEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointsCommandOutput) => void
   ): Promise<ListEndpointsCommandOutput> | void {
     const command = new ListEndpointsCommand(args);
@@ -1622,10 +1562,7 @@ export class Comprehend extends ComprehendClient {
     args: StartDocumentClassificationJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartDocumentClassificationJobCommandOutput
-        ) => void),
+      | ((err: any, data?: StartDocumentClassificationJobCommandOutput) => void),
     cb?: (err: any, data?: StartDocumentClassificationJobCommandOutput) => void
   ): Promise<StartDocumentClassificationJobCommandOutput> | void {
     const command = new StartDocumentClassificationJobCommand(args);
@@ -1651,31 +1588,19 @@ export class Comprehend extends ComprehendClient {
   ): Promise<StartDominantLanguageDetectionJobCommandOutput>;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
-    cb: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+    cb: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): void;
   public startDominantLanguageDetectionJob(
     args: StartDominantLanguageDetectionJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartDominantLanguageDetectionJobCommandOutput
-    ) => void
+      | ((err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StartDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<StartDominantLanguageDetectionJobCommandOutput> | void {
     const command = new StartDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1866,14 +1791,8 @@ export class Comprehend extends ComprehendClient {
     args: StopDominantLanguageDetectionJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StopDominantLanguageDetectionJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StopDominantLanguageDetectionJobCommandOutput
-    ) => void
+      | ((err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StopDominantLanguageDetectionJobCommandOutput) => void
   ): Promise<StopDominantLanguageDetectionJobCommandOutput> | void {
     const command = new StopDominantLanguageDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2044,10 +1963,7 @@ export class Comprehend extends ComprehendClient {
     args: StopTrainingDocumentClassifierCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StopTrainingDocumentClassifierCommandOutput
-        ) => void),
+      | ((err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void),
     cb?: (err: any, data?: StopTrainingDocumentClassifierCommandOutput) => void
   ): Promise<StopTrainingDocumentClassifierCommandOutput> | void {
     const command = new StopTrainingDocumentClassifierCommand(args);
@@ -2120,9 +2036,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2155,9 +2069,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2190,9 +2102,7 @@ export class Comprehend extends ComprehendClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);

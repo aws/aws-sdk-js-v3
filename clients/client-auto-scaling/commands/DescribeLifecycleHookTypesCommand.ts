@@ -46,13 +46,8 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLifecycleHookTypesCommandInput,
-    DescribeLifecycleHookTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLifecycleHookTypesCommandInput, DescribeLifecycleHookTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleHookTypesCommandOutput> {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLifecycleHookTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { GetWorkflowExecutionHistoryInput, History } from "../models/index";
 import {
   deserializeAws_json1_0GetWorkflowExecutionHistoryCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetWorkflowExecutionHistoryCommandInput = GetWorkflowExecutionHistoryInput;
-export type GetWorkflowExecutionHistoryCommandOutput = History &
-  __MetadataBearer;
+export type GetWorkflowExecutionHistoryCommandOutput = History & __MetadataBearer;
 
 export class GetWorkflowExecutionHistoryCommand extends $Command<
   GetWorkflowExecutionHistoryCommandInput,
@@ -46,13 +41,8 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetWorkflowExecutionHistoryCommandInput,
-    GetWorkflowExecutionHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetWorkflowExecutionHistoryCommandInput, GetWorkflowExecutionHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +61,14 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
     input: GetWorkflowExecutionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> {
-    return deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

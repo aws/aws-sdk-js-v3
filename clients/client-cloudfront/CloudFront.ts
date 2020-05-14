@@ -244,31 +244,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput>;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+      | ((err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new CreateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -384,14 +372,8 @@ export class CloudFront extends CloudFrontClient {
     args: CreateFieldLevelEncryptionConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateFieldLevelEncryptionConfigCommandOutput
-    ) => void
+      | ((err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new CreateFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -414,31 +396,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput>;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+      | ((err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new CreateFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -505,9 +475,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public createPublicKey(
     args: CreatePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: CreatePublicKeyCommandOutput) => void
   ): Promise<CreatePublicKeyCommandOutput> | void {
     const command = new CreatePublicKeyCommand(args);
@@ -590,31 +558,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput>;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
-    cb: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): void;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): void;
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateStreamingDistributionWithTagsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateStreamingDistributionWithTagsCommandOutput
-    ) => void
+      | ((err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void),
+    cb?: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput> | void {
     const command = new CreateStreamingDistributionWithTagsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -637,31 +593,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput>;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new DeleteCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -730,14 +674,8 @@ export class CloudFront extends CloudFrontClient {
     args: DeleteFieldLevelEncryptionConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionConfigCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new DeleteFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -760,31 +698,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput>;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteFieldLevelEncryptionProfileCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new DeleteFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -816,9 +742,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public deletePublicKey(
     args: DeletePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: DeletePublicKeyCommandOutput) => void
   ): Promise<DeletePublicKeyCommandOutput> | void {
     const command = new DeletePublicKeyCommand(args);
@@ -924,31 +848,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput>;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+      | ((err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new GetCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -971,31 +883,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput>;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): void;
   public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput
-    ) => void
+      | ((err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> | void {
     const command = new GetCloudFrontOriginAccessIdentityConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1027,9 +927,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getDistribution(
     args: GetDistributionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDistributionCommandOutput) => void),
     cb?: (err: any, data?: GetDistributionCommandOutput) => void
   ): Promise<GetDistributionCommandOutput> | void {
     const command = new GetDistributionCommand(args);
@@ -1169,10 +1067,7 @@ export class CloudFront extends CloudFrontClient {
     args: GetFieldLevelEncryptionProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetFieldLevelEncryptionProfileCommandOutput
-        ) => void),
+      | ((err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void),
     cb?: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new GetFieldLevelEncryptionProfileCommand(args);
@@ -1196,31 +1091,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput>;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): void;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): void;
   public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetFieldLevelEncryptionProfileConfigCommandOutput
-    ) => void
+      | ((err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> | void {
     const command = new GetFieldLevelEncryptionProfileConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1252,9 +1135,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getInvalidation(
     args: GetInvalidationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInvalidationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInvalidationCommandOutput) => void),
     cb?: (err: any, data?: GetInvalidationCommandOutput) => void
   ): Promise<GetInvalidationCommandOutput> | void {
     const command = new GetInvalidationCommand(args);
@@ -1287,9 +1168,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): Promise<GetPublicKeyCommandOutput> | void {
     const command = new GetPublicKeyCommand(args);
@@ -1394,10 +1273,7 @@ export class CloudFront extends CloudFrontClient {
     args: GetStreamingDistributionConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetStreamingDistributionConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: GetStreamingDistributionConfigCommandOutput) => void),
     cb?: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
   ): Promise<GetStreamingDistributionConfigCommandOutput> | void {
     const command = new GetStreamingDistributionConfigCommand(args);
@@ -1421,31 +1297,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
-    cb: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): void;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): void;
   public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListCloudFrontOriginAccessIdentitiesCommandOutput
-    ) => void
+      | ((err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void),
+    cb?: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> | void {
     const command = new ListCloudFrontOriginAccessIdentitiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1549,10 +1413,7 @@ export class CloudFront extends CloudFrontClient {
     args: ListFieldLevelEncryptionConfigsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionConfigsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
   ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> | void {
     const command = new ListFieldLevelEncryptionConfigsCommand(args);
@@ -1587,14 +1448,8 @@ export class CloudFront extends CloudFrontClient {
     args: ListFieldLevelEncryptionProfilesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFieldLevelEncryptionProfilesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListFieldLevelEncryptionProfilesCommandOutput
-    ) => void
+      | ((err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void
   ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> | void {
     const command = new ListFieldLevelEncryptionProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1661,9 +1516,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public listPublicKeys(
     args: ListPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublicKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublicKeysCommandOutput) => void),
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
@@ -1766,9 +1619,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1801,9 +1652,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1827,31 +1676,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput>;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
   public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateCloudFrontOriginAccessIdentityCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new UpdateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1998,14 +1835,8 @@ export class CloudFront extends CloudFrontClient {
     args: UpdateFieldLevelEncryptionConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFieldLevelEncryptionConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionConfigCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2028,31 +1859,19 @@ export class CloudFront extends CloudFrontClient {
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput>;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
   public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateFieldLevelEncryptionProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateFieldLevelEncryptionProfileCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionProfileCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2084,9 +1903,7 @@ export class CloudFront extends CloudFrontClient {
   ): void;
   public updatePublicKey(
     args: UpdatePublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePublicKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdatePublicKeyCommandOutput) => void
   ): Promise<UpdatePublicKeyCommandOutput> | void {
     const command = new UpdatePublicKeyCommand(args);

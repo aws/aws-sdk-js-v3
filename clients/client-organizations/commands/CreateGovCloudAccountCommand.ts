@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  CreateGovCloudAccountRequest,
-  CreateGovCloudAccountResponse
-} from "../models/index";
+import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateGovCloudAccountCommand,
   serializeAws_json1_1CreateGovCloudAccountCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGovCloudAccountCommandInput = CreateGovCloudAccountRequest;
-export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse &
-  __MetadataBearer;
+export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse & __MetadataBearer;
 
 export class CreateGovCloudAccountCommand extends $Command<
   CreateGovCloudAccountCommandInput,
@@ -49,13 +45,8 @@ export class CreateGovCloudAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateGovCloudAccountCommandInput,
-    CreateGovCloudAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateGovCloudAccountCommandInput, CreateGovCloudAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

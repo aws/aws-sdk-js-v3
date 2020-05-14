@@ -1,39 +1,30 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * The resource specified in your request already exists.
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * The input you provided is invalid.
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -95,9 +86,7 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
     __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
@@ -109,9 +98,7 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
     __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
@@ -157,9 +144,7 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
     __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
@@ -171,9 +156,7 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
     __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
@@ -239,8 +222,7 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
-  export const isa = (o: any): o is EventDestination =>
-    __isa(o, "EventDestination");
+  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
@@ -298,9 +280,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsRequest =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsRequest =>
     __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
@@ -316,18 +296,14 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsResponse =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsResponse =>
     __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
 /**
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
@@ -362,17 +338,14 @@ export namespace KinesisFirehoseDestination {
 /**
  * There are too many instances of the specified resource type.
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListConfigurationSetsRequest {
@@ -424,8 +397,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -450,8 +422,7 @@ export interface PlainTextMessageType {
 }
 
 export namespace PlainTextMessageType {
-  export const isa = (o: any): o is PlainTextMessageType =>
-    __isa(o, "PlainTextMessageType");
+  export const isa = (o: any): o is PlainTextMessageType => __isa(o, "PlainTextMessageType");
 }
 
 /**
@@ -476,8 +447,7 @@ export interface SSMLMessageType {
 }
 
 export namespace SSMLMessageType {
-  export const isa = (o: any): o is SSMLMessageType =>
-    __isa(o, "SSMLMessageType");
+  export const isa = (o: any): o is SSMLMessageType => __isa(o, "SSMLMessageType");
 }
 
 /**
@@ -512,8 +482,7 @@ export interface SendVoiceMessageRequest {
 }
 
 export namespace SendVoiceMessageRequest {
-  export const isa = (o: any): o is SendVoiceMessageRequest =>
-    __isa(o, "SendVoiceMessageRequest");
+  export const isa = (o: any): o is SendVoiceMessageRequest => __isa(o, "SendVoiceMessageRequest");
 }
 
 /**
@@ -544,16 +513,13 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
-  export const isa = (o: any): o is SnsDestination =>
-    __isa(o, "SnsDestination");
+  export const isa = (o: any): o is SnsDestination => __isa(o, "SnsDestination");
 }
 
 /**
  * You've issued too many requests to the resource. Wait a few minutes, and then try again.
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -586,9 +552,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
     __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
@@ -600,9 +564,7 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
     __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
@@ -628,6 +590,5 @@ export interface VoiceMessageContent {
 }
 
 export namespace VoiceMessageContent {
-  export const isa = (o: any): o is VoiceMessageContent =>
-    __isa(o, "VoiceMessageContent");
+  export const isa = (o: any): o is VoiceMessageContent => __isa(o, "VoiceMessageContent");
 }

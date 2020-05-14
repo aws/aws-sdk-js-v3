@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDeviceCommandInput = DescribeDeviceRequest;
-export type DescribeDeviceCommandOutput = DescribeDeviceResponse &
-  __MetadataBearer;
+export type DescribeDeviceCommandOutput = DescribeDeviceResponse & __MetadataBearer;
 
 export class DescribeDeviceCommand extends $Command<
   DescribeDeviceCommandInput,
@@ -47,9 +46,7 @@ export class DescribeDeviceCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDeviceCommandInput, DescribeDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

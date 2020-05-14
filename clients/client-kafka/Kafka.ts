@@ -123,9 +123,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -193,9 +191,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
@@ -228,9 +224,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
@@ -438,9 +432,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
@@ -543,9 +535,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public listNodes(
     args: ListNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodesCommandOutput) => void),
     cb?: (err: any, data?: ListNodesCommandOutput) => void
   ): Promise<ListNodesCommandOutput> | void {
     const command = new ListNodesCommand(args);
@@ -613,9 +603,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -648,9 +636,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -788,9 +774,7 @@ export class Kafka extends KafkaClient {
   ): void;
   public updateMonitoring(
     args: UpdateMonitoringCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMonitoringCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMonitoringCommandOutput) => void),
     cb?: (err: any, data?: UpdateMonitoringCommandOutput) => void
   ): Promise<UpdateMonitoringCommandOutput> | void {
     const command = new UpdateMonitoringCommand(args);

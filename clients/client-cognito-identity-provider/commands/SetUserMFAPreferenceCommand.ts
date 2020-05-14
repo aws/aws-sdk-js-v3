@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  SetUserMFAPreferenceRequest,
-  SetUserMFAPreferenceResponse
-} from "../models/index";
+import { SetUserMFAPreferenceRequest, SetUserMFAPreferenceResponse } from "../models/index";
 import {
   deserializeAws_json1_1SetUserMFAPreferenceCommand,
   serializeAws_json1_1SetUserMFAPreferenceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetUserMFAPreferenceCommandInput = SetUserMFAPreferenceRequest;
-export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse &
-  __MetadataBearer;
+export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse & __MetadataBearer;
 
 export class SetUserMFAPreferenceCommand extends $Command<
   SetUserMFAPreferenceCommandInput,
@@ -49,13 +45,8 @@ export class SetUserMFAPreferenceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetUserMFAPreferenceCommandInput,
-    SetUserMFAPreferenceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetUserMFAPreferenceCommandInput, SetUserMFAPreferenceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

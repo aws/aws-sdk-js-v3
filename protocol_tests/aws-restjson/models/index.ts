@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AllQueryStringTypesInput {
@@ -52,8 +49,7 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
-  export const isa = (o: any): o is ComplexNestedErrorData =>
-    __isa(o, "ComplexNestedErrorData");
+  export const isa = (o: any): o is ComplexNestedErrorData => __isa(o, "ComplexNestedErrorData");
 }
 
 export interface ConstantAndVariableQueryStringInput {
@@ -184,9 +180,7 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
-  export const isa = (
-    o: any
-  ): o is HttpRequestWithLabelsAndTimestampFormatInput =>
+  export const isa = (o: any): o is HttpRequestWithLabelsAndTimestampFormatInput =>
     __isa(o, "HttpRequestWithLabelsAndTimestampFormatInput");
 }
 
@@ -259,8 +253,7 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
-  export const isa = (o: any): o is InvalidGreeting =>
-    __isa(o, "InvalidGreeting");
+  export const isa = (o: any): o is InvalidGreeting => __isa(o, "InvalidGreeting");
 }
 
 export interface JsonBlobsInputOutput {
@@ -269,8 +262,7 @@ export interface JsonBlobsInputOutput {
 }
 
 export namespace JsonBlobsInputOutput {
-  export const isa = (o: any): o is JsonBlobsInputOutput =>
-    __isa(o, "JsonBlobsInputOutput");
+  export const isa = (o: any): o is JsonBlobsInputOutput => __isa(o, "JsonBlobsInputOutput");
 }
 
 export interface JsonEnumsInputOutput {
@@ -284,8 +276,7 @@ export interface JsonEnumsInputOutput {
 }
 
 export namespace JsonEnumsInputOutput {
-  export const isa = (o: any): o is JsonEnumsInputOutput =>
-    __isa(o, "JsonEnumsInputOutput");
+  export const isa = (o: any): o is JsonEnumsInputOutput => __isa(o, "JsonEnumsInputOutput");
 }
 
 export interface JsonListsInputOutput {
@@ -305,8 +296,7 @@ export interface JsonListsInputOutput {
 }
 
 export namespace JsonListsInputOutput {
-  export const isa = (o: any): o is JsonListsInputOutput =>
-    __isa(o, "JsonListsInputOutput");
+  export const isa = (o: any): o is JsonListsInputOutput => __isa(o, "JsonListsInputOutput");
 }
 
 export interface JsonMapsInputOutput {
@@ -315,8 +305,7 @@ export interface JsonMapsInputOutput {
 }
 
 export namespace JsonMapsInputOutput {
-  export const isa = (o: any): o is JsonMapsInputOutput =>
-    __isa(o, "JsonMapsInputOutput");
+  export const isa = (o: any): o is JsonMapsInputOutput => __isa(o, "JsonMapsInputOutput");
 }
 
 export interface JsonTimestampsInputOutput {
@@ -347,8 +336,7 @@ export interface NoInputAndOutputOutput {
 }
 
 export namespace NoInputAndOutputOutput {
-  export const isa = (o: any): o is NoInputAndOutputOutput =>
-    __isa(o, "NoInputAndOutputOutput");
+  export const isa = (o: any): o is NoInputAndOutputOutput => __isa(o, "NoInputAndOutputOutput");
 }
 
 export interface NullAndEmptyHeadersIO {
@@ -359,8 +347,7 @@ export interface NullAndEmptyHeadersIO {
 }
 
 export namespace NullAndEmptyHeadersIO {
-  export const isa = (o: any): o is NullAndEmptyHeadersIO =>
-    __isa(o, "NullAndEmptyHeadersIO");
+  export const isa = (o: any): o is NullAndEmptyHeadersIO => __isa(o, "NullAndEmptyHeadersIO");
 }
 
 export interface OmitsNullSerializesEmptyStringInput {
@@ -442,8 +429,7 @@ export interface StructureListMember {
 }
 
 export namespace StructureListMember {
-  export const isa = (o: any): o is StructureListMember =>
-    __isa(o, "StructureListMember");
+  export const isa = (o: any): o is StructureListMember => __isa(o, "StructureListMember");
 }
 
 export interface TimestampFormatHeadersIO {
@@ -470,6 +456,5 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
-  export const isa = (o: any): o is GreetingStruct =>
-    __isa(o, "GreetingStruct");
+  export const isa = (o: any): o is GreetingStruct => __isa(o, "GreetingStruct");
 }

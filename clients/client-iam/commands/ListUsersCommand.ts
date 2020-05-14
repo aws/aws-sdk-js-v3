@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListUsersRequest, ListUsersResponse } from "../models/index";
 import {
   deserializeAws_queryListUsersCommand,
@@ -46,9 +42,7 @@ export class ListUsersCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class ListUsersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListUsersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListUsersCommand(input, context);
   }
 

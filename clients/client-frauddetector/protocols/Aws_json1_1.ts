@@ -14,10 +14,7 @@ import {
   CreateModelVersionCommandInput,
   CreateModelVersionCommandOutput
 } from "../commands/CreateModelVersionCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "../commands/CreateRuleCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import {
   CreateVariableCommandInput,
   CreateVariableCommandOutput
@@ -26,10 +23,7 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput
 } from "../commands/DeleteDetectorVersionCommand";
-import {
-  DeleteEventCommandInput,
-  DeleteEventCommandOutput
-} from "../commands/DeleteEventCommand";
+import { DeleteEventCommandInput, DeleteEventCommandOutput } from "../commands/DeleteEventCommand";
 import {
   DescribeDetectorCommandInput,
   DescribeDetectorCommandOutput
@@ -54,42 +48,24 @@ import {
   GetModelVersionCommandInput,
   GetModelVersionCommandOutput
 } from "../commands/GetModelVersionCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "../commands/GetModelsCommand";
-import {
-  GetOutcomesCommandInput,
-  GetOutcomesCommandOutput
-} from "../commands/GetOutcomesCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
+import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "../commands/GetOutcomesCommand";
 import {
   GetPredictionCommandInput,
   GetPredictionCommandOutput
 } from "../commands/GetPredictionCommand";
-import {
-  GetRulesCommandInput,
-  GetRulesCommandOutput
-} from "../commands/GetRulesCommand";
+import { GetRulesCommandInput, GetRulesCommandOutput } from "../commands/GetRulesCommand";
 import {
   GetVariablesCommandInput,
   GetVariablesCommandOutput
 } from "../commands/GetVariablesCommand";
-import {
-  PutDetectorCommandInput,
-  PutDetectorCommandOutput
-} from "../commands/PutDetectorCommand";
+import { PutDetectorCommandInput, PutDetectorCommandOutput } from "../commands/PutDetectorCommand";
 import {
   PutExternalModelCommandInput,
   PutExternalModelCommandOutput
 } from "../commands/PutExternalModelCommand";
-import {
-  PutModelCommandInput,
-  PutModelCommandOutput
-} from "../commands/PutModelCommand";
-import {
-  PutOutcomeCommandInput,
-  PutOutcomeCommandOutput
-} from "../commands/PutOutcomeCommand";
+import { PutModelCommandInput, PutModelCommandOutput } from "../commands/PutModelCommand";
+import { PutOutcomeCommandInput, PutOutcomeCommandOutput } from "../commands/PutOutcomeCommand";
 import {
   UpdateDetectorVersionCommandInput,
   UpdateDetectorVersionCommandOutput
@@ -227,9 +203,7 @@ export const serializeAws_json1_1BatchCreateVariableCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.BatchCreateVariable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchCreateVariableRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchCreateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,9 +216,7 @@ export const serializeAws_json1_1BatchGetVariableCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.BatchGetVariable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetVariableRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -257,9 +229,7 @@ export const serializeAws_json1_1CreateDetectorVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateDetectorVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDetectorVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -272,9 +242,7 @@ export const serializeAws_json1_1CreateModelVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateModelVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateModelVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -300,9 +268,7 @@ export const serializeAws_json1_1CreateVariableCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateVariable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateVariableRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -315,9 +281,7 @@ export const serializeAws_json1_1DeleteDetectorVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteDetectorVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDetectorVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -343,9 +307,7 @@ export const serializeAws_json1_1DescribeDetectorCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeDetector"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDetectorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDetectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -358,9 +320,7 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeModelVersions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeModelVersionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeModelVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -373,9 +333,7 @@ export const serializeAws_json1_1GetDetectorVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectorVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDetectorVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -388,9 +346,7 @@ export const serializeAws_json1_1GetDetectorsCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectors"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDetectorsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDetectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,9 +359,7 @@ export const serializeAws_json1_1GetExternalModelsCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetExternalModels"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetExternalModelsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetExternalModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -418,9 +372,7 @@ export const serializeAws_json1_1GetModelVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetModelVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetModelVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -459,9 +411,7 @@ export const serializeAws_json1_1GetPredictionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetPrediction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetPredictionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetPredictionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -487,9 +437,7 @@ export const serializeAws_json1_1GetVariablesCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetVariables"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetVariablesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetVariablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,9 +463,7 @@ export const serializeAws_json1_1PutExternalModelCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutExternalModel"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutExternalModelRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutExternalModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,9 +502,7 @@ export const serializeAws_json1_1UpdateDetectorVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDetectorVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -571,9 +515,7 @@ export const serializeAws_json1_1UpdateDetectorVersionMetadataCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDetectorVersionMetadataRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -586,9 +528,7 @@ export const serializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDetectorVersionStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,9 +541,7 @@ export const serializeAws_json1_1UpdateModelVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModelVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateModelVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -616,9 +554,7 @@ export const serializeAws_json1_1UpdateRuleMetadataCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleMetadata"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateRuleMetadataRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateRuleMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -631,9 +567,7 @@ export const serializeAws_json1_1UpdateRuleVersionCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateRuleVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateRuleVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -646,9 +580,7 @@ export const serializeAws_json1_1UpdateVariableCommand = async (
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateVariable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateVariableRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -657,10 +589,7 @@ export const deserializeAws_json1_1BatchCreateVariableCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateVariableCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchCreateVariableCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchCreateVariableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -684,16 +613,12 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -701,10 +626,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -712,10 +634,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -766,16 +685,12 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -783,10 +698,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -794,10 +706,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -824,10 +733,7 @@ export const deserializeAws_json1_1CreateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDetectorVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDetectorVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -851,16 +757,12 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -868,10 +770,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -879,10 +778,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -890,10 +786,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -920,10 +813,7 @@ export const deserializeAws_json1_1CreateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateModelVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateModelVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -947,16 +837,12 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -964,10 +850,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -975,10 +858,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1029,16 +909,12 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1046,10 +922,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1057,10 +930,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1111,16 +981,12 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1128,10 +994,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1139,10 +1002,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1169,10 +1029,7 @@ export const deserializeAws_json1_1DeleteDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDetectorVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteDetectorVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1196,16 +1053,12 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1213,10 +1066,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1224,10 +1074,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1235,10 +1082,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1289,16 +1133,12 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1306,10 +1146,7 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1360,16 +1197,12 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1377,10 +1210,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1388,10 +1218,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1399,10 +1226,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1429,10 +1253,7 @@ export const deserializeAws_json1_1DescribeModelVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelVersionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeModelVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeModelVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1456,16 +1277,12 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1473,10 +1290,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1484,10 +1298,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1495,10 +1306,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1525,10 +1333,7 @@ export const deserializeAws_json1_1GetDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDetectorVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDetectorVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1552,16 +1357,12 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1569,10 +1370,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1580,10 +1378,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1591,10 +1386,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1645,16 +1437,12 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1662,10 +1450,7 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1673,10 +1458,7 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1684,10 +1466,7 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1738,16 +1517,12 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1755,10 +1530,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1766,10 +1538,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1777,10 +1546,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1831,16 +1597,12 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1848,10 +1610,7 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1859,10 +1618,7 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1870,10 +1626,7 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1924,16 +1677,12 @@ const deserializeAws_json1_1GetModelsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1941,10 +1690,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1952,10 +1698,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1963,10 +1706,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2017,16 +1757,12 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2034,10 +1770,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2045,10 +1778,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2056,10 +1786,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2110,16 +1837,12 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2127,10 +1850,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2138,10 +1858,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2149,10 +1866,7 @@ const deserializeAws_json1_1GetPredictionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2203,16 +1917,12 @@ const deserializeAws_json1_1GetRulesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2220,10 +1930,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2231,10 +1938,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2242,10 +1946,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2296,16 +1997,12 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2313,10 +2010,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2324,10 +2018,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2335,10 +2026,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2389,16 +2077,12 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2406,10 +2090,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2417,10 +2098,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2471,16 +2149,12 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2488,10 +2162,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2499,10 +2170,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2553,16 +2221,12 @@ const deserializeAws_json1_1PutModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2570,10 +2234,7 @@ const deserializeAws_json1_1PutModelCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2581,10 +2242,7 @@ const deserializeAws_json1_1PutModelCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2635,16 +2293,12 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2652,10 +2306,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2663,10 +2314,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2693,10 +2341,7 @@ export const deserializeAws_json1_1UpdateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDetectorVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2720,16 +2365,12 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2737,10 +2378,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2748,10 +2386,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2759,10 +2394,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2789,17 +2421,11 @@ export const deserializeAws_json1_1UpdateDetectorVersionMetadataCommand = async 
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionMetadataCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDetectorVersionMetadataResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDetectorVersionMetadataResult(data, context);
   const response: UpdateDetectorVersionMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDetectorVersionMetadataResult",
@@ -2819,16 +2445,12 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2836,10 +2458,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2847,10 +2466,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2877,17 +2493,11 @@ export const deserializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDetectorVersionStatusResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDetectorVersionStatusResult(data, context);
   const response: UpdateDetectorVersionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDetectorVersionStatusResult",
@@ -2907,16 +2517,12 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2924,10 +2530,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2935,10 +2538,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2946,10 +2546,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2976,10 +2573,7 @@ export const deserializeAws_json1_1UpdateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateModelVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateModelVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3003,16 +2597,12 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3020,10 +2610,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3031,10 +2618,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3042,10 +2626,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3072,10 +2653,7 @@ export const deserializeAws_json1_1UpdateRuleMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRuleMetadataCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRuleMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRuleMetadataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3099,16 +2677,12 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3116,10 +2690,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3127,10 +2698,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3138,10 +2706,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3192,16 +2757,12 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3209,10 +2770,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3220,10 +2778,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3231,10 +2786,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3285,16 +2837,12 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3302,10 +2850,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3313,10 +2858,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3324,10 +2866,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     case "ValidationException":
     case "com.amazonaws.hawksnest.servicefacade.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3354,10 +2893,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
@@ -3372,10 +2908,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -3390,10 +2923,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
@@ -3408,10 +2938,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
@@ -3427,10 +2954,7 @@ const serializeAws_json1_1BatchCreateVariableRequest = (
 ): any => {
   return {
     ...(input.variableEntries !== undefined && {
-      variableEntries: serializeAws_json1_1VariableEntryList(
-        input.variableEntries,
-        context
-      )
+      variableEntries: serializeAws_json1_1VariableEntryList(input.variableEntries, context)
     })
   };
 };
@@ -3460,10 +2984,7 @@ const serializeAws_json1_1CreateDetectorVersionRequest = (
       )
     }),
     ...(input.modelVersions !== undefined && {
-      modelVersions: serializeAws_json1_1ListOfModelVersions(
-        input.modelVersions,
-        context
-      )
+      modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context)
     }),
     ...(input.rules !== undefined && {
       rules: serializeAws_json1_1RuleList(input.rules, context)
@@ -3492,10 +3013,7 @@ const serializeAws_json1_1CreateRuleRequest = (
     ...(input.expression !== undefined && { expression: input.expression }),
     ...(input.language !== undefined && { language: input.language }),
     ...(input.outcomes !== undefined && {
-      outcomes: serializeAws_json1_1NonEmptyListOfStrings(
-        input.outcomes,
-        context
-      )
+      outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context)
     }),
     ...(input.ruleId !== undefined && { ruleId: input.ruleId })
   };
@@ -3597,10 +3115,7 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: ModelEndpointDataBlob },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ModelEndpointDataBlob }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_json1_1ModelEndpointDataBlob(value, context)
     }),
@@ -3690,10 +3205,7 @@ const serializeAws_json1_1GetPredictionRequest = (
       detectorVersionId: input.detectorVersionId
     }),
     ...(input.eventAttributes !== undefined && {
-      eventAttributes: serializeAws_json1_1EventAttributeMap(
-        input.eventAttributes,
-        context
-      )
+      eventAttributes: serializeAws_json1_1EventAttributeMap(input.eventAttributes, context)
     }),
     ...(input.eventId !== undefined && { eventId: input.eventId }),
     ...(input.externalModelEndpointDataBlobs !== undefined && {
@@ -3755,10 +3267,7 @@ const serializeAws_json1_1LabelMapper = (
   );
 };
 
-const serializeAws_json1_1LabelSchema = (
-  input: LabelSchema,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1LabelSchema = (input: LabelSchema, context: __SerdeContext): any => {
   return {
     ...(input.labelKey !== undefined && { labelKey: input.labelKey }),
     ...(input.labelMapper !== undefined && {
@@ -3774,10 +3283,7 @@ const serializeAws_json1_1ListOfModelVersions = (
   return input.map(entry => serializeAws_json1_1ModelVersion(entry, context));
 };
 
-const serializeAws_json1_1ListOfStrings = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListOfStrings = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3830,10 +3336,7 @@ const serializeAws_json1_1ModelOutputConfiguration = (
   };
 };
 
-const serializeAws_json1_1ModelVariable = (
-  input: ModelVariable,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ModelVariable = (input: ModelVariable, context: __SerdeContext): any => {
   return {
     ...(input.index !== undefined && { index: input.index }),
     ...(input.name !== undefined && { name: input.name })
@@ -3847,10 +3350,7 @@ const serializeAws_json1_1ModelVariablesList = (
   return input.map(entry => serializeAws_json1_1ModelVariable(entry, context));
 };
 
-const serializeAws_json1_1ModelVersion = (
-  input: ModelVersion,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ModelVersion = (input: ModelVersion, context: __SerdeContext): any => {
   return {
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
@@ -3860,10 +3360,7 @@ const serializeAws_json1_1ModelVersion = (
   };
 };
 
-const serializeAws_json1_1NameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1NameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3926,16 +3423,10 @@ const serializeAws_json1_1PutModelRequest = (
     ...(input.modelId !== undefined && { modelId: input.modelId }),
     ...(input.modelType !== undefined && { modelType: input.modelType }),
     ...(input.modelVariables !== undefined && {
-      modelVariables: serializeAws_json1_1ModelVariablesList(
-        input.modelVariables,
-        context
-      )
+      modelVariables: serializeAws_json1_1ModelVariablesList(input.modelVariables, context)
     }),
     ...(input.trainingDataSource !== undefined && {
-      trainingDataSource: serializeAws_json1_1TrainingDataSource(
-        input.trainingDataSource,
-        context
-      )
+      trainingDataSource: serializeAws_json1_1TrainingDataSource(input.trainingDataSource, context)
     })
   };
 };
@@ -3950,20 +3441,14 @@ const serializeAws_json1_1PutOutcomeRequest = (
   };
 };
 
-const serializeAws_json1_1Role = (
-  input: Role,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Role = (input: Role, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.name !== undefined && { name: input.name })
   };
 };
 
-const serializeAws_json1_1Rule = (
-  input: Rule,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
     ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
     ...(input.ruleId !== undefined && { ruleId: input.ruleId }),
@@ -3971,10 +3456,7 @@ const serializeAws_json1_1Rule = (
   };
 };
 
-const serializeAws_json1_1RuleList = (
-  input: Rule[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Rule(entry, context));
 };
 
@@ -4022,10 +3504,7 @@ const serializeAws_json1_1UpdateDetectorVersionRequest = (
       )
     }),
     ...(input.modelVersions !== undefined && {
-      modelVersions: serializeAws_json1_1ListOfModelVersions(
-        input.modelVersions,
-        context
-      )
+      modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context)
     }),
     ...(input.rules !== undefined && {
       rules: serializeAws_json1_1RuleList(input.rules, context)
@@ -4082,10 +3561,7 @@ const serializeAws_json1_1UpdateRuleVersionRequest = (
     ...(input.expression !== undefined && { expression: input.expression }),
     ...(input.language !== undefined && { language: input.language }),
     ...(input.outcomes !== undefined && {
-      outcomes: serializeAws_json1_1NonEmptyListOfStrings(
-        input.outcomes,
-        context
-      )
+      outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context)
     }),
     ...(input.rule !== undefined && {
       rule: serializeAws_json1_1Rule(input.rule, context)
@@ -4109,10 +3585,7 @@ const serializeAws_json1_1UpdateVariableRequest = (
   };
 };
 
-const serializeAws_json1_1VariableEntry = (
-  input: VariableEntry,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1VariableEntry = (input: VariableEntry, context: __SerdeContext): any => {
   return {
     ...(input.dataSource !== undefined && { dataSource: input.dataSource }),
     ...(input.dataType !== undefined && { dataType: input.dataType }),
@@ -4140,18 +3613,9 @@ const deserializeAws_json1_1BatchCreateVariableError = (
 ): BatchCreateVariableError => {
   return {
     __type: "BatchCreateVariableError",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -4172,10 +3636,7 @@ const deserializeAws_json1_1BatchCreateVariableResult = (
     __type: "BatchCreateVariableResult",
     errors:
       output.errors !== undefined && output.errors !== null
-        ? deserializeAws_json1_1BatchCreateVariableErrorList(
-            output.errors,
-            context
-          )
+        ? deserializeAws_json1_1BatchCreateVariableErrorList(output.errors, context)
         : undefined
   } as any;
 };
@@ -4186,18 +3647,9 @@ const deserializeAws_json1_1BatchGetVariableError = (
 ): BatchGetVariableError => {
   return {
     __type: "BatchGetVariableError",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -4218,10 +3670,7 @@ const deserializeAws_json1_1BatchGetVariableResult = (
     __type: "BatchGetVariableResult",
     errors:
       output.errors !== undefined && output.errors !== null
-        ? deserializeAws_json1_1BatchGetVariableErrorList(
-            output.errors,
-            context
-          )
+        ? deserializeAws_json1_1BatchGetVariableErrorList(output.errors, context)
         : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
@@ -4237,18 +3686,12 @@ const deserializeAws_json1_1CreateDetectorVersionResult = (
   return {
     __type: "CreateDetectorVersionResult",
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     detectorVersionId:
-      output.detectorVersionId !== undefined &&
-      output.detectorVersionId !== null
+      output.detectorVersionId !== undefined && output.detectorVersionId !== null
         ? output.detectorVersionId
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4258,23 +3701,14 @@ const deserializeAws_json1_1CreateModelVersionResult = (
 ): CreateModelVersionResult => {
   return {
     __type: "CreateModelVersionResult",
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType:
-      output.modelType !== undefined && output.modelType !== null
-        ? output.modelType
-        : undefined,
+      output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVersionNumber:
-      output.modelVersionNumber !== undefined &&
-      output.modelVersionNumber !== null
+      output.modelVersionNumber !== undefined && output.modelVersionNumber !== null
         ? output.modelVersionNumber
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4338,21 +3772,13 @@ const deserializeAws_json1_1DescribeDetectorResult = (
   return {
     __type: "DescribeDetectorResult",
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     detectorVersionSummaries:
-      output.detectorVersionSummaries !== undefined &&
-      output.detectorVersionSummaries !== null
-        ? deserializeAws_json1_1DetectorVersionSummaryList(
-            output.detectorVersionSummaries,
-            context
-          )
+      output.detectorVersionSummaries !== undefined && output.detectorVersionSummaries !== null
+        ? deserializeAws_json1_1DetectorVersionSummaryList(output.detectorVersionSummaries, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4363,24 +3789,15 @@ const deserializeAws_json1_1DescribeModelVersionsResult = (
   return {
     __type: "DescribeModelVersionsResult",
     modelVersionDetails:
-      output.modelVersionDetails !== undefined &&
-      output.modelVersionDetails !== null
-        ? deserializeAws_json1_1ModelVersionDetailList(
-            output.modelVersionDetails,
-            context
-          )
+      output.modelVersionDetails !== undefined && output.modelVersionDetails !== null
+        ? deserializeAws_json1_1ModelVersionDetailList(output.modelVersionDetails, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Detector = (
-  output: any,
-  context: __SerdeContext
-): Detector => {
+const deserializeAws_json1_1Detector = (output: any, context: __SerdeContext): Detector => {
   return {
     __type: "Detector",
     createdTime:
@@ -4392,9 +3809,7 @@ const deserializeAws_json1_1Detector = (
         ? output.description
         : undefined,
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
@@ -4402,13 +3817,8 @@ const deserializeAws_json1_1Detector = (
   } as any;
 };
 
-const deserializeAws_json1_1DetectorList = (
-  output: any,
-  context: __SerdeContext
-): Detector[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Detector(entry, context)
-  );
+const deserializeAws_json1_1DetectorList = (output: any, context: __SerdeContext): Detector[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Detector(entry, context));
 };
 
 const deserializeAws_json1_1DetectorVersionSummary = (
@@ -4422,18 +3832,14 @@ const deserializeAws_json1_1DetectorVersionSummary = (
         ? output.description
         : undefined,
     detectorVersionId:
-      output.detectorVersionId !== undefined &&
-      output.detectorVersionId !== null
+      output.detectorVersionId !== undefined && output.detectorVersionId !== null
         ? output.detectorVersionId
         : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4457,12 +3863,8 @@ const deserializeAws_json1_1ExternalModel = (
         ? output.createdTime
         : undefined,
     inputConfiguration:
-      output.inputConfiguration !== undefined &&
-      output.inputConfiguration !== null
-        ? deserializeAws_json1_1ModelInputConfiguration(
-            output.inputConfiguration,
-            context
-          )
+      output.inputConfiguration !== undefined && output.inputConfiguration !== null
+        ? deserializeAws_json1_1ModelInputConfiguration(output.inputConfiguration, context)
         : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
@@ -4473,8 +3875,7 @@ const deserializeAws_json1_1ExternalModel = (
         ? output.modelEndpoint
         : undefined,
     modelEndpointStatus:
-      output.modelEndpointStatus !== undefined &&
-      output.modelEndpointStatus !== null
+      output.modelEndpointStatus !== undefined && output.modelEndpointStatus !== null
         ? output.modelEndpointStatus
         : undefined,
     modelSource:
@@ -4482,12 +3883,8 @@ const deserializeAws_json1_1ExternalModel = (
         ? output.modelSource
         : undefined,
     outputConfiguration:
-      output.outputConfiguration !== undefined &&
-      output.outputConfiguration !== null
-        ? deserializeAws_json1_1ModelOutputConfiguration(
-            output.outputConfiguration,
-            context
-          )
+      output.outputConfiguration !== undefined && output.outputConfiguration !== null
+        ? deserializeAws_json1_1ModelOutputConfiguration(output.outputConfiguration, context)
         : undefined,
     role:
       output.role !== undefined && output.role !== null
@@ -4500,9 +3897,7 @@ const deserializeAws_json1_1ExternalModelList = (
   output: any,
   context: __SerdeContext
 ): ExternalModel[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ExternalModel(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ExternalModel(entry, context));
 };
 
 const deserializeAws_json1_1GetDetectorVersionResult = (
@@ -4520,21 +3915,14 @@ const deserializeAws_json1_1GetDetectorVersionResult = (
         ? output.description
         : undefined,
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     detectorVersionId:
-      output.detectorVersionId !== undefined &&
-      output.detectorVersionId !== null
+      output.detectorVersionId !== undefined && output.detectorVersionId !== null
         ? output.detectorVersionId
         : undefined,
     externalModelEndpoints:
-      output.externalModelEndpoints !== undefined &&
-      output.externalModelEndpoints !== null
-        ? deserializeAws_json1_1ListOfStrings(
-            output.externalModelEndpoints,
-            context
-          )
+      output.externalModelEndpoints !== undefined && output.externalModelEndpoints !== null
+        ? deserializeAws_json1_1ListOfStrings(output.externalModelEndpoints, context)
         : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
@@ -4542,19 +3930,13 @@ const deserializeAws_json1_1GetDetectorVersionResult = (
         : undefined,
     modelVersions:
       output.modelVersions !== undefined && output.modelVersions !== null
-        ? deserializeAws_json1_1ListOfModelVersions(
-            output.modelVersions,
-            context
-          )
+        ? deserializeAws_json1_1ListOfModelVersions(output.modelVersions, context)
         : undefined,
     rules:
       output.rules !== undefined && output.rules !== null
         ? deserializeAws_json1_1RuleList(output.rules, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4569,9 +3951,7 @@ const deserializeAws_json1_1GetDetectorsResult = (
         ? deserializeAws_json1_1DetectorList(output.detectors, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4583,15 +3963,10 @@ const deserializeAws_json1_1GetExternalModelsResult = (
     __type: "GetExternalModelsResult",
     externalModels:
       output.externalModels !== undefined && output.externalModels !== null
-        ? deserializeAws_json1_1ExternalModelList(
-            output.externalModels,
-            context
-          )
+        ? deserializeAws_json1_1ExternalModelList(output.externalModels, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4605,23 +3980,14 @@ const deserializeAws_json1_1GetModelVersionResult = (
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType:
-      output.modelType !== undefined && output.modelType !== null
-        ? output.modelType
-        : undefined,
+      output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVersionNumber:
-      output.modelVersionNumber !== undefined &&
-      output.modelVersionNumber !== null
+      output.modelVersionNumber !== undefined && output.modelVersionNumber !== null
         ? output.modelVersionNumber
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4636,9 +4002,7 @@ const deserializeAws_json1_1GetModelsResult = (
         ? deserializeAws_json1_1ModelList(output.models, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4649,9 +4013,7 @@ const deserializeAws_json1_1GetOutcomesResult = (
   return {
     __type: "GetOutcomesResult",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     outcomes:
       output.outcomes !== undefined && output.outcomes !== null
         ? deserializeAws_json1_1OutcomeList(output.outcomes, context)
@@ -4683,9 +4045,7 @@ const deserializeAws_json1_1GetRulesResult = (
   return {
     __type: "GetRulesResult",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     ruleDetails:
       output.ruleDetails !== undefined && output.ruleDetails !== null
         ? deserializeAws_json1_1RuleDetailList(output.ruleDetails, context)
@@ -4700,9 +4060,7 @@ const deserializeAws_json1_1GetVariablesResult = (
   return {
     __type: "GetVariablesResult",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_json1_1VariableList(output.variables, context)
@@ -4736,16 +4094,11 @@ const deserializeAws_json1_1LabelMapper = (
   );
 };
 
-const deserializeAws_json1_1LabelSchema = (
-  output: any,
-  context: __SerdeContext
-): LabelSchema => {
+const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext): LabelSchema => {
   return {
     __type: "LabelSchema",
     labelKey:
-      output.labelKey !== undefined && output.labelKey !== null
-        ? output.labelKey
-        : undefined,
+      output.labelKey !== undefined && output.labelKey !== null ? output.labelKey : undefined,
     labelMapper:
       output.labelMapper !== undefined && output.labelMapper !== null
         ? deserializeAws_json1_1LabelMapper(output.labelMapper, context)
@@ -4757,24 +4110,17 @@ const deserializeAws_json1_1ListOfModelScores = (
   output: any,
   context: __SerdeContext
 ): ModelScores[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ModelScores(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ModelScores(entry, context));
 };
 
 const deserializeAws_json1_1ListOfModelVersions = (
   output: any,
   context: __SerdeContext
 ): ModelVersion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ModelVersion(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ModelVersion(entry, context));
 };
 
-const deserializeAws_json1_1ListOfStrings = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4791,10 +4137,7 @@ const deserializeAws_json1_1MetricsMap = (
   );
 };
 
-const deserializeAws_json1_1Model = (
-  output: any,
-  context: __SerdeContext
-): Model => {
+const deserializeAws_json1_1Model = (output: any, context: __SerdeContext): Model => {
   return {
     __type: "Model",
     createdTime:
@@ -4813,28 +4156,16 @@ const deserializeAws_json1_1Model = (
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
         : undefined,
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType:
-      output.modelType !== undefined && output.modelType !== null
-        ? output.modelType
-        : undefined,
+      output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVariables:
       output.modelVariables !== undefined && output.modelVariables !== null
-        ? deserializeAws_json1_1ModelVariablesList(
-            output.modelVariables,
-            context
-          )
+        ? deserializeAws_json1_1ModelVariablesList(output.modelVariables, context)
         : undefined,
     trainingDataSource:
-      output.trainingDataSource !== undefined &&
-      output.trainingDataSource !== null
-        ? deserializeAws_json1_1TrainingDataSource(
-            output.trainingDataSource,
-            context
-          )
+      output.trainingDataSource !== undefined && output.trainingDataSource !== null
+        ? deserializeAws_json1_1TrainingDataSource(output.trainingDataSource, context)
         : undefined
   } as any;
 };
@@ -4849,29 +4180,18 @@ const deserializeAws_json1_1ModelInputConfiguration = (
       output.csvInputTemplate !== undefined && output.csvInputTemplate !== null
         ? output.csvInputTemplate
         : undefined,
-    format:
-      output.format !== undefined && output.format !== null
-        ? output.format
-        : undefined,
+    format: output.format !== undefined && output.format !== null ? output.format : undefined,
     isOpaque:
-      output.isOpaque !== undefined && output.isOpaque !== null
-        ? output.isOpaque
-        : undefined,
+      output.isOpaque !== undefined && output.isOpaque !== null ? output.isOpaque : undefined,
     jsonInputTemplate:
-      output.jsonInputTemplate !== undefined &&
-      output.jsonInputTemplate !== null
+      output.jsonInputTemplate !== undefined && output.jsonInputTemplate !== null
         ? output.jsonInputTemplate
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ModelList = (
-  output: any,
-  context: __SerdeContext
-): Model[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Model(entry, context)
-  );
+const deserializeAws_json1_1ModelList = (output: any, context: __SerdeContext): Model[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Model(entry, context));
 };
 
 const deserializeAws_json1_1ModelOutputConfiguration = (
@@ -4881,24 +4201,13 @@ const deserializeAws_json1_1ModelOutputConfiguration = (
   return {
     __type: "ModelOutputConfiguration",
     csvIndexToVariableMap:
-      output.csvIndexToVariableMap !== undefined &&
-      output.csvIndexToVariableMap !== null
-        ? deserializeAws_json1_1CsvIndexToVariableMap(
-            output.csvIndexToVariableMap,
-            context
-          )
+      output.csvIndexToVariableMap !== undefined && output.csvIndexToVariableMap !== null
+        ? deserializeAws_json1_1CsvIndexToVariableMap(output.csvIndexToVariableMap, context)
         : undefined,
-    format:
-      output.format !== undefined && output.format !== null
-        ? output.format
-        : undefined,
+    format: output.format !== undefined && output.format !== null ? output.format : undefined,
     jsonKeyToVariableMap:
-      output.jsonKeyToVariableMap !== undefined &&
-      output.jsonKeyToVariableMap !== null
-        ? deserializeAws_json1_1JsonKeyToVariableMap(
-            output.jsonKeyToVariableMap,
-            context
-          )
+      output.jsonKeyToVariableMap !== undefined && output.jsonKeyToVariableMap !== null
+        ? deserializeAws_json1_1JsonKeyToVariableMap(output.jsonKeyToVariableMap, context)
         : undefined
   } as any;
 };
@@ -4916,10 +4225,7 @@ const deserializeAws_json1_1ModelPredictionMap = (
   );
 };
 
-const deserializeAws_json1_1ModelScores = (
-  output: any,
-  context: __SerdeContext
-): ModelScores => {
+const deserializeAws_json1_1ModelScores = (output: any, context: __SerdeContext): ModelScores => {
   return {
     __type: "ModelScores",
     modelVersion:
@@ -4939,14 +4245,8 @@ const deserializeAws_json1_1ModelVariable = (
 ): ModelVariable => {
   return {
     __type: "ModelVariable",
-    index:
-      output.index !== undefined && output.index !== null
-        ? output.index
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    index: output.index !== undefined && output.index !== null ? output.index : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -4954,28 +4254,17 @@ const deserializeAws_json1_1ModelVariablesList = (
   output: any,
   context: __SerdeContext
 ): ModelVariable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ModelVariable(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ModelVariable(entry, context));
 };
 
-const deserializeAws_json1_1ModelVersion = (
-  output: any,
-  context: __SerdeContext
-): ModelVersion => {
+const deserializeAws_json1_1ModelVersion = (output: any, context: __SerdeContext): ModelVersion => {
   return {
     __type: "ModelVersion",
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType:
-      output.modelType !== undefined && output.modelType !== null
-        ? output.modelType
-        : undefined,
+      output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVersionNumber:
-      output.modelVersionNumber !== undefined &&
-      output.modelVersionNumber !== null
+      output.modelVersionNumber !== undefined && output.modelVersionNumber !== null
         ? output.modelVersionNumber
         : undefined
   } as any;
@@ -5003,45 +4292,28 @@ const deserializeAws_json1_1ModelVersionDetail = (
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
         : undefined,
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType:
-      output.modelType !== undefined && output.modelType !== null
-        ? output.modelType
-        : undefined,
+      output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVariables:
       output.modelVariables !== undefined && output.modelVariables !== null
-        ? deserializeAws_json1_1ModelVariablesList(
-            output.modelVariables,
-            context
-          )
+        ? deserializeAws_json1_1ModelVariablesList(output.modelVariables, context)
         : undefined,
     modelVersionNumber:
-      output.modelVersionNumber !== undefined &&
-      output.modelVersionNumber !== null
+      output.modelVersionNumber !== undefined && output.modelVersionNumber !== null
         ? output.modelVersionNumber
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     trainingDataSource:
-      output.trainingDataSource !== undefined &&
-      output.trainingDataSource !== null
-        ? deserializeAws_json1_1TrainingDataSource(
-            output.trainingDataSource,
-            context
-          )
+      output.trainingDataSource !== undefined && output.trainingDataSource !== null
+        ? deserializeAws_json1_1TrainingDataSource(output.trainingDataSource, context)
         : undefined,
     trainingMetrics:
       output.trainingMetrics !== undefined && output.trainingMetrics !== null
         ? deserializeAws_json1_1MetricsMap(output.trainingMetrics, context)
         : undefined,
     validationMetrics:
-      output.validationMetrics !== undefined &&
-      output.validationMetrics !== null
+      output.validationMetrics !== undefined && output.validationMetrics !== null
         ? deserializeAws_json1_1MetricsMap(output.validationMetrics, context)
         : undefined
   } as any;
@@ -5063,10 +4335,7 @@ const deserializeAws_json1_1NonEmptyListOfStrings = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Outcome = (
-  output: any,
-  context: __SerdeContext
-): Outcome => {
+const deserializeAws_json1_1Outcome = (output: any, context: __SerdeContext): Outcome => {
   return {
     __type: "Outcome",
     createdTime:
@@ -5081,20 +4350,12 @@ const deserializeAws_json1_1Outcome = (
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OutcomeList = (
-  output: any,
-  context: __SerdeContext
-): Outcome[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Outcome(entry, context)
-  );
+const deserializeAws_json1_1OutcomeList = (output: any, context: __SerdeContext): Outcome[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Outcome(entry, context));
 };
 
 const deserializeAws_json1_1PutDetectorResult = (
@@ -5133,35 +4394,20 @@ const deserializeAws_json1_1PutOutcomeResult = (
   } as any;
 };
 
-const deserializeAws_json1_1Role = (
-  output: any,
-  context: __SerdeContext
-): Role => {
+const deserializeAws_json1_1Role = (output: any, context: __SerdeContext): Role => {
   return {
     __type: "Role",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Rule = (
-  output: any,
-  context: __SerdeContext
-): Rule => {
+const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
     __type: "Rule",
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
-    ruleId:
-      output.ruleId !== undefined && output.ruleId !== null
-        ? output.ruleId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
+    ruleId: output.ruleId !== undefined && output.ruleId !== null ? output.ruleId : undefined,
     ruleVersion:
       output.ruleVersion !== undefined && output.ruleVersion !== null
         ? output.ruleVersion
@@ -5169,10 +4415,7 @@ const deserializeAws_json1_1Rule = (
   } as any;
 };
 
-const deserializeAws_json1_1RuleDetail = (
-  output: any,
-  context: __SerdeContext
-): RuleDetail => {
+const deserializeAws_json1_1RuleDetail = (output: any, context: __SerdeContext): RuleDetail => {
   return {
     __type: "RuleDetail",
     createdTime:
@@ -5184,17 +4427,11 @@ const deserializeAws_json1_1RuleDetail = (
         ? output.description
         : undefined,
     detectorId:
-      output.detectorId !== undefined && output.detectorId !== null
-        ? output.detectorId
-        : undefined,
+      output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     expression:
-      output.expression !== undefined && output.expression !== null
-        ? output.expression
-        : undefined,
+      output.expression !== undefined && output.expression !== null ? output.expression : undefined,
     language:
-      output.language !== undefined && output.language !== null
-        ? output.language
-        : undefined,
+      output.language !== undefined && output.language !== null ? output.language : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
@@ -5203,10 +4440,7 @@ const deserializeAws_json1_1RuleDetail = (
       output.outcomes !== undefined && output.outcomes !== null
         ? deserializeAws_json1_1NonEmptyListOfStrings(output.outcomes, context)
         : undefined,
-    ruleId:
-      output.ruleId !== undefined && output.ruleId !== null
-        ? output.ruleId
-        : undefined,
+    ruleId: output.ruleId !== undefined && output.ruleId !== null ? output.ruleId : undefined,
     ruleVersion:
       output.ruleVersion !== undefined && output.ruleVersion !== null
         ? output.ruleVersion
@@ -5218,18 +4452,11 @@ const deserializeAws_json1_1RuleDetailList = (
   output: any,
   context: __SerdeContext
 ): RuleDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RuleDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RuleDetail(entry, context));
 };
 
-const deserializeAws_json1_1RuleList = (
-  output: any,
-  context: __SerdeContext
-): Rule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Rule(entry, context)
-  );
+const deserializeAws_json1_1RuleList = (output: any, context: __SerdeContext): Rule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Rule(entry, context));
 };
 
 const deserializeAws_json1_1TrainingDataSource = (
@@ -5239,8 +4466,7 @@ const deserializeAws_json1_1TrainingDataSource = (
   return {
     __type: "TrainingDataSource",
     dataAccessRoleArn:
-      output.dataAccessRoleArn !== undefined &&
-      output.dataAccessRoleArn !== null
+      output.dataAccessRoleArn !== undefined && output.dataAccessRoleArn !== null
         ? output.dataAccessRoleArn
         : undefined,
     dataLocation:
@@ -5317,10 +4543,7 @@ const deserializeAws_json1_1UpdateVariableResult = (
   } as any;
 };
 
-const deserializeAws_json1_1Variable = (
-  output: any,
-  context: __SerdeContext
-): Variable => {
+const deserializeAws_json1_1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
     __type: "Variable",
     createdTime:
@@ -5328,13 +4551,9 @@ const deserializeAws_json1_1Variable = (
         ? output.createdTime
         : undefined,
     dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? output.dataSource
-        : undefined,
+      output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
     dataType:
-      output.dataType !== undefined && output.dataType !== null
-        ? output.dataType
-        : undefined,
+      output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
     defaultValue:
       output.defaultValue !== undefined && output.defaultValue !== null
         ? output.defaultValue
@@ -5347,10 +4566,7 @@ const deserializeAws_json1_1Variable = (
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? output.lastUpdatedTime
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     variableType:
       output.variableType !== undefined && output.variableType !== null
         ? output.variableType
@@ -5358,13 +4574,8 @@ const deserializeAws_json1_1Variable = (
   } as any;
 };
 
-const deserializeAws_json1_1VariableList = (
-  output: any,
-  context: __SerdeContext
-): Variable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Variable(entry, context)
-  );
+const deserializeAws_json1_1VariableList = (output: any, context: __SerdeContext): Variable[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Variable(entry, context));
 };
 
 const deserializeAws_json1_1InternalServerException = (
@@ -5373,10 +4584,7 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     __type: "InternalServerException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5386,10 +4594,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5399,10 +4604,7 @@ const deserializeAws_json1_1ThrottlingException = (
 ): ThrottlingException => {
   return {
     __type: "ThrottlingException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5412,10 +4614,7 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   return {
     __type: "ValidationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5433,16 +4632,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

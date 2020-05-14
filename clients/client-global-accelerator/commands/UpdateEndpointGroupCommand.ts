@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateEndpointGroupRequest,
-  UpdateEndpointGroupResponse
-} from "../models/index";
+import { UpdateEndpointGroupRequest, UpdateEndpointGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateEndpointGroupCommand,
   serializeAws_json1_1UpdateEndpointGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEndpointGroupCommandInput = UpdateEndpointGroupRequest;
-export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse &
-  __MetadataBearer;
+export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse & __MetadataBearer;
 
 export class UpdateEndpointGroupCommand extends $Command<
   UpdateEndpointGroupCommandInput,
@@ -49,13 +45,8 @@ export class UpdateEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEndpointGroupCommandInput,
-    UpdateEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEndpointGroupCommandInput, UpdateEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

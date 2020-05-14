@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/index";
 import {
   deserializeAws_ec2MoveAddressToVpcCommand,
   serializeAws_ec2MoveAddressToVpcCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type MoveAddressToVpcCommandInput = MoveAddressToVpcRequest;
-export type MoveAddressToVpcCommandOutput = MoveAddressToVpcResult &
-  __MetadataBearer;
+export type MoveAddressToVpcCommandOutput = MoveAddressToVpcResult & __MetadataBearer;
 
 export class MoveAddressToVpcCommand extends $Command<
   MoveAddressToVpcCommandInput,
@@ -50,9 +42,7 @@ export class MoveAddressToVpcCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MoveAddressToVpcCommandInput, MoveAddressToVpcCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

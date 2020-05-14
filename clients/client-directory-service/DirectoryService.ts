@@ -349,9 +349,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public addIpRoutes(
     args: AddIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: AddIpRoutesCommandOutput) => void
   ): Promise<AddIpRoutesCommandOutput> | void {
     const command = new AddIpRoutesCommand(args);
@@ -455,9 +453,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public connectDirectory(
     args: ConnectDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConnectDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConnectDirectoryCommandOutput) => void),
     cb?: (err: any, data?: ConnectDirectoryCommandOutput) => void
   ): Promise<ConnectDirectoryCommandOutput> | void {
     const command = new ConnectDirectoryCommand(args);
@@ -495,9 +491,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
@@ -530,9 +524,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createComputer(
     args: CreateComputerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComputerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComputerCommandOutput) => void),
     cb?: (err: any, data?: CreateComputerCommandOutput) => void
   ): Promise<CreateComputerCommandOutput> | void {
     const command = new CreateComputerCommand(args);
@@ -601,9 +593,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createDirectory(
     args: CreateDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectoryCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectoryCommandOutput) => void
   ): Promise<CreateDirectoryCommandOutput> | void {
     const command = new CreateDirectoryCommand(args);
@@ -711,9 +701,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
@@ -747,9 +735,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public createTrust(
     args: CreateTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrustCommandOutput) => void),
     cb?: (err: any, data?: CreateTrustCommandOutput) => void
   ): Promise<CreateTrustCommandOutput> | void {
     const command = new CreateTrustCommand(args);
@@ -818,9 +804,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectoryCommandOutput) => void
   ): Promise<DeleteDirectoryCommandOutput> | void {
     const command = new DeleteDirectoryCommand(args);
@@ -888,9 +872,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
@@ -923,9 +905,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public deleteTrust(
     args: DeleteTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrustCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrustCommandOutput) => void
   ): Promise<DeleteTrustCommandOutput> | void {
     const command = new DeleteTrustCommand(args);
@@ -1327,9 +1307,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public describeTrusts(
     args: DescribeTrustsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrustsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrustsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrustsCommandOutput) => void
   ): Promise<DescribeTrustsCommandOutput> | void {
     const command = new DescribeTrustsCommand(args);
@@ -1362,9 +1340,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableLDAPS(
     args: DisableLDAPSCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableLDAPSCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableLDAPSCommandOutput) => void),
     cb?: (err: any, data?: DisableLDAPSCommandOutput) => void
   ): Promise<DisableLDAPSCommandOutput> | void {
     const command = new DisableLDAPSCommand(args);
@@ -1397,9 +1373,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableRadius(
     args: DisableRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableRadiusCommandOutput) => void),
     cb?: (err: any, data?: DisableRadiusCommandOutput) => void
   ): Promise<DisableRadiusCommandOutput> | void {
     const command = new DisableRadiusCommand(args);
@@ -1432,9 +1406,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public disableSso(
     args: DisableSsoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableSsoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableSsoCommandOutput) => void),
     cb?: (err: any, data?: DisableSsoCommandOutput) => void
   ): Promise<DisableSsoCommandOutput> | void {
     const command = new DisableSsoCommand(args);
@@ -1467,9 +1439,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableLDAPS(
     args: EnableLDAPSCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableLDAPSCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableLDAPSCommandOutput) => void),
     cb?: (err: any, data?: EnableLDAPSCommandOutput) => void
   ): Promise<EnableLDAPSCommandOutput> | void {
     const command = new EnableLDAPSCommand(args);
@@ -1502,9 +1472,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableRadius(
     args: EnableRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableRadiusCommandOutput) => void),
     cb?: (err: any, data?: EnableRadiusCommandOutput) => void
   ): Promise<EnableRadiusCommandOutput> | void {
     const command = new EnableRadiusCommand(args);
@@ -1537,9 +1505,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public enableSso(
     args: EnableSsoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableSsoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSsoCommandOutput) => void),
     cb?: (err: any, data?: EnableSsoCommandOutput) => void
   ): Promise<EnableSsoCommandOutput> | void {
     const command = new EnableSsoCommand(args);
@@ -1642,9 +1608,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listCertificates(
     args: ListCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificatesCommandOutput) => void
   ): Promise<ListCertificatesCommandOutput> | void {
     const command = new ListCertificatesCommand(args);
@@ -1677,9 +1641,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public listIpRoutes(
     args: ListIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: ListIpRoutesCommandOutput) => void
   ): Promise<ListIpRoutesCommandOutput> | void {
     const command = new ListIpRoutesCommand(args);
@@ -1922,9 +1884,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public removeIpRoutes(
     args: RemoveIpRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveIpRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveIpRoutesCommandOutput) => void),
     cb?: (err: any, data?: RemoveIpRoutesCommandOutput) => void
   ): Promise<RemoveIpRoutesCommandOutput> | void {
     const command = new RemoveIpRoutesCommand(args);
@@ -2095,9 +2055,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public shareDirectory(
     args: ShareDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ShareDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ShareDirectoryCommandOutput) => void),
     cb?: (err: any, data?: ShareDirectoryCommandOutput) => void
   ): Promise<ShareDirectoryCommandOutput> | void {
     const command = new ShareDirectoryCommand(args);
@@ -2165,9 +2123,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public unshareDirectory(
     args: UnshareDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnshareDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnshareDirectoryCommandOutput) => void),
     cb?: (err: any, data?: UnshareDirectoryCommandOutput) => void
   ): Promise<UnshareDirectoryCommandOutput> | void {
     const command = new UnshareDirectoryCommand(args);
@@ -2237,10 +2193,7 @@ export class DirectoryService extends DirectoryServiceClient {
     args: UpdateNumberOfDomainControllersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateNumberOfDomainControllersCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateNumberOfDomainControllersCommandOutput) => void),
     cb?: (err: any, data?: UpdateNumberOfDomainControllersCommandOutput) => void
   ): Promise<UpdateNumberOfDomainControllersCommandOutput> | void {
     const command = new UpdateNumberOfDomainControllersCommand(args);
@@ -2273,9 +2226,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateRadius(
     args: UpdateRadiusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRadiusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRadiusCommandOutput) => void),
     cb?: (err: any, data?: UpdateRadiusCommandOutput) => void
   ): Promise<UpdateRadiusCommandOutput> | void {
     const command = new UpdateRadiusCommand(args);
@@ -2308,9 +2259,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public updateTrust(
     args: UpdateTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrustCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrustCommandOutput) => void
   ): Promise<UpdateTrustCommandOutput> | void {
     const command = new UpdateTrustCommand(args);
@@ -2344,9 +2293,7 @@ export class DirectoryService extends DirectoryServiceClient {
   ): void;
   public verifyTrust(
     args: VerifyTrustCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyTrustCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyTrustCommandOutput) => void),
     cb?: (err: any, data?: VerifyTrustCommandOutput) => void
   ): Promise<VerifyTrustCommandOutput> | void {
     const command = new VerifyTrustCommand(args);

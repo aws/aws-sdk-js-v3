@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   AssociatePhoneNumberWithUserRequest,
   AssociatePhoneNumberWithUserResponse
@@ -49,13 +45,8 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociatePhoneNumberWithUserCommandInput,
-    AssociatePhoneNumberWithUserCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociatePhoneNumberWithUserCommandInput, AssociatePhoneNumberWithUserCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class AssociatePhoneNumberWithUserCommand extends $Command<
     input: AssociatePhoneNumberWithUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociatePhoneNumberWithUserCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociatePhoneNumberWithUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePhoneNumberWithUserCommandOutput> {
-    return deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommand(output, context);
   }
 
   // Start section: command_body_extra

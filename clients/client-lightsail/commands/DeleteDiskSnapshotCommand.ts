@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteDiskSnapshotRequest,
-  DeleteDiskSnapshotResult
-} from "../models/index";
+import { DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDiskSnapshotCommand,
   serializeAws_json1_1DeleteDiskSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDiskSnapshotCommandInput = DeleteDiskSnapshotRequest;
-export type DeleteDiskSnapshotCommandOutput = DeleteDiskSnapshotResult &
-  __MetadataBearer;
+export type DeleteDiskSnapshotCommandOutput = DeleteDiskSnapshotResult & __MetadataBearer;
 
 export class DeleteDiskSnapshotCommand extends $Command<
   DeleteDiskSnapshotCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDiskSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

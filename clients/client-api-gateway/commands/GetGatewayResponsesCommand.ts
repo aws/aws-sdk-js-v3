@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGatewayResponsesCommandInput = GetGatewayResponsesRequest;
-export type GetGatewayResponsesCommandOutput = GatewayResponses &
-  __MetadataBearer;
+export type GetGatewayResponsesCommandOutput = GatewayResponses & __MetadataBearer;
 
 export class GetGatewayResponsesCommand extends $Command<
   GetGatewayResponsesCommandInput,
@@ -46,13 +45,8 @@ export class GetGatewayResponsesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetGatewayResponsesCommandInput,
-    GetGatewayResponsesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetGatewayResponsesCommandInput, GetGatewayResponsesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class GetGatewayResponsesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGatewayResponsesCommandOutput> {
-    return deserializeAws_restJson1_1GetGatewayResponsesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetGatewayResponsesCommand(output, context);
   }
 
   // Start section: command_body_extra

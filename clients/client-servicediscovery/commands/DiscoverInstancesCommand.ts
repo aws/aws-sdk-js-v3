@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient";
-import {
-  DiscoverInstancesRequest,
-  DiscoverInstancesResponse
-} from "../models/index";
+import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DiscoverInstancesCommand,
   serializeAws_json1_1DiscoverInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DiscoverInstancesCommandInput = DiscoverInstancesRequest;
-export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse &
-  __MetadataBearer;
+export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse & __MetadataBearer;
 
 export class DiscoverInstancesCommand extends $Command<
   DiscoverInstancesCommandInput,
@@ -50,9 +46,7 @@ export class DiscoverInstancesCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

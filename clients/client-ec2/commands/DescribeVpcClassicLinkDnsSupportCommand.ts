@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcClassicLinkDnsSupportRequest,
   DescribeVpcClassicLinkDnsSupportResult
@@ -53,9 +49,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     DescribeVpcClassicLinkDnsSupportCommandInput,
     DescribeVpcClassicLinkDnsSupportCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
     input: DescribeVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

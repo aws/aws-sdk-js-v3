@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ScanProvisionedProductsInput,
-  ScanProvisionedProductsOutput
-} from "../models/index";
+import { ScanProvisionedProductsInput, ScanProvisionedProductsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ScanProvisionedProductsCommand,
   serializeAws_json1_1ScanProvisionedProductsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ScanProvisionedProductsCommandInput = ScanProvisionedProductsInput;
-export type ScanProvisionedProductsCommandOutput = ScanProvisionedProductsOutput &
-  __MetadataBearer;
+export type ScanProvisionedProductsCommandOutput = ScanProvisionedProductsOutput & __MetadataBearer;
 
 export class ScanProvisionedProductsCommand extends $Command<
   ScanProvisionedProductsCommandInput,
@@ -49,13 +45,8 @@ export class ScanProvisionedProductsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ScanProvisionedProductsCommandInput,
-    ScanProvisionedProductsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ScanProvisionedProductsCommandInput, ScanProvisionedProductsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ScanProvisionedProductsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ScanProvisionedProductsCommandOutput> {
-    return deserializeAws_json1_1ScanProvisionedProductsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ScanProvisionedProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

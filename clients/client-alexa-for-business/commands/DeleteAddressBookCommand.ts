@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteAddressBookRequest,
-  DeleteAddressBookResponse
-} from "../models/index";
+import { DeleteAddressBookRequest, DeleteAddressBookResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAddressBookCommand,
   serializeAws_json1_1DeleteAddressBookCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAddressBookCommandInput = DeleteAddressBookRequest;
-export type DeleteAddressBookCommandOutput = DeleteAddressBookResponse &
-  __MetadataBearer;
+export type DeleteAddressBookCommandOutput = DeleteAddressBookResponse & __MetadataBearer;
 
 export class DeleteAddressBookCommand extends $Command<
   DeleteAddressBookCommandInput,
@@ -50,9 +46,7 @@ export class DeleteAddressBookCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAddressBookCommandInput, DeleteAddressBookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

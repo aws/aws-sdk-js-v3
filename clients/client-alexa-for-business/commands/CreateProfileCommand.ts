@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateProfileCommandInput = CreateProfileRequest;
-export type CreateProfileCommandOutput = CreateProfileResponse &
-  __MetadataBearer;
+export type CreateProfileCommandOutput = CreateProfileResponse & __MetadataBearer;
 
 export class CreateProfileCommand extends $Command<
   CreateProfileCommandInput,
@@ -47,9 +46,7 @@ export class CreateProfileCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProfileCommandInput, CreateProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

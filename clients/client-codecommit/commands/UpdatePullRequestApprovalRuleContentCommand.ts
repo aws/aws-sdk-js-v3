@@ -39,9 +39,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdatePullRequestApprovalRuleContentCommandInput
-  ) {
+  constructor(readonly input: UpdatePullRequestApprovalRuleContentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     UpdatePullRequestApprovalRuleContentCommandInput,
     UpdatePullRequestApprovalRuleContentCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     input: UpdatePullRequestApprovalRuleContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(output, context);
   }
 
   // Start section: command_body_extra

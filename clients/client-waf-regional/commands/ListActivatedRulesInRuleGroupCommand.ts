@@ -53,9 +53,7 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     ListActivatedRulesInRuleGroupCommandInput,
     ListActivatedRulesInRuleGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     input: ListActivatedRulesInRuleGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

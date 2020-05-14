@@ -45,13 +45,8 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteClusterSecurityGroupCommandInput,
-    DeleteClusterSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteClusterSecurityGroupCommandInput, DeleteClusterSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterSecurityGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

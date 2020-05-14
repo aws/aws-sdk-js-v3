@@ -1,12 +1,5 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListConfigurationSetsCommand,
   serializeAws_restJson1_1ListConfigurationSetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListConfigurationSetsCommandInput = ListConfigurationSetsRequest;
-export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse &
-  __MetadataBearer;
+export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse & __MetadataBearer;
 
 export class ListConfigurationSetsCommand extends $Command<
   ListConfigurationSetsCommandInput,
@@ -49,13 +41,8 @@ export class ListConfigurationSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConfigurationSetsCommandInput,
-    ListConfigurationSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConfigurationSetsCommandInput, ListConfigurationSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListConfigurationSetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationSetsCommandOutput> {
-    return deserializeAws_restJson1_1ListConfigurationSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConfigurationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

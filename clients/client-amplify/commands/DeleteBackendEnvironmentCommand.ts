@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  DeleteBackendEnvironmentRequest,
-  DeleteBackendEnvironmentResult
-} from "../models/index";
+import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBackendEnvironmentCommand,
   serializeAws_restJson1_1DeleteBackendEnvironmentCommand
@@ -49,13 +46,8 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBackendEnvironmentCommandInput,
-    DeleteBackendEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBackendEnvironmentCommandInput, DeleteBackendEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     input: DeleteBackendEnvironmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackendEnvironmentCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteBackendEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackendEnvironmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

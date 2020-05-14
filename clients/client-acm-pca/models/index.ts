@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -199,8 +196,7 @@ export interface CertificateAuthority {
 }
 
 export namespace CertificateAuthority {
-  export const isa = (o: any): o is CertificateAuthority =>
-    __isa(o, "CertificateAuthority");
+  export const isa = (o: any): o is CertificateAuthority => __isa(o, "CertificateAuthority");
 }
 
 /**
@@ -255,9 +251,7 @@ export enum CertificateAuthorityType {
  * <p>The certificate authority certificate you are importing does not comply with
  * 			conditions specified in the certificate that signed it.</p>
  */
-export interface CertificateMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateMismatchException extends __SmithyException, $MetadataBearer {
   name: "CertificateMismatchException";
   $fault: "client";
   message?: string;
@@ -271,9 +265,7 @@ export namespace CertificateMismatchException {
 /**
  * <p>A previous update to your private CA is still ongoing.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -306,9 +298,7 @@ export interface CreateCertificateAuthorityAuditReportRequest {
 }
 
 export namespace CreateCertificateAuthorityAuditReportRequest {
-  export const isa = (
-    o: any
-  ): o is CreateCertificateAuthorityAuditReportRequest =>
+  export const isa = (o: any): o is CreateCertificateAuthorityAuditReportRequest =>
     __isa(o, "CreateCertificateAuthorityAuditReportRequest");
 }
 
@@ -327,9 +317,7 @@ export interface CreateCertificateAuthorityAuditReportResponse {
 }
 
 export namespace CreateCertificateAuthorityAuditReportResponse {
-  export const isa = (
-    o: any
-  ): o is CreateCertificateAuthorityAuditReportResponse =>
+  export const isa = (o: any): o is CreateCertificateAuthorityAuditReportResponse =>
     __isa(o, "CreateCertificateAuthorityAuditReportResponse");
 }
 
@@ -339,9 +327,7 @@ export interface CreateCertificateAuthorityRequest {
    * <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and
    * 			X.500 certificate subject information.</p>
    */
-  CertificateAuthorityConfiguration:
-    | CertificateAuthorityConfiguration
-    | undefined;
+  CertificateAuthorityConfiguration: CertificateAuthorityConfiguration | undefined;
 
   /**
    * <p>The type of the certificate authority.</p>
@@ -430,8 +416,7 @@ export interface CreatePermissionRequest {
 }
 
 export namespace CreatePermissionRequest {
-  export const isa = (o: any): o is CreatePermissionRequest =>
-    __isa(o, "CreatePermissionRequest");
+  export const isa = (o: any): o is CreatePermissionRequest => __isa(o, "CreatePermissionRequest");
 }
 
 /**
@@ -572,8 +557,7 @@ export interface CrlConfiguration {
 }
 
 export namespace CrlConfiguration {
-  export const isa = (o: any): o is CrlConfiguration =>
-    __isa(o, "CrlConfiguration");
+  export const isa = (o: any): o is CrlConfiguration => __isa(o, "CrlConfiguration");
 }
 
 export interface DeleteCertificateAuthorityRequest {
@@ -626,8 +610,7 @@ export interface DeletePermissionRequest {
 }
 
 export namespace DeletePermissionRequest {
-  export const isa = (o: any): o is DeletePermissionRequest =>
-    __isa(o, "DeletePermissionRequest");
+  export const isa = (o: any): o is DeletePermissionRequest => __isa(o, "DeletePermissionRequest");
 }
 
 export interface DescribeCertificateAuthorityAuditReportRequest {
@@ -648,9 +631,7 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
 }
 
 export namespace DescribeCertificateAuthorityAuditReportRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeCertificateAuthorityAuditReportRequest =>
+  export const isa = (o: any): o is DescribeCertificateAuthorityAuditReportRequest =>
     __isa(o, "DescribeCertificateAuthorityAuditReportRequest");
 }
 
@@ -679,9 +660,7 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
 }
 
 export namespace DescribeCertificateAuthorityAuditReportResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeCertificateAuthorityAuditReportResponse =>
+  export const isa = (o: any): o is DescribeCertificateAuthorityAuditReportResponse =>
     __isa(o, "DescribeCertificateAuthorityAuditReportResponse");
 }
 
@@ -756,9 +735,7 @@ export interface GetCertificateAuthorityCertificateResponse {
 }
 
 export namespace GetCertificateAuthorityCertificateResponse {
-  export const isa = (
-    o: any
-  ): o is GetCertificateAuthorityCertificateResponse =>
+  export const isa = (o: any): o is GetCertificateAuthorityCertificateResponse =>
     __isa(o, "GetCertificateAuthorityCertificateResponse");
 }
 
@@ -816,8 +793,7 @@ export interface GetCertificateRequest {
 }
 
 export namespace GetCertificateRequest {
-  export const isa = (o: any): o is GetCertificateRequest =>
-    __isa(o, "GetCertificateRequest");
+  export const isa = (o: any): o is GetCertificateRequest => __isa(o, "GetCertificateRequest");
 }
 
 export interface GetCertificateResponse {
@@ -836,8 +812,7 @@ export interface GetCertificateResponse {
 }
 
 export namespace GetCertificateResponse {
-  export const isa = (o: any): o is GetCertificateResponse =>
-    __isa(o, "GetCertificateResponse");
+  export const isa = (o: any): o is GetCertificateResponse => __isa(o, "GetCertificateResponse");
 }
 
 export interface ImportCertificateAuthorityCertificateRequest {
@@ -869,52 +844,42 @@ export interface ImportCertificateAuthorityCertificateRequest {
 }
 
 export namespace ImportCertificateAuthorityCertificateRequest {
-  export const isa = (
-    o: any
-  ): o is ImportCertificateAuthorityCertificateRequest =>
+  export const isa = (o: any): o is ImportCertificateAuthorityCertificateRequest =>
     __isa(o, "ImportCertificateAuthorityCertificateRequest");
 }
 
 /**
  * <p>One or more of the specified arguments was not valid.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidArgsException {
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  * 			resource.</p>
  */
-export interface InvalidArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidArnException {
-  export const isa = (o: any): o is InvalidArnException =>
-    __isa(o, "InvalidArnException");
+  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
  * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
  * 			returned from your previous call to <a>ListCertificateAuthorities</a>.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -929,67 +894,55 @@ export namespace InvalidNextTokenException {
  * <p>The S3 bucket policy is not valid. The policy must give ACM Private CA rights to read from
  * 			and write to the bucket and find the bucket location.</p>
  */
-export interface InvalidPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidPolicyException {
-  export const isa = (o: any): o is InvalidPolicyException =>
-    __isa(o, "InvalidPolicyException");
+  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
  * <p>The request action cannot be performed or is prohibited.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The private CA is in a state during which a report or certificate cannot be
  * 			generated.</p>
  */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidStateException {
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
+  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
  * <p>The tag associated with the CA is not valid. The invalid argument is contained in the
  * 			message field.</p>
  */
-export interface InvalidTagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidTagException {
-  export const isa = (o: any): o is InvalidTagException =>
-    __isa(o, "InvalidTagException");
+  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 export interface IssueCertificateRequest {
@@ -1074,8 +1027,7 @@ export interface IssueCertificateRequest {
 }
 
 export namespace IssueCertificateRequest {
-  export const isa = (o: any): o is IssueCertificateRequest =>
-    __isa(o, "IssueCertificateRequest");
+  export const isa = (o: any): o is IssueCertificateRequest => __isa(o, "IssueCertificateRequest");
 }
 
 export interface IssueCertificateResponse {
@@ -1107,17 +1059,14 @@ export enum KeyAlgorithm {
  * <p>An ACM Private CA limit has been exceeded. See the exception message returned to determine the
  * 			limit that was exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCertificateAuthoritiesRequest {
@@ -1191,8 +1140,7 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
@@ -1211,8 +1159,7 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListTagsRequest {
@@ -1243,8 +1190,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -1262,32 +1208,26 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
  * <p>The certificate signing request is invalid.</p>
  */
-export interface MalformedCSRException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedCSRException extends __SmithyException, $MetadataBearer {
   name: "MalformedCSRException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MalformedCSRException {
-  export const isa = (o: any): o is MalformedCSRException =>
-    __isa(o, "MalformedCSRException");
+  export const isa = (o: any): o is MalformedCSRException => __isa(o, "MalformedCSRException");
 }
 
 /**
  * <p>One or more fields in the certificate are invalid.</p>
  */
-export interface MalformedCertificateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedCertificateException extends __SmithyException, $MetadataBearer {
   name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
@@ -1347,9 +1287,7 @@ export namespace Permission {
 /**
  * <p>The designated permission has already been given to the user.</p>
  */
-export interface PermissionAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PermissionAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "PermissionAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1363,9 +1301,7 @@ export namespace PermissionAlreadyExistsException {
 /**
  * <p>Your request has already been completed.</p>
  */
-export interface RequestAlreadyProcessedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestAlreadyProcessedException extends __SmithyException, $MetadataBearer {
   name: "RequestAlreadyProcessedException";
   $fault: "client";
   message?: string;
@@ -1379,25 +1315,20 @@ export namespace RequestAlreadyProcessedException {
 /**
  * <p>The request has failed for an unspecified reason.</p>
  */
-export interface RequestFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestFailedException extends __SmithyException, $MetadataBearer {
   name: "RequestFailedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace RequestFailedException {
-  export const isa = (o: any): o is RequestFailedException =>
-    __isa(o, "RequestFailedException");
+  export const isa = (o: any): o is RequestFailedException => __isa(o, "RequestFailedException");
 }
 
 /**
  * <p>Your request is already in progress.</p>
  */
-export interface RequestInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1412,9 +1343,7 @@ export namespace RequestInProgressException {
  * <p>A resource such as a private CA, S3 bucket, certificate, or audit report cannot be
  * 			found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1459,8 +1388,7 @@ export interface RevocationConfiguration {
 }
 
 export namespace RevocationConfiguration {
-  export const isa = (o: any): o is RevocationConfiguration =>
-    __isa(o, "RevocationConfiguration");
+  export const isa = (o: any): o is RevocationConfiguration => __isa(o, "RevocationConfiguration");
 }
 
 export enum RevocationReason {
@@ -1569,17 +1497,14 @@ export namespace TagCertificateAuthorityRequest {
  * <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagCertificateAuthorityRequest {

@@ -57,9 +57,7 @@ export class SSOOIDC extends SSOOIDCClient {
   ): void;
   public createToken(
     args: CreateTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTokenCommandOutput) => void),
     cb?: (err: any, data?: CreateTokenCommandOutput) => void
   ): Promise<CreateTokenCommandOutput> | void {
     const command = new CreateTokenCommand(args);
@@ -93,9 +91,7 @@ export class SSOOIDC extends SSOOIDCClient {
   ): void;
   public registerClient(
     args: RegisterClientCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterClientCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterClientCommandOutput) => void),
     cb?: (err: any, data?: RegisterClientCommandOutput) => void
   ): Promise<RegisterClientCommandOutput> | void {
     const command = new RegisterClientCommand(args);

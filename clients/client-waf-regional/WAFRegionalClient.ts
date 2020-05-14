@@ -10,10 +10,7 @@ import {
   CreateGeoMatchSetCommandInput,
   CreateGeoMatchSetCommandOutput
 } from "./commands/CreateGeoMatchSetCommand";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRateBasedRuleCommandInput,
   CreateRateBasedRuleCommandOutput
@@ -26,10 +23,7 @@ import {
   CreateRegexPatternSetCommandInput,
   CreateRegexPatternSetCommandOutput
 } from "./commands/CreateRegexPatternSetCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateRuleGroupCommandInput,
   CreateRuleGroupCommandOutput
@@ -58,10 +52,7 @@ import {
   DeleteGeoMatchSetCommandInput,
   DeleteGeoMatchSetCommandOutput
 } from "./commands/DeleteGeoMatchSetCommand";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput
@@ -82,10 +73,7 @@ import {
   DeleteRegexPatternSetCommandInput,
   DeleteRegexPatternSetCommandOutput
 } from "./commands/DeleteRegexPatternSetCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteRuleGroupCommandInput,
   DeleteRuleGroupCommandOutput
@@ -126,10 +114,7 @@ import {
   GetGeoMatchSetCommandInput,
   GetGeoMatchSetCommandOutput
 } from "./commands/GetGeoMatchSetCommand";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput
@@ -154,10 +139,7 @@ import {
   GetRegexPatternSetCommandInput,
   GetRegexPatternSetCommandOutput
 } from "./commands/GetRegexPatternSetCommand";
-import {
-  GetRuleCommandInput,
-  GetRuleCommandOutput
-} from "./commands/GetRuleCommand";
+import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import {
   GetRuleGroupCommandInput,
   GetRuleGroupCommandOutput
@@ -174,10 +156,7 @@ import {
   GetSqlInjectionMatchSetCommandInput,
   GetSqlInjectionMatchSetCommandOutput
 } from "./commands/GetSqlInjectionMatchSetCommand";
-import {
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand";
+import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput
@@ -198,10 +177,7 @@ import {
   ListGeoMatchSetsCommandInput,
   ListGeoMatchSetsCommandOutput
 } from "./commands/ListGeoMatchSetsCommand";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput
@@ -226,10 +202,7 @@ import {
   ListRuleGroupsCommandInput,
   ListRuleGroupsCommandOutput
 } from "./commands/ListRuleGroupsCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSizeConstraintSetsCommandInput,
   ListSizeConstraintSetsCommandOutput
@@ -246,10 +219,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand";
+import { ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand";
 import {
   ListXssMatchSetsCommandInput,
   ListXssMatchSetsCommandOutput
@@ -262,10 +232,7 @@ import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput
 } from "./commands/PutPermissionPolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -278,10 +245,7 @@ import {
   UpdateGeoMatchSetCommandInput,
   UpdateGeoMatchSetCommandOutput
 } from "./commands/UpdateGeoMatchSetCommand";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRateBasedRuleCommandInput,
   UpdateRateBasedRuleCommandOutput
@@ -294,10 +258,7 @@ import {
   UpdateRegexPatternSetCommandInput,
   UpdateRegexPatternSetCommandOutput
 } from "./commands/UpdateRegexPatternSetCommand";
-import {
-  UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
-} from "./commands/UpdateRuleCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateRuleGroupCommandInput,
   UpdateRuleGroupCommandOutput
@@ -619,9 +580,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFRegionalClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WAFRegionalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -630,9 +589,7 @@ export type WAFRegionalClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

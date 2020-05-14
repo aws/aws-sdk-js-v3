@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  UpdateResourceDataSyncRequest,
-  UpdateResourceDataSyncResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateResourceDataSyncCommand,
   serializeAws_json1_1UpdateResourceDataSyncCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateResourceDataSyncCommandInput = UpdateResourceDataSyncRequest;
-export type UpdateResourceDataSyncCommandOutput = UpdateResourceDataSyncResult &
-  __MetadataBearer;
+export type UpdateResourceDataSyncCommandOutput = UpdateResourceDataSyncResult & __MetadataBearer;
 
 export class UpdateResourceDataSyncCommand extends $Command<
   UpdateResourceDataSyncCommandInput,
@@ -49,13 +41,8 @@ export class UpdateResourceDataSyncCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateResourceDataSyncCommandInput,
-    UpdateResourceDataSyncCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateResourceDataSyncCommandInput, UpdateResourceDataSyncCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

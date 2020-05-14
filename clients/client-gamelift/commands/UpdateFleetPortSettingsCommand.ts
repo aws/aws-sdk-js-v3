@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  UpdateFleetPortSettingsInput,
-  UpdateFleetPortSettingsOutput
-} from "../models/index";
+import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFleetPortSettingsCommand,
   serializeAws_json1_1UpdateFleetPortSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFleetPortSettingsCommandInput = UpdateFleetPortSettingsInput;
-export type UpdateFleetPortSettingsCommandOutput = UpdateFleetPortSettingsOutput &
-  __MetadataBearer;
+export type UpdateFleetPortSettingsCommandOutput = UpdateFleetPortSettingsOutput & __MetadataBearer;
 
 export class UpdateFleetPortSettingsCommand extends $Command<
   UpdateFleetPortSettingsCommandInput,
@@ -49,13 +45,8 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFleetPortSettingsCommandInput,
-    UpdateFleetPortSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFleetPortSettingsCommandInput, UpdateFleetPortSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateFleetPortSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetPortSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  CreateDashboardRequest,
-  CreateDashboardResponse
-} from "../models/index";
+import { CreateDashboardRequest, CreateDashboardResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDashboardCommand,
   serializeAws_restJson1_1CreateDashboardCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDashboardCommandInput = CreateDashboardRequest;
-export type CreateDashboardCommandOutput = CreateDashboardResponse &
-  __MetadataBearer;
+export type CreateDashboardCommandOutput = CreateDashboardResponse & __MetadataBearer;
 
 export class CreateDashboardCommand extends $Command<
   CreateDashboardCommandInput,
@@ -50,9 +46,7 @@ export class CreateDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDashboardCommandInput, CreateDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

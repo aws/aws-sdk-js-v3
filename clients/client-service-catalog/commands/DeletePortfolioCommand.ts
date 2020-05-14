@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePortfolioCommandInput = DeletePortfolioInput;
-export type DeletePortfolioCommandOutput = DeletePortfolioOutput &
-  __MetadataBearer;
+export type DeletePortfolioCommandOutput = DeletePortfolioOutput & __MetadataBearer;
 
 export class DeletePortfolioCommand extends $Command<
   DeletePortfolioCommandInput,
@@ -47,9 +46,7 @@ export class DeletePortfolioCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePortfolioCommandInput, DeletePortfolioCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

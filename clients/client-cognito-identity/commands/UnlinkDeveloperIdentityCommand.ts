@@ -46,13 +46,8 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UnlinkDeveloperIdentityCommandInput,
-    UnlinkDeveloperIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UnlinkDeveloperIdentityCommandInput, UnlinkDeveloperIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -79,10 +74,7 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnlinkDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

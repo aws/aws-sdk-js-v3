@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyNetworkInterfaceAttributeRequest } from "../models/index";
 import {
   deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
@@ -49,9 +45,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     ModifyNetworkInterfaceAttributeCommandInput,
     ModifyNetworkInterfaceAttributeCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
     input: ModifyNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

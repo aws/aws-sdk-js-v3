@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DescribeAlarmsForMetricInput,
-  DescribeAlarmsForMetricOutput
-} from "../models/index";
+import { DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeAlarmsForMetricCommand,
   serializeAws_queryDescribeAlarmsForMetricCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlarmsForMetricCommandInput = DescribeAlarmsForMetricInput;
-export type DescribeAlarmsForMetricCommandOutput = DescribeAlarmsForMetricOutput &
-  __MetadataBearer;
+export type DescribeAlarmsForMetricCommandOutput = DescribeAlarmsForMetricOutput & __MetadataBearer;
 
 export class DescribeAlarmsForMetricCommand extends $Command<
   DescribeAlarmsForMetricCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAlarmsForMetricCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAlarmsForMetricCommandInput,
-    DescribeAlarmsForMetricCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAlarmsForMetricCommandInput, DescribeAlarmsForMetricCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient";
-import {
-  DescribeContactRequest,
-  DescribeContactResponse
-} from "../models/index";
+import { DescribeContactRequest, DescribeContactResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeContactCommand,
   serializeAws_restJson1_1DescribeContactCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeContactCommandInput = DescribeContactRequest;
-export type DescribeContactCommandOutput = DescribeContactResponse &
-  __MetadataBearer;
+export type DescribeContactCommandOutput = DescribeContactResponse & __MetadataBearer;
 
 export class DescribeContactCommand extends $Command<
   DescribeContactCommandInput,
@@ -50,9 +46,7 @@ export class DescribeContactCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeContactCommandInput, DescribeContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

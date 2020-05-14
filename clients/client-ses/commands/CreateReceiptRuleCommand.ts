@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  CreateReceiptRuleRequest,
-  CreateReceiptRuleResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { CreateReceiptRuleRequest, CreateReceiptRuleResponse } from "../models/index";
 import {
   deserializeAws_queryCreateReceiptRuleCommand,
   serializeAws_queryCreateReceiptRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateReceiptRuleCommandInput = CreateReceiptRuleRequest;
-export type CreateReceiptRuleCommandOutput = CreateReceiptRuleResponse &
-  __MetadataBearer;
+export type CreateReceiptRuleCommandOutput = CreateReceiptRuleResponse & __MetadataBearer;
 
 export class CreateReceiptRuleCommand extends $Command<
   CreateReceiptRuleCommandInput,
@@ -50,9 +42,7 @@ export class CreateReceiptRuleCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateReceiptRuleCommandInput, CreateReceiptRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

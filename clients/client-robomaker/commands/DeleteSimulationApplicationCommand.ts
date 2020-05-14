@@ -49,13 +49,8 @@ export class DeleteSimulationApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSimulationApplicationCommandInput,
-    DeleteSimulationApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSimulationApplicationCommandInput, DeleteSimulationApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteSimulationApplicationCommand extends $Command<
     input: DeleteSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSimulationApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteSimulationApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSimulationApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

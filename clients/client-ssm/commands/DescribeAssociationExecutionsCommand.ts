@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeAssociationExecutionsRequest,
   DescribeAssociationExecutionsResult
@@ -53,9 +49,7 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     DescribeAssociationExecutionsCommandInput,
     DescribeAssociationExecutionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     input: DescribeAssociationExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAssociationExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssociationExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssociationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

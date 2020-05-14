@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPrincipalsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPrincipalsCommandInput = ListPrincipalsRequest;
-export type ListPrincipalsCommandOutput = ListPrincipalsResponse &
-  __MetadataBearer;
+export type ListPrincipalsCommandOutput = ListPrincipalsResponse & __MetadataBearer;
 
 export class ListPrincipalsCommand extends $Command<
   ListPrincipalsCommandInput,
@@ -47,9 +42,7 @@ export class ListPrincipalsCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPrincipalsCommandInput, ListPrincipalsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

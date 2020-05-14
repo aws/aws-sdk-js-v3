@@ -6,30 +6,15 @@ import {
   ConnectCustomKeyStoreCommandInput,
   ConnectCustomKeyStoreCommandOutput
 } from "./commands/ConnectCustomKeyStoreCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateCustomKeyStoreCommandInput,
   CreateCustomKeyStoreCommandOutput
 } from "./commands/CreateCustomKeyStoreCommand";
-import {
-  CreateGrantCommandInput,
-  CreateGrantCommandOutput
-} from "./commands/CreateGrantCommand";
-import {
-  CreateKeyCommandInput,
-  CreateKeyCommandOutput
-} from "./commands/CreateKeyCommand";
-import {
-  DecryptCommandInput,
-  DecryptCommandOutput
-} from "./commands/DecryptCommand";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
+import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
+import { DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
   DeleteCustomKeyStoreCommandInput,
   DeleteCustomKeyStoreCommandOutput
@@ -42,14 +27,8 @@ import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput
 } from "./commands/DescribeCustomKeyStoresCommand";
-import {
-  DescribeKeyCommandInput,
-  DescribeKeyCommandOutput
-} from "./commands/DescribeKeyCommand";
-import {
-  DisableKeyCommandInput,
-  DisableKeyCommandOutput
-} from "./commands/DisableKeyCommand";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
+import { DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand";
 import {
   DisableKeyRotationCommandInput,
   DisableKeyRotationCommandOutput
@@ -58,18 +37,12 @@ import {
   DisconnectCustomKeyStoreCommandInput,
   DisconnectCustomKeyStoreCommandOutput
 } from "./commands/DisconnectCustomKeyStoreCommand";
-import {
-  EnableKeyCommandInput,
-  EnableKeyCommandOutput
-} from "./commands/EnableKeyCommand";
+import { EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand";
 import {
   EnableKeyRotationCommandInput,
   EnableKeyRotationCommandOutput
 } from "./commands/EnableKeyRotationCommand";
-import {
-  EncryptCommandInput,
-  EncryptCommandOutput
-} from "./commands/EncryptCommand";
+import { EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand";
 import {
   GenerateDataKeyCommandInput,
   GenerateDataKeyCommandOutput
@@ -110,22 +83,13 @@ import {
   ImportKeyMaterialCommandInput,
   ImportKeyMaterialCommandOutput
 } from "./commands/ImportKeyMaterialCommand";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
-import {
-  ListGrantsCommandInput,
-  ListGrantsCommandOutput
-} from "./commands/ListGrantsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
 import {
   ListKeyPoliciesCommandInput,
   ListKeyPoliciesCommandOutput
 } from "./commands/ListKeyPoliciesCommand";
-import {
-  ListKeysCommandInput,
-  ListKeysCommandOutput
-} from "./commands/ListKeysCommand";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import {
   ListResourceTagsCommandInput,
   ListResourceTagsCommandOutput
@@ -138,35 +102,20 @@ import {
   PutKeyPolicyCommandInput,
   PutKeyPolicyCommandOutput
 } from "./commands/PutKeyPolicyCommand";
-import {
-  ReEncryptCommandInput,
-  ReEncryptCommandOutput
-} from "./commands/ReEncryptCommand";
-import {
-  RetireGrantCommandInput,
-  RetireGrantCommandOutput
-} from "./commands/RetireGrantCommand";
-import {
-  RevokeGrantCommandInput,
-  RevokeGrantCommandOutput
-} from "./commands/RevokeGrantCommand";
+import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand";
+import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
+import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
 import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput
 } from "./commands/ScheduleKeyDeletionCommand";
 import { SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import {
   UpdateCustomKeyStoreCommandInput,
   UpdateCustomKeyStoreCommandOutput
@@ -175,10 +124,7 @@ import {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput
 } from "./commands/UpdateKeyDescriptionCommand";
-import {
-  VerifyCommandInput,
-  VerifyCommandOutput
-} from "./commands/VerifyCommand";
+import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -412,9 +358,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -423,9 +367,7 @@ export type KMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

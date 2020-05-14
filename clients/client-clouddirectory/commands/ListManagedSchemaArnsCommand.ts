@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListManagedSchemaArnsRequest,
-  ListManagedSchemaArnsResponse
-} from "../models/index";
+import { ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListManagedSchemaArnsCommand,
   serializeAws_restJson1_1ListManagedSchemaArnsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListManagedSchemaArnsCommandInput = ListManagedSchemaArnsRequest;
-export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse &
-  __MetadataBearer;
+export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse & __MetadataBearer;
 
 export class ListManagedSchemaArnsCommand extends $Command<
   ListManagedSchemaArnsCommandInput,
@@ -49,13 +45,8 @@ export class ListManagedSchemaArnsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListManagedSchemaArnsCommandInput,
-    ListManagedSchemaArnsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListManagedSchemaArnsCommandInput, ListManagedSchemaArnsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListManagedSchemaArnsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListManagedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1_1ListManagedSchemaArnsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListManagedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

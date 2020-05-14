@@ -1,7 +1,4 @@
-import {
-  AssumeRoleCommandInput,
-  AssumeRoleCommandOutput
-} from "./commands/AssumeRoleCommand";
+import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
 import {
   AssumeRoleWithSAMLCommandInput,
   AssumeRoleWithSAMLCommandOutput
@@ -187,9 +184,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type STSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type STSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -198,9 +193,7 @@ export type STSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type STSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type STSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

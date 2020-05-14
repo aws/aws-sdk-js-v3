@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteProjectCommandInput = DeleteProjectRequest;
-export type DeleteProjectCommandOutput = DeleteProjectResponse &
-  __MetadataBearer;
+export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
 
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,
@@ -47,9 +46,7 @@ export class DeleteProjectCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteProjectCommandInput, DeleteProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

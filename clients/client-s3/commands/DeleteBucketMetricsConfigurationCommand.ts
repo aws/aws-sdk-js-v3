@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketMetricsConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
@@ -50,9 +46,7 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     DeleteBucketMetricsConfigurationCommandInput,
     DeleteBucketMetricsConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     input: DeleteBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

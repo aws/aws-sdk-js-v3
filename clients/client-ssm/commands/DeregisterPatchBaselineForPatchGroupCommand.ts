@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DeregisterPatchBaselineForPatchGroupRequest,
   DeregisterPatchBaselineForPatchGroupResult
@@ -39,9 +35,7 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeregisterPatchBaselineForPatchGroupCommandInput
-  ) {
+  constructor(readonly input: DeregisterPatchBaselineForPatchGroupCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     DeregisterPatchBaselineForPatchGroupCommandInput,
     DeregisterPatchBaselineForPatchGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     input: DeregisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

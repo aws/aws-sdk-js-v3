@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayRouteTablesRequest,
   DescribeLocalGatewayRouteTablesResult
@@ -53,9 +49,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     DescribeLocalGatewayRouteTablesCommandInput,
     DescribeLocalGatewayRouteTablesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
     input: DescribeLocalGatewayRouteTablesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

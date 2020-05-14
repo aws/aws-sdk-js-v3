@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  DeleteDetectorVersionRequest,
-  DeleteDetectorVersionResult
-} from "../models/index";
+import { DeleteDetectorVersionRequest, DeleteDetectorVersionResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDetectorVersionCommand,
   serializeAws_json1_1DeleteDetectorVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDetectorVersionCommandInput = DeleteDetectorVersionRequest;
-export type DeleteDetectorVersionCommandOutput = DeleteDetectorVersionResult &
-  __MetadataBearer;
+export type DeleteDetectorVersionCommandOutput = DeleteDetectorVersionResult & __MetadataBearer;
 
 export class DeleteDetectorVersionCommand extends $Command<
   DeleteDetectorVersionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDetectorVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDetectorVersionCommandInput,
-    DeleteDetectorVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDetectorVersionCommandInput, DeleteDetectorVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

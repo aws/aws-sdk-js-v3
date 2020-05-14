@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListAssociationVersionsRequest,
-  ListAssociationVersionsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListAssociationVersionsRequest, ListAssociationVersionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListAssociationVersionsCommand,
   serializeAws_json1_1ListAssociationVersionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAssociationVersionsCommandInput = ListAssociationVersionsRequest;
-export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult &
-  __MetadataBearer;
+export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult & __MetadataBearer;
 
 export class ListAssociationVersionsCommand extends $Command<
   ListAssociationVersionsCommandInput,
@@ -49,13 +41,8 @@ export class ListAssociationVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssociationVersionsCommandInput,
-    ListAssociationVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssociationVersionsCommandInput, ListAssociationVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListAssociationVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListAssociationVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssociationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

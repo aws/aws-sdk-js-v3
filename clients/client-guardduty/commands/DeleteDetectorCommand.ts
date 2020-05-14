@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDetectorCommandInput = DeleteDetectorRequest;
-export type DeleteDetectorCommandOutput = DeleteDetectorResponse &
-  __MetadataBearer;
+export type DeleteDetectorCommandOutput = DeleteDetectorResponse & __MetadataBearer;
 
 export class DeleteDetectorCommand extends $Command<
   DeleteDetectorCommandInput,
@@ -47,9 +46,7 @@ export class DeleteDetectorCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDetectorCommandInput, DeleteDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

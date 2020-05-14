@@ -49,13 +49,8 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateIAMPolicyAssignmentCommandInput,
-    UpdateIAMPolicyAssignmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateIAMPolicyAssignmentCommandInput, UpdateIAMPolicyAssignmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     input: UpdateIAMPolicyAssignmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

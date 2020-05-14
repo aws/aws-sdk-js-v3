@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  DeleteVirtualRouterInput,
-  DeleteVirtualRouterOutput
-} from "../models/index";
+import { DeleteVirtualRouterInput, DeleteVirtualRouterOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVirtualRouterCommand,
   serializeAws_restJson1_1DeleteVirtualRouterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVirtualRouterCommandInput = DeleteVirtualRouterInput;
-export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput &
-  __MetadataBearer;
+export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput & __MetadataBearer;
 
 export class DeleteVirtualRouterCommand extends $Command<
   DeleteVirtualRouterCommandInput,
@@ -49,13 +45,8 @@ export class DeleteVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVirtualRouterCommandInput,
-    DeleteVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVirtualRouterCommandInput, DeleteVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteVirtualRouterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVirtualRouterCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

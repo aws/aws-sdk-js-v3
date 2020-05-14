@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  StartSchemaExtensionRequest,
-  StartSchemaExtensionResult
-} from "../models/index";
+import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/index";
 import {
   deserializeAws_json1_1StartSchemaExtensionCommand,
   serializeAws_json1_1StartSchemaExtensionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartSchemaExtensionCommandInput = StartSchemaExtensionRequest;
-export type StartSchemaExtensionCommandOutput = StartSchemaExtensionResult &
-  __MetadataBearer;
+export type StartSchemaExtensionCommandOutput = StartSchemaExtensionResult & __MetadataBearer;
 
 export class StartSchemaExtensionCommand extends $Command<
   StartSchemaExtensionCommandInput,
@@ -49,13 +45,8 @@ export class StartSchemaExtensionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartSchemaExtensionCommandInput,
-    StartSchemaExtensionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartSchemaExtensionCommandInput, StartSchemaExtensionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

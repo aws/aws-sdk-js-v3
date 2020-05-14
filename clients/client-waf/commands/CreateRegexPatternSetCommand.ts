@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRegexPatternSetCommand,
   serializeAws_json1_1CreateRegexPatternSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRegexPatternSetCommandInput = CreateRegexPatternSetRequest;
-export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse &
-  __MetadataBearer;
+export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse & __MetadataBearer;
 
 export class CreateRegexPatternSetCommand extends $Command<
   CreateRegexPatternSetCommandInput,
@@ -49,13 +41,8 @@ export class CreateRegexPatternSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRegexPatternSetCommandInput,
-    CreateRegexPatternSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRegexPatternSetCommandInput, CreateRegexPatternSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

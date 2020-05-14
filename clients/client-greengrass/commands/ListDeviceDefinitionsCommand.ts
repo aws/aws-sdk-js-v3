@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  ListDeviceDefinitionsRequest,
-  ListDeviceDefinitionsResponse
-} from "../models/index";
+import { ListDeviceDefinitionsRequest, ListDeviceDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDeviceDefinitionsCommand,
   serializeAws_restJson1_1ListDeviceDefinitionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeviceDefinitionsCommandInput = ListDeviceDefinitionsRequest;
-export type ListDeviceDefinitionsCommandOutput = ListDeviceDefinitionsResponse &
-  __MetadataBearer;
+export type ListDeviceDefinitionsCommandOutput = ListDeviceDefinitionsResponse & __MetadataBearer;
 
 export class ListDeviceDefinitionsCommand extends $Command<
   ListDeviceDefinitionsCommandInput,
@@ -49,13 +45,8 @@ export class ListDeviceDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeviceDefinitionsCommandInput,
-    ListDeviceDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeviceDefinitionsCommandInput, ListDeviceDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDeviceDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDeviceDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeviceDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

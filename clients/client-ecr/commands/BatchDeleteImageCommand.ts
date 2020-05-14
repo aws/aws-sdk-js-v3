@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  BatchDeleteImageRequest,
-  BatchDeleteImageResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteImageCommand,
   serializeAws_json1_1BatchDeleteImageCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteImageCommandInput = BatchDeleteImageRequest;
-export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse &
-  __MetadataBearer;
+export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse & __MetadataBearer;
 
 export class BatchDeleteImageCommand extends $Command<
   BatchDeleteImageCommandInput,
@@ -50,9 +42,7 @@ export class BatchDeleteImageCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

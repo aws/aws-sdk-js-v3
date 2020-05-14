@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  ListClosedWorkflowExecutionsInput,
-  WorkflowExecutionInfos
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/index";
 import {
   deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
   serializeAws_json1_0ListClosedWorkflowExecutionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListClosedWorkflowExecutionsCommandInput = ListClosedWorkflowExecutionsInput;
-export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos &
-  __MetadataBearer;
+export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos & __MetadataBearer;
 
 export class ListClosedWorkflowExecutionsCommand extends $Command<
   ListClosedWorkflowExecutionsCommandInput,
@@ -49,13 +41,8 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListClosedWorkflowExecutionsCommandInput,
-    ListClosedWorkflowExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListClosedWorkflowExecutionsCommandInput, ListClosedWorkflowExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     input: ListClosedWorkflowExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

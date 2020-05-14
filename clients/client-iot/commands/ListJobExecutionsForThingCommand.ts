@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListJobExecutionsForThingRequest,
   ListJobExecutionsForThingResponse
@@ -49,13 +45,8 @@ export class ListJobExecutionsForThingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListJobExecutionsForThingCommandInput,
-    ListJobExecutionsForThingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListJobExecutionsForThingCommandInput, ListJobExecutionsForThingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListJobExecutionsForThingCommand extends $Command<
     input: ListJobExecutionsForThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobExecutionsForThingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListJobExecutionsForThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJobExecutionsForThingCommandOutput> {
-    return deserializeAws_restJson1_1ListJobExecutionsForThingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJobExecutionsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

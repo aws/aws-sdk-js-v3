@@ -53,9 +53,7 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     ListAllowedNodeTypeModificationsCommandInput,
     ListAllowedNodeTypeModificationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
     input: ListAllowedNodeTypeModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListAllowedNodeTypeModificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListAllowedNodeTypeModificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
-    return deserializeAws_queryListAllowedNodeTypeModificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListAllowedNodeTypeModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

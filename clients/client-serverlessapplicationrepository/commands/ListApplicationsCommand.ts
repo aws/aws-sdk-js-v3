@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  ListApplicationsRequest,
-  ListApplicationsResponse
-} from "../models/index";
+import { ListApplicationsRequest, ListApplicationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListApplicationsCommand,
   serializeAws_restJson1_1ListApplicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListApplicationsCommandInput = ListApplicationsRequest;
-export type ListApplicationsCommandOutput = ListApplicationsResponse &
-  __MetadataBearer;
+export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
 
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
@@ -50,9 +46,7 @@ export class ListApplicationsCommand extends $Command<
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListApplicationsCommandInput, ListApplicationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

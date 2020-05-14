@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/index";
 import {
   deserializeAws_queryCopyOptionGroupCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyOptionGroupCommandInput = CopyOptionGroupMessage;
-export type CopyOptionGroupCommandOutput = CopyOptionGroupResult &
-  __MetadataBearer;
+export type CopyOptionGroupCommandOutput = CopyOptionGroupResult & __MetadataBearer;
 
 export class CopyOptionGroupCommand extends $Command<
   CopyOptionGroupCommandInput,
@@ -47,9 +42,7 @@ export class CopyOptionGroupCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

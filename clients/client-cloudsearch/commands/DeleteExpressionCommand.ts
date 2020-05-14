@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DeleteExpressionRequest,
-  DeleteExpressionResponse
-} from "../models/index";
+import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteExpressionCommand,
   serializeAws_queryDeleteExpressionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteExpressionCommandInput = DeleteExpressionRequest;
-export type DeleteExpressionCommandOutput = DeleteExpressionResponse &
-  __MetadataBearer;
+export type DeleteExpressionCommandOutput = DeleteExpressionResponse & __MetadataBearer;
 
 export class DeleteExpressionCommand extends $Command<
   DeleteExpressionCommandInput,
@@ -50,9 +46,7 @@ export class DeleteExpressionCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteExpressionCommandInput, DeleteExpressionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

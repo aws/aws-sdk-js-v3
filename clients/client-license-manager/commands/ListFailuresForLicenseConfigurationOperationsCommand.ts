@@ -39,9 +39,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput
-  ) {
+  constructor(readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     ListFailuresForLicenseConfigurationOperationsCommandInput,
     ListFailuresForLicenseConfigurationOperationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
   }
 
   private deserialize(

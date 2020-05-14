@@ -45,13 +45,8 @@ export class DeleteMethodResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMethodResponseCommandInput,
-    DeleteMethodResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMethodResponseCommandInput, DeleteMethodResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteMethodResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMethodResponseCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMethodResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMethodResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

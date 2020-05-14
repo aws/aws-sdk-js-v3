@@ -49,13 +49,8 @@ export class TerminateProvisionedProductCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TerminateProvisionedProductCommandInput,
-    TerminateProvisionedProductCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TerminateProvisionedProductCommandInput, TerminateProvisionedProductCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class TerminateProvisionedProductCommand extends $Command<
     input: TerminateProvisionedProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateProvisionedProductCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1TerminateProvisionedProductCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1TerminateProvisionedProductCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1TerminateProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

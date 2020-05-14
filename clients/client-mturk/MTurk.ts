@@ -79,11 +79,7 @@ import {
   GetFileUploadURLCommandInput,
   GetFileUploadURLCommandOutput
 } from "./commands/GetFileUploadURLCommand";
-import {
-  GetHITCommand,
-  GetHITCommandInput,
-  GetHITCommandOutput
-} from "./commands/GetHITCommand";
+import { GetHITCommand, GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
 import {
   GetQualificationScoreCommand,
   GetQualificationScoreCommandInput,
@@ -348,14 +344,8 @@ export class MTurk extends MTurkClient {
     args: AssociateQualificationWithWorkerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateQualificationWithWorkerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateQualificationWithWorkerCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateQualificationWithWorkerCommandOutput) => void),
+    cb?: (err: any, data?: AssociateQualificationWithWorkerCommandOutput) => void
   ): Promise<AssociateQualificationWithWorkerCommandOutput> | void {
     const command = new AssociateQualificationWithWorkerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -400,31 +390,19 @@ export class MTurk extends MTurkClient {
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput>;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    cb: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): void;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): void;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateAdditionalAssignmentsForHITCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+      | ((err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void),
+    cb?: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> | void {
     const command = new CreateAdditionalAssignmentsForHITCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -472,9 +450,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public createHIT(
     args: CreateHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHITCommandOutput) => void),
     cb?: (err: any, data?: CreateHITCommandOutput) => void
   ): Promise<CreateHITCommandOutput> | void {
     const command = new CreateHITCommand(args);
@@ -512,9 +488,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public createHITType(
     args: CreateHITTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHITTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHITTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateHITTypeCommandOutput) => void
   ): Promise<CreateHITTypeCommandOutput> | void {
     const command = new CreateHITTypeCommand(args);
@@ -710,9 +684,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public deleteHIT(
     args: DeleteHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHITCommandOutput) => void),
     cb?: (err: any, data?: DeleteHITCommandOutput) => void
   ): Promise<DeleteHITCommandOutput> | void {
     const command = new DeleteHITCommand(args);
@@ -831,31 +803,19 @@ export class MTurk extends MTurkClient {
   ): Promise<DisassociateQualificationFromWorkerCommandOutput>;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): void;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): void;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateQualificationFromWorkerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> | void {
     const command = new DisassociateQualificationFromWorkerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -924,9 +884,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public getAssignment(
     args: GetAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssignmentCommandOutput) => void),
     cb?: (err: any, data?: GetAssignmentCommandOutput) => void
   ): Promise<GetAssignmentCommandOutput> | void {
     const command = new GetAssignmentCommand(args);
@@ -976,9 +934,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public getFileUploadURL(
     args: GetFileUploadURLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFileUploadURLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFileUploadURLCommandOutput) => void),
     cb?: (err: any, data?: GetFileUploadURLCommandOutput) => void
   ): Promise<GetFileUploadURLCommandOutput> | void {
     const command = new GetFileUploadURLCommand(args);
@@ -1002,10 +958,7 @@ export class MTurk extends MTurkClient {
     args: GetHITCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetHITCommandOutput>;
-  public getHIT(
-    args: GetHITCommandInput,
-    cb: (err: any, data?: GetHITCommandOutput) => void
-  ): void;
+  public getHIT(args: GetHITCommandInput, cb: (err: any, data?: GetHITCommandOutput) => void): void;
   public getHIT(
     args: GetHITCommandInput,
     options: __HttpHandlerOptions,
@@ -1013,9 +966,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public getHIT(
     args: GetHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHITCommandOutput) => void),
     cb?: (err: any, data?: GetHITCommandOutput) => void
   ): Promise<GetHITCommandOutput> | void {
     const command = new GetHITCommand(args);
@@ -1240,9 +1191,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public listHITs(
     args: ListHITsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHITsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHITsCommandOutput) => void),
     cb?: (err: any, data?: ListHITsCommandOutput) => void
   ): Promise<ListHITsCommandOutput> | void {
     const command = new ListHITsCommand(args);
@@ -1476,9 +1425,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkerBlocksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkerBlocksCommandOutput) => void),
     cb?: (err: any, data?: ListWorkerBlocksCommandOutput) => void
   ): Promise<ListWorkerBlocksCommandOutput> | void {
     const command = new ListWorkerBlocksCommand(args);
@@ -1516,14 +1463,8 @@ export class MTurk extends MTurkClient {
     args: ListWorkersWithQualificationTypeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWorkersWithQualificationTypeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWorkersWithQualificationTypeCommandOutput
-    ) => void
+      | ((err: any, data?: ListWorkersWithQualificationTypeCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkersWithQualificationTypeCommandOutput) => void
   ): Promise<ListWorkersWithQualificationTypeCommandOutput> | void {
     const command = new ListWorkersWithQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1564,9 +1505,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public notifyWorkers(
     args: NotifyWorkersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NotifyWorkersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyWorkersCommandOutput) => void),
     cb?: (err: any, data?: NotifyWorkersCommandOutput) => void
   ): Promise<NotifyWorkersCommandOutput> | void {
     const command = new NotifyWorkersCommand(args);
@@ -1611,9 +1550,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public rejectAssignment(
     args: RejectAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectAssignmentCommandOutput) => void),
     cb?: (err: any, data?: RejectAssignmentCommandOutput) => void
   ): Promise<RejectAssignmentCommandOutput> | void {
     const command = new RejectAssignmentCommand(args);
@@ -1700,9 +1637,7 @@ export class MTurk extends MTurkClient {
   ): void;
   public sendBonus(
     args: SendBonusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendBonusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendBonusCommandOutput) => void),
     cb?: (err: any, data?: SendBonusCommandOutput) => void
   ): Promise<SendBonusCommandOutput> | void {
     const command = new SendBonusCommand(args);

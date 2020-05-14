@@ -46,13 +46,8 @@ export class HttpPayloadWithStructureCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    HttpPayloadWithStructureCommandInput,
-    HttpPayloadWithStructureCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<HttpPayloadWithStructureCommandInput, HttpPayloadWithStructureCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class HttpPayloadWithStructureCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithStructureCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlHttpPayloadWithStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

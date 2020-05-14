@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RestXmlProtocolClient";
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput
-} from "../models/index";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/index";
 import {
   deserializeAws_restXmlEmptyInputAndEmptyOutputCommand,
   serializeAws_restXmlEmptyInputAndEmptyOutputCommand
@@ -49,13 +46,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EmptyInputAndEmptyOutputCommandInput,
-    EmptyInputAndEmptyOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EmptyInputAndEmptyOutputCommandInput, EmptyInputAndEmptyOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_restXmlEmptyInputAndEmptyOutputCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlEmptyInputAndEmptyOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

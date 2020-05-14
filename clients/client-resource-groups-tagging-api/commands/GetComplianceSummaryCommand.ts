@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ResourceGroupsTaggingAPIClient";
-import {
-  GetComplianceSummaryInput,
-  GetComplianceSummaryOutput
-} from "../models/index";
+import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetComplianceSummaryCommand,
   serializeAws_json1_1GetComplianceSummaryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetComplianceSummaryCommandInput = GetComplianceSummaryInput;
-export type GetComplianceSummaryCommandOutput = GetComplianceSummaryOutput &
-  __MetadataBearer;
+export type GetComplianceSummaryCommandOutput = GetComplianceSummaryOutput & __MetadataBearer;
 
 export class GetComplianceSummaryCommand extends $Command<
   GetComplianceSummaryCommandInput,
@@ -49,13 +45,8 @@ export class GetComplianceSummaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetComplianceSummaryCommandInput,
-    GetComplianceSummaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetComplianceSummaryCommandInput, GetComplianceSummaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

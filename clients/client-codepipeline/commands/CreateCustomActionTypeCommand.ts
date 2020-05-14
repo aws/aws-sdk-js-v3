@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  CreateCustomActionTypeInput,
-  CreateCustomActionTypeOutput
-} from "../models/index";
+import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateCustomActionTypeCommand,
   serializeAws_json1_1CreateCustomActionTypeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCustomActionTypeCommandInput = CreateCustomActionTypeInput;
-export type CreateCustomActionTypeCommandOutput = CreateCustomActionTypeOutput &
-  __MetadataBearer;
+export type CreateCustomActionTypeCommandOutput = CreateCustomActionTypeOutput & __MetadataBearer;
 
 export class CreateCustomActionTypeCommand extends $Command<
   CreateCustomActionTypeCommandInput,
@@ -49,13 +45,8 @@ export class CreateCustomActionTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomActionTypeCommandInput,
-    CreateCustomActionTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomActionTypeCommandInput, CreateCustomActionTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

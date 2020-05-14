@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListCACertificatesRequest,
-  ListCACertificatesResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListCACertificatesRequest, ListCACertificatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListCACertificatesCommand,
   serializeAws_restJson1_1ListCACertificatesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCACertificatesCommandInput = ListCACertificatesRequest;
-export type ListCACertificatesCommandOutput = ListCACertificatesResponse &
-  __MetadataBearer;
+export type ListCACertificatesCommandOutput = ListCACertificatesResponse & __MetadataBearer;
 
 export class ListCACertificatesCommand extends $Command<
   ListCACertificatesCommandInput,
@@ -50,9 +42,7 @@ export class ListCACertificatesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListCACertificatesCommandInput, ListCACertificatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

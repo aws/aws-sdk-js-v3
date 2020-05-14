@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  DescribeSubscriptionRequest,
-  DescribeSubscriptionResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { DescribeSubscriptionRequest, DescribeSubscriptionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSubscriptionCommand,
   serializeAws_json1_1DescribeSubscriptionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSubscriptionCommandInput = DescribeSubscriptionRequest;
-export type DescribeSubscriptionCommandOutput = DescribeSubscriptionResponse &
-  __MetadataBearer;
+export type DescribeSubscriptionCommandOutput = DescribeSubscriptionResponse & __MetadataBearer;
 
 export class DescribeSubscriptionCommand extends $Command<
   DescribeSubscriptionCommandInput,
@@ -49,13 +41,8 @@ export class DescribeSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSubscriptionCommandInput,
-    DescribeSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSubscriptionCommandInput, DescribeSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

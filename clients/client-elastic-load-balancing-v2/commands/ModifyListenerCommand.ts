@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyListenerCommandInput = ModifyListenerInput;
-export type ModifyListenerCommandOutput = ModifyListenerOutput &
-  __MetadataBearer;
+export type ModifyListenerCommandOutput = ModifyListenerOutput & __MetadataBearer;
 
 export class ModifyListenerCommand extends $Command<
   ModifyListenerCommandInput,
@@ -47,9 +46,7 @@ export class ModifyListenerCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyListenerCommandInput, ModifyListenerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

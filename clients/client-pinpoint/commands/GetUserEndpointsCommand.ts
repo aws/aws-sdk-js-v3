@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetUserEndpointsRequest,
-  GetUserEndpointsResponse
-} from "../models/index";
+import { GetUserEndpointsRequest, GetUserEndpointsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUserEndpointsCommand,
   serializeAws_restJson1_1GetUserEndpointsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUserEndpointsCommandInput = GetUserEndpointsRequest;
-export type GetUserEndpointsCommandOutput = GetUserEndpointsResponse &
-  __MetadataBearer;
+export type GetUserEndpointsCommandOutput = GetUserEndpointsResponse & __MetadataBearer;
 
 export class GetUserEndpointsCommand extends $Command<
   GetUserEndpointsCommandInput,
@@ -50,9 +46,7 @@ export class GetUserEndpointsCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserEndpointsCommandInput, GetUserEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

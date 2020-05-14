@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListPolicyVersionsRequest,
-  ListPolicyVersionsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPolicyVersionsCommand,
   serializeAws_restJson1_1ListPolicyVersionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPolicyVersionsCommandInput = ListPolicyVersionsRequest;
-export type ListPolicyVersionsCommandOutput = ListPolicyVersionsResponse &
-  __MetadataBearer;
+export type ListPolicyVersionsCommandOutput = ListPolicyVersionsResponse & __MetadataBearer;
 
 export class ListPolicyVersionsCommand extends $Command<
   ListPolicyVersionsCommandInput,
@@ -50,9 +42,7 @@ export class ListPolicyVersionsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

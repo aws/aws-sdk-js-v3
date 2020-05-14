@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CreateCacheClusterMessage,
-  CreateCacheClusterResult
-} from "../models/index";
+import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateCacheClusterCommand,
   serializeAws_queryCreateCacheClusterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
-export type CreateCacheClusterCommandOutput = CreateCacheClusterResult &
-  __MetadataBearer;
+export type CreateCacheClusterCommandOutput = CreateCacheClusterResult & __MetadataBearer;
 
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,
@@ -50,9 +46,7 @@ export class CreateCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

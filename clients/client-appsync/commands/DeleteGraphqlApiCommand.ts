@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  DeleteGraphqlApiRequest,
-  DeleteGraphqlApiResponse
-} from "../models/index";
+import { DeleteGraphqlApiRequest, DeleteGraphqlApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGraphqlApiCommand,
   serializeAws_restJson1_1DeleteGraphqlApiCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGraphqlApiCommandInput = DeleteGraphqlApiRequest;
-export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse &
-  __MetadataBearer;
+export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse & __MetadataBearer;
 
 export class DeleteGraphqlApiCommand extends $Command<
   DeleteGraphqlApiCommandInput,
@@ -50,9 +46,7 @@ export class DeleteGraphqlApiCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

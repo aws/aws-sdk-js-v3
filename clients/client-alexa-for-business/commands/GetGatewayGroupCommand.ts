@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetGatewayGroupRequest,
-  GetGatewayGroupResponse
-} from "../models/index";
+import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetGatewayGroupCommand,
   serializeAws_json1_1GetGatewayGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGatewayGroupCommandInput = GetGatewayGroupRequest;
-export type GetGatewayGroupCommandOutput = GetGatewayGroupResponse &
-  __MetadataBearer;
+export type GetGatewayGroupCommandOutput = GetGatewayGroupResponse & __MetadataBearer;
 
 export class GetGatewayGroupCommand extends $Command<
   GetGatewayGroupCommandInput,
@@ -50,9 +46,7 @@ export class GetGatewayGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGatewayGroupCommandInput, GetGatewayGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

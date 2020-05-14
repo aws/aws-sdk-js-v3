@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewResponse
-} from "../models/index";
+import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/index";
 import {
   deserializeAws_json1_1EnableDomainAutoRenewCommand,
   serializeAws_json1_1EnableDomainAutoRenewCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableDomainAutoRenewCommandInput = EnableDomainAutoRenewRequest;
-export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse &
-  __MetadataBearer;
+export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse & __MetadataBearer;
 
 export class EnableDomainAutoRenewCommand extends $Command<
   EnableDomainAutoRenewCommandInput,
@@ -49,13 +45,8 @@ export class EnableDomainAutoRenewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableDomainAutoRenewCommandInput,
-    EnableDomainAutoRenewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

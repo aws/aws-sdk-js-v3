@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DeleteAssociationRequest,
-  DeleteAssociationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAssociationCommand,
   serializeAws_json1_1DeleteAssociationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAssociationCommandInput = DeleteAssociationRequest;
-export type DeleteAssociationCommandOutput = DeleteAssociationResult &
-  __MetadataBearer;
+export type DeleteAssociationCommandOutput = DeleteAssociationResult & __MetadataBearer;
 
 export class DeleteAssociationCommand extends $Command<
   DeleteAssociationCommandInput,
@@ -50,9 +42,7 @@ export class DeleteAssociationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAssociationCommandInput, DeleteAssociationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

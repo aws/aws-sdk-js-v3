@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOfferingsCommandInput = ListOfferingsRequest;
-export type ListOfferingsCommandOutput = ListOfferingsResponse &
-  __MetadataBearer;
+export type ListOfferingsCommandOutput = ListOfferingsResponse & __MetadataBearer;
 
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,
@@ -47,9 +46,7 @@ export class ListOfferingsCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOfferingsCommandInput, ListOfferingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

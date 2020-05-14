@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CompleteMigrationMessage,
-  CompleteMigrationResponse
-} from "../models/index";
+import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/index";
 import {
   deserializeAws_queryCompleteMigrationCommand,
   serializeAws_queryCompleteMigrationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CompleteMigrationCommandInput = CompleteMigrationMessage;
-export type CompleteMigrationCommandOutput = CompleteMigrationResponse &
-  __MetadataBearer;
+export type CompleteMigrationCommandOutput = CompleteMigrationResponse & __MetadataBearer;
 
 export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandInput,
@@ -50,9 +46,7 @@ export class CompleteMigrationCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteMigrationCommandInput, CompleteMigrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

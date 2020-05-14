@@ -49,13 +49,8 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserHierarchyGroupCommandInput,
-    DescribeUserHierarchyGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserHierarchyGroupCommandInput, DescribeUserHierarchyGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     input: DescribeUserHierarchyGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

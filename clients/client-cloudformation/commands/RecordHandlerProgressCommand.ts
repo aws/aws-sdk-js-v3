@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  RecordHandlerProgressInput,
-  RecordHandlerProgressOutput
-} from "../models/index";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/index";
 import {
   deserializeAws_queryRecordHandlerProgressCommand,
   serializeAws_queryRecordHandlerProgressCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecordHandlerProgressCommandInput = RecordHandlerProgressInput;
-export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput &
-  __MetadataBearer;
+export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput & __MetadataBearer;
 
 export class RecordHandlerProgressCommand extends $Command<
   RecordHandlerProgressCommandInput,
@@ -49,13 +45,8 @@ export class RecordHandlerProgressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RecordHandlerProgressCommandInput,
-    RecordHandlerProgressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RecordHandlerProgressCommandInput, RecordHandlerProgressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

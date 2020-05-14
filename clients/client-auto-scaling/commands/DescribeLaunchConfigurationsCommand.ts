@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  LaunchConfigurationNamesType,
-  LaunchConfigurationsType
-} from "../models/index";
+import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/index";
 import {
   deserializeAws_queryDescribeLaunchConfigurationsCommand,
   serializeAws_queryDescribeLaunchConfigurationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLaunchConfigurationsCommandInput = LaunchConfigurationNamesType;
-export type DescribeLaunchConfigurationsCommandOutput = LaunchConfigurationsType &
-  __MetadataBearer;
+export type DescribeLaunchConfigurationsCommandOutput = LaunchConfigurationsType & __MetadataBearer;
 
 export class DescribeLaunchConfigurationsCommand extends $Command<
   DescribeLaunchConfigurationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLaunchConfigurationsCommandInput,
-    DescribeLaunchConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLaunchConfigurationsCommandInput, DescribeLaunchConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
     input: DescribeLaunchConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLaunchConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeLaunchConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchConfigurationsCommandOutput> {
-    return deserializeAws_queryDescribeLaunchConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLaunchConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

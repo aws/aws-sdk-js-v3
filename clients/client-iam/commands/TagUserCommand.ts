@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagUserRequest } from "../models/index";
 import {
   deserializeAws_queryTagUserCommand,
@@ -46,9 +42,7 @@ export class TagUserCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagUserCommandInput, TagUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class TagUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TagUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagUserCommand(input, context);
   }
 

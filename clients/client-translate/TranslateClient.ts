@@ -193,9 +193,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type TranslateClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TranslateClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +202,7 @@ export type TranslateClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

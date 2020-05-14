@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  UpdateApiMappingRequest,
-  UpdateApiMappingResponse
-} from "../models/index";
+import { UpdateApiMappingRequest, UpdateApiMappingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApiMappingCommand,
   serializeAws_restJson1_1UpdateApiMappingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApiMappingCommandInput = UpdateApiMappingRequest;
-export type UpdateApiMappingCommandOutput = UpdateApiMappingResponse &
-  __MetadataBearer;
+export type UpdateApiMappingCommandOutput = UpdateApiMappingResponse & __MetadataBearer;
 
 export class UpdateApiMappingCommand extends $Command<
   UpdateApiMappingCommandInput,
@@ -50,9 +46,7 @@ export class UpdateApiMappingCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

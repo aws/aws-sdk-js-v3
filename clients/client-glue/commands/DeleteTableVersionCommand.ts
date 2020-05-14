@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  DeleteTableVersionRequest,
-  DeleteTableVersionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTableVersionCommand,
   serializeAws_json1_1DeleteTableVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTableVersionCommandInput = DeleteTableVersionRequest;
-export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse &
-  __MetadataBearer;
+export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse & __MetadataBearer;
 
 export class DeleteTableVersionCommand extends $Command<
   DeleteTableVersionCommandInput,
@@ -50,9 +42,7 @@ export class DeleteTableVersionCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

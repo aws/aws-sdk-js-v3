@@ -53,9 +53,7 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     ListElasticsearchInstanceTypesCommandInput,
     ListElasticsearchInstanceTypesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
     input: ListElasticsearchInstanceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> {
-    return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

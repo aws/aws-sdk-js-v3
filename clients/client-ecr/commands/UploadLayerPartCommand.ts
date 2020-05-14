@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  UploadLayerPartRequest,
-  UploadLayerPartResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/index";
 import {
   deserializeAws_json1_1UploadLayerPartCommand,
   serializeAws_json1_1UploadLayerPartCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UploadLayerPartCommandInput = UploadLayerPartRequest;
-export type UploadLayerPartCommandOutput = UploadLayerPartResponse &
-  __MetadataBearer;
+export type UploadLayerPartCommandOutput = UploadLayerPartResponse & __MetadataBearer;
 
 export class UploadLayerPartCommand extends $Command<
   UploadLayerPartCommandInput,
@@ -50,9 +42,7 @@ export class UploadLayerPartCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadLayerPartCommandInput, UploadLayerPartCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

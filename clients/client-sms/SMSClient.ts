@@ -1,15 +1,9 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateReplicationJobCommandInput,
   CreateReplicationJobCommandOutput
 } from "./commands/CreateReplicationJobCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteAppLaunchConfigurationCommandInput,
   DeleteAppLaunchConfigurationCommandOutput
@@ -38,10 +32,7 @@ import {
   GenerateTemplateCommandInput,
   GenerateTemplateCommandOutput
 } from "./commands/GenerateTemplateCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetAppLaunchConfigurationCommandInput,
   GetAppLaunchConfigurationCommandOutput
@@ -62,22 +53,13 @@ import {
   GetReplicationRunsCommandInput,
   GetReplicationRunsCommandOutput
 } from "./commands/GetReplicationRunsCommand";
-import {
-  GetServersCommandInput,
-  GetServersCommandOutput
-} from "./commands/GetServersCommand";
+import { GetServersCommandInput, GetServersCommandOutput } from "./commands/GetServersCommand";
 import {
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput
 } from "./commands/ImportServerCatalogCommand";
-import {
-  LaunchAppCommandInput,
-  LaunchAppCommandOutput
-} from "./commands/LaunchAppCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
+import { LaunchAppCommandInput, LaunchAppCommandOutput } from "./commands/LaunchAppCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import {
   PutAppLaunchConfigurationCommandInput,
   PutAppLaunchConfigurationCommandOutput
@@ -102,10 +84,7 @@ import {
   TerminateAppCommandInput,
   TerminateAppCommandOutput
 } from "./commands/TerminateAppCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
   UpdateReplicationJobCommandInput,
   UpdateReplicationJobCommandOutput
@@ -307,9 +286,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -318,9 +295,7 @@ export type SMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

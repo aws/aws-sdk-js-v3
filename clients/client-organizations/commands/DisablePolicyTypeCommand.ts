@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  DisablePolicyTypeRequest,
-  DisablePolicyTypeResponse
-} from "../models/index";
+import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisablePolicyTypeCommand,
   serializeAws_json1_1DisablePolicyTypeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisablePolicyTypeCommandInput = DisablePolicyTypeRequest;
-export type DisablePolicyTypeCommandOutput = DisablePolicyTypeResponse &
-  __MetadataBearer;
+export type DisablePolicyTypeCommandOutput = DisablePolicyTypeResponse & __MetadataBearer;
 
 export class DisablePolicyTypeCommand extends $Command<
   DisablePolicyTypeCommandInput,
@@ -50,9 +46,7 @@ export class DisablePolicyTypeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

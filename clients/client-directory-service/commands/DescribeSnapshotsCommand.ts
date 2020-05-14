@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsResult
-} from "../models/index";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSnapshotsCommand,
   serializeAws_json1_1DescribeSnapshotsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsRequest;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult &
-  __MetadataBearer;
+export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult & __MetadataBearer;
 
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSnapshotsCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

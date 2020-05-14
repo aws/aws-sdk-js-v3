@@ -45,13 +45,8 @@ export class ActivateEventSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ActivateEventSourceCommandInput,
-    ActivateEventSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ActivateEventSourceCommandInput, ActivateEventSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  BatchDeletePhoneNumberRequest,
-  BatchDeletePhoneNumberResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchDeletePhoneNumberCommand,
   serializeAws_restJson1_1BatchDeletePhoneNumberCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeletePhoneNumberCommandInput = BatchDeletePhoneNumberRequest;
-export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse &
-  __MetadataBearer;
+export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse & __MetadataBearer;
 
 export class BatchDeletePhoneNumberCommand extends $Command<
   BatchDeletePhoneNumberCommandInput,
@@ -49,13 +41,8 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeletePhoneNumberCommandInput,
-    BatchDeletePhoneNumberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeletePhoneNumberCommandInput, BatchDeletePhoneNumberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     input: BatchDeletePhoneNumberCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchDeletePhoneNumberCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1BatchDeletePhoneNumberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeletePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1_1BatchDeletePhoneNumberCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchDeletePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

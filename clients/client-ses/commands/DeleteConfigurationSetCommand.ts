@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteConfigurationSetCommand,
   serializeAws_queryDeleteConfigurationSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
-export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse &
-  __MetadataBearer;
+export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
 
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,
@@ -49,13 +41,8 @@ export class DeleteConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConfigurationSetCommandInput,
-    DeleteConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConfigurationSetCommandInput, DeleteConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

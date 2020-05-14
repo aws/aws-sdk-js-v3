@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   CreateAdditionalAssignmentsForHITRequest,
   CreateAdditionalAssignmentsForHITResponse
@@ -53,9 +49,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     CreateAdditionalAssignmentsForHITCommandInput,
     CreateAdditionalAssignmentsForHITCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
     input: CreateAdditionalAssignmentsForHITCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> {
-    return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(output, context);
   }
 
   // Start section: command_body_extra

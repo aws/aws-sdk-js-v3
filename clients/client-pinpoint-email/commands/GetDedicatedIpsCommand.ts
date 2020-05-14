@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointEmailClient";
-import {
-  GetDedicatedIpsRequest,
-  GetDedicatedIpsResponse
-} from "../models/index";
+import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDedicatedIpsCommand,
   serializeAws_restJson1_1GetDedicatedIpsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpsCommandInput = GetDedicatedIpsRequest;
-export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse &
-  __MetadataBearer;
+export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse & __MetadataBearer;
 
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,
@@ -50,9 +46,7 @@ export class GetDedicatedIpsCommand extends $Command<
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

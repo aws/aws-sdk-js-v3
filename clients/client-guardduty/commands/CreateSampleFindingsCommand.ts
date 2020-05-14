@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  CreateSampleFindingsRequest,
-  CreateSampleFindingsResponse
-} from "../models/index";
+import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSampleFindingsCommand,
   serializeAws_restJson1_1CreateSampleFindingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
-export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse &
-  __MetadataBearer;
+export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse & __MetadataBearer;
 
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,
@@ -49,13 +45,8 @@ export class CreateSampleFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSampleFindingsCommandInput,
-    CreateSampleFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSampleFindingsCommandInput, CreateSampleFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateSampleFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSampleFindingsCommandOutput> {
-    return deserializeAws_restJson1_1CreateSampleFindingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSampleFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

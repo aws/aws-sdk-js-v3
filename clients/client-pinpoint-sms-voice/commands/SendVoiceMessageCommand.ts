@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointSMSVoiceClient";
-import {
-  SendVoiceMessageRequest,
-  SendVoiceMessageResponse
-} from "../models/index";
+import { SendVoiceMessageRequest, SendVoiceMessageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendVoiceMessageCommand,
   serializeAws_restJson1_1SendVoiceMessageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendVoiceMessageCommandInput = SendVoiceMessageRequest;
-export type SendVoiceMessageCommandOutput = SendVoiceMessageResponse &
-  __MetadataBearer;
+export type SendVoiceMessageCommandOutput = SendVoiceMessageResponse & __MetadataBearer;
 
 export class SendVoiceMessageCommand extends $Command<
   SendVoiceMessageCommandInput,
@@ -50,9 +46,7 @@ export class SendVoiceMessageCommand extends $Command<
     configuration: PinpointSMSVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

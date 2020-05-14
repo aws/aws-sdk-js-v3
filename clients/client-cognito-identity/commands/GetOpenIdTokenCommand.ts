@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetOpenIdTokenCommandInput = GetOpenIdTokenInput;
-export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse &
-  __MetadataBearer;
+export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse & __MetadataBearer;
 
 export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandInput,
@@ -47,9 +46,7 @@ export class GetOpenIdTokenCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

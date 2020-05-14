@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ShareDirectoryCommandInput = ShareDirectoryRequest;
-export type ShareDirectoryCommandOutput = ShareDirectoryResult &
-  __MetadataBearer;
+export type ShareDirectoryCommandOutput = ShareDirectoryResult & __MetadataBearer;
 
 export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandInput,
@@ -47,9 +46,7 @@ export class ShareDirectoryCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ShareDirectoryCommandInput, ShareDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

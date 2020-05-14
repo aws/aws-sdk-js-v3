@@ -1,7 +1,4 @@
-import {
-  GetMediaCommandInput,
-  GetMediaCommandOutput
-} from "./commands/GetMediaCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -143,9 +140,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisVideoMediaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisVideoMediaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

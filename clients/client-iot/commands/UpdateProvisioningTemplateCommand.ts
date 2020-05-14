@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   UpdateProvisioningTemplateRequest,
   UpdateProvisioningTemplateResponse
@@ -49,13 +45,8 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateProvisioningTemplateCommandInput,
-    UpdateProvisioningTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateProvisioningTemplateCommandInput, UpdateProvisioningTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     input: UpdateProvisioningTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateProvisioningTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateProvisioningTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateProvisioningTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

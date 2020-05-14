@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommandInput,
   CreateBatchPredictionCommandOutput
@@ -50,10 +47,7 @@ import {
   DeleteRealtimeEndpointCommandInput,
   DeleteRealtimeEndpointCommandOutput
 } from "./commands/DeleteRealtimeEndpointCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput
@@ -86,14 +80,8 @@ import {
   GetEvaluationCommandInput,
   GetEvaluationCommandOutput
 } from "./commands/GetEvaluationCommand";
-import {
-  GetMLModelCommandInput,
-  GetMLModelCommandOutput
-} from "./commands/GetMLModelCommand";
-import {
-  PredictCommandInput,
-  PredictCommandOutput
-} from "./commands/PredictCommand";
+import { GetMLModelCommandInput, GetMLModelCommandOutput } from "./commands/GetMLModelCommand";
+import { PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
 import {
   UpdateBatchPredictionCommandInput,
   UpdateBatchPredictionCommandOutput
@@ -307,9 +295,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MachineLearningClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MachineLearningClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { UndeprecateWorkflowTypeInput } from "../models/index";
 import {
   deserializeAws_json1_0UndeprecateWorkflowTypeCommand,
@@ -45,13 +41,8 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UndeprecateWorkflowTypeCommandInput,
-    UndeprecateWorkflowTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UndeprecateWorkflowTypeCommandInput, UndeprecateWorkflowTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UndeprecateWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

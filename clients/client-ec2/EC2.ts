@@ -2031,31 +2031,19 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput>;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public acceptReservedInstancesExchangeQuote(
     args: AcceptReservedInstancesExchangeQuoteCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+      | ((err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void),
+    cb?: (err: any, data?: AcceptReservedInstancesExchangeQuoteCommandOutput) => void
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> | void {
     const command = new AcceptReservedInstancesExchangeQuoteCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2079,31 +2067,19 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput>;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayPeeringAttachment(
     args: AcceptTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: AcceptTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new AcceptTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2129,31 +2105,19 @@ export class EC2 extends EC2Client {
   ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput>;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public acceptTransitGatewayVpcAttachment(
     args: AcceptTransitGatewayVpcAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: AcceptTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new AcceptTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2317,9 +2281,7 @@ export class EC2 extends EC2Client {
   ): void;
   public allocateAddress(
     args: AllocateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateAddressCommandOutput) => void),
     cb?: (err: any, data?: AllocateAddressCommandOutput) => void
   ): Promise<AllocateAddressCommandOutput> | void {
     const command = new AllocateAddressCommand(args);
@@ -2354,9 +2316,7 @@ export class EC2 extends EC2Client {
   ): void;
   public allocateHosts(
     args: AllocateHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateHostsCommandOutput) => void),
     cb?: (err: any, data?: AllocateHostsCommandOutput) => void
   ): Promise<AllocateHostsCommandOutput> | void {
     const command = new AllocateHostsCommand(args);
@@ -2381,35 +2341,21 @@ export class EC2 extends EC2Client {
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput>;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public applySecurityGroupsToClientVpnTargetNetwork(
     args: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
-    ) => void
+      | ((err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void),
+    cb?: (err: any, data?: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput) => void
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> | void {
-    const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(
-      args
-    );
+    const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2545,9 +2491,7 @@ export class EC2 extends EC2Client {
   ): void;
   public associateAddress(
     args: AssociateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateAddressCommandOutput) => void),
     cb?: (err: any, data?: AssociateAddressCommandOutput) => void
   ): Promise<AssociateAddressCommandOutput> | void {
     const command = new AssociateAddressCommand(args);
@@ -2582,10 +2526,7 @@ export class EC2 extends EC2Client {
     args: AssociateClientVpnTargetNetworkCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateClientVpnTargetNetworkCommandOutput
-        ) => void),
+      | ((err: any, data?: AssociateClientVpnTargetNetworkCommandOutput) => void),
     cb?: (err: any, data?: AssociateClientVpnTargetNetworkCommandOutput) => void
   ): Promise<AssociateClientVpnTargetNetworkCommandOutput> | void {
     const command = new AssociateClientVpnTargetNetworkCommand(args);
@@ -2761,31 +2702,19 @@ export class EC2 extends EC2Client {
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput>;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public associateTransitGatewayMulticastDomain(
     args: AssociateTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new AssociateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2809,31 +2738,19 @@ export class EC2 extends EC2Client {
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput>;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public associateTransitGatewayRouteTable(
     args: AssociateTransitGatewayRouteTableCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTransitGatewayRouteTableCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateTransitGatewayRouteTableCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput> | void {
     const command = new AssociateTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3041,9 +2958,7 @@ export class EC2 extends EC2Client {
   ): void;
   public attachVolume(
     args: AttachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVolumeCommandOutput) => void),
     cb?: (err: any, data?: AttachVolumeCommandOutput) => void
   ): Promise<AttachVolumeCommandOutput> | void {
     const command = new AttachVolumeCommand(args);
@@ -3078,9 +2993,7 @@ export class EC2 extends EC2Client {
   ): void;
   public attachVpnGateway(
     args: AttachVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: AttachVpnGatewayCommandOutput) => void
   ): Promise<AttachVpnGatewayCommandOutput> | void {
     const command = new AttachVpnGatewayCommand(args);
@@ -3241,9 +3154,7 @@ export class EC2 extends EC2Client {
   ): void;
   public bundleInstance(
     args: BundleInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BundleInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BundleInstanceCommandOutput) => void),
     cb?: (err: any, data?: BundleInstanceCommandOutput) => void
   ): Promise<BundleInstanceCommandOutput> | void {
     const command = new BundleInstanceCommand(args);
@@ -3276,9 +3187,7 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelBundleTask(
     args: CancelBundleTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelBundleTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBundleTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelBundleTaskCommandOutput) => void
   ): Promise<CancelBundleTaskCommandOutput> | void {
     const command = new CancelBundleTaskCommand(args);
@@ -3392,9 +3301,7 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelExportTask(
     args: CancelExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): Promise<CancelExportTaskCommandOutput> | void {
     const command = new CancelExportTaskCommand(args);
@@ -3427,9 +3334,7 @@ export class EC2 extends EC2Client {
   ): void;
   public cancelImportTask(
     args: CancelImportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelImportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelImportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelImportTaskCommandOutput) => void
   ): Promise<CancelImportTaskCommandOutput> | void {
     const command = new CancelImportTaskCommand(args);
@@ -3467,10 +3372,7 @@ export class EC2 extends EC2Client {
     args: CancelReservedInstancesListingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelReservedInstancesListingCommandOutput
-        ) => void),
+      | ((err: any, data?: CancelReservedInstancesListingCommandOutput) => void),
     cb?: (err: any, data?: CancelReservedInstancesListingCommandOutput) => void
   ): Promise<CancelReservedInstancesListingCommandOutput> | void {
     const command = new CancelReservedInstancesListingCommand(args);
@@ -3618,9 +3520,7 @@ export class EC2 extends EC2Client {
   ): void;
   public copyFpgaImage(
     args: CopyFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: CopyFpgaImageCommandOutput) => void
   ): Promise<CopyFpgaImageCommandOutput> | void {
     const command = new CopyFpgaImageCommand(args);
@@ -3658,9 +3558,7 @@ export class EC2 extends EC2Client {
   ): void;
   public copyImage(
     args: CopyImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyImageCommandOutput) => void),
     cb?: (err: any, data?: CopyImageCommandOutput) => void
   ): Promise<CopyImageCommandOutput> | void {
     const command = new CopyImageCommand(args);
@@ -3705,9 +3603,7 @@ export class EC2 extends EC2Client {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
@@ -3970,9 +3866,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createDefaultVpc(
     args: CreateDefaultVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDefaultVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDefaultVpcCommandOutput) => void),
     cb?: (err: any, data?: CreateDefaultVpcCommandOutput) => void
   ): Promise<CreateDefaultVpcCommandOutput> | void {
     const command = new CreateDefaultVpcCommand(args);
@@ -4097,10 +3991,7 @@ export class EC2 extends EC2Client {
     args: CreateEgressOnlyInternetGatewayCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateEgressOnlyInternetGatewayCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateEgressOnlyInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateEgressOnlyInternetGatewayCommandOutput) => void
   ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> | void {
     const command = new CreateEgressOnlyInternetGatewayCommand(args);
@@ -4136,9 +4027,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
@@ -4184,9 +4073,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createFlowLogs(
     args: CreateFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: CreateFlowLogsCommandOutput) => void
   ): Promise<CreateFlowLogsCommandOutput> | void {
     const command = new CreateFlowLogsCommand(args);
@@ -4224,9 +4111,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createFpgaImage(
     args: CreateFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: CreateFpgaImageCommandOutput) => void
   ): Promise<CreateFpgaImageCommandOutput> | void {
     const command = new CreateFpgaImageCommand(args);
@@ -4262,9 +4147,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createImage(
     args: CreateImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageCommandOutput) => void),
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
@@ -4381,9 +4264,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createKeyPair(
     args: CreateKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyPairCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyPairCommandOutput) => void
   ): Promise<CreateKeyPairCommandOutput> | void {
     const command = new CreateKeyPairCommand(args);
@@ -4518,31 +4399,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput>;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public createLocalGatewayRouteTableVpcAssociation(
     args: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> | void {
     const command = new CreateLocalGatewayRouteTableVpcAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4579,9 +4448,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createNatGateway(
     args: CreateNatGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNatGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNatGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateNatGatewayCommandOutput) => void
   ): Promise<CreateNatGatewayCommandOutput> | void {
     const command = new CreateNatGatewayCommand(args);
@@ -4616,9 +4483,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createNetworkAcl(
     args: CreateNetworkAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkAclCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkAclCommandOutput) => void
   ): Promise<CreateNetworkAclCommandOutput> | void {
     const command = new CreateNetworkAclCommand(args);
@@ -4734,14 +4599,8 @@ export class EC2 extends EC2Client {
     args: CreateNetworkInterfacePermissionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateNetworkInterfacePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateNetworkInterfacePermissionCommandOutput
-    ) => void
+      | ((err: any, data?: CreateNetworkInterfacePermissionCommandOutput) => void),
+    cb?: (err: any, data?: CreateNetworkInterfacePermissionCommandOutput) => void
   ): Promise<CreateNetworkInterfacePermissionCommandOutput> | void {
     const command = new CreateNetworkInterfacePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4834,10 +4693,7 @@ export class EC2 extends EC2Client {
     args: CreateReservedInstancesListingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateReservedInstancesListingCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateReservedInstancesListingCommandOutput) => void),
     cb?: (err: any, data?: CreateReservedInstancesListingCommandOutput) => void
   ): Promise<CreateReservedInstancesListingCommandOutput> | void {
     const command = new CreateReservedInstancesListingCommand(args);
@@ -4890,9 +4746,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
@@ -4927,9 +4781,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createRouteTable(
     args: CreateRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteTableCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteTableCommandOutput) => void
   ): Promise<CreateRouteTableCommandOutput> | void {
     const command = new CreateRouteTableCommand(args);
@@ -5031,9 +4883,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
@@ -5069,9 +4919,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createSnapshots(
     args: CreateSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotsCommandOutput) => void
   ): Promise<CreateSnapshotsCommandOutput> | void {
     const command = new CreateSnapshotsCommand(args);
@@ -5109,10 +4957,7 @@ export class EC2 extends EC2Client {
     args: CreateSpotDatafeedSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSpotDatafeedSubscriptionCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateSpotDatafeedSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new CreateSpotDatafeedSubscriptionCommand(args);
@@ -5162,9 +5007,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createSubnet(
     args: CreateSubnetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubnetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubnetCommandOutput) => void),
     cb?: (err: any, data?: CreateSubnetCommandOutput) => void
   ): Promise<CreateSubnetCommandOutput> | void {
     const command = new CreateSubnetCommand(args);
@@ -5204,9 +5047,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -5434,31 +5275,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput>;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public createTransitGatewayMulticastDomain(
     args: CreateTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new CreateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5486,31 +5315,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput>;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayPeeringAttachment(
     args: CreateTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new CreateTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5579,10 +5396,7 @@ export class EC2 extends EC2Client {
     args: CreateTransitGatewayRouteTableCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayRouteTableCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateTransitGatewayRouteTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<CreateTransitGatewayRouteTableCommandOutput> | void {
     const command = new CreateTransitGatewayRouteTableCommand(args);
@@ -5609,31 +5423,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput>;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public createTransitGatewayVpcAttachment(
     args: CreateTransitGatewayVpcAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new CreateTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5678,9 +5480,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createVolume(
     args: CreateVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVolumeCommandOutput) => void),
     cb?: (err: any, data?: CreateVolumeCommandOutput) => void
   ): Promise<CreateVolumeCommandOutput> | void {
     const command = new CreateVolumeCommand(args);
@@ -5723,9 +5523,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpc(
     args: CreateVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcCommandOutput) => void
   ): Promise<CreateVpcCommandOutput> | void {
     const command = new CreateVpcCommand(args);
@@ -5801,31 +5599,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput>;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public createVpcEndpointConnectionNotification(
     args: CreateVpcEndpointConnectionNotificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVpcEndpointConnectionNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointConnectionNotificationCommandOutput) => void
   ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> | void {
     const command = new CreateVpcEndpointConnectionNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5854,31 +5640,19 @@ export class EC2 extends EC2Client {
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput>;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVpcEndpointServiceConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcEndpointServiceConfigurationCommandOutput) => void
   ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> | void {
     const command = new CreateVpcEndpointServiceConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6043,9 +5817,7 @@ export class EC2 extends EC2Client {
   ): void;
   public createVpnGateway(
     args: CreateVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateVpnGatewayCommandOutput) => void
   ): Promise<CreateVpnGatewayCommandOutput> | void {
     const command = new CreateVpnGatewayCommand(args);
@@ -6224,10 +5996,7 @@ export class EC2 extends EC2Client {
     args: DeleteEgressOnlyInternetGatewayCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteEgressOnlyInternetGatewayCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteEgressOnlyInternetGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteEgressOnlyInternetGatewayCommandOutput) => void
   ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> | void {
     const command = new DeleteEgressOnlyInternetGatewayCommand(args);
@@ -6265,9 +6034,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFleets(
     args: DeleteFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetsCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetsCommandOutput) => void
   ): Promise<DeleteFleetsCommandOutput> | void {
     const command = new DeleteFleetsCommand(args);
@@ -6300,9 +6067,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFlowLogs(
     args: DeleteFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: DeleteFlowLogsCommandOutput) => void
   ): Promise<DeleteFlowLogsCommandOutput> | void {
     const command = new DeleteFlowLogsCommand(args);
@@ -6335,9 +6100,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteFpgaImage(
     args: DeleteFpgaImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFpgaImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFpgaImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteFpgaImageCommandOutput) => void
   ): Promise<DeleteFpgaImageCommandOutput> | void {
     const command = new DeleteFpgaImageCommand(args);
@@ -6406,9 +6169,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteKeyPair(
     args: DeleteKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
     cb?: (err: any, data?: DeleteKeyPairCommandOutput) => void
   ): Promise<DeleteKeyPairCommandOutput> | void {
     const command = new DeleteKeyPairCommand(args);
@@ -6540,31 +6301,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput>;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): void;
   public deleteLocalGatewayRouteTableVpcAssociation(
     args: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput) => void
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> | void {
     const command = new DeleteLocalGatewayRouteTableVpcAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6596,9 +6345,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNatGateway(
     args: DeleteNatGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNatGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNatGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteNatGatewayCommandOutput) => void
   ): Promise<DeleteNatGatewayCommandOutput> | void {
     const command = new DeleteNatGatewayCommand(args);
@@ -6631,9 +6378,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteNetworkAcl(
     args: DeleteNetworkAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNetworkAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNetworkAclCommandOutput) => void),
     cb?: (err: any, data?: DeleteNetworkAclCommandOutput) => void
   ): Promise<DeleteNetworkAclCommandOutput> | void {
     const command = new DeleteNetworkAclCommand(args);
@@ -6741,14 +6486,8 @@ export class EC2 extends EC2Client {
     args: DeleteNetworkInterfacePermissionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNetworkInterfacePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteNetworkInterfacePermissionCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteNetworkInterfacePermissionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNetworkInterfacePermissionCommandOutput) => void
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> | void {
     const command = new DeleteNetworkInterfacePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6853,9 +6592,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
@@ -6888,9 +6625,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteRouteTable(
     args: DeleteRouteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteTableCommandOutput) => void
   ): Promise<DeleteRouteTableCommandOutput> | void {
     const command = new DeleteRouteTableCommand(args);
@@ -6971,9 +6706,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
@@ -7008,10 +6741,7 @@ export class EC2 extends EC2Client {
     args: DeleteSpotDatafeedSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteSpotDatafeedSubscriptionCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteSpotDatafeedSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new DeleteSpotDatafeedSubscriptionCommand(args);
@@ -7044,9 +6774,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteSubnet(
     args: DeleteSubnetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubnetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubnetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubnetCommandOutput) => void
   ): Promise<DeleteSubnetCommandOutput> | void {
     const command = new DeleteSubnetCommand(args);
@@ -7082,9 +6810,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -7285,31 +7011,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput>;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public deleteTransitGatewayMulticastDomain(
     args: DeleteTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new DeleteTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7332,31 +7046,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput>;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayPeeringAttachment(
     args: DeleteTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new DeleteTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7426,10 +7128,7 @@ export class EC2 extends EC2Client {
     args: DeleteTransitGatewayRouteTableCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayRouteTableCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteTransitGatewayRouteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTransitGatewayRouteTableCommandOutput) => void
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> | void {
     const command = new DeleteTransitGatewayRouteTableCommand(args);
@@ -7453,31 +7152,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput>;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public deleteTransitGatewayVpcAttachment(
     args: DeleteTransitGatewayVpcAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new DeleteTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7513,9 +7200,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): Promise<DeleteVolumeCommandOutput> | void {
     const command = new DeleteVolumeCommand(args);
@@ -7548,9 +7233,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpc(
     args: DeleteVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcCommandOutput) => void
   ): Promise<DeleteVpcCommandOutput> | void {
     const command = new DeleteVpcCommand(args);
@@ -7574,31 +7257,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput>;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointConnectionNotifications(
     args: DeleteVpcEndpointConnectionNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointConnectionNotificationsCommandOutput) => void
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> | void {
     const command = new DeleteVpcEndpointConnectionNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7624,31 +7295,19 @@ export class EC2 extends EC2Client {
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput>;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public deleteVpcEndpointServiceConfigurations(
     args: DeleteVpcEndpointServiceConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcEndpointServiceConfigurationsCommandOutput) => void
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> | void {
     const command = new DeleteVpcEndpointServiceConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7827,9 +7486,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deleteVpnGateway(
     args: DeleteVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpnGatewayCommandOutput) => void
   ): Promise<DeleteVpnGatewayCommandOutput> | void {
     const command = new DeleteVpnGatewayCommand(args);
@@ -7907,9 +7564,7 @@ export class EC2 extends EC2Client {
   ): void;
   public deregisterImage(
     args: DeregisterImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterImageCommandOutput) => void),
     cb?: (err: any, data?: DeregisterImageCommandOutput) => void
   ): Promise<DeregisterImageCommandOutput> | void {
     const command = new DeregisterImageCommand(args);
@@ -7933,37 +7588,21 @@ export class EC2 extends EC2Client {
   ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput>;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
-  ): Promise<
-    DeregisterTransitGatewayMulticastGroupMembersCommandOutput
-  > | void {
-    const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(
-      args
-    );
+      | ((err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTransitGatewayMulticastGroupMembersCommandOutput) => void
+  ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> | void {
+    const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7984,37 +7623,21 @@ export class EC2 extends EC2Client {
   ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput>;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
-  ): Promise<
-    DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-  > | void {
-    const command = new DeregisterTransitGatewayMulticastGroupSourcesCommand(
-      args
-    );
+      | ((err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
+  ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> | void {
+    const command = new DeregisterTransitGatewayMulticastGroupSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8379,31 +8002,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput>;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): void;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): void;
   public describeClientVpnAuthorizationRules(
     args: DescribeClientVpnAuthorizationRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClientVpnAuthorizationRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeClientVpnAuthorizationRulesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeClientVpnAuthorizationRulesCommandOutput) => void
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> | void {
     const command = new DescribeClientVpnAuthorizationRulesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -8543,10 +8154,7 @@ export class EC2 extends EC2Client {
     args: DescribeClientVpnTargetNetworksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClientVpnTargetNetworksCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeClientVpnTargetNetworksCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientVpnTargetNetworksCommandOutput) => void
   ): Promise<DescribeClientVpnTargetNetworksCommandOutput> | void {
     const command = new DescribeClientVpnTargetNetworksCommand(args);
@@ -8715,31 +8323,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput>;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): void;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): void;
   public describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEgressOnlyInternetGatewaysCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEgressOnlyInternetGatewaysCommandOutput) => void
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> | void {
     const command = new DescribeEgressOnlyInternetGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -8985,9 +8581,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFleets(
     args: DescribeFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetsCommandOutput) => void
   ): Promise<DescribeFleetsCommandOutput> | void {
     const command = new DescribeFleetsCommand(args);
@@ -9022,9 +8616,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeFlowLogs(
     args: DescribeFlowLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFlowLogsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlowLogsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFlowLogsCommandOutput) => void
   ): Promise<DescribeFlowLogsCommandOutput> | void {
     const command = new DescribeFlowLogsCommand(args);
@@ -9137,14 +8729,8 @@ export class EC2 extends EC2Client {
     args: DescribeHostReservationOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeHostReservationOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeHostReservationOfferingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeHostReservationOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHostReservationOfferingsCommandOutput) => void
   ): Promise<DescribeHostReservationOfferingsCommandOutput> | void {
     const command = new DescribeHostReservationOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -9215,9 +8801,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeHosts(
     args: DescribeHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHostsCommandOutput) => void
   ): Promise<DescribeHostsCommandOutput> | void {
     const command = new DescribeHostsCommand(args);
@@ -9241,31 +8825,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput>;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): void;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): void;
   public describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeIamInstanceProfileAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeIamInstanceProfileAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIamInstanceProfileAssociationsCommandOutput) => void
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> | void {
     const command = new DescribeIamInstanceProfileAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -9316,9 +8888,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeIdFormat(
     args: DescribeIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdFormatCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdFormatCommandOutput) => void
   ): Promise<DescribeIdFormatCommandOutput> | void {
     const command = new DescribeIdFormatCommand(args);
@@ -9443,9 +9013,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
@@ -9601,31 +9169,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput>;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): void;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): void;
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstanceCreditSpecificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstanceCreditSpecificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceCreditSpecificationsCommandOutput) => void
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> | void {
     const command = new DescribeInstanceCreditSpecificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -9912,9 +9468,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeKeyPairs(
     args: DescribeKeyPairsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeKeyPairsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyPairsCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyPairsCommandOutput) => void
   ): Promise<DescribeKeyPairsCommandOutput> | void {
     const command = new DescribeKeyPairsCommand(args);
@@ -9950,10 +9504,7 @@ export class EC2 extends EC2Client {
     args: DescribeLaunchTemplateVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLaunchTemplateVersionsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLaunchTemplateVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLaunchTemplateVersionsCommandOutput) => void
   ): Promise<DescribeLaunchTemplateVersionsCommandOutput> | void {
     const command = new DescribeLaunchTemplateVersionsCommand(args);
@@ -10009,9 +9560,7 @@ export class EC2 extends EC2Client {
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  >;
+  ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput>;
   public describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     cb: (
@@ -10039,9 +9588,7 @@ export class EC2 extends EC2Client {
       err: any,
       data?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
     ) => void
-  ): Promise<
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  > | void {
+  ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> | void {
     const command = new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(
       args
     );
@@ -10065,37 +9612,21 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput>;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
   ): void;
   public describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
-  > | void {
-    const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput) => void
+  ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> | void {
+    const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10128,10 +9659,7 @@ export class EC2 extends EC2Client {
     args: DescribeLocalGatewayRouteTablesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayRouteTablesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocalGatewayRouteTablesCommandOutput) => void
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> | void {
     const command = new DescribeLocalGatewayRouteTablesCommand(args);
@@ -10155,31 +9683,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput>;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput) => void
   ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> | void {
     const command = new DescribeLocalGatewayVirtualInterfaceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10202,31 +9718,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput>;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): void;
   public describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLocalGatewayVirtualInterfacesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> | void {
     const command = new DescribeLocalGatewayVirtualInterfacesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10392,31 +9896,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput>;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): void;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): void;
   public describeNetworkInterfaceAttribute(
     args: DescribeNetworkInterfaceAttributeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNetworkInterfaceAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNetworkInterfaceAttributeCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> | void {
     const command = new DescribeNetworkInterfaceAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10439,31 +9931,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput>;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): void;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): void;
   public describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNetworkInterfacePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNetworkInterfacePermissionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNetworkInterfacePermissionsCommandOutput) => void
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> | void {
     const command = new DescribeNetworkInterfacePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10696,9 +10176,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeRegions(
     args: DescribeRegionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRegionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeRegionsCommandOutput) => void
   ): Promise<DescribeRegionsCommandOutput> | void {
     const command = new DescribeRegionsCommand(args);
@@ -10764,31 +10242,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesListingsCommandOutput>;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): void;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): void;
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesListingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesListingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesListingsCommandOutput) => void
   ): Promise<DescribeReservedInstancesListingsCommandOutput> | void {
     const command = new DescribeReservedInstancesListingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10812,31 +10278,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesModificationsCommandOutput>;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): void;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): void;
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesModificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesModificationsCommandOutput) => void
   ): Promise<DescribeReservedInstancesModificationsCommandOutput> | void {
     const command = new DescribeReservedInstancesModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10862,31 +10316,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput>;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedInstancesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedInstancesOfferingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedInstancesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedInstancesOfferingsCommandOutput> | void {
     const command = new DescribeReservedInstancesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -10950,31 +10392,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput>;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): void;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): void;
   public describeScheduledInstanceAvailability(
     args: DescribeScheduledInstanceAvailabilityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeScheduledInstanceAvailabilityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeScheduledInstanceAvailabilityCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeScheduledInstanceAvailabilityCommandOutput) => void
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> | void {
     const command = new DescribeScheduledInstanceAvailabilityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11043,10 +10473,7 @@ export class EC2 extends EC2Client {
     args: DescribeSecurityGroupReferencesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSecurityGroupReferencesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeSecurityGroupReferencesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecurityGroupReferencesCommandOutput) => void
   ): Promise<DescribeSecurityGroupReferencesCommandOutput> | void {
     const command = new DescribeSecurityGroupReferencesCommand(args);
@@ -11240,14 +10667,8 @@ export class EC2 extends EC2Client {
     args: DescribeSpotDatafeedSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSpotDatafeedSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSpotDatafeedSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeSpotDatafeedSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new DescribeSpotDatafeedSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11318,10 +10739,7 @@ export class EC2 extends EC2Client {
     args: DescribeSpotFleetRequestHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSpotFleetRequestHistoryCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeSpotFleetRequestHistoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeSpotFleetRequestHistoryCommandOutput) => void
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> | void {
     const command = new DescribeSpotFleetRequestHistoryCommand(args);
@@ -11516,9 +10934,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeSubnets(
     args: DescribeSubnetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSubnetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubnetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubnetsCommandOutput) => void
   ): Promise<DescribeSubnetsCommandOutput> | void {
     const command = new DescribeSubnetsCommand(args);
@@ -11553,9 +10969,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -11685,31 +11099,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayAttachmentsCommandOutput>;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayAttachmentsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11732,31 +11134,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput>;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): void;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): void;
   public describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayMulticastDomainsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayMulticastDomainsCommandOutput) => void
   ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> | void {
     const command = new DescribeTransitGatewayMulticastDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11779,31 +11169,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput>;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayPeeringAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayPeeringAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11827,31 +11205,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayRouteTablesCommandOutput>;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): void;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): void;
   public describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayRouteTablesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayRouteTablesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayRouteTablesCommandOutput) => void
   ): Promise<DescribeTransitGatewayRouteTablesCommandOutput> | void {
     const command = new DescribeTransitGatewayRouteTablesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -11875,31 +11241,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput>;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): void;
   public describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTransitGatewayVpcAttachmentsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTransitGatewayVpcAttachmentsCommandOutput) => void
   ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> | void {
     const command = new DescribeTransitGatewayVpcAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -12079,9 +11433,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVolumes(
     args: DescribeVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
   ): Promise<DescribeVolumesCommandOutput> | void {
     const command = new DescribeVolumesCommand(args);
@@ -12235,14 +11587,8 @@ export class EC2 extends EC2Client {
     args: DescribeVpcClassicLinkDnsSupportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcClassicLinkDnsSupportCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcClassicLinkDnsSupportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new DescribeVpcClassicLinkDnsSupportCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -12266,31 +11612,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput>;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): void;
   public describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointConnectionNotificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointConnectionNotificationsCommandOutput) => void
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> | void {
     const command = new DescribeVpcEndpointConnectionNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -12325,10 +11659,7 @@ export class EC2 extends EC2Client {
     args: DescribeVpcEndpointConnectionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointConnectionsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeVpcEndpointConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcEndpointConnectionsCommandOutput) => void
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> | void {
     const command = new DescribeVpcEndpointConnectionsCommand(args);
@@ -12352,31 +11683,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput>;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): void;
   public describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointServiceConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointServiceConfigurationsCommandOutput) => void
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> | void {
     const command = new DescribeVpcEndpointServiceConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -12400,31 +11719,19 @@ export class EC2 extends EC2Client {
   ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput>;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public describeVpcEndpointServicePermissions(
     args: DescribeVpcEndpointServicePermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcEndpointServicePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcEndpointServicePermissionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcEndpointServicePermissionsCommandOutput) => void
   ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> | void {
     const command = new DescribeVpcEndpointServicePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -12561,9 +11868,7 @@ export class EC2 extends EC2Client {
   ): void;
   public describeVpcs(
     args: DescribeVpcsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVpcsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcsCommandOutput) => void),
     cb?: (err: any, data?: DescribeVpcsCommandOutput) => void
   ): Promise<DescribeVpcsCommandOutput> | void {
     const command = new DescribeVpcsCommand(args);
@@ -12785,9 +12090,7 @@ export class EC2 extends EC2Client {
   ): void;
   public detachVolume(
     args: DetachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVolumeCommandOutput) => void),
     cb?: (err: any, data?: DetachVolumeCommandOutput) => void
   ): Promise<DetachVolumeCommandOutput> | void {
     const command = new DetachVolumeCommand(args);
@@ -12822,9 +12125,7 @@ export class EC2 extends EC2Client {
   ): void;
   public detachVpnGateway(
     args: DetachVpnGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVpnGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVpnGatewayCommandOutput) => void),
     cb?: (err: any, data?: DetachVpnGatewayCommandOutput) => void
   ): Promise<DetachVpnGatewayCommandOutput> | void {
     const command = new DetachVpnGatewayCommand(args);
@@ -12925,31 +12226,19 @@ export class EC2 extends EC2Client {
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput>;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
-    cb: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public disableTransitGatewayRouteTablePropagation(
     args: DisableTransitGatewayRouteTablePropagationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+      | ((err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void),
+    cb?: (err: any, data?: DisableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> | void {
     const command = new DisableTransitGatewayRouteTablePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13056,10 +12345,7 @@ export class EC2 extends EC2Client {
     args: DisableVpcClassicLinkDnsSupportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
+      | ((err: any, data?: DisableVpcClassicLinkDnsSupportCommandOutput) => void),
     cb?: (err: any, data?: DisableVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new DisableVpcClassicLinkDnsSupportCommand(args);
@@ -13138,31 +12424,19 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput>;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): void;
   public disassociateClientVpnTargetNetwork(
     args: DisassociateClientVpnTargetNetworkCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateClientVpnTargetNetworkCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateClientVpnTargetNetworkCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateClientVpnTargetNetworkCommandOutput) => void
   ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> | void {
     const command = new DisassociateClientVpnTargetNetworkCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13198,10 +12472,7 @@ export class EC2 extends EC2Client {
     args: DisassociateIamInstanceProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateIamInstanceProfileCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateIamInstanceProfileCommandOutput) => void),
     cb?: (err: any, data?: DisassociateIamInstanceProfileCommandOutput) => void
   ): Promise<DisassociateIamInstanceProfileCommandOutput> | void {
     const command = new DisassociateIamInstanceProfileCommand(args);
@@ -13299,31 +12570,19 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput>;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): void;
   public disassociateTransitGatewayMulticastDomain(
     args: DisassociateTransitGatewayMulticastDomainCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTransitGatewayMulticastDomainCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayMulticastDomainCommandOutput) => void
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> | void {
     const command = new DisassociateTransitGatewayMulticastDomainCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13346,31 +12605,19 @@ export class EC2 extends EC2Client {
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput>;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): void;
   public disassociateTransitGatewayRouteTable(
     args: DisassociateTransitGatewayRouteTableCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTransitGatewayRouteTableCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTransitGatewayRouteTableCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> | void {
     const command = new DisassociateTransitGatewayRouteTableCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13518,31 +12765,19 @@ export class EC2 extends EC2Client {
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput>;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
-    cb: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): void;
   public enableTransitGatewayRouteTablePropagation(
     args: EnableTransitGatewayRouteTablePropagationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableTransitGatewayRouteTablePropagationCommandOutput
-    ) => void
+      | ((err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void),
+    cb?: (err: any, data?: EnableTransitGatewayRouteTablePropagationCommandOutput) => void
   ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> | void {
     const command = new EnableTransitGatewayRouteTablePropagationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13610,9 +12845,7 @@ export class EC2 extends EC2Client {
   ): void;
   public enableVolumeIO(
     args: EnableVolumeIOCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableVolumeIOCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableVolumeIOCommandOutput) => void),
     cb?: (err: any, data?: EnableVolumeIOCommandOutput) => void
   ): Promise<EnableVolumeIOCommandOutput> | void {
     const command = new EnableVolumeIOCommand(args);
@@ -13693,10 +12926,7 @@ export class EC2 extends EC2Client {
     args: EnableVpcClassicLinkDnsSupportCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableVpcClassicLinkDnsSupportCommandOutput
-        ) => void),
+      | ((err: any, data?: EnableVpcClassicLinkDnsSupportCommandOutput) => void),
     cb?: (err: any, data?: EnableVpcClassicLinkDnsSupportCommandOutput) => void
   ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> | void {
     const command = new EnableVpcClassicLinkDnsSupportCommand(args);
@@ -13720,37 +12950,21 @@ export class EC2 extends EC2Client {
   ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput>;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public exportClientVpnClientCertificateRevocationList(
     args: ExportClientVpnClientCertificateRevocationListCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
-  ): Promise<
-    ExportClientVpnClientCertificateRevocationListCommandOutput
-  > | void {
-    const command = new ExportClientVpnClientCertificateRevocationListCommand(
-      args
-    );
+      | ((err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void),
+    cb?: (err: any, data?: ExportClientVpnClientCertificateRevocationListCommandOutput) => void
+  ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> | void {
+    const command = new ExportClientVpnClientCertificateRevocationListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13773,31 +12987,19 @@ export class EC2 extends EC2Client {
   ): Promise<ExportClientVpnClientConfigurationCommandOutput>;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): void;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): void;
   public exportClientVpnClientConfiguration(
     args: ExportClientVpnClientConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExportClientVpnClientConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExportClientVpnClientConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ExportClientVpnClientConfigurationCommandOutput) => void
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> | void {
     const command = new ExportClientVpnClientConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -13830,9 +13032,7 @@ export class EC2 extends EC2Client {
   ): void;
   public exportImage(
     args: ExportImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportImageCommandOutput) => void),
     cb?: (err: any, data?: ExportImageCommandOutput) => void
   ): Promise<ExportImageCommandOutput> | void {
     const command = new ExportImageCommand(args);
@@ -13973,9 +13173,7 @@ export class EC2 extends EC2Client {
   ): void;
   public getCoipPoolUsage(
     args: GetCoipPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCoipPoolUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoipPoolUsageCommandOutput) => void),
     cb?: (err: any, data?: GetCoipPoolUsageCommandOutput) => void
   ): Promise<GetCoipPoolUsageCommandOutput> | void {
     const command = new GetCoipPoolUsageCommand(args);
@@ -14020,9 +13218,7 @@ export class EC2 extends EC2Client {
   ): void;
   public getConsoleOutput(
     args: GetConsoleOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConsoleOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConsoleOutputCommandOutput) => void),
     cb?: (err: any, data?: GetConsoleOutputCommandOutput) => void
   ): Promise<GetConsoleOutputCommandOutput> | void {
     const command = new GetConsoleOutputCommand(args);
@@ -14202,31 +13398,19 @@ export class EC2 extends EC2Client {
   ): Promise<GetHostReservationPurchasePreviewCommandOutput>;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
-    cb: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+    cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): void;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+    cb: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): void;
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetHostReservationPurchasePreviewCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetHostReservationPurchasePreviewCommandOutput
-    ) => void
+      | ((err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void),
+    cb?: (err: any, data?: GetHostReservationPurchasePreviewCommandOutput) => void
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> | void {
     const command = new GetHostReservationPurchasePreviewCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -14306,9 +13490,7 @@ export class EC2 extends EC2Client {
   ): void;
   public getPasswordData(
     args: GetPasswordDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPasswordDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPasswordDataCommandOutput) => void),
     cb?: (err: any, data?: GetPasswordDataCommandOutput) => void
   ): Promise<GetPasswordDataCommandOutput> | void {
     const command = new GetPasswordDataCommand(args);
@@ -14334,31 +13516,19 @@ export class EC2 extends EC2Client {
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput>;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
-    cb: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): void;
   public getReservedInstancesExchangeQuote(
     args: GetReservedInstancesExchangeQuoteCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservedInstancesExchangeQuoteCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservedInstancesExchangeQuoteCommandOutput
-    ) => void
+      | ((err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void),
+    cb?: (err: any, data?: GetReservedInstancesExchangeQuoteCommandOutput) => void
   ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> | void {
     const command = new GetReservedInstancesExchangeQuoteCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -14381,31 +13551,19 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput>;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayAttachmentPropagations(
     args: GetTransitGatewayAttachmentPropagationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayAttachmentPropagationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayAttachmentPropagationsCommandOutput) => void
   ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput> | void {
     const command = new GetTransitGatewayAttachmentPropagationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -14428,35 +13586,21 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput>;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayMulticastDomainAssociations(
     args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayMulticastDomainAssociationsCommandOutput) => void
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> | void {
-    const command = new GetTransitGatewayMulticastDomainAssociationsCommand(
-      args
-    );
+    const command = new GetTransitGatewayMulticastDomainAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -14477,31 +13621,19 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput>;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTableAssociations(
     args: GetTransitGatewayRouteTableAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayRouteTableAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayRouteTableAssociationsCommandOutput) => void
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> | void {
     const command = new GetTransitGatewayRouteTableAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -14524,31 +13656,19 @@ export class EC2 extends EC2Client {
   ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput>;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): void;
   public getTransitGatewayRouteTablePropagations(
     args: GetTransitGatewayRouteTablePropagationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetTransitGatewayRouteTablePropagationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayRouteTablePropagationsCommandOutput) => void
   ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> | void {
     const command = new GetTransitGatewayRouteTablePropagationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -14572,37 +13692,21 @@ export class EC2 extends EC2Client {
   ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput>;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
-    cb: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
+    cb: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
   ): void;
   public importClientVpnClientCertificateRevocationList(
     args: ImportClientVpnClientCertificateRevocationListCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ImportClientVpnClientCertificateRevocationListCommandOutput
-    ) => void
-  ): Promise<
-    ImportClientVpnClientCertificateRevocationListCommandOutput
-  > | void {
-    const command = new ImportClientVpnClientCertificateRevocationListCommand(
-      args
-    );
+      | ((err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void),
+    cb?: (err: any, data?: ImportClientVpnClientCertificateRevocationListCommandOutput) => void
+  ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> | void {
+    const command = new ImportClientVpnClientCertificateRevocationListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -14634,9 +13738,7 @@ export class EC2 extends EC2Client {
   ): void;
   public importImage(
     args: ImportImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportImageCommandOutput) => void),
     cb?: (err: any, data?: ImportImageCommandOutput) => void
   ): Promise<ImportImageCommandOutput> | void {
     const command = new ImportImageCommand(args);
@@ -14673,9 +13775,7 @@ export class EC2 extends EC2Client {
   ): void;
   public importInstance(
     args: ImportInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportInstanceCommandOutput) => void),
     cb?: (err: any, data?: ImportInstanceCommandOutput) => void
   ): Promise<ImportInstanceCommandOutput> | void {
     const command = new ImportInstanceCommand(args);
@@ -14713,9 +13813,7 @@ export class EC2 extends EC2Client {
   ): void;
   public importKeyPair(
     args: ImportKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyPairCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyPairCommandOutput) => void
   ): Promise<ImportKeyPairCommandOutput> | void {
     const command = new ImportKeyPairCommand(args);
@@ -14748,9 +13846,7 @@ export class EC2 extends EC2Client {
   ): void;
   public importSnapshot(
     args: ImportSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ImportSnapshotCommandOutput) => void
   ): Promise<ImportSnapshotCommandOutput> | void {
     const command = new ImportSnapshotCommand(args);
@@ -14785,9 +13881,7 @@ export class EC2 extends EC2Client {
   ): void;
   public importVolume(
     args: ImportVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportVolumeCommandOutput) => void),
     cb?: (err: any, data?: ImportVolumeCommandOutput) => void
   ): Promise<ImportVolumeCommandOutput> | void {
     const command = new ImportVolumeCommand(args);
@@ -14910,14 +14004,8 @@ export class EC2 extends EC2Client {
     args: ModifyDefaultCreditSpecificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDefaultCreditSpecificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDefaultCreditSpecificationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyDefaultCreditSpecificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDefaultCreditSpecificationCommandOutput) => void
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> | void {
     const command = new ModifyDefaultCreditSpecificationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -15012,9 +14100,7 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyFleet(
     args: ModifyFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyFleetCommandOutput) => void),
     cb?: (err: any, data?: ModifyFleetCommandOutput) => void
   ): Promise<ModifyFleetCommandOutput> | void {
     const command = new ModifyFleetCommand(args);
@@ -15089,9 +14175,7 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyHosts(
     args: ModifyHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHostsCommandOutput) => void),
     cb?: (err: any, data?: ModifyHostsCommandOutput) => void
   ): Promise<ModifyHostsCommandOutput> | void {
     const command = new ModifyHostsCommand(args);
@@ -15147,9 +14231,7 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyIdFormat(
     args: ModifyIdFormatCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyIdFormatCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyIdFormatCommandOutput) => void),
     cb?: (err: any, data?: ModifyIdFormatCommandOutput) => void
   ): Promise<ModifyIdFormatCommandOutput> | void {
     const command = new ModifyIdFormatCommand(args);
@@ -15316,35 +14398,21 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput>;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): void;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): void;
   public modifyInstanceCapacityReservationAttributes(
     args: ModifyInstanceCapacityReservationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyInstanceCapacityReservationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceCapacityReservationAttributesCommandOutput) => void
   ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> | void {
-    const command = new ModifyInstanceCapacityReservationAttributesCommand(
-      args
-    );
+    const command = new ModifyInstanceCapacityReservationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15370,31 +14438,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput>;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): void;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): void;
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyInstanceCreditSpecificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyInstanceCreditSpecificationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceCreditSpecificationCommandOutput) => void
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput> | void {
     const command = new ModifyInstanceCreditSpecificationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -15604,10 +14660,7 @@ export class EC2 extends EC2Client {
     args: ModifyNetworkInterfaceAttributeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyNetworkInterfaceAttributeCommandOutput
-        ) => void),
+      | ((err: any, data?: ModifyNetworkInterfaceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ModifyNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> | void {
     const command = new ModifyNetworkInterfaceAttributeCommand(args);
@@ -15811,31 +14864,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput>;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): void;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): void;
   public modifyTrafficMirrorFilterNetworkServices(
     args: ModifyTrafficMirrorFilterNetworkServicesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTrafficMirrorFilterNetworkServicesCommandOutput) => void
   ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> | void {
     const command = new ModifyTrafficMirrorFilterNetworkServicesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -15931,31 +14972,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput>;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public modifyTransitGatewayVpcAttachment(
     args: ModifyTransitGatewayVpcAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new ModifyTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16009,9 +15038,7 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVolume(
     args: ModifyVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVolumeCommandOutput) => void),
     cb?: (err: any, data?: ModifyVolumeCommandOutput) => void
   ): Promise<ModifyVolumeCommandOutput> | void {
     const command = new ModifyVolumeCommand(args);
@@ -16150,31 +15177,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput>;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): void;
   public modifyVpcEndpointConnectionNotification(
     args: ModifyVpcEndpointConnectionNotificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointConnectionNotificationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointConnectionNotificationCommandOutput) => void
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> | void {
     const command = new ModifyVpcEndpointConnectionNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16204,31 +15219,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput>;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): void;
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointServiceConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> | void {
     const command = new ModifyVpcEndpointServiceConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16255,31 +15258,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput>;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): void;
   public modifyVpcEndpointServicePermissions(
     args: ModifyVpcEndpointServicePermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcEndpointServicePermissionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcEndpointServicePermissionsCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointServicePermissionsCommandOutput) => void
   ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> | void {
     const command = new ModifyVpcEndpointServicePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16323,31 +15314,19 @@ export class EC2 extends EC2Client {
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput>;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): void;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): void;
   public modifyVpcPeeringConnectionOptions(
     args: ModifyVpcPeeringConnectionOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyVpcPeeringConnectionOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcPeeringConnectionOptionsCommandOutput) => void
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> | void {
     const command = new ModifyVpcPeeringConnectionOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16386,9 +15365,7 @@ export class EC2 extends EC2Client {
   ): void;
   public modifyVpcTenancy(
     args: ModifyVpcTenancyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyVpcTenancyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpcTenancyCommandOutput) => void),
     cb?: (err: any, data?: ModifyVpcTenancyCommandOutput) => void
   ): Promise<ModifyVpcTenancyCommandOutput> | void {
     const command = new ModifyVpcTenancyCommand(args);
@@ -16565,9 +15542,7 @@ export class EC2 extends EC2Client {
   ): void;
   public monitorInstances(
     args: MonitorInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MonitorInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MonitorInstancesCommandOutput) => void),
     cb?: (err: any, data?: MonitorInstancesCommandOutput) => void
   ): Promise<MonitorInstancesCommandOutput> | void {
     const command = new MonitorInstancesCommand(args);
@@ -16605,9 +15580,7 @@ export class EC2 extends EC2Client {
   ): void;
   public moveAddressToVpc(
     args: MoveAddressToVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MoveAddressToVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveAddressToVpcCommandOutput) => void),
     cb?: (err: any, data?: MoveAddressToVpcCommandOutput) => void
   ): Promise<MoveAddressToVpcCommandOutput> | void {
     const command = new MoveAddressToVpcCommand(args);
@@ -16724,31 +15697,19 @@ export class EC2 extends EC2Client {
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput>;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedInstancesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedInstancesOfferingCommandOutput
-    ) => void
+      | ((err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedInstancesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput> | void {
     const command = new PurchaseReservedInstancesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -16828,9 +15789,7 @@ export class EC2 extends EC2Client {
   ): void;
   public rebootInstances(
     args: RebootInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstancesCommandOutput) => void),
     cb?: (err: any, data?: RebootInstancesCommandOutput) => void
   ): Promise<RebootInstancesCommandOutput> | void {
     const command = new RebootInstancesCommand(args);
@@ -16892,9 +15851,7 @@ export class EC2 extends EC2Client {
   ): void;
   public registerImage(
     args: RegisterImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterImageCommandOutput) => void),
     cb?: (err: any, data?: RegisterImageCommandOutput) => void
   ): Promise<RegisterImageCommandOutput> | void {
     const command = new RegisterImageCommand(args);
@@ -16923,35 +15880,21 @@ export class EC2 extends EC2Client {
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput>;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupMembers(
     args: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTransitGatewayMulticastGroupMembersCommandOutput) => void
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> | void {
-    const command = new RegisterTransitGatewayMulticastGroupMembersCommand(
-      args
-    );
+    const command = new RegisterTransitGatewayMulticastGroupMembersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16977,35 +15920,21 @@ export class EC2 extends EC2Client {
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput>;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): void;
   public registerTransitGatewayMulticastGroupSources(
     args: RegisterTransitGatewayMulticastGroupSourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTransitGatewayMulticastGroupSourcesCommandOutput) => void
   ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> | void {
-    const command = new RegisterTransitGatewayMulticastGroupSourcesCommand(
-      args
-    );
+    const command = new RegisterTransitGatewayMulticastGroupSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -17026,31 +15955,19 @@ export class EC2 extends EC2Client {
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput>;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayPeeringAttachment(
     args: RejectTransitGatewayPeeringAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RejectTransitGatewayPeeringAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: RejectTransitGatewayPeeringAttachmentCommandOutput) => void
   ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> | void {
     const command = new RejectTransitGatewayPeeringAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -17076,31 +15993,19 @@ export class EC2 extends EC2Client {
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput>;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+    cb: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): void;
   public rejectTransitGatewayVpcAttachment(
     args: RejectTransitGatewayVpcAttachmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RejectTransitGatewayVpcAttachmentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RejectTransitGatewayVpcAttachmentCommandOutput
-    ) => void
+      | ((err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: RejectTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new RejectTransitGatewayVpcAttachmentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -17217,9 +16122,7 @@ export class EC2 extends EC2Client {
   ): void;
   public releaseAddress(
     args: ReleaseAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseAddressCommandOutput) => void),
     cb?: (err: any, data?: ReleaseAddressCommandOutput) => void
   ): Promise<ReleaseAddressCommandOutput> | void {
     const command = new ReleaseAddressCommand(args);
@@ -17260,9 +16163,7 @@ export class EC2 extends EC2Client {
   ): void;
   public releaseHosts(
     args: ReleaseHostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseHostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseHostsCommandOutput) => void),
     cb?: (err: any, data?: ReleaseHostsCommandOutput) => void
   ): Promise<ReleaseHostsCommandOutput> | void {
     const command = new ReleaseHostsCommand(args);
@@ -17290,31 +16191,19 @@ export class EC2 extends EC2Client {
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput>;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): void;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): void;
   public replaceIamInstanceProfileAssociation(
     args: ReplaceIamInstanceProfileAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ReplaceIamInstanceProfileAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ReplaceIamInstanceProfileAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void),
+    cb?: (err: any, data?: ReplaceIamInstanceProfileAssociationCommandOutput) => void
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> | void {
     const command = new ReplaceIamInstanceProfileAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -17426,9 +16315,7 @@ export class EC2 extends EC2Client {
   ): void;
   public replaceRoute(
     args: ReplaceRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceRouteCommandOutput) => void),
     cb?: (err: any, data?: ReplaceRouteCommandOutput) => void
   ): Promise<ReplaceRouteCommandOutput> | void {
     const command = new ReplaceRouteCommand(args);
@@ -17588,9 +16475,7 @@ export class EC2 extends EC2Client {
   ): void;
   public requestSpotFleet(
     args: RequestSpotFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestSpotFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestSpotFleetCommandOutput) => void),
     cb?: (err: any, data?: RequestSpotFleetCommandOutput) => void
   ): Promise<RequestSpotFleetCommandOutput> | void {
     const command = new RequestSpotFleetCommand(args);
@@ -17818,10 +16703,7 @@ export class EC2 extends EC2Client {
     args: ResetNetworkInterfaceAttributeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResetNetworkInterfaceAttributeCommandOutput
-        ) => void),
+      | ((err: any, data?: ResetNetworkInterfaceAttributeCommandOutput) => void),
     cb?: (err: any, data?: ResetNetworkInterfaceAttributeCommandOutput) => void
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> | void {
     const command = new ResetNetworkInterfaceAttributeCommand(args);
@@ -18105,9 +16987,7 @@ export class EC2 extends EC2Client {
   ): void;
   public runInstances(
     args: RunInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunInstancesCommandOutput) => void),
     cb?: (err: any, data?: RunInstancesCommandOutput) => void
   ): Promise<RunInstancesCommandOutput> | void {
     const command = new RunInstancesCommand(args);
@@ -18206,31 +17086,19 @@ export class EC2 extends EC2Client {
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput>;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): void;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): void;
   public searchTransitGatewayMulticastGroups(
     args: SearchTransitGatewayMulticastGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SearchTransitGatewayMulticastGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SearchTransitGatewayMulticastGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void),
+    cb?: (err: any, data?: SearchTransitGatewayMulticastGroupsCommandOutput) => void
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> | void {
     const command = new SearchTransitGatewayMulticastGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -18363,9 +17231,7 @@ export class EC2 extends EC2Client {
   ): void;
   public startInstances(
     args: StartInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstancesCommandOutput) => void),
     cb?: (err: any, data?: StartInstancesCommandOutput) => void
   ): Promise<StartInstancesCommandOutput> | void {
     const command = new StartInstancesCommand(args);
@@ -18392,37 +17258,21 @@ export class EC2 extends EC2Client {
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput>;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-    cb: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
+    cb: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
   ): void;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
+    cb: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
   ): void;
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-    ) => void
-  ): Promise<
-    StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-  > | void {
-    const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(
-      args
-    );
+      | ((err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void),
+    cb?: (err: any, data?: StartVpcEndpointServicePrivateDnsVerificationCommandOutput) => void
+  ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> | void {
+    const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -18485,9 +17335,7 @@ export class EC2 extends EC2Client {
   ): void;
   public stopInstances(
     args: StopInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstancesCommandOutput) => void),
     cb?: (err: any, data?: StopInstancesCommandOutput) => void
   ): Promise<StopInstancesCommandOutput> | void {
     const command = new StopInstancesCommand(args);
@@ -18710,31 +17558,19 @@ export class EC2 extends EC2Client {
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput>;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput) => void
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> | void {
     const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -18762,31 +17598,19 @@ export class EC2 extends EC2Client {
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput>;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): void;
   public updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> | void {
     const command = new UpdateSecurityGroupRuleDescriptionsIngressCommand(args);
     if (typeof optionsOrCb === "function") {

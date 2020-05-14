@@ -49,13 +49,8 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEntitiesDetectionJobsCommandInput,
-    ListEntitiesDetectionJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEntitiesDetectionJobsCommandInput, ListEntitiesDetectionJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEntitiesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

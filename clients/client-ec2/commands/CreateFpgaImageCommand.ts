@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/index";
 import {
   deserializeAws_ec2CreateFpgaImageCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFpgaImageCommandInput = CreateFpgaImageRequest;
-export type CreateFpgaImageCommandOutput = CreateFpgaImageResult &
-  __MetadataBearer;
+export type CreateFpgaImageCommandOutput = CreateFpgaImageResult & __MetadataBearer;
 
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,
@@ -47,9 +42,7 @@ export class CreateFpgaImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

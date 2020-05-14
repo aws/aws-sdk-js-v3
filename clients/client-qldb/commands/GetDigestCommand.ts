@@ -1,8 +1,4 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import { GetDigestRequest, GetDigestResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDigestCommand,
@@ -46,9 +42,7 @@ export class GetDigestCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDigestCommandInput, GetDigestCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetDigestCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDigestCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDigestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDigestCommand(input, context);
   }
 

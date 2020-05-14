@@ -53,9 +53,7 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     DescribeDefaultClusterParametersCommandInput,
     DescribeDefaultClusterParametersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     input: DescribeDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDefaultClusterParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDefaultClusterParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDefaultClusterParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

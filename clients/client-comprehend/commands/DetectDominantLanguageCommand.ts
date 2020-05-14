@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DetectDominantLanguageRequest,
-  DetectDominantLanguageResponse
-} from "../models/index";
+import { DetectDominantLanguageRequest, DetectDominantLanguageResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectDominantLanguageCommand,
   serializeAws_json1_1DetectDominantLanguageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectDominantLanguageCommandInput = DetectDominantLanguageRequest;
-export type DetectDominantLanguageCommandOutput = DetectDominantLanguageResponse &
-  __MetadataBearer;
+export type DetectDominantLanguageCommandOutput = DetectDominantLanguageResponse & __MetadataBearer;
 
 export class DetectDominantLanguageCommand extends $Command<
   DetectDominantLanguageCommandInput,
@@ -49,13 +45,8 @@ export class DetectDominantLanguageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetectDominantLanguageCommandInput,
-    DetectDominantLanguageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetectDominantLanguageCommandInput, DetectDominantLanguageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

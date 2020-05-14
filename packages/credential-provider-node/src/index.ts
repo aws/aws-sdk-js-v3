@@ -7,15 +7,8 @@ import {
   fromInstanceMetadata,
   RemoteProviderInit
 } from "@aws-sdk/credential-provider-imds";
-import {
-  ENV_PROFILE,
-  fromIni,
-  FromIniInit
-} from "@aws-sdk/credential-provider-ini";
-import {
-  fromProcess,
-  FromProcessInit
-} from "@aws-sdk/credential-provider-process";
+import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 import { CredentialProvider } from "@aws-sdk/types";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
@@ -71,10 +64,7 @@ function remoteProvider(init: RemoteProviderInit): CredentialProvider {
   }
 
   if (process.env[ENV_IMDS_DISABLED]) {
-    return () =>
-      Promise.reject(
-        new ProviderError("EC2 Instance Metadata Service access disabled")
-      );
+    return () => Promise.reject(new ProviderError("EC2 Instance Metadata Service access disabled"));
   }
 
   return fromInstanceMetadata(init);

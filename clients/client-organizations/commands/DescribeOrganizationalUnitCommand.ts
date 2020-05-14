@@ -49,13 +49,8 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOrganizationalUnitCommandInput,
-    DescribeOrganizationalUnitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOrganizationalUnitCommandInput, DescribeOrganizationalUnitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     input: DescribeOrganizationalUnitCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationalUnitCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeOrganizationalUnitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

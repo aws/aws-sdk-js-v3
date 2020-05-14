@@ -45,13 +45,8 @@ export class PutNotificationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutNotificationConfigurationCommandInput,
-    PutNotificationConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutNotificationConfigurationCommandInput, PutNotificationConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class PutNotificationConfigurationCommand extends $Command<
     input: PutNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPutNotificationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPutNotificationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryPutNotificationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPutNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

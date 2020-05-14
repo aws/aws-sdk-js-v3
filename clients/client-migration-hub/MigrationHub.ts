@@ -429,10 +429,7 @@ export class MigrationHub extends MigrationHubClient {
     args: DisassociateDiscoveredResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDiscoveredResourceCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateDiscoveredResourceCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDiscoveredResourceCommandOutput) => void
   ): Promise<DisassociateDiscoveredResourceCommandOutput> | void {
     const command = new DisassociateDiscoveredResourceCommand(args);

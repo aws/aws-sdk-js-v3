@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteApnsChannelRequest,
-  DeleteApnsChannelResponse
-} from "../models/index";
+import { DeleteApnsChannelRequest, DeleteApnsChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteApnsChannelCommand,
   serializeAws_restJson1_1DeleteApnsChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteApnsChannelCommandInput = DeleteApnsChannelRequest;
-export type DeleteApnsChannelCommandOutput = DeleteApnsChannelResponse &
-  __MetadataBearer;
+export type DeleteApnsChannelCommandOutput = DeleteApnsChannelResponse & __MetadataBearer;
 
 export class DeleteApnsChannelCommand extends $Command<
   DeleteApnsChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteApnsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteApnsChannelCommandInput, DeleteApnsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

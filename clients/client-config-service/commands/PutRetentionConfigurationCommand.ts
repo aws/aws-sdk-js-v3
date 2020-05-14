@@ -49,13 +49,8 @@ export class PutRetentionConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRetentionConfigurationCommandInput,
-    PutRetentionConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRetentionConfigurationCommandInput, PutRetentionConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class PutRetentionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRetentionConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutRetentionConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutRetentionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

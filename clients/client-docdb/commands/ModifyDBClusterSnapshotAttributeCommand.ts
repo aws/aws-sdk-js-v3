@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   ModifyDBClusterSnapshotAttributeMessage,
   ModifyDBClusterSnapshotAttributeResult
@@ -53,9 +49,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     ModifyDBClusterSnapshotAttributeCommandInput,
     ModifyDBClusterSnapshotAttributeCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

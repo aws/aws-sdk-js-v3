@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetLoadBalancerMetricDataRequest,
-  GetLoadBalancerMetricDataResult
-} from "../models/index";
+import { GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult } from "../models/index";
 import {
   deserializeAws_json1_1GetLoadBalancerMetricDataCommand,
   serializeAws_json1_1GetLoadBalancerMetricDataCommand
@@ -49,13 +46,8 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLoadBalancerMetricDataCommandInput,
-    GetLoadBalancerMetricDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLoadBalancerMetricDataCommandInput, GetLoadBalancerMetricDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoadBalancerMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

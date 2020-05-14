@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ResetServiceSettingRequest,
-  ResetServiceSettingResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/index";
 import {
   deserializeAws_json1_1ResetServiceSettingCommand,
   serializeAws_json1_1ResetServiceSettingCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetServiceSettingCommandInput = ResetServiceSettingRequest;
-export type ResetServiceSettingCommandOutput = ResetServiceSettingResult &
-  __MetadataBearer;
+export type ResetServiceSettingCommandOutput = ResetServiceSettingResult & __MetadataBearer;
 
 export class ResetServiceSettingCommand extends $Command<
   ResetServiceSettingCommandInput,
@@ -49,13 +41,8 @@ export class ResetServiceSettingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetServiceSettingCommandInput,
-    ResetServiceSettingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetServiceSettingCommandInput, ResetServiceSettingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

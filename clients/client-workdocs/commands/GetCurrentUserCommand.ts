@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCurrentUserCommandInput = GetCurrentUserRequest;
-export type GetCurrentUserCommandOutput = GetCurrentUserResponse &
-  __MetadataBearer;
+export type GetCurrentUserCommandOutput = GetCurrentUserResponse & __MetadataBearer;
 
 export class GetCurrentUserCommand extends $Command<
   GetCurrentUserCommandInput,
@@ -47,9 +46,7 @@ export class GetCurrentUserCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCurrentUserCommandInput, GetCurrentUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

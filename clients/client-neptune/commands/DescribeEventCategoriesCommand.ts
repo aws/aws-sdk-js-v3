@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DescribeEventCategoriesMessage,
-  EventCategoriesMessage
-} from "../models/index";
+import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeEventCategoriesCommand,
   serializeAws_queryDescribeEventCategoriesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
-export type DescribeEventCategoriesCommandOutput = EventCategoriesMessage &
-  __MetadataBearer;
+export type DescribeEventCategoriesCommandOutput = EventCategoriesMessage & __MetadataBearer;
 
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEventCategoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventCategoriesCommandInput,
-    DescribeEventCategoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventCategoriesCommandInput, DescribeEventCategoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  RevokePermissionsRequest,
-  RevokePermissionsResponse
-} from "../models/index";
+import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1RevokePermissionsCommand,
   serializeAws_json1_1RevokePermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokePermissionsCommandInput = RevokePermissionsRequest;
-export type RevokePermissionsCommandOutput = RevokePermissionsResponse &
-  __MetadataBearer;
+export type RevokePermissionsCommandOutput = RevokePermissionsResponse & __MetadataBearer;
 
 export class RevokePermissionsCommand extends $Command<
   RevokePermissionsCommandInput,
@@ -50,9 +46,7 @@ export class RevokePermissionsCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokePermissionsCommandInput, RevokePermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

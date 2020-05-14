@@ -1,12 +1,5 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
-import {
-  ExportJournalToS3Request,
-  ExportJournalToS3Response
-} from "../models/index";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportJournalToS3Command,
   serializeAws_restJson1_1ExportJournalToS3Command
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
-export type ExportJournalToS3CommandOutput = ExportJournalToS3Response &
-  __MetadataBearer;
+export type ExportJournalToS3CommandOutput = ExportJournalToS3Response & __MetadataBearer;
 
 export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandInput,
@@ -50,9 +42,7 @@ export class ExportJournalToS3Command extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

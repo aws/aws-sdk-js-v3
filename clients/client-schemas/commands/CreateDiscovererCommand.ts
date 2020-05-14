@@ -1,7 +1,4 @@
-import {
-  CreateDiscovererRequest,
-  CreateDiscovererResponse
-} from "../models/index";
+import { CreateDiscovererRequest, CreateDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDiscovererCommand,
   serializeAws_restJson1_1CreateDiscovererCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDiscovererCommandInput = CreateDiscovererRequest;
-export type CreateDiscovererCommandOutput = CreateDiscovererResponse &
-  __MetadataBearer;
+export type CreateDiscovererCommandOutput = CreateDiscovererResponse & __MetadataBearer;
 
 export class CreateDiscovererCommand extends $Command<
   CreateDiscovererCommandInput,
@@ -50,9 +46,7 @@ export class CreateDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDiscovererCommandInput, CreateDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

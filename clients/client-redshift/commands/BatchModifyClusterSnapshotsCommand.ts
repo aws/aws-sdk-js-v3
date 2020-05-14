@@ -49,13 +49,8 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchModifyClusterSnapshotsCommandInput,
-    BatchModifyClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchModifyClusterSnapshotsCommandInput, BatchModifyClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchModifyClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchModifyClusterSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchModifyClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     DescribeConfigurationAggregatorsCommandInput,
     DescribeConfigurationAggregatorsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     input: DescribeConfigurationAggregatorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

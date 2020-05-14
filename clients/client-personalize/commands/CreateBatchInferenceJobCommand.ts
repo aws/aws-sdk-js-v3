@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  CreateBatchInferenceJobRequest,
-  CreateBatchInferenceJobResponse
-} from "../models/index";
+import { CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateBatchInferenceJobCommand,
   serializeAws_json1_1CreateBatchInferenceJobCommand
@@ -49,13 +46,8 @@ export class CreateBatchInferenceJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBatchInferenceJobCommandInput,
-    CreateBatchInferenceJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBatchInferenceJobCommandInput, CreateBatchInferenceJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateBatchInferenceJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBatchInferenceJobCommandOutput> {
-    return deserializeAws_json1_1CreateBatchInferenceJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateBatchInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

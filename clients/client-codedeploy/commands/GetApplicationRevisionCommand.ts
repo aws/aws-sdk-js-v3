@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  GetApplicationRevisionInput,
-  GetApplicationRevisionOutput
-} from "../models/index";
+import { GetApplicationRevisionInput, GetApplicationRevisionOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetApplicationRevisionCommand,
   serializeAws_json1_1GetApplicationRevisionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApplicationRevisionCommandInput = GetApplicationRevisionInput;
-export type GetApplicationRevisionCommandOutput = GetApplicationRevisionOutput &
-  __MetadataBearer;
+export type GetApplicationRevisionCommandOutput = GetApplicationRevisionOutput & __MetadataBearer;
 
 export class GetApplicationRevisionCommand extends $Command<
   GetApplicationRevisionCommandInput,
@@ -49,13 +45,8 @@ export class GetApplicationRevisionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetApplicationRevisionCommandInput,
-    GetApplicationRevisionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetApplicationRevisionCommandInput, GetApplicationRevisionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

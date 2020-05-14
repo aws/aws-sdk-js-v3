@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMembersCommandInput = DeleteMembersRequest;
-export type DeleteMembersCommandOutput = DeleteMembersResponse &
-  __MetadataBearer;
+export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBearer;
 
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,
@@ -47,9 +46,7 @@ export class DeleteMembersCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMembersCommandInput, DeleteMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

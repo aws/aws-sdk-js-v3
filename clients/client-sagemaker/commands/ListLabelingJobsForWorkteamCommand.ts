@@ -49,13 +49,8 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLabelingJobsForWorkteamCommandInput,
-    ListLabelingJobsForWorkteamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLabelingJobsForWorkteamCommandInput, ListLabelingJobsForWorkteamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     input: ListLabelingJobsForWorkteamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> {
-    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

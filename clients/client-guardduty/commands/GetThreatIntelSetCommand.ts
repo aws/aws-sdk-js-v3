@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  GetThreatIntelSetRequest,
-  GetThreatIntelSetResponse
-} from "../models/index";
+import { GetThreatIntelSetRequest, GetThreatIntelSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetThreatIntelSetCommand,
   serializeAws_restJson1_1GetThreatIntelSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetThreatIntelSetCommandInput = GetThreatIntelSetRequest;
-export type GetThreatIntelSetCommandOutput = GetThreatIntelSetResponse &
-  __MetadataBearer;
+export type GetThreatIntelSetCommandOutput = GetThreatIntelSetResponse & __MetadataBearer;
 
 export class GetThreatIntelSetCommand extends $Command<
   GetThreatIntelSetCommandInput,
@@ -50,9 +46,7 @@ export class GetThreatIntelSetCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

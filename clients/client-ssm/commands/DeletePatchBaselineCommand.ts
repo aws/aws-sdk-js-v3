@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DeletePatchBaselineRequest,
-  DeletePatchBaselineResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/index";
 import {
   deserializeAws_json1_1DeletePatchBaselineCommand,
   serializeAws_json1_1DeletePatchBaselineCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePatchBaselineCommandInput = DeletePatchBaselineRequest;
-export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult &
-  __MetadataBearer;
+export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult & __MetadataBearer;
 
 export class DeletePatchBaselineCommand extends $Command<
   DeletePatchBaselineCommandInput,
@@ -49,13 +41,8 @@ export class DeletePatchBaselineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePatchBaselineCommandInput,
-    DeletePatchBaselineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePatchBaselineCommandInput, DeletePatchBaselineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -24,10 +24,7 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type PostContentCommandInput = Omit<
-  PostContentRequest,
-  "inputStream"
-> & {
+export type PostContentCommandInput = Omit<PostContentRequest, "inputStream"> & {
   inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
 };
 export type PostContentCommandOutput = PostContentResponse & __MetadataBearer;
@@ -51,9 +48,7 @@ export class PostContentCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostContentCommandInput, PostContentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand,
   serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand
@@ -34,9 +30,7 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisableHealthServiceAccessForOrganizationCommandInput
-  ) {
+  constructor(readonly input: DisableHealthServiceAccessForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -50,9 +44,7 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     DisableHealthServiceAccessForOrganizationCommandInput,
     DisableHealthServiceAccessForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +63,14 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     input: DisableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

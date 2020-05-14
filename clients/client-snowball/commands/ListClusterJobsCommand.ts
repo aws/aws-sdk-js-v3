@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListClusterJobsCommandInput = ListClusterJobsRequest;
-export type ListClusterJobsCommandOutput = ListClusterJobsResult &
-  __MetadataBearer;
+export type ListClusterJobsCommandOutput = ListClusterJobsResult & __MetadataBearer;
 
 export class ListClusterJobsCommand extends $Command<
   ListClusterJobsCommandInput,
@@ -47,9 +46,7 @@ export class ListClusterJobsCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListClusterJobsCommandInput, ListClusterJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetInstanceProfileRequest,
-  GetInstanceProfileResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetInstanceProfileRequest, GetInstanceProfileResponse } from "../models/index";
 import {
   deserializeAws_queryGetInstanceProfileCommand,
   serializeAws_queryGetInstanceProfileCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInstanceProfileCommandInput = GetInstanceProfileRequest;
-export type GetInstanceProfileCommandOutput = GetInstanceProfileResponse &
-  __MetadataBearer;
+export type GetInstanceProfileCommandOutput = GetInstanceProfileResponse & __MetadataBearer;
 
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,
@@ -50,9 +42,7 @@ export class GetInstanceProfileCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

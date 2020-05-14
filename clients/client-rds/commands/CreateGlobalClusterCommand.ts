@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateGlobalClusterMessage,
-  CreateGlobalClusterResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateGlobalClusterCommand,
   serializeAws_queryCreateGlobalClusterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
-export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult &
-  __MetadataBearer;
+export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult & __MetadataBearer;
 
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,
@@ -49,13 +41,8 @@ export class CreateGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateGlobalClusterCommandInput,
-    CreateGlobalClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateGlobalClusterCommandInput, CreateGlobalClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

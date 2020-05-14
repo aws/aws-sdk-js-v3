@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketMetricsConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketMetricsConfigurationCommand,
@@ -50,9 +46,7 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     PutBucketMetricsConfigurationCommandInput,
     PutBucketMetricsConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     input: PutBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketMetricsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketMetricsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketMetricsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

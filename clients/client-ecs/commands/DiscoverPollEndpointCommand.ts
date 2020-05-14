@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  DiscoverPollEndpointRequest,
-  DiscoverPollEndpointResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/index";
 import {
   deserializeAws_json1_1DiscoverPollEndpointCommand,
   serializeAws_json1_1DiscoverPollEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DiscoverPollEndpointCommandInput = DiscoverPollEndpointRequest;
-export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse &
-  __MetadataBearer;
+export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse & __MetadataBearer;
 
 export class DiscoverPollEndpointCommand extends $Command<
   DiscoverPollEndpointCommandInput,
@@ -49,13 +41,8 @@ export class DiscoverPollEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DiscoverPollEndpointCommandInput,
-    DiscoverPollEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DiscoverPollEndpointCommandInput, DiscoverPollEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

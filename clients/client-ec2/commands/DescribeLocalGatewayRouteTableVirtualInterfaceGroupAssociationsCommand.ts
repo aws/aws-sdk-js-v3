@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
@@ -55,9 +51,7 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,9 +79,7 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput
-  > {
+  ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> {
     return deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(
       output,
       context

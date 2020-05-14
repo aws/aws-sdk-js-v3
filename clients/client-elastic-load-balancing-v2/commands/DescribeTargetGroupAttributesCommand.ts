@@ -53,9 +53,7 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     DescribeTargetGroupAttributesCommandInput,
     DescribeTargetGroupAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeTargetGroupAttributesCommand extends $Command<
     input: DescribeTargetGroupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTargetGroupAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeTargetGroupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryDescribeTargetGroupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

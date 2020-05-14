@@ -1,12 +1,5 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  GetCallerIdentityRequest,
-  GetCallerIdentityResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/index";
 import {
   deserializeAws_queryGetCallerIdentityCommand,
   serializeAws_queryGetCallerIdentityCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCallerIdentityCommandInput = GetCallerIdentityRequest;
-export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse &
-  __MetadataBearer;
+export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse & __MetadataBearer;
 
 export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandInput,
@@ -50,9 +42,7 @@ export class GetCallerIdentityCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

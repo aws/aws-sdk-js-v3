@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  RegisterEndPointsInput,
-  RegisterEndPointsOutput
-} from "../models/index";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/index";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand
@@ -53,9 +50,7 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     RegisterInstancesWithLoadBalancerCommandInput,
     RegisterInstancesWithLoadBalancerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     input: RegisterInstancesWithLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
-    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

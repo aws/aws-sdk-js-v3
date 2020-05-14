@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  PutSkillAuthorizationRequest,
-  PutSkillAuthorizationResponse
-} from "../models/index";
+import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutSkillAuthorizationCommand,
   serializeAws_json1_1PutSkillAuthorizationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutSkillAuthorizationCommandInput = PutSkillAuthorizationRequest;
-export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse &
-  __MetadataBearer;
+export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse & __MetadataBearer;
 
 export class PutSkillAuthorizationCommand extends $Command<
   PutSkillAuthorizationCommandInput,
@@ -49,13 +45,8 @@ export class PutSkillAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutSkillAuthorizationCommandInput,
-    PutSkillAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutSkillAuthorizationCommandInput, PutSkillAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

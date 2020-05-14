@@ -49,13 +49,8 @@ export class UpdateTerminationProtectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTerminationProtectionCommandInput,
-    UpdateTerminationProtectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTerminationProtectionCommandInput, UpdateTerminationProtectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class UpdateTerminationProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTerminationProtectionCommandOutput> {
-    return deserializeAws_queryUpdateTerminationProtectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

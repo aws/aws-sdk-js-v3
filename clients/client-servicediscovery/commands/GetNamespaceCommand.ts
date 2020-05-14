@@ -46,9 +46,7 @@ export class GetNamespaceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetNamespaceCommandInput, GetNamespaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

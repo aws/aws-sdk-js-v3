@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  SetDefaultAuthorizerRequest,
-  SetDefaultAuthorizerResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { SetDefaultAuthorizerRequest, SetDefaultAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SetDefaultAuthorizerCommand,
   serializeAws_restJson1_1SetDefaultAuthorizerCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetDefaultAuthorizerCommandInput = SetDefaultAuthorizerRequest;
-export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse &
-  __MetadataBearer;
+export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse & __MetadataBearer;
 
 export class SetDefaultAuthorizerCommand extends $Command<
   SetDefaultAuthorizerCommandInput,
@@ -49,13 +41,8 @@ export class SetDefaultAuthorizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetDefaultAuthorizerCommandInput,
-    SetDefaultAuthorizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetDefaultAuthorizerCommandInput, SetDefaultAuthorizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class SetDefaultAuthorizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1SetDefaultAuthorizerCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

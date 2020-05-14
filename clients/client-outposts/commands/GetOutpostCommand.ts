@@ -46,9 +46,7 @@ export class GetOutpostCommand extends $Command<
     configuration: OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOutpostCommandInput, GetOutpostCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

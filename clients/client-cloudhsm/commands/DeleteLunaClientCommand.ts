@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMClient";
-import {
-  DeleteLunaClientRequest,
-  DeleteLunaClientResponse
-} from "../models/index";
+import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLunaClientCommand,
   serializeAws_json1_1DeleteLunaClientCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLunaClientCommandInput = DeleteLunaClientRequest;
-export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse &
-  __MetadataBearer;
+export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse & __MetadataBearer;
 
 export class DeleteLunaClientCommand extends $Command<
   DeleteLunaClientCommandInput,
@@ -50,9 +46,7 @@ export class DeleteLunaClientCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLunaClientCommandInput, DeleteLunaClientCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

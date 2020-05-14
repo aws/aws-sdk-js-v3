@@ -49,9 +49,7 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     DeleteEnvironmentConfigurationCommandInput,
     DeleteEnvironmentConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     input: DeleteEnvironmentConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEnvironmentConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteEnvironmentConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

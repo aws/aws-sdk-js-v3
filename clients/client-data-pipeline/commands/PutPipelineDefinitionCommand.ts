@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient";
-import {
-  PutPipelineDefinitionInput,
-  PutPipelineDefinitionOutput
-} from "../models/index";
+import { PutPipelineDefinitionInput, PutPipelineDefinitionOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutPipelineDefinitionCommand,
   serializeAws_json1_1PutPipelineDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutPipelineDefinitionCommandInput = PutPipelineDefinitionInput;
-export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput &
-  __MetadataBearer;
+export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput & __MetadataBearer;
 
 export class PutPipelineDefinitionCommand extends $Command<
   PutPipelineDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class PutPipelineDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutPipelineDefinitionCommandInput,
-    PutPipelineDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutPipelineDefinitionCommandInput, PutPipelineDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

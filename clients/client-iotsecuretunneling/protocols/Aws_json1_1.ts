@@ -1,7 +1,4 @@
-import {
-  CloseTunnelCommandInput,
-  CloseTunnelCommandOutput
-} from "../commands/CloseTunnelCommand";
+import { CloseTunnelCommandInput, CloseTunnelCommandOutput } from "../commands/CloseTunnelCommand";
 import {
   DescribeTunnelCommandInput,
   DescribeTunnelCommandOutput
@@ -10,18 +7,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTunnelsCommandInput,
-  ListTunnelsCommandOutput
-} from "../commands/ListTunnelsCommand";
-import {
-  OpenTunnelCommandInput,
-  OpenTunnelCommandOutput
-} from "../commands/OpenTunnelCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { ListTunnelsCommandInput, ListTunnelsCommandOutput } from "../commands/ListTunnelsCommand";
+import { OpenTunnelCommandInput, OpenTunnelCommandOutput } from "../commands/OpenTunnelCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -85,9 +73,7 @@ export const serializeAws_json1_1DescribeTunnelCommand = async (
     "X-Amz-Target": "IoTSecuredTunneling.DescribeTunnel"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTunnelRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTunnelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -100,9 +86,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "IoTSecuredTunneling.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -154,9 +138,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "IoTSecuredTunneling.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -189,16 +171,12 @@ const deserializeAws_json1_1CloseTunnelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.envoy.frontend#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -249,16 +227,12 @@ const deserializeAws_json1_1DescribeTunnelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.envoy.frontend#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -285,10 +259,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -312,16 +283,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.envoy.frontend#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -372,8 +339,7 @@ const deserializeAws_json1_1ListTunnelsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -421,16 +387,12 @@ const deserializeAws_json1_1OpenTunnelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.envoy.frontend#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -481,16 +443,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.envoy.frontend#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -541,16 +499,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.envoy.frontend#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -577,10 +531,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -595,10 +546,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -666,27 +614,18 @@ const serializeAws_json1_1OpenTunnelRequest = (
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.destinationConfig !== undefined && {
-      destinationConfig: serializeAws_json1_1DestinationConfig(
-        input.destinationConfig,
-        context
-      )
+      destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_1TagList(input.tags, context)
     }),
     ...(input.timeoutConfig !== undefined && {
-      timeoutConfig: serializeAws_json1_1TimeoutConfig(
-        input.timeoutConfig,
-        context
-      )
+      timeoutConfig: serializeAws_json1_1TimeoutConfig(input.timeoutConfig, context)
     })
   };
 };
 
-const serializeAws_json1_1ServiceList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ServiceList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -697,17 +636,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -723,10 +656,7 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1TimeoutConfig = (
-  input: TimeoutConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TimeoutConfig = (input: TimeoutConfig, context: __SerdeContext): any => {
   return {
     ...(input.maxLifetimeTimeoutMinutes !== undefined && {
       maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes
@@ -765,10 +695,7 @@ const deserializeAws_json1_1ConnectionState = (
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -796,9 +723,7 @@ const deserializeAws_json1_1DestinationConfig = (
         ? deserializeAws_json1_1ServiceList(output.services, context)
         : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined
   } as any;
 };
 
@@ -808,10 +733,7 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -835,15 +757,10 @@ const deserializeAws_json1_1ListTunnelsResponse = (
   return {
     __type: "ListTunnelsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tunnelSummaries:
       output.tunnelSummaries !== undefined && output.tunnelSummaries !== null
-        ? deserializeAws_json1_1TunnelSummaryList(
-            output.tunnelSummaries,
-            context
-          )
+        ? deserializeAws_json1_1TunnelSummaryList(output.tunnelSummaries, context)
         : undefined
   } as any;
 };
@@ -855,23 +772,17 @@ const deserializeAws_json1_1OpenTunnelResponse = (
   return {
     __type: "OpenTunnelResponse",
     destinationAccessToken:
-      output.destinationAccessToken !== undefined &&
-      output.destinationAccessToken !== null
+      output.destinationAccessToken !== undefined && output.destinationAccessToken !== null
         ? output.destinationAccessToken
         : undefined,
     sourceAccessToken:
-      output.sourceAccessToken !== undefined &&
-      output.sourceAccessToken !== null
+      output.sourceAccessToken !== undefined && output.sourceAccessToken !== null
         ? output.sourceAccessToken
         : undefined,
     tunnelArn:
-      output.tunnelArn !== undefined && output.tunnelArn !== null
-        ? output.tunnelArn
-        : undefined,
+      output.tunnelArn !== undefined && output.tunnelArn !== null ? output.tunnelArn : undefined,
     tunnelId:
-      output.tunnelId !== undefined && output.tunnelId !== null
-        ? output.tunnelId
-        : undefined
+      output.tunnelId !== undefined && output.tunnelId !== null ? output.tunnelId : undefined
   } as any;
 };
 
@@ -881,42 +792,24 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ServiceList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
@@ -935,17 +828,13 @@ const deserializeAws_json1_1TimeoutConfig = (
   return {
     __type: "TimeoutConfig",
     maxLifetimeTimeoutMinutes:
-      output.maxLifetimeTimeoutMinutes !== undefined &&
-      output.maxLifetimeTimeoutMinutes !== null
+      output.maxLifetimeTimeoutMinutes !== undefined && output.maxLifetimeTimeoutMinutes !== null
         ? output.maxLifetimeTimeoutMinutes
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tunnel = (
-  output: any,
-  context: __SerdeContext
-): Tunnel => {
+const deserializeAws_json1_1Tunnel = (output: any, context: __SerdeContext): Tunnel => {
   return {
     __type: "Tunnel",
     createdAt:
@@ -957,37 +846,22 @@ const deserializeAws_json1_1Tunnel = (
         ? output.description
         : undefined,
     destinationConfig:
-      output.destinationConfig !== undefined &&
-      output.destinationConfig !== null
-        ? deserializeAws_json1_1DestinationConfig(
-            output.destinationConfig,
-            context
-          )
+      output.destinationConfig !== undefined && output.destinationConfig !== null
+        ? deserializeAws_json1_1DestinationConfig(output.destinationConfig, context)
         : undefined,
     destinationConnectionState:
-      output.destinationConnectionState !== undefined &&
-      output.destinationConnectionState !== null
-        ? deserializeAws_json1_1ConnectionState(
-            output.destinationConnectionState,
-            context
-          )
+      output.destinationConnectionState !== undefined && output.destinationConnectionState !== null
+        ? deserializeAws_json1_1ConnectionState(output.destinationConnectionState, context)
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
     sourceConnectionState:
-      output.sourceConnectionState !== undefined &&
-      output.sourceConnectionState !== null
-        ? deserializeAws_json1_1ConnectionState(
-            output.sourceConnectionState,
-            context
-          )
+      output.sourceConnectionState !== undefined && output.sourceConnectionState !== null
+        ? deserializeAws_json1_1ConnectionState(output.sourceConnectionState, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -997,13 +871,9 @@ const deserializeAws_json1_1Tunnel = (
         ? deserializeAws_json1_1TimeoutConfig(output.timeoutConfig, context)
         : undefined,
     tunnelArn:
-      output.tunnelArn !== undefined && output.tunnelArn !== null
-        ? output.tunnelArn
-        : undefined,
+      output.tunnelArn !== undefined && output.tunnelArn !== null ? output.tunnelArn : undefined,
     tunnelId:
-      output.tunnelId !== undefined && output.tunnelId !== null
-        ? output.tunnelId
-        : undefined
+      output.tunnelId !== undefined && output.tunnelId !== null ? output.tunnelId : undefined
   } as any;
 };
 
@@ -1025,18 +895,11 @@ const deserializeAws_json1_1TunnelSummary = (
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tunnelArn:
-      output.tunnelArn !== undefined && output.tunnelArn !== null
-        ? output.tunnelArn
-        : undefined,
+      output.tunnelArn !== undefined && output.tunnelArn !== null ? output.tunnelArn : undefined,
     tunnelId:
-      output.tunnelId !== undefined && output.tunnelId !== null
-        ? output.tunnelId
-        : undefined
+      output.tunnelId !== undefined && output.tunnelId !== null ? output.tunnelId : undefined
   } as any;
 };
 
@@ -1044,9 +907,7 @@ const deserializeAws_json1_1TunnelSummaryList = (
   output: any,
   context: __SerdeContext
 ): TunnelSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TunnelSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TunnelSummary(entry, context));
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
@@ -1072,16 +933,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

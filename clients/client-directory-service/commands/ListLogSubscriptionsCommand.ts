@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  ListLogSubscriptionsRequest,
-  ListLogSubscriptionsResult
-} from "../models/index";
+import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListLogSubscriptionsCommand,
   serializeAws_json1_1ListLogSubscriptionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLogSubscriptionsCommandInput = ListLogSubscriptionsRequest;
-export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult &
-  __MetadataBearer;
+export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult & __MetadataBearer;
 
 export class ListLogSubscriptionsCommand extends $Command<
   ListLogSubscriptionsCommandInput,
@@ -49,13 +45,8 @@ export class ListLogSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLogSubscriptionsCommandInput,
-    ListLogSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLogSubscriptionsCommandInput, ListLogSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

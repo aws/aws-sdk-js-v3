@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ChangeResourceRecordSetsRequest,
-  ChangeResourceRecordSetsResponse
-} from "../models/index";
+import { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/index";
 import {
   deserializeAws_restXmlChangeResourceRecordSetsCommand,
   serializeAws_restXmlChangeResourceRecordSetsCommand
@@ -53,13 +50,8 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeResourceRecordSetsCommandInput,
-    ChangeResourceRecordSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
@@ -87,10 +79,7 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ChangeResourceRecordSetsCommandOutput> {
-    return deserializeAws_restXmlChangeResourceRecordSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlChangeResourceRecordSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

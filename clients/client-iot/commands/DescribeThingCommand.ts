@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeThingRequest, DescribeThingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeThingCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeThingCommandInput = DescribeThingRequest;
-export type DescribeThingCommandOutput = DescribeThingResponse &
-  __MetadataBearer;
+export type DescribeThingCommandOutput = DescribeThingResponse & __MetadataBearer;
 
 export class DescribeThingCommand extends $Command<
   DescribeThingCommandInput,
@@ -47,9 +42,7 @@ export class DescribeThingCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeThingCommandInput, DescribeThingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

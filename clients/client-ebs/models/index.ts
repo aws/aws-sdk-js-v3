@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -85,8 +82,7 @@ export interface GetSnapshotBlockRequest {
 }
 
 export namespace GetSnapshotBlockRequest {
-  export const isa = (o: any): o is GetSnapshotBlockRequest =>
-    __isa(o, "GetSnapshotBlockRequest");
+  export const isa = (o: any): o is GetSnapshotBlockRequest => __isa(o, "GetSnapshotBlockRequest");
 }
 
 export interface GetSnapshotBlockResponse {
@@ -254,9 +250,7 @@ export namespace ListSnapshotBlocksResponse {
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -270,9 +264,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -283,8 +275,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export enum ValidationExceptionReason {

@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  BatchCreateAttendeeRequest,
-  BatchCreateAttendeeResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchCreateAttendeeCommand,
   serializeAws_restJson1_1BatchCreateAttendeeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchCreateAttendeeCommandInput = BatchCreateAttendeeRequest;
-export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse &
-  __MetadataBearer;
+export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse & __MetadataBearer;
 
 export class BatchCreateAttendeeCommand extends $Command<
   BatchCreateAttendeeCommandInput,
@@ -49,13 +41,8 @@ export class BatchCreateAttendeeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchCreateAttendeeCommandInput,
-    BatchCreateAttendeeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchCreateAttendeeCommandInput, BatchCreateAttendeeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class BatchCreateAttendeeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateAttendeeCommandOutput> {
-    return deserializeAws_restJson1_1BatchCreateAttendeeCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchCreateAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

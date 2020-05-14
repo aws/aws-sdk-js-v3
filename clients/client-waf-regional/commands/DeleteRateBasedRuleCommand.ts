@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  DeleteRateBasedRuleRequest,
-  DeleteRateBasedRuleResponse
-} from "../models/index";
+import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRateBasedRuleCommand,
   serializeAws_json1_1DeleteRateBasedRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRateBasedRuleCommandInput = DeleteRateBasedRuleRequest;
-export type DeleteRateBasedRuleCommandOutput = DeleteRateBasedRuleResponse &
-  __MetadataBearer;
+export type DeleteRateBasedRuleCommandOutput = DeleteRateBasedRuleResponse & __MetadataBearer;
 
 export class DeleteRateBasedRuleCommand extends $Command<
   DeleteRateBasedRuleCommandInput,
@@ -49,13 +45,8 @@ export class DeleteRateBasedRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRateBasedRuleCommandInput,
-    DeleteRateBasedRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRateBasedRuleCommandInput, DeleteRateBasedRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

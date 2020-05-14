@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ImportInstallationMediaMessage,
-  InstallationMedia
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ImportInstallationMediaMessage, InstallationMedia } from "../models/index";
 import {
   deserializeAws_queryImportInstallationMediaCommand,
   serializeAws_queryImportInstallationMediaCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportInstallationMediaCommandInput = ImportInstallationMediaMessage;
-export type ImportInstallationMediaCommandOutput = InstallationMedia &
-  __MetadataBearer;
+export type ImportInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
 
 export class ImportInstallationMediaCommand extends $Command<
   ImportInstallationMediaCommandInput,
@@ -49,13 +41,8 @@ export class ImportInstallationMediaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportInstallationMediaCommandInput,
-    ImportInstallationMediaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportInstallationMediaCommandInput, ImportInstallationMediaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  DeleteOriginEndpointRequest,
-  DeleteOriginEndpointResponse
-} from "../models/index";
+import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteOriginEndpointCommand,
   serializeAws_restJson1_1DeleteOriginEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteOriginEndpointCommandInput = DeleteOriginEndpointRequest;
-export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse &
-  __MetadataBearer;
+export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse & __MetadataBearer;
 
 export class DeleteOriginEndpointCommand extends $Command<
   DeleteOriginEndpointCommandInput,
@@ -49,13 +45,8 @@ export class DeleteOriginEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteOriginEndpointCommandInput,
-    DeleteOriginEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteOriginEndpointCommandInput, DeleteOriginEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteOriginEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1_1DeleteOriginEndpointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

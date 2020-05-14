@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  StartRelationalDatabaseRequest,
-  StartRelationalDatabaseResult
-} from "../models/index";
+import { StartRelationalDatabaseRequest, StartRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1StartRelationalDatabaseCommand,
   serializeAws_json1_1StartRelationalDatabaseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartRelationalDatabaseCommandInput = StartRelationalDatabaseRequest;
-export type StartRelationalDatabaseCommandOutput = StartRelationalDatabaseResult &
-  __MetadataBearer;
+export type StartRelationalDatabaseCommandOutput = StartRelationalDatabaseResult & __MetadataBearer;
 
 export class StartRelationalDatabaseCommand extends $Command<
   StartRelationalDatabaseCommandInput,
@@ -49,13 +45,8 @@ export class StartRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartRelationalDatabaseCommandInput,
-    StartRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartRelationalDatabaseCommandInput, StartRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class StartRelationalDatabaseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1StartRelationalDatabaseCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

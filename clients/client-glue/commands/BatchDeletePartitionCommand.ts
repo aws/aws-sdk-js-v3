@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchDeletePartitionRequest,
-  BatchDeletePartitionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeletePartitionCommand,
   serializeAws_json1_1BatchDeletePartitionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeletePartitionCommandInput = BatchDeletePartitionRequest;
-export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse &
-  __MetadataBearer;
+export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse & __MetadataBearer;
 
 export class BatchDeletePartitionCommand extends $Command<
   BatchDeletePartitionCommandInput,
@@ -49,13 +41,8 @@ export class BatchDeletePartitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeletePartitionCommandInput,
-    BatchDeletePartitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeletePartitionCommandInput, BatchDeletePartitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

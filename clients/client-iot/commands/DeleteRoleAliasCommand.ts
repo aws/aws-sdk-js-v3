@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteRoleAliasRequest,
-  DeleteRoleAliasResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRoleAliasCommand,
   serializeAws_restJson1_1DeleteRoleAliasCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRoleAliasCommandInput = DeleteRoleAliasRequest;
-export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse &
-  __MetadataBearer;
+export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse & __MetadataBearer;
 
 export class DeleteRoleAliasCommand extends $Command<
   DeleteRoleAliasCommandInput,
@@ -50,9 +42,7 @@ export class DeleteRoleAliasCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRoleAliasCommandInput, DeleteRoleAliasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

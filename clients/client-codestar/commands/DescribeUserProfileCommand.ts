@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  DescribeUserProfileRequest,
-  DescribeUserProfileResult
-} from "../models/index";
+import { DescribeUserProfileRequest, DescribeUserProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUserProfileCommand,
   serializeAws_json1_1DescribeUserProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
-export type DescribeUserProfileCommandOutput = DescribeUserProfileResult &
-  __MetadataBearer;
+export type DescribeUserProfileCommandOutput = DescribeUserProfileResult & __MetadataBearer;
 
 export class DescribeUserProfileCommand extends $Command<
   DescribeUserProfileCommandInput,
@@ -49,13 +45,8 @@ export class DescribeUserProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserProfileCommandInput,
-    DescribeUserProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserProfileCommandInput, DescribeUserProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

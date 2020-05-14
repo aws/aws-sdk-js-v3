@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   DeleteSuppressedDestinationRequest,
   DeleteSuppressedDestinationResponse
@@ -49,13 +45,8 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSuppressedDestinationCommandInput,
-    DeleteSuppressedDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSuppressedDestinationCommandInput, DeleteSuppressedDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteSuppressedDestinationCommand extends $Command<
     input: DeleteSuppressedDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSuppressedDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteSuppressedDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSuppressedDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSuppressedDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSuppressedDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

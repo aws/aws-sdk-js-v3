@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAddressBookCommandInput = GetAddressBookRequest;
-export type GetAddressBookCommandOutput = GetAddressBookResponse &
-  __MetadataBearer;
+export type GetAddressBookCommandOutput = GetAddressBookResponse & __MetadataBearer;
 
 export class GetAddressBookCommand extends $Command<
   GetAddressBookCommandInput,
@@ -47,9 +46,7 @@ export class GetAddressBookCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAddressBookCommandInput, GetAddressBookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

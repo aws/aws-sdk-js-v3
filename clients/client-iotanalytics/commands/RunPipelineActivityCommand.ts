@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  RunPipelineActivityRequest,
-  RunPipelineActivityResponse
-} from "../models/index";
+import { RunPipelineActivityRequest, RunPipelineActivityResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RunPipelineActivityCommand,
   serializeAws_restJson1_1RunPipelineActivityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RunPipelineActivityCommandInput = RunPipelineActivityRequest;
-export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse &
-  __MetadataBearer;
+export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse & __MetadataBearer;
 
 export class RunPipelineActivityCommand extends $Command<
   RunPipelineActivityCommandInput,
@@ -49,13 +45,8 @@ export class RunPipelineActivityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RunPipelineActivityCommandInput,
-    RunPipelineActivityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RunPipelineActivityCommandInput, RunPipelineActivityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class RunPipelineActivityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RunPipelineActivityCommandOutput> {
-    return deserializeAws_restJson1_1RunPipelineActivityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RunPipelineActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

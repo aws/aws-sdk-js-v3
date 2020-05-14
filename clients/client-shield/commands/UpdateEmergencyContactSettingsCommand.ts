@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 import {
   UpdateEmergencyContactSettingsRequest,
   UpdateEmergencyContactSettingsResponse
@@ -53,9 +49,7 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     UpdateEmergencyContactSettingsCommandInput,
     UpdateEmergencyContactSettingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<
     input: UpdateEmergencyContactSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

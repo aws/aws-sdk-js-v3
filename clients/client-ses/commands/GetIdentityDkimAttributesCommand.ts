@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   GetIdentityDkimAttributesRequest,
   GetIdentityDkimAttributesResponse
@@ -49,13 +45,8 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityDkimAttributesCommandInput,
-    GetIdentityDkimAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityDkimAttributesCommandInput, GetIdentityDkimAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityDkimAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

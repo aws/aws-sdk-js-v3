@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorStreamingConfigurationRequest,
   GetVoiceConnectorStreamingConfigurationResponse
@@ -39,9 +35,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetVoiceConnectorStreamingConfigurationCommandInput
-  ) {
+  constructor(readonly input: GetVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     GetVoiceConnectorStreamingConfigurationCommandInput,
     GetVoiceConnectorStreamingConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +68,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     input: GetVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorStreamingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
   private deserialize(

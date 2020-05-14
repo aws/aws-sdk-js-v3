@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  CreateOrganizationRequest,
-  CreateOrganizationResponse
-} from "../models/index";
+import { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateOrganizationCommand,
   serializeAws_json1_1CreateOrganizationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateOrganizationCommandInput = CreateOrganizationRequest;
-export type CreateOrganizationCommandOutput = CreateOrganizationResponse &
-  __MetadataBearer;
+export type CreateOrganizationCommandOutput = CreateOrganizationResponse & __MetadataBearer;
 
 export class CreateOrganizationCommand extends $Command<
   CreateOrganizationCommandInput,
@@ -50,9 +46,7 @@ export class CreateOrganizationCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateOrganizationCommandInput, CreateOrganizationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

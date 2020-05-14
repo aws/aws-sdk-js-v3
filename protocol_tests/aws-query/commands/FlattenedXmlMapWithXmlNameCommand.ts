@@ -46,13 +46,8 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    FlattenedXmlMapWithXmlNameCommandInput,
-    FlattenedXmlMapWithXmlNameCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<FlattenedXmlMapWithXmlNameCommandInput, FlattenedXmlMapWithXmlNameCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> {
-    return deserializeAws_queryFlattenedXmlMapWithXmlNameCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryFlattenedXmlMapWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

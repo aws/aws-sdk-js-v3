@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  SelectResourceConfigRequest,
-  SelectResourceConfigResponse
-} from "../models/index";
+import { SelectResourceConfigRequest, SelectResourceConfigResponse } from "../models/index";
 import {
   deserializeAws_json1_1SelectResourceConfigCommand,
   serializeAws_json1_1SelectResourceConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SelectResourceConfigCommandInput = SelectResourceConfigRequest;
-export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse &
-  __MetadataBearer;
+export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse & __MetadataBearer;
 
 export class SelectResourceConfigCommand extends $Command<
   SelectResourceConfigCommandInput,
@@ -49,13 +45,8 @@ export class SelectResourceConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SelectResourceConfigCommandInput,
-    SelectResourceConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SelectResourceConfigCommandInput, SelectResourceConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  AssociateEntityToThingRequest,
-  AssociateEntityToThingResponse
-} from "../models/index";
+import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateEntityToThingCommand,
   serializeAws_json1_1AssociateEntityToThingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateEntityToThingCommandInput = AssociateEntityToThingRequest;
-export type AssociateEntityToThingCommandOutput = AssociateEntityToThingResponse &
-  __MetadataBearer;
+export type AssociateEntityToThingCommandOutput = AssociateEntityToThingResponse & __MetadataBearer;
 
 export class AssociateEntityToThingCommand extends $Command<
   AssociateEntityToThingCommandInput,
@@ -49,13 +45,8 @@ export class AssociateEntityToThingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateEntityToThingCommandInput,
-    AssociateEntityToThingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateEntityToThingCommandInput, AssociateEntityToThingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

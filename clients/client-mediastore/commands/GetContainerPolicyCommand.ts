@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  GetContainerPolicyInput,
-  GetContainerPolicyOutput
-} from "../models/index";
+import { GetContainerPolicyInput, GetContainerPolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetContainerPolicyCommand,
   serializeAws_json1_1GetContainerPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetContainerPolicyCommandInput = GetContainerPolicyInput;
-export type GetContainerPolicyCommandOutput = GetContainerPolicyOutput &
-  __MetadataBearer;
+export type GetContainerPolicyCommandOutput = GetContainerPolicyOutput & __MetadataBearer;
 
 export class GetContainerPolicyCommand extends $Command<
   GetContainerPolicyCommandInput,
@@ -50,9 +46,7 @@ export class GetContainerPolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

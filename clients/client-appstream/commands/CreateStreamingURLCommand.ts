@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  CreateStreamingURLRequest,
-  CreateStreamingURLResult
-} from "../models/index";
+import { CreateStreamingURLRequest, CreateStreamingURLResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateStreamingURLCommand,
   serializeAws_json1_1CreateStreamingURLCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateStreamingURLCommandInput = CreateStreamingURLRequest;
-export type CreateStreamingURLCommandOutput = CreateStreamingURLResult &
-  __MetadataBearer;
+export type CreateStreamingURLCommandOutput = CreateStreamingURLResult & __MetadataBearer;
 
 export class CreateStreamingURLCommand extends $Command<
   CreateStreamingURLCommandInput,
@@ -50,9 +46,7 @@ export class CreateStreamingURLCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

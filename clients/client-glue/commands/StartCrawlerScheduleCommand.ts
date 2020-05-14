@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  StartCrawlerScheduleRequest,
-  StartCrawlerScheduleResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { StartCrawlerScheduleRequest, StartCrawlerScheduleResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartCrawlerScheduleCommand,
   serializeAws_json1_1StartCrawlerScheduleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartCrawlerScheduleCommandInput = StartCrawlerScheduleRequest;
-export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse &
-  __MetadataBearer;
+export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse & __MetadataBearer;
 
 export class StartCrawlerScheduleCommand extends $Command<
   StartCrawlerScheduleCommandInput,
@@ -49,13 +41,8 @@ export class StartCrawlerScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartCrawlerScheduleCommandInput,
-    StartCrawlerScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartCrawlerScheduleCommandInput, StartCrawlerScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

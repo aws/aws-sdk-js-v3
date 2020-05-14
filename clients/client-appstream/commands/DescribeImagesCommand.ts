@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeImagesCommandInput = DescribeImagesRequest;
-export type DescribeImagesCommandOutput = DescribeImagesResult &
-  __MetadataBearer;
+export type DescribeImagesCommandOutput = DescribeImagesResult & __MetadataBearer;
 
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,
@@ -47,9 +46,7 @@ export class DescribeImagesCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeImagesCommandInput, DescribeImagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

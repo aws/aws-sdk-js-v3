@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { ListAttendeesRequest, ListAttendeesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAttendeesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAttendeesCommandInput = ListAttendeesRequest;
-export type ListAttendeesCommandOutput = ListAttendeesResponse &
-  __MetadataBearer;
+export type ListAttendeesCommandOutput = ListAttendeesResponse & __MetadataBearer;
 
 export class ListAttendeesCommand extends $Command<
   ListAttendeesCommandInput,
@@ -47,9 +42,7 @@ export class ListAttendeesCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAttendeesCommandInput, ListAttendeesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

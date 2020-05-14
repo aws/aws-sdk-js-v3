@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelResizeCommandInput = CancelResizeMessage;
-export type CancelResizeCommandOutput = ResizeProgressMessage &
-  __MetadataBearer;
+export type CancelResizeCommandOutput = ResizeProgressMessage & __MetadataBearer;
 
 export class CancelResizeCommand extends $Command<
   CancelResizeCommandInput,
@@ -47,9 +46,7 @@ export class CancelResizeCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelResizeCommandInput, CancelResizeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

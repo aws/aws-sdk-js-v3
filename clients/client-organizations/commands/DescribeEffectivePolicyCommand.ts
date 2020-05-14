@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  DescribeEffectivePolicyRequest,
-  DescribeEffectivePolicyResponse
-} from "../models/index";
+import { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEffectivePolicyCommand,
   serializeAws_json1_1DescribeEffectivePolicyCommand
@@ -49,13 +46,8 @@ export class DescribeEffectivePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEffectivePolicyCommandInput,
-    DescribeEffectivePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEffectivePolicyCommandInput, DescribeEffectivePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeEffectivePolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectivePolicyCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectivePolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEffectivePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

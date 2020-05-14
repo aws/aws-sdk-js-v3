@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
   GetServiceLastAccessedDetailsWithEntitiesResponse
@@ -39,9 +35,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput
-  ) {
+  constructor(readonly input: GetServiceLastAccessedDetailsWithEntitiesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     GetServiceLastAccessedDetailsWithEntitiesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
     input: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> {
-    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

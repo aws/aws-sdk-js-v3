@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DescribeReservationRequest,
-  DescribeReservationResponse
-} from "../models/index";
+import { DescribeReservationRequest, DescribeReservationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeReservationCommand,
   serializeAws_restJson1_1DescribeReservationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReservationCommandInput = DescribeReservationRequest;
-export type DescribeReservationCommandOutput = DescribeReservationResponse &
-  __MetadataBearer;
+export type DescribeReservationCommandOutput = DescribeReservationResponse & __MetadataBearer;
 
 export class DescribeReservationCommand extends $Command<
   DescribeReservationCommandInput,
@@ -49,13 +45,8 @@ export class DescribeReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservationCommandInput,
-    DescribeReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservationCommandInput, DescribeReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeReservationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

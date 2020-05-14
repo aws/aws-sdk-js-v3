@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DescribeDomainsRequest,
-  DescribeDomainsResponse
-} from "../models/index";
+import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDomainsCommand,
   serializeAws_queryDescribeDomainsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDomainsCommandInput = DescribeDomainsRequest;
-export type DescribeDomainsCommandOutput = DescribeDomainsResponse &
-  __MetadataBearer;
+export type DescribeDomainsCommandOutput = DescribeDomainsResponse & __MetadataBearer;
 
 export class DescribeDomainsCommand extends $Command<
   DescribeDomainsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeDomainsCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainsCommandInput, DescribeDomainsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

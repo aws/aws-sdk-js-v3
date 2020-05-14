@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EventBridgeClient";
-import {
-  PutPartnerEventsRequest,
-  PutPartnerEventsResponse
-} from "../models/index";
+import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,
   serializeAws_json1_1PutPartnerEventsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutPartnerEventsCommandInput = PutPartnerEventsRequest;
-export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse &
-  __MetadataBearer;
+export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse & __MetadataBearer;
 
 export class PutPartnerEventsCommand extends $Command<
   PutPartnerEventsCommandInput,
@@ -50,9 +46,7 @@ export class PutPartnerEventsCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

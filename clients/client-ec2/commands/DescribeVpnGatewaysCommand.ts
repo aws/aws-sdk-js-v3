@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeVpnGatewaysRequest,
-  DescribeVpnGatewaysResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVpnGatewaysRequest, DescribeVpnGatewaysResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeVpnGatewaysCommand,
   serializeAws_ec2DescribeVpnGatewaysCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVpnGatewaysCommandInput = DescribeVpnGatewaysRequest;
-export type DescribeVpnGatewaysCommandOutput = DescribeVpnGatewaysResult &
-  __MetadataBearer;
+export type DescribeVpnGatewaysCommandOutput = DescribeVpnGatewaysResult & __MetadataBearer;
 
 export class DescribeVpnGatewaysCommand extends $Command<
   DescribeVpnGatewaysCommandInput,
@@ -49,13 +41,8 @@ export class DescribeVpnGatewaysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpnGatewaysCommandInput,
-    DescribeVpnGatewaysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpnGatewaysCommandInput, DescribeVpnGatewaysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

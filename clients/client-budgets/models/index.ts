@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -19,8 +14,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -217,8 +211,7 @@ export interface CalculatedSpend {
 }
 
 export namespace CalculatedSpend {
-  export const isa = (o: any): o is CalculatedSpend =>
-    __isa(o, "CalculatedSpend");
+  export const isa = (o: any): o is CalculatedSpend => __isa(o, "CalculatedSpend");
 }
 
 export enum ComparisonOperator {
@@ -327,8 +320,7 @@ export interface CreateBudgetRequest {
 }
 
 export namespace CreateBudgetRequest {
-  export const isa = (o: any): o is CreateBudgetRequest =>
-    __isa(o, "CreateBudgetRequest");
+  export const isa = (o: any): o is CreateBudgetRequest => __isa(o, "CreateBudgetRequest");
 }
 
 /**
@@ -339,8 +331,7 @@ export interface CreateBudgetResponse {
 }
 
 export namespace CreateBudgetResponse {
-  export const isa = (o: any): o is CreateBudgetResponse =>
-    __isa(o, "CreateBudgetResponse");
+  export const isa = (o: any): o is CreateBudgetResponse => __isa(o, "CreateBudgetResponse");
 }
 
 /**
@@ -413,8 +404,7 @@ export interface CreateSubscriberRequest {
 }
 
 export namespace CreateSubscriberRequest {
-  export const isa = (o: any): o is CreateSubscriberRequest =>
-    __isa(o, "CreateSubscriberRequest");
+  export const isa = (o: any): o is CreateSubscriberRequest => __isa(o, "CreateSubscriberRequest");
 }
 
 /**
@@ -432,9 +422,7 @@ export namespace CreateSubscriberResponse {
 /**
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
-export interface CreationLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CreationLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CreationLimitExceededException";
   $fault: "client";
   /**
@@ -465,8 +453,7 @@ export interface DeleteBudgetRequest {
 }
 
 export namespace DeleteBudgetRequest {
-  export const isa = (o: any): o is DeleteBudgetRequest =>
-    __isa(o, "DeleteBudgetRequest");
+  export const isa = (o: any): o is DeleteBudgetRequest => __isa(o, "DeleteBudgetRequest");
 }
 
 /**
@@ -477,8 +464,7 @@ export interface DeleteBudgetResponse {
 }
 
 export namespace DeleteBudgetResponse {
-  export const isa = (o: any): o is DeleteBudgetResponse =>
-    __isa(o, "DeleteBudgetResponse");
+  export const isa = (o: any): o is DeleteBudgetResponse => __isa(o, "DeleteBudgetResponse");
 }
 
 /**
@@ -546,8 +532,7 @@ export interface DeleteSubscriberRequest {
 }
 
 export namespace DeleteSubscriberRequest {
-  export const isa = (o: any): o is DeleteSubscriberRequest =>
-    __isa(o, "DeleteSubscriberRequest");
+  export const isa = (o: any): o is DeleteSubscriberRequest => __isa(o, "DeleteSubscriberRequest");
 }
 
 /**
@@ -631,8 +616,7 @@ export interface DescribeBudgetRequest {
 }
 
 export namespace DescribeBudgetRequest {
-  export const isa = (o: any): o is DescribeBudgetRequest =>
-    __isa(o, "DescribeBudgetRequest");
+  export const isa = (o: any): o is DescribeBudgetRequest => __isa(o, "DescribeBudgetRequest");
 }
 
 /**
@@ -647,8 +631,7 @@ export interface DescribeBudgetResponse {
 }
 
 export namespace DescribeBudgetResponse {
-  export const isa = (o: any): o is DescribeBudgetResponse =>
-    __isa(o, "DescribeBudgetResponse");
+  export const isa = (o: any): o is DescribeBudgetResponse => __isa(o, "DescribeBudgetResponse");
 }
 
 /**
@@ -673,8 +656,7 @@ export interface DescribeBudgetsRequest {
 }
 
 export namespace DescribeBudgetsRequest {
-  export const isa = (o: any): o is DescribeBudgetsRequest =>
-    __isa(o, "DescribeBudgetsRequest");
+  export const isa = (o: any): o is DescribeBudgetsRequest => __isa(o, "DescribeBudgetsRequest");
 }
 
 /**
@@ -694,8 +676,7 @@ export interface DescribeBudgetsResponse {
 }
 
 export namespace DescribeBudgetsResponse {
-  export const isa = (o: any): o is DescribeBudgetsResponse =>
-    __isa(o, "DescribeBudgetsResponse");
+  export const isa = (o: any): o is DescribeBudgetsResponse => __isa(o, "DescribeBudgetsResponse");
 }
 
 /**
@@ -803,18 +784,14 @@ export interface DescribeSubscribersForNotificationResponse {
 }
 
 export namespace DescribeSubscribersForNotificationResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeSubscribersForNotificationResponse =>
+  export const isa = (o: any): o is DescribeSubscribersForNotificationResponse =>
     __isa(o, "DescribeSubscribersForNotificationResponse");
 }
 
 /**
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
-export interface DuplicateRecordException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateRecordException extends __SmithyException, $MetadataBearer {
   name: "DuplicateRecordException";
   $fault: "client";
   /**
@@ -831,9 +808,7 @@ export namespace DuplicateRecordException {
 /**
  * <p>The pagination token expired.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   /**
@@ -850,9 +825,7 @@ export namespace ExpiredNextTokenException {
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -862,16 +835,13 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The pagination token is invalid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -888,9 +858,7 @@ export namespace InvalidNextTokenException {
 /**
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -917,8 +885,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1126,8 +1093,7 @@ export interface UpdateBudgetRequest {
 }
 
 export namespace UpdateBudgetRequest {
-  export const isa = (o: any): o is UpdateBudgetRequest =>
-    __isa(o, "UpdateBudgetRequest");
+  export const isa = (o: any): o is UpdateBudgetRequest => __isa(o, "UpdateBudgetRequest");
 }
 
 /**
@@ -1138,8 +1104,7 @@ export interface UpdateBudgetResponse {
 }
 
 export namespace UpdateBudgetResponse {
-  export const isa = (o: any): o is UpdateBudgetResponse =>
-    __isa(o, "UpdateBudgetResponse");
+  export const isa = (o: any): o is UpdateBudgetResponse => __isa(o, "UpdateBudgetResponse");
 }
 
 /**
@@ -1217,8 +1182,7 @@ export interface UpdateSubscriberRequest {
 }
 
 export namespace UpdateSubscriberRequest {
-  export const isa = (o: any): o is UpdateSubscriberRequest =>
-    __isa(o, "UpdateSubscriberRequest");
+  export const isa = (o: any): o is UpdateSubscriberRequest => __isa(o, "UpdateSubscriberRequest");
 }
 
 /**

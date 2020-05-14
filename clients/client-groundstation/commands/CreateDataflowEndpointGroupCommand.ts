@@ -49,13 +49,8 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataflowEndpointGroupCommandInput,
-    CreateDataflowEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataflowEndpointGroupCommandInput, CreateDataflowEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     input: CreateDataflowEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDataflowEndpointGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDataflowEndpointGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreateDataflowEndpointGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetJourneyExecutionMetricsCommandInput,
-    GetJourneyExecutionMetricsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetJourneyExecutionMetricsCommandInput, GetJourneyExecutionMetricsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
     input: GetJourneyExecutionMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJourneyExecutionMetricsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetJourneyExecutionMetricsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-    return deserializeAws_restJson1_1GetJourneyExecutionMetricsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetJourneyExecutionMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

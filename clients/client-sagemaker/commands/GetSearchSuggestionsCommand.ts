@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  GetSearchSuggestionsRequest,
-  GetSearchSuggestionsResponse
-} from "../models/index";
+import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSearchSuggestionsCommand,
   serializeAws_json1_1GetSearchSuggestionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSearchSuggestionsCommandInput = GetSearchSuggestionsRequest;
-export type GetSearchSuggestionsCommandOutput = GetSearchSuggestionsResponse &
-  __MetadataBearer;
+export type GetSearchSuggestionsCommandOutput = GetSearchSuggestionsResponse & __MetadataBearer;
 
 export class GetSearchSuggestionsCommand extends $Command<
   GetSearchSuggestionsCommandInput,
@@ -49,13 +45,8 @@ export class GetSearchSuggestionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSearchSuggestionsCommandInput,
-    GetSearchSuggestionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSearchSuggestionsCommandInput, GetSearchSuggestionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

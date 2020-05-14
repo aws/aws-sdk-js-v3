@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -39,9 +36,7 @@ export namespace AccessLog {
 /**
  * <p>The specified load balancer does not exist.</p>
  */
-export interface AccessPointNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessPointNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AccessPointNotFoundException";
   $fault: "client";
   Message?: string;
@@ -137,8 +132,7 @@ export interface AdditionalAttribute {
 }
 
 export namespace AdditionalAttribute {
-  export const isa = (o: any): o is AdditionalAttribute =>
-    __isa(o, "AdditionalAttribute");
+  export const isa = (o: any): o is AdditionalAttribute => __isa(o, "AdditionalAttribute");
 }
 
 /**
@@ -262,9 +256,7 @@ export namespace BackendServerDescription {
  *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
  *             indicate that the certificate is not fully available yet.</p>
  */
-export interface CertificateNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateNotFoundException extends __SmithyException, $MetadataBearer {
   name: "CertificateNotFoundException";
   $fault: "client";
   Message?: string;
@@ -329,8 +321,7 @@ export interface ConnectionDraining {
 }
 
 export namespace ConnectionDraining {
-  export const isa = (o: any): o is ConnectionDraining =>
-    __isa(o, "ConnectionDraining");
+  export const isa = (o: any): o is ConnectionDraining => __isa(o, "ConnectionDraining");
 }
 
 /**
@@ -345,8 +336,7 @@ export interface ConnectionSettings {
 }
 
 export namespace ConnectionSettings {
-  export const isa = (o: any): o is ConnectionSettings =>
-    __isa(o, "ConnectionSettings");
+  export const isa = (o: any): o is ConnectionSettings => __isa(o, "ConnectionSettings");
 }
 
 /**
@@ -404,8 +394,7 @@ export interface CreateAccessPointInput {
 }
 
 export namespace CreateAccessPointInput {
-  export const isa = (o: any): o is CreateAccessPointInput =>
-    __isa(o, "CreateAccessPointInput");
+  export const isa = (o: any): o is CreateAccessPointInput => __isa(o, "CreateAccessPointInput");
 }
 
 /**
@@ -420,8 +409,7 @@ export interface CreateAccessPointOutput {
 }
 
 export namespace CreateAccessPointOutput {
-  export const isa = (o: any): o is CreateAccessPointOutput =>
-    __isa(o, "CreateAccessPointOutput");
+  export const isa = (o: any): o is CreateAccessPointOutput => __isa(o, "CreateAccessPointOutput");
 }
 
 /**
@@ -589,8 +577,7 @@ export interface CrossZoneLoadBalancing {
 }
 
 export namespace CrossZoneLoadBalancing {
-  export const isa = (o: any): o is CrossZoneLoadBalancing =>
-    __isa(o, "CrossZoneLoadBalancing");
+  export const isa = (o: any): o is CrossZoneLoadBalancing => __isa(o, "CrossZoneLoadBalancing");
 }
 
 /**
@@ -605,8 +592,7 @@ export interface DeleteAccessPointInput {
 }
 
 export namespace DeleteAccessPointInput {
-  export const isa = (o: any): o is DeleteAccessPointInput =>
-    __isa(o, "DeleteAccessPointInput");
+  export const isa = (o: any): o is DeleteAccessPointInput => __isa(o, "DeleteAccessPointInput");
 }
 
 /**
@@ -617,8 +603,7 @@ export interface DeleteAccessPointOutput {
 }
 
 export namespace DeleteAccessPointOutput {
-  export const isa = (o: any): o is DeleteAccessPointOutput =>
-    __isa(o, "DeleteAccessPointOutput");
+  export const isa = (o: any): o is DeleteAccessPointOutput => __isa(o, "DeleteAccessPointOutput");
 }
 
 /**
@@ -690,9 +675,7 @@ export namespace DeleteLoadBalancerPolicyOutput {
 /**
  * <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
  */
-export interface DependencyThrottleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyThrottleException extends __SmithyException, $MetadataBearer {
   name: "DependencyThrottleException";
   $fault: "client";
   Message?: string;
@@ -973,8 +956,7 @@ export interface DescribeTagsInput {
 }
 
 export namespace DescribeTagsInput {
-  export const isa = (o: any): o is DescribeTagsInput =>
-    __isa(o, "DescribeTagsInput");
+  export const isa = (o: any): o is DescribeTagsInput => __isa(o, "DescribeTagsInput");
 }
 
 /**
@@ -989,8 +971,7 @@ export interface DescribeTagsOutput {
 }
 
 export namespace DescribeTagsOutput {
-  export const isa = (o: any): o is DescribeTagsOutput =>
-    __isa(o, "DescribeTagsOutput");
+  export const isa = (o: any): o is DescribeTagsOutput => __isa(o, "DescribeTagsOutput");
 }
 
 /**
@@ -1033,9 +1014,7 @@ export namespace DetachLoadBalancerFromSubnetsOutput {
 /**
  * <p>The specified load balancer name already exists for this account.</p>
  */
-export interface DuplicateAccessPointNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateAccessPointNameException extends __SmithyException, $MetadataBearer {
   name: "DuplicateAccessPointNameException";
   $fault: "client";
   Message?: string;
@@ -1049,9 +1028,7 @@ export namespace DuplicateAccessPointNameException {
 /**
  * <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
  */
-export interface DuplicateListenerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateListenerException extends __SmithyException, $MetadataBearer {
   name: "DuplicateListenerException";
   $fault: "client";
   Message?: string;
@@ -1065,9 +1042,7 @@ export namespace DuplicateListenerException {
 /**
  * <p>A policy with the specified name already exists for this load balancer.</p>
  */
-export interface DuplicatePolicyNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicatePolicyNameException extends __SmithyException, $MetadataBearer {
   name: "DuplicatePolicyNameException";
   $fault: "client";
   Message?: string;
@@ -1081,9 +1056,7 @@ export namespace DuplicatePolicyNameException {
 /**
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
   name: "DuplicateTagKeysException";
   $fault: "client";
   Message?: string;
@@ -1249,9 +1222,7 @@ export namespace InstanceState {
 /**
  * <p>The requested configuration change is not valid.</p>
  */
-export interface InvalidConfigurationRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConfigurationRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidConfigurationRequestException";
   $fault: "client";
   Message?: string;
@@ -1265,9 +1236,7 @@ export namespace InvalidConfigurationRequestException {
 /**
  * <p>The specified endpoint is not valid.</p>
  */
-export interface InvalidEndPointException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEndPointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndPointException";
   $fault: "client";
   Message?: string;
@@ -1281,25 +1250,20 @@ export namespace InvalidEndPointException {
 /**
  * <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
  */
-export interface InvalidSchemeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSchemeException extends __SmithyException, $MetadataBearer {
   name: "InvalidSchemeException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidSchemeException {
-  export const isa = (o: any): o is InvalidSchemeException =>
-    __isa(o, "InvalidSchemeException");
+  export const isa = (o: any): o is InvalidSchemeException => __isa(o, "InvalidSchemeException");
 }
 
 /**
  * <p>One or more of the specified security groups do not exist.</p>
  */
-export interface InvalidSecurityGroupException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityGroupException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityGroupException";
   $fault: "client";
   Message?: string;
@@ -1313,17 +1277,14 @@ export namespace InvalidSecurityGroupException {
 /**
  * <p>The specified VPC has no associated Internet gateway.</p>
  */
-export interface InvalidSubnetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnetException extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnetException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidSubnetException {
-  export const isa = (o: any): o is InvalidSubnetException =>
-    __isa(o, "InvalidSubnetException");
+  export const isa = (o: any): o is InvalidSubnetException => __isa(o, "InvalidSubnetException");
 }
 
 /**
@@ -1437,16 +1398,13 @@ export interface ListenerDescription {
 }
 
 export namespace ListenerDescription {
-  export const isa = (o: any): o is ListenerDescription =>
-    __isa(o, "ListenerDescription");
+  export const isa = (o: any): o is ListenerDescription => __isa(o, "ListenerDescription");
 }
 
 /**
  * <p>The load balancer does not have a listener configured at the specified port.</p>
  */
-export interface ListenerNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1460,9 +1418,7 @@ export namespace ListenerNotFoundException {
 /**
  * <p>The specified load balancer attribute does not exist.</p>
  */
-export interface LoadBalancerAttributeNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LoadBalancerAttributeNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LoadBalancerAttributeNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1514,8 +1470,7 @@ export interface LoadBalancerAttributes {
 }
 
 export namespace LoadBalancerAttributes {
-  export const isa = (o: any): o is LoadBalancerAttributes =>
-    __isa(o, "LoadBalancerAttributes");
+  export const isa = (o: any): o is LoadBalancerAttributes => __isa(o, "LoadBalancerAttributes");
 }
 
 /**
@@ -1612,8 +1567,7 @@ export interface LoadBalancerDescription {
 }
 
 export namespace LoadBalancerDescription {
-  export const isa = (o: any): o is LoadBalancerDescription =>
-    __isa(o, "LoadBalancerDescription");
+  export const isa = (o: any): o is LoadBalancerDescription => __isa(o, "LoadBalancerDescription");
 }
 
 /**
@@ -1661,9 +1615,7 @@ export namespace ModifyLoadBalancerAttributesOutput {
 /**
  * <p>This operation is not allowed.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   Message?: string;
@@ -1716,8 +1668,7 @@ export interface PolicyAttribute {
 }
 
 export namespace PolicyAttribute {
-  export const isa = (o: any): o is PolicyAttribute =>
-    __isa(o, "PolicyAttribute");
+  export const isa = (o: any): o is PolicyAttribute => __isa(o, "PolicyAttribute");
 }
 
 /**
@@ -1814,24 +1765,20 @@ export interface PolicyDescription {
 }
 
 export namespace PolicyDescription {
-  export const isa = (o: any): o is PolicyDescription =>
-    __isa(o, "PolicyDescription");
+  export const isa = (o: any): o is PolicyDescription => __isa(o, "PolicyDescription");
 }
 
 /**
  * <p>One or more of the specified policies do not exist.</p>
  */
-export interface PolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PolicyNotFoundException {
-  export const isa = (o: any): o is PolicyNotFoundException =>
-    __isa(o, "PolicyNotFoundException");
+  export const isa = (o: any): o is PolicyNotFoundException => __isa(o, "PolicyNotFoundException");
 }
 
 /**
@@ -1856,16 +1803,13 @@ export interface PolicyTypeDescription {
 }
 
 export namespace PolicyTypeDescription {
-  export const isa = (o: any): o is PolicyTypeDescription =>
-    __isa(o, "PolicyTypeDescription");
+  export const isa = (o: any): o is PolicyTypeDescription => __isa(o, "PolicyTypeDescription");
 }
 
 /**
  * <p>One or more of the specified policy types do not exist.</p>
  */
-export interface PolicyTypeNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyTypeNotFoundException extends __SmithyException, $MetadataBearer {
   name: "PolicyTypeNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1893,8 +1837,7 @@ export interface RegisterEndPointsInput {
 }
 
 export namespace RegisterEndPointsInput {
-  export const isa = (o: any): o is RegisterEndPointsInput =>
-    __isa(o, "RegisterEndPointsInput");
+  export const isa = (o: any): o is RegisterEndPointsInput => __isa(o, "RegisterEndPointsInput");
 }
 
 /**
@@ -1909,8 +1852,7 @@ export interface RegisterEndPointsOutput {
 }
 
 export namespace RegisterEndPointsOutput {
-  export const isa = (o: any): o is RegisterEndPointsOutput =>
-    __isa(o, "RegisterEndPointsOutput");
+  export const isa = (o: any): o is RegisterEndPointsOutput => __isa(o, "RegisterEndPointsOutput");
 }
 
 /**
@@ -1967,8 +1909,7 @@ export interface RemoveTagsInput {
 }
 
 export namespace RemoveTagsInput {
-  export const isa = (o: any): o is RemoveTagsInput =>
-    __isa(o, "RemoveTagsInput");
+  export const isa = (o: any): o is RemoveTagsInput => __isa(o, "RemoveTagsInput");
 }
 
 /**
@@ -1979,8 +1920,7 @@ export interface RemoveTagsOutput {
 }
 
 export namespace RemoveTagsOutput {
-  export const isa = (o: any): o is RemoveTagsOutput =>
-    __isa(o, "RemoveTagsOutput");
+  export const isa = (o: any): o is RemoveTagsOutput => __isa(o, "RemoveTagsOutput");
 }
 
 /**
@@ -2005,9 +1945,7 @@ export interface SetLoadBalancerListenerSSLCertificateInput {
 }
 
 export namespace SetLoadBalancerListenerSSLCertificateInput {
-  export const isa = (
-    o: any
-  ): o is SetLoadBalancerListenerSSLCertificateInput =>
+  export const isa = (o: any): o is SetLoadBalancerListenerSSLCertificateInput =>
     __isa(o, "SetLoadBalancerListenerSSLCertificateInput");
 }
 
@@ -2019,9 +1957,7 @@ export interface SetLoadBalancerListenerSSLCertificateOutput {
 }
 
 export namespace SetLoadBalancerListenerSSLCertificateOutput {
-  export const isa = (
-    o: any
-  ): o is SetLoadBalancerListenerSSLCertificateOutput =>
+  export const isa = (o: any): o is SetLoadBalancerListenerSSLCertificateOutput =>
     __isa(o, "SetLoadBalancerListenerSSLCertificateOutput");
 }
 
@@ -2047,9 +1983,7 @@ export interface SetLoadBalancerPoliciesForBackendServerInput {
 }
 
 export namespace SetLoadBalancerPoliciesForBackendServerInput {
-  export const isa = (
-    o: any
-  ): o is SetLoadBalancerPoliciesForBackendServerInput =>
+  export const isa = (o: any): o is SetLoadBalancerPoliciesForBackendServerInput =>
     __isa(o, "SetLoadBalancerPoliciesForBackendServerInput");
 }
 
@@ -2061,9 +1995,7 @@ export interface SetLoadBalancerPoliciesForBackendServerOutput {
 }
 
 export namespace SetLoadBalancerPoliciesForBackendServerOutput {
-  export const isa = (
-    o: any
-  ): o is SetLoadBalancerPoliciesForBackendServerOutput =>
+  export const isa = (o: any): o is SetLoadBalancerPoliciesForBackendServerOutput =>
     __isa(o, "SetLoadBalancerPoliciesForBackendServerOutput");
 }
 
@@ -2122,24 +2054,20 @@ export interface SourceSecurityGroup {
 }
 
 export namespace SourceSecurityGroup {
-  export const isa = (o: any): o is SourceSecurityGroup =>
-    __isa(o, "SourceSecurityGroup");
+  export const isa = (o: any): o is SourceSecurityGroup => __isa(o, "SourceSecurityGroup");
 }
 
 /**
  * <p>One or more of the specified subnets do not exist.</p>
  */
-export interface SubnetNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetNotFoundException extends __SmithyException, $MetadataBearer {
   name: "SubnetNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace SubnetNotFoundException {
-  export const isa = (o: any): o is SubnetNotFoundException =>
-    __isa(o, "SubnetNotFoundException");
+  export const isa = (o: any): o is SubnetNotFoundException => __isa(o, "SubnetNotFoundException");
 }
 
 /**
@@ -2179,8 +2107,7 @@ export interface TagDescription {
 }
 
 export namespace TagDescription {
-  export const isa = (o: any): o is TagDescription =>
-    __isa(o, "TagDescription");
+  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 /**
@@ -2201,9 +2128,7 @@ export namespace TagKeyOnly {
 /**
  * <p>The quota for the number of load balancers has been reached.</p>
  */
-export interface TooManyAccessPointsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyAccessPointsException extends __SmithyException, $MetadataBearer {
   name: "TooManyAccessPointsException";
   $fault: "client";
   Message?: string;
@@ -2217,9 +2142,7 @@ export namespace TooManyAccessPointsException {
 /**
  * <p>The quota for the number of policies for this load balancer has been reached.</p>
  */
-export interface TooManyPoliciesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyPoliciesException extends __SmithyException, $MetadataBearer {
   name: "TooManyPoliciesException";
   $fault: "client";
   Message?: string;
@@ -2233,25 +2156,20 @@ export namespace TooManyPoliciesException {
 /**
  * <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
  * <p>The specified protocol or signature version is not supported.</p>
  */
-export interface UnsupportedProtocolException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedProtocolException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedProtocolException";
   $fault: "client";
   Message?: string;

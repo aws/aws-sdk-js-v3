@@ -49,13 +49,8 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyTargetGroupAttributesCommandInput,
-    ModifyTargetGroupAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyTargetGroupAttributesCommandInput, ModifyTargetGroupAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ModifyTargetGroupAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyTargetGroupAttributesCommandOutput> {
-    return deserializeAws_queryModifyTargetGroupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyTargetGroupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

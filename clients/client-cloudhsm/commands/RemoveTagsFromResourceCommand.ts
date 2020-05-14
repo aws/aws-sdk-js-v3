@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMClient";
-import {
-  RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResponse
-} from "../models/index";
+import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceRequest;
-export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceResponse &
-  __MetadataBearer;
+export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceResponse & __MetadataBearer;
 
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,
@@ -49,13 +45,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveTagsFromResourceCommandInput,
-    RemoveTagsFromResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveTagsFromResourceCommandInput, RemoveTagsFromResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

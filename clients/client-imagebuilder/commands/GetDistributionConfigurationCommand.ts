@@ -49,13 +49,8 @@ export class GetDistributionConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDistributionConfigurationCommandInput,
-    GetDistributionConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDistributionConfigurationCommandInput, GetDistributionConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetDistributionConfigurationCommand extends $Command<
     input: GetDistributionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDistributionConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDistributionConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetDistributionConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

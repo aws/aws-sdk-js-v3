@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInstanceCommandInput = DeleteInstanceRequest;
-export type DeleteInstanceCommandOutput = DeleteInstanceResult &
-  __MetadataBearer;
+export type DeleteInstanceCommandOutput = DeleteInstanceResult & __MetadataBearer;
 
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,
@@ -47,9 +46,7 @@ export class DeleteInstanceCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInstanceCommandInput, DeleteInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  SearchAddressBooksRequest,
-  SearchAddressBooksResponse
-} from "../models/index";
+import { SearchAddressBooksRequest, SearchAddressBooksResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchAddressBooksCommand,
   serializeAws_json1_1SearchAddressBooksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchAddressBooksCommandInput = SearchAddressBooksRequest;
-export type SearchAddressBooksCommandOutput = SearchAddressBooksResponse &
-  __MetadataBearer;
+export type SearchAddressBooksCommandOutput = SearchAddressBooksResponse & __MetadataBearer;
 
 export class SearchAddressBooksCommand extends $Command<
   SearchAddressBooksCommandInput,
@@ -50,9 +46,7 @@ export class SearchAddressBooksCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchAddressBooksCommandInput, SearchAddressBooksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

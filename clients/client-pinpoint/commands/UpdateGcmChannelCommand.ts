@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateGcmChannelRequest,
-  UpdateGcmChannelResponse
-} from "../models/index";
+import { UpdateGcmChannelRequest, UpdateGcmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateGcmChannelCommand,
   serializeAws_restJson1_1UpdateGcmChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGcmChannelCommandInput = UpdateGcmChannelRequest;
-export type UpdateGcmChannelCommandOutput = UpdateGcmChannelResponse &
-  __MetadataBearer;
+export type UpdateGcmChannelCommandOutput = UpdateGcmChannelResponse & __MetadataBearer;
 
 export class UpdateGcmChannelCommand extends $Command<
   UpdateGcmChannelCommandInput,
@@ -50,9 +46,7 @@ export class UpdateGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGcmChannelCommandInput, UpdateGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

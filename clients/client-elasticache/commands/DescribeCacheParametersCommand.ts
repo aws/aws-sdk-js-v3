@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupDetails,
-  DescribeCacheParametersMessage
-} from "../models/index";
+import { CacheParameterGroupDetails, DescribeCacheParametersMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeCacheParametersCommand,
   serializeAws_queryDescribeCacheParametersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCacheParametersCommandInput = DescribeCacheParametersMessage;
-export type DescribeCacheParametersCommandOutput = CacheParameterGroupDetails &
-  __MetadataBearer;
+export type DescribeCacheParametersCommandOutput = CacheParameterGroupDetails & __MetadataBearer;
 
 export class DescribeCacheParametersCommand extends $Command<
   DescribeCacheParametersCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCacheParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCacheParametersCommandInput,
-    DescribeCacheParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCacheParametersCommandInput, DescribeCacheParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

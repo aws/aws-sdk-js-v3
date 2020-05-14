@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUserPoolsCommandInput = ListUserPoolsRequest;
-export type ListUserPoolsCommandOutput = ListUserPoolsResponse &
-  __MetadataBearer;
+export type ListUserPoolsCommandOutput = ListUserPoolsResponse & __MetadataBearer;
 
 export class ListUserPoolsCommand extends $Command<
   ListUserPoolsCommandInput,
@@ -47,9 +46,7 @@ export class ListUserPoolsCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUserPoolsCommandInput, ListUserPoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,9 +49,7 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     HttpRequestWithGreedyLabelInPathCommandInput,
     HttpRequestWithGreedyLabelInPathCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     input: HttpRequestWithGreedyLabelInPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
-    return deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand(output, context);
   }
 
   // Start section: command_body_extra

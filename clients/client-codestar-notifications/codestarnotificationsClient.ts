@@ -26,22 +26,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput
-} from "./commands/ListTargetsCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "./commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "./commands/UnsubscribeCommand";
+import { ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput

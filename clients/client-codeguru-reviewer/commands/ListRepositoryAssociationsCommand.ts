@@ -49,13 +49,8 @@ export class ListRepositoryAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRepositoryAssociationsCommandInput,
-    ListRepositoryAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRepositoryAssociationsCommandInput, ListRepositoryAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListRepositoryAssociationsCommand extends $Command<
     input: ListRepositoryAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRepositoryAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListRepositoryAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositoryAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1ListRepositoryAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRepositoryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

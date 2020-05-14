@@ -54,10 +54,7 @@ import {
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput
 } from "./commands/GetSubscriptionStateCommand";
-import {
-  ListAttacksCommandInput,
-  ListAttacksCommandOutput
-} from "./commands/ListAttacksCommand";
+import { ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand";
 import {
   ListProtectionsCommandInput,
   ListProtectionsCommandOutput
@@ -247,9 +244,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ShieldClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ShieldClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +253,7 @@ export type ShieldClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

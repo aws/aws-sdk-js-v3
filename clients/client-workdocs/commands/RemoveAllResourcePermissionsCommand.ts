@@ -45,13 +45,8 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveAllResourcePermissionsCommandInput,
-    RemoveAllResourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveAllResourcePermissionsCommandInput, RemoveAllResourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     input: RemoveAllResourcePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveAllResourcePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RemoveAllResourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAllResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

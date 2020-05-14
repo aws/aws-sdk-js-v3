@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  GetCatalogImportStatusRequest,
-  GetCatalogImportStatusResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetCatalogImportStatusRequest, GetCatalogImportStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCatalogImportStatusCommand,
   serializeAws_json1_1GetCatalogImportStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCatalogImportStatusCommandInput = GetCatalogImportStatusRequest;
-export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse &
-  __MetadataBearer;
+export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse & __MetadataBearer;
 
 export class GetCatalogImportStatusCommand extends $Command<
   GetCatalogImportStatusCommandInput,
@@ -49,13 +41,8 @@ export class GetCatalogImportStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCatalogImportStatusCommandInput,
-    GetCatalogImportStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCatalogImportStatusCommandInput, GetCatalogImportStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

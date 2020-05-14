@@ -49,13 +49,8 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProvisioningArtifactCommandInput,
-    DescribeProvisioningArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProvisioningArtifactCommandInput, DescribeProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeProvisioningArtifactCommand extends $Command<
     input: DescribeProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

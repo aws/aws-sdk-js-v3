@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AddPermissionRequest, AddPermissionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AddPermissionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddPermissionCommandInput = AddPermissionRequest;
-export type AddPermissionCommandOutput = AddPermissionResponse &
-  __MetadataBearer;
+export type AddPermissionCommandOutput = AddPermissionResponse & __MetadataBearer;
 
 export class AddPermissionCommand extends $Command<
   AddPermissionCommandInput,
@@ -47,9 +42,7 @@ export class AddPermissionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddPermissionCommandInput, AddPermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

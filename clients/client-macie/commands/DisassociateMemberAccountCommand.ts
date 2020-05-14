@@ -1,8 +1,4 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { DisassociateMemberAccountRequest } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateMemberAccountCommand,
@@ -45,13 +41,8 @@ export class DisassociateMemberAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateMemberAccountCommandInput,
-    DisassociateMemberAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateMemberAccountCommandInput, DisassociateMemberAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DisassociateMemberAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1DisassociateMemberAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SetSecurityTokenServicePreferencesRequest } from "../models/index";
 import {
   deserializeAws_querySetSecurityTokenServicePreferencesCommand,
@@ -49,9 +45,7 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     SetSecurityTokenServicePreferencesCommandInput,
     SetSecurityTokenServicePreferencesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityTokenServicePreferencesCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

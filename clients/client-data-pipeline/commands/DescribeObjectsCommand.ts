@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeObjectsCommandInput = DescribeObjectsInput;
-export type DescribeObjectsCommandOutput = DescribeObjectsOutput &
-  __MetadataBearer;
+export type DescribeObjectsCommandOutput = DescribeObjectsOutput & __MetadataBearer;
 
 export class DescribeObjectsCommand extends $Command<
   DescribeObjectsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeObjectsCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeObjectsCommandInput, DescribeObjectsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

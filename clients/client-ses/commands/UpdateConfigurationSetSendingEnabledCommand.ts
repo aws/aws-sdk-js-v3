@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateConfigurationSetSendingEnabledRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
@@ -35,9 +31,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetSendingEnabledCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +45,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     UpdateConfigurationSetSendingEnabledCommandInput,
     UpdateConfigurationSetSendingEnabledCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +64,14 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     input: UpdateConfigurationSetSendingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

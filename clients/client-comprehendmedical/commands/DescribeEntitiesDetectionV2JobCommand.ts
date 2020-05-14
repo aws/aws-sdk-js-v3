@@ -53,9 +53,7 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     DescribeEntitiesDetectionV2JobCommandInput,
     DescribeEntitiesDetectionV2JobCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     input: DescribeEntitiesDetectionV2JobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

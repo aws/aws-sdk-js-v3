@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDocumentCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDocumentCommandInput = DeleteDocumentRequest;
-export type DeleteDocumentCommandOutput = DeleteDocumentResult &
-  __MetadataBearer;
+export type DeleteDocumentCommandOutput = DeleteDocumentResult & __MetadataBearer;
 
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,
@@ -47,9 +42,7 @@ export class DeleteDocumentCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDocumentCommandInput, DeleteDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterDomainCommandInput = RegisterDomainRequest;
-export type RegisterDomainCommandOutput = RegisterDomainResponse &
-  __MetadataBearer;
+export type RegisterDomainCommandOutput = RegisterDomainResponse & __MetadataBearer;
 
 export class RegisterDomainCommand extends $Command<
   RegisterDomainCommandInput,
@@ -47,9 +46,7 @@ export class RegisterDomainCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterDomainCommandInput, RegisterDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

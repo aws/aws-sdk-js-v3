@@ -1,7 +1,4 @@
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput
@@ -38,18 +35,12 @@ import {
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput
 } from "./commands/DescribeJobsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   RegisterJobDefinitionCommandInput,
   RegisterJobDefinitionCommandOutput
 } from "./commands/RegisterJobDefinitionCommand";
-import {
-  SubmitJobCommandInput,
-  SubmitJobCommandOutput
-} from "./commands/SubmitJobCommand";
+import { SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
 import {
   TerminateJobCommandInput,
   TerminateJobCommandOutput
@@ -235,9 +226,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type BatchClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type BatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +235,7 @@ export type BatchClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type BatchClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type BatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

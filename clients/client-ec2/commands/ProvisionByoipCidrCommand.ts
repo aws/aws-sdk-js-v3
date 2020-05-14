@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ProvisionByoipCidrRequest,
-  ProvisionByoipCidrResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/index";
 import {
   deserializeAws_ec2ProvisionByoipCidrCommand,
   serializeAws_ec2ProvisionByoipCidrCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ProvisionByoipCidrCommandInput = ProvisionByoipCidrRequest;
-export type ProvisionByoipCidrCommandOutput = ProvisionByoipCidrResult &
-  __MetadataBearer;
+export type ProvisionByoipCidrCommandOutput = ProvisionByoipCidrResult & __MetadataBearer;
 
 export class ProvisionByoipCidrCommand extends $Command<
   ProvisionByoipCidrCommandInput,
@@ -50,9 +42,7 @@ export class ProvisionByoipCidrCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

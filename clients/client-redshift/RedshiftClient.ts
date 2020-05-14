@@ -70,10 +70,7 @@ import {
   CreateSnapshotScheduleCommandInput,
   CreateSnapshotScheduleCommandOutput
 } from "./commands/CreateSnapshotScheduleCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput
@@ -118,10 +115,7 @@ import {
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput
 } from "./commands/DeleteSnapshotScheduleCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput
@@ -655,9 +649,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RedshiftClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RedshiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -666,9 +658,7 @@ export type RedshiftClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

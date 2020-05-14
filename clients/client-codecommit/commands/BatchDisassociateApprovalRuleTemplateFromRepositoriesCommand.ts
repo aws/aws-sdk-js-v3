@@ -39,9 +39,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
-  ) {
+  constructor(readonly input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,9 +81,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  > {
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
       output,
       context

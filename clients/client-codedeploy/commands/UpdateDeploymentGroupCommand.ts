@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  UpdateDeploymentGroupInput,
-  UpdateDeploymentGroupOutput
-} from "../models/index";
+import { UpdateDeploymentGroupInput, UpdateDeploymentGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDeploymentGroupCommand,
   serializeAws_json1_1UpdateDeploymentGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDeploymentGroupCommandInput = UpdateDeploymentGroupInput;
-export type UpdateDeploymentGroupCommandOutput = UpdateDeploymentGroupOutput &
-  __MetadataBearer;
+export type UpdateDeploymentGroupCommandOutput = UpdateDeploymentGroupOutput & __MetadataBearer;
 
 export class UpdateDeploymentGroupCommand extends $Command<
   UpdateDeploymentGroupCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDeploymentGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDeploymentGroupCommandInput,
-    UpdateDeploymentGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDeploymentGroupCommandInput, UpdateDeploymentGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

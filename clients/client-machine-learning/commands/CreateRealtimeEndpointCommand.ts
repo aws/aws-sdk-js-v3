@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  CreateRealtimeEndpointInput,
-  CreateRealtimeEndpointOutput
-} from "../models/index";
+import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateRealtimeEndpointCommand,
   serializeAws_json1_1CreateRealtimeEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRealtimeEndpointCommandInput = CreateRealtimeEndpointInput;
-export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput &
-  __MetadataBearer;
+export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput & __MetadataBearer;
 
 export class CreateRealtimeEndpointCommand extends $Command<
   CreateRealtimeEndpointCommandInput,
@@ -49,13 +45,8 @@ export class CreateRealtimeEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRealtimeEndpointCommandInput,
-    CreateRealtimeEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRealtimeEndpointCommandInput, CreateRealtimeEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

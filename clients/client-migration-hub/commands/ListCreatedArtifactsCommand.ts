@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  ListCreatedArtifactsRequest,
-  ListCreatedArtifactsResult
-} from "../models/index";
+import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListCreatedArtifactsCommand,
   serializeAws_json1_1ListCreatedArtifactsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCreatedArtifactsCommandInput = ListCreatedArtifactsRequest;
-export type ListCreatedArtifactsCommandOutput = ListCreatedArtifactsResult &
-  __MetadataBearer;
+export type ListCreatedArtifactsCommandOutput = ListCreatedArtifactsResult & __MetadataBearer;
 
 export class ListCreatedArtifactsCommand extends $Command<
   ListCreatedArtifactsCommandInput,
@@ -49,13 +45,8 @@ export class ListCreatedArtifactsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCreatedArtifactsCommandInput,
-    ListCreatedArtifactsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCreatedArtifactsCommandInput, ListCreatedArtifactsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

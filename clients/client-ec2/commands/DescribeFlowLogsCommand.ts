@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeFlowLogsRequest,
-  DescribeFlowLogsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeFlowLogsCommand,
   serializeAws_ec2DescribeFlowLogsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFlowLogsCommandInput = DescribeFlowLogsRequest;
-export type DescribeFlowLogsCommandOutput = DescribeFlowLogsResult &
-  __MetadataBearer;
+export type DescribeFlowLogsCommandOutput = DescribeFlowLogsResult & __MetadataBearer;
 
 export class DescribeFlowLogsCommand extends $Command<
   DescribeFlowLogsCommandInput,
@@ -50,9 +42,7 @@ export class DescribeFlowLogsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFlowLogsCommandInput, DescribeFlowLogsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

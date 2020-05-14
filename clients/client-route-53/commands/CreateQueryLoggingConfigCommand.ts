@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  CreateQueryLoggingConfigRequest,
-  CreateQueryLoggingConfigResponse
-} from "../models/index";
+import { CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse } from "../models/index";
 import {
   deserializeAws_restXmlCreateQueryLoggingConfigCommand,
   serializeAws_restXmlCreateQueryLoggingConfigCommand
@@ -50,13 +47,8 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateQueryLoggingConfigCommandInput,
-    CreateQueryLoggingConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateQueryLoggingConfigCommandInput, CreateQueryLoggingConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class CreateQueryLoggingConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlCreateQueryLoggingConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

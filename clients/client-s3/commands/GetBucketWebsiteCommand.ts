@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketWebsiteOutput,
-  GetBucketWebsiteRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketWebsiteCommand,
   serializeAws_restXmlGetBucketWebsiteCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketWebsiteCommandInput = GetBucketWebsiteRequest;
-export type GetBucketWebsiteCommandOutput = GetBucketWebsiteOutput &
-  __MetadataBearer;
+export type GetBucketWebsiteCommandOutput = GetBucketWebsiteOutput & __MetadataBearer;
 
 export class GetBucketWebsiteCommand extends $Command<
   GetBucketWebsiteCommandInput,
@@ -51,9 +43,7 @@ export class GetBucketWebsiteCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

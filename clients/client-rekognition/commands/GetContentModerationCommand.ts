@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetContentModerationRequest,
-  GetContentModerationResponse
-} from "../models/index";
+import { GetContentModerationRequest, GetContentModerationResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetContentModerationCommand,
   serializeAws_json1_1GetContentModerationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetContentModerationCommandInput = GetContentModerationRequest;
-export type GetContentModerationCommandOutput = GetContentModerationResponse &
-  __MetadataBearer;
+export type GetContentModerationCommandOutput = GetContentModerationResponse & __MetadataBearer;
 
 export class GetContentModerationCommand extends $Command<
   GetContentModerationCommandInput,
@@ -49,13 +45,8 @@ export class GetContentModerationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetContentModerationCommandInput,
-    GetContentModerationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetContentModerationCommandInput, GetContentModerationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

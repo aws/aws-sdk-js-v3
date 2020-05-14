@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCampaignCommandInput = DeleteCampaignRequest;
-export type DeleteCampaignCommandOutput = DeleteCampaignResponse &
-  __MetadataBearer;
+export type DeleteCampaignCommandOutput = DeleteCampaignResponse & __MetadataBearer;
 
 export class DeleteCampaignCommand extends $Command<
   DeleteCampaignCommandInput,
@@ -47,9 +46,7 @@ export class DeleteCampaignCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCampaignCommandInput, DeleteCampaignCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

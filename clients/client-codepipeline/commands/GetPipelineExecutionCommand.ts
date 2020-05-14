@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  GetPipelineExecutionInput,
-  GetPipelineExecutionOutput
-} from "../models/index";
+import { GetPipelineExecutionInput, GetPipelineExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetPipelineExecutionCommand,
   serializeAws_json1_1GetPipelineExecutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPipelineExecutionCommandInput = GetPipelineExecutionInput;
-export type GetPipelineExecutionCommandOutput = GetPipelineExecutionOutput &
-  __MetadataBearer;
+export type GetPipelineExecutionCommandOutput = GetPipelineExecutionOutput & __MetadataBearer;
 
 export class GetPipelineExecutionCommand extends $Command<
   GetPipelineExecutionCommandInput,
@@ -49,13 +45,8 @@ export class GetPipelineExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPipelineExecutionCommandInput,
-    GetPipelineExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPipelineExecutionCommandInput, GetPipelineExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

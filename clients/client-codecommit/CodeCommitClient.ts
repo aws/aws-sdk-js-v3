@@ -62,10 +62,7 @@ import {
   DeleteCommentContentCommandInput,
   DeleteCommentContentCommandOutput
 } from "./commands/DeleteCommentContentCommand";
-import {
-  DeleteFileCommandInput,
-  DeleteFileCommandOutput
-} from "./commands/DeleteFileCommand";
+import { DeleteFileCommandInput, DeleteFileCommandOutput } from "./commands/DeleteFileCommand";
 import {
   DeletePullRequestApprovalRuleCommandInput,
   DeletePullRequestApprovalRuleCommandOutput
@@ -94,18 +91,9 @@ import {
   GetApprovalRuleTemplateCommandInput,
   GetApprovalRuleTemplateCommandOutput
 } from "./commands/GetApprovalRuleTemplateCommand";
-import {
-  GetBlobCommandInput,
-  GetBlobCommandOutput
-} from "./commands/GetBlobCommand";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand";
-import {
-  GetCommentCommandInput,
-  GetCommentCommandOutput
-} from "./commands/GetCommentCommand";
+import { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCommand";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
+import { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import {
   GetCommentsForComparedCommitCommandInput,
   GetCommentsForComparedCommitCommandOutput
@@ -114,22 +102,13 @@ import {
   GetCommentsForPullRequestCommandInput,
   GetCommentsForPullRequestCommandOutput
 } from "./commands/GetCommentsForPullRequestCommand";
-import {
-  GetCommitCommandInput,
-  GetCommitCommandOutput
-} from "./commands/GetCommitCommand";
+import { GetCommitCommandInput, GetCommitCommandOutput } from "./commands/GetCommitCommand";
 import {
   GetDifferencesCommandInput,
   GetDifferencesCommandOutput
 } from "./commands/GetDifferencesCommand";
-import {
-  GetFileCommandInput,
-  GetFileCommandOutput
-} from "./commands/GetFileCommand";
-import {
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "./commands/GetFolderCommand";
+import { GetFileCommandInput, GetFileCommandOutput } from "./commands/GetFileCommand";
+import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand";
 import {
   GetMergeCommitCommandInput,
   GetMergeCommitCommandOutput
@@ -230,18 +209,12 @@ import {
   PostCommentReplyCommandInput,
   PostCommentReplyCommandOutput
 } from "./commands/PostCommentReplyCommand";
-import {
-  PutFileCommandInput,
-  PutFileCommandOutput
-} from "./commands/PutFileCommand";
+import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommandInput,
   PutRepositoryTriggersCommandOutput
 } from "./commands/PutRepositoryTriggersCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestRepositoryTriggersCommandInput,
   TestRepositoryTriggersCommandOutput
@@ -589,9 +562,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeCommitClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeCommitClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -600,9 +571,7 @@ export type CodeCommitClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetReusableDelegationSetRequest,
-  GetReusableDelegationSetResponse
-} from "../models/index";
+import { GetReusableDelegationSetRequest, GetReusableDelegationSetResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetReusableDelegationSetCommand,
   serializeAws_restXmlGetReusableDelegationSetCommand
@@ -50,13 +47,8 @@ export class GetReusableDelegationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetReusableDelegationSetCommandInput,
-    GetReusableDelegationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetReusableDelegationSetCommandInput, GetReusableDelegationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class GetReusableDelegationSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReusableDelegationSetCommandOutput> {
-    return deserializeAws_restXmlGetReusableDelegationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetReusableDelegationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

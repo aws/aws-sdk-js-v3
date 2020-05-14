@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  CreateReportGroupInput,
-  CreateReportGroupOutput
-} from "../models/index";
+import { CreateReportGroupInput, CreateReportGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateReportGroupCommand,
   serializeAws_json1_1CreateReportGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateReportGroupCommandInput = CreateReportGroupInput;
-export type CreateReportGroupCommandOutput = CreateReportGroupOutput &
-  __MetadataBearer;
+export type CreateReportGroupCommandOutput = CreateReportGroupOutput & __MetadataBearer;
 
 export class CreateReportGroupCommand extends $Command<
   CreateReportGroupCommandInput,
@@ -50,9 +46,7 @@ export class CreateReportGroupCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateReportGroupCommandInput, CreateReportGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketLifecycleConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
@@ -51,9 +47,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     PutBucketLifecycleConfigurationCommandInput,
     PutBucketLifecycleConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
     this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
@@ -74,20 +68,14 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

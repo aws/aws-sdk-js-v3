@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeEndpointGroupRequest,
-  DescribeEndpointGroupResponse
-} from "../models/index";
+import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEndpointGroupCommand,
   serializeAws_json1_1DescribeEndpointGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEndpointGroupCommandInput = DescribeEndpointGroupRequest;
-export type DescribeEndpointGroupCommandOutput = DescribeEndpointGroupResponse &
-  __MetadataBearer;
+export type DescribeEndpointGroupCommandOutput = DescribeEndpointGroupResponse & __MetadataBearer;
 
 export class DescribeEndpointGroupCommand extends $Command<
   DescribeEndpointGroupCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEndpointGroupCommandInput,
-    DescribeEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEndpointGroupCommandInput, DescribeEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

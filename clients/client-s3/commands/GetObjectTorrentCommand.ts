@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetObjectTorrentOutput,
-  GetObjectTorrentRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetObjectTorrentCommand,
   serializeAws_restXmlGetObjectTorrentCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
-export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput &
-  __MetadataBearer;
+export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput & __MetadataBearer;
 
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,
@@ -51,9 +43,7 @@ export class GetObjectTorrentCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

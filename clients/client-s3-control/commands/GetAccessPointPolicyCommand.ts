@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3ControlClient";
-import {
-  GetAccessPointPolicyRequest,
-  GetAccessPointPolicyResult
-} from "../models/index";
+import { GetAccessPointPolicyRequest, GetAccessPointPolicyResult } from "../models/index";
 import {
   deserializeAws_restXmlGetAccessPointPolicyCommand,
   serializeAws_restXmlGetAccessPointPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccessPointPolicyCommandInput = GetAccessPointPolicyRequest;
-export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult &
-  __MetadataBearer;
+export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult & __MetadataBearer;
 
 export class GetAccessPointPolicyCommand extends $Command<
   GetAccessPointPolicyCommandInput,
@@ -49,13 +45,8 @@ export class GetAccessPointPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAccessPointPolicyCommandInput,
-    GetAccessPointPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAccessPointPolicyCommandInput, GetAccessPointPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

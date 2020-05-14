@@ -2,11 +2,7 @@ import {
   DescribeBrokerInstanceOptionsRequest,
   DescribeBrokerInstanceOptionsResponse
 } from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand,
   serializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand
@@ -53,9 +49,7 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     DescribeBrokerInstanceOptionsCommandInput,
     DescribeBrokerInstanceOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     input: DescribeBrokerInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

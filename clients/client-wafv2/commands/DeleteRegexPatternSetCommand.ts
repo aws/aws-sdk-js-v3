@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  DeleteRegexPatternSetRequest,
-  DeleteRegexPatternSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRegexPatternSetCommand,
   serializeAws_json1_1DeleteRegexPatternSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRegexPatternSetCommandInput = DeleteRegexPatternSetRequest;
-export type DeleteRegexPatternSetCommandOutput = DeleteRegexPatternSetResponse &
-  __MetadataBearer;
+export type DeleteRegexPatternSetCommandOutput = DeleteRegexPatternSetResponse & __MetadataBearer;
 
 export class DeleteRegexPatternSetCommand extends $Command<
   DeleteRegexPatternSetCommandInput,
@@ -49,13 +41,8 @@ export class DeleteRegexPatternSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRegexPatternSetCommandInput,
-    DeleteRegexPatternSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRegexPatternSetCommandInput, DeleteRegexPatternSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -54,10 +54,7 @@ import {
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput
 } from "./commands/ListPermissionsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RestoreCertificateAuthorityCommandInput,
   RestoreCertificateAuthorityCommandOutput
@@ -259,9 +256,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ACMPCAClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ACMPCAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -270,9 +265,7 @@ export type ACMPCAClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

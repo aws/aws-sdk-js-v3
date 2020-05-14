@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyFpgaImageAttributeRequest,
-  ModifyFpgaImageAttributeResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyFpgaImageAttributeCommand,
   serializeAws_ec2ModifyFpgaImageAttributeCommand
@@ -49,13 +42,8 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyFpgaImageAttributeCommandInput,
-    ModifyFpgaImageAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyFpgaImageAttributeCommandInput, ModifyFpgaImageAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

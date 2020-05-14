@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSmsTemplateCommandInput = GetSmsTemplateRequest;
-export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse &
-  __MetadataBearer;
+export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse & __MetadataBearer;
 
 export class GetSmsTemplateCommand extends $Command<
   GetSmsTemplateCommandInput,
@@ -47,9 +46,7 @@ export class GetSmsTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSmsTemplateCommandInput, GetSmsTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

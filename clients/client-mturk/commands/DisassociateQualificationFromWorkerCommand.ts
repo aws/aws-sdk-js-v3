@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   DisassociateQualificationFromWorkerRequest,
   DisassociateQualificationFromWorkerResponse
@@ -53,9 +49,7 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     DisassociateQualificationFromWorkerCommandInput,
     DisassociateQualificationFromWorkerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
     input: DisassociateQualificationFromWorkerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateQualificationFromWorkerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> {
-    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateQualificationFromWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

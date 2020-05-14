@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeInstanceAttributeRequest,
-  InstanceAttribute
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/index";
 import {
   deserializeAws_ec2DescribeInstanceAttributeCommand,
   serializeAws_ec2DescribeInstanceAttributeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeRequest;
-export type DescribeInstanceAttributeCommandOutput = InstanceAttribute &
-  __MetadataBearer;
+export type DescribeInstanceAttributeCommandOutput = InstanceAttribute & __MetadataBearer;
 
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,
@@ -49,13 +41,8 @@ export class DescribeInstanceAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstanceAttributeCommandInput,
-    DescribeInstanceAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstanceAttributeCommandInput, DescribeInstanceAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

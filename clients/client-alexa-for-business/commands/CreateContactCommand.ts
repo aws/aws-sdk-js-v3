@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateContactCommandInput = CreateContactRequest;
-export type CreateContactCommandOutput = CreateContactResponse &
-  __MetadataBearer;
+export type CreateContactCommandOutput = CreateContactResponse & __MetadataBearer;
 
 export class CreateContactCommand extends $Command<
   CreateContactCommandInput,
@@ -47,9 +46,7 @@ export class CreateContactCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateContactCommandInput, CreateContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

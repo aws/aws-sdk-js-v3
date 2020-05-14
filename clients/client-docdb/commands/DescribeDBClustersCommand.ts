@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBClusterMessage, DescribeDBClustersMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBClustersCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBClustersCommandInput = DescribeDBClustersMessage;
-export type DescribeDBClustersCommandOutput = DBClusterMessage &
-  __MetadataBearer;
+export type DescribeDBClustersCommandOutput = DBClusterMessage & __MetadataBearer;
 
 export class DescribeDBClustersCommand extends $Command<
   DescribeDBClustersCommandInput,
@@ -47,9 +42,7 @@ export class DescribeDBClustersCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

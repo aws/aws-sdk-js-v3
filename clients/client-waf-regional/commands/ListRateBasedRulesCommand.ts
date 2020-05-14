@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  ListRateBasedRulesRequest,
-  ListRateBasedRulesResponse
-} from "../models/index";
+import { ListRateBasedRulesRequest, ListRateBasedRulesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRateBasedRulesCommand,
   serializeAws_json1_1ListRateBasedRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRateBasedRulesCommandInput = ListRateBasedRulesRequest;
-export type ListRateBasedRulesCommandOutput = ListRateBasedRulesResponse &
-  __MetadataBearer;
+export type ListRateBasedRulesCommandOutput = ListRateBasedRulesResponse & __MetadataBearer;
 
 export class ListRateBasedRulesCommand extends $Command<
   ListRateBasedRulesCommandInput,
@@ -50,9 +46,7 @@ export class ListRateBasedRulesCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRateBasedRulesCommandInput, ListRateBasedRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

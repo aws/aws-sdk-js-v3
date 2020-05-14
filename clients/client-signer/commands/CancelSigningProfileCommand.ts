@@ -3,11 +3,7 @@ import {
   deserializeAws_restJson1_1CancelSigningProfileCommand,
   serializeAws_restJson1_1CancelSigningProfileCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -45,13 +41,8 @@ export class CancelSigningProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSigningProfileCommandInput,
-    CancelSigningProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSigningProfileCommandInput, CancelSigningProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class CancelSigningProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelSigningProfileCommandOutput> {
-    return deserializeAws_restJson1_1CancelSigningProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelSigningProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

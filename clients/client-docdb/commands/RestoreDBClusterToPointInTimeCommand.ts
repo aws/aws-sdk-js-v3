@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   RestoreDBClusterToPointInTimeMessage,
   RestoreDBClusterToPointInTimeResult
@@ -53,9 +49,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     RestoreDBClusterToPointInTimeCommandInput,
     RestoreDBClusterToPointInTimeCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     input: RestoreDBClusterToPointInTimeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

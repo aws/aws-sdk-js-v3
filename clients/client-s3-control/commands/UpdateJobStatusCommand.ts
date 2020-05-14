@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJobStatusCommandInput = UpdateJobStatusRequest;
-export type UpdateJobStatusCommandOutput = UpdateJobStatusResult &
-  __MetadataBearer;
+export type UpdateJobStatusCommandOutput = UpdateJobStatusResult & __MetadataBearer;
 
 export class UpdateJobStatusCommand extends $Command<
   UpdateJobStatusCommandInput,
@@ -47,9 +46,7 @@ export class UpdateJobStatusCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCuratedEnvironmentImagesCommandInput,
-    ListCuratedEnvironmentImagesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCuratedEnvironmentImagesCommandInput, ListCuratedEnvironmentImagesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
     input: ListCuratedEnvironmentImagesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
-    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

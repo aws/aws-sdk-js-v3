@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetConnectionRequest, GetConnectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetConnectionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectionCommandInput = GetConnectionRequest;
-export type GetConnectionCommandOutput = GetConnectionResponse &
-  __MetadataBearer;
+export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
 
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
@@ -47,9 +42,7 @@ export class GetConnectionCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

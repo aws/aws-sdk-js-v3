@@ -47,9 +47,7 @@ export class PredictCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PredictCommandInput, PredictCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getPredictEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -65,10 +63,7 @@ export class PredictCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PredictCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PredictCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PredictCommand(input, context);
   }
 

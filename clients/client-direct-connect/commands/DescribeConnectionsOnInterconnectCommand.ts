@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  Connections,
-  DescribeConnectionsOnInterconnectRequest
-} from "../models/index";
+import { Connections, DescribeConnectionsOnInterconnectRequest } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand,
   serializeAws_json1_1DescribeConnectionsOnInterconnectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConnectionsOnInterconnectCommandInput = DescribeConnectionsOnInterconnectRequest;
-export type DescribeConnectionsOnInterconnectCommandOutput = Connections &
-  __MetadataBearer;
+export type DescribeConnectionsOnInterconnectCommandOutput = Connections & __MetadataBearer;
 
 export class DescribeConnectionsOnInterconnectCommand extends $Command<
   DescribeConnectionsOnInterconnectCommandInput,
@@ -53,9 +49,7 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     DescribeConnectionsOnInterconnectCommandInput,
     DescribeConnectionsOnInterconnectCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     input: DescribeConnectionsOnInterconnectCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeConnectionsOnInterconnectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

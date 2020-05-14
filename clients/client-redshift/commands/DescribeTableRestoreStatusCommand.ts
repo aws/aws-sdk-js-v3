@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeTableRestoreStatusMessage,
-  TableRestoreStatusMessage
-} from "../models/index";
+import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeTableRestoreStatusCommand,
   serializeAws_queryDescribeTableRestoreStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTableRestoreStatusCommandInput = DescribeTableRestoreStatusMessage;
-export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage &
-  __MetadataBearer;
+export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage & __MetadataBearer;
 
 export class DescribeTableRestoreStatusCommand extends $Command<
   DescribeTableRestoreStatusCommandInput,
@@ -49,13 +45,8 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTableRestoreStatusCommandInput,
-    DescribeTableRestoreStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTableRestoreStatusCommandInput, DescribeTableRestoreStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableRestoreStatusCommandOutput> {
-    return deserializeAws_queryDescribeTableRestoreStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

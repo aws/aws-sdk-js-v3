@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient";
-import {
-  CancelTaskExecutionRequest,
-  CancelTaskExecutionResponse
-} from "../models/index";
+import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelTaskExecutionCommand,
   serializeAws_json1_1CancelTaskExecutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelTaskExecutionCommandInput = CancelTaskExecutionRequest;
-export type CancelTaskExecutionCommandOutput = CancelTaskExecutionResponse &
-  __MetadataBearer;
+export type CancelTaskExecutionCommandOutput = CancelTaskExecutionResponse & __MetadataBearer;
 
 export class CancelTaskExecutionCommand extends $Command<
   CancelTaskExecutionCommandInput,
@@ -49,13 +45,8 @@ export class CancelTaskExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelTaskExecutionCommandInput,
-    CancelTaskExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelTaskExecutionCommandInput, CancelTaskExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

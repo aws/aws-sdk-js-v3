@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ListTagsForResourcesRequest,
-  ListTagsForResourcesResponse
-} from "../models/index";
+import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/index";
 import {
   deserializeAws_restXmlListTagsForResourcesCommand,
   serializeAws_restXmlListTagsForResourcesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForResourcesCommandInput = ListTagsForResourcesRequest;
-export type ListTagsForResourcesCommandOutput = ListTagsForResourcesResponse &
-  __MetadataBearer;
+export type ListTagsForResourcesCommandOutput = ListTagsForResourcesResponse & __MetadataBearer;
 
 export class ListTagsForResourcesCommand extends $Command<
   ListTagsForResourcesCommandInput,
@@ -49,13 +45,8 @@ export class ListTagsForResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForResourcesCommandInput,
-    ListTagsForResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForResourcesCommandInput, ListTagsForResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

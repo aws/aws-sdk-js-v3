@@ -49,13 +49,8 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAvailabilityOptionsCommandInput,
-    UpdateAvailabilityOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAvailabilityOptionsCommandInput, UpdateAvailabilityOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAvailabilityOptionsCommandOutput> {
-    return deserializeAws_queryUpdateAvailabilityOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateAvailabilityOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

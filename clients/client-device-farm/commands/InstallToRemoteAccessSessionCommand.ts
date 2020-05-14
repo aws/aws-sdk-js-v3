@@ -49,13 +49,8 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InstallToRemoteAccessSessionCommandInput,
-    InstallToRemoteAccessSessionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InstallToRemoteAccessSessionCommandInput, InstallToRemoteAccessSessionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
     input: InstallToRemoteAccessSessionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InstallToRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

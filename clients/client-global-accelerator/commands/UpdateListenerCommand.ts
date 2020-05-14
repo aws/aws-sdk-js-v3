@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateListenerCommandInput = UpdateListenerRequest;
-export type UpdateListenerCommandOutput = UpdateListenerResponse &
-  __MetadataBearer;
+export type UpdateListenerCommandOutput = UpdateListenerResponse & __MetadataBearer;
 
 export class UpdateListenerCommand extends $Command<
   UpdateListenerCommandInput,
@@ -47,9 +46,7 @@ export class UpdateListenerCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateListenerCommandInput, UpdateListenerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

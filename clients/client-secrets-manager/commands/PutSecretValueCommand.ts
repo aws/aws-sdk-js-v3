@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutSecretValueCommandInput = PutSecretValueRequest;
-export type PutSecretValueCommandOutput = PutSecretValueResponse &
-  __MetadataBearer;
+export type PutSecretValueCommandOutput = PutSecretValueResponse & __MetadataBearer;
 
 export class PutSecretValueCommand extends $Command<
   PutSecretValueCommandInput,
@@ -47,9 +46,7 @@ export class PutSecretValueCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutSecretValueCommandInput, PutSecretValueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTimeToLiveCommandInput = UpdateTimeToLiveInput;
-export type UpdateTimeToLiveCommandOutput = UpdateTimeToLiveOutput &
-  __MetadataBearer;
+export type UpdateTimeToLiveCommandOutput = UpdateTimeToLiveOutput & __MetadataBearer;
 
 export class UpdateTimeToLiveCommand extends $Command<
   UpdateTimeToLiveCommandInput,
@@ -47,9 +46,7 @@ export class UpdateTimeToLiveCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

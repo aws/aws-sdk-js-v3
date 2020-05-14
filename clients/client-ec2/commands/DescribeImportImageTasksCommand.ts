@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeImportImageTasksRequest,
-  DescribeImportImageTasksResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeImportImageTasksRequest, DescribeImportImageTasksResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeImportImageTasksCommand,
   serializeAws_ec2DescribeImportImageTasksCommand
@@ -49,13 +42,8 @@ export class DescribeImportImageTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImportImageTasksCommandInput,
-    DescribeImportImageTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImportImageTasksCommandInput, DescribeImportImageTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

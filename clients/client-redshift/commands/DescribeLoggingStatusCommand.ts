@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLoggingStatusCommandInput = DescribeLoggingStatusMessage;
-export type DescribeLoggingStatusCommandOutput = LoggingStatus &
-  __MetadataBearer;
+export type DescribeLoggingStatusCommandOutput = LoggingStatus & __MetadataBearer;
 
 export class DescribeLoggingStatusCommand extends $Command<
   DescribeLoggingStatusCommandInput,
@@ -46,13 +45,8 @@ export class DescribeLoggingStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoggingStatusCommandInput,
-    DescribeLoggingStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoggingStatusCommandInput, DescribeLoggingStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

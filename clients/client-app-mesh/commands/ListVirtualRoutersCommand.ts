@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  ListVirtualRoutersInput,
-  ListVirtualRoutersOutput
-} from "../models/index";
+import { ListVirtualRoutersInput, ListVirtualRoutersOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListVirtualRoutersCommand,
   serializeAws_restJson1_1ListVirtualRoutersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVirtualRoutersCommandInput = ListVirtualRoutersInput;
-export type ListVirtualRoutersCommandOutput = ListVirtualRoutersOutput &
-  __MetadataBearer;
+export type ListVirtualRoutersCommandOutput = ListVirtualRoutersOutput & __MetadataBearer;
 
 export class ListVirtualRoutersCommand extends $Command<
   ListVirtualRoutersCommandInput,
@@ -50,9 +46,7 @@ export class ListVirtualRoutersCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

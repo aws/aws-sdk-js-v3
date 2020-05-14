@@ -3,8 +3,7 @@ import { MockSha256, region, credentials, endpoint } from "./fixture";
 
 const nextHandler = jest.fn();
 const arn = "arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot";
-const arnSameRegion =
-  "arn:aws:rds:mock-region:000000000000:src-snapshot:dist-snapshot";
+const arnSameRegion = "arn:aws:rds:mock-region:000000000000:src-snapshot:dist-snapshot";
 const sourceIdentifier = "src-snapshot";
 
 const handler = crossRegionPresignedUrlMiddleware({
@@ -37,9 +36,7 @@ describe("middleware-sdk-rds", () => {
     );
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(
-      /https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/
-    );
+    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
     expect(presignedUrl).toMatch(/Action%3DCopyDBSnapshot/);
     expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
     expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
@@ -63,14 +60,10 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.SourceDBInstanceIdentifier).toEqual(
       params.SourceDBInstanceIdentifier
     );
-    expect(middlewareOutput.input.DBInstanceIdentifier).toEqual(
-      params.DBInstanceIdentifier
-    );
+    expect(middlewareOutput.input.DBInstanceIdentifier).toEqual(params.DBInstanceIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(
-      /https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/
-    );
+    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
     expect(presignedUrl).toMatch(/Action%3DCreateDBInstanceReadReplica/);
     expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
     expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
@@ -94,14 +87,10 @@ describe("middleware-sdk-rds", () => {
     expect(middlewareOutput.input.ReplicationSourceIdentifier).toEqual(
       params.ReplicationSourceIdentifier
     );
-    expect(middlewareOutput.input.DBClusterIdentifier).toEqual(
-      params.DBClusterIdentifier
-    );
+    expect(middlewareOutput.input.DBClusterIdentifier).toEqual(params.DBClusterIdentifier);
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(
-      /https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/
-    );
+    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
     expect(presignedUrl).toMatch(/Action%3DCreateDBCluster/);
     expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
     expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);
@@ -130,9 +119,7 @@ describe("middleware-sdk-rds", () => {
     );
     expect(middlewareOutput.input.KmsKeyId).toEqual(params.KmsKeyId);
     const presignedUrl = middlewareOutput.input.PreSignedUrl;
-    expect(presignedUrl).toMatch(
-      /https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/
-    );
+    expect(presignedUrl).toMatch(/https%3A%2F%2Frds\.src\-region\.amazonaws\.com%2F%3F/);
     expect(presignedUrl).toMatch(/Action%3DCopyDBClusterSnapshot/);
     expect(presignedUrl).toMatch(/Version%3D2014\-10\-31/);
     expect(presignedUrl).toMatch(/X\-Amz\-Security\-Token%3Dsession/);

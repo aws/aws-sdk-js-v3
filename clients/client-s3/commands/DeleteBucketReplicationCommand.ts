@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketReplicationRequest } from "../models/index";
 import {
   deserializeAws_restXmlDeleteBucketReplicationCommand,
@@ -46,13 +42,8 @@ export class DeleteBucketReplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBucketReplicationCommandInput,
-    DeleteBucketReplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBucketReplicationCommandInput, DeleteBucketReplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -79,10 +70,7 @@ export class DeleteBucketReplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketReplicationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketReplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteBucketReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -124,11 +124,7 @@ import {
   PutItemCommandInput,
   PutItemCommandOutput
 } from "./commands/PutItemCommand";
-import {
-  QueryCommand,
-  QueryCommandInput,
-  QueryCommandOutput
-} from "./commands/QueryCommand";
+import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommand,
   RestoreTableFromBackupCommandInput,
@@ -139,11 +135,7 @@ import {
   RestoreTableToPointInTimeCommandInput,
   RestoreTableToPointInTimeCommandOutput
 } from "./commands/RestoreTableToPointInTimeCommand";
-import {
-  ScanCommand,
-  ScanCommandInput,
-  ScanCommandOutput
-} from "./commands/ScanCommand";
+import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
@@ -326,9 +318,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public batchGetItem(
     args: BatchGetItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetItemCommandOutput) => void),
     cb?: (err: any, data?: BatchGetItemCommandOutput) => void
   ): Promise<BatchGetItemCommandOutput> | void {
     const command = new BatchGetItemCommand(args);
@@ -435,9 +425,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public batchWriteItem(
     args: BatchWriteItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchWriteItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchWriteItemCommandOutput) => void),
     cb?: (err: any, data?: BatchWriteItemCommandOutput) => void
   ): Promise<BatchWriteItemCommandOutput> | void {
     const command = new BatchWriteItemCommand(args);
@@ -499,9 +487,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public createBackup(
     args: CreateBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupCommandOutput) => void
   ): Promise<CreateBackupCommandOutput> | void {
     const command = new CreateBackupCommand(args);
@@ -632,9 +618,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public createTable(
     args: CreateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTableCommandOutput) => void
   ): Promise<CreateTableCommandOutput> | void {
     const command = new CreateTableCommand(args);
@@ -668,9 +652,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
@@ -708,9 +690,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteItem(
     args: DeleteItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteItemCommandOutput) => void),
     cb?: (err: any, data?: DeleteItemCommandOutput) => void
   ): Promise<DeleteItemCommandOutput> | void {
     const command = new DeleteItemCommand(args);
@@ -759,9 +739,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public deleteTable(
     args: DeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTableCommandOutput) => void
   ): Promise<DeleteTableCommandOutput> | void {
     const command = new DeleteTableCommand(args);
@@ -795,9 +773,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeBackup(
     args: DescribeBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupCommandOutput) => void
   ): Promise<DescribeBackupCommandOutput> | void {
     const command = new DescribeBackupCommand(args);
@@ -1048,9 +1024,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeLimits(
     args: DescribeLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLimitsCommandOutput) => void
   ): Promise<DescribeLimitsCommandOutput> | void {
     const command = new DescribeLimitsCommand(args);
@@ -1089,9 +1063,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public describeTable(
     args: DescribeTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTableCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableCommandOutput) => void
   ): Promise<DescribeTableCommandOutput> | void {
     const command = new DescribeTableCommand(args);
@@ -1129,10 +1101,7 @@ export class DynamoDB extends DynamoDBClient {
     args: DescribeTableReplicaAutoScalingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTableReplicaAutoScalingCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeTableReplicaAutoScalingCommandOutput) => void),
     cb?: (err: any, data?: DescribeTableReplicaAutoScalingCommandOutput) => void
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput> | void {
     const command = new DescribeTableReplicaAutoScalingCommand(args);
@@ -1206,9 +1175,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public getItem(
     args: GetItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetItemCommandOutput) => void),
     cb?: (err: any, data?: GetItemCommandOutput) => void
   ): Promise<GetItemCommandOutput> | void {
     const command = new GetItemCommand(args);
@@ -1247,9 +1214,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listBackups(
     args: ListBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupsCommandOutput) => void
   ): Promise<ListBackupsCommandOutput> | void {
     const command = new ListBackupsCommand(args);
@@ -1320,9 +1285,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listGlobalTables(
     args: ListGlobalTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGlobalTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGlobalTablesCommandOutput) => void),
     cb?: (err: any, data?: ListGlobalTablesCommandOutput) => void
   ): Promise<ListGlobalTablesCommandOutput> | void {
     const command = new ListGlobalTablesCommand(args);
@@ -1357,9 +1320,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public listTables(
     args: ListTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTablesCommandOutput) => void),
     cb?: (err: any, data?: ListTablesCommandOutput) => void
   ): Promise<ListTablesCommandOutput> | void {
     const command = new ListTablesCommand(args);
@@ -1495,9 +1456,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public putItem(
     args: PutItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutItemCommandOutput) => void),
     cb?: (err: any, data?: PutItemCommandOutput) => void
   ): Promise<PutItemCommandOutput> | void {
     const command = new PutItemCommand(args);
@@ -1574,10 +1533,7 @@ export class DynamoDB extends DynamoDBClient {
     args: QueryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<QueryCommandOutput>;
-  public query(
-    args: QueryCommandInput,
-    cb: (err: any, data?: QueryCommandOutput) => void
-  ): void;
+  public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
   public query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1585,9 +1541,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public query(
     args: QueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryCommandOutput) => void),
     cb?: (err: any, data?: QueryCommandOutput) => void
   ): Promise<QueryCommandOutput> | void {
     const command = new QueryCommand(args);
@@ -1778,14 +1732,8 @@ export class DynamoDB extends DynamoDBClient {
    *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
    *             parameter to <code>true</code>.</p>
    */
-  public scan(
-    args: ScanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ScanCommandOutput>;
-  public scan(
-    args: ScanCommandInput,
-    cb: (err: any, data?: ScanCommandOutput) => void
-  ): void;
+  public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
+  public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
   public scan(
     args: ScanCommandInput,
     options: __HttpHandlerOptions,
@@ -1793,9 +1741,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public scan(
     args: ScanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScanCommandOutput) => void),
     cb?: (err: any, data?: ScanCommandOutput) => void
   ): Promise<ScanCommandOutput> | void {
     const command = new ScanCommand(args);
@@ -1834,9 +1780,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1894,9 +1838,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public transactGetItems(
     args: TransactGetItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransactGetItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransactGetItemsCommandOutput) => void),
     cb?: (err: any, data?: TransactGetItemsCommandOutput) => void
   ): Promise<TransactGetItemsCommandOutput> | void {
     const command = new TransactGetItemsCommand(args);
@@ -2041,9 +1983,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2257,9 +2197,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateItem(
     args: UpdateItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateItemCommandOutput) => void),
     cb?: (err: any, data?: UpdateItemCommandOutput) => void
   ): Promise<UpdateItemCommandOutput> | void {
     const command = new UpdateItemCommand(args);
@@ -2314,9 +2252,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateTable(
     args: UpdateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableCommandOutput) => void),
     cb?: (err: any, data?: UpdateTableCommandOutput) => void
   ): Promise<UpdateTableCommandOutput> | void {
     const command = new UpdateTableCommand(args);
@@ -2411,9 +2347,7 @@ export class DynamoDB extends DynamoDBClient {
   ): void;
   public updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTimeToLiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTimeToLiveCommandOutput) => void),
     cb?: (err: any, data?: UpdateTimeToLiveCommandOutput) => void
   ): Promise<UpdateTimeToLiveCommandOutput> | void {
     const command = new UpdateTimeToLiveCommand(args);

@@ -1,8 +1,4 @@
-import {
-  HttpMessage,
-  HeaderBag,
-  HttpResponse as IHttpResponse
-} from "@aws-sdk/types";
+import { HttpMessage, HeaderBag, HttpResponse as IHttpResponse } from "@aws-sdk/types";
 
 type HttpResponseOptions = Partial<HttpMessage> & {
   statusCode: number;
@@ -25,8 +21,6 @@ export class HttpResponse {
     //determine if response is a valid HttpResponse
     if (!response) return false;
     const resp = response as any;
-    return (
-      typeof resp.statusCode === "number" && typeof resp.headers === "object"
-    );
+    return typeof resp.statusCode === "number" && typeof resp.headers === "object";
   }
 }

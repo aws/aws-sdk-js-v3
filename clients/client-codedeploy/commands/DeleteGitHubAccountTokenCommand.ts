@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  DeleteGitHubAccountTokenInput,
-  DeleteGitHubAccountTokenOutput
-} from "../models/index";
+import { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteGitHubAccountTokenCommand,
   serializeAws_json1_1DeleteGitHubAccountTokenCommand
@@ -49,13 +46,8 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGitHubAccountTokenCommandInput,
-    DeleteGitHubAccountTokenCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGitHubAccountTokenCommandInput, DeleteGitHubAccountTokenCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteGitHubAccountTokenCommandOutput> {
-    return deserializeAws_json1_1DeleteGitHubAccountTokenCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteGitHubAccountTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

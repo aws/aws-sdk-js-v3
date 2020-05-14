@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  DescribeWorkflowExecutionInput,
-  WorkflowExecutionDetail
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { DescribeWorkflowExecutionInput, WorkflowExecutionDetail } from "../models/index";
 import {
   deserializeAws_json1_0DescribeWorkflowExecutionCommand,
   serializeAws_json1_0DescribeWorkflowExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeWorkflowExecutionCommandInput = DescribeWorkflowExecutionInput;
-export type DescribeWorkflowExecutionCommandOutput = WorkflowExecutionDetail &
-  __MetadataBearer;
+export type DescribeWorkflowExecutionCommandOutput = WorkflowExecutionDetail & __MetadataBearer;
 
 export class DescribeWorkflowExecutionCommand extends $Command<
   DescribeWorkflowExecutionCommandInput,
@@ -49,13 +41,8 @@ export class DescribeWorkflowExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkflowExecutionCommandInput,
-    DescribeWorkflowExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkflowExecutionCommandInput, DescribeWorkflowExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeWorkflowExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeWorkflowExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

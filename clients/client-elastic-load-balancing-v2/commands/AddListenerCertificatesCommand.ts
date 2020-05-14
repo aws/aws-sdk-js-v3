@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  AddListenerCertificatesInput,
-  AddListenerCertificatesOutput
-} from "../models/index";
+import { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/index";
 import {
   deserializeAws_queryAddListenerCertificatesCommand,
   serializeAws_queryAddListenerCertificatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
-export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput &
-  __MetadataBearer;
+export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput & __MetadataBearer;
 
 export class AddListenerCertificatesCommand extends $Command<
   AddListenerCertificatesCommandInput,
@@ -49,13 +45,8 @@ export class AddListenerCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddListenerCertificatesCommandInput,
-    AddListenerCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddListenerCertificatesCommandInput, AddListenerCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

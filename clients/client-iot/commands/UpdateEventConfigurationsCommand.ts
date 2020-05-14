@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   UpdateEventConfigurationsRequest,
   UpdateEventConfigurationsResponse
@@ -49,13 +45,8 @@ export class UpdateEventConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEventConfigurationsCommandInput,
-    UpdateEventConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEventConfigurationsCommandInput, UpdateEventConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateEventConfigurationsCommand extends $Command<
     input: UpdateEventConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEventConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateEventConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEventConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

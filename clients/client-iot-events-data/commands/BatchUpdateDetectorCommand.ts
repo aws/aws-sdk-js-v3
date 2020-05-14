@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTEventsDataClient";
-import {
-  BatchUpdateDetectorRequest,
-  BatchUpdateDetectorResponse
-} from "../models/index";
+import { BatchUpdateDetectorRequest, BatchUpdateDetectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchUpdateDetectorCommand,
   serializeAws_restJson1_1BatchUpdateDetectorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchUpdateDetectorCommandInput = BatchUpdateDetectorRequest;
-export type BatchUpdateDetectorCommandOutput = BatchUpdateDetectorResponse &
-  __MetadataBearer;
+export type BatchUpdateDetectorCommandOutput = BatchUpdateDetectorResponse & __MetadataBearer;
 
 export class BatchUpdateDetectorCommand extends $Command<
   BatchUpdateDetectorCommandInput,
@@ -49,13 +45,8 @@ export class BatchUpdateDetectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchUpdateDetectorCommandInput,
-    BatchUpdateDetectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchUpdateDetectorCommandInput, BatchUpdateDetectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class BatchUpdateDetectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdateDetectorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchUpdateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

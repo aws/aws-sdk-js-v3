@@ -22,10 +22,7 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  QueryListsCommandInput,
-  QueryListsCommandOutput
-} from "./commands/QueryListsCommand";
+import { QueryListsCommandInput, QueryListsCommandOutput } from "./commands/QueryListsCommand";
 import {
   QueryTimestampsCommandInput,
   QueryTimestampsCommandOutput
@@ -42,18 +39,9 @@ import {
   SimpleScalarXmlPropertiesCommandInput,
   SimpleScalarXmlPropertiesCommandOutput
 } from "./commands/SimpleScalarXmlPropertiesCommand";
-import {
-  XmlBlobsCommandInput,
-  XmlBlobsCommandOutput
-} from "./commands/XmlBlobsCommand";
-import {
-  XmlEnumsCommandInput,
-  XmlEnumsCommandOutput
-} from "./commands/XmlEnumsCommand";
-import {
-  XmlListsCommandInput,
-  XmlListsCommandOutput
-} from "./commands/XmlListsCommand";
+import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import {
   XmlNamespacesCommandInput,
   XmlNamespacesCommandOutput
@@ -235,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EC2ProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EC2ProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +232,7 @@ export type EC2ProtocolClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EC2ProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EC2ProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

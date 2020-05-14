@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  PutEncryptionConfigRequest,
-  PutEncryptionConfigResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { PutEncryptionConfigRequest, PutEncryptionConfigResult } from "../models/index";
 import {
   deserializeAws_restJson1_1PutEncryptionConfigCommand,
   serializeAws_restJson1_1PutEncryptionConfigCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
-export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult &
-  __MetadataBearer;
+export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult & __MetadataBearer;
 
 export class PutEncryptionConfigCommand extends $Command<
   PutEncryptionConfigCommandInput,
@@ -49,13 +41,8 @@ export class PutEncryptionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutEncryptionConfigCommandInput,
-    PutEncryptionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutEncryptionConfigCommandInput, PutEncryptionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class PutEncryptionConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1_1PutEncryptionConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

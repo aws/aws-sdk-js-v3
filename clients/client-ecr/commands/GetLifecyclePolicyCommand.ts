@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLifecyclePolicyCommand,
   serializeAws_json1_1GetLifecyclePolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLifecyclePolicyCommandInput = GetLifecyclePolicyRequest;
-export type GetLifecyclePolicyCommandOutput = GetLifecyclePolicyResponse &
-  __MetadataBearer;
+export type GetLifecyclePolicyCommandOutput = GetLifecyclePolicyResponse & __MetadataBearer;
 
 export class GetLifecyclePolicyCommand extends $Command<
   GetLifecyclePolicyCommandInput,
@@ -50,9 +42,7 @@ export class GetLifecyclePolicyCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

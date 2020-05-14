@@ -49,13 +49,8 @@ export class CreateApplicationSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateApplicationSnapshotCommandInput,
-    CreateApplicationSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateApplicationSnapshotCommandInput, CreateApplicationSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreateApplicationSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateApplicationSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateApplicationSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

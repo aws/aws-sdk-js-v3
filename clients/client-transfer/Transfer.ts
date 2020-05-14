@@ -124,9 +124,7 @@ export class Transfer extends TransferClient {
   ): void;
   public createServer(
     args: CreateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServerCommandOutput) => void),
     cb?: (err: any, data?: CreateServerCommandOutput) => void
   ): Promise<CreateServerCommandOutput> | void {
     const command = new CreateServerCommand(args);
@@ -164,9 +162,7 @@ export class Transfer extends TransferClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -202,9 +198,7 @@ export class Transfer extends TransferClient {
   ): void;
   public deleteServer(
     args: DeleteServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCommandOutput) => void
   ): Promise<DeleteServerCommandOutput> | void {
     const command = new DeleteServerCommand(args);
@@ -280,9 +274,7 @@ export class Transfer extends TransferClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -320,9 +312,7 @@ export class Transfer extends TransferClient {
   ): void;
   public describeServer(
     args: DescribeServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServerCommandOutput) => void),
     cb?: (err: any, data?: DescribeServerCommandOutput) => void
   ): Promise<DescribeServerCommandOutput> | void {
     const command = new DescribeServerCommand(args);
@@ -359,9 +349,7 @@ export class Transfer extends TransferClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
@@ -435,9 +423,7 @@ export class Transfer extends TransferClient {
   ): void;
   public listServers(
     args: ListServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServersCommandOutput) => void),
     cb?: (err: any, data?: ListServersCommandOutput) => void
   ): Promise<ListServersCommandOutput> | void {
     const command = new ListServersCommand(args);
@@ -507,9 +493,7 @@ export class Transfer extends TransferClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -551,9 +535,7 @@ export class Transfer extends TransferClient {
   ): void;
   public startServer(
     args: StartServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartServerCommandOutput) => void),
     cb?: (err: any, data?: StartServerCommandOutput) => void
   ): Promise<StartServerCommandOutput> | void {
     const command = new StartServerCommand(args);
@@ -596,9 +578,7 @@ export class Transfer extends TransferClient {
   ): void;
   public stopServer(
     args: StopServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopServerCommandOutput) => void),
     cb?: (err: any, data?: StopServerCommandOutput) => void
   ): Promise<StopServerCommandOutput> | void {
     const command = new StopServerCommand(args);
@@ -634,9 +614,7 @@ export class Transfer extends TransferClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -710,9 +688,7 @@ export class Transfer extends TransferClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -748,9 +724,7 @@ export class Transfer extends TransferClient {
   ): void;
   public updateServer(
     args: UpdateServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerCommandOutput) => void
   ): Promise<UpdateServerCommandOutput> | void {
     const command = new UpdateServerCommand(args);
@@ -788,9 +762,7 @@ export class Transfer extends TransferClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

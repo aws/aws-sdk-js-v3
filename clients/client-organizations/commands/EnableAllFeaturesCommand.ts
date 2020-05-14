@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  EnableAllFeaturesRequest,
-  EnableAllFeaturesResponse
-} from "../models/index";
+import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/index";
 import {
   deserializeAws_json1_1EnableAllFeaturesCommand,
   serializeAws_json1_1EnableAllFeaturesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableAllFeaturesCommandInput = EnableAllFeaturesRequest;
-export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse &
-  __MetadataBearer;
+export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse & __MetadataBearer;
 
 export class EnableAllFeaturesCommand extends $Command<
   EnableAllFeaturesCommandInput,
@@ -50,9 +46,7 @@ export class EnableAllFeaturesCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

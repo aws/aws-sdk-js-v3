@@ -1,8 +1,4 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DeletePolicyRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeletePolicyCommand,
@@ -46,9 +42,7 @@ export class DeletePolicyCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePolicyCommandInput, DeletePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

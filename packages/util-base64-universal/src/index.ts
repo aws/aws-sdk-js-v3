@@ -3,10 +3,7 @@ import {
   fromBase64 as browserFromBase64,
   toBase64 as browserToBase64
 } from "@aws-sdk/util-base64-browser";
-import {
-  fromBase64 as nodeFromBase64,
-  toBase64 as nodeToBase64
-} from "@aws-sdk/util-base64-node";
+import { fromBase64 as nodeFromBase64, toBase64 as nodeToBase64 } from "@aws-sdk/util-base64-node";
 
 /**
  * Converts a base-64 encoded string to a Uint8Array of bytes.

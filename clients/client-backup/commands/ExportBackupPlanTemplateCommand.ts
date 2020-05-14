@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  ExportBackupPlanTemplateInput,
-  ExportBackupPlanTemplateOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ExportBackupPlanTemplateInput, ExportBackupPlanTemplateOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportBackupPlanTemplateCommand,
   serializeAws_restJson1_1ExportBackupPlanTemplateCommand
@@ -49,13 +42,8 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ExportBackupPlanTemplateCommandInput,
-    ExportBackupPlanTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ExportBackupPlanTemplateCommandInput, ExportBackupPlanTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ExportBackupPlanTemplateCommand extends $Command<
     input: ExportBackupPlanTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ExportBackupPlanTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ExportBackupPlanTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportBackupPlanTemplateCommandOutput> {
-    return deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -45,13 +45,8 @@ export class DeleteOrganizationalUnitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteOrganizationalUnitCommandInput,
-    DeleteOrganizationalUnitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteOrganizationalUnitCommandInput, DeleteOrganizationalUnitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteOrganizationalUnitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationalUnitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

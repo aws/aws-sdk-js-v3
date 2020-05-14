@@ -39,9 +39,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutAccountDedicatedIpWarmupAttributesCommandInput
-  ) {
+  constructor(readonly input: PutAccountDedicatedIpWarmupAttributesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     PutAccountDedicatedIpWarmupAttributesCommandInput,
     PutAccountDedicatedIpWarmupAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutAccountDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

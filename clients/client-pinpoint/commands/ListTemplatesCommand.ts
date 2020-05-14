@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTemplatesCommandInput = ListTemplatesRequest;
-export type ListTemplatesCommandOutput = ListTemplatesResponse &
-  __MetadataBearer;
+export type ListTemplatesCommandOutput = ListTemplatesResponse & __MetadataBearer;
 
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,
@@ -47,9 +46,7 @@ export class ListTemplatesCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTemplatesCommandInput, ListTemplatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

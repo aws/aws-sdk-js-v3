@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  AcceptInvitationRequest,
-  AcceptInvitationResponse
-} from "../models/index";
+import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AcceptInvitationCommand,
   serializeAws_restJson1_1AcceptInvitationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AcceptInvitationCommandInput = AcceptInvitationRequest;
-export type AcceptInvitationCommandOutput = AcceptInvitationResponse &
-  __MetadataBearer;
+export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
 
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,
@@ -50,9 +46,7 @@ export class AcceptInvitationCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AcceptInvitationCommandInput, AcceptInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

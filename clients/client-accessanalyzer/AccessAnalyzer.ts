@@ -120,9 +120,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public createAnalyzer(
     args: CreateAnalyzerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAnalyzerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnalyzerCommandOutput) => void),
     cb?: (err: any, data?: CreateAnalyzerCommandOutput) => void
   ): Promise<CreateAnalyzerCommandOutput> | void {
     const command = new CreateAnalyzerCommand(args);
@@ -192,9 +190,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public deleteAnalyzer(
     args: DeleteAnalyzerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAnalyzerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnalyzerCommandOutput) => void),
     cb?: (err: any, data?: DeleteAnalyzerCommandOutput) => void
   ): Promise<DeleteAnalyzerCommandOutput> | void {
     const command = new DeleteAnalyzerCommand(args);
@@ -297,9 +293,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public getAnalyzer(
     args: GetAnalyzerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAnalyzerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnalyzerCommandOutput) => void),
     cb?: (err: any, data?: GetAnalyzerCommandOutput) => void
   ): Promise<GetAnalyzerCommandOutput> | void {
     const command = new GetAnalyzerCommand(args);
@@ -332,9 +326,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public getArchiveRule(
     args: GetArchiveRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetArchiveRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetArchiveRuleCommandOutput) => void),
     cb?: (err: any, data?: GetArchiveRuleCommandOutput) => void
   ): Promise<GetArchiveRuleCommandOutput> | void {
     const command = new GetArchiveRuleCommand(args);
@@ -367,9 +359,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public getFinding(
     args: GetFindingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFindingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingCommandOutput) => void),
     cb?: (err: any, data?: GetFindingCommandOutput) => void
   ): Promise<GetFindingCommandOutput> | void {
     const command = new GetFindingCommand(args);
@@ -438,9 +428,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public listAnalyzers(
     args: ListAnalyzersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAnalyzersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnalyzersCommandOutput) => void),
     cb?: (err: any, data?: ListAnalyzersCommandOutput) => void
   ): Promise<ListAnalyzersCommandOutput> | void {
     const command = new ListAnalyzersCommand(args);
@@ -473,9 +461,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public listArchiveRules(
     args: ListArchiveRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListArchiveRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArchiveRulesCommandOutput) => void),
     cb?: (err: any, data?: ListArchiveRulesCommandOutput) => void
   ): Promise<ListArchiveRulesCommandOutput> | void {
     const command = new ListArchiveRulesCommand(args);
@@ -508,9 +494,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public listFindings(
     args: ListFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingsCommandOutput) => void),
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
@@ -613,9 +597,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -648,9 +630,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -718,9 +698,7 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   ): void;
   public updateFindings(
     args: UpdateFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFindingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateFindingsCommandOutput) => void
   ): Promise<UpdateFindingsCommandOutput> | void {
     const command = new UpdateFindingsCommand(args);

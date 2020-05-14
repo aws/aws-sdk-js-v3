@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  DescribeOriginEndpointRequest,
-  DescribeOriginEndpointResponse
-} from "../models/index";
+import { DescribeOriginEndpointRequest, DescribeOriginEndpointResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeOriginEndpointCommand,
   serializeAws_restJson1_1DescribeOriginEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeOriginEndpointCommandInput = DescribeOriginEndpointRequest;
-export type DescribeOriginEndpointCommandOutput = DescribeOriginEndpointResponse &
-  __MetadataBearer;
+export type DescribeOriginEndpointCommandOutput = DescribeOriginEndpointResponse & __MetadataBearer;
 
 export class DescribeOriginEndpointCommand extends $Command<
   DescribeOriginEndpointCommandInput,
@@ -49,13 +45,8 @@ export class DescribeOriginEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOriginEndpointCommandInput,
-    DescribeOriginEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOriginEndpointCommandInput, DescribeOriginEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeOriginEndpointCommand extends $Command<
     input: DescribeOriginEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeOriginEndpointCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeOriginEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1_1DescribeOriginEndpointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     RestoreTableFromClusterSnapshotCommandInput,
     RestoreTableFromClusterSnapshotCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
     input: RestoreTableFromClusterSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRestoreTableFromClusterSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

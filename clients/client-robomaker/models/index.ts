@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum Architecture {
@@ -88,9 +85,7 @@ export namespace CancelSimulationJobResponse {
 /**
  * <p>The failure percentage threshold percentage was met.</p>
  */
-export interface ConcurrentDeploymentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentDeploymentException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentDeploymentException";
   $fault: "client";
   message?: string;
@@ -262,8 +257,7 @@ export interface CreateFleetRequest {
 }
 
 export namespace CreateFleetRequest {
-  export const isa = (o: any): o is CreateFleetRequest =>
-    __isa(o, "CreateFleetRequest");
+  export const isa = (o: any): o is CreateFleetRequest => __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResponse {
@@ -290,8 +284,7 @@ export interface CreateFleetResponse {
 }
 
 export namespace CreateFleetResponse {
-  export const isa = (o: any): o is CreateFleetResponse =>
-    __isa(o, "CreateFleetResponse");
+  export const isa = (o: any): o is CreateFleetResponse => __isa(o, "CreateFleetResponse");
 }
 
 export interface CreateRobotApplicationRequest {
@@ -456,8 +449,7 @@ export interface CreateRobotRequest {
 }
 
 export namespace CreateRobotRequest {
-  export const isa = (o: any): o is CreateRobotRequest =>
-    __isa(o, "CreateRobotRequest");
+  export const isa = (o: any): o is CreateRobotRequest => __isa(o, "CreateRobotRequest");
 }
 
 export interface CreateRobotResponse {
@@ -494,8 +486,7 @@ export interface CreateRobotResponse {
 }
 
 export namespace CreateRobotResponse {
-  export const isa = (o: any): o is CreateRobotResponse =>
-    __isa(o, "CreateRobotResponse");
+  export const isa = (o: any): o is CreateRobotResponse => __isa(o, "CreateRobotResponse");
 }
 
 export interface CreateSimulationApplicationRequest {
@@ -662,9 +653,7 @@ export interface CreateSimulationApplicationVersionResponse {
 }
 
 export namespace CreateSimulationApplicationVersionResponse {
-  export const isa = (
-    o: any
-  ): o is CreateSimulationApplicationVersionResponse =>
+  export const isa = (o: any): o is CreateSimulationApplicationVersionResponse =>
     __isa(o, "CreateSimulationApplicationVersionResponse");
 }
 
@@ -952,8 +941,7 @@ export interface DataSourceConfig {
 }
 
 export namespace DataSourceConfig {
-  export const isa = (o: any): o is DataSourceConfig =>
-    __isa(o, "DataSourceConfig");
+  export const isa = (o: any): o is DataSourceConfig => __isa(o, "DataSourceConfig");
 }
 
 export interface DeleteFleetRequest {
@@ -965,8 +953,7 @@ export interface DeleteFleetRequest {
 }
 
 export namespace DeleteFleetRequest {
-  export const isa = (o: any): o is DeleteFleetRequest =>
-    __isa(o, "DeleteFleetRequest");
+  export const isa = (o: any): o is DeleteFleetRequest => __isa(o, "DeleteFleetRequest");
 }
 
 export interface DeleteFleetResponse {
@@ -974,8 +961,7 @@ export interface DeleteFleetResponse {
 }
 
 export namespace DeleteFleetResponse {
-  export const isa = (o: any): o is DeleteFleetResponse =>
-    __isa(o, "DeleteFleetResponse");
+  export const isa = (o: any): o is DeleteFleetResponse => __isa(o, "DeleteFleetResponse");
 }
 
 export interface DeleteRobotApplicationRequest {
@@ -1014,8 +1000,7 @@ export interface DeleteRobotRequest {
 }
 
 export namespace DeleteRobotRequest {
-  export const isa = (o: any): o is DeleteRobotRequest =>
-    __isa(o, "DeleteRobotRequest");
+  export const isa = (o: any): o is DeleteRobotRequest => __isa(o, "DeleteRobotRequest");
 }
 
 export interface DeleteRobotResponse {
@@ -1023,8 +1008,7 @@ export interface DeleteRobotResponse {
 }
 
 export namespace DeleteRobotResponse {
-  export const isa = (o: any): o is DeleteRobotResponse =>
-    __isa(o, "DeleteRobotResponse");
+  export const isa = (o: any): o is DeleteRobotResponse => __isa(o, "DeleteRobotResponse");
 }
 
 export interface DeleteSimulationApplicationRequest {
@@ -1108,8 +1092,7 @@ export interface DeploymentConfig {
 }
 
 export namespace DeploymentConfig {
-  export const isa = (o: any): o is DeploymentConfig =>
-    __isa(o, "DeploymentConfig");
+  export const isa = (o: any): o is DeploymentConfig => __isa(o, "DeploymentConfig");
 }
 
 /**
@@ -1215,8 +1198,7 @@ export interface DeploymentLaunchConfig {
 }
 
 export namespace DeploymentLaunchConfig {
-  export const isa = (o: any): o is DeploymentLaunchConfig =>
-    __isa(o, "DeploymentLaunchConfig");
+  export const isa = (o: any): o is DeploymentLaunchConfig => __isa(o, "DeploymentLaunchConfig");
 }
 
 export enum DeploymentStatus {
@@ -1242,8 +1224,7 @@ export interface DeregisterRobotRequest {
 }
 
 export namespace DeregisterRobotRequest {
-  export const isa = (o: any): o is DeregisterRobotRequest =>
-    __isa(o, "DeregisterRobotRequest");
+  export const isa = (o: any): o is DeregisterRobotRequest => __isa(o, "DeregisterRobotRequest");
 }
 
 export interface DeregisterRobotResponse {
@@ -1260,8 +1241,7 @@ export interface DeregisterRobotResponse {
 }
 
 export namespace DeregisterRobotResponse {
-  export const isa = (o: any): o is DeregisterRobotResponse =>
-    __isa(o, "DeregisterRobotResponse");
+  export const isa = (o: any): o is DeregisterRobotResponse => __isa(o, "DeregisterRobotResponse");
 }
 
 export interface DescribeDeploymentJobRequest {
@@ -1344,8 +1324,7 @@ export interface DescribeFleetRequest {
 }
 
 export namespace DescribeFleetRequest {
-  export const isa = (o: any): o is DescribeFleetRequest =>
-    __isa(o, "DescribeFleetRequest");
+  export const isa = (o: any): o is DescribeFleetRequest => __isa(o, "DescribeFleetRequest");
 }
 
 export interface DescribeFleetResponse {
@@ -1392,8 +1371,7 @@ export interface DescribeFleetResponse {
 }
 
 export namespace DescribeFleetResponse {
-  export const isa = (o: any): o is DescribeFleetResponse =>
-    __isa(o, "DescribeFleetResponse");
+  export const isa = (o: any): o is DescribeFleetResponse => __isa(o, "DescribeFleetResponse");
 }
 
 export interface DescribeRobotApplicationRequest {
@@ -1471,8 +1449,7 @@ export interface DescribeRobotRequest {
 }
 
 export namespace DescribeRobotRequest {
-  export const isa = (o: any): o is DescribeRobotRequest =>
-    __isa(o, "DescribeRobotRequest");
+  export const isa = (o: any): o is DescribeRobotRequest => __isa(o, "DescribeRobotRequest");
 }
 
 export interface DescribeRobotResponse {
@@ -1529,8 +1506,7 @@ export interface DescribeRobotResponse {
 }
 
 export namespace DescribeRobotResponse {
-  export const isa = (o: any): o is DescribeRobotResponse =>
-    __isa(o, "DescribeRobotResponse");
+  export const isa = (o: any): o is DescribeRobotResponse => __isa(o, "DescribeRobotResponse");
 }
 
 export interface DescribeSimulationApplicationRequest {
@@ -1859,9 +1835,7 @@ export namespace Fleet {
  * <p>The request uses the same client token as a previous, but non-identical request.
  *          Do not reuse a client token with different requests, unless the requests are identical. </p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   message?: string;
@@ -1875,26 +1849,21 @@ export namespace IdempotentParameterMismatchException {
 /**
  * <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>A parameter specified in a request is not valid, is unsupported, or cannot be used.
  *          The returned message provides an explanation of the error value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1939,17 +1908,14 @@ export namespace LaunchConfig {
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *          stream requests exceeds the maximum number allowed. </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDeploymentJobsRequest {
@@ -2051,8 +2017,7 @@ export interface ListFleetsRequest {
 }
 
 export namespace ListFleetsRequest {
-  export const isa = (o: any): o is ListFleetsRequest =>
-    __isa(o, "ListFleetsRequest");
+  export const isa = (o: any): o is ListFleetsRequest => __isa(o, "ListFleetsRequest");
 }
 
 export interface ListFleetsResponse {
@@ -2072,8 +2037,7 @@ export interface ListFleetsResponse {
 }
 
 export namespace ListFleetsResponse {
-  export const isa = (o: any): o is ListFleetsResponse =>
-    __isa(o, "ListFleetsResponse");
+  export const isa = (o: any): o is ListFleetsResponse => __isa(o, "ListFleetsResponse");
 }
 
 export interface ListRobotApplicationsRequest {
@@ -2180,8 +2144,7 @@ export interface ListRobotsRequest {
 }
 
 export namespace ListRobotsRequest {
-  export const isa = (o: any): o is ListRobotsRequest =>
-    __isa(o, "ListRobotsRequest");
+  export const isa = (o: any): o is ListRobotsRequest => __isa(o, "ListRobotsRequest");
 }
 
 export interface ListRobotsResponse {
@@ -2201,8 +2164,7 @@ export interface ListRobotsResponse {
 }
 
 export namespace ListRobotsResponse {
-  export const isa = (o: any): o is ListRobotsResponse =>
-    __isa(o, "ListRobotsResponse");
+  export const isa = (o: any): o is ListRobotsResponse => __isa(o, "ListRobotsResponse");
 }
 
 export interface ListSimulationApplicationsRequest {
@@ -2398,8 +2360,7 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
+  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
@@ -2419,8 +2380,7 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
-  export const isa = (o: any): o is OutputLocation =>
-    __isa(o, "OutputLocation");
+  export const isa = (o: any): o is OutputLocation => __isa(o, "OutputLocation");
 }
 
 /**
@@ -2435,8 +2395,7 @@ export interface PortForwardingConfig {
 }
 
 export namespace PortForwardingConfig {
-  export const isa = (o: any): o is PortForwardingConfig =>
-    __isa(o, "PortForwardingConfig");
+  export const isa = (o: any): o is PortForwardingConfig => __isa(o, "PortForwardingConfig");
 }
 
 /**
@@ -2519,8 +2478,7 @@ export interface ProgressDetail {
 }
 
 export namespace ProgressDetail {
-  export const isa = (o: any): o is ProgressDetail =>
-    __isa(o, "ProgressDetail");
+  export const isa = (o: any): o is ProgressDetail => __isa(o, "ProgressDetail");
 }
 
 export interface RegisterRobotRequest {
@@ -2537,8 +2495,7 @@ export interface RegisterRobotRequest {
 }
 
 export namespace RegisterRobotRequest {
-  export const isa = (o: any): o is RegisterRobotRequest =>
-    __isa(o, "RegisterRobotRequest");
+  export const isa = (o: any): o is RegisterRobotRequest => __isa(o, "RegisterRobotRequest");
 }
 
 export interface RegisterRobotResponse {
@@ -2555,8 +2512,7 @@ export interface RegisterRobotResponse {
 }
 
 export namespace RegisterRobotResponse {
-  export const isa = (o: any): o is RegisterRobotResponse =>
-    __isa(o, "RegisterRobotResponse");
+  export const isa = (o: any): o is RegisterRobotResponse => __isa(o, "RegisterRobotResponse");
 }
 
 /**
@@ -2576,8 +2532,7 @@ export interface RenderingEngine {
 }
 
 export namespace RenderingEngine {
-  export const isa = (o: any): o is RenderingEngine =>
-    __isa(o, "RenderingEngine");
+  export const isa = (o: any): o is RenderingEngine => __isa(o, "RenderingEngine");
 }
 
 export enum RenderingEngineType {
@@ -2587,9 +2542,7 @@ export enum RenderingEngineType {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2603,9 +2556,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -2715,8 +2666,7 @@ export interface RobotApplicationConfig {
 }
 
 export namespace RobotApplicationConfig {
-  export const isa = (o: any): o is RobotApplicationConfig =>
-    __isa(o, "RobotApplicationConfig");
+  export const isa = (o: any): o is RobotApplicationConfig => __isa(o, "RobotApplicationConfig");
 }
 
 /**
@@ -2751,8 +2701,7 @@ export interface RobotApplicationSummary {
 }
 
 export namespace RobotApplicationSummary {
-  export const isa = (o: any): o is RobotApplicationSummary =>
-    __isa(o, "RobotApplicationSummary");
+  export const isa = (o: any): o is RobotApplicationSummary => __isa(o, "RobotApplicationSummary");
 }
 
 /**
@@ -2797,8 +2746,7 @@ export interface RobotDeployment {
 }
 
 export namespace RobotDeployment {
-  export const isa = (o: any): o is RobotDeployment =>
-    __isa(o, "RobotDeployment");
+  export const isa = (o: any): o is RobotDeployment => __isa(o, "RobotDeployment");
 }
 
 export enum RobotDeploymentStep {
@@ -2828,8 +2776,7 @@ export interface RobotSoftwareSuite {
 }
 
 export namespace RobotSoftwareSuite {
-  export const isa = (o: any): o is RobotSoftwareSuite =>
-    __isa(o, "RobotSoftwareSuite");
+  export const isa = (o: any): o is RobotSoftwareSuite => __isa(o, "RobotSoftwareSuite");
 }
 
 export enum RobotSoftwareSuiteType {
@@ -2901,9 +2848,7 @@ export namespace S3Object {
 /**
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -3185,8 +3130,7 @@ export interface SimulationJobSummary {
 }
 
 export namespace SimulationJobSummary {
-  export const isa = (o: any): o is SimulationJobSummary =>
-    __isa(o, "SimulationJobSummary");
+  export const isa = (o: any): o is SimulationJobSummary => __isa(o, "SimulationJobSummary");
 }
 
 /**
@@ -3206,8 +3150,7 @@ export interface SimulationSoftwareSuite {
 }
 
 export namespace SimulationSoftwareSuite {
-  export const isa = (o: any): o is SimulationSoftwareSuite =>
-    __isa(o, "SimulationSoftwareSuite");
+  export const isa = (o: any): o is SimulationSoftwareSuite => __isa(o, "SimulationSoftwareSuite");
 }
 
 export enum SimulationSoftwareSuiteType {
@@ -3408,8 +3351,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3417,24 +3359,20 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -3451,8 +3389,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3460,8 +3397,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateRobotApplicationRequest {
@@ -3680,6 +3616,5 @@ export interface VPCConfigResponse {
 }
 
 export namespace VPCConfigResponse {
-  export const isa = (o: any): o is VPCConfigResponse =>
-    __isa(o, "VPCConfigResponse");
+  export const isa = (o: any): o is VPCConfigResponse => __isa(o, "VPCConfigResponse");
 }

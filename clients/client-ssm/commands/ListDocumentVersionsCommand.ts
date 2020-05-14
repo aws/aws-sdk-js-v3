@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListDocumentVersionsRequest,
-  ListDocumentVersionsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListDocumentVersionsCommand,
   serializeAws_json1_1ListDocumentVersionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDocumentVersionsCommandInput = ListDocumentVersionsRequest;
-export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult &
-  __MetadataBearer;
+export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult & __MetadataBearer;
 
 export class ListDocumentVersionsCommand extends $Command<
   ListDocumentVersionsCommandInput,
@@ -49,13 +41,8 @@ export class ListDocumentVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDocumentVersionsCommandInput,
-    ListDocumentVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDocumentVersionsCommandInput, ListDocumentVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

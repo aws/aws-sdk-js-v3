@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   SearchTransitGatewayMulticastGroupsRequest,
   SearchTransitGatewayMulticastGroupsResult
@@ -53,9 +49,7 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     SearchTransitGatewayMulticastGroupsCommandInput,
     SearchTransitGatewayMulticastGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     input: SearchTransitGatewayMulticastGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> {
-    return deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

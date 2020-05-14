@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult
@@ -53,9 +49,7 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     DescribeVpcEndpointConnectionsCommandInput,
     DescribeVpcEndpointConnectionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     input: DescribeVpcEndpointConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

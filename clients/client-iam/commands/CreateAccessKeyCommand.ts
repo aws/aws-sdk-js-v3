@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateAccessKeyRequest,
-  CreateAccessKeyResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/index";
 import {
   deserializeAws_queryCreateAccessKeyCommand,
   serializeAws_queryCreateAccessKeyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAccessKeyCommandInput = CreateAccessKeyRequest;
-export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse &
-  __MetadataBearer;
+export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse & __MetadataBearer;
 
 export class CreateAccessKeyCommand extends $Command<
   CreateAccessKeyCommandInput,
@@ -50,9 +42,7 @@ export class CreateAccessKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

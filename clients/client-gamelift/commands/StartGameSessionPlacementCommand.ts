@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  StartGameSessionPlacementInput,
-  StartGameSessionPlacementOutput
-} from "../models/index";
+import { StartGameSessionPlacementInput, StartGameSessionPlacementOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartGameSessionPlacementCommand,
   serializeAws_json1_1StartGameSessionPlacementCommand
@@ -49,13 +46,8 @@ export class StartGameSessionPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartGameSessionPlacementCommandInput,
-    StartGameSessionPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartGameSessionPlacementCommandInput, StartGameSessionPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class StartGameSessionPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1StartGameSessionPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

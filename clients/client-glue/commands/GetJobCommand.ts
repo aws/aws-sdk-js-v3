@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobRequest, GetJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetJobCommand,
@@ -46,9 +42,7 @@ export class GetJobCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobCommandInput, GetJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetJobCommand(input, context);
   }
 

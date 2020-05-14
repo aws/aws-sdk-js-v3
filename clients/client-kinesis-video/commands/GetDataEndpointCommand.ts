@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataEndpointCommandInput = GetDataEndpointInput;
-export type GetDataEndpointCommandOutput = GetDataEndpointOutput &
-  __MetadataBearer;
+export type GetDataEndpointCommandOutput = GetDataEndpointOutput & __MetadataBearer;
 
 export class GetDataEndpointCommand extends $Command<
   GetDataEndpointCommandInput,
@@ -47,9 +46,7 @@ export class GetDataEndpointCommand extends $Command<
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataEndpointCommandInput, GetDataEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient";
-import {
-  GetDataflowEndpointGroupRequest,
-  GetDataflowEndpointGroupResponse
-} from "../models/index";
+import { GetDataflowEndpointGroupRequest, GetDataflowEndpointGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDataflowEndpointGroupCommand,
   serializeAws_restJson1_1GetDataflowEndpointGroupCommand
@@ -49,13 +46,8 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataflowEndpointGroupCommandInput,
-    GetDataflowEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataflowEndpointGroupCommandInput, GetDataflowEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     input: GetDataflowEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataflowEndpointGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDataflowEndpointGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1_1GetDataflowEndpointGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

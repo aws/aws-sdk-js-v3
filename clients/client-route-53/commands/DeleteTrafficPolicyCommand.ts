@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  DeleteTrafficPolicyRequest,
-  DeleteTrafficPolicyResponse
-} from "../models/index";
+import { DeleteTrafficPolicyRequest, DeleteTrafficPolicyResponse } from "../models/index";
 import {
   deserializeAws_restXmlDeleteTrafficPolicyCommand,
   serializeAws_restXmlDeleteTrafficPolicyCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTrafficPolicyCommandInput = DeleteTrafficPolicyRequest;
-export type DeleteTrafficPolicyCommandOutput = DeleteTrafficPolicyResponse &
-  __MetadataBearer;
+export type DeleteTrafficPolicyCommandOutput = DeleteTrafficPolicyResponse & __MetadataBearer;
 
 export class DeleteTrafficPolicyCommand extends $Command<
   DeleteTrafficPolicyCommandInput,
@@ -50,13 +46,8 @@ export class DeleteTrafficPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTrafficPolicyCommandInput,
-    DeleteTrafficPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTrafficPolicyCommandInput, DeleteTrafficPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

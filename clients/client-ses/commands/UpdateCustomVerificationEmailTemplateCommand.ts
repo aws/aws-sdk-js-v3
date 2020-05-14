@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateCustomVerificationEmailTemplateRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
@@ -35,9 +31,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateCustomVerificationEmailTemplateCommandInput
-  ) {
+  constructor(readonly input: UpdateCustomVerificationEmailTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +45,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     UpdateCustomVerificationEmailTemplateCommandInput,
     UpdateCustomVerificationEmailTemplateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +64,14 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

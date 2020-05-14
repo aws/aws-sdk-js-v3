@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   CustomAvailabilityZoneMessage,
   DescribeCustomAvailabilityZonesMessage
@@ -53,9 +49,7 @@ export class DescribeCustomAvailabilityZonesCommand extends $Command<
     DescribeCustomAvailabilityZonesCommandInput,
     DescribeCustomAvailabilityZonesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeCustomAvailabilityZonesCommand extends $Command<
     input: DescribeCustomAvailabilityZonesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCustomAvailabilityZonesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeCustomAvailabilityZonesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCustomAvailabilityZonesCommandOutput> {
-    return deserializeAws_queryDescribeCustomAvailabilityZonesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeCustomAvailabilityZonesCommand(output, context);
   }
 
   // Start section: command_body_extra

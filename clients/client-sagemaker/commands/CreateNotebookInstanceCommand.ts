@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  CreateNotebookInstanceInput,
-  CreateNotebookInstanceOutput
-} from "../models/index";
+import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateNotebookInstanceCommand,
   serializeAws_json1_1CreateNotebookInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNotebookInstanceCommandInput = CreateNotebookInstanceInput;
-export type CreateNotebookInstanceCommandOutput = CreateNotebookInstanceOutput &
-  __MetadataBearer;
+export type CreateNotebookInstanceCommandOutput = CreateNotebookInstanceOutput & __MetadataBearer;
 
 export class CreateNotebookInstanceCommand extends $Command<
   CreateNotebookInstanceCommandInput,
@@ -49,13 +45,8 @@ export class CreateNotebookInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNotebookInstanceCommandInput,
-    CreateNotebookInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNotebookInstanceCommandInput, CreateNotebookInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

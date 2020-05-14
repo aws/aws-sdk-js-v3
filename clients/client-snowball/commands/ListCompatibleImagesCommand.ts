@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  ListCompatibleImagesRequest,
-  ListCompatibleImagesResult
-} from "../models/index";
+import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListCompatibleImagesCommand,
   serializeAws_json1_1ListCompatibleImagesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCompatibleImagesCommandInput = ListCompatibleImagesRequest;
-export type ListCompatibleImagesCommandOutput = ListCompatibleImagesResult &
-  __MetadataBearer;
+export type ListCompatibleImagesCommandOutput = ListCompatibleImagesResult & __MetadataBearer;
 
 export class ListCompatibleImagesCommand extends $Command<
   ListCompatibleImagesCommandInput,
@@ -49,13 +45,8 @@ export class ListCompatibleImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCompatibleImagesCommandInput,
-    ListCompatibleImagesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCompatibleImagesCommandInput, ListCompatibleImagesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

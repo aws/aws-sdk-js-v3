@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DeleteCollectionRequest,
-  DeleteCollectionResponse
-} from "../models/index";
+import { DeleteCollectionRequest, DeleteCollectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCollectionCommand,
   serializeAws_json1_1DeleteCollectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCollectionCommandInput = DeleteCollectionRequest;
-export type DeleteCollectionCommandOutput = DeleteCollectionResponse &
-  __MetadataBearer;
+export type DeleteCollectionCommandOutput = DeleteCollectionResponse & __MetadataBearer;
 
 export class DeleteCollectionCommand extends $Command<
   DeleteCollectionCommandInput,
@@ -50,9 +46,7 @@ export class DeleteCollectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCollectionCommandInput, DeleteCollectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

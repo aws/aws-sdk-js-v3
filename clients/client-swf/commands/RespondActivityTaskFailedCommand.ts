@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { RespondActivityTaskFailedInput } from "../models/index";
 import {
   deserializeAws_json1_0RespondActivityTaskFailedCommand,
@@ -45,13 +41,8 @@ export class RespondActivityTaskFailedCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RespondActivityTaskFailedCommandInput,
-    RespondActivityTaskFailedCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RespondActivityTaskFailedCommandInput, RespondActivityTaskFailedCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class RespondActivityTaskFailedCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskFailedCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskFailedCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RespondActivityTaskFailedCommand(output, context);
   }
 
   // Start section: command_body_extra

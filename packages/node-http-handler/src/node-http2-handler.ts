@@ -57,13 +57,9 @@ export class NodeHttp2Handler implements HttpHandler {
       const queryString = buildQueryString(query || {});
 
       // create the http2 request
-      const req = this.getSession(
-        `${protocol}//${hostname}${port ? `:${port}` : ""}`
-      ).request({
+      const req = this.getSession(`${protocol}//${hostname}${port ? `:${port}` : ""}`).request({
         ...request.headers,
-        [constants.HTTP2_HEADER_PATH]: queryString
-          ? `${path}?${queryString}`
-          : path,
+        [constants.HTTP2_HEADER_PATH]: queryString ? `${path}?${queryString}` : path,
         [constants.HTTP2_HEADER_METHOD]: method
       });
 

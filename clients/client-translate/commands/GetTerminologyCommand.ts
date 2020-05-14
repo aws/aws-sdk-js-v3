@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTerminologyCommandInput = GetTerminologyRequest;
-export type GetTerminologyCommandOutput = GetTerminologyResponse &
-  __MetadataBearer;
+export type GetTerminologyCommandOutput = GetTerminologyResponse & __MetadataBearer;
 
 export class GetTerminologyCommand extends $Command<
   GetTerminologyCommandInput,
@@ -47,9 +46,7 @@ export class GetTerminologyCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTerminologyCommandInput, GetTerminologyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

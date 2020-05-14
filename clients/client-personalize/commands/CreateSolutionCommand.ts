@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSolutionCommandInput = CreateSolutionRequest;
-export type CreateSolutionCommandOutput = CreateSolutionResponse &
-  __MetadataBearer;
+export type CreateSolutionCommandOutput = CreateSolutionResponse & __MetadataBearer;
 
 export class CreateSolutionCommand extends $Command<
   CreateSolutionCommandInput,
@@ -47,9 +46,7 @@ export class CreateSolutionCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSolutionCommandInput, CreateSolutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListThingsInThingGroupRequest,
-  ListThingsInThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListThingsInThingGroupRequest, ListThingsInThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingsInThingGroupCommand,
   serializeAws_restJson1_1ListThingsInThingGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListThingsInThingGroupCommandInput = ListThingsInThingGroupRequest;
-export type ListThingsInThingGroupCommandOutput = ListThingsInThingGroupResponse &
-  __MetadataBearer;
+export type ListThingsInThingGroupCommandOutput = ListThingsInThingGroupResponse & __MetadataBearer;
 
 export class ListThingsInThingGroupCommand extends $Command<
   ListThingsInThingGroupCommandInput,
@@ -49,13 +41,8 @@ export class ListThingsInThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThingsInThingGroupCommandInput,
-    ListThingsInThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThingsInThingGroupCommandInput, ListThingsInThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ListThingsInThingGroupCommand extends $Command<
     input: ListThingsInThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingsInThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListThingsInThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingsInThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1ListThingsInThingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingsInThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

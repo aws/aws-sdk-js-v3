@@ -168,9 +168,7 @@ export class schemas extends schemasClient {
   ): void;
   public createDiscoverer(
     args: CreateDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiscovererCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDiscovererCommandOutput) => void),
     cb?: (err: any, data?: CreateDiscovererCommandOutput) => void
   ): Promise<CreateDiscovererCommandOutput> | void {
     const command = new CreateDiscovererCommand(args);
@@ -203,9 +201,7 @@ export class schemas extends schemasClient {
   ): void;
   public createRegistry(
     args: CreateRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegistryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegistryCommandOutput) => void),
     cb?: (err: any, data?: CreateRegistryCommandOutput) => void
   ): Promise<CreateRegistryCommandOutput> | void {
     const command = new CreateRegistryCommand(args);
@@ -238,9 +234,7 @@ export class schemas extends schemasClient {
   ): void;
   public createSchema(
     args: CreateSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
     cb?: (err: any, data?: CreateSchemaCommandOutput) => void
   ): Promise<CreateSchemaCommandOutput> | void {
     const command = new CreateSchemaCommand(args);
@@ -273,9 +267,7 @@ export class schemas extends schemasClient {
   ): void;
   public deleteDiscoverer(
     args: DeleteDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDiscovererCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDiscovererCommandOutput) => void),
     cb?: (err: any, data?: DeleteDiscovererCommandOutput) => void
   ): Promise<DeleteDiscovererCommandOutput> | void {
     const command = new DeleteDiscovererCommand(args);
@@ -308,9 +300,7 @@ export class schemas extends schemasClient {
   ): void;
   public deleteRegistry(
     args: DeleteRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegistryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegistryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegistryCommandOutput) => void
   ): Promise<DeleteRegistryCommandOutput> | void {
     const command = new DeleteRegistryCommand(args);
@@ -343,9 +333,7 @@ export class schemas extends schemasClient {
   ): void;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
     cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
   ): Promise<DeleteSchemaCommandOutput> | void {
     const command = new DeleteSchemaCommand(args);
@@ -483,9 +471,7 @@ export class schemas extends schemasClient {
   ): void;
   public describeRegistry(
     args: DescribeRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRegistryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRegistryCommandOutput) => void),
     cb?: (err: any, data?: DescribeRegistryCommandOutput) => void
   ): Promise<DescribeRegistryCommandOutput> | void {
     const command = new DescribeRegistryCommand(args);
@@ -518,9 +504,7 @@ export class schemas extends schemasClient {
   ): void;
   public describeSchema(
     args: DescribeSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSchemaCommandOutput) => void),
     cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
   ): Promise<DescribeSchemaCommandOutput> | void {
     const command = new DescribeSchemaCommand(args);
@@ -623,9 +607,7 @@ export class schemas extends schemasClient {
   ): void;
   public listDiscoverers(
     args: ListDiscoverersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDiscoverersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDiscoverersCommandOutput) => void),
     cb?: (err: any, data?: ListDiscoverersCommandOutput) => void
   ): Promise<ListDiscoverersCommandOutput> | void {
     const command = new ListDiscoverersCommand(args);
@@ -658,9 +640,7 @@ export class schemas extends schemasClient {
   ): void;
   public listRegistries(
     args: ListRegistriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegistriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegistriesCommandOutput) => void),
     cb?: (err: any, data?: ListRegistriesCommandOutput) => void
   ): Promise<ListRegistriesCommandOutput> | void {
     const command = new ListRegistriesCommand(args);
@@ -728,9 +708,7 @@ export class schemas extends schemasClient {
   ): void;
   public listSchemas(
     args: ListSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemasCommandOutput) => void),
     cb?: (err: any, data?: ListSchemasCommandOutput) => void
   ): Promise<ListSchemasCommandOutput> | void {
     const command = new ListSchemasCommand(args);
@@ -830,9 +808,7 @@ export class schemas extends schemasClient {
   ): void;
   public putCodeBinding(
     args: PutCodeBindingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutCodeBindingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCodeBindingCommandOutput) => void),
     cb?: (err: any, data?: PutCodeBindingCommandOutput) => void
   ): Promise<PutCodeBindingCommandOutput> | void {
     const command = new PutCodeBindingCommand(args);
@@ -865,9 +841,7 @@ export class schemas extends schemasClient {
   ): void;
   public searchSchemas(
     args: SearchSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchSchemasCommandOutput) => void),
     cb?: (err: any, data?: SearchSchemasCommandOutput) => void
   ): Promise<SearchSchemasCommandOutput> | void {
     const command = new SearchSchemasCommand(args);
@@ -900,9 +874,7 @@ export class schemas extends schemasClient {
   ): void;
   public startDiscoverer(
     args: StartDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDiscovererCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDiscovererCommandOutput) => void),
     cb?: (err: any, data?: StartDiscovererCommandOutput) => void
   ): Promise<StartDiscovererCommandOutput> | void {
     const command = new StartDiscovererCommand(args);
@@ -935,9 +907,7 @@ export class schemas extends schemasClient {
   ): void;
   public stopDiscoverer(
     args: StopDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDiscovererCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDiscovererCommandOutput) => void),
     cb?: (err: any, data?: StopDiscovererCommandOutput) => void
   ): Promise<StopDiscovererCommandOutput> | void {
     const command = new StopDiscovererCommand(args);
@@ -970,9 +940,7 @@ export class schemas extends schemasClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1037,9 +1005,7 @@ export class schemas extends schemasClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1072,9 +1038,7 @@ export class schemas extends schemasClient {
   ): void;
   public updateDiscoverer(
     args: UpdateDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDiscovererCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDiscovererCommandOutput) => void),
     cb?: (err: any, data?: UpdateDiscovererCommandOutput) => void
   ): Promise<UpdateDiscovererCommandOutput> | void {
     const command = new UpdateDiscovererCommand(args);
@@ -1107,9 +1071,7 @@ export class schemas extends schemasClient {
   ): void;
   public updateRegistry(
     args: UpdateRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegistryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegistryCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegistryCommandOutput) => void
   ): Promise<UpdateRegistryCommandOutput> | void {
     const command = new UpdateRegistryCommand(args);
@@ -1142,9 +1104,7 @@ export class schemas extends schemasClient {
   ): void;
   public updateSchema(
     args: UpdateSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSchemaCommandOutput) => void),
     cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): Promise<UpdateSchemaCommandOutput> | void {
     const command = new UpdateSchemaCommand(args);

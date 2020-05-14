@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   PurchaseReservedInstancesOfferingRequest,
   PurchaseReservedInstancesOfferingResult
@@ -53,9 +49,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     PurchaseReservedInstancesOfferingCommandInput,
     PurchaseReservedInstancesOfferingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     input: PurchaseReservedInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2PurchaseReservedInstancesOfferingCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2PurchaseReservedInstancesOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedInstancesOfferingCommandOutput> {
-    return deserializeAws_ec2PurchaseReservedInstancesOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2PurchaseReservedInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

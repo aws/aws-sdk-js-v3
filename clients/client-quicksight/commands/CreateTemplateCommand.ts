@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTemplateCommandInput = CreateTemplateRequest;
-export type CreateTemplateCommandOutput = CreateTemplateResponse &
-  __MetadataBearer;
+export type CreateTemplateCommandOutput = CreateTemplateResponse & __MetadataBearer;
 
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,
@@ -47,9 +46,7 @@ export class CreateTemplateCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTemplateCommandInput, CreateTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

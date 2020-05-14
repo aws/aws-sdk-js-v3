@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEvaluationCommandInput = DeleteEvaluationInput;
-export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput &
-  __MetadataBearer;
+export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput & __MetadataBearer;
 
 export class DeleteEvaluationCommand extends $Command<
   DeleteEvaluationCommandInput,
@@ -47,9 +46,7 @@ export class DeleteEvaluationCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

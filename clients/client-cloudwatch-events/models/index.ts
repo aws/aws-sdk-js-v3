@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface ActivateEventSourceRequest {
@@ -50,8 +47,7 @@ export interface AwsVpcConfiguration {
 }
 
 export namespace AwsVpcConfiguration {
-  export const isa = (o: any): o is AwsVpcConfiguration =>
-    __isa(o, "AwsVpcConfiguration");
+  export const isa = (o: any): o is AwsVpcConfiguration => __isa(o, "AwsVpcConfiguration");
 }
 
 /**
@@ -69,8 +65,7 @@ export interface BatchArrayProperties {
 }
 
 export namespace BatchArrayProperties {
-  export const isa = (o: any): o is BatchArrayProperties =>
-    __isa(o, "BatchArrayProperties");
+  export const isa = (o: any): o is BatchArrayProperties => __isa(o, "BatchArrayProperties");
 }
 
 /**
@@ -105,8 +100,7 @@ export interface BatchParameters {
 }
 
 export namespace BatchParameters {
-  export const isa = (o: any): o is BatchParameters =>
-    __isa(o, "BatchParameters");
+  export const isa = (o: any): o is BatchParameters => __isa(o, "BatchParameters");
 }
 
 /**
@@ -124,8 +118,7 @@ export interface BatchRetryStrategy {
 }
 
 export namespace BatchRetryStrategy {
-  export const isa = (o: any): o is BatchRetryStrategy =>
-    __isa(o, "BatchRetryStrategy");
+  export const isa = (o: any): o is BatchRetryStrategy => __isa(o, "BatchRetryStrategy");
 }
 
 /**
@@ -183,8 +176,7 @@ export interface CreateEventBusRequest {
 }
 
 export namespace CreateEventBusRequest {
-  export const isa = (o: any): o is CreateEventBusRequest =>
-    __isa(o, "CreateEventBusRequest");
+  export const isa = (o: any): o is CreateEventBusRequest => __isa(o, "CreateEventBusRequest");
 }
 
 export interface CreateEventBusResponse {
@@ -196,8 +188,7 @@ export interface CreateEventBusResponse {
 }
 
 export namespace CreateEventBusResponse {
-  export const isa = (o: any): o is CreateEventBusResponse =>
-    __isa(o, "CreateEventBusResponse");
+  export const isa = (o: any): o is CreateEventBusResponse => __isa(o, "CreateEventBusResponse");
 }
 
 export interface CreatePartnerEventSourceRequest {
@@ -258,8 +249,7 @@ export interface DeleteEventBusRequest {
 }
 
 export namespace DeleteEventBusRequest {
-  export const isa = (o: any): o is DeleteEventBusRequest =>
-    __isa(o, "DeleteEventBusRequest");
+  export const isa = (o: any): o is DeleteEventBusRequest => __isa(o, "DeleteEventBusRequest");
 }
 
 export interface DeletePartnerEventSourceRequest {
@@ -302,8 +292,7 @@ export interface DeleteRuleRequest {
 }
 
 export namespace DeleteRuleRequest {
-  export const isa = (o: any): o is DeleteRuleRequest =>
-    __isa(o, "DeleteRuleRequest");
+  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
 }
 
 export interface DescribeEventBusRequest {
@@ -315,8 +304,7 @@ export interface DescribeEventBusRequest {
 }
 
 export namespace DescribeEventBusRequest {
-  export const isa = (o: any): o is DescribeEventBusRequest =>
-    __isa(o, "DescribeEventBusRequest");
+  export const isa = (o: any): o is DescribeEventBusRequest => __isa(o, "DescribeEventBusRequest");
 }
 
 export interface DescribeEventBusResponse {
@@ -443,8 +431,7 @@ export interface DescribeRuleRequest {
 }
 
 export namespace DescribeRuleRequest {
-  export const isa = (o: any): o is DescribeRuleRequest =>
-    __isa(o, "DescribeRuleRequest");
+  export const isa = (o: any): o is DescribeRuleRequest => __isa(o, "DescribeRuleRequest");
 }
 
 export interface DescribeRuleResponse {
@@ -498,8 +485,7 @@ export interface DescribeRuleResponse {
 }
 
 export namespace DescribeRuleResponse {
-  export const isa = (o: any): o is DescribeRuleResponse =>
-    __isa(o, "DescribeRuleResponse");
+  export const isa = (o: any): o is DescribeRuleResponse => __isa(o, "DescribeRuleResponse");
 }
 
 export interface DisableRuleRequest {
@@ -516,8 +502,7 @@ export interface DisableRuleRequest {
 }
 
 export namespace DisableRuleRequest {
-  export const isa = (o: any): o is DisableRuleRequest =>
-    __isa(o, "DisableRuleRequest");
+  export const isa = (o: any): o is DisableRuleRequest => __isa(o, "DisableRuleRequest");
 }
 
 /**
@@ -591,8 +576,7 @@ export interface EnableRuleRequest {
 }
 
 export namespace EnableRuleRequest {
-  export const isa = (o: any): o is EnableRuleRequest =>
-    __isa(o, "EnableRuleRequest");
+  export const isa = (o: any): o is EnableRuleRequest => __isa(o, "EnableRuleRequest");
 }
 
 /**
@@ -744,8 +728,7 @@ export interface InputTransformer {
 }
 
 export namespace InputTransformer {
-  export const isa = (o: any): o is InputTransformer =>
-    __isa(o, "InputTransformer");
+  export const isa = (o: any): o is InputTransformer => __isa(o, "InputTransformer");
 }
 
 /**
@@ -763,8 +746,7 @@ export interface KinesisParameters {
 }
 
 export namespace KinesisParameters {
-  export const isa = (o: any): o is KinesisParameters =>
-    __isa(o, "KinesisParameters");
+  export const isa = (o: any): o is KinesisParameters => __isa(o, "KinesisParameters");
 }
 
 export enum LaunchType {
@@ -794,8 +776,7 @@ export interface ListEventBusesRequest {
 }
 
 export namespace ListEventBusesRequest {
-  export const isa = (o: any): o is ListEventBusesRequest =>
-    __isa(o, "ListEventBusesRequest");
+  export const isa = (o: any): o is ListEventBusesRequest => __isa(o, "ListEventBusesRequest");
 }
 
 export interface ListEventBusesResponse {
@@ -812,8 +793,7 @@ export interface ListEventBusesResponse {
 }
 
 export namespace ListEventBusesResponse {
-  export const isa = (o: any): o is ListEventBusesResponse =>
-    __isa(o, "ListEventBusesResponse");
+  export const isa = (o: any): o is ListEventBusesResponse => __isa(o, "ListEventBusesResponse");
 }
 
 export interface ListEventSourcesRequest {
@@ -838,8 +818,7 @@ export interface ListEventSourcesRequest {
 }
 
 export namespace ListEventSourcesRequest {
-  export const isa = (o: any): o is ListEventSourcesRequest =>
-    __isa(o, "ListEventSourcesRequest");
+  export const isa = (o: any): o is ListEventSourcesRequest => __isa(o, "ListEventSourcesRequest");
 }
 
 export interface ListEventSourcesResponse {
@@ -1017,8 +996,7 @@ export interface ListRulesRequest {
 }
 
 export namespace ListRulesRequest {
-  export const isa = (o: any): o is ListRulesRequest =>
-    __isa(o, "ListRulesRequest");
+  export const isa = (o: any): o is ListRulesRequest => __isa(o, "ListRulesRequest");
 }
 
 export interface ListRulesResponse {
@@ -1035,8 +1013,7 @@ export interface ListRulesResponse {
 }
 
 export namespace ListRulesResponse {
-  export const isa = (o: any): o is ListRulesResponse =>
-    __isa(o, "ListRulesResponse");
+  export const isa = (o: any): o is ListRulesResponse => __isa(o, "ListRulesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1125,8 +1102,7 @@ export interface NetworkConfiguration {
 }
 
 export namespace NetworkConfiguration {
-  export const isa = (o: any): o is NetworkConfiguration =>
-    __isa(o, "NetworkConfiguration");
+  export const isa = (o: any): o is NetworkConfiguration => __isa(o, "NetworkConfiguration");
 }
 
 /**
@@ -1147,8 +1123,7 @@ export interface PartnerEventSource {
 }
 
 export namespace PartnerEventSource {
-  export const isa = (o: any): o is PartnerEventSource =>
-    __isa(o, "PartnerEventSource");
+  export const isa = (o: any): o is PartnerEventSource => __isa(o, "PartnerEventSource");
 }
 
 /**
@@ -1196,8 +1171,7 @@ export interface PutEventsRequest {
 }
 
 export namespace PutEventsRequest {
-  export const isa = (o: any): o is PutEventsRequest =>
-    __isa(o, "PutEventsRequest");
+  export const isa = (o: any): o is PutEventsRequest => __isa(o, "PutEventsRequest");
 }
 
 /**
@@ -1242,8 +1216,7 @@ export interface PutEventsRequestEntry {
 }
 
 export namespace PutEventsRequestEntry {
-  export const isa = (o: any): o is PutEventsRequestEntry =>
-    __isa(o, "PutEventsRequestEntry");
+  export const isa = (o: any): o is PutEventsRequestEntry => __isa(o, "PutEventsRequestEntry");
 }
 
 export interface PutEventsResponse {
@@ -1262,8 +1235,7 @@ export interface PutEventsResponse {
 }
 
 export namespace PutEventsResponse {
-  export const isa = (o: any): o is PutEventsResponse =>
-    __isa(o, "PutEventsResponse");
+  export const isa = (o: any): o is PutEventsResponse => __isa(o, "PutEventsResponse");
 }
 
 /**
@@ -1288,8 +1260,7 @@ export interface PutEventsResultEntry {
 }
 
 export namespace PutEventsResultEntry {
-  export const isa = (o: any): o is PutEventsResultEntry =>
-    __isa(o, "PutEventsResultEntry");
+  export const isa = (o: any): o is PutEventsResultEntry => __isa(o, "PutEventsResultEntry");
 }
 
 export interface PutPartnerEventsRequest {
@@ -1301,8 +1272,7 @@ export interface PutPartnerEventsRequest {
 }
 
 export namespace PutPartnerEventsRequest {
-  export const isa = (o: any): o is PutPartnerEventsRequest =>
-    __isa(o, "PutPartnerEventsRequest");
+  export const isa = (o: any): o is PutPartnerEventsRequest => __isa(o, "PutPartnerEventsRequest");
 }
 
 /**
@@ -1438,8 +1408,7 @@ export interface PutPermissionRequest {
 }
 
 export namespace PutPermissionRequest {
-  export const isa = (o: any): o is PutPermissionRequest =>
-    __isa(o, "PutPermissionRequest");
+  export const isa = (o: any): o is PutPermissionRequest => __isa(o, "PutPermissionRequest");
 }
 
 export interface PutRuleRequest {
@@ -1488,8 +1457,7 @@ export interface PutRuleRequest {
 }
 
 export namespace PutRuleRequest {
-  export const isa = (o: any): o is PutRuleRequest =>
-    __isa(o, "PutRuleRequest");
+  export const isa = (o: any): o is PutRuleRequest => __isa(o, "PutRuleRequest");
 }
 
 export interface PutRuleResponse {
@@ -1501,8 +1469,7 @@ export interface PutRuleResponse {
 }
 
 export namespace PutRuleResponse {
-  export const isa = (o: any): o is PutRuleResponse =>
-    __isa(o, "PutRuleResponse");
+  export const isa = (o: any): o is PutRuleResponse => __isa(o, "PutRuleResponse");
 }
 
 export interface PutTargetsRequest {
@@ -1524,8 +1491,7 @@ export interface PutTargetsRequest {
 }
 
 export namespace PutTargetsRequest {
-  export const isa = (o: any): o is PutTargetsRequest =>
-    __isa(o, "PutTargetsRequest");
+  export const isa = (o: any): o is PutTargetsRequest => __isa(o, "PutTargetsRequest");
 }
 
 export interface PutTargetsResponse {
@@ -1542,8 +1508,7 @@ export interface PutTargetsResponse {
 }
 
 export namespace PutTargetsResponse {
-  export const isa = (o: any): o is PutTargetsResponse =>
-    __isa(o, "PutTargetsResponse");
+  export const isa = (o: any): o is PutTargetsResponse => __isa(o, "PutTargetsResponse");
 }
 
 /**
@@ -1569,8 +1534,7 @@ export interface PutTargetsResultEntry {
 }
 
 export namespace PutTargetsResultEntry {
-  export const isa = (o: any): o is PutTargetsResultEntry =>
-    __isa(o, "PutTargetsResultEntry");
+  export const isa = (o: any): o is PutTargetsResultEntry => __isa(o, "PutTargetsResultEntry");
 }
 
 export interface RemovePermissionRequest {
@@ -1587,8 +1551,7 @@ export interface RemovePermissionRequest {
 }
 
 export namespace RemovePermissionRequest {
-  export const isa = (o: any): o is RemovePermissionRequest =>
-    __isa(o, "RemovePermissionRequest");
+  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 export interface RemoveTargetsRequest {
@@ -1619,8 +1582,7 @@ export interface RemoveTargetsRequest {
 }
 
 export namespace RemoveTargetsRequest {
-  export const isa = (o: any): o is RemoveTargetsRequest =>
-    __isa(o, "RemoveTargetsRequest");
+  export const isa = (o: any): o is RemoveTargetsRequest => __isa(o, "RemoveTargetsRequest");
 }
 
 export interface RemoveTargetsResponse {
@@ -1637,8 +1599,7 @@ export interface RemoveTargetsResponse {
 }
 
 export namespace RemoveTargetsResponse {
-  export const isa = (o: any): o is RemoveTargetsResponse =>
-    __isa(o, "RemoveTargetsResponse");
+  export const isa = (o: any): o is RemoveTargetsResponse => __isa(o, "RemoveTargetsResponse");
 }
 
 /**
@@ -1744,8 +1705,7 @@ export interface RunCommandParameters {
 }
 
 export namespace RunCommandParameters {
-  export const isa = (o: any): o is RunCommandParameters =>
-    __isa(o, "RunCommandParameters");
+  export const isa = (o: any): o is RunCommandParameters => __isa(o, "RunCommandParameters");
 }
 
 /**
@@ -1770,8 +1730,7 @@ export interface RunCommandTarget {
 }
 
 export namespace RunCommandTarget {
-  export const isa = (o: any): o is RunCommandTarget =>
-    __isa(o, "RunCommandTarget");
+  export const isa = (o: any): o is RunCommandTarget => __isa(o, "RunCommandTarget");
 }
 
 /**
@@ -1824,8 +1783,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1833,8 +1791,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1938,8 +1895,7 @@ export interface TestEventPatternRequest {
 }
 
 export namespace TestEventPatternRequest {
-  export const isa = (o: any): o is TestEventPatternRequest =>
-    __isa(o, "TestEventPatternRequest");
+  export const isa = (o: any): o is TestEventPatternRequest => __isa(o, "TestEventPatternRequest");
 }
 
 export interface TestEventPatternResponse {
@@ -1969,8 +1925,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1978,16 +1933,13 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>There is concurrent modification on a resource.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -2008,16 +1960,13 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
  * <p>The event pattern isn't valid.</p>
  */
-export interface InvalidEventPatternException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEventPatternException extends __SmithyException, $MetadataBearer {
   name: "InvalidEventPatternException";
   $fault: "client";
   message?: string;
@@ -2031,33 +1980,27 @@ export namespace InvalidEventPatternException {
 /**
  * <p>The specified state isn't a valid state for an event source.</p>
  */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidStateException {
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
+  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
  * <p>You tried to create more resources than is allowed.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2069,25 +2012,20 @@ export namespace LimitExceededException {
  *                 <code>PutTargets</code>, <code>PutRule</code>, <code>TagResource</code>, or
  *                 <code>UntagResource</code>. </p>
  */
-export interface ManagedRuleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ManagedRuleException extends __SmithyException, $MetadataBearer {
   name: "ManagedRuleException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ManagedRuleException {
-  export const isa = (o: any): o is ManagedRuleException =>
-    __isa(o, "ManagedRuleException");
+  export const isa = (o: any): o is ManagedRuleException => __isa(o, "ManagedRuleException");
 }
 
 /**
  * <p>The event bus policy is too long. For more information, see the limits.</p>
  */
-export interface PolicyLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "PolicyLengthExceededException";
   $fault: "client";
   message?: string;
@@ -2101,9 +2039,7 @@ export namespace PolicyLengthExceededException {
 /**
  * <p>The resource that you're trying to create already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2117,9 +2053,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>An entity that you specified doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

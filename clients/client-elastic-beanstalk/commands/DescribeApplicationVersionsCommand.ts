@@ -49,13 +49,8 @@ export class DescribeApplicationVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeApplicationVersionsCommandInput,
-    DescribeApplicationVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeApplicationVersionsCommandInput, DescribeApplicationVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeApplicationVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicationVersionsCommandOutput> {
-    return deserializeAws_queryDescribeApplicationVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

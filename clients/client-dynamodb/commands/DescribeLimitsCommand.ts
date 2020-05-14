@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLimitsCommandInput = DescribeLimitsInput;
-export type DescribeLimitsCommandOutput = DescribeLimitsOutput &
-  __MetadataBearer;
+export type DescribeLimitsCommandOutput = DescribeLimitsOutput & __MetadataBearer;
 
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeLimitsCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLimitsCommandInput, DescribeLimitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

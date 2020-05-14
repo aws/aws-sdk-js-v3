@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComputeOptimizerClient";
-import {
-  UpdateEnrollmentStatusRequest,
-  UpdateEnrollmentStatusResponse
-} from "../models/index";
+import { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_0UpdateEnrollmentStatusCommand,
   serializeAws_json1_0UpdateEnrollmentStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEnrollmentStatusCommandInput = UpdateEnrollmentStatusRequest;
-export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse &
-  __MetadataBearer;
+export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse & __MetadataBearer;
 
 export class UpdateEnrollmentStatusCommand extends $Command<
   UpdateEnrollmentStatusCommandInput,
@@ -49,13 +45,8 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEnrollmentStatusCommandInput,
-    UpdateEnrollmentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEnrollmentStatusCommandInput, UpdateEnrollmentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

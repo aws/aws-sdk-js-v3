@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/index";
 import {
   deserializeAws_queryGetRolePolicyCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRolePolicyCommandInput = GetRolePolicyRequest;
-export type GetRolePolicyCommandOutput = GetRolePolicyResponse &
-  __MetadataBearer;
+export type GetRolePolicyCommandOutput = GetRolePolicyResponse & __MetadataBearer;
 
 export class GetRolePolicyCommand extends $Command<
   GetRolePolicyCommandInput,
@@ -47,9 +42,7 @@ export class GetRolePolicyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRolePolicyCommandInput, GetRolePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

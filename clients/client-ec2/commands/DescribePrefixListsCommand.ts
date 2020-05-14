@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribePrefixListsRequest,
-  DescribePrefixListsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribePrefixListsCommand,
   serializeAws_ec2DescribePrefixListsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePrefixListsCommandInput = DescribePrefixListsRequest;
-export type DescribePrefixListsCommandOutput = DescribePrefixListsResult &
-  __MetadataBearer;
+export type DescribePrefixListsCommandOutput = DescribePrefixListsResult & __MetadataBearer;
 
 export class DescribePrefixListsCommand extends $Command<
   DescribePrefixListsCommandInput,
@@ -49,13 +41,8 @@ export class DescribePrefixListsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePrefixListsCommandInput,
-    DescribePrefixListsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePrefixListsCommandInput, DescribePrefixListsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

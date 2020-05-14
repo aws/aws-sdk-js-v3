@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  TerminateInstancesRequest,
-  TerminateInstancesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/index";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
   serializeAws_ec2TerminateInstancesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateInstancesCommandInput = TerminateInstancesRequest;
-export type TerminateInstancesCommandOutput = TerminateInstancesResult &
-  __MetadataBearer;
+export type TerminateInstancesCommandOutput = TerminateInstancesResult & __MetadataBearer;
 
 export class TerminateInstancesCommand extends $Command<
   TerminateInstancesCommandInput,
@@ -50,9 +42,7 @@ export class TerminateInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateInstancesCommandInput, TerminateInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

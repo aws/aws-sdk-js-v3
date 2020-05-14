@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient";
-import {
-  RegisterInstanceRequest,
-  RegisterInstanceResponse
-} from "../models/index";
+import { RegisterInstanceRequest, RegisterInstanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterInstanceCommand,
   serializeAws_json1_1RegisterInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterInstanceCommandInput = RegisterInstanceRequest;
-export type RegisterInstanceCommandOutput = RegisterInstanceResponse &
-  __MetadataBearer;
+export type RegisterInstanceCommandOutput = RegisterInstanceResponse & __MetadataBearer;
 
 export class RegisterInstanceCommand extends $Command<
   RegisterInstanceCommandInput,
@@ -50,9 +46,7 @@ export class RegisterInstanceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterInstanceCommandInput, RegisterInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

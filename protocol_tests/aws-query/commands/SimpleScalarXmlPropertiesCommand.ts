@@ -46,13 +46,8 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SimpleScalarXmlPropertiesCommandInput,
-    SimpleScalarXmlPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SimpleScalarXmlPropertiesCommandInput, SimpleScalarXmlPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SimpleScalarXmlPropertiesCommandOutput> {
-    return deserializeAws_querySimpleScalarXmlPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySimpleScalarXmlPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

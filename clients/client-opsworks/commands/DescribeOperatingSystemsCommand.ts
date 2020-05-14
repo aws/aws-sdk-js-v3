@@ -46,13 +46,8 @@ export class DescribeOperatingSystemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOperatingSystemsCommandInput,
-    DescribeOperatingSystemsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOperatingSystemsCommandInput, DescribeOperatingSystemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class DescribeOperatingSystemsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOperatingSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOperatingSystemsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeOperatingSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

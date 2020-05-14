@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeRuntimeClient";
-import {
-  GetPersonalizedRankingRequest,
-  GetPersonalizedRankingResponse
-} from "../models/index";
+import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPersonalizedRankingCommand,
   serializeAws_restJson1_1GetPersonalizedRankingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPersonalizedRankingCommandInput = GetPersonalizedRankingRequest;
-export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse &
-  __MetadataBearer;
+export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse & __MetadataBearer;
 
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,
@@ -49,13 +45,8 @@ export class GetPersonalizedRankingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPersonalizedRankingCommandInput,
-    GetPersonalizedRankingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPersonalizedRankingCommandInput, GetPersonalizedRankingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetPersonalizedRankingCommand extends $Command<
     input: GetPersonalizedRankingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPersonalizedRankingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetPersonalizedRankingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPersonalizedRankingCommandOutput> {
-    return deserializeAws_restJson1_1GetPersonalizedRankingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPersonalizedRankingCommand(output, context);
   }
 
   // Start section: command_body_extra

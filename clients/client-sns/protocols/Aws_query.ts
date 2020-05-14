@@ -18,10 +18,7 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput
 } from "../commands/CreatePlatformEndpointCommand";
-import {
-  CreateTopicCommandInput,
-  CreateTopicCommandOutput
-} from "../commands/CreateTopicCommand";
+import { CreateTopicCommandInput, CreateTopicCommandOutput } from "../commands/CreateTopicCommand";
 import {
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput
@@ -30,10 +27,7 @@ import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput
 } from "../commands/DeletePlatformApplicationCommand";
-import {
-  DeleteTopicCommandInput,
-  DeleteTopicCommandOutput
-} from "../commands/DeleteTopicCommand";
+import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "../commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput
@@ -78,18 +72,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTopicsCommandInput,
-  ListTopicsCommandOutput
-} from "../commands/ListTopicsCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import {
   OptInPhoneNumberCommandInput,
   OptInPhoneNumberCommandOutput
 } from "../commands/OptInPhoneNumberCommand";
-import {
-  PublishCommandInput,
-  PublishCommandOutput
-} from "../commands/PublishCommand";
+import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
 import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput
@@ -114,18 +102,9 @@ import {
   SetTopicAttributesCommandInput,
   SetTopicAttributesCommandOutput
 } from "../commands/SetTopicAttributesCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "../commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "../commands/UnsubscribeCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "../commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "../commands/UnsubscribeCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -469,10 +448,7 @@ export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async
   };
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListEndpointsByPlatformApplicationInput(
-      input,
-      context
-    ),
+    ...serializeAws_queryListEndpointsByPlatformApplicationInput(input, context),
     Action: "ListEndpointsByPlatformApplication",
     Version: "2010-03-31"
   });
@@ -796,10 +772,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -807,10 +780,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -818,10 +788,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -829,10 +796,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -843,8 +807,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -860,10 +823,7 @@ export const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
   context: __SerdeContext
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -894,10 +854,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -905,10 +862,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -916,10 +870,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -927,10 +878,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
     case "ThrottledException":
     case "com.amazon.cloudcast.onlines#ThrottledException":
       response = {
-        ...(await deserializeAws_queryThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -941,8 +889,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -989,10 +936,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1011,10 +955,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1022,10 +963,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1033,10 +971,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1058,8 +993,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1075,10 +1009,7 @@ export const deserializeAws_queryCreatePlatformApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlatformApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCreatePlatformApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCreatePlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1109,10 +1040,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1120,10 +1048,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1131,10 +1056,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1145,8 +1067,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1162,17 +1083,11 @@ export const deserializeAws_queryCreatePlatformEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlatformEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCreatePlatformEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCreatePlatformEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateEndpointResponse(
-    data.CreatePlatformEndpointResult,
-    context
-  );
+  contents = deserializeAws_queryCreateEndpointResponse(data.CreatePlatformEndpointResult, context);
   const response: CreatePlatformEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEndpointResponse",
@@ -1196,10 +1111,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1207,10 +1119,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1218,10 +1127,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1229,10 +1135,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1243,8 +1146,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1264,10 +1166,7 @@ export const deserializeAws_queryCreateTopicCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateTopicResponse(
-    data.CreateTopicResult,
-    context
-  );
+  contents = deserializeAws_queryCreateTopicResponse(data.CreateTopicResult, context);
   const response: CreateTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTopicResponse",
@@ -1291,10 +1190,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1302,10 +1198,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "ConcurrentAccessException":
     case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
       response = {
-        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1313,10 +1206,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1324,10 +1214,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1335,10 +1222,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1346,10 +1230,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "StaleTagException":
     case "com.amazon.cloudcast.onlines#StaleTagException":
       response = {
-        ...(await deserializeAws_queryStaleTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1357,10 +1238,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "TagLimitExceededException":
     case "com.amazon.cloudcast.onlines#TagLimitExceededException":
       response = {
-        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1368,10 +1246,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "TagPolicyException":
     case "com.amazon.cloudcast.onlines#TagPolicyException":
       response = {
-        ...(await deserializeAws_queryTagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1379,10 +1254,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     case "TopicLimitExceededException":
     case "com.amazon.cloudcast.onlines#TopicLimitExceededException":
       response = {
-        ...(await deserializeAws_queryTopicLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTopicLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1393,8 +1265,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1434,10 +1305,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,10 +1313,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1456,10 +1321,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1470,8 +1332,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1487,10 +1348,7 @@ export const deserializeAws_queryDeletePlatformApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlatformApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeletePlatformApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeletePlatformApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePlatformApplicationCommandOutput = {
@@ -1514,10 +1372,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1525,10 +1380,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1536,10 +1388,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1550,8 +1399,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1591,10 +1439,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1602,10 +1447,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "ConcurrentAccessException":
     case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
       response = {
-        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1613,10 +1455,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1624,10 +1463,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1635,10 +1471,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1646,10 +1479,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "StaleTagException":
     case "com.amazon.cloudcast.onlines#StaleTagException":
       response = {
-        ...(await deserializeAws_queryStaleTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1657,10 +1487,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     case "TagPolicyException":
     case "com.amazon.cloudcast.onlines#TagPolicyException":
       response = {
-        ...(await deserializeAws_queryTagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1671,8 +1498,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1688,10 +1514,7 @@ export const deserializeAws_queryGetEndpointAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetEndpointAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryGetEndpointAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryGetEndpointAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1722,10 +1545,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1733,10 +1553,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1744,10 +1561,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1755,10 +1569,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1769,8 +1580,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1786,10 +1596,7 @@ export const deserializeAws_queryGetPlatformApplicationAttributesCommand = async
   context: __SerdeContext
 ): Promise<GetPlatformApplicationAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryGetPlatformApplicationAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryGetPlatformApplicationAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1820,10 +1627,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1831,10 +1635,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1842,10 +1643,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1853,10 +1651,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1867,8 +1662,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1888,10 +1682,7 @@ export const deserializeAws_queryGetSMSAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetSMSAttributesResponse(
-    data.GetSMSAttributesResult,
-    context
-  );
+  contents = deserializeAws_queryGetSMSAttributesResponse(data.GetSMSAttributesResult, context);
   const response: GetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSMSAttributesResponse",
@@ -1915,10 +1706,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1926,10 +1714,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1937,10 +1722,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1948,10 +1730,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
     case "ThrottledException":
     case "com.amazon.cloudcast.onlines#ThrottledException":
       response = {
-        ...(await deserializeAws_queryThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1962,8 +1741,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1979,10 +1757,7 @@ export const deserializeAws_queryGetSubscriptionAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetSubscriptionAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryGetSubscriptionAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryGetSubscriptionAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2013,10 +1788,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2024,10 +1796,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2035,10 +1804,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2046,10 +1812,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2060,8 +1823,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2081,10 +1843,7 @@ export const deserializeAws_queryGetTopicAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetTopicAttributesResponse(
-    data.GetTopicAttributesResult,
-    context
-  );
+  contents = deserializeAws_queryGetTopicAttributesResponse(data.GetTopicAttributesResult, context);
   const response: GetTopicAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTopicAttributesResponse",
@@ -2108,10 +1867,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2119,10 +1875,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2130,10 +1883,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2141,10 +1891,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2152,10 +1899,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2166,8 +1910,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2183,10 +1926,7 @@ export const deserializeAws_queryListEndpointsByPlatformApplicationCommand = asy
   context: __SerdeContext
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListEndpointsByPlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2217,10 +1957,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2228,10 +1965,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2239,10 +1973,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2250,10 +1981,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2264,8 +1992,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2281,10 +2008,7 @@ export const deserializeAws_queryListPhoneNumbersOptedOutCommand = async (
   context: __SerdeContext
 ): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListPhoneNumbersOptedOutCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListPhoneNumbersOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2315,10 +2039,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2326,10 +2047,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2337,10 +2055,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2348,10 +2063,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
     case "ThrottledException":
     case "com.amazon.cloudcast.onlines#ThrottledException":
       response = {
-        ...(await deserializeAws_queryThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2362,8 +2074,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2379,10 +2090,7 @@ export const deserializeAws_queryListPlatformApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListPlatformApplicationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListPlatformApplicationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListPlatformApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2413,10 +2121,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2424,10 +2129,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2435,10 +2137,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2449,8 +2148,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2470,10 +2168,7 @@ export const deserializeAws_queryListSubscriptionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListSubscriptionsResponse(
-    data.ListSubscriptionsResult,
-    context
-  );
+  contents = deserializeAws_queryListSubscriptionsResponse(data.ListSubscriptionsResult, context);
   const response: ListSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSubscriptionsResponse",
@@ -2497,10 +2192,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2508,10 +2200,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2519,10 +2208,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2533,8 +2219,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2550,10 +2235,7 @@ export const deserializeAws_queryListSubscriptionsByTopicCommand = async (
   context: __SerdeContext
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListSubscriptionsByTopicCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListSubscriptionsByTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2584,10 +2266,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2595,10 +2274,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2606,10 +2282,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2617,10 +2290,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2631,8 +2301,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2679,10 +2348,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2690,10 +2356,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "ConcurrentAccessException":
     case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
       response = {
-        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2701,10 +2364,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2712,10 +2372,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2723,10 +2380,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     case "TagPolicyException":
     case "com.amazon.cloudcast.onlines#TagPolicyException":
       response = {
-        ...(await deserializeAws_queryTagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2737,8 +2391,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2758,10 +2411,7 @@ export const deserializeAws_queryListTopicsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListTopicsResponse(
-    data.ListTopicsResult,
-    context
-  );
+  contents = deserializeAws_queryListTopicsResponse(data.ListTopicsResult, context);
   const response: ListTopicsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTopicsResponse",
@@ -2785,10 +2435,7 @@ const deserializeAws_queryListTopicsCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2796,10 +2443,7 @@ const deserializeAws_queryListTopicsCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2807,10 +2451,7 @@ const deserializeAws_queryListTopicsCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2821,8 +2462,7 @@ const deserializeAws_queryListTopicsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2842,10 +2482,7 @@ export const deserializeAws_queryOptInPhoneNumberCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryOptInPhoneNumberResponse(
-    data.OptInPhoneNumberResult,
-    context
-  );
+  contents = deserializeAws_queryOptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
   const response: OptInPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "OptInPhoneNumberResponse",
@@ -2869,10 +2506,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2880,10 +2514,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2891,10 +2522,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2902,10 +2530,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
     case "ThrottledException":
     case "com.amazon.cloudcast.onlines#ThrottledException":
       response = {
-        ...(await deserializeAws_queryThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2916,8 +2541,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2961,10 +2585,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2972,10 +2593,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "EndpointDisabledException":
     case "com.amazon.cloudcast.onlines#EndpointDisabledException":
       response = {
-        ...(await deserializeAws_queryEndpointDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryEndpointDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2983,10 +2601,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2994,10 +2609,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3016,10 +2628,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3027,10 +2636,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSAccessDeniedException":
     case "com.amazon.cloudcast.onlines#KMSAccessDeniedException":
       response = {
-        ...(await deserializeAws_queryKMSAccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSAccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3038,10 +2644,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSDisabledException":
     case "com.amazon.cloudcast.onlines#KMSDisabledException":
       response = {
-        ...(await deserializeAws_queryKMSDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3049,10 +2652,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSInvalidStateException":
     case "com.amazon.cloudcast.onlines#KMSInvalidStateException":
       response = {
-        ...(await deserializeAws_queryKMSInvalidStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSInvalidStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3060,10 +2660,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSNotFoundException":
     case "com.amazon.cloudcast.onlines#KMSNotFoundException":
       response = {
-        ...(await deserializeAws_queryKMSNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3071,10 +2668,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSOptInRequired":
     case "com.amazon.cloudcast.onlines#KMSOptInRequired":
       response = {
-        ...(await deserializeAws_queryKMSOptInRequiredResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSOptInRequiredResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3082,10 +2676,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "KMSThrottlingException":
     case "com.amazon.cloudcast.onlines#KMSThrottlingException":
       response = {
-        ...(await deserializeAws_queryKMSThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryKMSThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3093,10 +2684,7 @@ const deserializeAws_queryPublishCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3118,8 +2706,7 @@ const deserializeAws_queryPublishCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3159,10 +2746,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3170,10 +2754,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3181,10 +2762,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3192,10 +2770,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3206,8 +2781,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3223,10 +2797,7 @@ export const deserializeAws_querySetEndpointAttributesCommand = async (
   context: __SerdeContext
 ): Promise<SetEndpointAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_querySetEndpointAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_querySetEndpointAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetEndpointAttributesCommandOutput = {
@@ -3250,10 +2821,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3261,10 +2829,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3272,10 +2837,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3283,10 +2845,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3297,8 +2856,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3314,10 +2872,7 @@ export const deserializeAws_querySetPlatformApplicationAttributesCommand = async
   context: __SerdeContext
 ): Promise<SetPlatformApplicationAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_querySetPlatformApplicationAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_querySetPlatformApplicationAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetPlatformApplicationAttributesCommandOutput = {
@@ -3341,10 +2896,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3352,10 +2904,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3363,10 +2912,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3374,10 +2920,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3388,8 +2931,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3409,10 +2951,7 @@ export const deserializeAws_querySetSMSAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetSMSAttributesResponse(
-    data.SetSMSAttributesResult,
-    context
-  );
+  contents = deserializeAws_querySetSMSAttributesResponse(data.SetSMSAttributesResult, context);
   const response: SetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetSMSAttributesResponse",
@@ -3436,10 +2975,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3447,10 +2983,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3458,10 +2991,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3469,10 +2999,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
     case "ThrottledException":
     case "com.amazon.cloudcast.onlines#ThrottledException":
       response = {
-        ...(await deserializeAws_queryThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3483,8 +3010,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3500,10 +3026,7 @@ export const deserializeAws_querySetSubscriptionAttributesCommand = async (
   context: __SerdeContext
 ): Promise<SetSubscriptionAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_querySetSubscriptionAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_querySetSubscriptionAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetSubscriptionAttributesCommandOutput = {
@@ -3527,10 +3050,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3549,10 +3069,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3560,10 +3077,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3571,10 +3085,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3585,8 +3096,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3626,10 +3136,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3637,10 +3144,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3648,10 +3152,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3659,10 +3160,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3670,10 +3168,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3684,8 +3179,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3705,10 +3199,7 @@ export const deserializeAws_querySubscribeCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySubscribeResponse(
-    data.SubscribeResult,
-    context
-  );
+  contents = deserializeAws_querySubscribeResponse(data.SubscribeResult, context);
   const response: SubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SubscribeResponse",
@@ -3732,10 +3223,7 @@ const deserializeAws_querySubscribeCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3754,10 +3242,7 @@ const deserializeAws_querySubscribeCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3765,10 +3250,7 @@ const deserializeAws_querySubscribeCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3776,10 +3258,7 @@ const deserializeAws_querySubscribeCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3787,10 +3266,7 @@ const deserializeAws_querySubscribeCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3812,8 +3288,7 @@ const deserializeAws_querySubscribeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3833,10 +3308,7 @@ export const deserializeAws_queryTagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTagResourceResponse(
-    data.TagResourceResult,
-    context
-  );
+  contents = deserializeAws_queryTagResourceResponse(data.TagResourceResult, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -3860,10 +3332,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3871,10 +3340,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "ConcurrentAccessException":
     case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
       response = {
-        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3882,10 +3348,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3893,10 +3356,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3904,10 +3364,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "StaleTagException":
     case "com.amazon.cloudcast.onlines#StaleTagException":
       response = {
-        ...(await deserializeAws_queryStaleTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3915,10 +3372,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "TagLimitExceededException":
     case "com.amazon.cloudcast.onlines#TagLimitExceededException":
       response = {
-        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3926,10 +3380,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     case "TagPolicyException":
     case "com.amazon.cloudcast.onlines#TagPolicyException":
       response = {
-        ...(await deserializeAws_queryTagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3940,8 +3391,7 @@ const deserializeAws_queryTagResourceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3981,10 +3431,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3992,10 +3439,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     case "InternalErrorException":
     case "com.amazon.cloudcast.onlines#InternalErrorException":
       response = {
-        ...(await deserializeAws_queryInternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4003,10 +3447,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4014,10 +3455,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     case "InvalidSecurityException":
     case "com.amazon.cloudcast.onlines#InvalidSecurityException":
       response = {
-        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidSecurityExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4025,10 +3463,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     case "NotFoundException":
     case "com.amazon.cloudcast.onlines#NotFoundException":
       response = {
-        ...(await deserializeAws_queryNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4039,8 +3474,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4060,10 +3494,7 @@ export const deserializeAws_queryUntagResourceCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUntagResourceResponse(
-    data.UntagResourceResult,
-    context
-  );
+  contents = deserializeAws_queryUntagResourceResponse(data.UntagResourceResult, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -4087,10 +3518,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "AuthorizationErrorException":
     case "com.amazon.cloudcast.onlines#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4098,10 +3526,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "ConcurrentAccessException":
     case "com.amazon.cloudcast.onlines#ConcurrentAccessException":
       response = {
-        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4109,10 +3534,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "InvalidParameterException":
     case "com.amazon.cloudcast.onlines#InvalidParameterException":
       response = {
-        ...(await deserializeAws_queryInvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4120,10 +3542,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.cloudcast.onlines#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4131,10 +3550,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "StaleTagException":
     case "com.amazon.cloudcast.onlines#StaleTagException":
       response = {
-        ...(await deserializeAws_queryStaleTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryStaleTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4142,10 +3558,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "TagLimitExceededException":
     case "com.amazon.cloudcast.onlines#TagLimitExceededException":
       response = {
-        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4153,10 +3566,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     case "TagPolicyException":
     case "com.amazon.cloudcast.onlines#TagPolicyException":
       response = {
-        ...(await deserializeAws_queryTagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4167,8 +3577,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4184,10 +3593,7 @@ const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AuthorizationErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAuthorizationErrorException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryAuthorizationErrorException(body.Error, context);
   const contents: AuthorizationErrorException = {
     name: "AuthorizationErrorException",
     $fault: "client",
@@ -4202,10 +3608,7 @@ const deserializeAws_queryConcurrentAccessExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentAccessException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryConcurrentAccessException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryConcurrentAccessException(body.Error, context);
   const contents: ConcurrentAccessException = {
     name: "ConcurrentAccessException",
     $fault: "client",
@@ -4220,10 +3623,7 @@ const deserializeAws_queryEndpointDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EndpointDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEndpointDisabledException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryEndpointDisabledException(body.Error, context);
   const contents: EndpointDisabledException = {
     name: "EndpointDisabledException",
     $fault: "client",
@@ -4256,10 +3656,7 @@ const deserializeAws_queryInternalErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInternalErrorException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInternalErrorException(body.Error, context);
   const contents: InternalErrorException = {
     name: "InternalErrorException",
     $fault: "server",
@@ -4274,10 +3671,7 @@ const deserializeAws_queryInvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidParameterException(body.Error, context);
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
@@ -4292,10 +3686,7 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterValueException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidParameterValueException(body.Error, context);
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
     $fault: "client",
@@ -4310,10 +3701,7 @@ const deserializeAws_queryInvalidSecurityExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidSecurityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSecurityException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidSecurityException(body.Error, context);
   const contents: InvalidSecurityException = {
     name: "InvalidSecurityException",
     $fault: "client",
@@ -4328,10 +3716,7 @@ const deserializeAws_queryKMSAccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSAccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSAccessDeniedException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSAccessDeniedException(body.Error, context);
   const contents: KMSAccessDeniedException = {
     name: "KMSAccessDeniedException",
     $fault: "client",
@@ -4346,10 +3731,7 @@ const deserializeAws_queryKMSDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSDisabledException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSDisabledException(body.Error, context);
   const contents: KMSDisabledException = {
     name: "KMSDisabledException",
     $fault: "client",
@@ -4364,10 +3746,7 @@ const deserializeAws_queryKMSInvalidStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSInvalidStateException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSInvalidStateException(body.Error, context);
   const contents: KMSInvalidStateException = {
     name: "KMSInvalidStateException",
     $fault: "client",
@@ -4382,10 +3761,7 @@ const deserializeAws_queryKMSNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSNotFoundException(body.Error, context);
   const contents: KMSNotFoundException = {
     name: "KMSNotFoundException",
     $fault: "client",
@@ -4400,10 +3776,7 @@ const deserializeAws_queryKMSOptInRequiredResponse = async (
   context: __SerdeContext
 ): Promise<KMSOptInRequired> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSOptInRequired(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSOptInRequired(body.Error, context);
   const contents: KMSOptInRequired = {
     name: "KMSOptInRequired",
     $fault: "client",
@@ -4418,10 +3791,7 @@ const deserializeAws_queryKMSThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryKMSThrottlingException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryKMSThrottlingException(body.Error, context);
   const contents: KMSThrottlingException = {
     name: "KMSThrottlingException",
     $fault: "client",
@@ -4436,10 +3806,7 @@ const deserializeAws_queryNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryNotFoundException(body.Error, context);
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
@@ -4472,10 +3839,7 @@ const deserializeAws_queryResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceNotFoundException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryResourceNotFoundException(body.Error, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -4490,10 +3854,7 @@ const deserializeAws_queryStaleTagExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StaleTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryStaleTagException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryStaleTagException(body.Error, context);
   const contents: StaleTagException = {
     name: "StaleTagException",
     $fault: "client",
@@ -4526,10 +3887,7 @@ const deserializeAws_queryTagLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagLimitExceededException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTagLimitExceededException(body.Error, context);
   const contents: TagLimitExceededException = {
     name: "TagLimitExceededException",
     $fault: "client",
@@ -4544,10 +3902,7 @@ const deserializeAws_queryTagPolicyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagPolicyException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTagPolicyException(body.Error, context);
   const contents: TagPolicyException = {
     name: "TagPolicyException",
     $fault: "client",
@@ -4562,10 +3917,7 @@ const deserializeAws_queryThrottledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryThrottledException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryThrottledException(body.Error, context);
   const contents: ThrottledException = {
     name: "ThrottledException",
     $fault: "client",
@@ -4580,10 +3932,7 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TopicLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTopicLimitExceededException(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTopicLimitExceededException(body.Error, context);
   const contents: TopicLimitExceededException = {
     name: "TopicLimitExceededException",
     $fault: "client",
@@ -4593,10 +3942,7 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_queryActionsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryActionsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -4612,20 +3958,14 @@ const serializeAws_queryAddPermissionInput = (
 ): any => {
   const entries: any = {};
   if (input.AWSAccountId !== undefined) {
-    const memberEntries = serializeAws_queryDelegatesList(
-      input.AWSAccountId,
-      context
-    );
+    const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ActionName !== undefined) {
-    const memberEntries = serializeAws_queryActionsList(
-      input.ActionName,
-      context
-    );
+    const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key}`;
       entries[loc] = value;
@@ -4674,10 +4014,7 @@ const serializeAws_queryCreatePlatformApplicationInput = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryMapStringToString(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4698,10 +4035,7 @@ const serializeAws_queryCreatePlatformEndpointInput = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryMapStringToString(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4725,10 +4059,7 @@ const serializeAws_queryCreateTopicInput = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryTopicAttributesMap(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryTopicAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4747,10 +4078,7 @@ const serializeAws_queryCreateTopicInput = (
   return entries;
 };
 
-const serializeAws_queryDelegatesList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -4821,10 +4149,7 @@ const serializeAws_queryGetSMSAttributesInput = (
 ): any => {
   const entries: any = {};
   if (input.attributes !== undefined) {
-    const memberEntries = serializeAws_queryListString(
-      input.attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryListString(input.attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -4891,10 +4216,7 @@ const serializeAws_queryListPlatformApplicationsInput = (
   return entries;
 };
 
-const serializeAws_queryListString = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryListString = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -4973,10 +4295,7 @@ const serializeAws_queryMessageAttributeMap = (
   let counter = 1;
   Object.keys(input).forEach(key => {
     entries[`entry.${counter}.Name`] = key;
-    const memberEntries = serializeAws_queryMessageAttributeValue(
-      input[key],
-      context
-    );
+    const memberEntries = serializeAws_queryMessageAttributeValue(input[key], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`entry.${counter}.Value.${key}`] = value;
     });
@@ -5013,19 +4332,13 @@ const serializeAws_queryOptInPhoneNumberInput = (
   return entries;
 };
 
-const serializeAws_queryPublishInput = (
-  input: PublishInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Message !== undefined) {
     entries["Message"] = input.Message;
   }
   if (input.MessageAttributes !== undefined) {
-    const memberEntries = serializeAws_queryMessageAttributeMap(
-      input.MessageAttributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
@@ -5069,10 +4382,7 @@ const serializeAws_querySetEndpointAttributesInput = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryMapStringToString(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -5090,10 +4400,7 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryMapStringToString(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -5111,10 +4418,7 @@ const serializeAws_querySetSMSAttributesInput = (
 ): any => {
   const entries: any = {};
   if (input.attributes !== undefined) {
-    const memberEntries = serializeAws_queryMapStringToString(
-      input.attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryMapStringToString(input.attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -5157,16 +4461,10 @@ const serializeAws_querySetTopicAttributesInput = (
   return entries;
 };
 
-const serializeAws_querySubscribeInput = (
-  input: SubscribeInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_querySubscriptionAttributesMap(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_querySubscriptionAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -5212,10 +4510,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryTagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5225,10 +4520,7 @@ const serializeAws_queryTagKeyList = (
   return entries;
 };
 
-const serializeAws_queryTagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5400,10 +4692,7 @@ const deserializeAws_queryCreateTopicResponse = (
   return contents;
 };
 
-const deserializeAws_queryEndpoint = (
-  output: any,
-  context: __SerdeContext
-): Endpoint => {
+const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
     __type: "Endpoint",
     Attributes: undefined,
@@ -5412,10 +4701,7 @@ const deserializeAws_queryEndpoint = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_queryMapStringToString(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -5466,10 +4752,7 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_queryMapStringToString(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -5489,10 +4772,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_queryMapStringToString(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -5512,10 +4792,7 @@ const deserializeAws_queryGetSMSAttributesResponse = (
   if (output.attributes === "") {
     contents.attributes = {};
   }
-  if (
-    output["attributes"] !== undefined &&
-    output["attributes"]["entry"] !== undefined
-  ) {
+  if (output["attributes"] !== undefined && output["attributes"]["entry"] !== undefined) {
     contents.attributes = deserializeAws_queryMapStringToString(
       __getArrayIfSingleItem(output["attributes"]["entry"]),
       context
@@ -5535,10 +4812,7 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_querySubscriptionAttributesMap(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -5558,10 +4832,7 @@ const deserializeAws_queryGetTopicAttributesResponse = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_queryTopicAttributesMap(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -5722,10 +4993,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   if (output.Endpoints === "") {
     contents.Endpoints = [];
   }
-  if (
-    output["Endpoints"] !== undefined &&
-    output["Endpoints"]["member"] !== undefined
-  ) {
+  if (output["Endpoints"] !== undefined && output["Endpoints"]["member"] !== undefined) {
     contents.Endpoints = deserializeAws_queryListOfEndpoints(
       __getArrayIfSingleItem(output["Endpoints"]["member"]),
       context
@@ -5737,13 +5005,8 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   return contents;
 };
 
-const deserializeAws_queryListOfEndpoints = (
-  output: any,
-  context: __SerdeContext
-): Endpoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEndpoint(entry, context)
-  );
+const deserializeAws_queryListOfEndpoints = (output: any, context: __SerdeContext): Endpoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryEndpoint(entry, context));
 };
 
 const deserializeAws_queryListOfPlatformApplications = (
@@ -5770,10 +5033,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   if (output.phoneNumbers === "") {
     contents.phoneNumbers = [];
   }
-  if (
-    output["phoneNumbers"] !== undefined &&
-    output["phoneNumbers"]["member"] !== undefined
-  ) {
+  if (output["phoneNumbers"] !== undefined && output["phoneNumbers"]["member"] !== undefined) {
     contents.phoneNumbers = deserializeAws_queryPhoneNumberList(
       __getArrayIfSingleItem(output["phoneNumbers"]["member"]),
       context
@@ -5824,10 +5084,7 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   }
-  if (
-    output["Subscriptions"] !== undefined &&
-    output["Subscriptions"]["member"] !== undefined
-  ) {
+  if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
     contents.Subscriptions = deserializeAws_querySubscriptionsList(
       __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
@@ -5851,10 +5108,7 @@ const deserializeAws_queryListSubscriptionsResponse = (
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   }
-  if (
-    output["Subscriptions"] !== undefined &&
-    output["Subscriptions"]["member"] !== undefined
-  ) {
+  if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
     contents.Subscriptions = deserializeAws_querySubscriptionsList(
       __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
@@ -5898,10 +5152,7 @@ const deserializeAws_queryListTopicsResponse = (
   if (output.Topics === "") {
     contents.Topics = [];
   }
-  if (
-    output["Topics"] !== undefined &&
-    output["Topics"]["member"] !== undefined
-  ) {
+  if (output["Topics"] !== undefined && output["Topics"]["member"] !== undefined) {
     contents.Topics = deserializeAws_queryTopicsList(
       __getArrayIfSingleItem(output["Topics"]["member"]),
       context
@@ -5947,10 +5198,7 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
   return contents;
 };
 
-const deserializeAws_queryPhoneNumberList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5966,10 +5214,7 @@ const deserializeAws_queryPlatformApplication = (
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
-  if (
-    output["Attributes"] !== undefined &&
-    output["Attributes"]["entry"] !== undefined
-  ) {
+  if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
     contents.Attributes = deserializeAws_queryMapStringToString(
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
@@ -6061,10 +5306,7 @@ const deserializeAws_querySubscribeResponse = (
   return contents;
 };
 
-const deserializeAws_querySubscription = (
-  output: any,
-  context: __SerdeContext
-): Subscription => {
+const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
   let contents: any = {
     __type: "Subscription",
     Endpoint: undefined,
@@ -6122,9 +5364,7 @@ const deserializeAws_querySubscriptionsList = (
   output: any,
   context: __SerdeContext
 ): Subscription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySubscription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_querySubscription(entry, context));
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -6156,13 +5396,8 @@ const deserializeAws_queryTagLimitExceededException = (
   return contents;
 };
 
-const deserializeAws_queryTagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTag(entry, context)
-  );
+const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
 };
 
 const deserializeAws_queryTagPolicyException = (
@@ -6203,10 +5438,7 @@ const deserializeAws_queryThrottledException = (
   return contents;
 };
 
-const deserializeAws_queryTopic = (
-  output: any,
-  context: __SerdeContext
-): Topic => {
+const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic => {
   let contents: any = {
     __type: "Topic",
     TopicArn: undefined
@@ -6244,13 +5476,8 @@ const deserializeAws_queryTopicLimitExceededException = (
   return contents;
 };
 
-const deserializeAws_queryTopicsList = (
-  output: any,
-  context: __SerdeContext
-): Topic[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTopic(entry, context)
-  );
+const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): Topic[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryTopic(entry, context));
 };
 
 const deserializeAws_queryUntagResourceResponse = (
@@ -6277,16 +5504,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
@@ -6343,15 +5565,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
     .map(
       ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
+        __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value)
     )
     .join("&");
 

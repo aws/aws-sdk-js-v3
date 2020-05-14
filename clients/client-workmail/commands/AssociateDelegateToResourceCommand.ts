@@ -49,13 +49,8 @@ export class AssociateDelegateToResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateDelegateToResourceCommandInput,
-    AssociateDelegateToResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateDelegateToResourceCommandInput, AssociateDelegateToResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class AssociateDelegateToResourceCommand extends $Command<
     input: AssociateDelegateToResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDelegateToResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateDelegateToResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDelegateToResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateDelegateToResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateDelegateToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

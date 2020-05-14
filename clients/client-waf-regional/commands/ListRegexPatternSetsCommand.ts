@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse
-} from "../models/index";
+import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRegexPatternSetsCommand,
   serializeAws_json1_1ListRegexPatternSetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRegexPatternSetsCommandInput = ListRegexPatternSetsRequest;
-export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse &
-  __MetadataBearer;
+export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse & __MetadataBearer;
 
 export class ListRegexPatternSetsCommand extends $Command<
   ListRegexPatternSetsCommandInput,
@@ -49,13 +45,8 @@ export class ListRegexPatternSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRegexPatternSetsCommandInput,
-    ListRegexPatternSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRegexPatternSetsCommandInput, ListRegexPatternSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -176,9 +176,7 @@ export class EMR extends EMRClient {
   ): void;
   public addInstanceFleet(
     args: AddInstanceFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddInstanceFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddInstanceFleetCommandOutput) => void),
     cb?: (err: any, data?: AddInstanceFleetCommandOutput) => void
   ): Promise<AddInstanceFleetCommandOutput> | void {
     const command = new AddInstanceFleetCommand(args);
@@ -250,9 +248,7 @@ export class EMR extends EMRClient {
   ): void;
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddJobFlowStepsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddJobFlowStepsCommandOutput) => void),
     cb?: (err: any, data?: AddJobFlowStepsCommandOutput) => void
   ): Promise<AddJobFlowStepsCommandOutput> | void {
     const command = new AddJobFlowStepsCommand(args);
@@ -287,9 +283,7 @@ export class EMR extends EMRClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -322,9 +316,7 @@ export class EMR extends EMRClient {
   ): void;
   public cancelSteps(
     args: CancelStepsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelStepsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelStepsCommandOutput) => void),
     cb?: (err: any, data?: CancelStepsCommandOutput) => void
   ): Promise<CancelStepsCommandOutput> | void {
     const command = new CancelStepsCommand(args);
@@ -427,9 +419,7 @@ export class EMR extends EMRClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
@@ -478,9 +468,7 @@ export class EMR extends EMRClient {
   ): void;
   public describeJobFlows(
     args: DescribeJobFlowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobFlowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobFlowsCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobFlowsCommandOutput) => void
   ): Promise<DescribeJobFlowsCommandOutput> | void {
     const command = new DescribeJobFlowsCommand(args);
@@ -548,9 +536,7 @@ export class EMR extends EMRClient {
   ): void;
   public describeStep(
     args: DescribeStepCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStepCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStepCommandOutput) => void),
     cb?: (err: any, data?: DescribeStepCommandOutput) => void
   ): Promise<DescribeStepCommandOutput> | void {
     const command = new DescribeStepCommand(args);
@@ -574,31 +560,19 @@ export class EMR extends EMRClient {
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput>;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: GetBlockPublicAccessConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetBlockPublicAccessConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBlockPublicAccessConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetBlockPublicAccessConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> | void {
     const command = new GetBlockPublicAccessConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -665,9 +639,7 @@ export class EMR extends EMRClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
@@ -773,9 +745,7 @@ export class EMR extends EMRClient {
   ): void;
   public listInstances(
     args: ListInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListInstancesCommandOutput) => void
   ): Promise<ListInstancesCommandOutput> | void {
     const command = new ListInstancesCommand(args);
@@ -843,9 +813,7 @@ export class EMR extends EMRClient {
   ): void;
   public listSteps(
     args: ListStepsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStepsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStepsCommandOutput) => void),
     cb?: (err: any, data?: ListStepsCommandOutput) => void
   ): Promise<ListStepsCommandOutput> | void {
     const command = new ListStepsCommand(args);
@@ -878,9 +846,7 @@ export class EMR extends EMRClient {
   ): void;
   public modifyCluster(
     args: ModifyClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterCommandOutput) => void
   ): Promise<ModifyClusterCommandOutput> | void {
     const command = new ModifyClusterCommand(args);
@@ -1012,31 +978,19 @@ export class EMR extends EMRClient {
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput>;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: PutBlockPublicAccessConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutBlockPublicAccessConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBlockPublicAccessConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutBlockPublicAccessConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> | void {
     const command = new PutBlockPublicAccessConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1106,9 +1060,7 @@ export class EMR extends EMRClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
@@ -1159,9 +1111,7 @@ export class EMR extends EMRClient {
   ): void;
   public runJobFlow(
     args: RunJobFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunJobFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunJobFlowCommandOutput) => void),
     cb?: (err: any, data?: RunJobFlowCommandOutput) => void
   ): Promise<RunJobFlowCommandOutput> | void {
     const command = new RunJobFlowCommand(args);

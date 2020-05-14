@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -42,9 +39,7 @@ export namespace AudioEvent {
 /**
  * <p>Represents the audio stream from your application to Amazon Transcribe.</p>
  */
-export type AudioStream =
-  | AudioStream.AudioEventMember
-  | AudioStream.$UnknownMember;
+export type AudioStream = AudioStream.AudioEventMember | AudioStream.$UnknownMember;
 
 export namespace AudioStream {
   interface $Base {
@@ -67,8 +62,7 @@ export namespace AudioStream {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
-    if (value.AudioEvent !== undefined)
-      return visitor.AudioEvent(value.AudioEvent);
+    if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -79,17 +73,14 @@ export namespace AudioStream {
  *         <code>LanguageCode</code> was not set to a valid code. Check the parameters and try your
  *       request again.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -103,17 +94,14 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing. Try your
  *       request again.</p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   Message?: string;
@@ -178,17 +166,14 @@ export enum LanguageCode {
  *       has finished processing, or break your audio stream into smaller chunks and try your request
  *       again.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -350,8 +335,7 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
-  export const isa = (o: any): o is TranscriptEvent =>
-    __isa(o, "TranscriptEvent");
+  export const isa = (o: any): o is TranscriptEvent => __isa(o, "TranscriptEvent");
 }
 
 /**
@@ -446,10 +430,7 @@ export namespace TranscriptResultStream {
     TranscriptEvent: (value: TranscriptEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export const visit = <T>(
-    value: TranscriptResultStream,
-    visitor: Visitor<T>
-  ): T => {
+  export const visit = <T>(value: TranscriptResultStream, visitor: Visitor<T>): T => {
     if (value.BadRequestException !== undefined)
       return visitor.BadRequestException(value.BadRequestException);
     if (value.ConflictException !== undefined)
@@ -458,8 +439,7 @@ export namespace TranscriptResultStream {
       return visitor.InternalFailureException(value.InternalFailureException);
     if (value.LimitExceededException !== undefined)
       return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.TranscriptEvent !== undefined)
-      return visitor.TranscriptEvent(value.TranscriptEvent);
+    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateForecastCommandInput = CreateForecastRequest;
-export type CreateForecastCommandOutput = CreateForecastResponse &
-  __MetadataBearer;
+export type CreateForecastCommandOutput = CreateForecastResponse & __MetadataBearer;
 
 export class CreateForecastCommand extends $Command<
   CreateForecastCommandInput,
@@ -47,9 +46,7 @@ export class CreateForecastCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateForecastCommandInput, CreateForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

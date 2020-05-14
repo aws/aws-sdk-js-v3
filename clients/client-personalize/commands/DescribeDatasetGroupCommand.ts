@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  DescribeDatasetGroupRequest,
-  DescribeDatasetGroupResponse
-} from "../models/index";
+import { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDatasetGroupCommand,
   serializeAws_json1_1DescribeDatasetGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDatasetGroupCommandInput = DescribeDatasetGroupRequest;
-export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse &
-  __MetadataBearer;
+export type DescribeDatasetGroupCommandOutput = DescribeDatasetGroupResponse & __MetadataBearer;
 
 export class DescribeDatasetGroupCommand extends $Command<
   DescribeDatasetGroupCommandInput,
@@ -49,13 +45,8 @@ export class DescribeDatasetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDatasetGroupCommandInput,
-    DescribeDatasetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDatasetGroupCommandInput, DescribeDatasetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

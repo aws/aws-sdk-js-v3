@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Access is denied.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CancelChangeSetRequest {
@@ -36,8 +30,7 @@ export interface CancelChangeSetRequest {
 }
 
 export namespace CancelChangeSetRequest {
-  export const isa = (o: any): o is CancelChangeSetRequest =>
-    __isa(o, "CancelChangeSetRequest");
+  export const isa = (o: any): o is CancelChangeSetRequest => __isa(o, "CancelChangeSetRequest");
 }
 
 export interface CancelChangeSetResponse {
@@ -54,8 +47,7 @@ export interface CancelChangeSetResponse {
 }
 
 export namespace CancelChangeSetResponse {
-  export const isa = (o: any): o is CancelChangeSetResponse =>
-    __isa(o, "CancelChangeSetResponse");
+  export const isa = (o: any): o is CancelChangeSetResponse => __isa(o, "CancelChangeSetResponse");
 }
 
 /**
@@ -263,8 +255,7 @@ export interface DescribeEntityRequest {
 }
 
 export namespace DescribeEntityRequest {
-  export const isa = (o: any): o is DescribeEntityRequest =>
-    __isa(o, "DescribeEntityRequest");
+  export const isa = (o: any): o is DescribeEntityRequest => __isa(o, "DescribeEntityRequest");
 }
 
 export interface DescribeEntityResponse {
@@ -299,8 +290,7 @@ export interface DescribeEntityResponse {
 }
 
 export namespace DescribeEntityResponse {
-  export const isa = (o: any): o is DescribeEntityResponse =>
-    __isa(o, "DescribeEntityResponse");
+  export const isa = (o: any): o is DescribeEntityResponse => __isa(o, "DescribeEntityResponse");
 }
 
 /**
@@ -460,9 +450,7 @@ export namespace Filter {
 /**
  * <p>There was an internal service exception.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -507,8 +495,7 @@ export interface ListChangeSetsRequest {
 }
 
 export namespace ListChangeSetsRequest {
-  export const isa = (o: any): o is ListChangeSetsRequest =>
-    __isa(o, "ListChangeSetsRequest");
+  export const isa = (o: any): o is ListChangeSetsRequest => __isa(o, "ListChangeSetsRequest");
 }
 
 export interface ListChangeSetsResponse {
@@ -525,8 +512,7 @@ export interface ListChangeSetsResponse {
 }
 
 export namespace ListChangeSetsResponse {
-  export const isa = (o: any): o is ListChangeSetsResponse =>
-    __isa(o, "ListChangeSetsResponse");
+  export const isa = (o: any): o is ListChangeSetsResponse => __isa(o, "ListChangeSetsResponse");
 }
 
 export interface ListEntitiesRequest {
@@ -567,8 +553,7 @@ export interface ListEntitiesRequest {
 }
 
 export namespace ListEntitiesRequest {
-  export const isa = (o: any): o is ListEntitiesRequest =>
-    __isa(o, "ListEntitiesRequest");
+  export const isa = (o: any): o is ListEntitiesRequest => __isa(o, "ListEntitiesRequest");
 }
 
 export interface ListEntitiesResponse {
@@ -585,32 +570,26 @@ export interface ListEntitiesResponse {
 }
 
 export namespace ListEntitiesResponse {
-  export const isa = (o: any): o is ListEntitiesResponse =>
-    __isa(o, "ListEntitiesResponse");
+  export const isa = (o: any): o is ListEntitiesResponse => __isa(o, "ListEntitiesResponse");
 }
 
 /**
  * <p>The resource is currently in use.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified resource wasn't found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -624,9 +603,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>Currently, the specified resource is not supported.</p>
  */
-export interface ResourceNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotSupportedException";
   $fault: "client";
   Message?: string;
@@ -640,9 +617,7 @@ export namespace ResourceNotSupportedException {
 /**
  * <p>The maximum number of open requests per account has been exceeded.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -711,8 +686,7 @@ export interface StartChangeSetRequest {
 }
 
 export namespace StartChangeSetRequest {
-  export const isa = (o: any): o is StartChangeSetRequest =>
-    __isa(o, "StartChangeSetRequest");
+  export const isa = (o: any): o is StartChangeSetRequest => __isa(o, "StartChangeSetRequest");
 }
 
 export interface StartChangeSetResponse {
@@ -729,38 +703,31 @@ export interface StartChangeSetResponse {
 }
 
 export namespace StartChangeSetResponse {
-  export const isa = (o: any): o is StartChangeSetResponse =>
-    __isa(o, "StartChangeSetResponse");
+  export const isa = (o: any): o is StartChangeSetResponse => __isa(o, "StartChangeSetResponse");
 }
 
 /**
  * <p>Too many requests.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>An error occurred during validation.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

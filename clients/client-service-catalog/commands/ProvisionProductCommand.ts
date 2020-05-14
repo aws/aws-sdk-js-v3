@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ProvisionProductCommandInput = ProvisionProductInput;
-export type ProvisionProductCommandOutput = ProvisionProductOutput &
-  __MetadataBearer;
+export type ProvisionProductCommandOutput = ProvisionProductOutput & __MetadataBearer;
 
 export class ProvisionProductCommand extends $Command<
   ProvisionProductCommandInput,
@@ -47,9 +46,7 @@ export class ProvisionProductCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ProvisionProductCommandInput, ProvisionProductCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

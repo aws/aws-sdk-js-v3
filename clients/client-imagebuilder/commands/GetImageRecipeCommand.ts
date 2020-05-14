@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetImageRecipeCommandInput = GetImageRecipeRequest;
-export type GetImageRecipeCommandOutput = GetImageRecipeResponse &
-  __MetadataBearer;
+export type GetImageRecipeCommandOutput = GetImageRecipeResponse & __MetadataBearer;
 
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,
@@ -47,9 +46,7 @@ export class GetImageRecipeCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetImageRecipeCommandInput, GetImageRecipeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

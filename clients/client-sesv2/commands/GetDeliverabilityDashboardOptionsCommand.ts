@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   GetDeliverabilityDashboardOptionsRequest,
   GetDeliverabilityDashboardOptionsResponse
@@ -53,9 +49,7 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     GetDeliverabilityDashboardOptionsCommandInput,
     GetDeliverabilityDashboardOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
     input: GetDeliverabilityDashboardOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> {
-    return deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

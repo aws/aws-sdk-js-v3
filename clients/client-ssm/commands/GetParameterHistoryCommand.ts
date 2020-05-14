@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetParameterHistoryRequest,
-  GetParameterHistoryResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/index";
 import {
   deserializeAws_json1_1GetParameterHistoryCommand,
   serializeAws_json1_1GetParameterHistoryCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetParameterHistoryCommandInput = GetParameterHistoryRequest;
-export type GetParameterHistoryCommandOutput = GetParameterHistoryResult &
-  __MetadataBearer;
+export type GetParameterHistoryCommandOutput = GetParameterHistoryResult & __MetadataBearer;
 
 export class GetParameterHistoryCommand extends $Command<
   GetParameterHistoryCommandInput,
@@ -49,13 +41,8 @@ export class GetParameterHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetParameterHistoryCommandInput,
-    GetParameterHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetParameterHistoryCommandInput, GetParameterHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

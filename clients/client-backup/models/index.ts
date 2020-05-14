@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The required resource already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -36,8 +31,7 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
@@ -213,8 +207,7 @@ export interface BackupPlanInput {
 }
 
 export namespace BackupPlanInput {
-  export const isa = (o: any): o is BackupPlanInput =>
-    __isa(o, "BackupPlanInput");
+  export const isa = (o: any): o is BackupPlanInput => __isa(o, "BackupPlanInput");
 }
 
 /**
@@ -297,8 +290,7 @@ export interface BackupPlansListMember {
 }
 
 export namespace BackupPlansListMember {
-  export const isa = (o: any): o is BackupPlansListMember =>
-    __isa(o, "BackupPlansListMember");
+  export const isa = (o: any): o is BackupPlansListMember => __isa(o, "BackupPlansListMember");
 }
 
 /**
@@ -425,8 +417,7 @@ export interface BackupRuleInput {
 }
 
 export namespace BackupRuleInput {
-  export const isa = (o: any): o is BackupRuleInput =>
-    __isa(o, "BackupRuleInput");
+  export const isa = (o: any): o is BackupRuleInput => __isa(o, "BackupRuleInput");
 }
 
 /**
@@ -460,8 +451,7 @@ export interface BackupSelection {
 }
 
 export namespace BackupSelection {
-  export const isa = (o: any): o is BackupSelection =>
-    __isa(o, "BackupSelection");
+  export const isa = (o: any): o is BackupSelection => __isa(o, "BackupSelection");
 }
 
 /**
@@ -573,8 +563,7 @@ export interface BackupVaultListMember {
 }
 
 export namespace BackupVaultListMember {
-  export const isa = (o: any): o is BackupVaultListMember =>
-    __isa(o, "BackupVaultListMember");
+  export const isa = (o: any): o is BackupVaultListMember => __isa(o, "BackupVaultListMember");
 }
 
 /**
@@ -602,8 +591,7 @@ export interface CalculatedLifecycle {
 }
 
 export namespace CalculatedLifecycle {
-  export const isa = (o: any): o is CalculatedLifecycle =>
-    __isa(o, "CalculatedLifecycle");
+  export const isa = (o: any): o is CalculatedLifecycle => __isa(o, "CalculatedLifecycle");
 }
 
 /**
@@ -777,8 +765,7 @@ export interface CreateBackupPlanInput {
 }
 
 export namespace CreateBackupPlanInput {
-  export const isa = (o: any): o is CreateBackupPlanInput =>
-    __isa(o, "CreateBackupPlanInput");
+  export const isa = (o: any): o is CreateBackupPlanInput => __isa(o, "CreateBackupPlanInput");
 }
 
 export interface CreateBackupPlanOutput {
@@ -810,8 +797,7 @@ export interface CreateBackupPlanOutput {
 }
 
 export namespace CreateBackupPlanOutput {
-  export const isa = (o: any): o is CreateBackupPlanOutput =>
-    __isa(o, "CreateBackupPlanOutput");
+  export const isa = (o: any): o is CreateBackupPlanOutput => __isa(o, "CreateBackupPlanOutput");
 }
 
 export interface CreateBackupSelectionInput {
@@ -895,8 +881,7 @@ export interface CreateBackupVaultInput {
 }
 
 export namespace CreateBackupVaultInput {
-  export const isa = (o: any): o is CreateBackupVaultInput =>
-    __isa(o, "CreateBackupVaultInput");
+  export const isa = (o: any): o is CreateBackupVaultInput => __isa(o, "CreateBackupVaultInput");
 }
 
 export interface CreateBackupVaultOutput {
@@ -924,8 +909,7 @@ export interface CreateBackupVaultOutput {
 }
 
 export namespace CreateBackupVaultOutput {
-  export const isa = (o: any): o is CreateBackupVaultOutput =>
-    __isa(o, "CreateBackupVaultOutput");
+  export const isa = (o: any): o is CreateBackupVaultOutput => __isa(o, "CreateBackupVaultOutput");
 }
 
 export interface DeleteBackupPlanInput {
@@ -937,8 +921,7 @@ export interface DeleteBackupPlanInput {
 }
 
 export namespace DeleteBackupPlanInput {
-  export const isa = (o: any): o is DeleteBackupPlanInput =>
-    __isa(o, "DeleteBackupPlanInput");
+  export const isa = (o: any): o is DeleteBackupPlanInput => __isa(o, "DeleteBackupPlanInput");
 }
 
 export interface DeleteBackupPlanOutput {
@@ -970,8 +953,7 @@ export interface DeleteBackupPlanOutput {
 }
 
 export namespace DeleteBackupPlanOutput {
-  export const isa = (o: any): o is DeleteBackupPlanOutput =>
-    __isa(o, "DeleteBackupPlanOutput");
+  export const isa = (o: any): o is DeleteBackupPlanOutput => __isa(o, "DeleteBackupPlanOutput");
 }
 
 export interface DeleteBackupSelectionInput {
@@ -1019,8 +1001,7 @@ export interface DeleteBackupVaultInput {
 }
 
 export namespace DeleteBackupVaultInput {
-  export const isa = (o: any): o is DeleteBackupVaultInput =>
-    __isa(o, "DeleteBackupVaultInput");
+  export const isa = (o: any): o is DeleteBackupVaultInput => __isa(o, "DeleteBackupVaultInput");
 }
 
 export interface DeleteBackupVaultNotificationsInput {
@@ -1063,9 +1044,7 @@ export namespace DeleteRecoveryPointInput {
  * <p>A dependent AWS service or resource returned an error to the AWS Backup service, and the
  *          action cannot be completed.</p>
  */
-export interface DependencyFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyFailureException extends __SmithyException, $MetadataBearer {
   name: "DependencyFailureException";
   $fault: "server";
   Code?: string;
@@ -1095,8 +1074,7 @@ export interface DescribeBackupJobInput {
 }
 
 export namespace DescribeBackupJobInput {
-  export const isa = (o: any): o is DescribeBackupJobInput =>
-    __isa(o, "DescribeBackupJobInput");
+  export const isa = (o: any): o is DescribeBackupJobInput => __isa(o, "DescribeBackupJobInput");
 }
 
 export interface DescribeBackupJobOutput {
@@ -1213,8 +1191,7 @@ export interface DescribeBackupJobOutput {
 }
 
 export namespace DescribeBackupJobOutput {
-  export const isa = (o: any): o is DescribeBackupJobOutput =>
-    __isa(o, "DescribeBackupJobOutput");
+  export const isa = (o: any): o is DescribeBackupJobOutput => __isa(o, "DescribeBackupJobOutput");
 }
 
 export interface DescribeBackupVaultInput {
@@ -1287,8 +1264,7 @@ export interface DescribeCopyJobInput {
 }
 
 export namespace DescribeCopyJobInput {
-  export const isa = (o: any): o is DescribeCopyJobInput =>
-    __isa(o, "DescribeCopyJobInput");
+  export const isa = (o: any): o is DescribeCopyJobInput => __isa(o, "DescribeCopyJobInput");
 }
 
 export interface DescribeCopyJobOutput {
@@ -1300,8 +1276,7 @@ export interface DescribeCopyJobOutput {
 }
 
 export namespace DescribeCopyJobOutput {
-  export const isa = (o: any): o is DescribeCopyJobOutput =>
-    __isa(o, "DescribeCopyJobOutput");
+  export const isa = (o: any): o is DescribeCopyJobOutput => __isa(o, "DescribeCopyJobOutput");
 }
 
 export interface DescribeProtectedResourceInput {
@@ -1502,8 +1477,7 @@ export interface DescribeRestoreJobInput {
 }
 
 export namespace DescribeRestoreJobInput {
-  export const isa = (o: any): o is DescribeRestoreJobInput =>
-    __isa(o, "DescribeRestoreJobInput");
+  export const isa = (o: any): o is DescribeRestoreJobInput => __isa(o, "DescribeRestoreJobInput");
 }
 
 export interface DescribeRestoreJobOutput {
@@ -1682,8 +1656,7 @@ export interface GetBackupPlanInput {
 }
 
 export namespace GetBackupPlanInput {
-  export const isa = (o: any): o is GetBackupPlanInput =>
-    __isa(o, "GetBackupPlanInput");
+  export const isa = (o: any): o is GetBackupPlanInput => __isa(o, "GetBackupPlanInput");
 }
 
 export interface GetBackupPlanOutput {
@@ -1743,8 +1716,7 @@ export interface GetBackupPlanOutput {
 }
 
 export namespace GetBackupPlanOutput {
-  export const isa = (o: any): o is GetBackupPlanOutput =>
-    __isa(o, "GetBackupPlanOutput");
+  export const isa = (o: any): o is GetBackupPlanOutput => __isa(o, "GetBackupPlanOutput");
 }
 
 export interface GetBackupSelectionInput {
@@ -1762,8 +1734,7 @@ export interface GetBackupSelectionInput {
 }
 
 export namespace GetBackupSelectionInput {
-  export const isa = (o: any): o is GetBackupSelectionInput =>
-    __isa(o, "GetBackupSelectionInput");
+  export const isa = (o: any): o is GetBackupSelectionInput => __isa(o, "GetBackupSelectionInput");
 }
 
 export interface GetBackupSelectionOutput {
@@ -1980,9 +1951,7 @@ export namespace GetSupportedResourceTypesOutput {
  * <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   Code?: string;
@@ -2007,9 +1976,7 @@ export namespace InvalidParameterValueException {
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *          parameter is of the wrong type.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -2026,8 +1993,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2061,9 +2027,7 @@ export namespace Lifecycle {
  * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
  *          in a request.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -2080,8 +2044,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBackupJobsInput {
@@ -2157,8 +2120,7 @@ export interface ListBackupJobsInput {
 }
 
 export namespace ListBackupJobsInput {
-  export const isa = (o: any): o is ListBackupJobsInput =>
-    __isa(o, "ListBackupJobsInput");
+  export const isa = (o: any): o is ListBackupJobsInput => __isa(o, "ListBackupJobsInput");
 }
 
 export interface ListBackupJobsOutput {
@@ -2179,8 +2141,7 @@ export interface ListBackupJobsOutput {
 }
 
 export namespace ListBackupJobsOutput {
-  export const isa = (o: any): o is ListBackupJobsOutput =>
-    __isa(o, "ListBackupJobsOutput");
+  export const isa = (o: any): o is ListBackupJobsOutput => __isa(o, "ListBackupJobsOutput");
 }
 
 export interface ListBackupPlanTemplatesInput {
@@ -2295,8 +2256,7 @@ export interface ListBackupPlansInput {
 }
 
 export namespace ListBackupPlansInput {
-  export const isa = (o: any): o is ListBackupPlansInput =>
-    __isa(o, "ListBackupPlansInput");
+  export const isa = (o: any): o is ListBackupPlansInput => __isa(o, "ListBackupPlansInput");
 }
 
 export interface ListBackupPlansOutput {
@@ -2317,8 +2277,7 @@ export interface ListBackupPlansOutput {
 }
 
 export namespace ListBackupPlansOutput {
-  export const isa = (o: any): o is ListBackupPlansOutput =>
-    __isa(o, "ListBackupPlansOutput");
+  export const isa = (o: any): o is ListBackupPlansOutput => __isa(o, "ListBackupPlansOutput");
 }
 
 export interface ListBackupSelectionsInput {
@@ -2386,8 +2345,7 @@ export interface ListBackupVaultsInput {
 }
 
 export namespace ListBackupVaultsInput {
-  export const isa = (o: any): o is ListBackupVaultsInput =>
-    __isa(o, "ListBackupVaultsInput");
+  export const isa = (o: any): o is ListBackupVaultsInput => __isa(o, "ListBackupVaultsInput");
 }
 
 export interface ListBackupVaultsOutput {
@@ -2409,8 +2367,7 @@ export interface ListBackupVaultsOutput {
 }
 
 export namespace ListBackupVaultsOutput {
-  export const isa = (o: any): o is ListBackupVaultsOutput =>
-    __isa(o, "ListBackupVaultsOutput");
+  export const isa = (o: any): o is ListBackupVaultsOutput => __isa(o, "ListBackupVaultsOutput");
 }
 
 export interface ListCopyJobsInput {
@@ -2481,8 +2438,7 @@ export interface ListCopyJobsInput {
 }
 
 export namespace ListCopyJobsInput {
-  export const isa = (o: any): o is ListCopyJobsInput =>
-    __isa(o, "ListCopyJobsInput");
+  export const isa = (o: any): o is ListCopyJobsInput => __isa(o, "ListCopyJobsInput");
 }
 
 export interface ListCopyJobsOutput {
@@ -2500,8 +2456,7 @@ export interface ListCopyJobsOutput {
 }
 
 export namespace ListCopyJobsOutput {
-  export const isa = (o: any): o is ListCopyJobsOutput =>
-    __isa(o, "ListCopyJobsOutput");
+  export const isa = (o: any): o is ListCopyJobsOutput => __isa(o, "ListCopyJobsOutput");
 }
 
 export interface ListProtectedResourcesInput {
@@ -2690,8 +2645,7 @@ export interface ListRestoreJobsInput {
 }
 
 export namespace ListRestoreJobsInput {
-  export const isa = (o: any): o is ListRestoreJobsInput =>
-    __isa(o, "ListRestoreJobsInput");
+  export const isa = (o: any): o is ListRestoreJobsInput => __isa(o, "ListRestoreJobsInput");
 }
 
 export interface ListRestoreJobsOutput {
@@ -2712,8 +2666,7 @@ export interface ListRestoreJobsOutput {
 }
 
 export namespace ListRestoreJobsOutput {
-  export const isa = (o: any): o is ListRestoreJobsOutput =>
-    __isa(o, "ListRestoreJobsOutput");
+  export const isa = (o: any): o is ListRestoreJobsOutput => __isa(o, "ListRestoreJobsOutput");
 }
 
 export interface ListTagsInput {
@@ -2761,16 +2714,13 @@ export interface ListTagsOutput {
 }
 
 export namespace ListTagsOutput {
-  export const isa = (o: any): o is ListTagsOutput =>
-    __isa(o, "ListTagsOutput");
+  export const isa = (o: any): o is ListTagsOutput => __isa(o, "ListTagsOutput");
 }
 
 /**
  * <p>Indicates that a required parameter is missing.</p>
  */
-export interface MissingParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingParameterValueException extends __SmithyException, $MetadataBearer {
   name: "MissingParameterValueException";
   $fault: "client";
   Code?: string;
@@ -2818,8 +2768,7 @@ export interface ProtectedResource {
 }
 
 export namespace ProtectedResource {
-  export const isa = (o: any): o is ProtectedResource =>
-    __isa(o, "ProtectedResource");
+  export const isa = (o: any): o is ProtectedResource => __isa(o, "ProtectedResource");
 }
 
 export interface PutBackupVaultAccessPolicyInput {
@@ -3032,8 +2981,7 @@ export interface RecoveryPointByResource {
 }
 
 export namespace RecoveryPointByResource {
-  export const isa = (o: any): o is RecoveryPointByResource =>
-    __isa(o, "RecoveryPointByResource");
+  export const isa = (o: any): o is RecoveryPointByResource => __isa(o, "RecoveryPointByResource");
 }
 
 /**
@@ -3067,8 +3015,7 @@ export interface RecoveryPointCreator {
 }
 
 export namespace RecoveryPointCreator {
-  export const isa = (o: any): o is RecoveryPointCreator =>
-    __isa(o, "RecoveryPointCreator");
+  export const isa = (o: any): o is RecoveryPointCreator => __isa(o, "RecoveryPointCreator");
 }
 
 export enum RecoveryPointStatus {
@@ -3081,9 +3028,7 @@ export enum RecoveryPointStatus {
 /**
  * <p>A resource that is required for the action doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3186,16 +3131,13 @@ export interface RestoreJobsListMember {
 }
 
 export namespace RestoreJobsListMember {
-  export const isa = (o: any): o is RestoreJobsListMember =>
-    __isa(o, "RestoreJobsListMember");
+  export const isa = (o: any): o is RestoreJobsListMember => __isa(o, "RestoreJobsListMember");
 }
 
 /**
  * <p>The request failed due to a temporary failure of the server.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Code?: string;
@@ -3273,8 +3215,7 @@ export interface StartBackupJobInput {
 }
 
 export namespace StartBackupJobInput {
-  export const isa = (o: any): o is StartBackupJobInput =>
-    __isa(o, "StartBackupJobInput");
+  export const isa = (o: any): o is StartBackupJobInput => __isa(o, "StartBackupJobInput");
 }
 
 export interface StartBackupJobOutput {
@@ -3300,8 +3241,7 @@ export interface StartBackupJobOutput {
 }
 
 export namespace StartBackupJobOutput {
-  export const isa = (o: any): o is StartBackupJobOutput =>
-    __isa(o, "StartBackupJobOutput");
+  export const isa = (o: any): o is StartBackupJobOutput => __isa(o, "StartBackupJobOutput");
 }
 
 export interface StartCopyJobInput {
@@ -3345,8 +3285,7 @@ export interface StartCopyJobInput {
 }
 
 export namespace StartCopyJobInput {
-  export const isa = (o: any): o is StartCopyJobInput =>
-    __isa(o, "StartCopyJobInput");
+  export const isa = (o: any): o is StartCopyJobInput => __isa(o, "StartCopyJobInput");
 }
 
 export interface StartCopyJobOutput {
@@ -3363,8 +3302,7 @@ export interface StartCopyJobOutput {
 }
 
 export namespace StartCopyJobOutput {
-  export const isa = (o: any): o is StartCopyJobOutput =>
-    __isa(o, "StartCopyJobOutput");
+  export const isa = (o: any): o is StartCopyJobOutput => __isa(o, "StartCopyJobOutput");
 }
 
 export interface StartRestoreJobInput {
@@ -3461,8 +3399,7 @@ export interface StartRestoreJobInput {
 }
 
 export namespace StartRestoreJobInput {
-  export const isa = (o: any): o is StartRestoreJobInput =>
-    __isa(o, "StartRestoreJobInput");
+  export const isa = (o: any): o is StartRestoreJobInput => __isa(o, "StartRestoreJobInput");
 }
 
 export interface StartRestoreJobOutput {
@@ -3474,8 +3411,7 @@ export interface StartRestoreJobOutput {
 }
 
 export namespace StartRestoreJobOutput {
-  export const isa = (o: any): o is StartRestoreJobOutput =>
-    __isa(o, "StartRestoreJobOutput");
+  export const isa = (o: any): o is StartRestoreJobOutput => __isa(o, "StartRestoreJobOutput");
 }
 
 export interface StopBackupJobInput {
@@ -3487,8 +3423,7 @@ export interface StopBackupJobInput {
 }
 
 export namespace StopBackupJobInput {
-  export const isa = (o: any): o is StopBackupJobInput =>
-    __isa(o, "StopBackupJobInput");
+  export const isa = (o: any): o is StopBackupJobInput => __isa(o, "StopBackupJobInput");
 }
 
 export enum StorageClass {
@@ -3513,8 +3448,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface UntagResourceInput {
@@ -3532,8 +3466,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateBackupPlanInput {
@@ -3551,8 +3484,7 @@ export interface UpdateBackupPlanInput {
 }
 
 export namespace UpdateBackupPlanInput {
-  export const isa = (o: any): o is UpdateBackupPlanInput =>
-    __isa(o, "UpdateBackupPlanInput");
+  export const isa = (o: any): o is UpdateBackupPlanInput => __isa(o, "UpdateBackupPlanInput");
 }
 
 export interface UpdateBackupPlanOutput {
@@ -3584,8 +3516,7 @@ export interface UpdateBackupPlanOutput {
 }
 
 export namespace UpdateBackupPlanOutput {
-  export const isa = (o: any): o is UpdateBackupPlanOutput =>
-    __isa(o, "UpdateBackupPlanOutput");
+  export const isa = (o: any): o is UpdateBackupPlanOutput => __isa(o, "UpdateBackupPlanOutput");
 }
 
 export interface UpdateRecoveryPointLifecycleInput {

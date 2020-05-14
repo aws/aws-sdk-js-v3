@@ -116,9 +116,7 @@ export class RDSData extends RDSDataClient {
   ): void;
   public beginTransaction(
     args: BeginTransactionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BeginTransactionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BeginTransactionCommandOutput) => void),
     cb?: (err: any, data?: BeginTransactionCommandOutput) => void
   ): Promise<BeginTransactionCommandOutput> | void {
     const command = new BeginTransactionCommand(args);
@@ -191,9 +189,7 @@ export class RDSData extends RDSDataClient {
   ): void;
   public executeSql(
     args: ExecuteSqlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteSqlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteSqlCommandOutput) => void),
     cb?: (err: any, data?: ExecuteSqlCommandOutput) => void
   ): Promise<ExecuteSqlCommandOutput> | void {
     const command = new ExecuteSqlCommand(args);
@@ -232,9 +228,7 @@ export class RDSData extends RDSDataClient {
   ): void;
   public executeStatement(
     args: ExecuteStatementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteStatementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteStatementCommandOutput) => void),
     cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): Promise<ExecuteStatementCommandOutput> | void {
     const command = new ExecuteStatementCommand(args);

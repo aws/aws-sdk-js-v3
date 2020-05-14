@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse
@@ -39,9 +35,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: DeleteConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     DeleteConfigurationSetEventDestinationCommandInput,
     DeleteConfigurationSetEventDestinationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

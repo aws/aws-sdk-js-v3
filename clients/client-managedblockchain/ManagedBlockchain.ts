@@ -114,9 +114,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public createMember(
     args: CreateMemberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMemberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMemberCommandOutput) => void),
     cb?: (err: any, data?: CreateMemberCommandOutput) => void
   ): Promise<CreateMemberCommandOutput> | void {
     const command = new CreateMemberCommand(args);
@@ -149,9 +147,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public createNetwork(
     args: CreateNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNetworkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNetworkCommandOutput) => void),
     cb?: (err: any, data?: CreateNetworkCommandOutput) => void
   ): Promise<CreateNetworkCommandOutput> | void {
     const command = new CreateNetworkCommand(args);
@@ -184,9 +180,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public createNode(
     args: CreateNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNodeCommandOutput) => void),
     cb?: (err: any, data?: CreateNodeCommandOutput) => void
   ): Promise<CreateNodeCommandOutput> | void {
     const command = new CreateNodeCommand(args);
@@ -219,9 +213,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public createProposal(
     args: CreateProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProposalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProposalCommandOutput) => void),
     cb?: (err: any, data?: CreateProposalCommandOutput) => void
   ): Promise<CreateProposalCommandOutput> | void {
     const command = new CreateProposalCommand(args);
@@ -254,9 +246,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public deleteMember(
     args: DeleteMemberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMemberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMemberCommandOutput) => void),
     cb?: (err: any, data?: DeleteMemberCommandOutput) => void
   ): Promise<DeleteMemberCommandOutput> | void {
     const command = new DeleteMemberCommand(args);
@@ -289,9 +279,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public deleteNode(
     args: DeleteNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNodeCommandOutput) => void),
     cb?: (err: any, data?: DeleteNodeCommandOutput) => void
   ): Promise<DeleteNodeCommandOutput> | void {
     const command = new DeleteNodeCommand(args);
@@ -324,9 +312,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public getMember(
     args: GetMemberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMemberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMemberCommandOutput) => void),
     cb?: (err: any, data?: GetMemberCommandOutput) => void
   ): Promise<GetMemberCommandOutput> | void {
     const command = new GetMemberCommand(args);
@@ -359,9 +345,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public getNetwork(
     args: GetNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNetworkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkCommandOutput) => void),
     cb?: (err: any, data?: GetNetworkCommandOutput) => void
   ): Promise<GetNetworkCommandOutput> | void {
     const command = new GetNetworkCommand(args);
@@ -394,9 +378,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public getNode(
     args: GetNodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNodeCommandOutput) => void),
     cb?: (err: any, data?: GetNodeCommandOutput) => void
   ): Promise<GetNodeCommandOutput> | void {
     const command = new GetNodeCommand(args);
@@ -429,9 +411,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public getProposal(
     args: GetProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProposalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProposalCommandOutput) => void),
     cb?: (err: any, data?: GetProposalCommandOutput) => void
   ): Promise<GetProposalCommandOutput> | void {
     const command = new GetProposalCommand(args);
@@ -464,9 +444,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
@@ -499,9 +477,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
@@ -534,9 +510,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public listNetworks(
     args: ListNetworksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNetworksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNetworksCommandOutput) => void),
     cb?: (err: any, data?: ListNetworksCommandOutput) => void
   ): Promise<ListNetworksCommandOutput> | void {
     const command = new ListNetworksCommand(args);
@@ -569,9 +543,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public listNodes(
     args: ListNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodesCommandOutput) => void),
     cb?: (err: any, data?: ListNodesCommandOutput) => void
   ): Promise<ListNodesCommandOutput> | void {
     const command = new ListNodesCommand(args);
@@ -639,9 +611,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public listProposals(
     args: ListProposalsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProposalsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProposalsCommandOutput) => void),
     cb?: (err: any, data?: ListProposalsCommandOutput) => void
   ): Promise<ListProposalsCommandOutput> | void {
     const command = new ListProposalsCommand(args);
@@ -674,9 +644,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public rejectInvitation(
     args: RejectInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectInvitationCommandOutput) => void),
     cb?: (err: any, data?: RejectInvitationCommandOutput) => void
   ): Promise<RejectInvitationCommandOutput> | void {
     const command = new RejectInvitationCommand(args);
@@ -709,9 +677,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   ): void;
   public voteOnProposal(
     args: VoteOnProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VoteOnProposalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VoteOnProposalCommandOutput) => void),
     cb?: (err: any, data?: VoteOnProposalCommandOutput) => void
   ): Promise<VoteOnProposalCommandOutput> | void {
     const command = new VoteOnProposalCommand(args);

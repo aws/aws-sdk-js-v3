@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeleteGlobalClusterMessage,
-  DeleteGlobalClusterResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteGlobalClusterCommand,
   serializeAws_queryDeleteGlobalClusterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGlobalClusterCommandInput = DeleteGlobalClusterMessage;
-export type DeleteGlobalClusterCommandOutput = DeleteGlobalClusterResult &
-  __MetadataBearer;
+export type DeleteGlobalClusterCommandOutput = DeleteGlobalClusterResult & __MetadataBearer;
 
 export class DeleteGlobalClusterCommand extends $Command<
   DeleteGlobalClusterCommandInput,
@@ -49,13 +41,8 @@ export class DeleteGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGlobalClusterCommandInput,
-    DeleteGlobalClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGlobalClusterCommandInput, DeleteGlobalClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

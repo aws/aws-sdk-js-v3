@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { SendTaskFailureInput, SendTaskFailureOutput } from "../models/index";
 import {
   deserializeAws_json1_0SendTaskFailureCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendTaskFailureCommandInput = SendTaskFailureInput;
-export type SendTaskFailureCommandOutput = SendTaskFailureOutput &
-  __MetadataBearer;
+export type SendTaskFailureCommandOutput = SendTaskFailureOutput & __MetadataBearer;
 
 export class SendTaskFailureCommand extends $Command<
   SendTaskFailureCommandInput,
@@ -47,9 +42,7 @@ export class SendTaskFailureCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendTaskFailureCommandInput, SendTaskFailureCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

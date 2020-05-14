@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListExclusionsCommandInput = ListExclusionsRequest;
-export type ListExclusionsCommandOutput = ListExclusionsResponse &
-  __MetadataBearer;
+export type ListExclusionsCommandOutput = ListExclusionsResponse & __MetadataBearer;
 
 export class ListExclusionsCommand extends $Command<
   ListExclusionsCommandInput,
@@ -47,9 +46,7 @@ export class ListExclusionsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListExclusionsCommandInput, ListExclusionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetTopicAttributesInput,
-  GetTopicAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetTopicAttributesInput, GetTopicAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetTopicAttributesCommand,
   serializeAws_queryGetTopicAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTopicAttributesCommandInput = GetTopicAttributesInput;
-export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse &
-  __MetadataBearer;
+export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse & __MetadataBearer;
 
 export class GetTopicAttributesCommand extends $Command<
   GetTopicAttributesCommandInput,
@@ -50,9 +42,7 @@ export class GetTopicAttributesCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTopicAttributesCommandInput, GetTopicAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

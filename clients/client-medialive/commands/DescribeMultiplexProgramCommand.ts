@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DescribeMultiplexProgramRequest,
-  DescribeMultiplexProgramResponse
-} from "../models/index";
+import { DescribeMultiplexProgramRequest, DescribeMultiplexProgramResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeMultiplexProgramCommand,
   serializeAws_restJson1_1DescribeMultiplexProgramCommand
@@ -49,13 +46,8 @@ export class DescribeMultiplexProgramCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMultiplexProgramCommandInput,
-    DescribeMultiplexProgramCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMultiplexProgramCommandInput, DescribeMultiplexProgramCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeMultiplexProgramCommand extends $Command<
     input: DescribeMultiplexProgramCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMultiplexProgramCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeMultiplexProgramCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMultiplexProgramCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

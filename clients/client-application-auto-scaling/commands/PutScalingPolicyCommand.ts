@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScalingPolicyRequest,
-  PutScalingPolicyResponse
-} from "../models/index";
+import { PutScalingPolicyRequest, PutScalingPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutScalingPolicyCommand,
   serializeAws_json1_1PutScalingPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutScalingPolicyCommandInput = PutScalingPolicyRequest;
-export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse &
-  __MetadataBearer;
+export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse & __MetadataBearer;
 
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,
@@ -50,9 +46,7 @@ export class PutScalingPolicyCommand extends $Command<
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

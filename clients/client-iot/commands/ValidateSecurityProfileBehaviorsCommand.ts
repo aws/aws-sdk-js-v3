@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ValidateSecurityProfileBehaviorsRequest,
   ValidateSecurityProfileBehaviorsResponse
@@ -53,9 +49,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     ValidateSecurityProfileBehaviorsCommandInput,
     ValidateSecurityProfileBehaviorsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     input: ValidateSecurityProfileBehaviorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> {
-    return deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand(output, context);
   }
 
   // Start section: command_body_extra

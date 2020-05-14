@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateWorkflowCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateWorkflowCommandInput = UpdateWorkflowRequest;
-export type UpdateWorkflowCommandOutput = UpdateWorkflowResponse &
-  __MetadataBearer;
+export type UpdateWorkflowCommandOutput = UpdateWorkflowResponse & __MetadataBearer;
 
 export class UpdateWorkflowCommand extends $Command<
   UpdateWorkflowCommandInput,
@@ -47,9 +42,7 @@ export class UpdateWorkflowCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

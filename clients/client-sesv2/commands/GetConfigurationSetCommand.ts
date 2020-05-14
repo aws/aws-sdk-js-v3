@@ -1,12 +1,5 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  GetConfigurationSetRequest,
-  GetConfigurationSetResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConfigurationSetCommand,
   serializeAws_restJson1_1GetConfigurationSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConfigurationSetCommandInput = GetConfigurationSetRequest;
-export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse &
-  __MetadataBearer;
+export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse & __MetadataBearer;
 
 export class GetConfigurationSetCommand extends $Command<
   GetConfigurationSetCommandInput,
@@ -49,13 +41,8 @@ export class GetConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConfigurationSetCommandInput,
-    GetConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConfigurationSetCommandInput, GetConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class GetConfigurationSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1GetConfigurationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

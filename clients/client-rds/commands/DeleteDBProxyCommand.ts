@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteDBProxyCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBProxyCommandInput = DeleteDBProxyRequest;
-export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse &
-  __MetadataBearer;
+export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse & __MetadataBearer;
 
 export class DeleteDBProxyCommand extends $Command<
   DeleteDBProxyCommandInput,
@@ -47,9 +42,7 @@ export class DeleteDBProxyCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBProxyCommandInput, DeleteDBProxyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

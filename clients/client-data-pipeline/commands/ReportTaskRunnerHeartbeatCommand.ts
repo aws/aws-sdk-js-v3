@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient";
-import {
-  ReportTaskRunnerHeartbeatInput,
-  ReportTaskRunnerHeartbeatOutput
-} from "../models/index";
+import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/index";
 import {
   deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
   serializeAws_json1_1ReportTaskRunnerHeartbeatCommand
@@ -49,13 +46,8 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ReportTaskRunnerHeartbeatCommandInput,
-    ReportTaskRunnerHeartbeatCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ReportTaskRunnerHeartbeatCommandInput, ReportTaskRunnerHeartbeatCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
-    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

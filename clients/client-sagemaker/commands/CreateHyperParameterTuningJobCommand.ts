@@ -53,9 +53,7 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     CreateHyperParameterTuningJobCommandInput,
     CreateHyperParameterTuningJobCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateHyperParameterTuningJobCommand extends $Command<
     input: CreateHyperParameterTuningJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHyperParameterTuningJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateHyperParameterTuningJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1CreateHyperParameterTuningJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

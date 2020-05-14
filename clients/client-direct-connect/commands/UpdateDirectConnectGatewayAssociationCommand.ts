@@ -39,9 +39,7 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateDirectConnectGatewayAssociationCommandInput
-  ) {
+  constructor(readonly input: UpdateDirectConnectGatewayAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     UpdateDirectConnectGatewayAssociationCommandInput,
     UpdateDirectConnectGatewayAssociationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
     input: UpdateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

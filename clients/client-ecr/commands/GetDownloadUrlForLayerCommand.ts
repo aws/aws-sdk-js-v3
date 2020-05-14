@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  GetDownloadUrlForLayerRequest,
-  GetDownloadUrlForLayerResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDownloadUrlForLayerCommand,
   serializeAws_json1_1GetDownloadUrlForLayerCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDownloadUrlForLayerCommandInput = GetDownloadUrlForLayerRequest;
-export type GetDownloadUrlForLayerCommandOutput = GetDownloadUrlForLayerResponse &
-  __MetadataBearer;
+export type GetDownloadUrlForLayerCommandOutput = GetDownloadUrlForLayerResponse & __MetadataBearer;
 
 export class GetDownloadUrlForLayerCommand extends $Command<
   GetDownloadUrlForLayerCommandInput,
@@ -49,13 +41,8 @@ export class GetDownloadUrlForLayerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDownloadUrlForLayerCommandInput,
-    GetDownloadUrlForLayerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDownloadUrlForLayerCommandInput, GetDownloadUrlForLayerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

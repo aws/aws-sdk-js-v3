@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccessPointCommandInput = GetAccessPointRequest;
-export type GetAccessPointCommandOutput = GetAccessPointResult &
-  __MetadataBearer;
+export type GetAccessPointCommandOutput = GetAccessPointResult & __MetadataBearer;
 
 export class GetAccessPointCommand extends $Command<
   GetAccessPointCommandInput,
@@ -47,9 +46,7 @@ export class GetAccessPointCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccessPointCommandInput, GetAccessPointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

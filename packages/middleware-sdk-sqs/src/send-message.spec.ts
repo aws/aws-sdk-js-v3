@@ -41,9 +41,7 @@ describe("sendMessageMiddleware", () => {
       md5: MockHash
     })(next, {} as any);
 
-    await expect(handler({ input: {} })).rejects.toThrow(
-      new Error("InvalidChecksumError")
-    );
+    await expect(handler({ input: {} })).rejects.toThrow(new Error("InvalidChecksumError"));
     expect(mockHashUpdate.mock.calls.length).toBe(1);
     expect(mockHashDigest.mock.calls.length).toBe(1);
   });

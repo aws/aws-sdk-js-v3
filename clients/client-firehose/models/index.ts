@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -34,8 +31,7 @@ export interface BufferingHints {
 }
 
 export namespace BufferingHints {
-  export const isa = (o: any): o is BufferingHints =>
-    __isa(o, "BufferingHints");
+  export const isa = (o: any): o is BufferingHints => __isa(o, "BufferingHints");
 }
 
 /**
@@ -77,9 +73,7 @@ export enum CompressionFormat {
  * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
  *          it to update the destination.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -460,9 +454,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 }
 
 export namespace DeliveryStreamEncryptionConfigurationInput {
-  export const isa = (
-    o: any
-  ): o is DeliveryStreamEncryptionConfigurationInput =>
+  export const isa = (o: any): o is DeliveryStreamEncryptionConfigurationInput =>
     __isa(o, "DeliveryStreamEncryptionConfigurationInput");
 }
 
@@ -600,8 +592,7 @@ export interface DestinationDescription {
 }
 
 export namespace DestinationDescription {
-  export const isa = (o: any): o is DestinationDescription =>
-    __isa(o, "DestinationDescription");
+  export const isa = (o: any): o is DestinationDescription => __isa(o, "DestinationDescription");
 }
 
 /**
@@ -940,8 +931,7 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
-  export const isa = (o: any): o is EncryptionConfiguration =>
-    __isa(o, "EncryptionConfiguration");
+  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 /**
@@ -1198,8 +1188,7 @@ export interface FailureDescription {
 }
 
 export namespace FailureDescription {
-  export const isa = (o: any): o is FailureDescription =>
-    __isa(o, "FailureDescription");
+  export const isa = (o: any): o is FailureDescription => __isa(o, "FailureDescription");
 }
 
 export type HECEndpointType = "Event" | "Raw";
@@ -1246,9 +1235,7 @@ export namespace InputFormatConfiguration {
 /**
  * <p>The specified input parameter has a value that is not valid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -1266,9 +1253,7 @@ export namespace InvalidArgumentException {
  * <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start or stop delivery stream encryption fails. This happens when
  *          the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
  */
-export interface InvalidKMSResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidKMSResourceException extends __SmithyException, $MetadataBearer {
   name: "InvalidKMSResourceException";
   $fault: "client";
   code?: string;
@@ -1294,8 +1279,7 @@ export interface KMSEncryptionConfig {
 }
 
 export namespace KMSEncryptionConfig {
-  export const isa = (o: any): o is KMSEncryptionConfig =>
-    __isa(o, "KMSEncryptionConfig");
+  export const isa = (o: any): o is KMSEncryptionConfig => __isa(o, "KMSEncryptionConfig");
 }
 
 export enum KeyType {
@@ -1359,9 +1343,7 @@ export namespace KinesisStreamSourceDescription {
 /**
  * <p>You have already reached the limit for a requested resource.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1371,8 +1353,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDeliveryStreamsInput {
@@ -1518,8 +1499,7 @@ export interface OpenXJsonSerDe {
 }
 
 export namespace OpenXJsonSerDe {
-  export const isa = (o: any): o is OpenXJsonSerDe =>
-    __isa(o, "OpenXJsonSerDe");
+  export const isa = (o: any): o is OpenXJsonSerDe => __isa(o, "OpenXJsonSerDe");
 }
 
 export enum OrcCompression {
@@ -1703,8 +1683,7 @@ export interface ProcessingConfiguration {
 }
 
 export namespace ProcessingConfiguration {
-  export const isa = (o: any): o is ProcessingConfiguration =>
-    __isa(o, "ProcessingConfiguration");
+  export const isa = (o: any): o is ProcessingConfiguration => __isa(o, "ProcessingConfiguration");
 }
 
 /**
@@ -1744,8 +1723,7 @@ export interface ProcessorParameter {
 }
 
 export namespace ProcessorParameter {
-  export const isa = (o: any): o is ProcessorParameter =>
-    __isa(o, "ProcessorParameter");
+  export const isa = (o: any): o is ProcessorParameter => __isa(o, "ProcessorParameter");
 }
 
 export enum ProcessorParameterName {
@@ -1772,8 +1750,7 @@ export interface PutRecordBatchInput {
 }
 
 export namespace PutRecordBatchInput {
-  export const isa = (o: any): o is PutRecordBatchInput =>
-    __isa(o, "PutRecordBatchInput");
+  export const isa = (o: any): o is PutRecordBatchInput => __isa(o, "PutRecordBatchInput");
 }
 
 export interface PutRecordBatchOutput {
@@ -1799,8 +1776,7 @@ export interface PutRecordBatchOutput {
 }
 
 export namespace PutRecordBatchOutput {
-  export const isa = (o: any): o is PutRecordBatchOutput =>
-    __isa(o, "PutRecordBatchOutput");
+  export const isa = (o: any): o is PutRecordBatchOutput => __isa(o, "PutRecordBatchOutput");
 }
 
 /**
@@ -1846,8 +1822,7 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
-  export const isa = (o: any): o is PutRecordInput =>
-    __isa(o, "PutRecordInput");
+  export const isa = (o: any): o is PutRecordInput => __isa(o, "PutRecordInput");
 }
 
 export interface PutRecordOutput {
@@ -1864,8 +1839,7 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
-  export const isa = (o: any): o is PutRecordOutput =>
-    __isa(o, "PutRecordOutput");
+  export const isa = (o: any): o is PutRecordOutput => __isa(o, "PutRecordOutput");
 }
 
 /**
@@ -2109,8 +2083,7 @@ export interface RedshiftRetryOptions {
 }
 
 export namespace RedshiftRetryOptions {
-  export const isa = (o: any): o is RedshiftRetryOptions =>
-    __isa(o, "RedshiftRetryOptions");
+  export const isa = (o: any): o is RedshiftRetryOptions => __isa(o, "RedshiftRetryOptions");
 }
 
 export type RedshiftS3BackupMode = "Disabled" | "Enabled";
@@ -2118,9 +2091,7 @@ export type RedshiftS3BackupMode = "Disabled" | "Enabled";
 /**
  * <p>The resource is already in use and not available for this operation.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2130,16 +2101,13 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2340,8 +2308,7 @@ export interface S3DestinationUpdate {
 }
 
 export namespace S3DestinationUpdate {
-  export const isa = (o: any): o is S3DestinationUpdate =>
-    __isa(o, "S3DestinationUpdate");
+  export const isa = (o: any): o is S3DestinationUpdate => __isa(o, "S3DestinationUpdate");
 }
 
 /**
@@ -2389,8 +2356,7 @@ export interface SchemaConfiguration {
 }
 
 export namespace SchemaConfiguration {
-  export const isa = (o: any): o is SchemaConfiguration =>
-    __isa(o, "SchemaConfiguration");
+  export const isa = (o: any): o is SchemaConfiguration => __isa(o, "SchemaConfiguration");
 }
 
 /**
@@ -2424,9 +2390,7 @@ export namespace Serializer {
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
  *          Limits</a>.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -2454,8 +2418,7 @@ export interface SourceDescription {
 }
 
 export namespace SourceDescription {
-  export const isa = (o: any): o is SourceDescription =>
-    __isa(o, "SourceDescription");
+  export const isa = (o: any): o is SourceDescription => __isa(o, "SourceDescription");
 }
 
 /**
@@ -2653,8 +2616,7 @@ export interface SplunkDestinationUpdate {
 }
 
 export namespace SplunkDestinationUpdate {
-  export const isa = (o: any): o is SplunkDestinationUpdate =>
-    __isa(o, "SplunkDestinationUpdate");
+  export const isa = (o: any): o is SplunkDestinationUpdate => __isa(o, "SplunkDestinationUpdate");
 }
 
 /**
@@ -2673,8 +2635,7 @@ export interface SplunkRetryOptions {
 }
 
 export namespace SplunkRetryOptions {
-  export const isa = (o: any): o is SplunkRetryOptions =>
-    __isa(o, "SplunkRetryOptions");
+  export const isa = (o: any): o is SplunkRetryOptions => __isa(o, "SplunkRetryOptions");
 }
 
 export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
@@ -2765,8 +2726,7 @@ export interface TagDeliveryStreamInput {
 }
 
 export namespace TagDeliveryStreamInput {
-  export const isa = (o: any): o is TagDeliveryStreamInput =>
-    __isa(o, "TagDeliveryStreamInput");
+  export const isa = (o: any): o is TagDeliveryStreamInput => __isa(o, "TagDeliveryStreamInput");
 }
 
 export interface TagDeliveryStreamOutput {
@@ -2774,8 +2734,7 @@ export interface TagDeliveryStreamOutput {
 }
 
 export namespace TagDeliveryStreamOutput {
-  export const isa = (o: any): o is TagDeliveryStreamOutput =>
-    __isa(o, "TagDeliveryStreamOutput");
+  export const isa = (o: any): o is TagDeliveryStreamOutput => __isa(o, "TagDeliveryStreamOutput");
 }
 
 export interface UntagDeliveryStreamInput {
@@ -2853,8 +2812,7 @@ export interface UpdateDestinationInput {
 }
 
 export namespace UpdateDestinationInput {
-  export const isa = (o: any): o is UpdateDestinationInput =>
-    __isa(o, "UpdateDestinationInput");
+  export const isa = (o: any): o is UpdateDestinationInput => __isa(o, "UpdateDestinationInput");
 }
 
 export interface UpdateDestinationOutput {
@@ -2862,6 +2820,5 @@ export interface UpdateDestinationOutput {
 }
 
 export namespace UpdateDestinationOutput {
-  export const isa = (o: any): o is UpdateDestinationOutput =>
-    __isa(o, "UpdateDestinationOutput");
+  export const isa = (o: any): o is UpdateDestinationOutput => __isa(o, "UpdateDestinationOutput");
 }

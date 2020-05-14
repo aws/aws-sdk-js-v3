@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServiceSpecificCredentialRequest } from "../models/index";
 import {
   deserializeAws_queryDeleteServiceSpecificCredentialCommand,
@@ -49,9 +45,7 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     DeleteServiceSpecificCredentialCommandInput,
     DeleteServiceSpecificCredentialCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     input: DeleteServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServiceSpecificCredentialCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteServiceSpecificCredentialCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryDeleteServiceSpecificCredentialCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

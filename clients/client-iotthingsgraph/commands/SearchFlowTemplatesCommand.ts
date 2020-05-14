@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  SearchFlowTemplatesRequest,
-  SearchFlowTemplatesResponse
-} from "../models/index";
+import { SearchFlowTemplatesRequest, SearchFlowTemplatesResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchFlowTemplatesCommand,
   serializeAws_json1_1SearchFlowTemplatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchFlowTemplatesCommandInput = SearchFlowTemplatesRequest;
-export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse &
-  __MetadataBearer;
+export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse & __MetadataBearer;
 
 export class SearchFlowTemplatesCommand extends $Command<
   SearchFlowTemplatesCommandInput,
@@ -49,13 +45,8 @@ export class SearchFlowTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchFlowTemplatesCommandInput,
-    SearchFlowTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchFlowTemplatesCommandInput, SearchFlowTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

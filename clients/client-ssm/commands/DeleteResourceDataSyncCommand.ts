@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DeleteResourceDataSyncRequest,
-  DeleteResourceDataSyncResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteResourceDataSyncCommand,
   serializeAws_json1_1DeleteResourceDataSyncCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResourceDataSyncCommandInput = DeleteResourceDataSyncRequest;
-export type DeleteResourceDataSyncCommandOutput = DeleteResourceDataSyncResult &
-  __MetadataBearer;
+export type DeleteResourceDataSyncCommandOutput = DeleteResourceDataSyncResult & __MetadataBearer;
 
 export class DeleteResourceDataSyncCommand extends $Command<
   DeleteResourceDataSyncCommandInput,
@@ -49,13 +41,8 @@ export class DeleteResourceDataSyncCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResourceDataSyncCommandInput,
-    DeleteResourceDataSyncCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResourceDataSyncCommandInput, DeleteResourceDataSyncCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  GetAppliedSchemaVersionRequest,
-  GetAppliedSchemaVersionResponse
-} from "../models/index";
+import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetAppliedSchemaVersionCommand,
   serializeAws_restJson1_1GetAppliedSchemaVersionCommand
@@ -49,13 +46,8 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAppliedSchemaVersionCommandInput,
-    GetAppliedSchemaVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAppliedSchemaVersionCommandInput, GetAppliedSchemaVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     input: GetAppliedSchemaVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetAppliedSchemaVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetAppliedSchemaVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppliedSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetAppliedSchemaVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetAppliedSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

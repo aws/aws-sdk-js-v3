@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  PutObjectRetentionOutput,
-  PutObjectRetentionRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutObjectRetentionCommand,
   serializeAws_restXmlPutObjectRetentionCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutObjectRetentionCommandInput = PutObjectRetentionRequest;
-export type PutObjectRetentionCommandOutput = PutObjectRetentionOutput &
-  __MetadataBearer;
+export type PutObjectRetentionCommandOutput = PutObjectRetentionOutput & __MetadataBearer;
 
 export class PutObjectRetentionCommand extends $Command<
   PutObjectRetentionCommandInput,
@@ -51,9 +43,7 @@ export class PutObjectRetentionCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

@@ -1,7 +1,4 @@
-import {
-  UnlockServiceLinkedRoleRequest,
-  UnlockServiceLinkedRoleResponse
-} from "../models/index";
+import { UnlockServiceLinkedRoleRequest, UnlockServiceLinkedRoleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand,
   serializeAws_restJson1_1UnlockServiceLinkedRoleCommand
@@ -49,13 +46,8 @@ export class UnlockServiceLinkedRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UnlockServiceLinkedRoleCommandInput,
-    UnlockServiceLinkedRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UnlockServiceLinkedRoleCommandInput, UnlockServiceLinkedRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class UnlockServiceLinkedRoleCommand extends $Command<
     input: UnlockServiceLinkedRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UnlockServiceLinkedRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnlockServiceLinkedRoleCommandOutput> {
-    return deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

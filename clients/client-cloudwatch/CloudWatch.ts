@@ -184,9 +184,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteAlarms(
     args: DeleteAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DeleteAlarmsCommandOutput) => void
   ): Promise<DeleteAlarmsCommandOutput> | void {
     const command = new DeleteAlarmsCommand(args);
@@ -255,9 +253,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public deleteDashboards(
     args: DeleteDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardsCommandOutput) => void),
     cb?: (err: any, data?: DeleteDashboardsCommandOutput) => void
   ): Promise<DeleteDashboardsCommandOutput> | void {
     const command = new DeleteDashboardsCommand(args);
@@ -366,9 +362,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public describeAlarms(
     args: DescribeAlarmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlarmsCommandOutput) => void
   ): Promise<DescribeAlarmsCommandOutput> | void {
     const command = new DescribeAlarmsCommand(args);
@@ -658,9 +652,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getDashboard(
     args: GetDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDashboardCommandOutput) => void),
     cb?: (err: any, data?: GetDashboardCommandOutput) => void
   ): Promise<GetDashboardCommandOutput> | void {
     const command = new GetDashboardCommand(args);
@@ -799,9 +791,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public getMetricData(
     args: GetMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetMetricDataCommandOutput) => void
   ): Promise<GetMetricDataCommandOutput> | void {
     const command = new GetMetricDataCommand(args);
@@ -980,9 +970,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listDashboards(
     args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
@@ -1020,9 +1008,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public listMetrics(
     args: ListMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricsCommandOutput) => void),
     cb?: (err: any, data?: ListMetricsCommandOutput) => void
   ): Promise<ListMetricsCommandOutput> | void {
     const command = new ListMetricsCommand(args);
@@ -1140,9 +1126,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putDashboard(
     args: PutDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDashboardCommandOutput) => void),
     cb?: (err: any, data?: PutDashboardCommandOutput) => void
   ): Promise<PutDashboardCommandOutput> | void {
     const command = new PutDashboardCommand(args);
@@ -1179,9 +1163,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putInsightRule(
     args: PutInsightRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInsightRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInsightRuleCommandOutput) => void),
     cb?: (err: any, data?: PutInsightRuleCommandOutput) => void
   ): Promise<PutInsightRuleCommandOutput> | void {
     const command = new PutInsightRuleCommand(args);
@@ -1263,9 +1245,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricAlarm(
     args: PutMetricAlarmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricAlarmCommandOutput) => void),
     cb?: (err: any, data?: PutMetricAlarmCommandOutput) => void
   ): Promise<PutMetricAlarmCommandOutput> | void {
     const command = new PutMetricAlarmCommand(args);
@@ -1336,9 +1316,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public putMetricData(
     args: PutMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricDataCommandOutput) => void),
     cb?: (err: any, data?: PutMetricDataCommandOutput) => void
   ): Promise<PutMetricDataCommandOutput> | void {
     const command = new PutMetricDataCommand(args);
@@ -1378,9 +1356,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public setAlarmState(
     args: SetAlarmStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetAlarmStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetAlarmStateCommandOutput) => void),
     cb?: (err: any, data?: SetAlarmStateCommandOutput) => void
   ): Promise<SetAlarmStateCommandOutput> | void {
     const command = new SetAlarmStateCommand(args);
@@ -1423,9 +1399,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1458,9 +1432,7 @@ export class CloudWatch extends CloudWatchClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

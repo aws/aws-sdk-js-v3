@@ -45,13 +45,8 @@ export class RegisterApplicationRevisionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterApplicationRevisionCommandInput,
-    RegisterApplicationRevisionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterApplicationRevisionCommandInput, RegisterApplicationRevisionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class RegisterApplicationRevisionCommand extends $Command<
     input: RegisterApplicationRevisionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterApplicationRevisionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RegisterApplicationRevisionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterApplicationRevisionCommandOutput> {
-    return deserializeAws_json1_1RegisterApplicationRevisionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterApplicationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

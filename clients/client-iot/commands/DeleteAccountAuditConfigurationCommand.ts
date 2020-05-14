@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DeleteAccountAuditConfigurationRequest,
   DeleteAccountAuditConfigurationResponse
@@ -53,9 +49,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     DeleteAccountAuditConfigurationCommandInput,
     DeleteAccountAuditConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     input: DeleteAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

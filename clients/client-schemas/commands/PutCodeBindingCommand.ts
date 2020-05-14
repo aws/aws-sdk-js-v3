@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutCodeBindingCommandInput = PutCodeBindingRequest;
-export type PutCodeBindingCommandOutput = PutCodeBindingResponse &
-  __MetadataBearer;
+export type PutCodeBindingCommandOutput = PutCodeBindingResponse & __MetadataBearer;
 
 export class PutCodeBindingCommand extends $Command<
   PutCodeBindingCommandInput,
@@ -47,9 +46,7 @@ export class PutCodeBindingCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutCodeBindingCommandInput, PutCodeBindingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

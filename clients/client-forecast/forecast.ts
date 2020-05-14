@@ -194,9 +194,7 @@ export class forecast extends forecastClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
@@ -337,9 +335,7 @@ export class forecast extends forecastClient {
   ): void;
   public createForecast(
     args: CreateForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateForecastCommandOutput) => void),
     cb?: (err: any, data?: CreateForecastCommandOutput) => void
   ): Promise<CreateForecastCommandOutput> | void {
     const command = new CreateForecastCommand(args);
@@ -477,9 +473,7 @@ export class forecast extends forecastClient {
   ): void;
   public createPredictor(
     args: CreatePredictorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePredictorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePredictorCommandOutput) => void),
     cb?: (err: any, data?: CreatePredictorCommandOutput) => void
   ): Promise<CreatePredictorCommandOutput> | void {
     const command = new CreatePredictorCommand(args);
@@ -515,9 +509,7 @@ export class forecast extends forecastClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
@@ -629,9 +621,7 @@ export class forecast extends forecastClient {
   ): void;
   public deleteForecast(
     args: DeleteForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteForecastCommandOutput) => void),
     cb?: (err: any, data?: DeleteForecastCommandOutput) => void
   ): Promise<DeleteForecastCommandOutput> | void {
     const command = new DeleteForecastCommand(args);
@@ -703,9 +693,7 @@ export class forecast extends forecastClient {
   ): void;
   public deletePredictor(
     args: DeletePredictorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePredictorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePredictorCommandOutput) => void),
     cb?: (err: any, data?: DeletePredictorCommandOutput) => void
   ): Promise<DeletePredictorCommandOutput> | void {
     const command = new DeletePredictorCommand(args);
@@ -758,9 +746,7 @@ export class forecast extends forecastClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
@@ -949,9 +935,7 @@ export class forecast extends forecastClient {
   ): void;
   public describeForecast(
     args: DescribeForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeForecastCommandOutput) => void),
     cb?: (err: any, data?: DescribeForecastCommandOutput) => void
   ): Promise<DescribeForecastCommandOutput> | void {
     const command = new DescribeForecastCommand(args);
@@ -1244,9 +1228,7 @@ export class forecast extends forecastClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
@@ -1321,9 +1303,7 @@ export class forecast extends forecastClient {
   ): void;
   public listForecasts(
     args: ListForecastsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListForecastsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListForecastsCommandOutput) => void),
     cb?: (err: any, data?: ListForecastsCommandOutput) => void
   ): Promise<ListForecastsCommandOutput> | void {
     const command = new ListForecastsCommand(args);
@@ -1360,9 +1340,7 @@ export class forecast extends forecastClient {
   ): void;
   public listPredictors(
     args: ListPredictorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPredictorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPredictorsCommandOutput) => void),
     cb?: (err: any, data?: ListPredictorsCommandOutput) => void
   ): Promise<ListPredictorsCommandOutput> | void {
     const command = new ListPredictorsCommand(args);

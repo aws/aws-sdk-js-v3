@@ -49,13 +49,8 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRefreshSchemasStatusCommandInput,
-    DescribeRefreshSchemasStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRefreshSchemasStatusCommandInput, DescribeRefreshSchemasStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     input: DescribeRefreshSchemasStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRefreshSchemasStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeRefreshSchemasStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRefreshSchemasStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeRefreshSchemasStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRefreshSchemasStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

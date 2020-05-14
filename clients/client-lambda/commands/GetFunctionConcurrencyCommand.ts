@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetFunctionConcurrencyRequest,
-  GetFunctionConcurrencyResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetFunctionConcurrencyRequest, GetFunctionConcurrencyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFunctionConcurrencyCommand,
   serializeAws_restJson1_1GetFunctionConcurrencyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFunctionConcurrencyCommandInput = GetFunctionConcurrencyRequest;
-export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse &
-  __MetadataBearer;
+export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse & __MetadataBearer;
 
 export class GetFunctionConcurrencyCommand extends $Command<
   GetFunctionConcurrencyCommandInput,
@@ -49,13 +41,8 @@ export class GetFunctionConcurrencyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFunctionConcurrencyCommandInput,
-    GetFunctionConcurrencyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFunctionConcurrencyCommandInput, GetFunctionConcurrencyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class GetFunctionConcurrencyCommand extends $Command<
     input: GetFunctionConcurrencyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFunctionConcurrencyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetFunctionConcurrencyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1_1GetFunctionConcurrencyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

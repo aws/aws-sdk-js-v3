@@ -49,13 +49,8 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApnsVoipSandboxChannelCommandInput,
-    DeleteApnsVoipSandboxChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApnsVoipSandboxChannelCommandInput, DeleteApnsVoipSandboxChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     input: DeleteApnsVoipSandboxChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

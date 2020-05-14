@@ -53,9 +53,7 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     CreateVpcPeeringAuthorizationCommandInput,
     CreateVpcPeeringAuthorizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     input: CreateVpcPeeringAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVpcPeeringAuthorizationCommandOutput> {
-    return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

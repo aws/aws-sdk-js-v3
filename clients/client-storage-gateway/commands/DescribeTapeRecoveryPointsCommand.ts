@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeTapeRecoveryPointsInput,
-  DescribeTapeRecoveryPointsOutput
-} from "../models/index";
+import { DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTapeRecoveryPointsCommand,
   serializeAws_json1_1DescribeTapeRecoveryPointsCommand
@@ -49,13 +46,8 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTapeRecoveryPointsCommandInput,
-    DescribeTapeRecoveryPointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTapeRecoveryPointsCommandInput, DescribeTapeRecoveryPointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeTapeRecoveryPointsCommand extends $Command<
     input: DescribeTapeRecoveryPointsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTapeRecoveryPointsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeTapeRecoveryPointsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTapeRecoveryPointsCommandOutput> {
-    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

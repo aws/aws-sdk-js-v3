@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  GetRateBasedRuleRequest,
-  GetRateBasedRuleResponse
-} from "../models/index";
+import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetRateBasedRuleCommand,
   serializeAws_json1_1GetRateBasedRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRateBasedRuleCommandInput = GetRateBasedRuleRequest;
-export type GetRateBasedRuleCommandOutput = GetRateBasedRuleResponse &
-  __MetadataBearer;
+export type GetRateBasedRuleCommandOutput = GetRateBasedRuleResponse & __MetadataBearer;
 
 export class GetRateBasedRuleCommand extends $Command<
   GetRateBasedRuleCommandInput,
@@ -50,9 +46,7 @@ export class GetRateBasedRuleCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRateBasedRuleCommandInput, GetRateBasedRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

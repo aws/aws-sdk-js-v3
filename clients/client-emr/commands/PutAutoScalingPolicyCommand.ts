@@ -1,12 +1,5 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  PutAutoScalingPolicyInput,
-  PutAutoScalingPolicyOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { PutAutoScalingPolicyInput, PutAutoScalingPolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutAutoScalingPolicyCommand,
   serializeAws_json1_1PutAutoScalingPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutAutoScalingPolicyCommandInput = PutAutoScalingPolicyInput;
-export type PutAutoScalingPolicyCommandOutput = PutAutoScalingPolicyOutput &
-  __MetadataBearer;
+export type PutAutoScalingPolicyCommandOutput = PutAutoScalingPolicyOutput & __MetadataBearer;
 
 export class PutAutoScalingPolicyCommand extends $Command<
   PutAutoScalingPolicyCommandInput,
@@ -49,13 +41,8 @@ export class PutAutoScalingPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutAutoScalingPolicyCommandInput,
-    PutAutoScalingPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutAutoScalingPolicyCommandInput, PutAutoScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

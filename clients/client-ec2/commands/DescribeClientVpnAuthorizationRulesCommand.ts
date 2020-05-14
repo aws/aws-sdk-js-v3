@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeClientVpnAuthorizationRulesRequest,
   DescribeClientVpnAuthorizationRulesResult
@@ -53,9 +49,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     DescribeClientVpnAuthorizationRulesCommandInput,
     DescribeClientVpnAuthorizationRulesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     input: DescribeClientVpnAuthorizationRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

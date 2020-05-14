@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  LabelParameterVersionRequest,
-  LabelParameterVersionResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/index";
 import {
   deserializeAws_json1_1LabelParameterVersionCommand,
   serializeAws_json1_1LabelParameterVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type LabelParameterVersionCommandInput = LabelParameterVersionRequest;
-export type LabelParameterVersionCommandOutput = LabelParameterVersionResult &
-  __MetadataBearer;
+export type LabelParameterVersionCommandOutput = LabelParameterVersionResult & __MetadataBearer;
 
 export class LabelParameterVersionCommand extends $Command<
   LabelParameterVersionCommandInput,
@@ -49,13 +41,8 @@ export class LabelParameterVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    LabelParameterVersionCommandInput,
-    LabelParameterVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<LabelParameterVersionCommandInput, LabelParameterVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

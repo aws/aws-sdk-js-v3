@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVariableCommandInput = CreateVariableRequest;
-export type CreateVariableCommandOutput = CreateVariableResult &
-  __MetadataBearer;
+export type CreateVariableCommandOutput = CreateVariableResult & __MetadataBearer;
 
 export class CreateVariableCommand extends $Command<
   CreateVariableCommandInput,
@@ -47,9 +46,7 @@ export class CreateVariableCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVariableCommandInput, CreateVariableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

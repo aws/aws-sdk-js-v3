@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  DescribeProductsRequest,
-  DescribeProductsResponse
-} from "../models/index";
+import { DescribeProductsRequest, DescribeProductsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeProductsCommand,
   serializeAws_restJson1_1DescribeProductsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProductsCommandInput = DescribeProductsRequest;
-export type DescribeProductsCommandOutput = DescribeProductsResponse &
-  __MetadataBearer;
+export type DescribeProductsCommandOutput = DescribeProductsResponse & __MetadataBearer;
 
 export class DescribeProductsCommand extends $Command<
   DescribeProductsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeProductsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProductsCommandInput, DescribeProductsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

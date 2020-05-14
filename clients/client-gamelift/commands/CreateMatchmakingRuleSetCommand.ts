@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  CreateMatchmakingRuleSetInput,
-  CreateMatchmakingRuleSetOutput
-} from "../models/index";
+import { CreateMatchmakingRuleSetInput, CreateMatchmakingRuleSetOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateMatchmakingRuleSetCommand,
   serializeAws_json1_1CreateMatchmakingRuleSetCommand
@@ -49,13 +46,8 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateMatchmakingRuleSetCommandInput,
-    CreateMatchmakingRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateMatchmakingRuleSetCommandInput, CreateMatchmakingRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1CreateMatchmakingRuleSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

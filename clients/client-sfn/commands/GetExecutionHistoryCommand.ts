@@ -1,12 +1,5 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  GetExecutionHistoryInput,
-  GetExecutionHistoryOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/index";
 import {
   deserializeAws_json1_0GetExecutionHistoryCommand,
   serializeAws_json1_0GetExecutionHistoryCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetExecutionHistoryCommandInput = GetExecutionHistoryInput;
-export type GetExecutionHistoryCommandOutput = GetExecutionHistoryOutput &
-  __MetadataBearer;
+export type GetExecutionHistoryCommandOutput = GetExecutionHistoryOutput & __MetadataBearer;
 
 export class GetExecutionHistoryCommand extends $Command<
   GetExecutionHistoryCommandInput,
@@ -49,13 +41,8 @@ export class GetExecutionHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetExecutionHistoryCommandInput,
-    GetExecutionHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetExecutionHistoryCommandInput, GetExecutionHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DescribeProjectVersionsRequest,
-  DescribeProjectVersionsResponse
-} from "../models/index";
+import { DescribeProjectVersionsRequest, DescribeProjectVersionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProjectVersionsCommand,
   serializeAws_json1_1DescribeProjectVersionsCommand
@@ -49,13 +46,8 @@ export class DescribeProjectVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProjectVersionsCommandInput,
-    DescribeProjectVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProjectVersionsCommandInput, DescribeProjectVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeProjectVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProjectVersionsCommandOutput> {
-    return deserializeAws_json1_1DescribeProjectVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProjectVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

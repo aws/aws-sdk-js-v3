@@ -130,10 +130,7 @@ import {
   GetSendStatisticsCommandInput,
   GetSendStatisticsCommandOutput
 } from "./commands/GetSendStatisticsCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput
@@ -178,10 +175,7 @@ import {
   ReorderReceiptRuleSetCommandInput,
   ReorderReceiptRuleSetCommandOutput
 } from "./commands/ReorderReceiptRuleSetCommand";
-import {
-  SendBounceCommandInput,
-  SendBounceCommandOutput
-} from "./commands/SendBounceCommand";
+import { SendBounceCommandInput, SendBounceCommandOutput } from "./commands/SendBounceCommand";
 import {
   SendBulkTemplatedEmailCommandInput,
   SendBulkTemplatedEmailCommandOutput
@@ -190,10 +184,7 @@ import {
   SendCustomVerificationEmailCommandInput,
   SendCustomVerificationEmailCommandOutput
 } from "./commands/SendCustomVerificationEmailCommand";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
 import {
   SendRawEmailCommandInput,
   SendRawEmailCommandOutput
@@ -565,9 +556,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SESClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SESClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -576,9 +565,7 @@ export type SESClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SESClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SESClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

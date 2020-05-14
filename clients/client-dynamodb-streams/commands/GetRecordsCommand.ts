@@ -46,9 +46,7 @@ export class GetRecordsCommand extends $Command<
     configuration: DynamoDBStreamsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRecordsCommandInput, GetRecordsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResolveCustomerCommandInput = ResolveCustomerRequest;
-export type ResolveCustomerCommandOutput = ResolveCustomerResult &
-  __MetadataBearer;
+export type ResolveCustomerCommandOutput = ResolveCustomerResult & __MetadataBearer;
 
 export class ResolveCustomerCommand extends $Command<
   ResolveCustomerCommandInput,
@@ -47,9 +46,7 @@ export class ResolveCustomerCommand extends $Command<
     configuration: MarketplaceMeteringClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResolveCustomerCommandInput, ResolveCustomerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

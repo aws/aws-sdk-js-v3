@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import { LaunchAppRequest, LaunchAppResponse } from "../models/index";
 import {
   deserializeAws_json1_1LaunchAppCommand,
@@ -46,9 +42,7 @@ export class LaunchAppCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<LaunchAppCommandInput, LaunchAppCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class LaunchAppCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: LaunchAppCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: LaunchAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1LaunchAppCommand(input, context);
   }
 

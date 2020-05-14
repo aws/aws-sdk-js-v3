@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  RestoreAddressToClassicRequest,
-  RestoreAddressToClassicResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/index";
 import {
   deserializeAws_ec2RestoreAddressToClassicCommand,
   serializeAws_ec2RestoreAddressToClassicCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreAddressToClassicCommandInput = RestoreAddressToClassicRequest;
-export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult &
-  __MetadataBearer;
+export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult & __MetadataBearer;
 
 export class RestoreAddressToClassicCommand extends $Command<
   RestoreAddressToClassicCommandInput,
@@ -49,13 +41,8 @@ export class RestoreAddressToClassicCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreAddressToClassicCommandInput,
-    RestoreAddressToClassicCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreAddressToClassicCommandInput, RestoreAddressToClassicCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

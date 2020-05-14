@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  UpdateSkillGroupRequest,
-  UpdateSkillGroupResponse
-} from "../models/index";
+import { UpdateSkillGroupRequest, UpdateSkillGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSkillGroupCommand,
   serializeAws_json1_1UpdateSkillGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSkillGroupCommandInput = UpdateSkillGroupRequest;
-export type UpdateSkillGroupCommandOutput = UpdateSkillGroupResponse &
-  __MetadataBearer;
+export type UpdateSkillGroupCommandOutput = UpdateSkillGroupResponse & __MetadataBearer;
 
 export class UpdateSkillGroupCommand extends $Command<
   UpdateSkillGroupCommandInput,
@@ -50,9 +46,7 @@ export class UpdateSkillGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSkillGroupCommandInput, UpdateSkillGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

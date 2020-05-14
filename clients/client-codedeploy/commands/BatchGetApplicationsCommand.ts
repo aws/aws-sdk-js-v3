@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  BatchGetApplicationsInput,
-  BatchGetApplicationsOutput
-} from "../models/index";
+import { BatchGetApplicationsInput, BatchGetApplicationsOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetApplicationsCommand,
   serializeAws_json1_1BatchGetApplicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetApplicationsCommandInput = BatchGetApplicationsInput;
-export type BatchGetApplicationsCommandOutput = BatchGetApplicationsOutput &
-  __MetadataBearer;
+export type BatchGetApplicationsCommandOutput = BatchGetApplicationsOutput & __MetadataBearer;
 
 export class BatchGetApplicationsCommand extends $Command<
   BatchGetApplicationsCommandInput,
@@ -49,13 +45,8 @@ export class BatchGetApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetApplicationsCommandInput,
-    BatchGetApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetApplicationsCommandInput, BatchGetApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

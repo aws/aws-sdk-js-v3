@@ -1,8 +1,4 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DisassociateAdminAccountRequest } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateAdminAccountCommand,
@@ -45,13 +41,8 @@ export class DisassociateAdminAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateAdminAccountCommandInput,
-    DisassociateAdminAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateAdminAccountCommandInput, DisassociateAdminAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DisassociateAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAdminAccountCommandOutput> {
-    return deserializeAws_json1_1DisassociateAdminAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

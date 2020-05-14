@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  GetTestGridProjectRequest,
-  GetTestGridProjectResult
-} from "../models/index";
+import { GetTestGridProjectRequest, GetTestGridProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1GetTestGridProjectCommand,
   serializeAws_json1_1GetTestGridProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTestGridProjectCommandInput = GetTestGridProjectRequest;
-export type GetTestGridProjectCommandOutput = GetTestGridProjectResult &
-  __MetadataBearer;
+export type GetTestGridProjectCommandOutput = GetTestGridProjectResult & __MetadataBearer;
 
 export class GetTestGridProjectCommand extends $Command<
   GetTestGridProjectCommandInput,
@@ -50,9 +46,7 @@ export class GetTestGridProjectCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

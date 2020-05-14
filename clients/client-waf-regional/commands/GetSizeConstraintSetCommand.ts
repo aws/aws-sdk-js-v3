@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  GetSizeConstraintSetRequest,
-  GetSizeConstraintSetResponse
-} from "../models/index";
+import { GetSizeConstraintSetRequest, GetSizeConstraintSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSizeConstraintSetCommand,
   serializeAws_json1_1GetSizeConstraintSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSizeConstraintSetCommandInput = GetSizeConstraintSetRequest;
-export type GetSizeConstraintSetCommandOutput = GetSizeConstraintSetResponse &
-  __MetadataBearer;
+export type GetSizeConstraintSetCommandOutput = GetSizeConstraintSetResponse & __MetadataBearer;
 
 export class GetSizeConstraintSetCommand extends $Command<
   GetSizeConstraintSetCommandInput,
@@ -49,13 +45,8 @@ export class GetSizeConstraintSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSizeConstraintSetCommandInput,
-    GetSizeConstraintSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSizeConstraintSetCommandInput, GetSizeConstraintSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

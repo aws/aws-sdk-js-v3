@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTEventsDataClient";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorResponse
-} from "../models/index";
+import { DescribeDetectorRequest, DescribeDetectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDetectorCommand,
   serializeAws_restJson1_1DescribeDetectorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDetectorCommandInput = DescribeDetectorRequest;
-export type DescribeDetectorCommandOutput = DescribeDetectorResponse &
-  __MetadataBearer;
+export type DescribeDetectorCommandOutput = DescribeDetectorResponse & __MetadataBearer;
 
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,
@@ -50,9 +46,7 @@ export class DescribeDetectorCommand extends $Command<
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDetectorCommandInput, DescribeDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -46,9 +46,7 @@ export class GetMediaCommand extends $Command<
     configuration: KinesisVideoMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMediaCommandInput, GetMediaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class GetMediaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMediaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetMediaCommand(input, context);
   }
 

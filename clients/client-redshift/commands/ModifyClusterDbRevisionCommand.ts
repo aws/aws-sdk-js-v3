@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ModifyClusterDbRevisionMessage,
-  ModifyClusterDbRevisionResult
-} from "../models/index";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
   serializeAws_queryModifyClusterDbRevisionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterDbRevisionCommandInput = ModifyClusterDbRevisionMessage;
-export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult &
-  __MetadataBearer;
+export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult & __MetadataBearer;
 
 export class ModifyClusterDbRevisionCommand extends $Command<
   ModifyClusterDbRevisionCommandInput,
@@ -49,13 +45,8 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterDbRevisionCommandInput,
-    ModifyClusterDbRevisionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterDbRevisionCommandInput, ModifyClusterDbRevisionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

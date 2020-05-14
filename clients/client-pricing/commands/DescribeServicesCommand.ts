@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PricingClient";
-import {
-  DescribeServicesRequest,
-  DescribeServicesResponse
-} from "../models/index";
+import { DescribeServicesRequest, DescribeServicesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeServicesCommand,
   serializeAws_json1_1DescribeServicesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeServicesCommandInput = DescribeServicesRequest;
-export type DescribeServicesCommandOutput = DescribeServicesResponse &
-  __MetadataBearer;
+export type DescribeServicesCommandOutput = DescribeServicesResponse & __MetadataBearer;
 
 export class DescribeServicesCommand extends $Command<
   DescribeServicesCommandInput,
@@ -50,9 +46,7 @@ export class DescribeServicesCommand extends $Command<
     configuration: PricingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeServicesCommandInput, DescribeServicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

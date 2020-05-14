@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  ListDistributionsRequest,
-  ListDistributionsResult
-} from "../models/index";
+import { ListDistributionsRequest, ListDistributionsResult } from "../models/index";
 import {
   deserializeAws_restXmlListDistributionsCommand,
   serializeAws_restXmlListDistributionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDistributionsCommandInput = ListDistributionsRequest;
-export type ListDistributionsCommandOutput = ListDistributionsResult &
-  __MetadataBearer;
+export type ListDistributionsCommandOutput = ListDistributionsResult & __MetadataBearer;
 
 export class ListDistributionsCommand extends $Command<
   ListDistributionsCommandInput,
@@ -50,9 +46,7 @@ export class ListDistributionsCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDistributionsCommandInput, ListDistributionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

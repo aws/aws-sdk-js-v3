@@ -1,12 +1,5 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  GetNotificationChannelRequest,
-  GetNotificationChannelResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetNotificationChannelCommand,
   serializeAws_json1_1GetNotificationChannelCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetNotificationChannelCommandInput = GetNotificationChannelRequest;
-export type GetNotificationChannelCommandOutput = GetNotificationChannelResponse &
-  __MetadataBearer;
+export type GetNotificationChannelCommandOutput = GetNotificationChannelResponse & __MetadataBearer;
 
 export class GetNotificationChannelCommand extends $Command<
   GetNotificationChannelCommandInput,
@@ -49,13 +41,8 @@ export class GetNotificationChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetNotificationChannelCommandInput,
-    GetNotificationChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetNotificationChannelCommandInput, GetNotificationChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

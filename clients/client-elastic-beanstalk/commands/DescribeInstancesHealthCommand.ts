@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  DescribeInstancesHealthRequest,
-  DescribeInstancesHealthResult
-} from "../models/index";
+import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/index";
 import {
   deserializeAws_queryDescribeInstancesHealthCommand,
   serializeAws_queryDescribeInstancesHealthCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInstancesHealthCommandInput = DescribeInstancesHealthRequest;
-export type DescribeInstancesHealthCommandOutput = DescribeInstancesHealthResult &
-  __MetadataBearer;
+export type DescribeInstancesHealthCommandOutput = DescribeInstancesHealthResult & __MetadataBearer;
 
 export class DescribeInstancesHealthCommand extends $Command<
   DescribeInstancesHealthCommandInput,
@@ -49,13 +45,8 @@ export class DescribeInstancesHealthCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstancesHealthCommandInput,
-    DescribeInstancesHealthCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstancesHealthCommandInput, DescribeInstancesHealthCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

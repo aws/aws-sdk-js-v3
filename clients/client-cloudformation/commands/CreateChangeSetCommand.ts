@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateChangeSetCommandInput = CreateChangeSetInput;
-export type CreateChangeSetCommandOutput = CreateChangeSetOutput &
-  __MetadataBearer;
+export type CreateChangeSetCommandOutput = CreateChangeSetOutput & __MetadataBearer;
 
 export class CreateChangeSetCommand extends $Command<
   CreateChangeSetCommandInput,
@@ -47,9 +46,7 @@ export class CreateChangeSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateChangeSetCommandInput, CreateChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

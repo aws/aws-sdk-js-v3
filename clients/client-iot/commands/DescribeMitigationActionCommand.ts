@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeMitigationActionRequest,
-  DescribeMitigationActionResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeMitigationActionRequest, DescribeMitigationActionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeMitigationActionCommand,
   serializeAws_restJson1_1DescribeMitigationActionCommand
@@ -49,13 +42,8 @@ export class DescribeMitigationActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMitigationActionCommandInput,
-    DescribeMitigationActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMitigationActionCommandInput, DescribeMitigationActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DescribeMitigationActionCommand extends $Command<
     input: DescribeMitigationActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMitigationActionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeMitigationActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMitigationActionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMitigationActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

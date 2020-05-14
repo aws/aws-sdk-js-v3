@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  CreateProvisioningArtifactInput,
-  CreateProvisioningArtifactOutput
-} from "../models/index";
+import { CreateProvisioningArtifactInput, CreateProvisioningArtifactOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateProvisioningArtifactCommand,
   serializeAws_json1_1CreateProvisioningArtifactCommand
@@ -49,13 +46,8 @@ export class CreateProvisioningArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProvisioningArtifactCommandInput,
-    CreateProvisioningArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProvisioningArtifactCommandInput, CreateProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class CreateProvisioningArtifactCommand extends $Command<
     input: CreateProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1CreateProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

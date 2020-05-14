@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBackupVaultsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBackupVaultsCommandInput = ListBackupVaultsInput;
-export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput &
-  __MetadataBearer;
+export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput & __MetadataBearer;
 
 export class ListBackupVaultsCommand extends $Command<
   ListBackupVaultsCommandInput,
@@ -47,9 +42,7 @@ export class ListBackupVaultsCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

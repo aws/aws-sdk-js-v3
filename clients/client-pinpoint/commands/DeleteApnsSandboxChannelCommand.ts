@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteApnsSandboxChannelRequest,
-  DeleteApnsSandboxChannelResponse
-} from "../models/index";
+import { DeleteApnsSandboxChannelRequest, DeleteApnsSandboxChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteApnsSandboxChannelCommand,
   serializeAws_restJson1_1DeleteApnsSandboxChannelCommand
@@ -49,13 +46,8 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApnsSandboxChannelCommandInput,
-    DeleteApnsSandboxChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApnsSandboxChannelCommandInput, DeleteApnsSandboxChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
     input: DeleteApnsSandboxChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApnsSandboxChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteApnsSandboxChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApnsSandboxChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApnsSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

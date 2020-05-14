@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteProfileCommandInput = DeleteProfileRequest;
-export type DeleteProfileCommandOutput = DeleteProfileResponse &
-  __MetadataBearer;
+export type DeleteProfileCommandOutput = DeleteProfileResponse & __MetadataBearer;
 
 export class DeleteProfileCommand extends $Command<
   DeleteProfileCommandInput,
@@ -47,9 +46,7 @@ export class DeleteProfileCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteProfileCommandInput, DeleteProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

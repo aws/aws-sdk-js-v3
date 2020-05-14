@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribeAvailablePatchesRequest,
-  DescribeAvailablePatchesResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAvailablePatchesCommand,
   serializeAws_json1_1DescribeAvailablePatchesCommand
@@ -49,13 +42,8 @@ export class DescribeAvailablePatchesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAvailablePatchesCommandInput,
-    DescribeAvailablePatchesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAvailablePatchesCommandInput, DescribeAvailablePatchesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeAvailablePatchesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailablePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailablePatchesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAvailablePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

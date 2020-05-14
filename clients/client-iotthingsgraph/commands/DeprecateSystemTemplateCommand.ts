@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  DeprecateSystemTemplateRequest,
-  DeprecateSystemTemplateResponse
-} from "../models/index";
+import { DeprecateSystemTemplateRequest, DeprecateSystemTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeprecateSystemTemplateCommand,
   serializeAws_json1_1DeprecateSystemTemplateCommand
@@ -49,13 +46,8 @@ export class DeprecateSystemTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeprecateSystemTemplateCommandInput,
-    DeprecateSystemTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeprecateSystemTemplateCommandInput, DeprecateSystemTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeprecateSystemTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeprecateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1DeprecateSystemTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeprecateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

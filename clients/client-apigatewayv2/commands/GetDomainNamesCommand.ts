@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDomainNamesCommandInput = GetDomainNamesRequest;
-export type GetDomainNamesCommandOutput = GetDomainNamesResponse &
-  __MetadataBearer;
+export type GetDomainNamesCommandOutput = GetDomainNamesResponse & __MetadataBearer;
 
 export class GetDomainNamesCommand extends $Command<
   GetDomainNamesCommandInput,
@@ -47,9 +46,7 @@ export class GetDomainNamesCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDomainNamesCommandInput, GetDomainNamesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

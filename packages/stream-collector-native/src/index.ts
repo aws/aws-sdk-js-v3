@@ -2,9 +2,7 @@ import { StreamCollector } from "@aws-sdk/types";
 import { fromBase64 } from "@aws-sdk/util-base64-browser";
 
 //reference: https://snack.expo.io/r1JCSWRGU
-export const streamCollector: StreamCollector = (
-  stream: Blob
-): Promise<Uint8Array> => {
+export const streamCollector: StreamCollector = (stream: Blob): Promise<Uint8Array> => {
   return readToBase64(stream)
     .then(base64 => fromBase64(base64))
     .then(arrayBuffer => new Uint8Array(arrayBuffer));

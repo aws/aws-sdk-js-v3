@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchGetDevEndpointsRequest,
-  BatchGetDevEndpointsResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchGetDevEndpointsRequest, BatchGetDevEndpointsResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetDevEndpointsCommand,
   serializeAws_json1_1BatchGetDevEndpointsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetDevEndpointsCommandInput = BatchGetDevEndpointsRequest;
-export type BatchGetDevEndpointsCommandOutput = BatchGetDevEndpointsResponse &
-  __MetadataBearer;
+export type BatchGetDevEndpointsCommandOutput = BatchGetDevEndpointsResponse & __MetadataBearer;
 
 export class BatchGetDevEndpointsCommand extends $Command<
   BatchGetDevEndpointsCommandInput,
@@ -49,13 +41,8 @@ export class BatchGetDevEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetDevEndpointsCommandInput,
-    BatchGetDevEndpointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetDevEndpointsCommandInput, BatchGetDevEndpointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

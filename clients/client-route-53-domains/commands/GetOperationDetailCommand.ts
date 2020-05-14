@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  GetOperationDetailRequest,
-  GetOperationDetailResponse
-} from "../models/index";
+import { GetOperationDetailRequest, GetOperationDetailResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetOperationDetailCommand,
   serializeAws_json1_1GetOperationDetailCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetOperationDetailCommandInput = GetOperationDetailRequest;
-export type GetOperationDetailCommandOutput = GetOperationDetailResponse &
-  __MetadataBearer;
+export type GetOperationDetailCommandOutput = GetOperationDetailResponse & __MetadataBearer;
 
 export class GetOperationDetailCommand extends $Command<
   GetOperationDetailCommandInput,
@@ -50,9 +46,7 @@ export class GetOperationDetailCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOperationDetailCommandInput, GetOperationDetailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

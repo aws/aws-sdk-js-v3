@@ -46,9 +46,7 @@ export class DeleteFlowCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFlowCommandInput, DeleteFlowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

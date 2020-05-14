@@ -238,9 +238,7 @@ export class signer extends signerClient {
   ): void;
   public listSigningJobs(
     args: ListSigningJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSigningJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSigningJobsCommandOutput) => void),
     cb?: (err: any, data?: ListSigningJobsCommandOutput) => void
   ): Promise<ListSigningJobsCommandOutput> | void {
     const command = new ListSigningJobsCommand(args);
@@ -457,9 +455,7 @@ export class signer extends signerClient {
   ): void;
   public startSigningJob(
     args: StartSigningJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSigningJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSigningJobCommandOutput) => void),
     cb?: (err: any, data?: StartSigningJobCommandOutput) => void
   ): Promise<StartSigningJobCommandOutput> | void {
     const command = new StartSigningJobCommand(args);
@@ -497,9 +493,7 @@ export class signer extends signerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -534,9 +528,7 @@ export class signer extends signerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

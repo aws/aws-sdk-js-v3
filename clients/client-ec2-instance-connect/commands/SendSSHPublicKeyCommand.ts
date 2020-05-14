@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2InstanceConnectClient";
-import {
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyResponse
-} from "../models/index";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/index";
 import {
   deserializeAws_json1_1SendSSHPublicKeyCommand,
   serializeAws_json1_1SendSSHPublicKeyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendSSHPublicKeyCommandInput = SendSSHPublicKeyRequest;
-export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse &
-  __MetadataBearer;
+export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse & __MetadataBearer;
 
 export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandInput,
@@ -50,9 +46,7 @@ export class SendSSHPublicKeyCommand extends $Command<
     configuration: EC2InstanceConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

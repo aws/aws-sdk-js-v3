@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  CancelSchemaExtensionRequest,
-  CancelSchemaExtensionResult
-} from "../models/index";
+import { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/index";
 import {
   deserializeAws_json1_1CancelSchemaExtensionCommand,
   serializeAws_json1_1CancelSchemaExtensionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelSchemaExtensionCommandInput = CancelSchemaExtensionRequest;
-export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult &
-  __MetadataBearer;
+export type CancelSchemaExtensionCommandOutput = CancelSchemaExtensionResult & __MetadataBearer;
 
 export class CancelSchemaExtensionCommand extends $Command<
   CancelSchemaExtensionCommandInput,
@@ -49,13 +45,8 @@ export class CancelSchemaExtensionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSchemaExtensionCommandInput,
-    CancelSchemaExtensionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSchemaExtensionCommandInput, CancelSchemaExtensionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

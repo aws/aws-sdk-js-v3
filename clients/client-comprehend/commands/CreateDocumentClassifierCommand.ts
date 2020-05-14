@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  CreateDocumentClassifierRequest,
-  CreateDocumentClassifierResponse
-} from "../models/index";
+import { CreateDocumentClassifierRequest, CreateDocumentClassifierResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDocumentClassifierCommand,
   serializeAws_json1_1CreateDocumentClassifierCommand
@@ -49,13 +46,8 @@ export class CreateDocumentClassifierCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDocumentClassifierCommandInput,
-    CreateDocumentClassifierCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDocumentClassifierCommandInput, CreateDocumentClassifierCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateDocumentClassifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1CreateDocumentClassifierCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

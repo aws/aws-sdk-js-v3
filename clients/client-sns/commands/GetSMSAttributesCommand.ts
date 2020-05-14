@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetSMSAttributesInput,
-  GetSMSAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetSMSAttributesInput, GetSMSAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetSMSAttributesCommand,
   serializeAws_queryGetSMSAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSMSAttributesCommandInput = GetSMSAttributesInput;
-export type GetSMSAttributesCommandOutput = GetSMSAttributesResponse &
-  __MetadataBearer;
+export type GetSMSAttributesCommandOutput = GetSMSAttributesResponse & __MetadataBearer;
 
 export class GetSMSAttributesCommand extends $Command<
   GetSMSAttributesCommandInput,
@@ -50,9 +42,7 @@ export class GetSMSAttributesCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

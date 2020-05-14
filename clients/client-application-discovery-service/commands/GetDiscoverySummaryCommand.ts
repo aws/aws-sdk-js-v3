@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  GetDiscoverySummaryRequest,
-  GetDiscoverySummaryResponse
-} from "../models/index";
+import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDiscoverySummaryCommand,
   serializeAws_json1_1GetDiscoverySummaryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDiscoverySummaryCommandInput = GetDiscoverySummaryRequest;
-export type GetDiscoverySummaryCommandOutput = GetDiscoverySummaryResponse &
-  __MetadataBearer;
+export type GetDiscoverySummaryCommandOutput = GetDiscoverySummaryResponse & __MetadataBearer;
 
 export class GetDiscoverySummaryCommand extends $Command<
   GetDiscoverySummaryCommandInput,
@@ -49,13 +45,8 @@ export class GetDiscoverySummaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDiscoverySummaryCommandInput,
-    GetDiscoverySummaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDiscoverySummaryCommandInput, GetDiscoverySummaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

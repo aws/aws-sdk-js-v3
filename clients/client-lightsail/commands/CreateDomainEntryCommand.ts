@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  CreateDomainEntryRequest,
-  CreateDomainEntryResult
-} from "../models/index";
+import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDomainEntryCommand,
   serializeAws_json1_1CreateDomainEntryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDomainEntryCommandInput = CreateDomainEntryRequest;
-export type CreateDomainEntryCommandOutput = CreateDomainEntryResult &
-  __MetadataBearer;
+export type CreateDomainEntryCommandOutput = CreateDomainEntryResult & __MetadataBearer;
 
 export class CreateDomainEntryCommand extends $Command<
   CreateDomainEntryCommandInput,
@@ -50,9 +46,7 @@ export class CreateDomainEntryCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

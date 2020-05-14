@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationResponse
-} from "../models/index";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateApplicationCommand,
   serializeAws_json1_1UpdateApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApplicationCommandInput = UpdateApplicationRequest;
-export type UpdateApplicationCommandOutput = UpdateApplicationResponse &
-  __MetadataBearer;
+export type UpdateApplicationCommandOutput = UpdateApplicationResponse & __MetadataBearer;
 
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
@@ -50,9 +46,7 @@ export class UpdateApplicationCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UntagResourcesCommandInput = UntagResourcesInput;
-export type UntagResourcesCommandOutput = UntagResourcesOutput &
-  __MetadataBearer;
+export type UntagResourcesCommandOutput = UntagResourcesOutput & __MetadataBearer;
 
 export class UntagResourcesCommand extends $Command<
   UntagResourcesCommandInput,
@@ -47,9 +46,7 @@ export class UntagResourcesCommand extends $Command<
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagResourcesCommandInput, UntagResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  GetIntegrationResponseRequest,
-  GetIntegrationResponseResponse
-} from "../models/index";
+import { GetIntegrationResponseRequest, GetIntegrationResponseResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntegrationResponseCommand,
   serializeAws_restJson1_1GetIntegrationResponseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIntegrationResponseCommandInput = GetIntegrationResponseRequest;
-export type GetIntegrationResponseCommandOutput = GetIntegrationResponseResponse &
-  __MetadataBearer;
+export type GetIntegrationResponseCommandOutput = GetIntegrationResponseResponse & __MetadataBearer;
 
 export class GetIntegrationResponseCommand extends $Command<
   GetIntegrationResponseCommandInput,
@@ -49,13 +45,8 @@ export class GetIntegrationResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIntegrationResponseCommandInput,
-    GetIntegrationResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIntegrationResponseCommandInput, GetIntegrationResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetIntegrationResponseCommand extends $Command<
     input: GetIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntegrationResponseCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetIntegrationResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1GetIntegrationResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -45,13 +45,8 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class ListTagsForResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_restJson1_1ListTagsForResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

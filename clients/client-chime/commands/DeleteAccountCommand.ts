@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteAccountRequest, DeleteAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteAccountCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAccountCommandInput = DeleteAccountRequest;
-export type DeleteAccountCommandOutput = DeleteAccountResponse &
-  __MetadataBearer;
+export type DeleteAccountCommandOutput = DeleteAccountResponse & __MetadataBearer;
 
 export class DeleteAccountCommand extends $Command<
   DeleteAccountCommandInput,
@@ -47,9 +42,7 @@ export class DeleteAccountCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAccountCommandInput, DeleteAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

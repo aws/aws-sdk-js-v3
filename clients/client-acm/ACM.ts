@@ -265,9 +265,7 @@ export class ACM extends ACMClient {
   ): void;
   public getCertificate(
     args: GetCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetCertificateCommandOutput) => void
   ): Promise<GetCertificateCommandOutput> | void {
     const command = new GetCertificateCommand(args);
@@ -406,9 +404,7 @@ export class ACM extends ACMClient {
   ): void;
   public listCertificates(
     args: ListCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificatesCommandOutput) => void
   ): Promise<ListCertificatesCommandOutput> | void {
     const command = new ListCertificatesCommand(args);
@@ -523,9 +519,7 @@ export class ACM extends ACMClient {
   ): void;
   public renewCertificate(
     args: RenewCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewCertificateCommandOutput) => void),
     cb?: (err: any, data?: RenewCertificateCommandOutput) => void
   ): Promise<RenewCertificateCommandOutput> | void {
     const command = new RenewCertificateCommand(args);

@@ -2,10 +2,7 @@ import {
   CreateOutpostCommandInput,
   CreateOutpostCommandOutput
 } from "../commands/CreateOutpostCommand";
-import {
-  GetOutpostCommandInput,
-  GetOutpostCommandOutput
-} from "../commands/GetOutpostCommand";
+import { GetOutpostCommandInput, GetOutpostCommandOutput } from "../commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput
@@ -14,10 +11,7 @@ import {
   ListOutpostsCommandInput,
   ListOutpostsCommandOutput
 } from "../commands/ListOutpostsCommand";
-import {
-  ListSitesCommandInput,
-  ListSitesCommandOutput
-} from "../commands/ListSitesCommand";
+import { ListSitesCommandInput, ListSitesCommandOutput } from "../commands/ListSitesCommand";
 import {
   AccessDeniedException,
   InstanceTypeItem,
@@ -88,10 +82,7 @@ export const serializeAws_restJson1_1GetOutpostCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OutpostId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OutpostId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
@@ -121,10 +112,7 @@ export const serializeAws_restJson1_1GetOutpostInstanceTypesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OutpostId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OutpostId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
@@ -238,10 +226,7 @@ const deserializeAws_restJson1_1CreateOutpostCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -249,10 +234,7 @@ const deserializeAws_restJson1_1CreateOutpostCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -260,10 +242,7 @@ const deserializeAws_restJson1_1CreateOutpostCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -282,10 +261,7 @@ const deserializeAws_restJson1_1CreateOutpostCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -341,10 +317,7 @@ const deserializeAws_restJson1_1GetOutpostCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -352,10 +325,7 @@ const deserializeAws_restJson1_1GetOutpostCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -363,10 +333,7 @@ const deserializeAws_restJson1_1GetOutpostCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -374,10 +341,7 @@ const deserializeAws_restJson1_1GetOutpostCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -404,10 +368,7 @@ export const deserializeAws_restJson1_1GetOutpostInstanceTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetOutpostInstanceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(output, context);
   }
   const contents: GetOutpostInstanceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -451,10 +412,7 @@ const deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -462,10 +420,7 @@ const deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -473,10 +428,7 @@ const deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.outposts.olaf.service.model#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -484,10 +436,7 @@ const deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -527,10 +476,7 @@ export const deserializeAws_restJson1_1ListOutpostsCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Outposts !== undefined && data.Outposts !== null) {
-    contents.Outposts = deserializeAws_restJson1_1outpostListDefinition(
-      data.Outposts,
-      context
-    );
+    contents.Outposts = deserializeAws_restJson1_1outpostListDefinition(data.Outposts, context);
   }
   return Promise.resolve(contents);
 };
@@ -550,10 +496,7 @@ const deserializeAws_restJson1_1ListOutpostsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -561,10 +504,7 @@ const deserializeAws_restJson1_1ListOutpostsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -572,10 +512,7 @@ const deserializeAws_restJson1_1ListOutpostsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -615,10 +552,7 @@ export const deserializeAws_restJson1_1ListSitesCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Sites !== undefined && data.Sites !== null) {
-    contents.Sites = deserializeAws_restJson1_1siteListDefinition(
-      data.Sites,
-      context
-    );
+    contents.Sites = deserializeAws_restJson1_1siteListDefinition(data.Sites, context);
   }
   return Promise.resolve(contents);
 };
@@ -638,10 +572,7 @@ const deserializeAws_restJson1_1ListSitesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.outposts.olaf.service.model#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -649,10 +580,7 @@ const deserializeAws_restJson1_1ListSitesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.outposts.olaf.service.model#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -660,10 +588,7 @@ const deserializeAws_restJson1_1ListSitesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts.olaf.service.model#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -792,10 +717,7 @@ const deserializeAws_restJson1_1InstanceTypeListDefinition = (
   );
 };
 
-const deserializeAws_restJson1_1Outpost = (
-  output: any,
-  context: __SerdeContext
-): Outpost => {
+const deserializeAws_restJson1_1Outpost = (output: any, context: __SerdeContext): Outpost => {
   return {
     __type: "Outpost",
     AvailabilityZone:
@@ -803,8 +725,7 @@ const deserializeAws_restJson1_1Outpost = (
         ? output.AvailabilityZone
         : undefined,
     AvailabilityZoneId:
-      output.AvailabilityZoneId !== undefined &&
-      output.AvailabilityZoneId !== null
+      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
         ? output.AvailabilityZoneId
         : undefined,
     Description:
@@ -815,51 +736,27 @@ const deserializeAws_restJson1_1Outpost = (
       output.LifeCycleStatus !== undefined && output.LifeCycleStatus !== null
         ? output.LifeCycleStatus
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OutpostArn:
-      output.OutpostArn !== undefined && output.OutpostArn !== null
-        ? output.OutpostArn
-        : undefined,
+      output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
     OutpostId:
-      output.OutpostId !== undefined && output.OutpostId !== null
-        ? output.OutpostId
-        : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined,
-    SiteId:
-      output.SiteId !== undefined && output.SiteId !== null
-        ? output.SiteId
-        : undefined
+      output.OutpostId !== undefined && output.OutpostId !== null ? output.OutpostId : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Site = (
-  output: any,
-  context: __SerdeContext
-): Site => {
+const deserializeAws_restJson1_1Site = (output: any, context: __SerdeContext): Site => {
   return {
     __type: "Site",
     AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+      output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
         ? output.Description
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    SiteId:
-      output.SiteId !== undefined && output.SiteId !== null
-        ? output.SiteId
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined
   } as any;
 };
 
@@ -867,18 +764,14 @@ const deserializeAws_restJson1_1outpostListDefinition = (
   output: any,
   context: __SerdeContext
 ): Outpost[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Outpost(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Outpost(entry, context));
 };
 
 const deserializeAws_restJson1_1siteListDefinition = (
   output: any,
   context: __SerdeContext
 ): Site[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Site(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Site(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -895,23 +788,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -49,13 +49,8 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSkillWithSkillGroupCommandInput,
-    AssociateSkillWithSkillGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSkillWithSkillGroupCommandInput, AssociateSkillWithSkillGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     input: AssociateSkillWithSkillGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillWithSkillGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

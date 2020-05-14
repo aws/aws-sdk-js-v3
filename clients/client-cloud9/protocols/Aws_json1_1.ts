@@ -93,9 +93,7 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateEnvironmentEC2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -105,13 +103,10 @@ export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -124,9 +119,7 @@ export const serializeAws_json1_1DeleteEnvironmentCommand = async (
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteEnvironmentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -136,13 +129,10 @@ export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -152,13 +142,10 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships"
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -168,13 +155,10 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,9 +171,7 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -202,9 +184,7 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListEnvironments"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListEnvironmentsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListEnvironmentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -217,9 +197,7 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
     "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateEnvironmentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -229,13 +207,10 @@ export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership"
+    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -244,10 +219,7 @@ export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   context: __SerdeContext
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateEnvironmentEC2CommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEnvironmentEC2CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -271,16 +243,12 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -288,10 +256,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -299,10 +264,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -321,10 +283,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -332,10 +291,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -343,10 +299,7 @@ const deserializeAws_json1_1CreateEnvironmentEC2CommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -373,17 +326,11 @@ export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(data, context);
   const response: CreateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEnvironmentMembershipResult",
@@ -403,16 +350,12 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -420,10 +363,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -431,10 +371,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -453,10 +390,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -464,10 +398,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -475,10 +406,7 @@ const deserializeAws_json1_1CreateEnvironmentMembershipCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -529,16 +457,12 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -546,10 +470,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -557,10 +478,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -579,10 +497,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -590,10 +505,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -601,10 +513,7 @@ const deserializeAws_json1_1DeleteEnvironmentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -631,17 +540,11 @@ export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(data, context);
   const response: DeleteEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEnvironmentMembershipResult",
@@ -661,16 +564,12 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -678,10 +577,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -689,10 +585,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -711,10 +604,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -722,10 +612,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -733,10 +620,7 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -763,17 +647,11 @@ export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async
   context: __SerdeContext
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(data, context);
   const response: DescribeEnvironmentMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEnvironmentMembershipsResult",
@@ -793,16 +671,12 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -810,10 +684,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -821,10 +692,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -843,10 +711,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -854,10 +719,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -865,10 +727,7 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -895,17 +754,11 @@ export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(data, context);
   const response: DescribeEnvironmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEnvironmentStatusResult",
@@ -925,16 +778,12 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -942,10 +791,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -953,10 +799,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -975,10 +818,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -986,10 +826,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -997,10 +834,7 @@ const deserializeAws_json1_1DescribeEnvironmentStatusCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1027,10 +861,7 @@ export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEnvironmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1054,16 +885,12 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1071,10 +898,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1082,10 +906,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1104,10 +925,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1115,10 +933,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1126,10 +941,7 @@ const deserializeAws_json1_1DescribeEnvironmentsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1180,16 +992,12 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1197,10 +1005,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1208,10 +1013,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1230,10 +1032,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1241,10 +1040,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1252,10 +1048,7 @@ const deserializeAws_json1_1ListEnvironmentsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1306,16 +1099,12 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1323,10 +1112,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1334,10 +1120,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1356,10 +1139,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1367,10 +1147,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1378,10 +1155,7 @@ const deserializeAws_json1_1UpdateEnvironmentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1408,17 +1182,11 @@ export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(data, context);
   const response: UpdateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEnvironmentMembershipResult",
@@ -1438,16 +1206,12 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.AWSCloud9WorkspaceManagement#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1455,10 +1219,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     case "ConflictException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1466,10 +1227,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     case "ForbiddenException":
     case "com.amazon.AWSCloud9WorkspaceManagement#ForbiddenException":
       response = {
-        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1488,10 +1246,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     case "LimitExceededException":
     case "com.amazon.AWSCloud9WorkspaceManagement#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1499,10 +1254,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     case "NotFoundException":
     case "com.amazon.AWSCloud9WorkspaceManagement#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1510,10 +1262,7 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipCommandError = async (
     case "TooManyRequestsException":
     case "com.amazon.AWSCloud9WorkspaceManagement#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1540,10 +1289,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
@@ -1558,10 +1304,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
@@ -1576,10 +1319,7 @@ const deserializeAws_json1_1ForbiddenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ForbiddenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ForbiddenException(body, context);
   const contents: ForbiddenException = {
     name: "ForbiddenException",
     $fault: "client",
@@ -1594,10 +1334,7 @@ const deserializeAws_json1_1InternalServerErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerErrorException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerErrorException(body, context);
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
@@ -1612,10 +1349,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -1630,10 +1364,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
@@ -1648,10 +1379,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
@@ -1736,10 +1464,7 @@ const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.permissions !== undefined && {
-      permissions: serializeAws_json1_1PermissionsList(
-        input.permissions,
-        context
-      )
+      permissions: serializeAws_json1_1PermissionsList(input.permissions, context)
     }),
     ...(input.userArn !== undefined && { userArn: input.userArn })
   };
@@ -1762,10 +1487,7 @@ const serializeAws_json1_1DescribeEnvironmentsRequest = (
 ): any => {
   return {
     ...(input.environmentIds !== undefined && {
-      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(
-        input.environmentIds,
-        context
-      )
+      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(input.environmentIds, context)
     })
   };
 };
@@ -1820,17 +1542,9 @@ const deserializeAws_json1_1BadRequestException = (
   return {
     __type: "BadRequestException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -1841,17 +1555,9 @@ const deserializeAws_json1_1ConflictException = (
   return {
     __type: "ConflictException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -1907,15 +1613,10 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
     __type: "DescribeEnvironmentMembershipsResult",
     memberships:
       output.memberships !== undefined && output.memberships !== null
-        ? deserializeAws_json1_1EnvironmentMembersList(
-            output.memberships,
-            context
-          )
+        ? deserializeAws_json1_1EnvironmentMembersList(output.memberships, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -1925,14 +1626,8 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
 ): DescribeEnvironmentStatusResult => {
   return {
     __type: "DescribeEnvironmentStatusResult",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -1949,14 +1644,10 @@ const deserializeAws_json1_1DescribeEnvironmentsResult = (
   } as any;
 };
 
-const deserializeAws_json1_1Environment = (
-  output: any,
-  context: __SerdeContext
-): Environment => {
+const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     __type: "Environment",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     description:
       output.description !== undefined && output.description !== null
         ? output.description
@@ -1966,18 +1657,10 @@ const deserializeAws_json1_1Environment = (
       output.lifecycle !== undefined && output.lifecycle !== null
         ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     ownerArn:
-      output.ownerArn !== undefined && output.ownerArn !== null
-        ? output.ownerArn
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+      output.ownerArn !== undefined && output.ownerArn !== null ? output.ownerArn : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -1998,14 +1681,8 @@ const deserializeAws_json1_1EnvironmentLifecycle = (
       output.failureResource !== undefined && output.failureResource !== null
         ? output.failureResource
         : undefined,
-    reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -2013,9 +1690,7 @@ const deserializeAws_json1_1EnvironmentList = (
   output: any,
   context: __SerdeContext
 ): Environment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Environment(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Environment(entry, context));
 };
 
 const deserializeAws_json1_1EnvironmentMember = (
@@ -2036,14 +1711,8 @@ const deserializeAws_json1_1EnvironmentMember = (
       output.permissions !== undefined && output.permissions !== null
         ? output.permissions
         : undefined,
-    userArn:
-      output.userArn !== undefined && output.userArn !== null
-        ? output.userArn
-        : undefined,
-    userId:
-      output.userId !== undefined && output.userId !== null
-        ? output.userId
-        : undefined
+    userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
+    userId: output.userId !== undefined && output.userId !== null ? output.userId : undefined
   } as any;
 };
 
@@ -2063,17 +1732,9 @@ const deserializeAws_json1_1ForbiddenException = (
   return {
     __type: "ForbiddenException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2084,17 +1745,9 @@ const deserializeAws_json1_1InternalServerErrorException = (
   return {
     __type: "InternalServerErrorException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2105,17 +1758,9 @@ const deserializeAws_json1_1LimitExceededException = (
   return {
     __type: "LimitExceededException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2127,15 +1772,10 @@ const deserializeAws_json1_1ListEnvironmentsResult = (
     __type: "ListEnvironmentsResult",
     environmentIds:
       output.environmentIds !== undefined && output.environmentIds !== null
-        ? deserializeAws_json1_1EnvironmentIdList(
-            output.environmentIds,
-            context
-          )
+        ? deserializeAws_json1_1EnvironmentIdList(output.environmentIds, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -2146,17 +1786,9 @@ const deserializeAws_json1_1NotFoundException = (
   return {
     __type: "NotFoundException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2167,17 +1799,9 @@ const deserializeAws_json1_1TooManyRequestsException = (
   return {
     __type: "TooManyRequestsException",
     className:
-      output.className !== undefined && output.className !== null
-        ? output.className
-        : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+      output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2217,16 +1841,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

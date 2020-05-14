@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  StopMonitoringMembersRequest,
-  StopMonitoringMembersResponse
-} from "../models/index";
+import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StopMonitoringMembersCommand,
   serializeAws_restJson1_1StopMonitoringMembersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopMonitoringMembersCommandInput = StopMonitoringMembersRequest;
-export type StopMonitoringMembersCommandOutput = StopMonitoringMembersResponse &
-  __MetadataBearer;
+export type StopMonitoringMembersCommandOutput = StopMonitoringMembersResponse & __MetadataBearer;
 
 export class StopMonitoringMembersCommand extends $Command<
   StopMonitoringMembersCommandInput,
@@ -49,13 +45,8 @@ export class StopMonitoringMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopMonitoringMembersCommandInput,
-    StopMonitoringMembersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopMonitoringMembersCommandInput, StopMonitoringMembersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class StopMonitoringMembersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopMonitoringMembersCommandOutput> {
-    return deserializeAws_restJson1_1StopMonitoringMembersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StopMonitoringMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

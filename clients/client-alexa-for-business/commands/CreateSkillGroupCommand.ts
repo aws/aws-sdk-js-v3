@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  CreateSkillGroupRequest,
-  CreateSkillGroupResponse
-} from "../models/index";
+import { CreateSkillGroupRequest, CreateSkillGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSkillGroupCommand,
   serializeAws_json1_1CreateSkillGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSkillGroupCommandInput = CreateSkillGroupRequest;
-export type CreateSkillGroupCommandOutput = CreateSkillGroupResponse &
-  __MetadataBearer;
+export type CreateSkillGroupCommandOutput = CreateSkillGroupResponse & __MetadataBearer;
 
 export class CreateSkillGroupCommand extends $Command<
   CreateSkillGroupCommandInput,
@@ -50,9 +46,7 @@ export class CreateSkillGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSkillGroupCommandInput, CreateSkillGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

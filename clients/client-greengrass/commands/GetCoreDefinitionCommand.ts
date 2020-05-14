@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetCoreDefinitionRequest,
-  GetCoreDefinitionResponse
-} from "../models/index";
+import { GetCoreDefinitionRequest, GetCoreDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCoreDefinitionCommand,
   serializeAws_restJson1_1GetCoreDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCoreDefinitionCommandInput = GetCoreDefinitionRequest;
-export type GetCoreDefinitionCommandOutput = GetCoreDefinitionResponse &
-  __MetadataBearer;
+export type GetCoreDefinitionCommandOutput = GetCoreDefinitionResponse & __MetadataBearer;
 
 export class GetCoreDefinitionCommand extends $Command<
   GetCoreDefinitionCommandInput,
@@ -50,9 +46,7 @@ export class GetCoreDefinitionCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

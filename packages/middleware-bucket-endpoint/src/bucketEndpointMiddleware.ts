@@ -52,8 +52,7 @@ export function bucketEndpointMiddleware(
   };
 }
 
-export const bucketEndpointMiddlewareOptions: BuildHandlerOptions &
-  RelativeLocation<any, any> = {
+export const bucketEndpointMiddlewareOptions: BuildHandlerOptions & RelativeLocation<any, any> = {
   step: "build",
   tags: ["BUCKET_ENDPOINT"],
   name: "bucketEndpointMiddleware",
@@ -65,9 +64,6 @@ export const getBucketEndpointPlugin = (
   options: BucketEndpointResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.addRelativeTo(
-      bucketEndpointMiddleware(options),
-      bucketEndpointMiddlewareOptions
-    );
+    clientStack.addRelativeTo(bucketEndpointMiddleware(options), bucketEndpointMiddlewareOptions);
   }
 });

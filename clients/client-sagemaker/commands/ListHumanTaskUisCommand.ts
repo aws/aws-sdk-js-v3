@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListHumanTaskUisRequest,
-  ListHumanTaskUisResponse
-} from "../models/index";
+import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHumanTaskUisCommand,
   serializeAws_json1_1ListHumanTaskUisCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHumanTaskUisCommandInput = ListHumanTaskUisRequest;
-export type ListHumanTaskUisCommandOutput = ListHumanTaskUisResponse &
-  __MetadataBearer;
+export type ListHumanTaskUisCommandOutput = ListHumanTaskUisResponse & __MetadataBearer;
 
 export class ListHumanTaskUisCommand extends $Command<
   ListHumanTaskUisCommandInput,
@@ -50,9 +46,7 @@ export class ListHumanTaskUisCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingPlansClient";
-import {
-  DeleteScalingPlanRequest,
-  DeleteScalingPlanResponse
-} from "../models/index";
+import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteScalingPlanCommand,
   serializeAws_json1_1DeleteScalingPlanCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteScalingPlanCommandInput = DeleteScalingPlanRequest;
-export type DeleteScalingPlanCommandOutput = DeleteScalingPlanResponse &
-  __MetadataBearer;
+export type DeleteScalingPlanCommandOutput = DeleteScalingPlanResponse & __MetadataBearer;
 
 export class DeleteScalingPlanCommand extends $Command<
   DeleteScalingPlanCommandInput,
@@ -50,9 +46,7 @@ export class DeleteScalingPlanCommand extends $Command<
     configuration: AutoScalingPlansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteScalingPlanCommandInput, DeleteScalingPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

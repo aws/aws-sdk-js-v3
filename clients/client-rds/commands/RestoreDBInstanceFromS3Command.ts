@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  RestoreDBInstanceFromS3Message,
-  RestoreDBInstanceFromS3Result
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/index";
 import {
   deserializeAws_queryRestoreDBInstanceFromS3Command,
   serializeAws_queryRestoreDBInstanceFromS3Command
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
-export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result &
-  __MetadataBearer;
+export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result & __MetadataBearer;
 
 export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandInput,
@@ -49,13 +41,8 @@ export class RestoreDBInstanceFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBInstanceFromS3CommandInput,
-    RestoreDBInstanceFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBInstanceFromS3CommandInput, RestoreDBInstanceFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

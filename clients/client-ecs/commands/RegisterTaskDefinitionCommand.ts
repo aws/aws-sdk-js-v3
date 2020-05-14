@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  RegisterTaskDefinitionRequest,
-  RegisterTaskDefinitionResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterTaskDefinitionCommand,
   serializeAws_json1_1RegisterTaskDefinitionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterTaskDefinitionCommandInput = RegisterTaskDefinitionRequest;
-export type RegisterTaskDefinitionCommandOutput = RegisterTaskDefinitionResponse &
-  __MetadataBearer;
+export type RegisterTaskDefinitionCommandOutput = RegisterTaskDefinitionResponse & __MetadataBearer;
 
 export class RegisterTaskDefinitionCommand extends $Command<
   RegisterTaskDefinitionCommandInput,
@@ -49,13 +41,8 @@ export class RegisterTaskDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterTaskDefinitionCommandInput,
-    RegisterTaskDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterTaskDefinitionCommandInput, RegisterTaskDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

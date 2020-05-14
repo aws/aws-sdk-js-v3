@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  DeleteSourceCredentialsInput,
-  DeleteSourceCredentialsOutput
-} from "../models/index";
+import { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSourceCredentialsCommand,
   serializeAws_json1_1DeleteSourceCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSourceCredentialsCommandInput = DeleteSourceCredentialsInput;
-export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput &
-  __MetadataBearer;
+export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput & __MetadataBearer;
 
 export class DeleteSourceCredentialsCommand extends $Command<
   DeleteSourceCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class DeleteSourceCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSourceCredentialsCommandInput,
-    DeleteSourceCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSourceCredentialsCommandInput, DeleteSourceCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteSourceCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSourceCredentialsCommandOutput> {
-    return deserializeAws_json1_1DeleteSourceCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSourceCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

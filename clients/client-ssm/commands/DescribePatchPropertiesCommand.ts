@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribePatchPropertiesRequest,
-  DescribePatchPropertiesResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribePatchPropertiesRequest, DescribePatchPropertiesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribePatchPropertiesCommand,
   serializeAws_json1_1DescribePatchPropertiesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePatchPropertiesCommandInput = DescribePatchPropertiesRequest;
-export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult &
-  __MetadataBearer;
+export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult & __MetadataBearer;
 
 export class DescribePatchPropertiesCommand extends $Command<
   DescribePatchPropertiesCommandInput,
@@ -49,13 +41,8 @@ export class DescribePatchPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePatchPropertiesCommandInput,
-    DescribePatchPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePatchPropertiesCommandInput, DescribePatchPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribePatchPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePatchPropertiesCommandOutput> {
-    return deserializeAws_json1_1DescribePatchPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePatchPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

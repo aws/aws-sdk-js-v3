@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StopContinuousExportRequest,
-  StopContinuousExportResponse
-} from "../models/index";
+import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopContinuousExportCommand,
   serializeAws_json1_1StopContinuousExportCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopContinuousExportCommandInput = StopContinuousExportRequest;
-export type StopContinuousExportCommandOutput = StopContinuousExportResponse &
-  __MetadataBearer;
+export type StopContinuousExportCommandOutput = StopContinuousExportResponse & __MetadataBearer;
 
 export class StopContinuousExportCommand extends $Command<
   StopContinuousExportCommandInput,
@@ -49,13 +45,8 @@ export class StopContinuousExportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopContinuousExportCommandInput,
-    StopContinuousExportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopContinuousExportCommandInput, StopContinuousExportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

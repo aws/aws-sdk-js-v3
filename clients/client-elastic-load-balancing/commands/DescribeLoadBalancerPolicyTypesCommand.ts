@@ -53,9 +53,7 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     DescribeLoadBalancerPolicyTypesCommandInput,
     DescribeLoadBalancerPolicyTypesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
     input: DescribeLoadBalancerPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeLoadBalancerPolicyTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

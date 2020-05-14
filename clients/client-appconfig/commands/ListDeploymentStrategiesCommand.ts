@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppConfigClient";
-import {
-  DeploymentStrategies,
-  ListDeploymentStrategiesRequest
-} from "../models/index";
+import { DeploymentStrategies, ListDeploymentStrategiesRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDeploymentStrategiesCommand,
   serializeAws_restJson1_1ListDeploymentStrategiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentStrategiesCommandInput = ListDeploymentStrategiesRequest;
-export type ListDeploymentStrategiesCommandOutput = DeploymentStrategies &
-  __MetadataBearer;
+export type ListDeploymentStrategiesCommandOutput = DeploymentStrategies & __MetadataBearer;
 
 export class ListDeploymentStrategiesCommand extends $Command<
   ListDeploymentStrategiesCommandInput,
@@ -49,13 +45,8 @@ export class ListDeploymentStrategiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeploymentStrategiesCommandInput,
-    ListDeploymentStrategiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeploymentStrategiesCommandInput, ListDeploymentStrategiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListDeploymentStrategiesCommand extends $Command<
     input: ListDeploymentStrategiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDeploymentStrategiesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListDeploymentStrategiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeploymentStrategiesCommandOutput> {
-    return deserializeAws_restJson1_1ListDeploymentStrategiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeploymentStrategiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,6 @@ export function fromEnv(): CredentialProvider {
       });
     }
 
-    return Promise.reject(
-      new ProviderError("Unable to find environment variable credentials.")
-    );
+    return Promise.reject(new ProviderError("Unable to find environment variable credentials."));
   };
 }

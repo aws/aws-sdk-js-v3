@@ -173,9 +173,7 @@ export class EKS extends EKSClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -273,9 +271,7 @@ export class EKS extends EKSClient {
   ): void;
   public createNodegroup(
     args: CreateNodegroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNodegroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNodegroupCommandOutput) => void),
     cb?: (err: any, data?: CreateNodegroupCommandOutput) => void
   ): Promise<CreateNodegroupCommandOutput> | void {
     const command = new CreateNodegroupCommand(args);
@@ -315,9 +311,7 @@ export class EKS extends EKSClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
@@ -392,9 +386,7 @@ export class EKS extends EKSClient {
   ): void;
   public deleteNodegroup(
     args: DeleteNodegroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNodegroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNodegroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteNodegroupCommandOutput) => void
   ): Promise<DeleteNodegroupCommandOutput> | void {
     const command = new DeleteNodegroupCommand(args);
@@ -435,9 +427,7 @@ export class EKS extends EKSClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
@@ -544,9 +534,7 @@ export class EKS extends EKSClient {
   ): void;
   public describeUpdate(
     args: DescribeUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUpdateCommandOutput) => void),
     cb?: (err: any, data?: DescribeUpdateCommandOutput) => void
   ): Promise<DescribeUpdateCommandOutput> | void {
     const command = new DescribeUpdateCommand(args);
@@ -579,9 +567,7 @@ export class EKS extends EKSClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
@@ -651,9 +637,7 @@ export class EKS extends EKSClient {
   ): void;
   public listNodegroups(
     args: ListNodegroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNodegroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodegroupsCommandOutput) => void),
     cb?: (err: any, data?: ListNodegroupsCommandOutput) => void
   ): Promise<ListNodegroupsCommandOutput> | void {
     const command = new ListNodegroupsCommand(args);
@@ -722,9 +706,7 @@ export class EKS extends EKSClient {
   ): void;
   public listUpdates(
     args: ListUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUpdatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUpdatesCommandOutput) => void),
     cb?: (err: any, data?: ListUpdatesCommandOutput) => void
   ): Promise<ListUpdatesCommandOutput> | void {
     const command = new ListUpdatesCommand(args);
@@ -763,9 +745,7 @@ export class EKS extends EKSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -798,9 +778,7 @@ export class EKS extends EKSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  DeleteVirtualNodeInput,
-  DeleteVirtualNodeOutput
-} from "../models/index";
+import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVirtualNodeCommand,
   serializeAws_restJson1_1DeleteVirtualNodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVirtualNodeCommandInput = DeleteVirtualNodeInput;
-export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput &
-  __MetadataBearer;
+export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput & __MetadataBearer;
 
 export class DeleteVirtualNodeCommand extends $Command<
   DeleteVirtualNodeCommandInput,
@@ -50,9 +46,7 @@ export class DeleteVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

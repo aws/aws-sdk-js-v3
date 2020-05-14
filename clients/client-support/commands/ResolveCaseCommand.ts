@@ -46,9 +46,7 @@ export class ResolveCaseCommand extends $Command<
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResolveCaseCommandInput, ResolveCaseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

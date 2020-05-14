@@ -49,13 +49,8 @@ export class StartPipelineReprocessingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartPipelineReprocessingCommandInput,
-    StartPipelineReprocessingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartPipelineReprocessingCommandInput, StartPipelineReprocessingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StartPipelineReprocessingCommand extends $Command<
     input: StartPipelineReprocessingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartPipelineReprocessingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartPipelineReprocessingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartPipelineReprocessingCommandOutput> {
-    return deserializeAws_restJson1_1StartPipelineReprocessingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartPipelineReprocessingCommand(output, context);
   }
 
   // Start section: command_body_extra

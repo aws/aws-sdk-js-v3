@@ -49,13 +49,8 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopDeliveryStreamEncryptionCommandInput,
-    StopDeliveryStreamEncryptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopDeliveryStreamEncryptionCommandInput, StopDeliveryStreamEncryptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
     input: StopDeliveryStreamEncryptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDeliveryStreamEncryptionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StopDeliveryStreamEncryptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDeliveryStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

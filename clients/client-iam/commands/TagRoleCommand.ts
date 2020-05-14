@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagRoleRequest } from "../models/index";
 import {
   deserializeAws_queryTagRoleCommand,
@@ -46,9 +42,7 @@ export class TagRoleCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagRoleCommandInput, TagRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class TagRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TagRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TagRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagRoleCommand(input, context);
   }
 

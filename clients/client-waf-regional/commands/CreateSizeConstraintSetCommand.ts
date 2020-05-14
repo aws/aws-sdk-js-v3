@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  CreateSizeConstraintSetRequest,
-  CreateSizeConstraintSetResponse
-} from "../models/index";
+import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSizeConstraintSetCommand,
   serializeAws_json1_1CreateSizeConstraintSetCommand
@@ -49,13 +46,8 @@ export class CreateSizeConstraintSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSizeConstraintSetCommandInput,
-    CreateSizeConstraintSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSizeConstraintSetCommandInput, CreateSizeConstraintSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateSizeConstraintSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1CreateSizeConstraintSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

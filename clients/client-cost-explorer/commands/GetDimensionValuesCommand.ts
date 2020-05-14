@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostExplorerClient";
-import {
-  GetDimensionValuesRequest,
-  GetDimensionValuesResponse
-} from "../models/index";
+import { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDimensionValuesCommand,
   serializeAws_json1_1GetDimensionValuesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
-export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse &
-  __MetadataBearer;
+export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse & __MetadataBearer;
 
 export class GetDimensionValuesCommand extends $Command<
   GetDimensionValuesCommandInput,
@@ -50,9 +46,7 @@ export class GetDimensionValuesCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

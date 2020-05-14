@@ -1,7 +1,4 @@
-import {
-  GetDiscoveredSchemaRequest,
-  GetDiscoveredSchemaResponse
-} from "../models/index";
+import { GetDiscoveredSchemaRequest, GetDiscoveredSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDiscoveredSchemaCommand,
   serializeAws_restJson1_1GetDiscoveredSchemaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDiscoveredSchemaCommandInput = GetDiscoveredSchemaRequest;
-export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse &
-  __MetadataBearer;
+export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse & __MetadataBearer;
 
 export class GetDiscoveredSchemaCommand extends $Command<
   GetDiscoveredSchemaCommandInput,
@@ -49,13 +45,8 @@ export class GetDiscoveredSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDiscoveredSchemaCommandInput,
-    GetDiscoveredSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDiscoveredSchemaCommandInput, GetDiscoveredSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDiscoveredSchemaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDiscoveredSchemaCommandOutput> {
-    return deserializeAws_restJson1_1GetDiscoveredSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDiscoveredSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

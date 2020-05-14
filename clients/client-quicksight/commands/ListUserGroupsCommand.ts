@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUserGroupsCommandInput = ListUserGroupsRequest;
-export type ListUserGroupsCommandOutput = ListUserGroupsResponse &
-  __MetadataBearer;
+export type ListUserGroupsCommandOutput = ListUserGroupsResponse & __MetadataBearer;
 
 export class ListUserGroupsCommand extends $Command<
   ListUserGroupsCommandInput,
@@ -47,9 +46,7 @@ export class ListUserGroupsCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUserGroupsCommandInput, ListUserGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

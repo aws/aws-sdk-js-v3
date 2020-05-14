@@ -39,9 +39,7 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListLicenseSpecificationsForResourceCommandInput
-  ) {
+  constructor(readonly input: ListLicenseSpecificationsForResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     ListLicenseSpecificationsForResourceCommandInput,
     ListLicenseSpecificationsForResourceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     input: ListLicenseSpecificationsForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

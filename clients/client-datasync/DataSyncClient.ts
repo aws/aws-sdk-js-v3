@@ -2,10 +2,7 @@ import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput
 } from "./commands/CancelTaskExecutionCommand";
-import {
-  CreateAgentCommandInput,
-  CreateAgentCommandOutput
-} from "./commands/CreateAgentCommand";
+import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import {
   CreateLocationEfsCommandInput,
   CreateLocationEfsCommandOutput
@@ -22,22 +19,13 @@ import {
   CreateLocationSmbCommandInput,
   CreateLocationSmbCommandOutput
 } from "./commands/CreateLocationSmbCommand";
-import {
-  CreateTaskCommandInput,
-  CreateTaskCommandOutput
-} from "./commands/CreateTaskCommand";
-import {
-  DeleteAgentCommandInput,
-  DeleteAgentCommandOutput
-} from "./commands/DeleteAgentCommand";
+import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
+import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import {
   DeleteLocationCommandInput,
   DeleteLocationCommandOutput
 } from "./commands/DeleteLocationCommand";
-import {
-  DeleteTaskCommandInput,
-  DeleteTaskCommandOutput
-} from "./commands/DeleteTaskCommand";
+import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import {
   DescribeAgentCommandInput,
   DescribeAgentCommandOutput
@@ -66,10 +54,7 @@ import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput
 } from "./commands/DescribeTaskExecutionCommand";
-import {
-  ListAgentsCommandInput,
-  ListAgentsCommandOutput
-} from "./commands/ListAgentsCommand";
+import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import {
   ListLocationsCommandInput,
   ListLocationsCommandOutput
@@ -82,30 +67,18 @@ import {
   ListTaskExecutionsCommandInput,
   ListTaskExecutionsCommandOutput
 } from "./commands/ListTaskExecutionsCommand";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
 import {
   StartTaskExecutionCommandInput,
   StartTaskExecutionCommandOutput
 } from "./commands/StartTaskExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAgentCommandInput,
-  UpdateAgentCommandOutput
-} from "./commands/UpdateAgentCommand";
-import {
-  UpdateTaskCommandInput,
-  UpdateTaskCommandOutput
-} from "./commands/UpdateTaskCommand";
+import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -301,9 +274,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -312,9 +283,7 @@ export type DataSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput
@@ -66,18 +63,12 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput
 } from "./commands/ListElasticsearchVersionsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput

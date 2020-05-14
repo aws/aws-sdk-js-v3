@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DescribeImagePermissionsRequest,
-  DescribeImagePermissionsResult
-} from "../models/index";
+import { DescribeImagePermissionsRequest, DescribeImagePermissionsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeImagePermissionsCommand,
   serializeAws_json1_1DescribeImagePermissionsCommand
@@ -49,13 +46,8 @@ export class DescribeImagePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImagePermissionsCommandInput,
-    DescribeImagePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImagePermissionsCommandInput, DescribeImagePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeImagePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeImagePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

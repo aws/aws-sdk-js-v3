@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateProjectCommandInput = CreateProjectRequest;
-export type CreateProjectCommandOutput = CreateProjectResponse &
-  __MetadataBearer;
+export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
 
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,
@@ -47,9 +46,7 @@ export class CreateProjectCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProjectCommandInput, CreateProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

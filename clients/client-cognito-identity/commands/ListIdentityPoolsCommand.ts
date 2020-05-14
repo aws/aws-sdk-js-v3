@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityClient";
-import {
-  ListIdentityPoolsInput,
-  ListIdentityPoolsResponse
-} from "../models/index";
+import { ListIdentityPoolsInput, ListIdentityPoolsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListIdentityPoolsCommand,
   serializeAws_json1_1ListIdentityPoolsCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListIdentityPoolsCommandInput = ListIdentityPoolsInput;
-export type ListIdentityPoolsCommandOutput = ListIdentityPoolsResponse &
-  __MetadataBearer;
+export type ListIdentityPoolsCommandOutput = ListIdentityPoolsResponse & __MetadataBearer;
 
 export class ListIdentityPoolsCommand extends $Command<
   ListIdentityPoolsCommandInput,
@@ -51,9 +47,7 @@ export class ListIdentityPoolsCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

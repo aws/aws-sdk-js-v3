@@ -49,13 +49,8 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCostCategoryDefinitionCommandInput,
-    DeleteCostCategoryDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCostCategoryDefinitionCommandInput, DeleteCostCategoryDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     input: DeleteCostCategoryDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteCostCategoryDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCostCategoryDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

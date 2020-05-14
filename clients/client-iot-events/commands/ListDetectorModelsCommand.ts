@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTEventsClient";
-import {
-  ListDetectorModelsRequest,
-  ListDetectorModelsResponse
-} from "../models/index";
+import { ListDetectorModelsRequest, ListDetectorModelsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDetectorModelsCommand,
   serializeAws_restJson1_1ListDetectorModelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDetectorModelsCommandInput = ListDetectorModelsRequest;
-export type ListDetectorModelsCommandOutput = ListDetectorModelsResponse &
-  __MetadataBearer;
+export type ListDetectorModelsCommandOutput = ListDetectorModelsResponse & __MetadataBearer;
 
 export class ListDetectorModelsCommand extends $Command<
   ListDetectorModelsCommandInput,
@@ -50,9 +46,7 @@ export class ListDetectorModelsCommand extends $Command<
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

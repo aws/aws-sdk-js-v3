@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVocabularyCommandInput = GetVocabularyRequest;
-export type GetVocabularyCommandOutput = GetVocabularyResponse &
-  __MetadataBearer;
+export type GetVocabularyCommandOutput = GetVocabularyResponse & __MetadataBearer;
 
 export class GetVocabularyCommand extends $Command<
   GetVocabularyCommandInput,
@@ -47,9 +46,7 @@ export class GetVocabularyCommand extends $Command<
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVocabularyCommandInput, GetVocabularyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

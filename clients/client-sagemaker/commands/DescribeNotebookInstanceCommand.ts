@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeNotebookInstanceInput,
-  DescribeNotebookInstanceOutput
-} from "../models/index";
+import { DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeNotebookInstanceCommand,
   serializeAws_json1_1DescribeNotebookInstanceCommand
@@ -49,13 +46,8 @@ export class DescribeNotebookInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNotebookInstanceCommandInput,
-    DescribeNotebookInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNotebookInstanceCommandInput, DescribeNotebookInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeNotebookInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1DescribeNotebookInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

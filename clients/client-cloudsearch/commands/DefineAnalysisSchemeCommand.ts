@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DefineAnalysisSchemeRequest,
-  DefineAnalysisSchemeResponse
-} from "../models/index";
+import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/index";
 import {
   deserializeAws_queryDefineAnalysisSchemeCommand,
   serializeAws_queryDefineAnalysisSchemeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DefineAnalysisSchemeCommandInput = DefineAnalysisSchemeRequest;
-export type DefineAnalysisSchemeCommandOutput = DefineAnalysisSchemeResponse &
-  __MetadataBearer;
+export type DefineAnalysisSchemeCommandOutput = DefineAnalysisSchemeResponse & __MetadataBearer;
 
 export class DefineAnalysisSchemeCommand extends $Command<
   DefineAnalysisSchemeCommandInput,
@@ -49,13 +45,8 @@ export class DefineAnalysisSchemeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DefineAnalysisSchemeCommandInput,
-    DefineAnalysisSchemeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DefineAnalysisSchemeCommandInput, DefineAnalysisSchemeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCoreDefinitionVersionCommandInput,
-    CreateCoreDefinitionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCoreDefinitionVersionCommandInput, CreateCoreDefinitionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateCoreDefinitionVersionCommand extends $Command<
     input: CreateCoreDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCoreDefinitionVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateCoreDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCoreDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateCoreDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCoreDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

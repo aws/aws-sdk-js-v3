@@ -1,12 +1,5 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  CreateStateMachineInput,
-  CreateStateMachineOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { CreateStateMachineInput, CreateStateMachineOutput } from "../models/index";
 import {
   deserializeAws_json1_0CreateStateMachineCommand,
   serializeAws_json1_0CreateStateMachineCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateStateMachineCommandInput = CreateStateMachineInput;
-export type CreateStateMachineCommandOutput = CreateStateMachineOutput &
-  __MetadataBearer;
+export type CreateStateMachineCommandOutput = CreateStateMachineOutput & __MetadataBearer;
 
 export class CreateStateMachineCommand extends $Command<
   CreateStateMachineCommandInput,
@@ -50,9 +42,7 @@ export class CreateStateMachineCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStateMachineCommandInput, CreateStateMachineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

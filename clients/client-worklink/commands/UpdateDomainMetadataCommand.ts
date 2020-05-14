@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  UpdateDomainMetadataRequest,
-  UpdateDomainMetadataResponse
-} from "../models/index";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDomainMetadataCommand,
   serializeAws_restJson1_1UpdateDomainMetadataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainMetadataCommandInput = UpdateDomainMetadataRequest;
-export type UpdateDomainMetadataCommandOutput = UpdateDomainMetadataResponse &
-  __MetadataBearer;
+export type UpdateDomainMetadataCommandOutput = UpdateDomainMetadataResponse & __MetadataBearer;
 
 export class UpdateDomainMetadataCommand extends $Command<
   UpdateDomainMetadataCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDomainMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainMetadataCommandInput,
-    UpdateDomainMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainMetadataCommandInput, UpdateDomainMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateDomainMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainMetadataCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

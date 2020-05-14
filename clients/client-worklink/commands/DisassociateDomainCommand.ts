@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  DisassociateDomainRequest,
-  DisassociateDomainResponse
-} from "../models/index";
+import { DisassociateDomainRequest, DisassociateDomainResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateDomainCommand,
   serializeAws_restJson1_1DisassociateDomainCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateDomainCommandInput = DisassociateDomainRequest;
-export type DisassociateDomainCommandOutput = DisassociateDomainResponse &
-  __MetadataBearer;
+export type DisassociateDomainCommandOutput = DisassociateDomainResponse & __MetadataBearer;
 
 export class DisassociateDomainCommand extends $Command<
   DisassociateDomainCommandInput,
@@ -50,9 +46,7 @@ export class DisassociateDomainCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateDomainCommandInput, DisassociateDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

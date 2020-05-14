@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  CreateEndpointResponse,
-  CreatePlatformEndpointInput
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { CreateEndpointResponse, CreatePlatformEndpointInput } from "../models/index";
 import {
   deserializeAws_queryCreatePlatformEndpointCommand,
   serializeAws_queryCreatePlatformEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePlatformEndpointCommandInput = CreatePlatformEndpointInput;
-export type CreatePlatformEndpointCommandOutput = CreateEndpointResponse &
-  __MetadataBearer;
+export type CreatePlatformEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
 
 export class CreatePlatformEndpointCommand extends $Command<
   CreatePlatformEndpointCommandInput,
@@ -49,13 +41,8 @@ export class CreatePlatformEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePlatformEndpointCommandInput,
-    CreatePlatformEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePlatformEndpointCommandInput, CreatePlatformEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

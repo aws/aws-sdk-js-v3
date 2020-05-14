@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { UntagResourceRequest, UntagResourceResponse } from "../models/index";
 import {
   deserializeAws_queryUntagResourceCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UntagResourceCommandInput = UntagResourceRequest;
-export type UntagResourceCommandOutput = UntagResourceResponse &
-  __MetadataBearer;
+export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
@@ -47,9 +42,7 @@ export class UntagResourceCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

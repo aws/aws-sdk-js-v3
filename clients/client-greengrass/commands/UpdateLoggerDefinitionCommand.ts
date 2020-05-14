@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  UpdateLoggerDefinitionRequest,
-  UpdateLoggerDefinitionResponse
-} from "../models/index";
+import { UpdateLoggerDefinitionRequest, UpdateLoggerDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLoggerDefinitionCommand,
   serializeAws_restJson1_1UpdateLoggerDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateLoggerDefinitionCommandInput = UpdateLoggerDefinitionRequest;
-export type UpdateLoggerDefinitionCommandOutput = UpdateLoggerDefinitionResponse &
-  __MetadataBearer;
+export type UpdateLoggerDefinitionCommandOutput = UpdateLoggerDefinitionResponse & __MetadataBearer;
 
 export class UpdateLoggerDefinitionCommand extends $Command<
   UpdateLoggerDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class UpdateLoggerDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateLoggerDefinitionCommandInput,
-    UpdateLoggerDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateLoggerDefinitionCommandInput, UpdateLoggerDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateLoggerDefinitionCommand extends $Command<
     input: UpdateLoggerDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateLoggerDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateLoggerDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateLoggerDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

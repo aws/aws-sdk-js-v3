@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetAutoSnapshotsRequest,
-  GetAutoSnapshotsResult
-} from "../models/index";
+import { GetAutoSnapshotsRequest, GetAutoSnapshotsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetAutoSnapshotsCommand,
   serializeAws_json1_1GetAutoSnapshotsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAutoSnapshotsCommandInput = GetAutoSnapshotsRequest;
-export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult &
-  __MetadataBearer;
+export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult & __MetadataBearer;
 
 export class GetAutoSnapshotsCommand extends $Command<
   GetAutoSnapshotsCommandInput,
@@ -50,9 +46,7 @@ export class GetAutoSnapshotsCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

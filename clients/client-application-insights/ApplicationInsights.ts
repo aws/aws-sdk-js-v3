@@ -205,9 +205,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public createComponent(
     args: CreateComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentCommandOutput) => void),
     cb?: (err: any, data?: CreateComponentCommandOutput) => void
   ): Promise<CreateComponentCommandOutput> | void {
     const command = new CreateComponentCommand(args);
@@ -240,9 +238,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public createLogPattern(
     args: CreateLogPatternCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogPatternCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogPatternCommandOutput) => void),
     cb?: (err: any, data?: CreateLogPatternCommandOutput) => void
   ): Promise<CreateLogPatternCommandOutput> | void {
     const command = new CreateLogPatternCommand(args);
@@ -311,9 +307,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public deleteComponent(
     args: DeleteComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentCommandOutput) => void),
     cb?: (err: any, data?: DeleteComponentCommandOutput) => void
   ): Promise<DeleteComponentCommandOutput> | void {
     const command = new DeleteComponentCommand(args);
@@ -346,9 +340,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public deleteLogPattern(
     args: DeleteLogPatternCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogPatternCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogPatternCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogPatternCommandOutput) => void
   ): Promise<DeleteLogPatternCommandOutput> | void {
     const command = new DeleteLogPatternCommand(args);
@@ -453,10 +445,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
     args: DescribeComponentConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeComponentConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeComponentConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeComponentConfigurationCommandOutput) => void
   ): Promise<DescribeComponentConfigurationCommandOutput> | void {
     const command = new DescribeComponentConfigurationCommand(args);
@@ -480,35 +469,21 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput>;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeComponentConfigurationRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
   ): void;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeComponentConfigurationRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
   ): void;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeComponentConfigurationRecommendationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeComponentConfigurationRecommendationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> | void {
-    const command = new DescribeComponentConfigurationRecommendationCommand(
-      args
-    );
+    const command = new DescribeComponentConfigurationRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -608,9 +583,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeProblem(
     args: DescribeProblemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProblemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProblemCommandOutput) => void),
     cb?: (err: any, data?: DescribeProblemCommandOutput) => void
   ): Promise<DescribeProblemCommandOutput> | void {
     const command = new DescribeProblemCommand(args);
@@ -678,9 +651,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
@@ -713,9 +684,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listComponents(
     args: ListComponentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentsCommandOutput) => void),
     cb?: (err: any, data?: ListComponentsCommandOutput) => void
   ): Promise<ListComponentsCommandOutput> | void {
     const command = new ListComponentsCommand(args);
@@ -831,9 +800,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listLogPatterns(
     args: ListLogPatternsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLogPatternsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLogPatternsCommandOutput) => void),
     cb?: (err: any, data?: ListLogPatternsCommandOutput) => void
   ): Promise<ListLogPatternsCommandOutput> | void {
     const command = new ListLogPatternsCommand(args);
@@ -866,9 +833,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listProblems(
     args: ListProblemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProblemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProblemsCommandOutput) => void),
     cb?: (err: any, data?: ListProblemsCommandOutput) => void
   ): Promise<ListProblemsCommandOutput> | void {
     const command = new ListProblemsCommand(args);
@@ -948,9 +913,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -983,9 +946,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1054,9 +1015,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateComponent(
     args: UpdateComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComponentCommandOutput) => void),
     cb?: (err: any, data?: UpdateComponentCommandOutput) => void
   ): Promise<UpdateComponentCommandOutput> | void {
     const command = new UpdateComponentCommand(args);
@@ -1126,9 +1085,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateLogPattern(
     args: UpdateLogPatternCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLogPatternCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLogPatternCommandOutput) => void),
     cb?: (err: any, data?: UpdateLogPatternCommandOutput) => void
   ): Promise<UpdateLogPatternCommandOutput> | void {
     const command = new UpdateLogPatternCommand(args);

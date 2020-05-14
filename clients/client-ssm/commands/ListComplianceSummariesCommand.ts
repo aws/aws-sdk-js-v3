@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListComplianceSummariesRequest,
-  ListComplianceSummariesResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListComplianceSummariesCommand,
   serializeAws_json1_1ListComplianceSummariesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListComplianceSummariesCommandInput = ListComplianceSummariesRequest;
-export type ListComplianceSummariesCommandOutput = ListComplianceSummariesResult &
-  __MetadataBearer;
+export type ListComplianceSummariesCommandOutput = ListComplianceSummariesResult & __MetadataBearer;
 
 export class ListComplianceSummariesCommand extends $Command<
   ListComplianceSummariesCommandInput,
@@ -49,13 +41,8 @@ export class ListComplianceSummariesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListComplianceSummariesCommandInput,
-    ListComplianceSummariesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListComplianceSummariesCommandInput, ListComplianceSummariesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListComplianceSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListComplianceSummariesCommandOutput> {
-    return deserializeAws_json1_1ListComplianceSummariesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListComplianceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

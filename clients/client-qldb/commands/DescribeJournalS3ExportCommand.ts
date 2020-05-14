@@ -1,12 +1,5 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
-import {
-  DescribeJournalS3ExportRequest,
-  DescribeJournalS3ExportResponse
-} from "../models/index";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { DescribeJournalS3ExportRequest, DescribeJournalS3ExportResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeJournalS3ExportCommand,
   serializeAws_restJson1_1DescribeJournalS3ExportCommand
@@ -49,13 +42,8 @@ export class DescribeJournalS3ExportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeJournalS3ExportCommandInput,
-    DescribeJournalS3ExportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeJournalS3ExportCommandInput, DescribeJournalS3ExportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DescribeJournalS3ExportCommand extends $Command<
     input: DescribeJournalS3ExportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeJournalS3ExportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeJournalS3ExportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeJournalS3ExportCommandOutput> {
-    return deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJournalS3ExportCommand(output, context);
   }
 
   // Start section: command_body_extra

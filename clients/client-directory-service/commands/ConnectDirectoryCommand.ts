@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  ConnectDirectoryRequest,
-  ConnectDirectoryResult
-} from "../models/index";
+import { ConnectDirectoryRequest, ConnectDirectoryResult } from "../models/index";
 import {
   deserializeAws_json1_1ConnectDirectoryCommand,
   serializeAws_json1_1ConnectDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConnectDirectoryCommandInput = ConnectDirectoryRequest;
-export type ConnectDirectoryCommandOutput = ConnectDirectoryResult &
-  __MetadataBearer;
+export type ConnectDirectoryCommandOutput = ConnectDirectoryResult & __MetadataBearer;
 
 export class ConnectDirectoryCommand extends $Command<
   ConnectDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class ConnectDirectoryCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ConnectDirectoryCommandInput, ConnectDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

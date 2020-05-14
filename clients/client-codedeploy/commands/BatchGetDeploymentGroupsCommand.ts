@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  BatchGetDeploymentGroupsInput,
-  BatchGetDeploymentGroupsOutput
-} from "../models/index";
+import { BatchGetDeploymentGroupsInput, BatchGetDeploymentGroupsOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetDeploymentGroupsCommand,
   serializeAws_json1_1BatchGetDeploymentGroupsCommand
@@ -49,13 +46,8 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetDeploymentGroupsCommandInput,
-    BatchGetDeploymentGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetDeploymentGroupsCommandInput, BatchGetDeploymentGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetDeploymentGroupsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

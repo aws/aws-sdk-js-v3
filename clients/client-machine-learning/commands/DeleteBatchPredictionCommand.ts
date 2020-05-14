@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  DeleteBatchPredictionInput,
-  DeleteBatchPredictionOutput
-} from "../models/index";
+import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteBatchPredictionCommand,
   serializeAws_json1_1DeleteBatchPredictionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteBatchPredictionCommandInput = DeleteBatchPredictionInput;
-export type DeleteBatchPredictionCommandOutput = DeleteBatchPredictionOutput &
-  __MetadataBearer;
+export type DeleteBatchPredictionCommandOutput = DeleteBatchPredictionOutput & __MetadataBearer;
 
 export class DeleteBatchPredictionCommand extends $Command<
   DeleteBatchPredictionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteBatchPredictionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBatchPredictionCommandInput,
-    DeleteBatchPredictionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBatchPredictionCommandInput, DeleteBatchPredictionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  DescribeForecastRequest,
-  DescribeForecastResponse
-} from "../models/index";
+import { DescribeForecastRequest, DescribeForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeForecastCommand,
   serializeAws_json1_1DescribeForecastCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeForecastCommandInput = DescribeForecastRequest;
-export type DescribeForecastCommandOutput = DescribeForecastResponse &
-  __MetadataBearer;
+export type DescribeForecastCommandOutput = DescribeForecastResponse & __MetadataBearer;
 
 export class DescribeForecastCommand extends $Command<
   DescribeForecastCommandInput,
@@ -50,9 +46,7 @@ export class DescribeForecastCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeForecastCommandInput, DescribeForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

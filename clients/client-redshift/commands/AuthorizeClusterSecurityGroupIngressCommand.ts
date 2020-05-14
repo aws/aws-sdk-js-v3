@@ -39,9 +39,7 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AuthorizeClusterSecurityGroupIngressCommandInput
-  ) {
+  constructor(readonly input: AuthorizeClusterSecurityGroupIngressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     AuthorizeClusterSecurityGroupIngressCommandInput,
     AuthorizeClusterSecurityGroupIngressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
     input: AuthorizeClusterSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDataSourceCommandInput = DeleteDataSourceInput;
-export type DeleteDataSourceCommandOutput = DeleteDataSourceOutput &
-  __MetadataBearer;
+export type DeleteDataSourceCommandOutput = DeleteDataSourceOutput & __MetadataBearer;
 
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,
@@ -47,9 +46,7 @@ export class DeleteDataSourceCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

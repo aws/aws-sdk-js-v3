@@ -127,9 +127,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public describeDevice(
     args: DescribeDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): Promise<DescribeDeviceCommandOutput> | void {
     const command = new DescribeDeviceCommand(args);
@@ -201,9 +199,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public getDeviceMethods(
     args: GetDeviceMethodsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceMethodsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceMethodsCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceMethodsCommandOutput) => void
   ): Promise<GetDeviceMethodsCommandOutput> | void {
     const command = new GetDeviceMethodsCommand(args);
@@ -312,9 +308,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public listDeviceEvents(
     args: ListDeviceEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceEventsCommandOutput) => void
   ): Promise<ListDeviceEventsCommandOutput> | void {
     const command = new ListDeviceEventsCommand(args);
@@ -347,9 +341,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
@@ -418,9 +410,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -453,9 +443,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public unclaimDevice(
     args: UnclaimDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnclaimDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnclaimDeviceCommandOutput) => void),
     cb?: (err: any, data?: UnclaimDeviceCommandOutput) => void
   ): Promise<UnclaimDeviceCommandOutput> | void {
     const command = new UnclaimDeviceCommand(args);
@@ -489,9 +477,7 @@ export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

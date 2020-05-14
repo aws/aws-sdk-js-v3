@@ -53,9 +53,7 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     DescribeConfigurationSettingsCommandInput,
     DescribeConfigurationSettingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     input: DescribeConfigurationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeConfigurationSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeConfigurationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryDescribeConfigurationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

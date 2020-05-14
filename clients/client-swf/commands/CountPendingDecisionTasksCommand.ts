@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  CountPendingDecisionTasksInput,
-  PendingTaskCount
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { CountPendingDecisionTasksInput, PendingTaskCount } from "../models/index";
 import {
   deserializeAws_json1_0CountPendingDecisionTasksCommand,
   serializeAws_json1_0CountPendingDecisionTasksCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CountPendingDecisionTasksCommandInput = CountPendingDecisionTasksInput;
-export type CountPendingDecisionTasksCommandOutput = PendingTaskCount &
-  __MetadataBearer;
+export type CountPendingDecisionTasksCommandOutput = PendingTaskCount & __MetadataBearer;
 
 export class CountPendingDecisionTasksCommand extends $Command<
   CountPendingDecisionTasksCommandInput,
@@ -49,13 +41,8 @@ export class CountPendingDecisionTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CountPendingDecisionTasksCommandInput,
-    CountPendingDecisionTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CountPendingDecisionTasksCommandInput, CountPendingDecisionTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class CountPendingDecisionTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountPendingDecisionTasksCommandOutput> {
-    return deserializeAws_json1_0CountPendingDecisionTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0CountPendingDecisionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

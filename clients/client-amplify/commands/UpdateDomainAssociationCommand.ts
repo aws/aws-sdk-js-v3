@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  UpdateDomainAssociationRequest,
-  UpdateDomainAssociationResult
-} from "../models/index";
+import { UpdateDomainAssociationRequest, UpdateDomainAssociationResult } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDomainAssociationCommand,
   serializeAws_restJson1_1UpdateDomainAssociationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainAssociationCommandInput = UpdateDomainAssociationRequest;
-export type UpdateDomainAssociationCommandOutput = UpdateDomainAssociationResult &
-  __MetadataBearer;
+export type UpdateDomainAssociationCommandOutput = UpdateDomainAssociationResult & __MetadataBearer;
 
 export class UpdateDomainAssociationCommand extends $Command<
   UpdateDomainAssociationCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDomainAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainAssociationCommandInput,
-    UpdateDomainAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainAssociationCommandInput, UpdateDomainAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateDomainAssociationCommand extends $Command<
     input: UpdateDomainAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDomainAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateDomainAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { ResumeSessionRequest, ResumeSessionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ResumeSessionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResumeSessionCommandInput = ResumeSessionRequest;
-export type ResumeSessionCommandOutput = ResumeSessionResponse &
-  __MetadataBearer;
+export type ResumeSessionCommandOutput = ResumeSessionResponse & __MetadataBearer;
 
 export class ResumeSessionCommand extends $Command<
   ResumeSessionCommandInput,
@@ -47,9 +42,7 @@ export class ResumeSessionCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResumeSessionCommandInput, ResumeSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

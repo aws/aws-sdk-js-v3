@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { CreateActivityInput, CreateActivityOutput } from "../models/index";
 import {
   deserializeAws_json1_0CreateActivityCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateActivityCommandInput = CreateActivityInput;
-export type CreateActivityCommandOutput = CreateActivityOutput &
-  __MetadataBearer;
+export type CreateActivityCommandOutput = CreateActivityOutput & __MetadataBearer;
 
 export class CreateActivityCommand extends $Command<
   CreateActivityCommandInput,
@@ -47,9 +42,7 @@ export class CreateActivityCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateActivityCommandInput, CreateActivityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

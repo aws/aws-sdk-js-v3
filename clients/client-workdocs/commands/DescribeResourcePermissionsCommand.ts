@@ -49,13 +49,8 @@ export class DescribeResourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeResourcePermissionsCommandInput,
-    DescribeResourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeResourcePermissionsCommandInput, DescribeResourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeResourcePermissionsCommand extends $Command<
     input: DescribeResourcePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeResourcePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeResourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeResourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

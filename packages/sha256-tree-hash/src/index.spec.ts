@@ -54,9 +54,7 @@ describe("ChecksumGenerator", () => {
     payload.fill(0);
 
     for (let i = 0; i < payload.byteLength; i += 1024 * 1024) {
-      treeHash.update(
-        payload.subarray(i, i + Math.min(1024 * 1024, payload.byteLength))
-      );
+      treeHash.update(payload.subarray(i, i + Math.min(1024 * 1024, payload.byteLength)));
     }
     let results = await treeHash.digest();
 

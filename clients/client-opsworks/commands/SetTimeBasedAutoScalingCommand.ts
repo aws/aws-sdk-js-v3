@@ -45,13 +45,8 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetTimeBasedAutoScalingCommandInput,
-    SetTimeBasedAutoScalingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetTimeBasedAutoScalingCommandInput, SetTimeBasedAutoScalingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetTimeBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1SetTimeBasedAutoScalingCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetTimeBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  DeleteInstanceProfileRequest,
-  DeleteInstanceProfileResult
-} from "../models/index";
+import { DeleteInstanceProfileRequest, DeleteInstanceProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteInstanceProfileCommand,
   serializeAws_json1_1DeleteInstanceProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
-export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult &
-  __MetadataBearer;
+export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult & __MetadataBearer;
 
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,
@@ -49,13 +45,8 @@ export class DeleteInstanceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteInstanceProfileCommandInput,
-    DeleteInstanceProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteInstanceProfileCommandInput, DeleteInstanceProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

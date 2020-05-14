@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/index";
 import {
   deserializeAws_queryUpdateTemplateCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTemplateCommandInput = UpdateTemplateRequest;
-export type UpdateTemplateCommandOutput = UpdateTemplateResponse &
-  __MetadataBearer;
+export type UpdateTemplateCommandOutput = UpdateTemplateResponse & __MetadataBearer;
 
 export class UpdateTemplateCommand extends $Command<
   UpdateTemplateCommandInput,
@@ -47,9 +42,7 @@ export class UpdateTemplateCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTemplateCommandInput, UpdateTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

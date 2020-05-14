@@ -217,9 +217,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type HealthClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type HealthClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +226,7 @@ export type HealthClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

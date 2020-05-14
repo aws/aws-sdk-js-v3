@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  UpdateFlowOutputRequest,
-  UpdateFlowOutputResponse
-} from "../models/index";
+import { UpdateFlowOutputRequest, UpdateFlowOutputResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFlowOutputCommand,
   serializeAws_restJson1_1UpdateFlowOutputCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFlowOutputCommandInput = UpdateFlowOutputRequest;
-export type UpdateFlowOutputCommandOutput = UpdateFlowOutputResponse &
-  __MetadataBearer;
+export type UpdateFlowOutputCommandOutput = UpdateFlowOutputResponse & __MetadataBearer;
 
 export class UpdateFlowOutputCommand extends $Command<
   UpdateFlowOutputCommandInput,
@@ -50,9 +46,7 @@ export class UpdateFlowOutputCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

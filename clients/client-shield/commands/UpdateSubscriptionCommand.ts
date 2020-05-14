@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  UpdateSubscriptionRequest,
-  UpdateSubscriptionResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSubscriptionCommand,
   serializeAws_json1_1UpdateSubscriptionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSubscriptionCommandInput = UpdateSubscriptionRequest;
-export type UpdateSubscriptionCommandOutput = UpdateSubscriptionResponse &
-  __MetadataBearer;
+export type UpdateSubscriptionCommandOutput = UpdateSubscriptionResponse & __MetadataBearer;
 
 export class UpdateSubscriptionCommand extends $Command<
   UpdateSubscriptionCommandInput,
@@ -50,9 +42,7 @@ export class UpdateSubscriptionCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

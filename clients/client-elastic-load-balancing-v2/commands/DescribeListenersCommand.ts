@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeListenersInput,
-  DescribeListenersOutput
-} from "../models/index";
+import { DescribeListenersInput, DescribeListenersOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeListenersCommand,
   serializeAws_queryDescribeListenersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeListenersCommandInput = DescribeListenersInput;
-export type DescribeListenersCommandOutput = DescribeListenersOutput &
-  __MetadataBearer;
+export type DescribeListenersCommandOutput = DescribeListenersOutput & __MetadataBearer;
 
 export class DescribeListenersCommand extends $Command<
   DescribeListenersCommandInput,
@@ -50,9 +46,7 @@ export class DescribeListenersCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeListenersCommandInput, DescribeListenersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

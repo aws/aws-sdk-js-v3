@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeScheduledActionsMessage,
-  ScheduledActionsMessage
-} from "../models/index";
+import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
   serializeAws_queryDescribeScheduledActionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsMessage;
-export type DescribeScheduledActionsCommandOutput = ScheduledActionsMessage &
-  __MetadataBearer;
+export type DescribeScheduledActionsCommandOutput = ScheduledActionsMessage & __MetadataBearer;
 
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeScheduledActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScheduledActionsCommandInput,
-    DescribeScheduledActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScheduledActionsCommandInput, DescribeScheduledActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

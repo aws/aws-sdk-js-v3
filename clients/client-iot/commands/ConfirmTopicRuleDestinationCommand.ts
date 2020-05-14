@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ConfirmTopicRuleDestinationRequest,
   ConfirmTopicRuleDestinationResponse
@@ -49,13 +45,8 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfirmTopicRuleDestinationCommandInput,
-    ConfirmTopicRuleDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfirmTopicRuleDestinationCommandInput, ConfirmTopicRuleDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     input: ConfirmTopicRuleDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

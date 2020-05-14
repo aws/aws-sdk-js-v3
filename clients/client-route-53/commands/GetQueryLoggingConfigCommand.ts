@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetQueryLoggingConfigRequest,
-  GetQueryLoggingConfigResponse
-} from "../models/index";
+import { GetQueryLoggingConfigRequest, GetQueryLoggingConfigResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetQueryLoggingConfigCommand,
   serializeAws_restXmlGetQueryLoggingConfigCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetQueryLoggingConfigCommandInput = GetQueryLoggingConfigRequest;
-export type GetQueryLoggingConfigCommandOutput = GetQueryLoggingConfigResponse &
-  __MetadataBearer;
+export type GetQueryLoggingConfigCommandOutput = GetQueryLoggingConfigResponse & __MetadataBearer;
 
 export class GetQueryLoggingConfigCommand extends $Command<
   GetQueryLoggingConfigCommandInput,
@@ -50,13 +46,8 @@ export class GetQueryLoggingConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetQueryLoggingConfigCommandInput,
-    GetQueryLoggingConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetQueryLoggingConfigCommandInput, GetQueryLoggingConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

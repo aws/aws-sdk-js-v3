@@ -50,9 +50,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     DescribeCrossAccountAccessRoleCommandInput,
     DescribeCrossAccountAccessRoleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +69,14 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     input: DescribeCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
-    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  StartFaceSearchRequest,
-  StartFaceSearchResponse
-} from "../models/index";
+import { StartFaceSearchRequest, StartFaceSearchResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartFaceSearchCommand,
   serializeAws_json1_1StartFaceSearchCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartFaceSearchCommandInput = StartFaceSearchRequest;
-export type StartFaceSearchCommandOutput = StartFaceSearchResponse &
-  __MetadataBearer;
+export type StartFaceSearchCommandOutput = StartFaceSearchResponse & __MetadataBearer;
 
 export class StartFaceSearchCommand extends $Command<
   StartFaceSearchCommandInput,
@@ -50,9 +46,7 @@ export class StartFaceSearchCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartFaceSearchCommandInput, StartFaceSearchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

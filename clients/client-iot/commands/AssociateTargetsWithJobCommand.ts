@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  AssociateTargetsWithJobRequest,
-  AssociateTargetsWithJobResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateTargetsWithJobCommand,
   serializeAws_restJson1_1AssociateTargetsWithJobCommand
@@ -49,13 +42,8 @@ export class AssociateTargetsWithJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateTargetsWithJobCommandInput,
-    AssociateTargetsWithJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateTargetsWithJobCommandInput, AssociateTargetsWithJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class AssociateTargetsWithJobCommand extends $Command<
     input: AssociateTargetsWithJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateTargetsWithJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateTargetsWithJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTargetsWithJobCommandOutput> {
-    return deserializeAws_restJson1_1AssociateTargetsWithJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateTargetsWithJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  CreateApiCommandInput,
-  CreateApiCommandOutput
-} from "./commands/CreateApiCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import {
   CreateApiMappingCommandInput,
   CreateApiMappingCommandOutput
@@ -26,26 +23,14 @@ import {
   CreateIntegrationResponseCommandInput,
   CreateIntegrationResponseCommandOutput
 } from "./commands/CreateIntegrationResponseCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput
 } from "./commands/CreateRouteResponseCommand";
-import {
-  CreateStageCommandInput,
-  CreateStageCommandOutput
-} from "./commands/CreateStageCommand";
-import {
-  DeleteApiCommandInput,
-  DeleteApiCommandOutput
-} from "./commands/DeleteApiCommand";
+import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
 import {
   DeleteApiMappingCommandInput,
   DeleteApiMappingCommandOutput
@@ -74,14 +59,8 @@ import {
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput
 } from "./commands/DeleteIntegrationResponseCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput
@@ -90,14 +69,8 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput
 } from "./commands/DeleteRouteSettingsCommand";
-import {
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput
-} from "./commands/DeleteStageCommand";
-import {
-  GetApiCommandInput,
-  GetApiCommandOutput
-} from "./commands/GetApiCommand";
+import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import {
   GetApiMappingCommandInput,
   GetApiMappingCommandOutput
@@ -106,10 +79,7 @@ import {
   GetApiMappingsCommandInput,
   GetApiMappingsCommandOutput
 } from "./commands/GetApiMappingsCommand";
-import {
-  GetApisCommandInput,
-  GetApisCommandOutput
-} from "./commands/GetApisCommand";
+import { GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand";
 import {
   GetAuthorizerCommandInput,
   GetAuthorizerCommandOutput
@@ -150,22 +120,13 @@ import {
   GetIntegrationsCommandInput,
   GetIntegrationsCommandOutput
 } from "./commands/GetIntegrationsCommand";
-import {
-  GetModelCommandInput,
-  GetModelCommandOutput
-} from "./commands/GetModelCommand";
+import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
 import {
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput
 } from "./commands/GetModelTemplateCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "./commands/GetModelsCommand";
-import {
-  GetRouteCommandInput,
-  GetRouteCommandOutput
-} from "./commands/GetRouteCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
 import {
   GetRouteResponseCommandInput,
   GetRouteResponseCommandOutput
@@ -174,42 +135,18 @@ import {
   GetRouteResponsesCommandInput,
   GetRouteResponsesCommandOutput
 } from "./commands/GetRouteResponsesCommand";
-import {
-  GetRoutesCommandInput,
-  GetRoutesCommandOutput
-} from "./commands/GetRoutesCommand";
-import {
-  GetStageCommandInput,
-  GetStageCommandOutput
-} from "./commands/GetStageCommand";
-import {
-  GetStagesCommandInput,
-  GetStagesCommandOutput
-} from "./commands/GetStagesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  ImportApiCommandInput,
-  ImportApiCommandOutput
-} from "./commands/ImportApiCommand";
-import {
-  ReimportApiCommandInput,
-  ReimportApiCommandOutput
-} from "./commands/ReimportApiCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateApiCommandInput,
-  UpdateApiCommandOutput
-} from "./commands/UpdateApiCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
 import {
   UpdateApiMappingCommandInput,
   UpdateApiMappingCommandOutput
@@ -234,22 +171,13 @@ import {
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput
 } from "./commands/UpdateIntegrationResponseCommand";
-import {
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput
-} from "./commands/UpdateModelCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "./commands/UpdateRouteCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommandInput,
   UpdateRouteResponseCommandOutput
 } from "./commands/UpdateRouteResponseCommand";
-import {
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput
-} from "./commands/UpdateStageCommand";
+import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -517,9 +445,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApiGatewayV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApiGatewayV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -528,9 +454,7 @@ export type ApiGatewayV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

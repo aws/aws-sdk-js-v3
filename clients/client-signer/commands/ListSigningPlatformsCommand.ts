@@ -1,16 +1,9 @@
-import {
-  ListSigningPlatformsRequest,
-  ListSigningPlatformsResponse
-} from "../models/index";
+import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSigningPlatformsCommand,
   serializeAws_restJson1_1ListSigningPlatformsCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSigningPlatformsCommandInput = ListSigningPlatformsRequest;
-export type ListSigningPlatformsCommandOutput = ListSigningPlatformsResponse &
-  __MetadataBearer;
+export type ListSigningPlatformsCommandOutput = ListSigningPlatformsResponse & __MetadataBearer;
 
 export class ListSigningPlatformsCommand extends $Command<
   ListSigningPlatformsCommandInput,
@@ -49,13 +41,8 @@ export class ListSigningPlatformsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSigningPlatformsCommandInput,
-    ListSigningPlatformsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSigningPlatformsCommandInput, ListSigningPlatformsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListSigningPlatformsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSigningPlatformsCommandOutput> {
-    return deserializeAws_restJson1_1ListSigningPlatformsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningPlatformsCommand(output, context);
   }
 
   // Start section: command_body_extra

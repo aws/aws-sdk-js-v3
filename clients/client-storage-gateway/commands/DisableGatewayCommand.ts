@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableGatewayCommandInput = DisableGatewayInput;
-export type DisableGatewayCommandOutput = DisableGatewayOutput &
-  __MetadataBearer;
+export type DisableGatewayCommandOutput = DisableGatewayOutput & __MetadataBearer;
 
 export class DisableGatewayCommand extends $Command<
   DisableGatewayCommandInput,
@@ -47,9 +46,7 @@ export class DisableGatewayCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisableGatewayCommandInput, DisableGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

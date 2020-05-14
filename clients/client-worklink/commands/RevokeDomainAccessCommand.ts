@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  RevokeDomainAccessRequest,
-  RevokeDomainAccessResponse
-} from "../models/index";
+import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RevokeDomainAccessCommand,
   serializeAws_restJson1_1RevokeDomainAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeDomainAccessCommandInput = RevokeDomainAccessRequest;
-export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse &
-  __MetadataBearer;
+export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse & __MetadataBearer;
 
 export class RevokeDomainAccessCommand extends $Command<
   RevokeDomainAccessCommandInput,
@@ -50,9 +46,7 @@ export class RevokeDomainAccessCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

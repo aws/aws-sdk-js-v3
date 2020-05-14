@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  ListAssessmentRunsRequest,
-  ListAssessmentRunsResponse
-} from "../models/index";
+import { ListAssessmentRunsRequest, ListAssessmentRunsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAssessmentRunsCommand,
   serializeAws_json1_1ListAssessmentRunsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAssessmentRunsCommandInput = ListAssessmentRunsRequest;
-export type ListAssessmentRunsCommandOutput = ListAssessmentRunsResponse &
-  __MetadataBearer;
+export type ListAssessmentRunsCommandOutput = ListAssessmentRunsResponse & __MetadataBearer;
 
 export class ListAssessmentRunsCommand extends $Command<
   ListAssessmentRunsCommandInput,
@@ -50,9 +46,7 @@ export class ListAssessmentRunsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAssessmentRunsCommandInput, ListAssessmentRunsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

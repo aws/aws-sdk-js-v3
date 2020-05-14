@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import {
   DescribeCertificateAuthorityAuditReportRequest,
   DescribeCertificateAuthorityAuditReportResponse
@@ -39,9 +35,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeCertificateAuthorityAuditReportCommandInput
-  ) {
+  constructor(readonly input: DescribeCertificateAuthorityAuditReportCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     DescribeCertificateAuthorityAuditReportCommandInput,
     DescribeCertificateAuthorityAuditReportCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     input: DescribeCertificateAuthorityAuditReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(output, context);
   }
 
   // Start section: command_body_extra

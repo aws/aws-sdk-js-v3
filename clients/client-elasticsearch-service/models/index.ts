@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -22,8 +19,7 @@ export interface AccessPoliciesStatus {
 }
 
 export namespace AccessPoliciesStatus {
-  export const isa = (o: any): o is AccessPoliciesStatus =>
-    __isa(o, "AccessPoliciesStatus");
+  export const isa = (o: any): o is AccessPoliciesStatus => __isa(o, "AccessPoliciesStatus");
 }
 
 /**
@@ -43,8 +39,7 @@ export interface AddTagsRequest {
 }
 
 export namespace AddTagsRequest {
-  export const isa = (o: any): o is AddTagsRequest =>
-    __isa(o, "AddTagsRequest");
+  export const isa = (o: any): o is AddTagsRequest => __isa(o, "AddTagsRequest");
 }
 
 /**
@@ -101,8 +96,7 @@ export interface AdditionalLimit {
 }
 
 export namespace AdditionalLimit {
-  export const isa = (o: any): o is AdditionalLimit =>
-    __isa(o, "AdditionalLimit");
+  export const isa = (o: any): o is AdditionalLimit => __isa(o, "AdditionalLimit");
 }
 
 /**
@@ -128,8 +122,7 @@ export interface AdvancedOptionsStatus {
 }
 
 export namespace AdvancedOptionsStatus {
-  export const isa = (o: any): o is AdvancedOptionsStatus =>
-    __isa(o, "AdvancedOptionsStatus");
+  export const isa = (o: any): o is AdvancedOptionsStatus => __isa(o, "AdvancedOptionsStatus");
 }
 
 /**
@@ -144,9 +137,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
-  export const isa = (
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
+  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateRequest =>
     __isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
 }
 
@@ -162,9 +153,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
-  export const isa = (
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
+  export const isa = (o: any): o is CancelElasticsearchServiceSoftwareUpdateResponse =>
     __isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
 }
 
@@ -195,8 +184,7 @@ export interface CognitoOptions {
 }
 
 export namespace CognitoOptions {
-  export const isa = (o: any): o is CognitoOptions =>
-    __isa(o, "CognitoOptions");
+  export const isa = (o: any): o is CognitoOptions => __isa(o, "CognitoOptions");
 }
 
 /**
@@ -216,8 +204,7 @@ export interface CognitoOptionsStatus {
 }
 
 export namespace CognitoOptionsStatus {
-  export const isa = (o: any): o is CognitoOptionsStatus =>
-    __isa(o, "CognitoOptionsStatus");
+  export const isa = (o: any): o is CognitoOptionsStatus => __isa(o, "CognitoOptionsStatus");
 }
 
 /**
@@ -248,8 +235,7 @@ export interface CompatibleVersionsMap {
 }
 
 export namespace CompatibleVersionsMap {
-  export const isa = (o: any): o is CompatibleVersionsMap =>
-    __isa(o, "CompatibleVersionsMap");
+  export const isa = (o: any): o is CompatibleVersionsMap => __isa(o, "CompatibleVersionsMap");
 }
 
 export interface CreateElasticsearchDomainRequest {
@@ -526,9 +512,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
+  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsRequest =>
     __isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
 }
 
@@ -559,9 +543,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
+  export const isa = (o: any): o is DescribeElasticsearchInstanceTypeLimitsResponse =>
     __isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
 }
 
@@ -588,9 +570,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsRequest =>
     __isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
 }
 
@@ -611,9 +591,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstanceOfferingsResponse =>
     __isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
 }
 
@@ -640,9 +618,7 @@ export interface DescribeReservedElasticsearchInstancesRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstancesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesRequest =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesRequest =>
     __isa(o, "DescribeReservedElasticsearchInstancesRequest");
 }
 
@@ -663,9 +639,7 @@ export interface DescribeReservedElasticsearchInstancesResponse {
 }
 
 export namespace DescribeReservedElasticsearchInstancesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesResponse =>
+  export const isa = (o: any): o is DescribeReservedElasticsearchInstancesResponse =>
     __isa(o, "DescribeReservedElasticsearchInstancesResponse");
 }
 
@@ -692,8 +666,7 @@ export interface DomainEndpointOptions {
 }
 
 export namespace DomainEndpointOptions {
-  export const isa = (o: any): o is DomainEndpointOptions =>
-    __isa(o, "DomainEndpointOptions");
+  export const isa = (o: any): o is DomainEndpointOptions => __isa(o, "DomainEndpointOptions");
 }
 
 /**
@@ -776,8 +749,7 @@ export interface EBSOptionsStatus {
 }
 
 export namespace EBSOptionsStatus {
-  export const isa = (o: any): o is EBSOptionsStatus =>
-    __isa(o, "EBSOptionsStatus");
+  export const isa = (o: any): o is EBSOptionsStatus => __isa(o, "EBSOptionsStatus");
 }
 
 export type ESPartitionInstanceType =
@@ -1152,8 +1124,7 @@ export interface EncryptionAtRestOptions {
 }
 
 export namespace EncryptionAtRestOptions {
-  export const isa = (o: any): o is EncryptionAtRestOptions =>
-    __isa(o, "EncryptionAtRestOptions");
+  export const isa = (o: any): o is EncryptionAtRestOptions => __isa(o, "EncryptionAtRestOptions");
 }
 
 /**
@@ -1223,9 +1194,7 @@ export interface GetCompatibleElasticsearchVersionsResponse {
 }
 
 export namespace GetCompatibleElasticsearchVersionsResponse {
-  export const isa = (
-    o: any
-  ): o is GetCompatibleElasticsearchVersionsResponse =>
+  export const isa = (o: any): o is GetCompatibleElasticsearchVersionsResponse =>
     __isa(o, "GetCompatibleElasticsearchVersionsResponse");
 }
 
@@ -1321,8 +1290,7 @@ export interface GetUpgradeStatusRequest {
 }
 
 export namespace GetUpgradeStatusRequest {
-  export const isa = (o: any): o is GetUpgradeStatusRequest =>
-    __isa(o, "GetUpgradeStatusRequest");
+  export const isa = (o: any): o is GetUpgradeStatusRequest => __isa(o, "GetUpgradeStatusRequest");
 }
 
 /**
@@ -1400,8 +1368,7 @@ export interface InstanceCountLimits {
 }
 
 export namespace InstanceCountLimits {
-  export const isa = (o: any): o is InstanceCountLimits =>
-    __isa(o, "InstanceCountLimits");
+  export const isa = (o: any): o is InstanceCountLimits => __isa(o, "InstanceCountLimits");
 }
 
 /**
@@ -1420,8 +1387,7 @@ export interface InstanceLimits {
 }
 
 export namespace InstanceLimits {
-  export const isa = (o: any): o is InstanceLimits =>
-    __isa(o, "InstanceLimits");
+  export const isa = (o: any): o is InstanceLimits => __isa(o, "InstanceLimits");
 }
 
 /**
@@ -1484,8 +1450,7 @@ export interface ListDomainNamesResponse {
 }
 
 export namespace ListDomainNamesResponse {
-  export const isa = (o: any): o is ListDomainNamesResponse =>
-    __isa(o, "ListDomainNamesResponse");
+  export const isa = (o: any): o is ListDomainNamesResponse => __isa(o, "ListDomainNamesResponse");
 }
 
 /**
@@ -1662,8 +1627,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 /**
@@ -1678,8 +1642,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
@@ -1705,8 +1668,7 @@ export interface LogPublishingOption {
 }
 
 export namespace LogPublishingOption {
-  export const isa = (o: any): o is LogPublishingOption =>
-    __isa(o, "LogPublishingOption");
+  export const isa = (o: any): o is LogPublishingOption => __isa(o, "LogPublishingOption");
 }
 
 /**
@@ -1730,10 +1692,7 @@ export namespace LogPublishingOptionsStatus {
     __isa(o, "LogPublishingOptionsStatus");
 }
 
-export type LogType =
-  | "ES_APPLICATION_LOGS"
-  | "INDEX_SLOW_LOGS"
-  | "SEARCH_SLOW_LOGS";
+export type LogType = "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS";
 
 /**
  * <p>Specifies the node-to-node encryption options.</p>
@@ -1831,9 +1790,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
-  export const isa = (
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
+  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingRequest =>
     __isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
 }
 
@@ -1854,9 +1811,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
-  export const isa = (
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
+  export const isa = (o: any): o is PurchaseReservedElasticsearchInstanceOfferingResponse =>
     __isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
 }
 
@@ -1877,8 +1832,7 @@ export interface RecurringCharge {
 }
 
 export namespace RecurringCharge {
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
@@ -1898,8 +1852,7 @@ export interface RemoveTagsRequest {
 }
 
 export namespace RemoveTagsRequest {
-  export const isa = (o: any): o is RemoveTagsRequest =>
-    __isa(o, "RemoveTagsRequest");
+  export const isa = (o: any): o is RemoveTagsRequest => __isa(o, "RemoveTagsRequest");
 }
 
 /**
@@ -2076,8 +2029,7 @@ export interface ServiceSoftwareOptions {
 }
 
 export namespace ServiceSoftwareOptions {
-  export const isa = (o: any): o is ServiceSoftwareOptions =>
-    __isa(o, "ServiceSoftwareOptions");
+  export const isa = (o: any): o is ServiceSoftwareOptions => __isa(o, "ServiceSoftwareOptions");
 }
 
 /**
@@ -2092,8 +2044,7 @@ export interface SnapshotOptions {
 }
 
 export namespace SnapshotOptions {
-  export const isa = (o: any): o is SnapshotOptions =>
-    __isa(o, "SnapshotOptions");
+  export const isa = (o: any): o is SnapshotOptions => __isa(o, "SnapshotOptions");
 }
 
 /**
@@ -2113,8 +2064,7 @@ export interface SnapshotOptionsStatus {
 }
 
 export namespace SnapshotOptionsStatus {
-  export const isa = (o: any): o is SnapshotOptionsStatus =>
-    __isa(o, "SnapshotOptionsStatus");
+  export const isa = (o: any): o is SnapshotOptionsStatus => __isa(o, "SnapshotOptionsStatus");
 }
 
 /**
@@ -2129,9 +2079,7 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateRequest {
-  export const isa = (
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateRequest =>
+  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateRequest =>
     __isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
 }
 
@@ -2147,9 +2095,7 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateResponse {
-  export const isa = (
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateResponse =>
+  export const isa = (o: any): o is StartElasticsearchServiceSoftwareUpdateResponse =>
     __isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
 }
 
@@ -2240,8 +2186,7 @@ export interface StorageTypeLimit {
 }
 
 export namespace StorageTypeLimit {
-  export const isa = (o: any): o is StorageTypeLimit =>
-    __isa(o, "StorageTypeLimit");
+  export const isa = (o: any): o is StorageTypeLimit => __isa(o, "StorageTypeLimit");
 }
 
 export enum TLSSecurityPolicy {
@@ -2459,15 +2404,10 @@ export interface UpgradeHistory {
 }
 
 export namespace UpgradeHistory {
-  export const isa = (o: any): o is UpgradeHistory =>
-    __isa(o, "UpgradeHistory");
+  export const isa = (o: any): o is UpgradeHistory => __isa(o, "UpgradeHistory");
 }
 
-export type UpgradeStatus =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "SUCCEEDED_WITH_ISSUES";
+export type UpgradeStatus = "FAILED" | "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES";
 
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
 
@@ -2513,8 +2453,7 @@ export interface UpgradeStepItem {
 }
 
 export namespace UpgradeStepItem {
-  export const isa = (o: any): o is UpgradeStepItem =>
-    __isa(o, "UpgradeStepItem");
+  export const isa = (o: any): o is UpgradeStepItem => __isa(o, "UpgradeStepItem");
 }
 
 /**
@@ -2544,8 +2483,7 @@ export interface VPCDerivedInfo {
 }
 
 export namespace VPCDerivedInfo {
-  export const isa = (o: any): o is VPCDerivedInfo =>
-    __isa(o, "VPCDerivedInfo");
+  export const isa = (o: any): o is VPCDerivedInfo => __isa(o, "VPCDerivedInfo");
 }
 
 /**
@@ -2565,8 +2503,7 @@ export interface VPCDerivedInfoStatus {
 }
 
 export namespace VPCDerivedInfoStatus {
-  export const isa = (o: any): o is VPCDerivedInfoStatus =>
-    __isa(o, "VPCDerivedInfoStatus");
+  export const isa = (o: any): o is VPCDerivedInfoStatus => __isa(o, "VPCDerivedInfoStatus");
 }
 
 /**
@@ -2603,8 +2540,7 @@ export interface ZoneAwarenessConfig {
 }
 
 export namespace ZoneAwarenessConfig {
-  export const isa = (o: any): o is ZoneAwarenessConfig =>
-    __isa(o, "ZoneAwarenessConfig");
+  export const isa = (o: any): o is ZoneAwarenessConfig => __isa(o, "ZoneAwarenessConfig");
 }
 
 /**
@@ -2626,9 +2562,7 @@ export namespace BaseException {
 /**
  * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  */
-export interface DisabledOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DisabledOperationException extends __SmithyException, $MetadataBearer {
   name: "DisabledOperationException";
   $fault: "client";
   /**
@@ -2655,16 +2589,13 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
  * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  */
-export interface InvalidTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTypeException";
   $fault: "client";
   /**
@@ -2674,16 +2605,13 @@ export interface InvalidTypeException
 }
 
 export namespace InvalidTypeException {
-  export const isa = (o: any): o is InvalidTypeException =>
-    __isa(o, "InvalidTypeException");
+  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
  * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -2693,16 +2621,13 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -2719,9 +2644,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2738,9 +2661,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -2750,6 +2671,5 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  CreateSubscriberRequest,
-  CreateSubscriberResponse
-} from "../models/index";
+import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSubscriberCommand,
   serializeAws_json1_1CreateSubscriberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSubscriberCommandInput = CreateSubscriberRequest;
-export type CreateSubscriberCommandOutput = CreateSubscriberResponse &
-  __MetadataBearer;
+export type CreateSubscriberCommandOutput = CreateSubscriberResponse & __MetadataBearer;
 
 export class CreateSubscriberCommand extends $Command<
   CreateSubscriberCommandInput,
@@ -50,9 +46,7 @@ export class CreateSubscriberCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSubscriberCommandInput, CreateSubscriberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

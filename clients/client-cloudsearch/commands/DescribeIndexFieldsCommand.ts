@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DescribeIndexFieldsRequest,
-  DescribeIndexFieldsResponse
-} from "../models/index";
+import { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeIndexFieldsCommand,
   serializeAws_queryDescribeIndexFieldsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeIndexFieldsCommandInput = DescribeIndexFieldsRequest;
-export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse &
-  __MetadataBearer;
+export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse & __MetadataBearer;
 
 export class DescribeIndexFieldsCommand extends $Command<
   DescribeIndexFieldsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeIndexFieldsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIndexFieldsCommandInput,
-    DescribeIndexFieldsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIndexFieldsCommandInput, DescribeIndexFieldsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

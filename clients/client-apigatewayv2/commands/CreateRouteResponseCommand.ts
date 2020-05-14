@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  CreateRouteResponseRequest,
-  CreateRouteResponseResponse
-} from "../models/index";
+import { CreateRouteResponseRequest, CreateRouteResponseResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRouteResponseCommand,
   serializeAws_restJson1_1CreateRouteResponseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRouteResponseCommandInput = CreateRouteResponseRequest;
-export type CreateRouteResponseCommandOutput = CreateRouteResponseResponse &
-  __MetadataBearer;
+export type CreateRouteResponseCommandOutput = CreateRouteResponseResponse & __MetadataBearer;
 
 export class CreateRouteResponseCommand extends $Command<
   CreateRouteResponseCommandInput,
@@ -49,13 +45,8 @@ export class CreateRouteResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRouteResponseCommandInput,
-    CreateRouteResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRouteResponseCommandInput, CreateRouteResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateRouteResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRouteResponseCommandOutput> {
-    return deserializeAws_restJson1_1CreateRouteResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

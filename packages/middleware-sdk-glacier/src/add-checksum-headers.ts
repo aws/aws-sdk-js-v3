@@ -22,10 +22,7 @@ export function addChecksumHeadersMiddleware(
       let headers = request.headers;
       const body = request.body;
       if (body) {
-        const [contentHash, treeHash] = await options.bodyChecksumGenerator(
-          request,
-          options
-        );
+        const [contentHash, treeHash] = await options.bodyChecksumGenerator(request, options);
 
         for (const [headerName, hash] of <Array<[string, string]>>[
           ["x-amz-content-sha256", contentHash],

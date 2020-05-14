@@ -53,9 +53,7 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     DisassociateBudgetFromResourceCommandInput,
     DisassociateBudgetFromResourceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DisassociateBudgetFromResourceCommand extends $Command<
     input: DisassociateBudgetFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateBudgetFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

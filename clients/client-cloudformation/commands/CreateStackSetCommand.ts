@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateStackSetCommandInput = CreateStackSetInput;
-export type CreateStackSetCommandOutput = CreateStackSetOutput &
-  __MetadataBearer;
+export type CreateStackSetCommandOutput = CreateStackSetOutput & __MetadataBearer;
 
 export class CreateStackSetCommand extends $Command<
   CreateStackSetCommandInput,
@@ -47,9 +46,7 @@ export class CreateStackSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStackSetCommandInput, CreateStackSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

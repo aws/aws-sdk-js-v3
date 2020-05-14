@@ -207,9 +207,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public associateLink(
     args: AssociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateLinkCommandOutput) => void),
     cb?: (err: any, data?: AssociateLinkCommandOutput) => void
   ): Promise<AssociateLinkCommandOutput> | void {
     const command = new AssociateLinkCommand(args);
@@ -243,9 +241,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createDevice(
     args: CreateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeviceCommandOutput) => void),
     cb?: (err: any, data?: CreateDeviceCommandOutput) => void
   ): Promise<CreateDeviceCommandOutput> | void {
     const command = new CreateDeviceCommand(args);
@@ -313,9 +309,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createLink(
     args: CreateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLinkCommandOutput) => void),
     cb?: (err: any, data?: CreateLinkCommandOutput) => void
   ): Promise<CreateLinkCommandOutput> | void {
     const command = new CreateLinkCommand(args);
@@ -348,9 +342,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public createSite(
     args: CreateSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSiteCommandOutput) => void),
     cb?: (err: any, data?: CreateSiteCommandOutput) => void
   ): Promise<CreateSiteCommandOutput> | void {
     const command = new CreateSiteCommand(args);
@@ -384,9 +376,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): Promise<DeleteDeviceCommandOutput> | void {
     const command = new DeleteDeviceCommand(args);
@@ -456,9 +446,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteLink(
     args: DeleteLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLinkCommandOutput) => void),
     cb?: (err: any, data?: DeleteLinkCommandOutput) => void
   ): Promise<DeleteLinkCommandOutput> | void {
     const command = new DeleteLinkCommand(args);
@@ -491,9 +479,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public deleteSite(
     args: DeleteSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSiteCommandOutput) => void),
     cb?: (err: any, data?: DeleteSiteCommandOutput) => void
   ): Promise<DeleteSiteCommandOutput> | void {
     const command = new DeleteSiteCommand(args);
@@ -636,9 +622,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public disassociateLink(
     args: DisassociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateLinkCommandOutput) => void),
     cb?: (err: any, data?: DisassociateLinkCommandOutput) => void
   ): Promise<DisassociateLinkCommandOutput> | void {
     const command = new DisassociateLinkCommand(args);
@@ -674,10 +658,7 @@ export class NetworkManager extends NetworkManagerClient {
     args: GetCustomerGatewayAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCustomerGatewayAssociationsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void),
     cb?: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
   ): Promise<GetCustomerGatewayAssociationsCommandOutput> | void {
     const command = new GetCustomerGatewayAssociationsCommand(args);
@@ -710,9 +691,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getDevices(
     args: GetDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicesCommandOutput) => void),
     cb?: (err: any, data?: GetDevicesCommandOutput) => void
   ): Promise<GetDevicesCommandOutput> | void {
     const command = new GetDevicesCommand(args);
@@ -782,9 +761,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getLinks(
     args: GetLinksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLinksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLinksCommandOutput) => void),
     cb?: (err: any, data?: GetLinksCommandOutput) => void
   ): Promise<GetLinksCommandOutput> | void {
     const command = new GetLinksCommand(args);
@@ -817,9 +794,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public getSites(
     args: GetSitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSitesCommandOutput) => void),
     cb?: (err: any, data?: GetSitesCommandOutput) => void
   ): Promise<GetSitesCommandOutput> | void {
     const command = new GetSitesCommand(args);
@@ -855,10 +830,7 @@ export class NetworkManager extends NetworkManagerClient {
     args: GetTransitGatewayRegistrationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTransitGatewayRegistrationsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void),
     cb?: (err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void
   ): Promise<GetTransitGatewayRegistrationsCommandOutput> | void {
     const command = new GetTransitGatewayRegistrationsCommand(args);
@@ -963,9 +935,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -998,9 +968,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1034,9 +1002,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): Promise<UpdateDeviceCommandOutput> | void {
     const command = new UpdateDeviceCommand(args);
@@ -1106,9 +1072,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateLink(
     args: UpdateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLinkCommandOutput) => void),
     cb?: (err: any, data?: UpdateLinkCommandOutput) => void
   ): Promise<UpdateLinkCommandOutput> | void {
     const command = new UpdateLinkCommand(args);
@@ -1142,9 +1106,7 @@ export class NetworkManager extends NetworkManagerClient {
   ): void;
   public updateSite(
     args: UpdateSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSiteCommandOutput) => void),
     cb?: (err: any, data?: UpdateSiteCommandOutput) => void
   ): Promise<UpdateSiteCommandOutput> | void {
     const command = new UpdateSiteCommand(args);

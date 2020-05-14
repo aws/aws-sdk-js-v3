@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  UpdateFunctionDefinitionRequest,
-  UpdateFunctionDefinitionResponse
-} from "../models/index";
+import { UpdateFunctionDefinitionRequest, UpdateFunctionDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFunctionDefinitionCommand,
   serializeAws_restJson1_1UpdateFunctionDefinitionCommand
@@ -49,13 +46,8 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFunctionDefinitionCommandInput,
-    UpdateFunctionDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFunctionDefinitionCommandInput, UpdateFunctionDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     input: UpdateFunctionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFunctionDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateFunctionDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFunctionDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  CreateApplicationVersionRequest,
-  CreateApplicationVersionResponse
-} from "../models/index";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateApplicationVersionCommand,
   serializeAws_restJson1_1CreateApplicationVersionCommand
@@ -49,13 +46,8 @@ export class CreateApplicationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateApplicationVersionCommandInput,
-    CreateApplicationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateApplicationVersionCommandInput, CreateApplicationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class CreateApplicationVersionCommand extends $Command<
     input: CreateApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateApplicationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateApplicationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateApplicationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

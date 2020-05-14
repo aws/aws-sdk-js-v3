@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  StopAppReplicationRequest,
-  StopAppReplicationResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopAppReplicationCommand,
   serializeAws_json1_1StopAppReplicationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopAppReplicationCommandInput = StopAppReplicationRequest;
-export type StopAppReplicationCommandOutput = StopAppReplicationResponse &
-  __MetadataBearer;
+export type StopAppReplicationCommandOutput = StopAppReplicationResponse & __MetadataBearer;
 
 export class StopAppReplicationCommand extends $Command<
   StopAppReplicationCommandInput,
@@ -50,9 +42,7 @@ export class StopAppReplicationCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopAppReplicationCommandInput, StopAppReplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

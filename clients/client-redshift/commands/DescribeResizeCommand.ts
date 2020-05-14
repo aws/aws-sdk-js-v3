@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeResizeCommandInput = DescribeResizeMessage;
-export type DescribeResizeCommandOutput = ResizeProgressMessage &
-  __MetadataBearer;
+export type DescribeResizeCommandOutput = ResizeProgressMessage & __MetadataBearer;
 
 export class DescribeResizeCommand extends $Command<
   DescribeResizeCommandInput,
@@ -47,9 +46,7 @@ export class DescribeResizeCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeResizeCommandInput, DescribeResizeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListConnectionsCommandInput = ListConnectionsInput;
-export type ListConnectionsCommandOutput = ListConnectionsOutput &
-  __MetadataBearer;
+export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBearer;
 
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,
@@ -47,9 +46,7 @@ export class ListConnectionsCommand extends $Command<
     configuration: CodeStarconnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConnectionsCommandInput, ListConnectionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

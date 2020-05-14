@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateContactCommandInput = UpdateContactRequest;
-export type UpdateContactCommandOutput = UpdateContactResponse &
-  __MetadataBearer;
+export type UpdateContactCommandOutput = UpdateContactResponse & __MetadataBearer;
 
 export class UpdateContactCommand extends $Command<
   UpdateContactCommandInput,
@@ -47,9 +46,7 @@ export class UpdateContactCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateContactCommandInput, UpdateContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

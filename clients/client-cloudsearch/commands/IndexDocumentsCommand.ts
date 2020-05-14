@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type IndexDocumentsCommandInput = IndexDocumentsRequest;
-export type IndexDocumentsCommandOutput = IndexDocumentsResponse &
-  __MetadataBearer;
+export type IndexDocumentsCommandOutput = IndexDocumentsResponse & __MetadataBearer;
 
 export class IndexDocumentsCommand extends $Command<
   IndexDocumentsCommandInput,
@@ -47,9 +46,7 @@ export class IndexDocumentsCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<IndexDocumentsCommandInput, IndexDocumentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

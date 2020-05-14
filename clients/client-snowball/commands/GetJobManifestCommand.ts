@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJobManifestCommandInput = GetJobManifestRequest;
-export type GetJobManifestCommandOutput = GetJobManifestResult &
-  __MetadataBearer;
+export type GetJobManifestCommandOutput = GetJobManifestResult & __MetadataBearer;
 
 export class GetJobManifestCommand extends $Command<
   GetJobManifestCommandInput,
@@ -47,9 +46,7 @@ export class GetJobManifestCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobManifestCommandInput, GetJobManifestCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  DisassociateMembersRequest,
-  DisassociateMembersResponse
-} from "../models/index";
+import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateMembersCommand,
   serializeAws_restJson1_1DisassociateMembersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateMembersCommandInput = DisassociateMembersRequest;
-export type DisassociateMembersCommandOutput = DisassociateMembersResponse &
-  __MetadataBearer;
+export type DisassociateMembersCommandOutput = DisassociateMembersResponse & __MetadataBearer;
 
 export class DisassociateMembersCommand extends $Command<
   DisassociateMembersCommandInput,
@@ -49,13 +45,8 @@ export class DisassociateMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateMembersCommandInput,
-    DisassociateMembersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateMembersCommandInput, DisassociateMembersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DisassociateMembersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMembersCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateMembersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

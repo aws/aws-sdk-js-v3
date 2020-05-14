@@ -19,8 +19,7 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 export interface DescribeServicesRequest {
@@ -52,8 +51,7 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export const isa = (o: any): o is DescribeServicesRequest =>
-    __isa(o, "DescribeServicesRequest");
+  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 export interface DescribeServicesResponse {
@@ -82,9 +80,7 @@ export namespace DescribeServicesResponse {
 /**
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   Message?: string;
@@ -217,8 +213,7 @@ export interface GetProductsRequest {
 }
 
 export namespace GetProductsRequest {
-  export const isa = (o: any): o is GetProductsRequest =>
-    __isa(o, "GetProductsRequest");
+  export const isa = (o: any): o is GetProductsRequest => __isa(o, "GetProductsRequest");
 }
 
 export interface GetProductsResponse {
@@ -241,32 +236,26 @@ export interface GetProductsResponse {
 }
 
 export namespace GetProductsResponse {
-  export const isa = (o: any): o is GetProductsResponse =>
-    __isa(o, "GetProductsResponse");
+  export const isa = (o: any): o is GetProductsResponse => __isa(o, "GetProductsResponse");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -280,9 +269,7 @@ export namespace InvalidNextTokenException {
 /**
  * <p>One or more parameters had an invalid value.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -303,8 +290,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**

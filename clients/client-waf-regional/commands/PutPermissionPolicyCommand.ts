@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  PutPermissionPolicyRequest,
-  PutPermissionPolicyResponse
-} from "../models/index";
+import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutPermissionPolicyCommand,
   serializeAws_json1_1PutPermissionPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutPermissionPolicyCommandInput = PutPermissionPolicyRequest;
-export type PutPermissionPolicyCommandOutput = PutPermissionPolicyResponse &
-  __MetadataBearer;
+export type PutPermissionPolicyCommandOutput = PutPermissionPolicyResponse & __MetadataBearer;
 
 export class PutPermissionPolicyCommand extends $Command<
   PutPermissionPolicyCommandInput,
@@ -49,13 +45,8 @@ export class PutPermissionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutPermissionPolicyCommandInput,
-    PutPermissionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutPermissionPolicyCommandInput, PutPermissionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

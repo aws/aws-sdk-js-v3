@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdatePhoneNumberSettingsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommand,
@@ -45,13 +41,8 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePhoneNumberSettingsCommandInput,
-    UpdatePhoneNumberSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePhoneNumberSettingsCommandInput, UpdatePhoneNumberSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     input: UpdatePhoneNumberSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePhoneNumberSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdatePhoneNumberSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetConferencePreferenceRequest,
-  GetConferencePreferenceResponse
-} from "../models/index";
+import { GetConferencePreferenceRequest, GetConferencePreferenceResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetConferencePreferenceCommand,
   serializeAws_json1_1GetConferencePreferenceCommand
@@ -49,13 +46,8 @@ export class GetConferencePreferenceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConferencePreferenceCommandInput,
-    GetConferencePreferenceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConferencePreferenceCommandInput, GetConferencePreferenceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetConferencePreferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1GetConferencePreferenceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

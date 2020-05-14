@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeAcceleratorRequest,
-  DescribeAcceleratorResponse
-} from "../models/index";
+import { DescribeAcceleratorRequest, DescribeAcceleratorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAcceleratorCommand,
   serializeAws_json1_1DescribeAcceleratorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAcceleratorCommandInput = DescribeAcceleratorRequest;
-export type DescribeAcceleratorCommandOutput = DescribeAcceleratorResponse &
-  __MetadataBearer;
+export type DescribeAcceleratorCommandOutput = DescribeAcceleratorResponse & __MetadataBearer;
 
 export class DescribeAcceleratorCommand extends $Command<
   DescribeAcceleratorCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAcceleratorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAcceleratorCommandInput,
-    DescribeAcceleratorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAcceleratorCommandInput, DescribeAcceleratorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

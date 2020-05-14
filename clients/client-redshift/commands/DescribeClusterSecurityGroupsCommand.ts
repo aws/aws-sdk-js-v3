@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterSecurityGroupMessage,
-  DescribeClusterSecurityGroupsMessage
-} from "../models/index";
+import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterSecurityGroupsCommand,
   serializeAws_queryDescribeClusterSecurityGroupsCommand
@@ -53,9 +50,7 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     DescribeClusterSecurityGroupsCommandInput,
     DescribeClusterSecurityGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     input: DescribeClusterSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterSecurityGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeClusterSecurityGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeClusterSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

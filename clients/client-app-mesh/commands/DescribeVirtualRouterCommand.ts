@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  DescribeVirtualRouterInput,
-  DescribeVirtualRouterOutput
-} from "../models/index";
+import { DescribeVirtualRouterInput, DescribeVirtualRouterOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeVirtualRouterCommand,
   serializeAws_restJson1_1DescribeVirtualRouterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVirtualRouterCommandInput = DescribeVirtualRouterInput;
-export type DescribeVirtualRouterCommandOutput = DescribeVirtualRouterOutput &
-  __MetadataBearer;
+export type DescribeVirtualRouterCommandOutput = DescribeVirtualRouterOutput & __MetadataBearer;
 
 export class DescribeVirtualRouterCommand extends $Command<
   DescribeVirtualRouterCommandInput,
@@ -49,13 +45,8 @@ export class DescribeVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVirtualRouterCommandInput,
-    DescribeVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVirtualRouterCommandInput, DescribeVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeVirtualRouterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVirtualRouterCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

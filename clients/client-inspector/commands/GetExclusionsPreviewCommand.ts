@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  GetExclusionsPreviewRequest,
-  GetExclusionsPreviewResponse
-} from "../models/index";
+import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetExclusionsPreviewCommand,
   serializeAws_json1_1GetExclusionsPreviewCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetExclusionsPreviewCommandInput = GetExclusionsPreviewRequest;
-export type GetExclusionsPreviewCommandOutput = GetExclusionsPreviewResponse &
-  __MetadataBearer;
+export type GetExclusionsPreviewCommandOutput = GetExclusionsPreviewResponse & __MetadataBearer;
 
 export class GetExclusionsPreviewCommand extends $Command<
   GetExclusionsPreviewCommandInput,
@@ -49,13 +45,8 @@ export class GetExclusionsPreviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetExclusionsPreviewCommandInput,
-    GetExclusionsPreviewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetExclusionsPreviewCommandInput, GetExclusionsPreviewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

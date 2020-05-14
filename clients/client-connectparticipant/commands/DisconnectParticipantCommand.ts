@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectParticipantClient";
-import {
-  DisconnectParticipantRequest,
-  DisconnectParticipantResponse
-} from "../models/index";
+import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisconnectParticipantCommand,
   serializeAws_restJson1_1DisconnectParticipantCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisconnectParticipantCommandInput = DisconnectParticipantRequest;
-export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse &
-  __MetadataBearer;
+export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse & __MetadataBearer;
 
 export class DisconnectParticipantCommand extends $Command<
   DisconnectParticipantCommandInput,
@@ -49,13 +45,8 @@ export class DisconnectParticipantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisconnectParticipantCommandInput,
-    DisconnectParticipantCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisconnectParticipantCommandInput, DisconnectParticipantCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DisconnectParticipantCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisconnectParticipantCommandOutput> {
-    return deserializeAws_restJson1_1DisconnectParticipantCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisconnectParticipantCommand(output, context);
   }
 
   // Start section: command_body_extra

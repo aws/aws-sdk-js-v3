@@ -1,8 +1,4 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import {
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput
@@ -53,9 +49,7 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     PutBlockPublicAccessConfigurationCommandInput,
     PutBlockPublicAccessConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     input: PutBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

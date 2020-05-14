@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/index";
 import {
   deserializeAws_queryReceiveMessageCommand,
@@ -26,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ReceiveMessageCommandInput = ReceiveMessageRequest;
-export type ReceiveMessageCommandOutput = ReceiveMessageResult &
-  __MetadataBearer;
+export type ReceiveMessageCommandOutput = ReceiveMessageResult & __MetadataBearer;
 
 export class ReceiveMessageCommand extends $Command<
   ReceiveMessageCommandInput,
@@ -48,9 +43,7 @@ export class ReceiveMessageCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReceiveMessageCommandInput, ReceiveMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getReceiveMessagePlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

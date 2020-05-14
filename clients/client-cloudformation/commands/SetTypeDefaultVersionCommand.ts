@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  SetTypeDefaultVersionInput,
-  SetTypeDefaultVersionOutput
-} from "../models/index";
+import { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/index";
 import {
   deserializeAws_querySetTypeDefaultVersionCommand,
   serializeAws_querySetTypeDefaultVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetTypeDefaultVersionCommandInput = SetTypeDefaultVersionInput;
-export type SetTypeDefaultVersionCommandOutput = SetTypeDefaultVersionOutput &
-  __MetadataBearer;
+export type SetTypeDefaultVersionCommandOutput = SetTypeDefaultVersionOutput & __MetadataBearer;
 
 export class SetTypeDefaultVersionCommand extends $Command<
   SetTypeDefaultVersionCommandInput,
@@ -49,13 +45,8 @@ export class SetTypeDefaultVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetTypeDefaultVersionCommandInput,
-    SetTypeDefaultVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetTypeDefaultVersionCommandInput, SetTypeDefaultVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

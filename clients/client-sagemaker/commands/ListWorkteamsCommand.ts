@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListWorkteamsCommandInput = ListWorkteamsRequest;
-export type ListWorkteamsCommandOutput = ListWorkteamsResponse &
-  __MetadataBearer;
+export type ListWorkteamsCommandOutput = ListWorkteamsResponse & __MetadataBearer;
 
 export class ListWorkteamsCommand extends $Command<
   ListWorkteamsCommandInput,
@@ -47,9 +46,7 @@ export class ListWorkteamsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkteamsCommandInput, ListWorkteamsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

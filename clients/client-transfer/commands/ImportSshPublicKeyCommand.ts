@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TransferClientResolvedConfig
 } from "../TransferClient";
-import {
-  ImportSshPublicKeyRequest,
-  ImportSshPublicKeyResponse
-} from "../models/index";
+import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/index";
 import {
   deserializeAws_json1_1ImportSshPublicKeyCommand,
   serializeAws_json1_1ImportSshPublicKeyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportSshPublicKeyCommandInput = ImportSshPublicKeyRequest;
-export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse &
-  __MetadataBearer;
+export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse & __MetadataBearer;
 
 export class ImportSshPublicKeyCommand extends $Command<
   ImportSshPublicKeyCommandInput,
@@ -50,9 +46,7 @@ export class ImportSshPublicKeyCommand extends $Command<
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

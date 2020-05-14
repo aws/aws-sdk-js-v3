@@ -1,8 +1,4 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListNamedQueriesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListNamedQueriesCommandInput = ListNamedQueriesInput;
-export type ListNamedQueriesCommandOutput = ListNamedQueriesOutput &
-  __MetadataBearer;
+export type ListNamedQueriesCommandOutput = ListNamedQueriesOutput & __MetadataBearer;
 
 export class ListNamedQueriesCommand extends $Command<
   ListNamedQueriesCommandInput,
@@ -47,9 +42,7 @@ export class ListNamedQueriesCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

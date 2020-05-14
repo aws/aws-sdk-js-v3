@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   UpdateContainerInstancesStateRequest,
   UpdateContainerInstancesStateResponse
@@ -53,9 +49,7 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     UpdateContainerInstancesStateCommandInput,
     UpdateContainerInstancesStateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class UpdateContainerInstancesStateCommand extends $Command<
     input: UpdateContainerInstancesStateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContainerInstancesStateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateContainerInstancesStateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContainerInstancesStateCommandOutput> {
-    return deserializeAws_json1_1UpdateContainerInstancesStateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateContainerInstancesStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -39,9 +39,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AddApplicationInputProcessingConfigurationCommandInput
-  ) {
+  constructor(readonly input: AddApplicationInputProcessingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     AddApplicationInputProcessingConfigurationCommandInput,
     AddApplicationInputProcessingConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     input: AddApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

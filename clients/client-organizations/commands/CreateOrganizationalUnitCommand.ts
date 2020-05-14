@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  CreateOrganizationalUnitRequest,
-  CreateOrganizationalUnitResponse
-} from "../models/index";
+import { CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateOrganizationalUnitCommand,
   serializeAws_json1_1CreateOrganizationalUnitCommand
@@ -49,13 +46,8 @@ export class CreateOrganizationalUnitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateOrganizationalUnitCommandInput,
-    CreateOrganizationalUnitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateOrganizationalUnitCommandInput, CreateOrganizationalUnitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateOrganizationalUnitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1CreateOrganizationalUnitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

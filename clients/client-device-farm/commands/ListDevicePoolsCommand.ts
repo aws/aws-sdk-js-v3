@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDevicePoolsCommandInput = ListDevicePoolsRequest;
-export type ListDevicePoolsCommandOutput = ListDevicePoolsResult &
-  __MetadataBearer;
+export type ListDevicePoolsCommandOutput = ListDevicePoolsResult & __MetadataBearer;
 
 export class ListDevicePoolsCommand extends $Command<
   ListDevicePoolsCommandInput,
@@ -47,9 +46,7 @@ export class ListDevicePoolsCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient";
-import {
-  CancelRotateSecretRequest,
-  CancelRotateSecretResponse
-} from "../models/index";
+import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelRotateSecretCommand,
   serializeAws_json1_1CancelRotateSecretCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelRotateSecretCommandInput = CancelRotateSecretRequest;
-export type CancelRotateSecretCommandOutput = CancelRotateSecretResponse &
-  __MetadataBearer;
+export type CancelRotateSecretCommandOutput = CancelRotateSecretResponse & __MetadataBearer;
 
 export class CancelRotateSecretCommand extends $Command<
   CancelRotateSecretCommandInput,
@@ -50,9 +46,7 @@ export class CancelRotateSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

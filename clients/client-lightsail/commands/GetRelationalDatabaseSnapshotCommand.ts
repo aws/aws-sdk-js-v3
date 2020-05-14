@@ -53,9 +53,7 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
     GetRelationalDatabaseSnapshotCommandInput,
     GetRelationalDatabaseSnapshotCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
     input: GetRelationalDatabaseSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRelationalDatabaseSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseSnapshotCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

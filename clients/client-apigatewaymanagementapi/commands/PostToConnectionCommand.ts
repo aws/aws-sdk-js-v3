@@ -46,9 +46,7 @@ export class PostToConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostToConnectionCommandInput, PostToConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

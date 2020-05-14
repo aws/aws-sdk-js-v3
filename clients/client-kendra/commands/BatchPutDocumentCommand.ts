@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
-import {
-  BatchPutDocumentRequest,
-  BatchPutDocumentResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchPutDocumentCommand,
   serializeAws_json1_1BatchPutDocumentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchPutDocumentCommandInput = BatchPutDocumentRequest;
-export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse &
-  __MetadataBearer;
+export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse & __MetadataBearer;
 
 export class BatchPutDocumentCommand extends $Command<
   BatchPutDocumentCommandInput,
@@ -50,9 +42,7 @@ export class BatchPutDocumentCommand extends $Command<
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

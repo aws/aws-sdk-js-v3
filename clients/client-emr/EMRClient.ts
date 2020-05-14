@@ -10,14 +10,8 @@ import {
   AddJobFlowStepsCommandInput,
   AddJobFlowStepsCommandOutput
 } from "./commands/AddJobFlowStepsCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CancelStepsCommandInput,
-  CancelStepsCommandOutput
-} from "./commands/CancelStepsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CancelStepsCommandInput, CancelStepsCommandOutput } from "./commands/CancelStepsCommand";
 import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput
@@ -70,10 +64,7 @@ import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput
 } from "./commands/ListSecurityConfigurationsCommand";
-import {
-  ListStepsCommandInput,
-  ListStepsCommandOutput
-} from "./commands/ListStepsCommand";
+import { ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
 import {
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput
@@ -98,14 +89,8 @@ import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput
 } from "./commands/RemoveAutoScalingPolicyCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
-import {
-  RunJobFlowCommandInput,
-  RunJobFlowCommandOutput
-} from "./commands/RunJobFlowCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput
@@ -319,9 +304,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EMRClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EMRClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -330,9 +313,7 @@ export type EMRClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EMRClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

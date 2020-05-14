@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/index";
 import {
   deserializeAws_ec2GetPasswordDataCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPasswordDataCommandInput = GetPasswordDataRequest;
-export type GetPasswordDataCommandOutput = GetPasswordDataResult &
-  __MetadataBearer;
+export type GetPasswordDataCommandOutput = GetPasswordDataResult & __MetadataBearer;
 
 export class GetPasswordDataCommand extends $Command<
   GetPasswordDataCommandInput,
@@ -47,9 +42,7 @@ export class GetPasswordDataCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPasswordDataCommandInput, GetPasswordDataCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

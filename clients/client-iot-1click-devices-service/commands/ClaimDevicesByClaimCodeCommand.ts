@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  ClaimDevicesByClaimCodeRequest,
-  ClaimDevicesByClaimCodeResponse
-} from "../models/index";
+import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand,
   serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand
@@ -49,13 +46,8 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ClaimDevicesByClaimCodeCommandInput,
-    ClaimDevicesByClaimCodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ClaimDevicesByClaimCodeCommandInput, ClaimDevicesByClaimCodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     input: ClaimDevicesByClaimCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ClaimDevicesByClaimCodeCommandOutput> {
-    return deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

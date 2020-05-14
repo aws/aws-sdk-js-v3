@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeScalingPoliciesInput,
-  DescribeScalingPoliciesOutput
-} from "../models/index";
+import { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeScalingPoliciesCommand,
   serializeAws_json1_1DescribeScalingPoliciesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesInput;
-export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesOutput &
-  __MetadataBearer;
+export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesOutput & __MetadataBearer;
 
 export class DescribeScalingPoliciesCommand extends $Command<
   DescribeScalingPoliciesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeScalingPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingPoliciesCommandInput,
-    DescribeScalingPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingPoliciesCommandInput, DescribeScalingPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeScalingPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingPoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

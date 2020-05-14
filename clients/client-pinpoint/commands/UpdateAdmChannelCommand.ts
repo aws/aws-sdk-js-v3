@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateAdmChannelRequest,
-  UpdateAdmChannelResponse
-} from "../models/index";
+import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAdmChannelCommand,
   serializeAws_restJson1_1UpdateAdmChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAdmChannelCommandInput = UpdateAdmChannelRequest;
-export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse &
-  __MetadataBearer;
+export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse & __MetadataBearer;
 
 export class UpdateAdmChannelCommand extends $Command<
   UpdateAdmChannelCommandInput,
@@ -50,9 +46,7 @@ export class UpdateAdmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAdmChannelCommandInput, UpdateAdmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

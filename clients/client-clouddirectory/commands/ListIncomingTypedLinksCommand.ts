@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListIncomingTypedLinksRequest,
-  ListIncomingTypedLinksResponse
-} from "../models/index";
+import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListIncomingTypedLinksCommand,
   serializeAws_restJson1_1ListIncomingTypedLinksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListIncomingTypedLinksCommandInput = ListIncomingTypedLinksRequest;
-export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse &
-  __MetadataBearer;
+export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse & __MetadataBearer;
 
 export class ListIncomingTypedLinksCommand extends $Command<
   ListIncomingTypedLinksCommandInput,
@@ -49,13 +45,8 @@ export class ListIncomingTypedLinksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListIncomingTypedLinksCommandInput,
-    ListIncomingTypedLinksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListIncomingTypedLinksCommandInput, ListIncomingTypedLinksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListIncomingTypedLinksCommand extends $Command<
     input: ListIncomingTypedLinksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListIncomingTypedLinksCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListIncomingTypedLinksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIncomingTypedLinksCommandOutput> {
-    return deserializeAws_restJson1_1ListIncomingTypedLinksCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIncomingTypedLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

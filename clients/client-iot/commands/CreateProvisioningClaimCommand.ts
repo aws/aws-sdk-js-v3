@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateProvisioningClaimRequest,
-  CreateProvisioningClaimResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateProvisioningClaimCommand,
   serializeAws_restJson1_1CreateProvisioningClaimCommand
@@ -49,13 +42,8 @@ export class CreateProvisioningClaimCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProvisioningClaimCommandInput,
-    CreateProvisioningClaimCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProvisioningClaimCommandInput, CreateProvisioningClaimCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateProvisioningClaimCommand extends $Command<
     input: CreateProvisioningClaimCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateProvisioningClaimCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateProvisioningClaimCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1_1CreateProvisioningClaimCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProvisioningClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

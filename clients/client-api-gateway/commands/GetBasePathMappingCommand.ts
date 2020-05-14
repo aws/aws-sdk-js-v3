@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBasePathMappingCommandInput = GetBasePathMappingRequest;
-export type GetBasePathMappingCommandOutput = BasePathMapping &
-  __MetadataBearer;
+export type GetBasePathMappingCommandOutput = BasePathMapping & __MetadataBearer;
 
 export class GetBasePathMappingCommand extends $Command<
   GetBasePathMappingCommandInput,
@@ -47,9 +46,7 @@ export class GetBasePathMappingCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBasePathMappingCommandInput, GetBasePathMappingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

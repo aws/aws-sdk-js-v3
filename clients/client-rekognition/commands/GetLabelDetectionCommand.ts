@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetLabelDetectionRequest,
-  GetLabelDetectionResponse
-} from "../models/index";
+import { GetLabelDetectionRequest, GetLabelDetectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLabelDetectionCommand,
   serializeAws_json1_1GetLabelDetectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLabelDetectionCommandInput = GetLabelDetectionRequest;
-export type GetLabelDetectionCommandOutput = GetLabelDetectionResponse &
-  __MetadataBearer;
+export type GetLabelDetectionCommandOutput = GetLabelDetectionResponse & __MetadataBearer;
 
 export class GetLabelDetectionCommand extends $Command<
   GetLabelDetectionCommandInput,
@@ -50,9 +46,7 @@ export class GetLabelDetectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

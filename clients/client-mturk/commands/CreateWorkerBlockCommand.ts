@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  CreateWorkerBlockRequest,
-  CreateWorkerBlockResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { CreateWorkerBlockRequest, CreateWorkerBlockResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateWorkerBlockCommand,
   serializeAws_json1_1CreateWorkerBlockCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateWorkerBlockCommandInput = CreateWorkerBlockRequest;
-export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse &
-  __MetadataBearer;
+export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse & __MetadataBearer;
 
 export class CreateWorkerBlockCommand extends $Command<
   CreateWorkerBlockCommandInput,
@@ -50,9 +42,7 @@ export class CreateWorkerBlockCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkerBlockCommandInput, CreateWorkerBlockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

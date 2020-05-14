@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GlobalSignOutCommandInput = GlobalSignOutRequest;
-export type GlobalSignOutCommandOutput = GlobalSignOutResponse &
-  __MetadataBearer;
+export type GlobalSignOutCommandOutput = GlobalSignOutResponse & __MetadataBearer;
 
 export class GlobalSignOutCommand extends $Command<
   GlobalSignOutCommandInput,
@@ -47,9 +46,7 @@ export class GlobalSignOutCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GlobalSignOutCommandInput, GlobalSignOutCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

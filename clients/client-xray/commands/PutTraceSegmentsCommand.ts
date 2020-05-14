@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  PutTraceSegmentsRequest,
-  PutTraceSegmentsResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/index";
 import {
   deserializeAws_restJson1_1PutTraceSegmentsCommand,
   serializeAws_restJson1_1PutTraceSegmentsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutTraceSegmentsCommandInput = PutTraceSegmentsRequest;
-export type PutTraceSegmentsCommandOutput = PutTraceSegmentsResult &
-  __MetadataBearer;
+export type PutTraceSegmentsCommandOutput = PutTraceSegmentsResult & __MetadataBearer;
 
 export class PutTraceSegmentsCommand extends $Command<
   PutTraceSegmentsCommandInput,
@@ -50,9 +42,7 @@ export class PutTraceSegmentsCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  GetFlowTemplateRequest,
-  GetFlowTemplateResponse
-} from "../models/index";
+import { GetFlowTemplateRequest, GetFlowTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetFlowTemplateCommand,
   serializeAws_json1_1GetFlowTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFlowTemplateCommandInput = GetFlowTemplateRequest;
-export type GetFlowTemplateCommandOutput = GetFlowTemplateResponse &
-  __MetadataBearer;
+export type GetFlowTemplateCommandOutput = GetFlowTemplateResponse & __MetadataBearer;
 
 export class GetFlowTemplateCommand extends $Command<
   GetFlowTemplateCommandInput,
@@ -50,9 +46,7 @@ export class GetFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

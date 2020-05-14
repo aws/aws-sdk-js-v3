@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult
@@ -39,9 +35,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateLocalGatewayRouteTableVpcAssociationCommandInput
-  ) {
+  constructor(readonly input: CreateLocalGatewayRouteTableVpcAssociationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     CreateLocalGatewayRouteTableVpcAssociationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     input: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> {
-    return deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

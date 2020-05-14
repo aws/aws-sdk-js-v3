@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudTrailClient";
-import {
-  PutEventSelectorsRequest,
-  PutEventSelectorsResponse
-} from "../models/index";
+import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutEventSelectorsCommand,
   serializeAws_json1_1PutEventSelectorsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEventSelectorsCommandInput = PutEventSelectorsRequest;
-export type PutEventSelectorsCommandOutput = PutEventSelectorsResponse &
-  __MetadataBearer;
+export type PutEventSelectorsCommandOutput = PutEventSelectorsResponse & __MetadataBearer;
 
 export class PutEventSelectorsCommand extends $Command<
   PutEventSelectorsCommandInput,
@@ -50,9 +46,7 @@ export class PutEventSelectorsCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

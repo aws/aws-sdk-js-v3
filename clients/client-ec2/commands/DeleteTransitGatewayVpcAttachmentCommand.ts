@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayVpcAttachmentRequest,
   DeleteTransitGatewayVpcAttachmentResult
@@ -53,9 +49,7 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     DeleteTransitGatewayVpcAttachmentCommandInput,
     DeleteTransitGatewayVpcAttachmentCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     input: DeleteTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

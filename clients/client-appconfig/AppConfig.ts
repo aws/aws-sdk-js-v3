@@ -524,9 +524,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getApplication(
     args: GetApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
@@ -559,9 +557,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getConfiguration(
     args: GetConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetConfigurationCommandOutput) => void
   ): Promise<GetConfigurationCommandOutput> | void {
     const command = new GetConfigurationCommand(args);
@@ -629,9 +625,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
@@ -707,9 +701,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getEnvironment(
     args: GetEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): Promise<GetEnvironmentCommandOutput> | void {
     const command = new GetEnvironmentCommand(args);
@@ -742,9 +734,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
@@ -847,9 +837,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
@@ -882,9 +870,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): Promise<ListEnvironmentsCommandOutput> | void {
     const command = new ListEnvironmentsCommand(args);
@@ -952,9 +938,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public startDeployment(
     args: StartDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StartDeploymentCommandOutput) => void
   ): Promise<StartDeploymentCommandOutput> | void {
     const command = new StartDeploymentCommand(args);
@@ -989,9 +973,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StopDeploymentCommandOutput) => void
   ): Promise<StopDeploymentCommandOutput> | void {
     const command = new StopDeploymentCommand(args);
@@ -1026,9 +1008,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1061,9 +1041,7 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { ListVerifiedEmailAddressesResponse } from "../models/index";
 import {
   deserializeAws_queryListVerifiedEmailAddressesCommand,
@@ -46,13 +42,8 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVerifiedEmailAddressesCommandInput,
-    ListVerifiedEmailAddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVerifiedEmailAddressesCommandInput, ListVerifiedEmailAddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +69,7 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVerifiedEmailAddressesCommandOutput> {
-    return deserializeAws_queryListVerifiedEmailAddressesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListVerifiedEmailAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,14 +14,8 @@ import {
   AttachElasticLoadBalancerCommandInput,
   AttachElasticLoadBalancerCommandOutput
 } from "./commands/AttachElasticLoadBalancerCommand";
-import {
-  CloneStackCommandInput,
-  CloneStackCommandOutput
-} from "./commands/CloneStackCommand";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CloneStackCommandInput, CloneStackCommandOutput } from "./commands/CloneStackCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateDeploymentCommandInput,
   CreateDeploymentCommandOutput
@@ -30,34 +24,19 @@ import {
   CreateInstanceCommandInput,
   CreateInstanceCommandOutput
 } from "./commands/CreateInstanceCommand";
-import {
-  CreateLayerCommandInput,
-  CreateLayerCommandOutput
-} from "./commands/CreateLayerCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateLayerCommandInput, CreateLayerCommandOutput } from "./commands/CreateLayerCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateUserProfileCommandInput,
   CreateUserProfileCommandOutput
 } from "./commands/CreateUserProfileCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteInstanceCommandInput,
   DeleteInstanceCommandOutput
 } from "./commands/DeleteInstanceCommand";
-import {
-  DeleteLayerCommandInput,
-  DeleteLayerCommandOutput
-} from "./commands/DeleteLayerCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { DeleteLayerCommandInput, DeleteLayerCommandOutput } from "./commands/DeleteLayerCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteUserProfileCommandInput,
   DeleteUserProfileCommandOutput
@@ -182,14 +161,8 @@ import {
   GetHostnameSuggestionCommandInput,
   GetHostnameSuggestionCommandOutput
 } from "./commands/GetHostnameSuggestionCommand";
-import {
-  GrantAccessCommandInput,
-  GrantAccessCommandOutput
-} from "./commands/GrantAccessCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { GrantAccessCommandInput, GrantAccessCommandOutput } from "./commands/GrantAccessCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RebootInstanceCommandInput,
   RebootInstanceCommandOutput
@@ -230,22 +203,13 @@ import {
   StartInstanceCommandInput,
   StartInstanceCommandOutput
 } from "./commands/StartInstanceCommand";
-import {
-  StartStackCommandInput,
-  StartStackCommandOutput
-} from "./commands/StartStackCommand";
+import { StartStackCommandInput, StartStackCommandOutput } from "./commands/StartStackCommand";
 import {
   StopInstanceCommandInput,
   StopInstanceCommandOutput
 } from "./commands/StopInstanceCommand";
-import {
-  StopStackCommandInput,
-  StopStackCommandOutput
-} from "./commands/StopStackCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopStackCommandInput, StopStackCommandOutput } from "./commands/StopStackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnassignInstanceCommandInput,
   UnassignInstanceCommandOutput
@@ -258,10 +222,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
   UpdateElasticIpCommandInput,
   UpdateElasticIpCommandOutput
@@ -270,10 +231,7 @@ import {
   UpdateInstanceCommandInput,
   UpdateInstanceCommandOutput
 } from "./commands/UpdateInstanceCommand";
-import {
-  UpdateLayerCommandInput,
-  UpdateLayerCommandOutput
-} from "./commands/UpdateLayerCommand";
+import { UpdateLayerCommandInput, UpdateLayerCommandOutput } from "./commands/UpdateLayerCommand";
 import {
   UpdateMyUserProfileCommandInput,
   UpdateMyUserProfileCommandOutput
@@ -282,10 +240,7 @@ import {
   UpdateRdsDbInstanceCommandInput,
   UpdateRdsDbInstanceCommandOutput
 } from "./commands/UpdateRdsDbInstanceCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateUserProfileCommandInput,
   UpdateUserProfileCommandOutput
@@ -583,9 +538,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OpsWorksClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OpsWorksClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -594,9 +547,7 @@ export type OpsWorksClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OpsWorksClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

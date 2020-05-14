@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  UpdateParameterGroupRequest,
-  UpdateParameterGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateParameterGroupCommand,
   serializeAws_json1_1UpdateParameterGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateParameterGroupCommandInput = UpdateParameterGroupRequest;
-export type UpdateParameterGroupCommandOutput = UpdateParameterGroupResponse &
-  __MetadataBearer;
+export type UpdateParameterGroupCommandOutput = UpdateParameterGroupResponse & __MetadataBearer;
 
 export class UpdateParameterGroupCommand extends $Command<
   UpdateParameterGroupCommandInput,
@@ -49,13 +41,8 @@ export class UpdateParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateParameterGroupCommandInput,
-    UpdateParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateParameterGroupCommandInput, UpdateParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

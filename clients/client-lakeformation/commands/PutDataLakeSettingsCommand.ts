@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  PutDataLakeSettingsRequest,
-  PutDataLakeSettingsResponse
-} from "../models/index";
+import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutDataLakeSettingsCommand,
   serializeAws_json1_1PutDataLakeSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutDataLakeSettingsCommandInput = PutDataLakeSettingsRequest;
-export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse &
-  __MetadataBearer;
+export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse & __MetadataBearer;
 
 export class PutDataLakeSettingsCommand extends $Command<
   PutDataLakeSettingsCommandInput,
@@ -49,13 +45,8 @@ export class PutDataLakeSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDataLakeSettingsCommandInput,
-    PutDataLakeSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDataLakeSettingsCommandInput, PutDataLakeSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

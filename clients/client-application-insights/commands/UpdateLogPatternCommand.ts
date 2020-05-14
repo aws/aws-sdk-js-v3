@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  UpdateLogPatternRequest,
-  UpdateLogPatternResponse
-} from "../models/index";
+import { UpdateLogPatternRequest, UpdateLogPatternResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateLogPatternCommand,
   serializeAws_json1_1UpdateLogPatternCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateLogPatternCommandInput = UpdateLogPatternRequest;
-export type UpdateLogPatternCommandOutput = UpdateLogPatternResponse &
-  __MetadataBearer;
+export type UpdateLogPatternCommandOutput = UpdateLogPatternResponse & __MetadataBearer;
 
 export class UpdateLogPatternCommand extends $Command<
   UpdateLogPatternCommandInput,
@@ -50,9 +46,7 @@ export class UpdateLogPatternCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

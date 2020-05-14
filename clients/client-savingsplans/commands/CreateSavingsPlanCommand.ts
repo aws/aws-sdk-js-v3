@@ -1,7 +1,4 @@
-import {
-  CreateSavingsPlanRequest,
-  CreateSavingsPlanResponse
-} from "../models/index";
+import { CreateSavingsPlanRequest, CreateSavingsPlanResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSavingsPlanCommand,
   serializeAws_restJson1_1CreateSavingsPlanCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSavingsPlanCommandInput = CreateSavingsPlanRequest;
-export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse &
-  __MetadataBearer;
+export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse & __MetadataBearer;
 
 export class CreateSavingsPlanCommand extends $Command<
   CreateSavingsPlanCommandInput,
@@ -50,9 +46,7 @@ export class CreateSavingsPlanCommand extends $Command<
     configuration: savingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

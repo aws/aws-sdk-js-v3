@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  ListStreamProcessorsRequest,
-  ListStreamProcessorsResponse
-} from "../models/index";
+import { ListStreamProcessorsRequest, ListStreamProcessorsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListStreamProcessorsCommand,
   serializeAws_json1_1ListStreamProcessorsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListStreamProcessorsCommandInput = ListStreamProcessorsRequest;
-export type ListStreamProcessorsCommandOutput = ListStreamProcessorsResponse &
-  __MetadataBearer;
+export type ListStreamProcessorsCommandOutput = ListStreamProcessorsResponse & __MetadataBearer;
 
 export class ListStreamProcessorsCommand extends $Command<
   ListStreamProcessorsCommandInput,
@@ -49,13 +45,8 @@ export class ListStreamProcessorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListStreamProcessorsCommandInput,
-    ListStreamProcessorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListStreamProcessorsCommandInput, ListStreamProcessorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

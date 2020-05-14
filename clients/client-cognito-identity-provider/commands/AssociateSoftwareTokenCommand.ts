@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AssociateSoftwareTokenRequest,
-  AssociateSoftwareTokenResponse
-} from "../models/index";
+import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateSoftwareTokenCommand,
   serializeAws_json1_1AssociateSoftwareTokenCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateSoftwareTokenCommandInput = AssociateSoftwareTokenRequest;
-export type AssociateSoftwareTokenCommandOutput = AssociateSoftwareTokenResponse &
-  __MetadataBearer;
+export type AssociateSoftwareTokenCommandOutput = AssociateSoftwareTokenResponse & __MetadataBearer;
 
 export class AssociateSoftwareTokenCommand extends $Command<
   AssociateSoftwareTokenCommandInput,
@@ -49,13 +45,8 @@ export class AssociateSoftwareTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSoftwareTokenCommandInput,
-    AssociateSoftwareTokenCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSoftwareTokenCommandInput, AssociateSoftwareTokenCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerA2IRuntimeClient";
-import {
-  DescribeHumanLoopRequest,
-  DescribeHumanLoopResponse
-} from "../models/index";
+import { DescribeHumanLoopRequest, DescribeHumanLoopResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeHumanLoopCommand,
   serializeAws_restJson1_1DescribeHumanLoopCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeHumanLoopCommandInput = DescribeHumanLoopRequest;
-export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse &
-  __MetadataBearer;
+export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse & __MetadataBearer;
 
 export class DescribeHumanLoopCommand extends $Command<
   DescribeHumanLoopCommandInput,
@@ -50,9 +46,7 @@ export class DescribeHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeHumanLoopCommandInput, DescribeHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

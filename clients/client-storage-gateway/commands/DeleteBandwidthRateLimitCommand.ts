@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DeleteBandwidthRateLimitInput,
-  DeleteBandwidthRateLimitOutput
-} from "../models/index";
+import { DeleteBandwidthRateLimitInput, DeleteBandwidthRateLimitOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteBandwidthRateLimitCommand,
   serializeAws_json1_1DeleteBandwidthRateLimitCommand
@@ -49,13 +46,8 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBandwidthRateLimitCommandInput,
-    DeleteBandwidthRateLimitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBandwidthRateLimitCommandInput, DeleteBandwidthRateLimitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1DeleteBandwidthRateLimitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

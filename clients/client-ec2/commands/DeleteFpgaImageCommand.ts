@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteFpgaImageCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
-export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult &
-  __MetadataBearer;
+export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult & __MetadataBearer;
 
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,
@@ -47,9 +42,7 @@ export class DeleteFpgaImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

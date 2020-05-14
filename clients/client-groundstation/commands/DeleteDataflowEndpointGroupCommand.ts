@@ -49,13 +49,8 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDataflowEndpointGroupCommandInput,
-    DeleteDataflowEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDataflowEndpointGroupCommandInput, DeleteDataflowEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     input: DeleteDataflowEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataflowEndpointGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDataflowEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  StopEntitiesDetectionJobRequest,
-  StopEntitiesDetectionJobResponse
-} from "../models/index";
+import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopEntitiesDetectionJobCommand,
   serializeAws_json1_1StopEntitiesDetectionJobCommand
@@ -49,13 +46,8 @@ export class StopEntitiesDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopEntitiesDetectionJobCommandInput,
-    StopEntitiesDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopEntitiesDetectionJobCommandInput, StopEntitiesDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class StopEntitiesDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopEntitiesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

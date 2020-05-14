@@ -1,16 +1,11 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Returned if the access point you are trying to create already exists, with the
  *             creation token you provided in the request.</p>
  */
-export interface AccessPointAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "AccessPointAlreadyExists";
   $fault: "client";
   AccessPointId: string | undefined;
@@ -27,9 +22,7 @@ export namespace AccessPointAlreadyExists {
  * <p>Returned if the AWS account has already created the maximum number of access points
  *             allowed per file system.</p>
  */
-export interface AccessPointLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AccessPointLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -45,9 +38,7 @@ export namespace AccessPointLimitExceeded {
  * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
  *             requester's AWS account.</p>
  */
-export interface AccessPointNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessPointNotFound extends __SmithyException, $MetadataBearer {
   name: "AccessPointNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -55,8 +46,7 @@ export interface AccessPointNotFound
 }
 
 export namespace AccessPointNotFound {
-  export const isa = (o: any): o is AccessPointNotFound =>
-    __isa(o, "AccessPointNotFound");
+  export const isa = (o: any): o is AccessPointNotFound => __isa(o, "AccessPointNotFound");
 }
 
 /**
@@ -86,17 +76,14 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DependencyTimeout {
-  export const isa = (o: any): o is DependencyTimeout =>
-    __isa(o, "DependencyTimeout");
+  export const isa = (o: any): o is DependencyTimeout => __isa(o, "DependencyTimeout");
 }
 
 /**
  * <p>Returned if the file system you are trying to create already exists, with the
  *             creation token you provided.</p>
  */
-export interface FileSystemAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "FileSystemAlreadyExists";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -105,8 +92,7 @@ export interface FileSystemAlreadyExists
 }
 
 export namespace FileSystemAlreadyExists {
-  export const isa = (o: any): o is FileSystemAlreadyExists =>
-    __isa(o, "FileSystemAlreadyExists");
+  export const isa = (o: any): o is FileSystemAlreadyExists => __isa(o, "FileSystemAlreadyExists");
 }
 
 /**
@@ -120,17 +106,14 @@ export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemInUse {
-  export const isa = (o: any): o is FileSystemInUse =>
-    __isa(o, "FileSystemInUse");
+  export const isa = (o: any): o is FileSystemInUse => __isa(o, "FileSystemInUse");
 }
 
 /**
  * <p>Returned if the AWS account has already created the maximum number of file systems
  *             allowed per account.</p>
  */
-export interface FileSystemLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "FileSystemLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -138,8 +121,7 @@ export interface FileSystemLimitExceeded
 }
 
 export namespace FileSystemLimitExceeded {
-  export const isa = (o: any): o is FileSystemLimitExceeded =>
-    __isa(o, "FileSystemLimitExceeded");
+  export const isa = (o: any): o is FileSystemLimitExceeded => __isa(o, "FileSystemLimitExceeded");
 }
 
 /**
@@ -154,16 +136,13 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
-  export const isa = (o: any): o is FileSystemNotFound =>
-    __isa(o, "FileSystemNotFound");
+  export const isa = (o: any): o is FileSystemNotFound => __isa(o, "FileSystemNotFound");
 }
 
 /**
  * <p>Returned if the file system's lifecycle state is not "available".</p>
  */
-export interface IncorrectFileSystemLifeCycleState
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $MetadataBearer {
   name: "IncorrectFileSystemLifeCycleState";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -179,9 +158,7 @@ export namespace IncorrectFileSystemLifeCycleState {
  * <p>Returned if the mount target is not in the correct state for the
  *             operation.</p>
  */
-export interface IncorrectMountTargetState
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncorrectMountTargetState extends __SmithyException, $MetadataBearer {
   name: "IncorrectMountTargetState";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -200,9 +177,7 @@ export namespace IncorrectMountTargetState {
  *             when you attempt to change an existing file system from bursting to provisioned
  *             throughput mode.</p>
  */
-export interface InsufficientThroughputCapacity
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientThroughputCapacity extends __SmithyException, $MetadataBearer {
   name: "InsufficientThroughputCapacity";
   $fault: "server";
   ErrorCode: string | undefined;
@@ -217,9 +192,7 @@ export namespace InsufficientThroughputCapacity {
 /**
  * <p>Returned if an error occurred on the server side.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   ErrorCode: string | undefined;
@@ -227,17 +200,14 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>Returned if the <code>FileSystemPolicy</code> is is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
  */
-export interface InvalidPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
   ErrorCode?: string;
@@ -245,8 +215,7 @@ export interface InvalidPolicyException
 }
 
 export namespace InvalidPolicyException {
-  export const isa = (o: any): o is InvalidPolicyException =>
-    __isa(o, "InvalidPolicyException");
+  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
@@ -261,17 +230,14 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace IpAddressInUse {
-  export const isa = (o: any): o is IpAddressInUse =>
-    __isa(o, "IpAddressInUse");
+  export const isa = (o: any): o is IpAddressInUse => __isa(o, "IpAddressInUse");
 }
 
 /**
  * <p>Returned if the mount target would violate one of the specified restrictions based
  *             on the file system's existing mount targets.</p>
  */
-export interface MountTargetConflict
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MountTargetConflict extends __SmithyException, $MetadataBearer {
   name: "MountTargetConflict";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -279,17 +245,14 @@ export interface MountTargetConflict
 }
 
 export namespace MountTargetConflict {
-  export const isa = (o: any): o is MountTargetConflict =>
-    __isa(o, "MountTargetConflict");
+  export const isa = (o: any): o is MountTargetConflict => __isa(o, "MountTargetConflict");
 }
 
 /**
  * <p>Returned if there is no mount target with the specified ID found in the
  *             caller's account.</p>
  */
-export interface MountTargetNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MountTargetNotFound extends __SmithyException, $MetadataBearer {
   name: "MountTargetNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -297,8 +260,7 @@ export interface MountTargetNotFound
 }
 
 export namespace MountTargetNotFound {
-  export const isa = (o: any): o is MountTargetNotFound =>
-    __isa(o, "MountTargetNotFound");
+  export const isa = (o: any): o is MountTargetNotFound => __isa(o, "MountTargetNotFound");
 }
 
 /**
@@ -308,9 +270,7 @@ export namespace MountTargetNotFound {
  *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
  *             entry in the table). </p>
  */
-export interface NetworkInterfaceLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NetworkInterfaceLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "NetworkInterfaceLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -326,9 +286,7 @@ export namespace NetworkInterfaceLimitExceeded {
  * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
  *             no free IP addresses in the subnet.</p>
  */
-export interface NoFreeAddressesInSubnet
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBearer {
   name: "NoFreeAddressesInSubnet";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -336,8 +294,7 @@ export interface NoFreeAddressesInSubnet
 }
 
 export namespace NoFreeAddressesInSubnet {
-  export const isa = (o: any): o is NoFreeAddressesInSubnet =>
-    __isa(o, "NoFreeAddressesInSubnet");
+  export const isa = (o: any): o is NoFreeAddressesInSubnet => __isa(o, "NoFreeAddressesInSubnet");
 }
 
 /**
@@ -351,17 +308,14 @@ export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace PolicyNotFound {
-  export const isa = (o: any): o is PolicyNotFound =>
-    __isa(o, "PolicyNotFound");
+  export const isa = (o: any): o is PolicyNotFound => __isa(o, "PolicyNotFound");
 }
 
 /**
  * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
  *             greater than five.</p>
  */
-export interface SecurityGroupLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SecurityGroupLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "SecurityGroupLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -377,9 +331,7 @@ export namespace SecurityGroupLimitExceeded {
  * <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             VPC.</p>
  */
-export interface SecurityGroupNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SecurityGroupNotFound extends __SmithyException, $MetadataBearer {
   name: "SecurityGroupNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -387,8 +339,7 @@ export interface SecurityGroupNotFound
 }
 
 export namespace SecurityGroupNotFound {
-  export const isa = (o: any): o is SecurityGroupNotFound =>
-    __isa(o, "SecurityGroupNotFound");
+  export const isa = (o: any): o is SecurityGroupNotFound => __isa(o, "SecurityGroupNotFound");
 }
 
 /**
@@ -403,17 +354,14 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetNotFound {
-  export const isa = (o: any): o is SubnetNotFound =>
-    __isa(o, "SubnetNotFound");
+  export const isa = (o: any): o is SubnetNotFound => __isa(o, "SubnetNotFound");
 }
 
 /**
  * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
  */
-export interface ThroughputLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ThroughputLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -421,8 +369,7 @@ export interface ThroughputLimitExceeded
 }
 
 export namespace ThroughputLimitExceeded {
-  export const isa = (o: any): o is ThroughputLimitExceeded =>
-    __isa(o, "ThroughputLimitExceeded");
+  export const isa = (o: any): o is ThroughputLimitExceeded => __isa(o, "ThroughputLimitExceeded");
 }
 
 /**
@@ -437,16 +384,13 @@ export interface TooManyRequests extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyRequests {
-  export const isa = (o: any): o is TooManyRequests =>
-    __isa(o, "TooManyRequests");
+  export const isa = (o: any): o is TooManyRequests => __isa(o, "TooManyRequests");
 }
 
 /**
  * <p></p>
  */
-export interface UnsupportedAvailabilityZone
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedAvailabilityZone extends __SmithyException, $MetadataBearer {
   name: "UnsupportedAvailabilityZone";
   $fault: "client";
   ErrorCode: string | undefined;
@@ -516,8 +460,7 @@ export interface AccessPointDescription {
 }
 
 export namespace AccessPointDescription {
-  export const isa = (o: any): o is AccessPointDescription =>
-    __isa(o, "AccessPointDescription");
+  export const isa = (o: any): o is AccessPointDescription => __isa(o, "AccessPointDescription");
 }
 
 export interface CreateAccessPointRequest {
@@ -644,8 +587,7 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
-  export const isa = (o: any): o is CreateFileSystemRequest =>
-    __isa(o, "CreateFileSystemRequest");
+  export const isa = (o: any): o is CreateFileSystemRequest => __isa(o, "CreateFileSystemRequest");
 }
 
 /**
@@ -699,8 +641,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const isa = (o: any): o is CreateTagsRequest =>
-    __isa(o, "CreateTagsRequest");
+  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 /**
@@ -774,8 +715,7 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
-  export const isa = (o: any): o is DeleteFileSystemRequest =>
-    __isa(o, "DeleteFileSystemRequest");
+  export const isa = (o: any): o is DeleteFileSystemRequest => __isa(o, "DeleteFileSystemRequest");
 }
 
 /**
@@ -811,8 +751,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const isa = (o: any): o is DeleteTagsRequest =>
-    __isa(o, "DeleteTagsRequest");
+  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DescribeAccessPointsRequest {
@@ -1081,8 +1020,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 /**
@@ -1111,8 +1049,7 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
-  export const isa = (o: any): o is DescribeTagsResponse =>
-    __isa(o, "DescribeTagsResponse");
+  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 /**
@@ -1216,8 +1153,7 @@ export interface FileSystemDescription {
 }
 
 export namespace FileSystemDescription {
-  export const isa = (o: any): o is FileSystemDescription =>
-    __isa(o, "FileSystemDescription");
+  export const isa = (o: any): o is FileSystemDescription => __isa(o, "FileSystemDescription");
 }
 
 export interface FileSystemPolicyDescription {
@@ -1274,8 +1210,7 @@ export interface FileSystemSize {
 }
 
 export namespace FileSystemSize {
-  export const isa = (o: any): o is FileSystemSize =>
-    __isa(o, "FileSystemSize");
+  export const isa = (o: any): o is FileSystemSize => __isa(o, "FileSystemSize");
 }
 
 export enum LifeCycleState {
@@ -1316,8 +1251,7 @@ export interface LifecyclePolicy {
 }
 
 export namespace LifecyclePolicy {
-  export const isa = (o: any): o is LifecyclePolicy =>
-    __isa(o, "LifecyclePolicy");
+  export const isa = (o: any): o is LifecyclePolicy => __isa(o, "LifecyclePolicy");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1439,8 +1373,7 @@ export interface MountTargetDescription {
 }
 
 export namespace MountTargetDescription {
-  export const isa = (o: any): o is MountTargetDescription =>
-    __isa(o, "MountTargetDescription");
+  export const isa = (o: any): o is MountTargetDescription => __isa(o, "MountTargetDescription");
 }
 
 export enum PerformanceMode {
@@ -1596,8 +1529,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export enum ThroughputMode {
@@ -1627,8 +1559,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateFileSystemRequest {
@@ -1655,6 +1586,5 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
-  export const isa = (o: any): o is UpdateFileSystemRequest =>
-    __isa(o, "UpdateFileSystemRequest");
+  export const isa = (o: any): o is UpdateFileSystemRequest => __isa(o, "UpdateFileSystemRequest");
 }

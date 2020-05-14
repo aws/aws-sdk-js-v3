@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEvaluationsCommandInput = PutEvaluationsRequest;
-export type PutEvaluationsCommandOutput = PutEvaluationsResponse &
-  __MetadataBearer;
+export type PutEvaluationsCommandOutput = PutEvaluationsResponse & __MetadataBearer;
 
 export class PutEvaluationsCommand extends $Command<
   PutEvaluationsCommandInput,
@@ -47,9 +46,7 @@ export class PutEvaluationsCommand extends $Command<
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEvaluationsCommandInput, PutEvaluationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

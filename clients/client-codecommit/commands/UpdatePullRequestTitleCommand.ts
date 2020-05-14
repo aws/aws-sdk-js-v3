@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  UpdatePullRequestTitleInput,
-  UpdatePullRequestTitleOutput
-} from "../models/index";
+import { UpdatePullRequestTitleInput, UpdatePullRequestTitleOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdatePullRequestTitleCommand,
   serializeAws_json1_1UpdatePullRequestTitleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePullRequestTitleCommandInput = UpdatePullRequestTitleInput;
-export type UpdatePullRequestTitleCommandOutput = UpdatePullRequestTitleOutput &
-  __MetadataBearer;
+export type UpdatePullRequestTitleCommandOutput = UpdatePullRequestTitleOutput & __MetadataBearer;
 
 export class UpdatePullRequestTitleCommand extends $Command<
   UpdatePullRequestTitleCommandInput,
@@ -49,13 +45,8 @@ export class UpdatePullRequestTitleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePullRequestTitleCommandInput,
-    UpdatePullRequestTitleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePullRequestTitleCommandInput, UpdatePullRequestTitleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetApnsVoipChannelRequest,
-  GetApnsVoipChannelResponse
-} from "../models/index";
+import { GetApnsVoipChannelRequest, GetApnsVoipChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetApnsVoipChannelCommand,
   serializeAws_restJson1_1GetApnsVoipChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApnsVoipChannelCommandInput = GetApnsVoipChannelRequest;
-export type GetApnsVoipChannelCommandOutput = GetApnsVoipChannelResponse &
-  __MetadataBearer;
+export type GetApnsVoipChannelCommandOutput = GetApnsVoipChannelResponse & __MetadataBearer;
 
 export class GetApnsVoipChannelCommand extends $Command<
   GetApnsVoipChannelCommandInput,
@@ -50,9 +46,7 @@ export class GetApnsVoipChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApnsVoipChannelCommandInput, GetApnsVoipChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

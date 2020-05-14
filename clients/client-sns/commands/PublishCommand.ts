@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { PublishInput, PublishResponse } from "../models/index";
 import {
   deserializeAws_queryPublishCommand,
@@ -46,9 +42,7 @@ export class PublishCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class PublishCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPublishCommand(input, context);
   }
 

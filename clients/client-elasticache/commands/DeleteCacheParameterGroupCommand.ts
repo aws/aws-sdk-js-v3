@@ -45,13 +45,8 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCacheParameterGroupCommandInput,
-    DeleteCacheParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCacheParameterGroupCommandInput, DeleteCacheParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteCacheParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

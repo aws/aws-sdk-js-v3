@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  PutAccountSettingDefaultRequest,
-  PutAccountSettingDefaultResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutAccountSettingDefaultCommand,
   serializeAws_json1_1PutAccountSettingDefaultCommand
@@ -49,13 +42,8 @@ export class PutAccountSettingDefaultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutAccountSettingDefaultCommandInput,
-    PutAccountSettingDefaultCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutAccountSettingDefaultCommandInput, PutAccountSettingDefaultCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class PutAccountSettingDefaultCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountSettingDefaultCommandOutput> {
-    return deserializeAws_json1_1PutAccountSettingDefaultCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAccountSettingDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

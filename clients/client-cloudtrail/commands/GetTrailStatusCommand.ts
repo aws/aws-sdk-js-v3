@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTrailStatusCommandInput = GetTrailStatusRequest;
-export type GetTrailStatusCommandOutput = GetTrailStatusResponse &
-  __MetadataBearer;
+export type GetTrailStatusCommandOutput = GetTrailStatusResponse & __MetadataBearer;
 
 export class GetTrailStatusCommand extends $Command<
   GetTrailStatusCommandInput,
@@ -47,9 +46,7 @@ export class GetTrailStatusCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTrailStatusCommandInput, GetTrailStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

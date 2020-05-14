@@ -53,9 +53,7 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     DescribeRemediationExceptionsCommandInput,
     DescribeRemediationExceptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeRemediationExceptionsCommand extends $Command<
     input: DescribeRemediationExceptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRemediationExceptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeRemediationExceptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1DescribeRemediationExceptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

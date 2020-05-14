@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListRolesRequest, ListRolesResponse } from "../models/index";
 import {
   deserializeAws_queryListRolesCommand,
@@ -46,9 +42,7 @@ export class ListRolesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRolesCommandInput, ListRolesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class ListRolesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRolesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListRolesCommand(input, context);
   }
 

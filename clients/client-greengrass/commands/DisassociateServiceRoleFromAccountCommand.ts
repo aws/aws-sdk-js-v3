@@ -53,9 +53,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     DisassociateServiceRoleFromAccountCommandInput,
     DisassociateServiceRoleFromAccountCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeLDAPSSettingsRequest,
-  DescribeLDAPSSettingsResult
-} from "../models/index";
+import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeLDAPSSettingsCommand,
   serializeAws_json1_1DescribeLDAPSSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLDAPSSettingsCommandInput = DescribeLDAPSSettingsRequest;
-export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult &
-  __MetadataBearer;
+export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult & __MetadataBearer;
 
 export class DescribeLDAPSSettingsCommand extends $Command<
   DescribeLDAPSSettingsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLDAPSSettingsCommandInput,
-    DescribeLDAPSSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLDAPSSettingsCommandInput, DescribeLDAPSSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

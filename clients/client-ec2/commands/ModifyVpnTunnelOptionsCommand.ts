@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
   serializeAws_ec2ModifyVpnTunnelOptionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyVpnTunnelOptionsCommandInput = ModifyVpnTunnelOptionsRequest;
-export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult &
-  __MetadataBearer;
+export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult & __MetadataBearer;
 
 export class ModifyVpnTunnelOptionsCommand extends $Command<
   ModifyVpnTunnelOptionsCommandInput,
@@ -49,13 +41,8 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyVpnTunnelOptionsCommandInput,
-    ModifyVpnTunnelOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyVpnTunnelOptionsCommandInput, ModifyVpnTunnelOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

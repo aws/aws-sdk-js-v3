@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSchemaCommandInput = DescribeSchemaRequest;
-export type DescribeSchemaCommandOutput = DescribeSchemaResponse &
-  __MetadataBearer;
+export type DescribeSchemaCommandOutput = DescribeSchemaResponse & __MetadataBearer;
 
 export class DescribeSchemaCommand extends $Command<
   DescribeSchemaCommandInput,
@@ -47,9 +46,7 @@ export class DescribeSchemaCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSchemaCommandInput, DescribeSchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

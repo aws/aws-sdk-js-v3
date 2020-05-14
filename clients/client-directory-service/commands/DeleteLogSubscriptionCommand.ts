@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DeleteLogSubscriptionRequest,
-  DeleteLogSubscriptionResult
-} from "../models/index";
+import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLogSubscriptionCommand,
   serializeAws_json1_1DeleteLogSubscriptionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLogSubscriptionCommandInput = DeleteLogSubscriptionRequest;
-export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult &
-  __MetadataBearer;
+export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult & __MetadataBearer;
 
 export class DeleteLogSubscriptionCommand extends $Command<
   DeleteLogSubscriptionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteLogSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLogSubscriptionCommandInput,
-    DeleteLogSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLogSubscriptionCommandInput, DeleteLogSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

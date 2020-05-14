@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListThingGroupsForThingRequest,
-  ListThingGroupsForThingResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListThingGroupsForThingRequest, ListThingGroupsForThingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingGroupsForThingCommand,
   serializeAws_restJson1_1ListThingGroupsForThingCommand
@@ -49,13 +42,8 @@ export class ListThingGroupsForThingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThingGroupsForThingCommandInput,
-    ListThingGroupsForThingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThingGroupsForThingCommandInput, ListThingGroupsForThingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListThingGroupsForThingCommand extends $Command<
     input: ListThingGroupsForThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingGroupsForThingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListThingGroupsForThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingGroupsForThingCommandOutput> {
-    return deserializeAws_restJson1_1ListThingGroupsForThingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingGroupsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/index";
 import {
   deserializeAws_queryModifyGlobalClusterCommand,
   serializeAws_queryModifyGlobalClusterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyGlobalClusterCommandInput = ModifyGlobalClusterMessage;
-export type ModifyGlobalClusterCommandOutput = ModifyGlobalClusterResult &
-  __MetadataBearer;
+export type ModifyGlobalClusterCommandOutput = ModifyGlobalClusterResult & __MetadataBearer;
 
 export class ModifyGlobalClusterCommand extends $Command<
   ModifyGlobalClusterCommandInput,
@@ -49,13 +41,8 @@ export class ModifyGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyGlobalClusterCommandInput,
-    ModifyGlobalClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyGlobalClusterCommandInput, ModifyGlobalClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

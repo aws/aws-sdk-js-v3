@@ -49,13 +49,8 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTypedLinkFacetAttributesCommandInput,
-    ListTypedLinkFacetAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTypedLinkFacetAttributesCommandInput, ListTypedLinkFacetAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListTypedLinkFacetAttributesCommand extends $Command<
     input: ListTypedLinkFacetAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTypedLinkFacetAttributesCommandOutput> {
-    return deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     DescribeRepositoryAssociationCommandInput,
     DescribeRepositoryAssociationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     input: DescribeRepositoryAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRepositoryAssociationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeRepositoryAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRepositoryAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRepositoryAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

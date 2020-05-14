@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient";
-import {
-  DeleteMissionProfileRequest,
-  MissionProfileIdResponse
-} from "../models/index";
+import { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteMissionProfileCommand,
   serializeAws_restJson1_1DeleteMissionProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMissionProfileCommandInput = DeleteMissionProfileRequest;
-export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse &
-  __MetadataBearer;
+export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
 export class DeleteMissionProfileCommand extends $Command<
   DeleteMissionProfileCommandInput,
@@ -49,13 +45,8 @@ export class DeleteMissionProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMissionProfileCommandInput,
-    DeleteMissionProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMissionProfileCommandInput, DeleteMissionProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteMissionProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMissionProfileCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMissionProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

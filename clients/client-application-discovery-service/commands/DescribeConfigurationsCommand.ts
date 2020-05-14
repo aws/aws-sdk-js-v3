@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DescribeConfigurationsRequest,
-  DescribeConfigurationsResponse
-} from "../models/index";
+import { DescribeConfigurationsRequest, DescribeConfigurationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConfigurationsCommand,
   serializeAws_json1_1DescribeConfigurationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationsCommandInput = DescribeConfigurationsRequest;
-export type DescribeConfigurationsCommandOutput = DescribeConfigurationsResponse &
-  __MetadataBearer;
+export type DescribeConfigurationsCommandOutput = DescribeConfigurationsResponse & __MetadataBearer;
 
 export class DescribeConfigurationsCommand extends $Command<
   DescribeConfigurationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationsCommandInput,
-    DescribeConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationsCommandInput, DescribeConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

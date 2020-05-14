@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeKeyPairsRequest,
-  DescribeKeyPairsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeKeyPairsCommand,
   serializeAws_ec2DescribeKeyPairsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeKeyPairsCommandInput = DescribeKeyPairsRequest;
-export type DescribeKeyPairsCommandOutput = DescribeKeyPairsResult &
-  __MetadataBearer;
+export type DescribeKeyPairsCommandOutput = DescribeKeyPairsResult & __MetadataBearer;
 
 export class DescribeKeyPairsCommand extends $Command<
   DescribeKeyPairsCommandInput,
@@ -50,9 +42,7 @@ export class DescribeKeyPairsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

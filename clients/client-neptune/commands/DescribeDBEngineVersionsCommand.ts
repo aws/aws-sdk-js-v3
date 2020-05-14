@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DBEngineVersionMessage,
-  DescribeDBEngineVersionsMessage
-} from "../models/index";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBEngineVersionsCommand,
   serializeAws_queryDescribeDBEngineVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBEngineVersionsCommandInput = DescribeDBEngineVersionsMessage;
-export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage &
-  __MetadataBearer;
+export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage & __MetadataBearer;
 
 export class DescribeDBEngineVersionsCommand extends $Command<
   DescribeDBEngineVersionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBEngineVersionsCommandInput,
-    DescribeDBEngineVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBEngineVersionsCommandInput, DescribeDBEngineVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

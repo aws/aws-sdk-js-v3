@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCopyDBSnapshotCommand,
@@ -26,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
-export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult &
-  __MetadataBearer;
+export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult & __MetadataBearer;
 
 export class CopyDBSnapshotCommand extends $Command<
   CopyDBSnapshotCommandInput,
@@ -48,9 +43,7 @@ export class CopyDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

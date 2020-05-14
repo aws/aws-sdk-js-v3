@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 } from "../TranslateClient";
-import {
-  StartTextTranslationJobRequest,
-  StartTextTranslationJobResponse
-} from "../models/index";
+import { StartTextTranslationJobRequest, StartTextTranslationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartTextTranslationJobCommand,
   serializeAws_json1_1StartTextTranslationJobCommand
@@ -49,13 +46,8 @@ export class StartTextTranslationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartTextTranslationJobCommandInput,
-    StartTextTranslationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartTextTranslationJobCommandInput, StartTextTranslationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class StartTextTranslationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartTextTranslationJobCommandOutput> {
-    return deserializeAws_json1_1StartTextTranslationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartTextTranslationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

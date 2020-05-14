@@ -62,10 +62,7 @@ import {
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput
 } from "./commands/ListSchemaVersionsCommand";
-import {
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput
-} from "./commands/ListSchemasCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -90,10 +87,7 @@ import {
   StopDiscovererCommandInput,
   StopDiscovererCommandOutput
 } from "./commands/StopDiscovererCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnlockServiceLinkedRoleCommandInput,
   UnlockServiceLinkedRoleCommandOutput
@@ -313,9 +307,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type schemasClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type schemasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +316,7 @@ export type schemasClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type schemasClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type schemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

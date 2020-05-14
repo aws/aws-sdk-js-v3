@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  DescribeSolutionVersionRequest,
-  DescribeSolutionVersionResponse
-} from "../models/index";
+import { DescribeSolutionVersionRequest, DescribeSolutionVersionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSolutionVersionCommand,
   serializeAws_json1_1DescribeSolutionVersionCommand
@@ -49,13 +46,8 @@ export class DescribeSolutionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSolutionVersionCommandInput,
-    DescribeSolutionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSolutionVersionCommandInput, DescribeSolutionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeSolutionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSolutionVersionCommandOutput> {
-    return deserializeAws_json1_1DescribeSolutionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSolutionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSavingsPlansUtilizationCommandInput,
-    GetSavingsPlansUtilizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSavingsPlansUtilizationCommandInput, GetSavingsPlansUtilizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     input: GetSavingsPlansUtilizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansUtilizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetSavingsPlansUtilizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansUtilizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSavingsPlansUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   UpdateEnvironmentMembershipRequest,
   UpdateEnvironmentMembershipResult
@@ -49,13 +45,8 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEnvironmentMembershipCommandInput,
-    UpdateEnvironmentMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEnvironmentMembershipCommandInput, UpdateEnvironmentMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
     input: UpdateEnvironmentMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEnvironmentMembershipCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateEnvironmentMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     DescribeUsageReportSubscriptionsCommandInput,
     DescribeUsageReportSubscriptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     input: DescribeUsageReportSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUsageReportSubscriptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeUsageReportSubscriptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

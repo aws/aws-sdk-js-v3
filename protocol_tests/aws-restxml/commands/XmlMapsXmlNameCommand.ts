@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type XmlMapsXmlNameCommandInput = XmlMapsXmlNameInputOutput;
-export type XmlMapsXmlNameCommandOutput = XmlMapsXmlNameInputOutput &
-  __MetadataBearer;
+export type XmlMapsXmlNameCommandOutput = XmlMapsXmlNameInputOutput & __MetadataBearer;
 
 export class XmlMapsXmlNameCommand extends $Command<
   XmlMapsXmlNameCommandInput,
@@ -47,9 +46,7 @@ export class XmlMapsXmlNameCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

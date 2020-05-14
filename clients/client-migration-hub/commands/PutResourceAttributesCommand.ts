@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  PutResourceAttributesRequest,
-  PutResourceAttributesResult
-} from "../models/index";
+import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/index";
 import {
   deserializeAws_json1_1PutResourceAttributesCommand,
   serializeAws_json1_1PutResourceAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutResourceAttributesCommandInput = PutResourceAttributesRequest;
-export type PutResourceAttributesCommandOutput = PutResourceAttributesResult &
-  __MetadataBearer;
+export type PutResourceAttributesCommandOutput = PutResourceAttributesResult & __MetadataBearer;
 
 export class PutResourceAttributesCommand extends $Command<
   PutResourceAttributesCommandInput,
@@ -49,13 +45,8 @@ export class PutResourceAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutResourceAttributesCommandInput,
-    PutResourceAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutResourceAttributesCommandInput, PutResourceAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

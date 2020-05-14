@@ -1,12 +1,5 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  SendTaskHeartbeatInput,
-  SendTaskHeartbeatOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/index";
 import {
   deserializeAws_json1_0SendTaskHeartbeatCommand,
   serializeAws_json1_0SendTaskHeartbeatCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendTaskHeartbeatCommandInput = SendTaskHeartbeatInput;
-export type SendTaskHeartbeatCommandOutput = SendTaskHeartbeatOutput &
-  __MetadataBearer;
+export type SendTaskHeartbeatCommandOutput = SendTaskHeartbeatOutput & __MetadataBearer;
 
 export class SendTaskHeartbeatCommand extends $Command<
   SendTaskHeartbeatCommandInput,
@@ -50,9 +42,7 @@ export class SendTaskHeartbeatCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

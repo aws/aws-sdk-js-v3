@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountScope {
@@ -12,17 +9,14 @@ export enum AccountScope {
 /**
  * <p>The requested report expired. Update the date interval and try again.</p>
  */
-export interface BillExpirationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BillExpirationException extends __SmithyException, $MetadataBearer {
   name: "BillExpirationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BillExpirationException {
-  export const isa = (o: any): o is BillExpirationException =>
-    __isa(o, "BillExpirationException");
+  export const isa = (o: any): o is BillExpirationException => __isa(o, "BillExpirationException");
 }
 
 export enum Context {
@@ -123,8 +117,7 @@ export interface CostCategoryReference {
 }
 
 export namespace CostCategoryReference {
-  export const isa = (o: any): o is CostCategoryReference =>
-    __isa(o, "CostCategoryReference");
+  export const isa = (o: any): o is CostCategoryReference => __isa(o, "CostCategoryReference");
 }
 
 /**
@@ -152,8 +145,7 @@ export interface CostCategoryRule {
 }
 
 export namespace CostCategoryRule {
-  export const isa = (o: any): o is CostCategoryRule =>
-    __isa(o, "CostCategoryRule");
+  export const isa = (o: any): o is CostCategoryRule => __isa(o, "CostCategoryRule");
 }
 
 export enum CostCategoryRuleVersion {
@@ -184,8 +176,7 @@ export interface CostCategoryValues {
 }
 
 export namespace CostCategoryValues {
-  export const isa = (o: any): o is CostCategoryValues =>
-    __isa(o, "CostCategoryValues");
+  export const isa = (o: any): o is CostCategoryValues => __isa(o, "CostCategoryValues");
 }
 
 /**
@@ -238,8 +229,7 @@ export interface CoverageByTime {
 }
 
 export namespace CoverageByTime {
-  export const isa = (o: any): o is CoverageByTime =>
-    __isa(o, "CoverageByTime");
+  export const isa = (o: any): o is CoverageByTime => __isa(o, "CoverageByTime");
 }
 
 /**
@@ -324,8 +314,7 @@ export interface CoverageNormalizedUnits {
 }
 
 export namespace CoverageNormalizedUnits {
-  export const isa = (o: any): o is CoverageNormalizedUnits =>
-    __isa(o, "CoverageNormalizedUnits");
+  export const isa = (o: any): o is CoverageNormalizedUnits => __isa(o, "CoverageNormalizedUnits");
 }
 
 export interface CreateCostCategoryDefinitionRequest {
@@ -435,16 +424,13 @@ export interface CurrentInstance {
 }
 
 export namespace CurrentInstance {
-  export const isa = (o: any): o is CurrentInstance =>
-    __isa(o, "CurrentInstance");
+  export const isa = (o: any): o is CurrentInstance => __isa(o, "CurrentInstance");
 }
 
 /**
  * <p>The requested data is unavailable.</p>
  */
-export interface DataUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DataUnavailableException extends __SmithyException, $MetadataBearer {
   name: "DataUnavailableException";
   $fault: "client";
   Message?: string;
@@ -617,8 +603,7 @@ export interface DimensionValues {
 }
 
 export namespace DimensionValues {
-  export const isa = (o: any): o is DimensionValues =>
-    __isa(o, "DimensionValues");
+  export const isa = (o: any): o is DimensionValues => __isa(o, "DimensionValues");
 }
 
 /**
@@ -691,8 +676,7 @@ export interface EC2InstanceDetails {
 }
 
 export namespace EC2InstanceDetails {
-  export const isa = (o: any): o is EC2InstanceDetails =>
-    __isa(o, "EC2InstanceDetails");
+  export const isa = (o: any): o is EC2InstanceDetails => __isa(o, "EC2InstanceDetails");
 }
 
 /**
@@ -747,8 +731,7 @@ export interface EC2ResourceDetails {
 }
 
 export namespace EC2ResourceDetails {
-  export const isa = (o: any): o is EC2ResourceDetails =>
-    __isa(o, "EC2ResourceDetails");
+  export const isa = (o: any): o is EC2ResourceDetails => __isa(o, "EC2ResourceDetails");
 }
 
 /**
@@ -773,8 +756,7 @@ export interface EC2ResourceUtilization {
 }
 
 export namespace EC2ResourceUtilization {
-  export const isa = (o: any): o is EC2ResourceUtilization =>
-    __isa(o, "EC2ResourceUtilization");
+  export const isa = (o: any): o is EC2ResourceUtilization => __isa(o, "EC2ResourceUtilization");
 }
 
 /**
@@ -791,8 +773,7 @@ export interface EC2Specification {
 }
 
 export namespace EC2Specification {
-  export const isa = (o: any): o is EC2Specification =>
-    __isa(o, "EC2Specification");
+  export const isa = (o: any): o is EC2Specification => __isa(o, "EC2Specification");
 }
 
 /**
@@ -828,8 +809,7 @@ export interface ESInstanceDetails {
 }
 
 export namespace ESInstanceDetails {
-  export const isa = (o: any): o is ESInstanceDetails =>
-    __isa(o, "ESInstanceDetails");
+  export const isa = (o: any): o is ESInstanceDetails => __isa(o, "ESInstanceDetails");
 }
 
 /**
@@ -996,8 +976,7 @@ export interface ForecastResult {
 }
 
 export namespace ForecastResult {
-  export const isa = (o: any): o is ForecastResult =>
-    __isa(o, "ForecastResult");
+  export const isa = (o: any): o is ForecastResult => __isa(o, "ForecastResult");
 }
 
 export interface GetCostAndUsageRequest {
@@ -1056,8 +1035,7 @@ export interface GetCostAndUsageRequest {
 }
 
 export namespace GetCostAndUsageRequest {
-  export const isa = (o: any): o is GetCostAndUsageRequest =>
-    __isa(o, "GetCostAndUsageRequest");
+  export const isa = (o: any): o is GetCostAndUsageRequest => __isa(o, "GetCostAndUsageRequest");
 }
 
 export interface GetCostAndUsageResponse {
@@ -1079,8 +1057,7 @@ export interface GetCostAndUsageResponse {
 }
 
 export namespace GetCostAndUsageResponse {
-  export const isa = (o: any): o is GetCostAndUsageResponse =>
-    __isa(o, "GetCostAndUsageResponse");
+  export const isa = (o: any): o is GetCostAndUsageResponse => __isa(o, "GetCostAndUsageResponse");
 }
 
 export interface GetCostAndUsageWithResourcesRequest {
@@ -1222,8 +1199,7 @@ export interface GetCostForecastRequest {
 }
 
 export namespace GetCostForecastRequest {
-  export const isa = (o: any): o is GetCostForecastRequest =>
-    __isa(o, "GetCostForecastRequest");
+  export const isa = (o: any): o is GetCostForecastRequest => __isa(o, "GetCostForecastRequest");
 }
 
 export interface GetCostForecastResponse {
@@ -1241,8 +1217,7 @@ export interface GetCostForecastResponse {
 }
 
 export namespace GetCostForecastResponse {
-  export const isa = (o: any): o is GetCostForecastResponse =>
-    __isa(o, "GetCostForecastResponse");
+  export const isa = (o: any): o is GetCostForecastResponse => __isa(o, "GetCostForecastResponse");
 }
 
 export interface GetDimensionValuesRequest {
@@ -1725,9 +1700,7 @@ export interface GetReservationPurchaseRecommendationRequest {
 }
 
 export namespace GetReservationPurchaseRecommendationRequest {
-  export const isa = (
-    o: any
-  ): o is GetReservationPurchaseRecommendationRequest =>
+  export const isa = (o: any): o is GetReservationPurchaseRecommendationRequest =>
     __isa(o, "GetReservationPurchaseRecommendationRequest");
 }
 
@@ -1750,9 +1723,7 @@ export interface GetReservationPurchaseRecommendationResponse {
 }
 
 export namespace GetReservationPurchaseRecommendationResponse {
-  export const isa = (
-    o: any
-  ): o is GetReservationPurchaseRecommendationResponse =>
+  export const isa = (o: any): o is GetReservationPurchaseRecommendationResponse =>
     __isa(o, "GetReservationPurchaseRecommendationResponse");
 }
 
@@ -2085,9 +2056,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
 }
 
 export namespace GetSavingsPlansPurchaseRecommendationRequest {
-  export const isa = (
-    o: any
-  ): o is GetSavingsPlansPurchaseRecommendationRequest =>
+  export const isa = (o: any): o is GetSavingsPlansPurchaseRecommendationRequest =>
     __isa(o, "GetSavingsPlansPurchaseRecommendationRequest");
 }
 
@@ -2110,9 +2079,7 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
 }
 
 export namespace GetSavingsPlansPurchaseRecommendationResponse {
-  export const isa = (
-    o: any
-  ): o is GetSavingsPlansPurchaseRecommendationResponse =>
+  export const isa = (o: any): o is GetSavingsPlansPurchaseRecommendationResponse =>
     __isa(o, "GetSavingsPlansPurchaseRecommendationResponse");
 }
 
@@ -2307,8 +2274,7 @@ export interface GetTagsRequest {
 }
 
 export namespace GetTagsRequest {
-  export const isa = (o: any): o is GetTagsRequest =>
-    __isa(o, "GetTagsRequest");
+  export const isa = (o: any): o is GetTagsRequest => __isa(o, "GetTagsRequest");
 }
 
 export interface GetTagsResponse {
@@ -2335,8 +2301,7 @@ export interface GetTagsResponse {
 }
 
 export namespace GetTagsResponse {
-  export const isa = (o: any): o is GetTagsResponse =>
-    __isa(o, "GetTagsResponse");
+  export const isa = (o: any): o is GetTagsResponse => __isa(o, "GetTagsResponse");
 }
 
 export interface GetUsageForecastRequest {
@@ -2381,8 +2346,7 @@ export interface GetUsageForecastRequest {
 }
 
 export namespace GetUsageForecastRequest {
-  export const isa = (o: any): o is GetUsageForecastRequest =>
-    __isa(o, "GetUsageForecastRequest");
+  export const isa = (o: any): o is GetUsageForecastRequest => __isa(o, "GetUsageForecastRequest");
 }
 
 export interface GetUsageForecastResponse {
@@ -2448,8 +2412,7 @@ export interface GroupDefinition {
 }
 
 export namespace GroupDefinition {
-  export const isa = (o: any): o is GroupDefinition =>
-    __isa(o, "GroupDefinition");
+  export const isa = (o: any): o is GroupDefinition => __isa(o, "GroupDefinition");
 }
 
 export enum GroupDefinitionType {
@@ -2490,16 +2453,13 @@ export interface InstanceDetails {
 }
 
 export namespace InstanceDetails {
-  export const isa = (o: any): o is InstanceDetails =>
-    __isa(o, "InstanceDetails");
+  export const isa = (o: any): o is InstanceDetails => __isa(o, "InstanceDetails");
 }
 
 /**
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -2513,17 +2473,14 @@ export namespace InvalidNextTokenException {
 /**
  * <p>You made too many calls in a short period of time. Try again later.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCostCategoryDefinitionsRequest {
@@ -2691,8 +2648,7 @@ export interface RDSInstanceDetails {
 }
 
 export namespace RDSInstanceDetails {
-  export const isa = (o: any): o is RDSInstanceDetails =>
-    __isa(o, "RDSInstanceDetails");
+  export const isa = (o: any): o is RDSInstanceDetails => __isa(o, "RDSInstanceDetails");
 }
 
 /**
@@ -2728,25 +2684,21 @@ export interface RedshiftInstanceDetails {
 }
 
 export namespace RedshiftInstanceDetails {
-  export const isa = (o: any): o is RedshiftInstanceDetails =>
-    __isa(o, "RedshiftInstanceDetails");
+  export const isa = (o: any): o is RedshiftInstanceDetails => __isa(o, "RedshiftInstanceDetails");
 }
 
 /**
  * <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  */
-export interface RequestChangedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestChangedException extends __SmithyException, $MetadataBearer {
   name: "RequestChangedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace RequestChangedException {
-  export const isa = (o: any): o is RequestChangedException =>
-    __isa(o, "RequestChangedException");
+  export const isa = (o: any): o is RequestChangedException => __isa(o, "RequestChangedException");
 }
 
 /**
@@ -2838,8 +2790,7 @@ export interface ReservationAggregates {
 }
 
 export namespace ReservationAggregates {
-  export const isa = (o: any): o is ReservationAggregates =>
-    __isa(o, "ReservationAggregates");
+  export const isa = (o: any): o is ReservationAggregates => __isa(o, "ReservationAggregates");
 }
 
 /**
@@ -3132,8 +3083,7 @@ export interface ResourceDetails {
 }
 
 export namespace ResourceDetails {
-  export const isa = (o: any): o is ResourceDetails =>
-    __isa(o, "ResourceDetails");
+  export const isa = (o: any): o is ResourceDetails => __isa(o, "ResourceDetails");
 }
 
 /**
@@ -3141,9 +3091,7 @@ export namespace ResourceDetails {
  *             The specified ARN in the request doesn't exist.
  *         </p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3166,8 +3114,7 @@ export interface ResourceUtilization {
 }
 
 export namespace ResourceUtilization {
-  export const isa = (o: any): o is ResourceUtilization =>
-    __isa(o, "ResourceUtilization");
+  export const isa = (o: any): o is ResourceUtilization => __isa(o, "ResourceUtilization");
 }
 
 /**
@@ -3348,8 +3295,7 @@ export interface SavingsPlansCoverage {
 }
 
 export namespace SavingsPlansCoverage {
-  export const isa = (o: any): o is SavingsPlansCoverage =>
-    __isa(o, "SavingsPlansCoverage");
+  export const isa = (o: any): o is SavingsPlansCoverage => __isa(o, "SavingsPlansCoverage");
 }
 
 /**
@@ -3405,8 +3351,7 @@ export interface SavingsPlansDetails {
 }
 
 export namespace SavingsPlansDetails {
-  export const isa = (o: any): o is SavingsPlansDetails =>
-    __isa(o, "SavingsPlansDetails");
+  export const isa = (o: any): o is SavingsPlansDetails => __isa(o, "SavingsPlansDetails");
 }
 
 /**
@@ -3560,9 +3505,7 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
 }
 
 export namespace SavingsPlansPurchaseRecommendationMetadata {
-  export const isa = (
-    o: any
-  ): o is SavingsPlansPurchaseRecommendationMetadata =>
+  export const isa = (o: any): o is SavingsPlansPurchaseRecommendationMetadata =>
     __isa(o, "SavingsPlansPurchaseRecommendationMetadata");
 }
 
@@ -3653,8 +3596,7 @@ export interface SavingsPlansSavings {
 }
 
 export namespace SavingsPlansSavings {
-  export const isa = (o: any): o is SavingsPlansSavings =>
-    __isa(o, "SavingsPlansSavings");
+  export const isa = (o: any): o is SavingsPlansSavings => __isa(o, "SavingsPlansSavings");
 }
 
 /**
@@ -3684,8 +3626,7 @@ export interface SavingsPlansUtilization {
 }
 
 export namespace SavingsPlansUtilization {
-  export const isa = (o: any): o is SavingsPlansUtilization =>
-    __isa(o, "SavingsPlansUtilization");
+  export const isa = (o: any): o is SavingsPlansUtilization => __isa(o, "SavingsPlansUtilization");
 }
 
 /**
@@ -3787,9 +3728,7 @@ export namespace SavingsPlansUtilizationDetail {
  *             You've reached the limit on the number of resources you can create, or exceeded the size of an individual resources.
  *         </p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -3814,8 +3753,7 @@ export interface ServiceSpecification {
 }
 
 export namespace ServiceSpecification {
-  export const isa = (o: any): o is ServiceSpecification =>
-    __isa(o, "ServiceSpecification");
+  export const isa = (o: any): o is ServiceSpecification => __isa(o, "ServiceSpecification");
 }
 
 export enum SupportedSavingsPlansType {
@@ -3880,8 +3818,7 @@ export interface TargetInstance {
 }
 
 export namespace TargetInstance {
-  export const isa = (o: any): o is TargetInstance =>
-    __isa(o, "TargetInstance");
+  export const isa = (o: any): o is TargetInstance => __isa(o, "TargetInstance");
 }
 
 export enum TermInYears {
@@ -3913,9 +3850,7 @@ export namespace TerminateRecommendationDetail {
 /**
  * <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
  */
-export interface UnresolvableUsageUnitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnresolvableUsageUnitException extends __SmithyException, $MetadataBearer {
   name: "UnresolvableUsageUnitException";
   $fault: "client";
   Message?: string;
@@ -3997,6 +3932,5 @@ export interface UtilizationByTime {
 }
 
 export namespace UtilizationByTime {
-  export const isa = (o: any): o is UtilizationByTime =>
-    __isa(o, "UtilizationByTime");
+  export const isa = (o: any): o is UtilizationByTime => __isa(o, "UtilizationByTime");
 }

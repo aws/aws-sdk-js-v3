@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
-export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput &
-  __MetadataBearer;
+export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput & __MetadataBearer;
 
 export class DescribeAlarmsCommand extends $Command<
   DescribeAlarmsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAlarmsCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

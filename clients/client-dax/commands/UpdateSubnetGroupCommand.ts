@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  UpdateSubnetGroupRequest,
-  UpdateSubnetGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSubnetGroupCommand,
   serializeAws_json1_1UpdateSubnetGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSubnetGroupCommandInput = UpdateSubnetGroupRequest;
-export type UpdateSubnetGroupCommandOutput = UpdateSubnetGroupResponse &
-  __MetadataBearer;
+export type UpdateSubnetGroupCommandOutput = UpdateSubnetGroupResponse & __MetadataBearer;
 
 export class UpdateSubnetGroupCommand extends $Command<
   UpdateSubnetGroupCommandInput,
@@ -50,9 +42,7 @@ export class UpdateSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSubnetGroupCommandInput, UpdateSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 } from "../TranscribeClient";
-import {
-  GetVocabularyFilterRequest,
-  GetVocabularyFilterResponse
-} from "../models/index";
+import { GetVocabularyFilterRequest, GetVocabularyFilterResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetVocabularyFilterCommand,
   serializeAws_json1_1GetVocabularyFilterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVocabularyFilterCommandInput = GetVocabularyFilterRequest;
-export type GetVocabularyFilterCommandOutput = GetVocabularyFilterResponse &
-  __MetadataBearer;
+export type GetVocabularyFilterCommandOutput = GetVocabularyFilterResponse & __MetadataBearer;
 
 export class GetVocabularyFilterCommand extends $Command<
   GetVocabularyFilterCommandInput,
@@ -49,13 +45,8 @@ export class GetVocabularyFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVocabularyFilterCommandInput,
-    GetVocabularyFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVocabularyFilterCommandInput, GetVocabularyFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

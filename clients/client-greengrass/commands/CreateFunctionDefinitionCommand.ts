@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  CreateFunctionDefinitionRequest,
-  CreateFunctionDefinitionResponse
-} from "../models/index";
+import { CreateFunctionDefinitionRequest, CreateFunctionDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateFunctionDefinitionCommand,
   serializeAws_restJson1_1CreateFunctionDefinitionCommand
@@ -49,13 +46,8 @@ export class CreateFunctionDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateFunctionDefinitionCommandInput,
-    CreateFunctionDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateFunctionDefinitionCommandInput, CreateFunctionDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class CreateFunctionDefinitionCommand extends $Command<
     input: CreateFunctionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateFunctionDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateFunctionDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFunctionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateFunctionDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateFunctionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

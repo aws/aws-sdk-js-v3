@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RejectTransitGatewayVpcAttachmentRequest,
   RejectTransitGatewayVpcAttachmentResult
@@ -53,9 +49,7 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     RejectTransitGatewayVpcAttachmentCommandInput,
     RejectTransitGatewayVpcAttachmentCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     input: RejectTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecursiveShapesCommandInput = RecursiveShapesInputOutput;
-export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput &
-  __MetadataBearer;
+export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput & __MetadataBearer;
 
 export class RecursiveShapesCommand extends $Command<
   RecursiveShapesCommandInput,
@@ -47,9 +46,7 @@ export class RecursiveShapesCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RecursiveShapesCommandInput, RecursiveShapesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

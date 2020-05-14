@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  ListTypeRegistrationsInput,
-  ListTypeRegistrationsOutput
-} from "../models/index";
+import { ListTypeRegistrationsInput, ListTypeRegistrationsOutput } from "../models/index";
 import {
   deserializeAws_queryListTypeRegistrationsCommand,
   serializeAws_queryListTypeRegistrationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTypeRegistrationsCommandInput = ListTypeRegistrationsInput;
-export type ListTypeRegistrationsCommandOutput = ListTypeRegistrationsOutput &
-  __MetadataBearer;
+export type ListTypeRegistrationsCommandOutput = ListTypeRegistrationsOutput & __MetadataBearer;
 
 export class ListTypeRegistrationsCommand extends $Command<
   ListTypeRegistrationsCommandInput,
@@ -49,13 +45,8 @@ export class ListTypeRegistrationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTypeRegistrationsCommandInput,
-    ListTypeRegistrationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTypeRegistrationsCommandInput, ListTypeRegistrationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

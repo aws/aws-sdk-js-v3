@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreateAssociationBatchRequest,
-  CreateAssociationBatchResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreateAssociationBatchRequest, CreateAssociationBatchResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateAssociationBatchCommand,
   serializeAws_json1_1CreateAssociationBatchCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAssociationBatchCommandInput = CreateAssociationBatchRequest;
-export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult &
-  __MetadataBearer;
+export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult & __MetadataBearer;
 
 export class CreateAssociationBatchCommand extends $Command<
   CreateAssociationBatchCommandInput,
@@ -49,13 +41,8 @@ export class CreateAssociationBatchCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAssociationBatchCommandInput,
-    CreateAssociationBatchCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAssociationBatchCommandInput, CreateAssociationBatchCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

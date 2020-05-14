@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  UpdateTestGridProjectRequest,
-  UpdateTestGridProjectResult
-} from "../models/index";
+import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateTestGridProjectCommand,
   serializeAws_json1_1UpdateTestGridProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTestGridProjectCommandInput = UpdateTestGridProjectRequest;
-export type UpdateTestGridProjectCommandOutput = UpdateTestGridProjectResult &
-  __MetadataBearer;
+export type UpdateTestGridProjectCommandOutput = UpdateTestGridProjectResult & __MetadataBearer;
 
 export class UpdateTestGridProjectCommand extends $Command<
   UpdateTestGridProjectCommandInput,
@@ -49,13 +45,8 @@ export class UpdateTestGridProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTestGridProjectCommandInput,
-    UpdateTestGridProjectCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTestGridProjectCommandInput, UpdateTestGridProjectCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ClearDefaultAuthorizerRequest,
-  ClearDefaultAuthorizerResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ClearDefaultAuthorizerCommand,
   serializeAws_restJson1_1ClearDefaultAuthorizerCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ClearDefaultAuthorizerCommandInput = ClearDefaultAuthorizerRequest;
-export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse &
-  __MetadataBearer;
+export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse & __MetadataBearer;
 
 export class ClearDefaultAuthorizerCommand extends $Command<
   ClearDefaultAuthorizerCommandInput,
@@ -49,13 +41,8 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ClearDefaultAuthorizerCommandInput,
-    ClearDefaultAuthorizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ClearDefaultAuthorizerCommandInput, ClearDefaultAuthorizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     input: ClearDefaultAuthorizerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ClearDefaultAuthorizerCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ClearDefaultAuthorizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ClearDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1ClearDefaultAuthorizerCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ClearDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

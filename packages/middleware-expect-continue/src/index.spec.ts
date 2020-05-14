@@ -9,10 +9,7 @@ describe("addExpectContinueMiddleware", () => {
   });
 
   it("sets the Expect header to 100-continue if there is a request body in node runtime", async () => {
-    const handler = addExpectContinueMiddleware({ runtime: "node" })(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addExpectContinueMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -28,10 +25,7 @@ describe("addExpectContinueMiddleware", () => {
   });
 
   it("does not set the Expect header to 100-continue if there is no request body in node runtime", async () => {
-    const handler = addExpectContinueMiddleware({ runtime: "node" })(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addExpectContinueMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({
@@ -46,10 +40,7 @@ describe("addExpectContinueMiddleware", () => {
   });
 
   it("does not set the Expect header to 100-continue for browser runtime", async () => {
-    const handler = addExpectContinueMiddleware({ runtime: "browser" })(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addExpectContinueMiddleware({ runtime: "browser" })(mockNextHandler, {} as any);
     await handler({
       input: {},
       request: new HttpRequest({

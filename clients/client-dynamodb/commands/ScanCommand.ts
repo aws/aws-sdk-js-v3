@@ -46,9 +46,7 @@ export class ScanCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ScanCommandInput, ScanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +61,11 @@ export class ScanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ScanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ScanCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ScanCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> {
     return deserializeAws_json1_0ScanCommand(output, context);
   }
 

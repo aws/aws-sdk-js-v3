@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   CreateOpenIDConnectProviderRequest,
   CreateOpenIDConnectProviderResponse
@@ -49,13 +45,8 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateOpenIDConnectProviderCommandInput,
-    CreateOpenIDConnectProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateOpenIDConnectProviderCommandInput, CreateOpenIDConnectProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryCreateOpenIDConnectProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

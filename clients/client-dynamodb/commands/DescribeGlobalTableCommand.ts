@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  DescribeGlobalTableInput,
-  DescribeGlobalTableOutput
-} from "../models/index";
+import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0DescribeGlobalTableCommand,
   serializeAws_json1_0DescribeGlobalTableCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeGlobalTableCommandInput = DescribeGlobalTableInput;
-export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput &
-  __MetadataBearer;
+export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput & __MetadataBearer;
 
 export class DescribeGlobalTableCommand extends $Command<
   DescribeGlobalTableCommandInput,
@@ -49,13 +45,8 @@ export class DescribeGlobalTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGlobalTableCommandInput,
-    DescribeGlobalTableCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGlobalTableCommandInput, DescribeGlobalTableCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

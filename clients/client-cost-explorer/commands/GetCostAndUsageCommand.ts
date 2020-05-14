@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostExplorerClient";
-import {
-  GetCostAndUsageRequest,
-  GetCostAndUsageResponse
-} from "../models/index";
+import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCostAndUsageCommand,
   serializeAws_json1_1GetCostAndUsageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCostAndUsageCommandInput = GetCostAndUsageRequest;
-export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse &
-  __MetadataBearer;
+export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse & __MetadataBearer;
 
 export class GetCostAndUsageCommand extends $Command<
   GetCostAndUsageCommandInput,
@@ -50,9 +46,7 @@ export class GetCostAndUsageCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  PurchaseOfferingRequest,
-  PurchaseOfferingResult
-} from "../models/index";
+import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/index";
 import {
   deserializeAws_json1_1PurchaseOfferingCommand,
   serializeAws_json1_1PurchaseOfferingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PurchaseOfferingCommandInput = PurchaseOfferingRequest;
-export type PurchaseOfferingCommandOutput = PurchaseOfferingResult &
-  __MetadataBearer;
+export type PurchaseOfferingCommandOutput = PurchaseOfferingResult & __MetadataBearer;
 
 export class PurchaseOfferingCommand extends $Command<
   PurchaseOfferingCommandInput,
@@ -50,9 +46,7 @@ export class PurchaseOfferingCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

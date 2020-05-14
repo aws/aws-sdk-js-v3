@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListVPCEConfigurationsRequest,
-  ListVPCEConfigurationsResult
-} from "../models/index";
+import { ListVPCEConfigurationsRequest, ListVPCEConfigurationsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListVPCEConfigurationsCommand,
   serializeAws_json1_1ListVPCEConfigurationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVPCEConfigurationsCommandInput = ListVPCEConfigurationsRequest;
-export type ListVPCEConfigurationsCommandOutput = ListVPCEConfigurationsResult &
-  __MetadataBearer;
+export type ListVPCEConfigurationsCommandOutput = ListVPCEConfigurationsResult & __MetadataBearer;
 
 export class ListVPCEConfigurationsCommand extends $Command<
   ListVPCEConfigurationsCommandInput,
@@ -49,13 +45,8 @@ export class ListVPCEConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVPCEConfigurationsCommandInput,
-    ListVPCEConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVPCEConfigurationsCommandInput, ListVPCEConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

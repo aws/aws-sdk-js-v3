@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListPoliciesGrantingServiceAccessRequest,
   ListPoliciesGrantingServiceAccessResponse
@@ -53,9 +49,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     ListPoliciesGrantingServiceAccessCommandInput,
     ListPoliciesGrantingServiceAccessCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     input: ListPoliciesGrantingServiceAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> {
-    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

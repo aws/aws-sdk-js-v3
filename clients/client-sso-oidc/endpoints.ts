@@ -33,10 +33,7 @@ const AWS_ISO_REGIONS = new Set(["us-iso-east-1"]);
 const AWS_ISO_B_REGIONS = new Set(["us-isob-east-1"]);
 const AWS_US_GOV_REGIONS = new Set(["us-gov-west-1", "us-gov-east-1"]);
 
-export const defaultRegionInfoProvider: RegionInfoProvider = (
-  region: string,
-  options?: any
-) => {
+export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, options?: any) => {
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.

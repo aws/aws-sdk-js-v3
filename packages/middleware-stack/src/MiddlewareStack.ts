@@ -36,9 +36,7 @@ export interface MiddlewareStack<Input extends object, Output extends object>
 
 export class MiddlewareStack<Input extends object, Output extends object> {
   private readonly absoluteEntries: Array<MiddlewareEntry<Input, Output>> = [];
-  private readonly relativeEntries: Array<
-    RelativeMiddlewareEntry<Input, Output>
-  > = [];
+  private readonly relativeEntries: Array<RelativeMiddlewareEntry<Input, Output>> = [];
   private entriesNameMap: {
     [middlewareName: string]:
       | MiddlewareEntry<Input, Output>
@@ -139,19 +137,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   private sort(
-    entries: Array<
-      MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>
-    >
-  ): Array<
-    MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>
-  > {
+    entries: Array<MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>>
+  ): Array<MiddlewareEntry<Input, Output> | NormalizedRelativeEntry<Input, Output>> {
     //reverse before sorting so that middleware of same step will execute in
     //the order of being added
     return entries.sort(
       (a, b) =>
         stepWeights[b.step] - stepWeights[a.step] ||
-        priorityWeights[b.priority || "normal"] -
-          priorityWeights[a.priority || "normal"]
+        priorityWeights[b.priority || "normal"] - priorityWeights[a.priority || "normal"]
     );
   }
 
@@ -178,14 +171,8 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
       clone.entriesNameMap[name] = _from.entriesNameMap[name];
     }
-    clone.absoluteEntries.push(
-      ...(this.absoluteEntries as any),
-      ..._from.absoluteEntries
-    );
-    clone.relativeEntries.push(
-      ...(this.relativeEntries as any),
-      ..._from.relativeEntries
-    );
+    clone.absoluteEntries.push(...(this.absoluteEntries as any), ..._from.absoluteEntries);
+    clone.relativeEntries.push(...(this.relativeEntries as any), ..._from.relativeEntries);
     return clone;
   }
 
@@ -196,20 +183,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
 
   private removeByName(toRemove: string): boolean {
     for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
-      if (
-        this.absoluteEntries[i].name &&
-        this.absoluteEntries[i].name === toRemove
-      ) {
+      if (this.absoluteEntries[i].name && this.absoluteEntries[i].name === toRemove) {
         this.absoluteEntries.splice(i, 1);
         delete this.entriesNameMap[toRemove];
         return true;
       }
     }
     for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
-      if (
-        this.relativeEntries[i].name &&
-        this.relativeEntries[i].name === toRemove
-      ) {
+      if (this.relativeEntries[i].name && this.relativeEntries[i].name === toRemove) {
         this.relativeEntries.splice(i, 1);
         delete this.entriesNameMap[toRemove];
         return true;
@@ -348,14 +329,8 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     }
     // get the head of the relative middleware linked list that have
     // no transitive relation to absolute middleware.
-    const orphanedRelativeEntries: Array<NormalizedRelativeEntry<
-      Input,
-      Output
-    >> = [];
-    const visited: WeakSet<NormalizedRelativeEntry<
-      Input,
-      Output
-    >> = new WeakSet();
+    const orphanedRelativeEntries: Array<NormalizedRelativeEntry<Input, Output>> = [];
+    const visited: WeakSet<NormalizedRelativeEntry<Input, Output>> = new WeakSet();
     for (const anchorName of Object.keys(anchors)) {
       let { prev, next } = anchors[anchorName];
       while (prev) {
@@ -368,8 +343,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
     }
     for (let i = 0; i < normalized.length; i++) {
-      let entry: NormalizedRelativeEntry<Input, Output> | undefined =
-        normalized[i];
+      let entry: NormalizedRelativeEntry<Input, Output> | undefined = normalized[i];
       if (visited.has(entry)) continue;
       if (!entry.prev) orphanedRelativeEntries.push(entry);
       while (entry && !visited.has(entry)) {
@@ -428,10 +402,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     context: HandlerExecutionContext
   ): Handler<InputType, OutputType> {
     for (const middleware of this.getMiddlewareList()) {
-      handler = middleware(
-        handler as Handler<Input, OutputType>,
-        context
-      ) as any;
+      handler = middleware(handler as Handler<Input, OutputType>, context) as any;
     }
 
     return handler as Handler<InputType, OutputType>;

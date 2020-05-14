@@ -292,9 +292,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
@@ -328,9 +326,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -363,9 +359,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createResource(
     args: CreateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceCommandOutput) => void
   ): Promise<CreateResourceCommandOutput> | void {
     const command = new CreateResourceCommand(args);
@@ -399,9 +393,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -435,9 +427,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
@@ -470,9 +460,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -540,9 +528,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteResource(
     args: DeleteResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceCommandOutput) => void
   ): Promise<DeleteResourceCommandOutput> | void {
     const command = new DeleteResourceCommand(args);
@@ -579,9 +565,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -652,9 +636,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeGroup(
     args: DescribeGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
@@ -722,9 +704,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeResource(
     args: DescribeResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceCommandOutput) => void
   ): Promise<DescribeResourceCommandOutput> | void {
     const command = new DescribeResourceCommand(args);
@@ -757,9 +737,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
@@ -794,14 +772,8 @@ export class WorkMail extends WorkMailClient {
     args: DisassociateDelegateFromResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDelegateFromResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateDelegateFromResourceCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateDelegateFromResourceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateDelegateFromResourceCommandOutput) => void
   ): Promise<DisassociateDelegateFromResourceCommandOutput> | void {
     const command = new DisassociateDelegateFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -903,9 +875,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
@@ -939,9 +909,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listGroupMembers(
     args: ListGroupMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupMembersCommandOutput) => void),
     cb?: (err: any, data?: ListGroupMembersCommandOutput) => void
   ): Promise<ListGroupMembersCommandOutput> | void {
     const command = new ListGroupMembersCommand(args);
@@ -974,9 +942,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
@@ -1116,9 +1082,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
@@ -1151,9 +1115,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -1263,9 +1225,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public resetPassword(
     args: ResetPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetPasswordCommandOutput) => void),
     cb?: (err: any, data?: ResetPasswordCommandOutput) => void
   ): Promise<ResetPasswordCommandOutput> | void {
     const command = new ResetPasswordCommand(args);
@@ -1372,9 +1332,7 @@ export class WorkMail extends WorkMailClient {
   ): void;
   public updateResource(
     args: UpdateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);

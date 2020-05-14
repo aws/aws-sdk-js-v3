@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  ListFargateProfilesRequest,
-  ListFargateProfilesResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFargateProfilesCommand,
   serializeAws_restJson1_1ListFargateProfilesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFargateProfilesCommandInput = ListFargateProfilesRequest;
-export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse &
-  __MetadataBearer;
+export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse & __MetadataBearer;
 
 export class ListFargateProfilesCommand extends $Command<
   ListFargateProfilesCommandInput,
@@ -49,13 +41,8 @@ export class ListFargateProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListFargateProfilesCommandInput,
-    ListFargateProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListFargateProfilesCommandInput, ListFargateProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListFargateProfilesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFargateProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListFargateProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListFargateProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

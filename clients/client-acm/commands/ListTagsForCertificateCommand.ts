@@ -1,12 +1,5 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient";
-import {
-  ListTagsForCertificateRequest,
-  ListTagsForCertificateResponse
-} from "../models/index";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
+import { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsForCertificateCommand,
   serializeAws_json1_1ListTagsForCertificateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForCertificateCommandInput = ListTagsForCertificateRequest;
-export type ListTagsForCertificateCommandOutput = ListTagsForCertificateResponse &
-  __MetadataBearer;
+export type ListTagsForCertificateCommandOutput = ListTagsForCertificateResponse & __MetadataBearer;
 
 export class ListTagsForCertificateCommand extends $Command<
   ListTagsForCertificateCommandInput,
@@ -49,13 +41,8 @@ export class ListTagsForCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForCertificateCommandInput,
-    ListTagsForCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForCertificateCommandInput, ListTagsForCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

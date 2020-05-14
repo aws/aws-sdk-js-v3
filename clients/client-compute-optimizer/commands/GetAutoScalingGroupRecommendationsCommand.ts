@@ -53,9 +53,7 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     GetAutoScalingGroupRecommendationsCommandInput,
     GetAutoScalingGroupRecommendationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command<
     input: GetAutoScalingGroupRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  CopyClusterSnapshotMessage,
-  CopyClusterSnapshotResult
-} from "../models/index";
+import { CopyClusterSnapshotMessage, CopyClusterSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCopyClusterSnapshotCommand,
   serializeAws_queryCopyClusterSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyClusterSnapshotCommandInput = CopyClusterSnapshotMessage;
-export type CopyClusterSnapshotCommandOutput = CopyClusterSnapshotResult &
-  __MetadataBearer;
+export type CopyClusterSnapshotCommandOutput = CopyClusterSnapshotResult & __MetadataBearer;
 
 export class CopyClusterSnapshotCommand extends $Command<
   CopyClusterSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class CopyClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CopyClusterSnapshotCommandInput,
-    CopyClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CopyClusterSnapshotCommandInput, CopyClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

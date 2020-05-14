@@ -45,13 +45,8 @@ export class DeleteRouteSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRouteSettingsCommandInput,
-    DeleteRouteSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRouteSettingsCommandInput, DeleteRouteSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteRouteSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRouteSettingsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRouteSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRouteSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

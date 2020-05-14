@@ -33,9 +33,7 @@ export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
     "X-Amz-Target": "AWSEC2InstanceConnectService.SendSSHPublicKey"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SendSSHPublicKeyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SendSSHPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -68,16 +66,12 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthException":
     case "com.amazon.aws.sshaccessproxyservice#AuthException":
       response = {
-        ...(await deserializeAws_json1_1AuthExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -96,10 +90,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     case "InvalidArgsException":
     case "com.amazon.aws.sshaccessproxyservice#InvalidArgsException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -107,10 +98,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     case "ServiceException":
     case "com.amazon.aws.sshaccessproxyservice#ServiceException":
       response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -118,10 +106,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     case "ThrottlingException":
     case "com.amazon.aws.sshaccessproxyservice#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -163,10 +148,7 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EC2InstanceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EC2InstanceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EC2InstanceNotFoundException(body, context);
   const contents: EC2InstanceNotFoundException = {
     name: "EC2InstanceNotFoundException",
     $fault: "client",
@@ -181,10 +163,7 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgsException(body, context);
   const contents: InvalidArgsException = {
     name: "InvalidArgsException",
     $fault: "client",
@@ -199,10 +178,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceException(body, context);
   const contents: ServiceException = {
     name: "ServiceException",
     $fault: "server",
@@ -217,10 +193,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
@@ -254,10 +227,7 @@ const deserializeAws_json1_1AuthException = (
 ): AuthException => {
   return {
     __type: "AuthException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -267,10 +237,7 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
 ): EC2InstanceNotFoundException => {
   return {
     __type: "EC2InstanceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -280,10 +247,7 @@ const deserializeAws_json1_1InvalidArgsException = (
 ): InvalidArgsException => {
   return {
     __type: "InvalidArgsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -294,13 +258,8 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
   return {
     __type: "SendSSHPublicKeyResponse",
     RequestId:
-      output.RequestId !== undefined && output.RequestId !== null
-        ? output.RequestId
-        : undefined,
-    Success:
-      output.Success !== undefined && output.Success !== null
-        ? output.Success
-        : undefined
+      output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined
   } as any;
 };
 
@@ -310,10 +269,7 @@ const deserializeAws_json1_1ServiceException = (
 ): ServiceException => {
   return {
     __type: "ServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -323,10 +279,7 @@ const deserializeAws_json1_1ThrottlingException = (
 ): ThrottlingException => {
   return {
     __type: "ThrottlingException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -344,16 +297,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeImportSnapshotTasksRequest,
   DescribeImportSnapshotTasksResult
@@ -49,13 +45,8 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImportSnapshotTasksCommandInput,
-    DescribeImportSnapshotTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImportSnapshotTasksCommandInput, DescribeImportSnapshotTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImportSnapshotTasksCommandOutput> {
-    return deserializeAws_ec2DescribeImportSnapshotTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeImportSnapshotTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

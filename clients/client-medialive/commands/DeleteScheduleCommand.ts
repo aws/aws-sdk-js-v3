@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteScheduleCommandInput = DeleteScheduleRequest;
-export type DeleteScheduleCommandOutput = DeleteScheduleResponse &
-  __MetadataBearer;
+export type DeleteScheduleCommandOutput = DeleteScheduleResponse & __MetadataBearer;
 
 export class DeleteScheduleCommand extends $Command<
   DeleteScheduleCommandInput,
@@ -47,9 +46,7 @@ export class DeleteScheduleCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteScheduleCommandInput, DeleteScheduleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetCelebrityInfoRequest,
-  GetCelebrityInfoResponse
-} from "../models/index";
+import { GetCelebrityInfoRequest, GetCelebrityInfoResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCelebrityInfoCommand,
   serializeAws_json1_1GetCelebrityInfoCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCelebrityInfoCommandInput = GetCelebrityInfoRequest;
-export type GetCelebrityInfoCommandOutput = GetCelebrityInfoResponse &
-  __MetadataBearer;
+export type GetCelebrityInfoCommandOutput = GetCelebrityInfoResponse & __MetadataBearer;
 
 export class GetCelebrityInfoCommand extends $Command<
   GetCelebrityInfoCommandInput,
@@ -50,9 +46,7 @@ export class GetCelebrityInfoCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

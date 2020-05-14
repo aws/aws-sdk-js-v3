@@ -1,8 +1,4 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   DeleteEnvironmentMembershipRequest,
   DeleteEnvironmentMembershipResult
@@ -49,13 +45,8 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEnvironmentMembershipCommandInput,
-    DeleteEnvironmentMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEnvironmentMembershipCommandInput, DeleteEnvironmentMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
     input: DeleteEnvironmentMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEnvironmentMembershipCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteEnvironmentMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1DeleteEnvironmentMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

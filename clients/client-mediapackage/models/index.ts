@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdMarkers {
@@ -89,8 +86,7 @@ export interface CmafEncryption {
 }
 
 export namespace CmafEncryption {
-  export const isa = (o: any): o is CmafEncryption =>
-    __isa(o, "CmafEncryption");
+  export const isa = (o: any): o is CmafEncryption => __isa(o, "CmafEncryption");
 }
 
 /**
@@ -189,8 +185,7 @@ export interface CreateChannelRequest {
 }
 
 export namespace CreateChannelRequest {
-  export const isa = (o: any): o is CreateChannelRequest =>
-    __isa(o, "CreateChannelRequest");
+  export const isa = (o: any): o is CreateChannelRequest => __isa(o, "CreateChannelRequest");
 }
 
 export interface CreateChannelResponse {
@@ -222,8 +217,7 @@ export interface CreateChannelResponse {
 }
 
 export namespace CreateChannelResponse {
-  export const isa = (o: any): o is CreateChannelResponse =>
-    __isa(o, "CreateChannelResponse");
+  export const isa = (o: any): o is CreateChannelResponse => __isa(o, "CreateChannelResponse");
 }
 
 /**
@@ -260,8 +254,7 @@ export interface CreateHarvestJobRequest {
 }
 
 export namespace CreateHarvestJobRequest {
-  export const isa = (o: any): o is CreateHarvestJobRequest =>
-    __isa(o, "CreateHarvestJobRequest");
+  export const isa = (o: any): o is CreateHarvestJobRequest => __isa(o, "CreateHarvestJobRequest");
 }
 
 export interface CreateHarvestJobResponse {
@@ -517,8 +510,7 @@ export interface DashEncryption {
 }
 
 export namespace DashEncryption {
-  export const isa = (o: any): o is DashEncryption =>
-    __isa(o, "DashEncryption");
+  export const isa = (o: any): o is DashEncryption => __isa(o, "DashEncryption");
 }
 
 /**
@@ -618,8 +610,7 @@ export interface DeleteChannelRequest {
 }
 
 export namespace DeleteChannelRequest {
-  export const isa = (o: any): o is DeleteChannelRequest =>
-    __isa(o, "DeleteChannelRequest");
+  export const isa = (o: any): o is DeleteChannelRequest => __isa(o, "DeleteChannelRequest");
 }
 
 export interface DeleteChannelResponse {
@@ -627,8 +618,7 @@ export interface DeleteChannelResponse {
 }
 
 export namespace DeleteChannelResponse {
-  export const isa = (o: any): o is DeleteChannelResponse =>
-    __isa(o, "DeleteChannelResponse");
+  export const isa = (o: any): o is DeleteChannelResponse => __isa(o, "DeleteChannelResponse");
 }
 
 export interface DeleteOriginEndpointRequest {
@@ -662,8 +652,7 @@ export interface DescribeChannelRequest {
 }
 
 export namespace DescribeChannelRequest {
-  export const isa = (o: any): o is DescribeChannelRequest =>
-    __isa(o, "DescribeChannelRequest");
+  export const isa = (o: any): o is DescribeChannelRequest => __isa(o, "DescribeChannelRequest");
 }
 
 export interface DescribeChannelResponse {
@@ -695,8 +684,7 @@ export interface DescribeChannelResponse {
 }
 
 export namespace DescribeChannelResponse {
-  export const isa = (o: any): o is DescribeChannelResponse =>
-    __isa(o, "DescribeChannelResponse");
+  export const isa = (o: any): o is DescribeChannelResponse => __isa(o, "DescribeChannelResponse");
 }
 
 export interface DescribeHarvestJobRequest {
@@ -889,8 +877,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -1265,16 +1252,13 @@ export interface IngestEndpoint {
 }
 
 export namespace IngestEndpoint {
-  export const isa = (o: any): o is IngestEndpoint =>
-    __isa(o, "IngestEndpoint");
+  export const isa = (o: any): o is IngestEndpoint => __isa(o, "IngestEndpoint");
 }
 
 /**
  * An unexpected error occurred.
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -1299,8 +1283,7 @@ export interface ListChannelsRequest {
 }
 
 export namespace ListChannelsRequest {
-  export const isa = (o: any): o is ListChannelsRequest =>
-    __isa(o, "ListChannelsRequest");
+  export const isa = (o: any): o is ListChannelsRequest => __isa(o, "ListChannelsRequest");
 }
 
 export interface ListChannelsResponse {
@@ -1317,8 +1300,7 @@ export interface ListChannelsResponse {
 }
 
 export namespace ListChannelsResponse {
-  export const isa = (o: any): o is ListChannelsResponse =>
-    __isa(o, "ListChannelsResponse");
+  export const isa = (o: any): o is ListChannelsResponse => __isa(o, "ListChannelsResponse");
 }
 
 export interface ListHarvestJobsRequest {
@@ -1345,8 +1327,7 @@ export interface ListHarvestJobsRequest {
 }
 
 export namespace ListHarvestJobsRequest {
-  export const isa = (o: any): o is ListHarvestJobsRequest =>
-    __isa(o, "ListHarvestJobsRequest");
+  export const isa = (o: any): o is ListHarvestJobsRequest => __isa(o, "ListHarvestJobsRequest");
 }
 
 export interface ListHarvestJobsResponse {
@@ -1363,8 +1344,7 @@ export interface ListHarvestJobsResponse {
 }
 
 export namespace ListHarvestJobsResponse {
-  export const isa = (o: any): o is ListHarvestJobsResponse =>
-    __isa(o, "ListHarvestJobsResponse");
+  export const isa = (o: any): o is ListHarvestJobsResponse => __isa(o, "ListHarvestJobsResponse");
 }
 
 export interface ListOriginEndpointsRequest {
@@ -1488,8 +1468,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1583,8 +1562,7 @@ export interface OriginEndpoint {
 }
 
 export namespace OriginEndpoint {
-  export const isa = (o: any): o is OriginEndpoint =>
-    __isa(o, "OriginEndpoint");
+  export const isa = (o: any): o is OriginEndpoint => __isa(o, "OriginEndpoint");
 }
 
 export enum Origination {
@@ -1734,9 +1712,7 @@ export enum SegmentTemplateFormat {
 /**
  * An unexpected error occurred.
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1782,8 +1758,7 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
-  export const isa = (o: any): o is SpekeKeyProvider =>
-    __isa(o, "SpekeKeyProvider");
+  export const isa = (o: any): o is SpekeKeyProvider => __isa(o, "SpekeKeyProvider");
 }
 
 export enum Status {
@@ -1820,8 +1795,7 @@ export interface StreamSelection {
 }
 
 export namespace StreamSelection {
-  export const isa = (o: any): o is StreamSelection =>
-    __isa(o, "StreamSelection");
+  export const isa = (o: any): o is StreamSelection => __isa(o, "StreamSelection");
 }
 
 export interface TagResourceRequest {
@@ -1831,16 +1805,13 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * The client has exceeded their resource or throttling limits.
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1854,9 +1825,7 @@ export namespace TooManyRequestsException {
 /**
  * The parameters sent in the request are not valid.
  */
-export interface UnprocessableEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
   name: "UnprocessableEntityException";
   $fault: "client";
   Message?: string;
@@ -1877,8 +1846,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1898,8 +1866,7 @@ export interface UpdateChannelRequest {
 }
 
 export namespace UpdateChannelRequest {
-  export const isa = (o: any): o is UpdateChannelRequest =>
-    __isa(o, "UpdateChannelRequest");
+  export const isa = (o: any): o is UpdateChannelRequest => __isa(o, "UpdateChannelRequest");
 }
 
 export interface UpdateChannelResponse {
@@ -1931,8 +1898,7 @@ export interface UpdateChannelResponse {
 }
 
 export namespace UpdateChannelResponse {
-  export const isa = (o: any): o is UpdateChannelResponse =>
-    __isa(o, "UpdateChannelResponse");
+  export const isa = (o: any): o is UpdateChannelResponse => __isa(o, "UpdateChannelResponse");
 }
 
 /**

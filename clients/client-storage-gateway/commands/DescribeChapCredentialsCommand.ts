@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeChapCredentialsInput,
-  DescribeChapCredentialsOutput
-} from "../models/index";
+import { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeChapCredentialsCommand,
   serializeAws_json1_1DescribeChapCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeChapCredentialsCommandInput = DescribeChapCredentialsInput;
-export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput &
-  __MetadataBearer;
+export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput & __MetadataBearer;
 
 export class DescribeChapCredentialsCommand extends $Command<
   DescribeChapCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeChapCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeChapCredentialsCommandInput,
-    DescribeChapCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeChapCredentialsCommandInput, DescribeChapCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeChapCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1DescribeChapCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DescribeRootFoldersRequest,
-  DescribeRootFoldersResponse
-} from "../models/index";
+import { DescribeRootFoldersRequest, DescribeRootFoldersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeRootFoldersCommand,
   serializeAws_restJson1_1DescribeRootFoldersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRootFoldersCommandInput = DescribeRootFoldersRequest;
-export type DescribeRootFoldersCommandOutput = DescribeRootFoldersResponse &
-  __MetadataBearer;
+export type DescribeRootFoldersCommandOutput = DescribeRootFoldersResponse & __MetadataBearer;
 
 export class DescribeRootFoldersCommand extends $Command<
   DescribeRootFoldersCommandInput,
@@ -49,13 +45,8 @@ export class DescribeRootFoldersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRootFoldersCommandInput,
-    DescribeRootFoldersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRootFoldersCommandInput, DescribeRootFoldersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeRootFoldersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRootFoldersCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRootFoldersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRootFoldersCommand(output, context);
   }
 
   // Start section: command_body_extra

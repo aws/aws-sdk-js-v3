@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchProductsCommandInput = SearchProductsInput;
-export type SearchProductsCommandOutput = SearchProductsOutput &
-  __MetadataBearer;
+export type SearchProductsCommandOutput = SearchProductsOutput & __MetadataBearer;
 
 export class SearchProductsCommand extends $Command<
   SearchProductsCommandInput,
@@ -47,9 +46,7 @@ export class SearchProductsCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchProductsCommandInput, SearchProductsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput
-} from "./commands/CreateTokenCommand";
+import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import {
   RegisterClientCommandInput,
   RegisterClientCommandOutput
@@ -157,9 +154,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSOOIDCClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSOOIDCClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,9 +163,7 @@ export type SSOOIDCClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

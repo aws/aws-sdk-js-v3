@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBackupCommandInput = DescribeBackupInput;
-export type DescribeBackupCommandOutput = DescribeBackupOutput &
-  __MetadataBearer;
+export type DescribeBackupCommandOutput = DescribeBackupOutput & __MetadataBearer;
 
 export class DescribeBackupCommand extends $Command<
   DescribeBackupCommandInput,
@@ -47,9 +46,7 @@ export class DescribeBackupCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeBackupCommandInput, DescribeBackupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

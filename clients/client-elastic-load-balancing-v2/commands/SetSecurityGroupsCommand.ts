@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  SetSecurityGroupsInput,
-  SetSecurityGroupsOutput
-} from "../models/index";
+import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/index";
 import {
   deserializeAws_querySetSecurityGroupsCommand,
   serializeAws_querySetSecurityGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetSecurityGroupsCommandInput = SetSecurityGroupsInput;
-export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput &
-  __MetadataBearer;
+export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput & __MetadataBearer;
 
 export class SetSecurityGroupsCommand extends $Command<
   SetSecurityGroupsCommandInput,
@@ -50,9 +46,7 @@ export class SetSecurityGroupsCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

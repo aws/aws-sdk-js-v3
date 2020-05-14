@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum Channel {
@@ -53,8 +50,7 @@ export interface ParticipantDetails {
 }
 
 export namespace ParticipantDetails {
-  export const isa = (o: any): o is ParticipantDetails =>
-    __isa(o, "ParticipantDetails");
+  export const isa = (o: any): o is ParticipantDetails => __isa(o, "ParticipantDetails");
 }
 
 export enum PhoneNumberCountryCode {
@@ -353,8 +349,7 @@ export interface CurrentMetricData {
 }
 
 export namespace CurrentMetricData {
-  export const isa = (o: any): o is CurrentMetricData =>
-    __isa(o, "CurrentMetricData");
+  export const isa = (o: any): o is CurrentMetricData => __isa(o, "CurrentMetricData");
 }
 
 export enum CurrentMetricName {
@@ -390,8 +385,7 @@ export interface CurrentMetricResult {
 }
 
 export namespace CurrentMetricResult {
-  export const isa = (o: any): o is CurrentMetricResult =>
-    __isa(o, "CurrentMetricResult");
+  export const isa = (o: any): o is CurrentMetricResult => __isa(o, "CurrentMetricResult");
 }
 
 /**
@@ -467,8 +461,7 @@ export interface HistoricalMetric {
 }
 
 export namespace HistoricalMetric {
-  export const isa = (o: any): o is HistoricalMetric =>
-    __isa(o, "HistoricalMetric");
+  export const isa = (o: any): o is HistoricalMetric => __isa(o, "HistoricalMetric");
 }
 
 /**
@@ -488,8 +481,7 @@ export interface HistoricalMetricData {
 }
 
 export namespace HistoricalMetricData {
-  export const isa = (o: any): o is HistoricalMetricData =>
-    __isa(o, "HistoricalMetricData");
+  export const isa = (o: any): o is HistoricalMetricData => __isa(o, "HistoricalMetricData");
 }
 
 export enum HistoricalMetricName {
@@ -537,8 +529,7 @@ export interface HistoricalMetricResult {
 }
 
 export namespace HistoricalMetricResult {
-  export const isa = (o: any): o is HistoricalMetricResult =>
-    __isa(o, "HistoricalMetricResult");
+  export const isa = (o: any): o is HistoricalMetricResult => __isa(o, "HistoricalMetricResult");
 }
 
 /**
@@ -558,8 +549,7 @@ export interface QueueReference {
 }
 
 export namespace QueueReference {
-  export const isa = (o: any): o is QueueReference =>
-    __isa(o, "QueueReference");
+  export const isa = (o: any): o is QueueReference => __isa(o, "QueueReference");
 }
 
 export enum Statistic {
@@ -621,16 +611,13 @@ export interface ContactFlowSummary {
 }
 
 export namespace ContactFlowSummary {
-  export const isa = (o: any): o is ContactFlowSummary =>
-    __isa(o, "ContactFlowSummary");
+  export const isa = (o: any): o is ContactFlowSummary => __isa(o, "ContactFlowSummary");
 }
 
 /**
  * <p>The contact with the specified ID is not active or does not exist.</p>
  */
-export interface ContactNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ContactNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ContactNotFoundException";
   $fault: "client";
   /**
@@ -707,8 +694,7 @@ export interface CreateUserRequest {
 }
 
 export namespace CreateUserRequest {
-  export const isa = (o: any): o is CreateUserRequest =>
-    __isa(o, "CreateUserRequest");
+  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
@@ -725,8 +711,7 @@ export interface CreateUserResponse {
 }
 
 export namespace CreateUserResponse {
-  export const isa = (o: any): o is CreateUserResponse =>
-    __isa(o, "CreateUserResponse");
+  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 /**
@@ -774,8 +759,7 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
-  export const isa = (o: any): o is DeleteUserRequest =>
-    __isa(o, "DeleteUserRequest");
+  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DescribeUserHierarchyGroupRequest {
@@ -849,8 +833,7 @@ export interface DescribeUserRequest {
 }
 
 export namespace DescribeUserRequest {
-  export const isa = (o: any): o is DescribeUserRequest =>
-    __isa(o, "DescribeUserRequest");
+  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
@@ -862,16 +845,13 @@ export interface DescribeUserResponse {
 }
 
 export namespace DescribeUserResponse {
-  export const isa = (o: any): o is DescribeUserResponse =>
-    __isa(o, "DescribeUserResponse");
+  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
  * <p>Outbound calls to the destination number are not allowed.</p>
  */
-export interface DestinationNotAllowedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DestinationNotAllowedException extends __SmithyException, $MetadataBearer {
   name: "DestinationNotAllowedException";
   $fault: "client";
   /**
@@ -888,9 +868,7 @@ export namespace DestinationNotAllowedException {
 /**
  * <p>A resource with the specified name already exists.</p>
  */
-export interface DuplicateResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
   name: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
@@ -1276,8 +1254,7 @@ export interface GetMetricDataRequest {
 }
 
 export namespace GetMetricDataRequest {
-  export const isa = (o: any): o is GetMetricDataRequest =>
-    __isa(o, "GetMetricDataRequest");
+  export const isa = (o: any): o is GetMetricDataRequest => __isa(o, "GetMetricDataRequest");
 }
 
 export interface GetMetricDataResponse {
@@ -1297,8 +1274,7 @@ export interface GetMetricDataResponse {
 }
 
 export namespace GetMetricDataResponse {
-  export const isa = (o: any): o is GetMetricDataResponse =>
-    __isa(o, "GetMetricDataResponse");
+  export const isa = (o: any): o is GetMetricDataResponse => __isa(o, "GetMetricDataResponse");
 }
 
 /**
@@ -1333,8 +1309,7 @@ export interface HierarchyGroup {
 }
 
 export namespace HierarchyGroup {
-  export const isa = (o: any): o is HierarchyGroup =>
-    __isa(o, "HierarchyGroup");
+  export const isa = (o: any): o is HierarchyGroup => __isa(o, "HierarchyGroup");
 }
 
 /**
@@ -1359,8 +1334,7 @@ export interface HierarchyGroupSummary {
 }
 
 export namespace HierarchyGroupSummary {
-  export const isa = (o: any): o is HierarchyGroupSummary =>
-    __isa(o, "HierarchyGroupSummary");
+  export const isa = (o: any): o is HierarchyGroupSummary => __isa(o, "HierarchyGroupSummary");
 }
 
 /**
@@ -1385,8 +1359,7 @@ export interface HierarchyLevel {
 }
 
 export namespace HierarchyLevel {
-  export const isa = (o: any): o is HierarchyLevel =>
-    __isa(o, "HierarchyLevel");
+  export const isa = (o: any): o is HierarchyLevel => __isa(o, "HierarchyLevel");
 }
 
 /**
@@ -1456,8 +1429,7 @@ export interface HierarchyStructure {
 }
 
 export namespace HierarchyStructure {
-  export const isa = (o: any): o is HierarchyStructure =>
-    __isa(o, "HierarchyStructure");
+  export const isa = (o: any): o is HierarchyStructure => __isa(o, "HierarchyStructure");
 }
 
 /**
@@ -1482,16 +1454,13 @@ export interface HoursOfOperationSummary {
 }
 
 export namespace HoursOfOperationSummary {
-  export const isa = (o: any): o is HoursOfOperationSummary =>
-    __isa(o, "HoursOfOperationSummary");
+  export const isa = (o: any): o is HoursOfOperationSummary => __isa(o, "HoursOfOperationSummary");
 }
 
 /**
  * <p>Request processing failed due to an error or failure with the service.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   /**
@@ -1508,9 +1477,7 @@ export namespace InternalServiceException {
 /**
  * <p>One or more of the specified parameters are not valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1527,9 +1494,7 @@ export namespace InvalidParameterException {
 /**
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1539,16 +1504,13 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The allowed limit for the resource has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1558,8 +1520,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListContactFlowsRequest {
@@ -1587,8 +1548,7 @@ export interface ListContactFlowsRequest {
 }
 
 export namespace ListContactFlowsRequest {
-  export const isa = (o: any): o is ListContactFlowsRequest =>
-    __isa(o, "ListContactFlowsRequest");
+  export const isa = (o: any): o is ListContactFlowsRequest => __isa(o, "ListContactFlowsRequest");
 }
 
 export interface ListContactFlowsResponse {
@@ -1681,8 +1641,7 @@ export interface ListPhoneNumbersRequest {
 }
 
 export namespace ListPhoneNumbersRequest {
-  export const isa = (o: any): o is ListPhoneNumbersRequest =>
-    __isa(o, "ListPhoneNumbersRequest");
+  export const isa = (o: any): o is ListPhoneNumbersRequest => __isa(o, "ListPhoneNumbersRequest");
 }
 
 export interface ListPhoneNumbersResponse {
@@ -1728,8 +1687,7 @@ export interface ListQueuesRequest {
 }
 
 export namespace ListQueuesRequest {
-  export const isa = (o: any): o is ListQueuesRequest =>
-    __isa(o, "ListQueuesRequest");
+  export const isa = (o: any): o is ListQueuesRequest => __isa(o, "ListQueuesRequest");
 }
 
 export interface ListQueuesResponse {
@@ -1746,8 +1704,7 @@ export interface ListQueuesResponse {
 }
 
 export namespace ListQueuesResponse {
-  export const isa = (o: any): o is ListQueuesResponse =>
-    __isa(o, "ListQueuesResponse");
+  export const isa = (o: any): o is ListQueuesResponse => __isa(o, "ListQueuesResponse");
 }
 
 export interface ListRoutingProfilesRequest {
@@ -1922,8 +1879,7 @@ export interface ListUsersRequest {
 }
 
 export namespace ListUsersRequest {
-  export const isa = (o: any): o is ListUsersRequest =>
-    __isa(o, "ListUsersRequest");
+  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
@@ -1940,16 +1896,13 @@ export interface ListUsersResponse {
 }
 
 export namespace ListUsersResponse {
-  export const isa = (o: any): o is ListUsersResponse =>
-    __isa(o, "ListUsersResponse");
+  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
  * <p>The contact is not permitted.</p>
  */
-export interface OutboundContactNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OutboundContactNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OutboundContactNotPermittedException";
   $fault: "client";
   /**
@@ -1995,8 +1948,7 @@ export interface PhoneNumberSummary {
 }
 
 export namespace PhoneNumberSummary {
-  export const isa = (o: any): o is PhoneNumberSummary =>
-    __isa(o, "PhoneNumberSummary");
+  export const isa = (o: any): o is PhoneNumberSummary => __isa(o, "PhoneNumberSummary");
 }
 
 /**
@@ -2032,9 +1984,7 @@ export namespace QueueSummary {
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2070,8 +2020,7 @@ export interface RoutingProfileSummary {
 }
 
 export namespace RoutingProfileSummary {
-  export const isa = (o: any): o is RoutingProfileSummary =>
-    __isa(o, "RoutingProfileSummary");
+  export const isa = (o: any): o is RoutingProfileSummary => __isa(o, "RoutingProfileSummary");
 }
 
 /**
@@ -2096,8 +2045,7 @@ export interface SecurityProfileSummary {
 }
 
 export namespace SecurityProfileSummary {
-  export const isa = (o: any): o is SecurityProfileSummary =>
-    __isa(o, "SecurityProfileSummary");
+  export const isa = (o: any): o is SecurityProfileSummary => __isa(o, "SecurityProfileSummary");
 }
 
 export interface StartChatContactRequest {
@@ -2138,8 +2086,7 @@ export interface StartChatContactRequest {
 }
 
 export namespace StartChatContactRequest {
-  export const isa = (o: any): o is StartChatContactRequest =>
-    __isa(o, "StartChatContactRequest");
+  export const isa = (o: any): o is StartChatContactRequest => __isa(o, "StartChatContactRequest");
 }
 
 export interface StartChatContactResponse {
@@ -2246,8 +2193,7 @@ export interface StopContactRequest {
 }
 
 export namespace StopContactRequest {
-  export const isa = (o: any): o is StopContactRequest =>
-    __isa(o, "StopContactRequest");
+  export const isa = (o: any): o is StopContactRequest => __isa(o, "StopContactRequest");
 }
 
 export interface StopContactResponse {
@@ -2255,8 +2201,7 @@ export interface StopContactResponse {
 }
 
 export namespace StopContactResponse {
-  export const isa = (o: any): o is StopContactResponse =>
-    __isa(o, "StopContactResponse");
+  export const isa = (o: any): o is StopContactResponse => __isa(o, "StopContactResponse");
 }
 
 export interface TagResourceRequest {
@@ -2273,24 +2218,20 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>The throttling limit has been exceeded.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -2307,8 +2248,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateContactAttributesRequest {
@@ -2547,24 +2487,20 @@ export interface UserIdentityInfo {
 }
 
 export namespace UserIdentityInfo {
-  export const isa = (o: any): o is UserIdentityInfo =>
-    __isa(o, "UserIdentityInfo");
+  export const isa = (o: any): o is UserIdentityInfo => __isa(o, "UserIdentityInfo");
 }
 
 /**
  * <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
  */
-export interface UserNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UserNotFoundException extends __SmithyException, $MetadataBearer {
   name: "UserNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace UserNotFoundException {
-  export const isa = (o: any): o is UserNotFoundException =>
-    __isa(o, "UserNotFoundException");
+  export const isa = (o: any): o is UserNotFoundException => __isa(o, "UserNotFoundException");
 }
 
 /**
@@ -2594,8 +2530,7 @@ export interface UserPhoneConfig {
 }
 
 export namespace UserPhoneConfig {
-  export const isa = (o: any): o is UserPhoneConfig =>
-    __isa(o, "UserPhoneConfig");
+  export const isa = (o: any): o is UserPhoneConfig => __isa(o, "UserPhoneConfig");
 }
 
 /**

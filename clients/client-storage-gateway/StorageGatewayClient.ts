@@ -2,10 +2,7 @@ import {
   ActivateGatewayCommandInput,
   ActivateGatewayCommandOutput
 } from "./commands/ActivateGatewayCommand";
-import {
-  AddCacheCommandInput,
-  AddCacheCommandOutput
-} from "./commands/AddCacheCommand";
+import { AddCacheCommandInput, AddCacheCommandOutput } from "./commands/AddCacheCommand";
 import {
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput
@@ -62,10 +59,7 @@ import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput
 } from "./commands/CreateTapeWithBarcodeCommand";
-import {
-  CreateTapesCommandInput,
-  CreateTapesCommandOutput
-} from "./commands/CreateTapesCommand";
+import { CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
 import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput
@@ -90,10 +84,7 @@ import {
   DeleteTapeArchiveCommandInput,
   DeleteTapeArchiveCommandOutput
 } from "./commands/DeleteTapeArchiveCommand";
-import {
-  DeleteTapeCommandInput,
-  DeleteTapeCommandOutput
-} from "./commands/DeleteTapeCommand";
+import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
 import {
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput
@@ -178,10 +169,7 @@ import {
   DisableGatewayCommandInput,
   DisableGatewayCommandOutput
 } from "./commands/DisableGatewayCommand";
-import {
-  JoinDomainCommandInput,
-  JoinDomainCommandOutput
-} from "./commands/JoinDomainCommand";
+import { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListFileSharesCommandInput,
   ListFileSharesCommandOutput
@@ -198,10 +186,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTapesCommandInput,
-  ListTapesCommandOutput
-} from "./commands/ListTapesCommand";
+import { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommandInput,
   ListVolumeInitiatorsCommandOutput
@@ -210,10 +195,7 @@ import {
   ListVolumeRecoveryPointsCommandInput,
   ListVolumeRecoveryPointsCommandOutput
 } from "./commands/ListVolumeRecoveryPointsCommand";
-import {
-  ListVolumesCommandInput,
-  ListVolumesCommandOutput
-} from "./commands/ListVolumesCommand";
+import { ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
 import {
   NotifyWhenUploadedCommandInput,
   NotifyWhenUploadedCommandOutput
@@ -226,10 +208,7 @@ import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
-  ResetCacheCommandInput,
-  ResetCacheCommandOutput
-} from "./commands/ResetCacheCommand";
+import { ResetCacheCommandInput, ResetCacheCommandOutput } from "./commands/ResetCacheCommand";
 import {
   RetrieveTapeArchiveCommandInput,
   RetrieveTapeArchiveCommandOutput
@@ -589,9 +568,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type StorageGatewayClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type StorageGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

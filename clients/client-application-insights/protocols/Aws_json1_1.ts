@@ -82,10 +82,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -201,9 +198,7 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.CreateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -216,9 +211,7 @@ export const serializeAws_json1_1CreateComponentCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.CreateComponent"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateComponentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -231,9 +224,7 @@ export const serializeAws_json1_1CreateLogPatternCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.CreateLogPattern"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateLogPatternRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -246,9 +237,7 @@ export const serializeAws_json1_1DeleteApplicationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DeleteApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,9 +250,7 @@ export const serializeAws_json1_1DeleteComponentCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DeleteComponent"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteComponentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -276,9 +263,7 @@ export const serializeAws_json1_1DeleteLogPatternCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DeleteLogPattern"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteLogPatternRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -291,9 +276,7 @@ export const serializeAws_json1_1DescribeApplicationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -306,9 +289,7 @@ export const serializeAws_json1_1DescribeComponentCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeComponent"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeComponentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,9 +302,7 @@ export const serializeAws_json1_1DescribeComponentConfigurationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeComponentConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeComponentConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeComponentConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -333,15 +312,11 @@ export const serializeAws_json1_1DescribeComponentConfigurationRecommendationCom
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation"
+    "X-Amz-Target": "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -355,9 +330,7 @@ export const serializeAws_json1_1DescribeLogPatternCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeLogPattern"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeLogPatternRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -370,9 +343,7 @@ export const serializeAws_json1_1DescribeObservationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeObservation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeObservationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeObservationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,9 +356,7 @@ export const serializeAws_json1_1DescribeProblemCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeProblem"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeProblemRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeProblemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -400,9 +369,7 @@ export const serializeAws_json1_1DescribeProblemObservationsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.DescribeProblemObservations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeProblemObservationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeProblemObservationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -415,9 +382,7 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListApplications"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListApplicationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -430,9 +395,7 @@ export const serializeAws_json1_1ListComponentsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListComponents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListComponentsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListComponentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -445,9 +408,7 @@ export const serializeAws_json1_1ListConfigurationHistoryCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListConfigurationHistory"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListConfigurationHistoryRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListConfigurationHistoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -460,9 +421,7 @@ export const serializeAws_json1_1ListLogPatternSetsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListLogPatternSets"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListLogPatternSetsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListLogPatternSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -475,9 +434,7 @@ export const serializeAws_json1_1ListLogPatternsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListLogPatterns"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListLogPatternsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListLogPatternsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -490,9 +447,7 @@ export const serializeAws_json1_1ListProblemsCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListProblems"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListProblemsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListProblemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -505,9 +460,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,9 +486,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -548,9 +499,7 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.UpdateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,9 +512,7 @@ export const serializeAws_json1_1UpdateComponentCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.UpdateComponent"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateComponentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateComponentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -578,9 +525,7 @@ export const serializeAws_json1_1UpdateComponentConfigurationCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.UpdateComponentConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateComponentConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateComponentConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -593,9 +538,7 @@ export const serializeAws_json1_1UpdateLogPatternCommand = async (
     "X-Amz-Target": "EC2WindowsBarleyService.UpdateLogPattern"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateLogPatternRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateLogPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -628,16 +571,12 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -645,10 +584,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -656,10 +592,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -667,10 +600,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "TagsAlreadyExistException":
     case "com.amazonaws.ec2windowsbarley#TagsAlreadyExistException":
       response = {
-        ...(await deserializeAws_json1_1TagsAlreadyExistExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagsAlreadyExistExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -678,10 +608,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -732,16 +659,12 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -749,10 +672,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -760,10 +680,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -771,10 +688,7 @@ const deserializeAws_json1_1CreateComponentCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -825,16 +739,12 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -842,10 +752,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -853,10 +760,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -864,10 +768,7 @@ const deserializeAws_json1_1CreateLogPatternCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,16 +819,12 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ec2windowsbarley#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -935,10 +832,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -946,10 +840,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -957,10 +848,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1011,16 +899,12 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1028,10 +912,7 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1039,10 +920,7 @@ const deserializeAws_json1_1DeleteComponentCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1093,16 +971,12 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ec2windowsbarley#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1110,10 +984,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1121,10 +992,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1132,10 +1000,7 @@ const deserializeAws_json1_1DeleteLogPatternCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1162,10 +1027,7 @@ export const deserializeAws_json1_1DescribeApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1189,16 +1051,12 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1206,10 +1064,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1217,10 +1072,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1271,16 +1123,12 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1288,10 +1136,7 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1299,10 +1144,7 @@ const deserializeAws_json1_1DescribeComponentCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1329,17 +1171,11 @@ export const deserializeAws_json1_1DescribeComponentConfigurationCommand = async
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeComponentConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeComponentConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeComponentConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeComponentConfigurationResponse(data, context);
   const response: DescribeComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeComponentConfigurationResponse",
@@ -1359,16 +1195,12 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1376,10 +1208,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1387,10 +1216,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1447,16 +1273,12 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1464,10 +1286,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1475,10 +1294,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandE
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1505,10 +1321,7 @@ export const deserializeAws_json1_1DescribeLogPatternCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLogPatternCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLogPatternCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeLogPatternCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1532,16 +1345,12 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1549,10 +1358,7 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1560,10 +1366,7 @@ const deserializeAws_json1_1DescribeLogPatternCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1590,10 +1393,7 @@ export const deserializeAws_json1_1DescribeObservationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeObservationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeObservationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeObservationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1617,16 +1417,12 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1634,10 +1430,7 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1645,10 +1438,7 @@ const deserializeAws_json1_1DescribeObservationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1699,16 +1489,12 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1716,10 +1502,7 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1727,10 +1510,7 @@ const deserializeAws_json1_1DescribeProblemCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1757,17 +1537,11 @@ export const deserializeAws_json1_1DescribeProblemObservationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProblemObservationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeProblemObservationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProblemObservationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProblemObservationsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProblemObservationsResponse(data, context);
   const response: DescribeProblemObservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProblemObservationsResponse",
@@ -1787,16 +1561,12 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1804,10 +1574,7 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1815,10 +1582,7 @@ const deserializeAws_json1_1DescribeProblemObservationsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1869,16 +1633,12 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1886,10 +1646,7 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1940,16 +1697,12 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1957,10 +1710,7 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1968,10 +1718,7 @@ const deserializeAws_json1_1ListComponentsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1998,17 +1745,11 @@ export const deserializeAws_json1_1ListConfigurationHistoryCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationHistoryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListConfigurationHistoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListConfigurationHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConfigurationHistoryResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListConfigurationHistoryResponse(data, context);
   const response: ListConfigurationHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConfigurationHistoryResponse",
@@ -2028,16 +1769,12 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2045,10 +1782,7 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2056,10 +1790,7 @@ const deserializeAws_json1_1ListConfigurationHistoryCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2086,10 +1817,7 @@ export const deserializeAws_json1_1ListLogPatternSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListLogPatternSetsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListLogPatternSetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListLogPatternSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2113,16 +1841,12 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2130,10 +1854,7 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2141,10 +1862,7 @@ const deserializeAws_json1_1ListLogPatternSetsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2195,16 +1913,12 @@ const deserializeAws_json1_1ListLogPatternsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2212,10 +1926,7 @@ const deserializeAws_json1_1ListLogPatternsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2223,10 +1934,7 @@ const deserializeAws_json1_1ListLogPatternsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2277,16 +1985,12 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2294,10 +1998,7 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2305,10 +2006,7 @@ const deserializeAws_json1_1ListProblemsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2335,10 +2033,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2362,16 +2057,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2379,10 +2070,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2433,16 +2121,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2450,10 +2134,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.ec2windowsbarley#TooManyTagsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2461,10 +2142,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2515,16 +2193,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2532,10 +2206,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2586,16 +2257,12 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2603,10 +2270,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2614,10 +2278,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2668,16 +2329,12 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2685,10 +2342,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2696,10 +2350,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2707,10 +2358,7 @@ const deserializeAws_json1_1UpdateComponentCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2737,17 +2385,11 @@ export const deserializeAws_json1_1UpdateComponentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateComponentConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateComponentConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateComponentConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateComponentConfigurationResponse(data, context);
   const response: UpdateComponentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateComponentConfigurationResponse",
@@ -2767,16 +2409,12 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2784,10 +2422,7 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2795,10 +2430,7 @@ const deserializeAws_json1_1UpdateComponentConfigurationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2849,16 +2481,12 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.ec2windowsbarley#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2866,10 +2494,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.ec2windowsbarley#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2877,10 +2502,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ec2windowsbarley#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2888,10 +2510,7 @@ const deserializeAws_json1_1UpdateLogPatternCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ec2windowsbarley#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2918,10 +2537,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
@@ -2936,10 +2552,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
@@ -2954,10 +2567,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -2972,10 +2582,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -2990,10 +2597,7 @@ const deserializeAws_json1_1TagsAlreadyExistExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagsAlreadyExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagsAlreadyExistException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TagsAlreadyExistException(body, context);
   const contents: TagsAlreadyExistException = {
     name: "TagsAlreadyExistException",
     $fault: "client",
@@ -3008,10 +2612,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
     $fault: "client",
@@ -3026,10 +2627,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
@@ -3071,10 +2669,7 @@ const serializeAws_json1_1CreateComponentRequest = (
       ResourceGroupName: input.ResourceGroupName
     }),
     ...(input.ResourceList !== undefined && {
-      ResourceList: serializeAws_json1_1ResourceList(
-        input.ResourceList,
-        context
-      )
+      ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context)
     })
   };
 };
@@ -3334,10 +2929,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1ResourceList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ResourceList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3348,17 +2940,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -3440,10 +3026,7 @@ const serializeAws_json1_1UpdateComponentRequest = (
       ResourceGroupName: input.ResourceGroupName
     }),
     ...(input.ResourceList !== undefined && {
-      ResourceList: serializeAws_json1_1ResourceList(
-        input.ResourceList,
-        context
-      )
+      ResourceList: serializeAws_json1_1ResourceList(input.ResourceList, context)
     })
   };
 };
@@ -3475,18 +3058,12 @@ const deserializeAws_json1_1ApplicationComponent = (
       output.ComponentName !== undefined && output.ComponentName !== null
         ? output.ComponentName
         : undefined,
-    Monitor:
-      output.Monitor !== undefined && output.Monitor !== null
-        ? output.Monitor
-        : undefined,
+    Monitor: output.Monitor !== undefined && output.Monitor !== null ? output.Monitor : undefined,
     ResourceType:
       output.ResourceType !== undefined && output.ResourceType !== null
         ? output.ResourceType
         : undefined,
-    Tier:
-      output.Tier !== undefined && output.Tier !== null
-        ? output.Tier
-        : undefined
+    Tier: output.Tier !== undefined && output.Tier !== null ? output.Tier : undefined
   } as any;
 };
 
@@ -3506,25 +3083,18 @@ const deserializeAws_json1_1ApplicationInfo = (
   return {
     __type: "ApplicationInfo",
     LifeCycle:
-      output.LifeCycle !== undefined && output.LifeCycle !== null
-        ? output.LifeCycle
-        : undefined,
+      output.LifeCycle !== undefined && output.LifeCycle !== null ? output.LifeCycle : undefined,
     OpsCenterEnabled:
       output.OpsCenterEnabled !== undefined && output.OpsCenterEnabled !== null
         ? output.OpsCenterEnabled
         : undefined,
     OpsItemSNSTopicArn:
-      output.OpsItemSNSTopicArn !== undefined &&
-      output.OpsItemSNSTopicArn !== null
+      output.OpsItemSNSTopicArn !== undefined && output.OpsItemSNSTopicArn !== null
         ? output.OpsItemSNSTopicArn
         : undefined,
-    Remarks:
-      output.Remarks !== undefined && output.Remarks !== null
-        ? output.Remarks
-        : undefined,
+    Remarks: output.Remarks !== undefined && output.Remarks !== null ? output.Remarks : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -3534,9 +3104,7 @@ const deserializeAws_json1_1ApplicationInfoList = (
   output: any,
   context: __SerdeContext
 ): ApplicationInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ApplicationInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ApplicationInfo(entry, context));
 };
 
 const deserializeAws_json1_1BadRequestException = (
@@ -3545,10 +3113,7 @@ const deserializeAws_json1_1BadRequestException = (
 ): BadRequestException => {
   return {
     __type: "BadRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3563,13 +3128,11 @@ const deserializeAws_json1_1ConfigurationEvent = (
         ? output.EventDetail
         : undefined,
     EventResourceName:
-      output.EventResourceName !== undefined &&
-      output.EventResourceName !== null
+      output.EventResourceName !== undefined && output.EventResourceName !== null
         ? output.EventResourceName
         : undefined,
     EventResourceType:
-      output.EventResourceType !== undefined &&
-      output.EventResourceType !== null
+      output.EventResourceType !== undefined && output.EventResourceType !== null
         ? output.EventResourceType
         : undefined,
     EventStatus:
@@ -3581,8 +3144,7 @@ const deserializeAws_json1_1ConfigurationEvent = (
         ? new Date(Math.round(output.EventTime * 1000))
         : undefined,
     MonitoredResourceARN:
-      output.MonitoredResourceARN !== undefined &&
-      output.MonitoredResourceARN !== null
+      output.MonitoredResourceARN !== undefined && output.MonitoredResourceARN !== null
         ? output.MonitoredResourceARN
         : undefined
   } as any;
@@ -3630,8 +3192,7 @@ const deserializeAws_json1_1CreateLogPatternResponse = (
         ? deserializeAws_json1_1LogPattern(output.LogPattern, context)
         : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -3684,8 +3245,7 @@ const deserializeAws_json1_1DescribeComponentConfigurationRecommendationResponse
   return {
     __type: "DescribeComponentConfigurationRecommendationResponse",
     ComponentConfiguration:
-      output.ComponentConfiguration !== undefined &&
-      output.ComponentConfiguration !== null
+      output.ComponentConfiguration !== undefined && output.ComponentConfiguration !== null
         ? output.ComponentConfiguration
         : undefined
   } as any;
@@ -3698,18 +3258,11 @@ const deserializeAws_json1_1DescribeComponentConfigurationResponse = (
   return {
     __type: "DescribeComponentConfigurationResponse",
     ComponentConfiguration:
-      output.ComponentConfiguration !== undefined &&
-      output.ComponentConfiguration !== null
+      output.ComponentConfiguration !== undefined && output.ComponentConfiguration !== null
         ? output.ComponentConfiguration
         : undefined,
-    Monitor:
-      output.Monitor !== undefined && output.Monitor !== null
-        ? output.Monitor
-        : undefined,
-    Tier:
-      output.Tier !== undefined && output.Tier !== null
-        ? output.Tier
-        : undefined
+    Monitor: output.Monitor !== undefined && output.Monitor !== null ? output.Monitor : undefined,
+    Tier: output.Tier !== undefined && output.Tier !== null ? output.Tier : undefined
   } as any;
 };
 
@@ -3720,12 +3273,8 @@ const deserializeAws_json1_1DescribeComponentResponse = (
   return {
     __type: "DescribeComponentResponse",
     ApplicationComponent:
-      output.ApplicationComponent !== undefined &&
-      output.ApplicationComponent !== null
-        ? deserializeAws_json1_1ApplicationComponent(
-            output.ApplicationComponent,
-            context
-          )
+      output.ApplicationComponent !== undefined && output.ApplicationComponent !== null
+        ? deserializeAws_json1_1ApplicationComponent(output.ApplicationComponent, context)
         : undefined,
     ResourceList:
       output.ResourceList !== undefined && output.ResourceList !== null
@@ -3745,8 +3294,7 @@ const deserializeAws_json1_1DescribeLogPatternResponse = (
         ? deserializeAws_json1_1LogPattern(output.LogPattern, context)
         : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -3772,12 +3320,8 @@ const deserializeAws_json1_1DescribeProblemObservationsResponse = (
   return {
     __type: "DescribeProblemObservationsResponse",
     RelatedObservations:
-      output.RelatedObservations !== undefined &&
-      output.RelatedObservations !== null
-        ? deserializeAws_json1_1RelatedObservations(
-            output.RelatedObservations,
-            context
-          )
+      output.RelatedObservations !== undefined && output.RelatedObservations !== null
+        ? deserializeAws_json1_1RelatedObservations(output.RelatedObservations, context)
         : undefined
   } as any;
 };
@@ -3817,10 +3361,7 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     __type: "InternalServerException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3831,17 +3372,11 @@ const deserializeAws_json1_1ListApplicationsResponse = (
   return {
     __type: "ListApplicationsResponse",
     ApplicationInfoList:
-      output.ApplicationInfoList !== undefined &&
-      output.ApplicationInfoList !== null
-        ? deserializeAws_json1_1ApplicationInfoList(
-            output.ApplicationInfoList,
-            context
-          )
+      output.ApplicationInfoList !== undefined && output.ApplicationInfoList !== null
+        ? deserializeAws_json1_1ApplicationInfoList(output.ApplicationInfoList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3852,17 +3387,11 @@ const deserializeAws_json1_1ListComponentsResponse = (
   return {
     __type: "ListComponentsResponse",
     ApplicationComponentList:
-      output.ApplicationComponentList !== undefined &&
-      output.ApplicationComponentList !== null
-        ? deserializeAws_json1_1ApplicationComponentList(
-            output.ApplicationComponentList,
-            context
-          )
+      output.ApplicationComponentList !== undefined && output.ApplicationComponentList !== null
+        ? deserializeAws_json1_1ApplicationComponentList(output.ApplicationComponentList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3874,15 +3403,10 @@ const deserializeAws_json1_1ListConfigurationHistoryResponse = (
     __type: "ListConfigurationHistoryResponse",
     EventList:
       output.EventList !== undefined && output.EventList !== null
-        ? deserializeAws_json1_1ConfigurationEventList(
-            output.EventList,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationEventList(output.EventList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3894,18 +3418,12 @@ const deserializeAws_json1_1ListLogPatternSetsResponse = (
     __type: "ListLogPatternSetsResponse",
     LogPatternSets:
       output.LogPatternSets !== undefined && output.LogPatternSets !== null
-        ? deserializeAws_json1_1LogPatternSetList(
-            output.LogPatternSets,
-            context
-          )
+        ? deserializeAws_json1_1LogPatternSetList(output.LogPatternSets, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -3922,12 +3440,9 @@ const deserializeAws_json1_1ListLogPatternsResponse = (
         ? deserializeAws_json1_1LogPatternList(output.LogPatterns, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -3940,9 +3455,7 @@ const deserializeAws_json1_1ListProblemsResponse = (
   return {
     __type: "ListProblemsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ProblemList:
       output.ProblemList !== undefined && output.ProblemList !== null
         ? deserializeAws_json1_1ProblemList(output.ProblemList, context)
@@ -3963,16 +3476,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1LogPattern = (
-  output: any,
-  context: __SerdeContext
-): LogPattern => {
+const deserializeAws_json1_1LogPattern = (output: any, context: __SerdeContext): LogPattern => {
   return {
     __type: "LogPattern",
-    Pattern:
-      output.Pattern !== undefined && output.Pattern !== null
-        ? output.Pattern
-        : undefined,
+    Pattern: output.Pattern !== undefined && output.Pattern !== null ? output.Pattern : undefined,
     PatternName:
       output.PatternName !== undefined && output.PatternName !== null
         ? output.PatternName
@@ -3981,10 +3488,7 @@ const deserializeAws_json1_1LogPattern = (
       output.PatternSetName !== undefined && output.PatternSetName !== null
         ? output.PatternSetName
         : undefined,
-    Rank:
-      output.Rank !== undefined && output.Rank !== null
-        ? output.Rank
-        : undefined
+    Rank: output.Rank !== undefined && output.Rank !== null ? output.Rank : undefined
   } as any;
 };
 
@@ -3992,9 +3496,7 @@ const deserializeAws_json1_1LogPatternList = (
   output: any,
   context: __SerdeContext
 ): LogPattern[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LogPattern(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1LogPattern(entry, context));
 };
 
 const deserializeAws_json1_1LogPatternSetList = (
@@ -4004,10 +3506,7 @@ const deserializeAws_json1_1LogPatternSetList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Observation = (
-  output: any,
-  context: __SerdeContext
-): Observation => {
+const deserializeAws_json1_1Observation = (output: any, context: __SerdeContext): Observation => {
   return {
     __type: "Observation",
     EndTime:
@@ -4020,45 +3519,26 @@ const deserializeAws_json1_1Observation = (
         ? new Date(Math.round(output.LineTime * 1000))
         : undefined,
     LogFilter:
-      output.LogFilter !== undefined && output.LogFilter !== null
-        ? output.LogFilter
-        : undefined,
+      output.LogFilter !== undefined && output.LogFilter !== null ? output.LogFilter : undefined,
     LogGroup:
-      output.LogGroup !== undefined && output.LogGroup !== null
-        ? output.LogGroup
-        : undefined,
-    LogText:
-      output.LogText !== undefined && output.LogText !== null
-        ? output.LogText
-        : undefined,
+      output.LogGroup !== undefined && output.LogGroup !== null ? output.LogGroup : undefined,
+    LogText: output.LogText !== undefined && output.LogText !== null ? output.LogText : undefined,
     MetricName:
-      output.MetricName !== undefined && output.MetricName !== null
-        ? output.MetricName
-        : undefined,
+      output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
     MetricNamespace:
       output.MetricNamespace !== undefined && output.MetricNamespace !== null
         ? output.MetricNamespace
         : undefined,
     SourceARN:
-      output.SourceARN !== undefined && output.SourceARN !== null
-        ? output.SourceARN
-        : undefined,
+      output.SourceARN !== undefined && output.SourceARN !== null ? output.SourceARN : undefined,
     SourceType:
-      output.SourceType !== undefined && output.SourceType !== null
-        ? output.SourceType
-        : undefined,
+      output.SourceType !== undefined && output.SourceType !== null ? output.SourceType : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -4066,15 +3546,10 @@ const deserializeAws_json1_1ObservationList = (
   output: any,
   context: __SerdeContext
 ): Observation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Observation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Observation(entry, context));
 };
 
-const deserializeAws_json1_1Problem = (
-  output: any,
-  context: __SerdeContext
-): Problem => {
+const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Problem => {
   return {
     __type: "Problem",
     AffectedResource:
@@ -4091,12 +3566,9 @@ const deserializeAws_json1_1Problem = (
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Insights:
-      output.Insights !== undefined && output.Insights !== null
-        ? output.Insights
-        : undefined,
+      output.Insights !== undefined && output.Insights !== null ? output.Insights : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined,
     SeverityLevel:
@@ -4107,24 +3579,13 @@ const deserializeAws_json1_1Problem = (
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Title:
-      output.Title !== undefined && output.Title !== null
-        ? output.Title
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Title: output.Title !== undefined && output.Title !== null ? output.Title : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ProblemList = (
-  output: any,
-  context: __SerdeContext
-): Problem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Problem(entry, context)
-  );
+const deserializeAws_json1_1ProblemList = (output: any, context: __SerdeContext): Problem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Problem(entry, context));
 };
 
 const deserializeAws_json1_1RelatedObservations = (
@@ -4146,17 +3607,11 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ResourceList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4166,35 +3621,20 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
@@ -4212,10 +3652,7 @@ const deserializeAws_json1_1TagsAlreadyExistException = (
 ): TagsAlreadyExistException => {
   return {
     __type: "TagsAlreadyExistException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -4225,10 +3662,7 @@ const deserializeAws_json1_1TooManyTagsException = (
 ): TooManyTagsException => {
   return {
     __type: "TooManyTagsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceName:
       output.ResourceName !== undefined && output.ResourceName !== null
         ? output.ResourceName
@@ -4287,8 +3721,7 @@ const deserializeAws_json1_1UpdateLogPatternResponse = (
         ? deserializeAws_json1_1LogPattern(output.LogPattern, context)
         : undefined,
     ResourceGroupName:
-      output.ResourceGroupName !== undefined &&
-      output.ResourceGroupName !== null
+      output.ResourceGroupName !== undefined && output.ResourceGroupName !== null
         ? output.ResourceGroupName
         : undefined
   } as any;
@@ -4300,10 +3733,7 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   return {
     __type: "ValidationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -4321,16 +3751,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

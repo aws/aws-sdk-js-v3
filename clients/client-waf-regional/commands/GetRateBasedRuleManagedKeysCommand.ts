@@ -49,13 +49,8 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRateBasedRuleManagedKeysCommandInput,
-    GetRateBasedRuleManagedKeysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRateBasedRuleManagedKeysCommandInput, GetRateBasedRuleManagedKeysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetRateBasedRuleManagedKeysCommand extends $Command<
     input: GetRateBasedRuleManagedKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

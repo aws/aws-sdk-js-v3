@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeIdentityProviderRequest,
-  DescribeIdentityProviderResponse
-} from "../models/index";
+import { DescribeIdentityProviderRequest, DescribeIdentityProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeIdentityProviderCommand,
   serializeAws_json1_1DescribeIdentityProviderCommand
@@ -49,13 +46,8 @@ export class DescribeIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIdentityProviderCommandInput,
-    DescribeIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIdentityProviderCommandInput, DescribeIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeIdentityProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1DescribeIdentityProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

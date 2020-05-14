@@ -1,12 +1,5 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  DeleteEnvironmentRequest,
-  DeleteEnvironmentResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { DeleteEnvironmentRequest, DeleteEnvironmentResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteEnvironmentCommand,
   serializeAws_json1_1DeleteEnvironmentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEnvironmentCommandInput = DeleteEnvironmentRequest;
-export type DeleteEnvironmentCommandOutput = DeleteEnvironmentResult &
-  __MetadataBearer;
+export type DeleteEnvironmentCommandOutput = DeleteEnvironmentResult & __MetadataBearer;
 
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,
@@ -50,9 +42,7 @@ export class DeleteEnvironmentCommand extends $Command<
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

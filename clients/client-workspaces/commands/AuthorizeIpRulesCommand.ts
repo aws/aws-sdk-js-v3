@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  AuthorizeIpRulesRequest,
-  AuthorizeIpRulesResult
-} from "../models/index";
+import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/index";
 import {
   deserializeAws_json1_1AuthorizeIpRulesCommand,
   serializeAws_json1_1AuthorizeIpRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeIpRulesCommandInput = AuthorizeIpRulesRequest;
-export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult &
-  __MetadataBearer;
+export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult & __MetadataBearer;
 
 export class AuthorizeIpRulesCommand extends $Command<
   AuthorizeIpRulesCommandInput,
@@ -50,9 +46,7 @@ export class AuthorizeIpRulesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

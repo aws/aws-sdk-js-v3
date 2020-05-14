@@ -10,10 +10,7 @@ import {
   ListAccountsCommandInput,
   ListAccountsCommandOutput
 } from "./commands/ListAccountsCommand";
-import {
-  LogoutCommandInput,
-  LogoutCommandOutput
-} from "./commands/LogoutCommand";
+import { LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -163,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSOClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSOClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -174,9 +169,7 @@ export type SSOClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectStackDriftCommandInput = DetectStackDriftInput;
-export type DetectStackDriftCommandOutput = DetectStackDriftOutput &
-  __MetadataBearer;
+export type DetectStackDriftCommandOutput = DetectStackDriftOutput & __MetadataBearer;
 
 export class DetectStackDriftCommand extends $Command<
   DetectStackDriftCommandInput,
@@ -47,9 +46,7 @@ export class DetectStackDriftCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectStackDriftCommandInput, DetectStackDriftCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

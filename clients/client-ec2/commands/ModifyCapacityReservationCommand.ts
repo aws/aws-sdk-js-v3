@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyCapacityReservationRequest,
-  ModifyCapacityReservationResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyCapacityReservationRequest, ModifyCapacityReservationResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyCapacityReservationCommand,
   serializeAws_ec2ModifyCapacityReservationCommand
@@ -49,13 +42,8 @@ export class ModifyCapacityReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyCapacityReservationCommandInput,
-    ModifyCapacityReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyCapacityReservationCommandInput, ModifyCapacityReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

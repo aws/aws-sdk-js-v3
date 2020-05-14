@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeFlowDefinitionRequest,
-  DescribeFlowDefinitionResponse
-} from "../models/index";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFlowDefinitionCommand,
   serializeAws_json1_1DescribeFlowDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFlowDefinitionCommandInput = DescribeFlowDefinitionRequest;
-export type DescribeFlowDefinitionCommandOutput = DescribeFlowDefinitionResponse &
-  __MetadataBearer;
+export type DescribeFlowDefinitionCommandOutput = DescribeFlowDefinitionResponse & __MetadataBearer;
 
 export class DescribeFlowDefinitionCommand extends $Command<
   DescribeFlowDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class DescribeFlowDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFlowDefinitionCommandInput,
-    DescribeFlowDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFlowDefinitionCommandInput, DescribeFlowDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

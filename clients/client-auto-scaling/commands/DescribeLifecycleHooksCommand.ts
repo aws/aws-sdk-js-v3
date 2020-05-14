@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  DescribeLifecycleHooksAnswer,
-  DescribeLifecycleHooksType
-} from "../models/index";
+import { DescribeLifecycleHooksAnswer, DescribeLifecycleHooksType } from "../models/index";
 import {
   deserializeAws_queryDescribeLifecycleHooksCommand,
   serializeAws_queryDescribeLifecycleHooksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLifecycleHooksCommandInput = DescribeLifecycleHooksType;
-export type DescribeLifecycleHooksCommandOutput = DescribeLifecycleHooksAnswer &
-  __MetadataBearer;
+export type DescribeLifecycleHooksCommandOutput = DescribeLifecycleHooksAnswer & __MetadataBearer;
 
 export class DescribeLifecycleHooksCommand extends $Command<
   DescribeLifecycleHooksCommandInput,
@@ -49,13 +45,8 @@ export class DescribeLifecycleHooksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLifecycleHooksCommandInput,
-    DescribeLifecycleHooksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLifecycleHooksCommandInput, DescribeLifecycleHooksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

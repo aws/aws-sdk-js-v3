@@ -49,13 +49,8 @@ export class ListComponentBuildVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListComponentBuildVersionsCommandInput,
-    ListComponentBuildVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListComponentBuildVersionsCommandInput, ListComponentBuildVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListComponentBuildVersionsCommand extends $Command<
     input: ListComponentBuildVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListComponentBuildVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListComponentBuildVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListComponentBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListComponentBuildVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListComponentBuildVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

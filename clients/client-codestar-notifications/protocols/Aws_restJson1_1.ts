@@ -26,22 +26,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput
-} from "../commands/ListTargetsCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "../commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "../commands/UnsubscribeCommand";
+import { ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "../commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "../commands/UnsubscribeCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -93,10 +81,7 @@ export const serializeAws_restJson1_1CreateNotificationRuleCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
     ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1_1EventTypeIds(
-        input.EventTypeIds,
-        context
-      )
+      EventTypeIds: serializeAws_restJson1_1EventTypeIds(input.EventTypeIds, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Resource !== undefined && { Resource: input.Resource }),
@@ -208,10 +193,7 @@ export const serializeAws_restJson1_1ListEventTypesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1_1ListEventTypesFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_restJson1_1ListEventTypesFilters(input.Filters, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -239,10 +221,7 @@ export const serializeAws_restJson1_1ListNotificationRulesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1_1ListNotificationRulesFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_restJson1_1ListNotificationRulesFilters(input.Filters, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -294,10 +273,7 @@ export const serializeAws_restJson1_1ListTargetsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_restJson1_1ListTargetsFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_restJson1_1ListTargetsFilters(input.Filters, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -438,10 +414,7 @@ export const serializeAws_restJson1_1UpdateNotificationRuleCommand = async (
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.DetailType !== undefined && { DetailType: input.DetailType }),
     ...(input.EventTypeIds !== undefined && {
-      EventTypeIds: serializeAws_restJson1_1EventTypeIds(
-        input.EventTypeIds,
-        context
-      )
+      EventTypeIds: serializeAws_restJson1_1EventTypeIds(input.EventTypeIds, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Status !== undefined && { Status: input.Status }),
@@ -466,10 +439,7 @@ export const deserializeAws_restJson1_1CreateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateNotificationRuleCommandError(output, context);
   }
   const contents: CreateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -498,10 +468,7 @@ const deserializeAws_restJson1_1CreateNotificationRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.codestarnotifications#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -520,10 +487,7 @@ const deserializeAws_restJson1_1CreateNotificationRuleCommandError = async (
     case "ConfigurationException":
     case "com.amazonaws.codestarnotifications#ConfigurationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConfigurationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -531,10 +495,7 @@ const deserializeAws_restJson1_1CreateNotificationRuleCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -553,10 +514,7 @@ const deserializeAws_restJson1_1CreateNotificationRuleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -583,10 +541,7 @@ export const deserializeAws_restJson1_1DeleteNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteNotificationRuleCommandError(output, context);
   }
   const contents: DeleteNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -626,10 +581,7 @@ const deserializeAws_restJson1_1DeleteNotificationRuleCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -637,10 +589,7 @@ const deserializeAws_restJson1_1DeleteNotificationRuleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -692,10 +641,7 @@ const deserializeAws_restJson1_1DeleteTargetCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -722,10 +668,7 @@ export const deserializeAws_restJson1_1DescribeNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeNotificationRuleCommandError(output, context);
   }
   const contents: DescribeNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -750,26 +693,16 @@ export const deserializeAws_restJson1_1DescribeNotificationRuleCommand = async (
     contents.CreatedBy = data.CreatedBy;
   }
   if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(data.CreatedTimestamp * 1000)
-    );
+    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
   }
   if (data.DetailType !== undefined && data.DetailType !== null) {
     contents.DetailType = data.DetailType;
   }
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
-    contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(
-      data.EventTypes,
-      context
-    );
+    contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(data.EventTypes, context);
   }
-  if (
-    data.LastModifiedTimestamp !== undefined &&
-    data.LastModifiedTimestamp !== null
-  ) {
-    contents.LastModifiedTimestamp = new Date(
-      Math.round(data.LastModifiedTimestamp * 1000)
-    );
+  if (data.LastModifiedTimestamp !== undefined && data.LastModifiedTimestamp !== null) {
+    contents.LastModifiedTimestamp = new Date(Math.round(data.LastModifiedTimestamp * 1000));
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
@@ -784,10 +717,7 @@ export const deserializeAws_restJson1_1DescribeNotificationRuleCommand = async (
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
   }
   if (data.Targets !== undefined && data.Targets !== null) {
-    contents.Targets = deserializeAws_restJson1_1TargetsBatch(
-      data.Targets,
-      context
-    );
+    contents.Targets = deserializeAws_restJson1_1TargetsBatch(data.Targets, context);
   }
   return Promise.resolve(contents);
 };
@@ -818,10 +748,7 @@ const deserializeAws_restJson1_1DescribeNotificationRuleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -848,10 +775,7 @@ export const deserializeAws_restJson1_1ListEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListEventTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListEventTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListEventTypesCommandError(output, context);
   }
   const contents: ListEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -861,10 +785,7 @@ export const deserializeAws_restJson1_1ListEventTypesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.EventTypes !== undefined && data.EventTypes !== null) {
-    contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(
-      data.EventTypes,
-      context
-    );
+    contents.EventTypes = deserializeAws_restJson1_1EventTypeBatch(data.EventTypes, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -898,10 +819,7 @@ const deserializeAws_restJson1_1ListEventTypesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -928,10 +846,7 @@ export const deserializeAws_restJson1_1ListNotificationRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListNotificationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListNotificationRulesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListNotificationRulesCommandError(output, context);
   }
   const contents: ListNotificationRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -978,10 +893,7 @@ const deserializeAws_restJson1_1ListNotificationRulesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1008,10 +920,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1051,10 +960,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1094,10 +1000,7 @@ export const deserializeAws_restJson1_1ListTargetsCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Targets !== undefined && data.Targets !== null) {
-    contents.Targets = deserializeAws_restJson1_1TargetsBatch(
-      data.Targets,
-      context
-    );
+    contents.Targets = deserializeAws_restJson1_1TargetsBatch(data.Targets, context);
   }
   return Promise.resolve(contents);
 };
@@ -1128,10 +1031,7 @@ const deserializeAws_restJson1_1ListTargetsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1198,10 +1098,7 @@ const deserializeAws_restJson1_1SubscribeCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1279,10 +1176,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1338,10 +1232,7 @@ const deserializeAws_restJson1_1UnsubscribeCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1415,10 +1306,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,10 +1333,7 @@ export const deserializeAws_restJson1_1UpdateNotificationRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotificationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateNotificationRuleCommandError(output, context);
   }
   const contents: UpdateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1484,10 +1369,7 @@ const deserializeAws_restJson1_1UpdateNotificationRuleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1645,10 +1527,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1EventTypeIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1EventTypeIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1666,9 +1545,7 @@ const serializeAws_restJson1_1ListEventTypesFilters = (
   input: ListEventTypesFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ListEventTypesFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ListEventTypesFilter(entry, context));
 };
 
 const serializeAws_restJson1_1ListNotificationRulesFilter = (
@@ -1685,9 +1562,7 @@ const serializeAws_restJson1_1ListNotificationRulesFilters = (
   input: ListNotificationRulesFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ListNotificationRulesFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ListNotificationRulesFilter(entry, context));
 };
 
 const serializeAws_restJson1_1ListTargetsFilter = (
@@ -1704,15 +1579,10 @@ const serializeAws_restJson1_1ListTargetsFilters = (
   input: ListTargetsFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ListTargetsFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ListTargetsFilter(entry, context));
 };
 
-const serializeAws_restJson1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1729,10 +1599,7 @@ const serializeAws_restJson1_1Tags = (
   );
 };
 
-const serializeAws_restJson1_1Target = (
-  input: Target,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
     ...(input.TargetAddress !== undefined && {
       TargetAddress: input.TargetAddress
@@ -1741,10 +1608,7 @@ const serializeAws_restJson1_1Target = (
   };
 };
 
-const serializeAws_restJson1_1Targets = (
-  input: Target[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Targets = (input: Target[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Target(entry, context));
 };
 
@@ -1797,8 +1661,7 @@ const deserializeAws_restJson1_1NotificationRuleSummary = (
 ): NotificationRuleSummary => {
   return {
     __type: "NotificationRuleSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
   } as any;
 };
@@ -1831,9 +1694,7 @@ const deserializeAws_restJson1_1TargetSummary = (
         ? output.TargetStatus
         : undefined,
     TargetType:
-      output.TargetType !== undefined && output.TargetType !== null
-        ? output.TargetType
-        : undefined
+      output.TargetType !== undefined && output.TargetType !== null ? output.TargetType : undefined
   } as any;
 };
 
@@ -1860,23 +1721,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

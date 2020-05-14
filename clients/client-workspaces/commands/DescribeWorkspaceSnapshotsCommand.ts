@@ -49,13 +49,8 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkspaceSnapshotsCommandInput,
-    DescribeWorkspaceSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkspaceSnapshotsCommandInput, DescribeWorkspaceSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     input: DescribeWorkspaceSnapshotsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

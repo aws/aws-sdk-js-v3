@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteChannelCommandInput = DeleteChannelRequest;
-export type DeleteChannelCommandOutput = DeleteChannelResponse &
-  __MetadataBearer;
+export type DeleteChannelCommandOutput = DeleteChannelResponse & __MetadataBearer;
 
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,
@@ -47,9 +46,7 @@ export class DeleteChannelCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteChannelCommandInput, DeleteChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

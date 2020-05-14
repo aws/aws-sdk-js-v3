@@ -87,10 +87,7 @@ export interface EventStreamMarshaller {
     body: any,
     deserializer: (input: { [event: string]: Message }) => any
   ) => AsyncIterable<any>;
-  serialize: (
-    input: AsyncIterable<any>,
-    serializer: (event: any) => Message
-  ) => any;
+  serialize: (input: AsyncIterable<any>, serializer: (event: any) => Message) => any;
 }
 
 export interface EventStreamRequestSigner {

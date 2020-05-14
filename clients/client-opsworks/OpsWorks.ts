@@ -524,9 +524,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public assignInstance(
     args: AssignInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignInstanceCommandOutput) => void),
     cb?: (err: any, data?: AssignInstanceCommandOutput) => void
   ): Promise<AssignInstanceCommandOutput> | void {
     const command = new AssignInstanceCommand(args);
@@ -567,9 +565,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public assignVolume(
     args: AssignVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignVolumeCommandOutput) => void),
     cb?: (err: any, data?: AssignVolumeCommandOutput) => void
   ): Promise<AssignVolumeCommandOutput> | void {
     const command = new AssignVolumeCommand(args);
@@ -698,9 +694,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public cloneStack(
     args: CloneStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CloneStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CloneStackCommandOutput) => void),
     cb?: (err: any, data?: CloneStackCommandOutput) => void
   ): Promise<CloneStackCommandOutput> | void {
     const command = new CloneStackCommand(args);
@@ -739,9 +733,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
@@ -780,9 +772,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -821,9 +811,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createInstance(
     args: CreateInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateInstanceCommandOutput) => void
   ): Promise<CreateInstanceCommandOutput> | void {
     const command = new CreateInstanceCommand(args);
@@ -869,9 +857,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createLayer(
     args: CreateLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLayerCommandOutput) => void),
     cb?: (err: any, data?: CreateLayerCommandOutput) => void
   ): Promise<CreateLayerCommandOutput> | void {
     const command = new CreateLayerCommand(args);
@@ -909,9 +895,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
@@ -988,9 +972,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
@@ -1030,9 +1012,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteInstance(
     args: DeleteInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): Promise<DeleteInstanceCommandOutput> | void {
     const command = new DeleteInstanceCommand(args);
@@ -1072,9 +1052,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteLayer(
     args: DeleteLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLayerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLayerCommandOutput) => void
   ): Promise<DeleteLayerCommandOutput> | void {
     const command = new DeleteLayerCommand(args);
@@ -1114,9 +1092,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
@@ -1361,9 +1337,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public deregisterVolume(
     args: DeregisterVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeregisterVolumeCommandOutput) => void
   ): Promise<DeregisterVolumeCommandOutput> | void {
     const command = new DeregisterVolumeCommand(args);
@@ -1441,9 +1415,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeApps(
     args: DescribeAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAppsCommandOutput) => void
   ): Promise<DescribeAppsCommandOutput> | void {
     const command = new DescribeAppsCommand(args);
@@ -1484,9 +1456,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeCommands(
     args: DescribeCommandsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCommandsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommandsCommandOutput) => void),
     cb?: (err: any, data?: DescribeCommandsCommandOutput) => void
   ): Promise<DescribeCommandsCommandOutput> | void {
     const command = new DescribeCommandsCommand(args);
@@ -1743,9 +1713,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeLayers(
     args: DescribeLayersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLayersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLayersCommandOutput) => void),
     cb?: (err: any, data?: DescribeLayersCommandOutput) => void
   ): Promise<DescribeLayersCommandOutput> | void {
     const command = new DescribeLayersCommand(args);
@@ -2057,31 +2025,19 @@ export class OpsWorks extends OpsWorksClient {
   ): Promise<DescribeStackProvisioningParametersCommandOutput>;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): void;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): void;
   public describeStackProvisioningParameters(
     args: DescribeStackProvisioningParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStackProvisioningParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStackProvisioningParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackProvisioningParametersCommandOutput) => void
   ): Promise<DescribeStackProvisioningParametersCommandOutput> | void {
     const command = new DescribeStackProvisioningParametersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2159,9 +2115,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
@@ -2284,9 +2238,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public describeVolumes(
     args: DescribeVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVolumesCommandOutput) => void
   ): Promise<DescribeVolumesCommandOutput> | void {
     const command = new DescribeVolumesCommand(args);
@@ -2443,9 +2395,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public grantAccess(
     args: GrantAccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GrantAccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GrantAccessCommandOutput) => void),
     cb?: (err: any, data?: GrantAccessCommandOutput) => void
   ): Promise<GrantAccessCommandOutput> | void {
     const command = new GrantAccessCommand(args);
@@ -2478,9 +2428,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -2519,9 +2467,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public rebootInstance(
     args: RebootInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootInstanceCommandOutput) => void
   ): Promise<RebootInstanceCommandOutput> | void {
     const command = new RebootInstanceCommand(args);
@@ -2659,9 +2605,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerInstance(
     args: RegisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterInstanceCommandOutput) => void
   ): Promise<RegisterInstanceCommandOutput> | void {
     const command = new RegisterInstanceCommand(args);
@@ -2741,9 +2685,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public registerVolume(
     args: RegisterVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterVolumeCommandOutput) => void),
     cb?: (err: any, data?: RegisterVolumeCommandOutput) => void
   ): Promise<RegisterVolumeCommandOutput> | void {
     const command = new RegisterVolumeCommand(args);
@@ -2827,9 +2769,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public setPermission(
     args: SetPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetPermissionCommandOutput) => void),
     cb?: (err: any, data?: SetPermissionCommandOutput) => void
   ): Promise<SetPermissionCommandOutput> | void {
     const command = new SetPermissionCommand(args);
@@ -2910,9 +2850,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public startInstance(
     args: StartInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartInstanceCommandOutput) => void
   ): Promise<StartInstanceCommandOutput> | void {
     const command = new StartInstanceCommand(args);
@@ -2950,9 +2888,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public startStack(
     args: StartStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStackCommandOutput) => void),
     cb?: (err: any, data?: StartStackCommandOutput) => void
   ): Promise<StartStackCommandOutput> | void {
     const command = new StartStackCommand(args);
@@ -2993,9 +2929,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public stopInstance(
     args: StopInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopInstanceCommandOutput) => void
   ): Promise<StopInstanceCommandOutput> | void {
     const command = new StopInstanceCommand(args);
@@ -3033,9 +2967,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public stopStack(
     args: StopStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStackCommandOutput) => void),
     cb?: (err: any, data?: StopStackCommandOutput) => void
   ): Promise<StopStackCommandOutput> | void {
     const command = new StopStackCommand(args);
@@ -3068,9 +3000,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3111,9 +3041,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public unassignInstance(
     args: UnassignInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignInstanceCommandOutput) => void),
     cb?: (err: any, data?: UnassignInstanceCommandOutput) => void
   ): Promise<UnassignInstanceCommandOutput> | void {
     const command = new UnassignInstanceCommand(args);
@@ -3153,9 +3081,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public unassignVolume(
     args: UnassignVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnassignVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnassignVolumeCommandOutput) => void),
     cb?: (err: any, data?: UnassignVolumeCommandOutput) => void
   ): Promise<UnassignVolumeCommandOutput> | void {
     const command = new UnassignVolumeCommand(args);
@@ -3188,9 +3114,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3228,9 +3152,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateApp(
     args: UpdateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);
@@ -3268,9 +3190,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateElasticIp(
     args: UpdateElasticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateElasticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateElasticIpCommandOutput) => void),
     cb?: (err: any, data?: UpdateElasticIpCommandOutput) => void
   ): Promise<UpdateElasticIpCommandOutput> | void {
     const command = new UpdateElasticIpCommand(args);
@@ -3308,9 +3228,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateInstance(
     args: UpdateInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): Promise<UpdateInstanceCommandOutput> | void {
     const command = new UpdateInstanceCommand(args);
@@ -3348,9 +3266,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateLayer(
     args: UpdateLayerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLayerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLayerCommandOutput) => void),
     cb?: (err: any, data?: UpdateLayerCommandOutput) => void
   ): Promise<UpdateLayerCommandOutput> | void {
     const command = new UpdateLayerCommand(args);
@@ -3468,9 +3384,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
@@ -3547,9 +3461,7 @@ export class OpsWorks extends OpsWorksClient {
   ): void;
   public updateVolume(
     args: UpdateVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVolumeCommandOutput) => void),
     cb?: (err: any, data?: UpdateVolumeCommandOutput) => void
   ): Promise<UpdateVolumeCommandOutput> | void {
     const command = new UpdateVolumeCommand(args);

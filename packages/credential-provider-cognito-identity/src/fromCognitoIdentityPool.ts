@@ -22,9 +22,7 @@ export function fromCognitoIdentityPool({
   customRoleArn,
   identityPoolId,
   logins,
-  userIdentifier = !logins || Object.keys(logins).length === 0
-    ? "ANONYMOUS"
-    : undefined
+  userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined
 }: FromCognitoIdentityPoolParameters): CredentialProvider {
   const cacheKey = userIdentifier
     ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
@@ -66,8 +64,7 @@ export function fromCognitoIdentityPool({
     });
 }
 
-export interface FromCognitoIdentityPoolParameters
-  extends CognitoProviderParameters {
+export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
   /**
    * A standard AWS account ID (9+ digits).
    */
@@ -104,7 +101,5 @@ export interface FromCognitoIdentityPoolParameters
 }
 
 function throwOnMissingId(): never {
-  throw new ProviderError(
-    "Response from Amazon Cognito contained no identity ID"
-  );
+  throw new ProviderError("Response from Amazon Cognito contained no identity ID");
 }

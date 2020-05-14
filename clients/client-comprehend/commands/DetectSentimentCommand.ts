@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DetectSentimentRequest,
-  DetectSentimentResponse
-} from "../models/index";
+import { DetectSentimentRequest, DetectSentimentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectSentimentCommand,
   serializeAws_json1_1DetectSentimentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectSentimentCommandInput = DetectSentimentRequest;
-export type DetectSentimentCommandOutput = DetectSentimentResponse &
-  __MetadataBearer;
+export type DetectSentimentCommandOutput = DetectSentimentResponse & __MetadataBearer;
 
 export class DetectSentimentCommand extends $Command<
   DetectSentimentCommandInput,
@@ -50,9 +46,7 @@ export class DetectSentimentCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectSentimentCommandInput, DetectSentimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

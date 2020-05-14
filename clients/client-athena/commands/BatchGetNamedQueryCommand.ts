@@ -1,12 +1,5 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
-import {
-  BatchGetNamedQueryInput,
-  BatchGetNamedQueryOutput
-} from "../models/index";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetNamedQueryCommand,
   serializeAws_json1_1BatchGetNamedQueryCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetNamedQueryCommandInput = BatchGetNamedQueryInput;
-export type BatchGetNamedQueryCommandOutput = BatchGetNamedQueryOutput &
-  __MetadataBearer;
+export type BatchGetNamedQueryCommandOutput = BatchGetNamedQueryOutput & __MetadataBearer;
 
 export class BatchGetNamedQueryCommand extends $Command<
   BatchGetNamedQueryCommandInput,
@@ -50,9 +42,7 @@ export class BatchGetNamedQueryCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

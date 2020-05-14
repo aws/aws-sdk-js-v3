@@ -267,9 +267,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeIpRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeIpRulesCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeIpRulesCommandOutput) => void
   ): Promise<AuthorizeIpRulesCommandOutput> | void {
     const command = new AuthorizeIpRulesCommand(args);
@@ -346,9 +344,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createIpGroup(
     args: CreateIpGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIpGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateIpGroupCommandOutput) => void
   ): Promise<CreateIpGroupCommandOutput> | void {
     const command = new CreateIpGroupCommand(args);
@@ -381,9 +377,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -417,9 +411,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkspacesCommandOutput) => void
   ): Promise<CreateWorkspacesCommandOutput> | void {
     const command = new CreateWorkspacesCommand(args);
@@ -453,9 +445,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deleteIpGroup(
     args: DeleteIpGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIpGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteIpGroupCommandOutput) => void
   ): Promise<DeleteIpGroupCommandOutput> | void {
     const command = new DeleteIpGroupCommand(args);
@@ -488,9 +478,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -598,9 +586,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeAccount(
     args: DescribeAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountCommandOutput) => void
   ): Promise<DescribeAccountCommandOutput> | void {
     const command = new DescribeAccountCommand(args);
@@ -704,9 +690,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeIpGroups(
     args: DescribeIpGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIpGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeIpGroupsCommandOutput) => void
   ): Promise<DescribeIpGroupsCommandOutput> | void {
     const command = new DescribeIpGroupsCommand(args);
@@ -739,9 +723,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -945,31 +927,19 @@ export class WorkSpaces extends WorkSpacesClient {
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput>;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): void;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): void;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeWorkspacesConnectionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> | void {
     const command = new DescribeWorkspacesConnectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1068,31 +1038,19 @@ export class WorkSpaces extends WorkSpacesClient {
   ): Promise<ListAvailableManagementCidrRangesCommandOutput>;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    cb: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): void;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): void;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAvailableManagementCidrRangesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+      | ((err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void),
+    cb?: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> | void {
     const command = new ListAvailableManagementCidrRangesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1132,9 +1090,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public migrateWorkspace(
     args: MigrateWorkspaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MigrateWorkspaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MigrateWorkspaceCommandOutput) => void),
     cb?: (err: any, data?: MigrateWorkspaceCommandOutput) => void
   ): Promise<MigrateWorkspaceCommandOutput> | void {
     const command = new MigrateWorkspaceCommand(args);
@@ -1168,9 +1124,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyAccount(
     args: ModifyAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAccountCommandOutput) => void),
     cb?: (err: any, data?: ModifyAccountCommandOutput) => void
   ): Promise<ModifyAccountCommandOutput> | void {
     const command = new ModifyAccountCommand(args);
@@ -1278,10 +1232,7 @@ export class WorkSpaces extends WorkSpacesClient {
     args: ModifyWorkspaceAccessPropertiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyWorkspaceAccessPropertiesCommandOutput
-        ) => void),
+      | ((err: any, data?: ModifyWorkspaceAccessPropertiesCommandOutput) => void),
     cb?: (err: any, data?: ModifyWorkspaceAccessPropertiesCommandOutput) => void
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> | void {
     const command = new ModifyWorkspaceAccessPropertiesCommand(args);
@@ -1305,31 +1256,19 @@ export class WorkSpaces extends WorkSpacesClient {
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput>;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): void;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): void;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyWorkspaceCreationPropertiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> | void {
     const command = new ModifyWorkspaceCreationPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1439,9 +1378,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: RebootWorkspacesCommandOutput) => void
   ): Promise<RebootWorkspacesCommandOutput> | void {
     const command = new RebootWorkspacesCommand(args);
@@ -1562,9 +1499,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreWorkspaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreWorkspaceCommandOutput) => void),
     cb?: (err: any, data?: RestoreWorkspaceCommandOutput) => void
   ): Promise<RestoreWorkspaceCommandOutput> | void {
     const command = new RestoreWorkspaceCommand(args);
@@ -1597,9 +1532,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public revokeIpRules(
     args: RevokeIpRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeIpRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeIpRulesCommandOutput) => void),
     cb?: (err: any, data?: RevokeIpRulesCommandOutput) => void
   ): Promise<RevokeIpRulesCommandOutput> | void {
     const command = new RevokeIpRulesCommand(args);
@@ -1634,9 +1567,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public startWorkspaces(
     args: StartWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: StartWorkspacesCommandOutput) => void
   ): Promise<StartWorkspacesCommandOutput> | void {
     const command = new StartWorkspacesCommand(args);
@@ -1672,9 +1603,7 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public stopWorkspaces(
     args: StopWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: StopWorkspacesCommandOutput) => void
   ): Promise<StopWorkspacesCommandOutput> | void {
     const command = new StopWorkspacesCommand(args);

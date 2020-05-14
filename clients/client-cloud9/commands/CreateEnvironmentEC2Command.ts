@@ -1,12 +1,5 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  CreateEnvironmentEC2Request,
-  CreateEnvironmentEC2Result
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/index";
 import {
   deserializeAws_json1_1CreateEnvironmentEC2Command,
   serializeAws_json1_1CreateEnvironmentEC2Command
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEnvironmentEC2CommandInput = CreateEnvironmentEC2Request;
-export type CreateEnvironmentEC2CommandOutput = CreateEnvironmentEC2Result &
-  __MetadataBearer;
+export type CreateEnvironmentEC2CommandOutput = CreateEnvironmentEC2Result & __MetadataBearer;
 
 export class CreateEnvironmentEC2Command extends $Command<
   CreateEnvironmentEC2CommandInput,
@@ -49,13 +41,8 @@ export class CreateEnvironmentEC2Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEnvironmentEC2CommandInput,
-    CreateEnvironmentEC2CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEnvironmentEC2CommandInput, CreateEnvironmentEC2CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

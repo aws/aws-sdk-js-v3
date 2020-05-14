@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  GetDomainDetailRequest,
-  GetDomainDetailResponse
-} from "../models/index";
+import { GetDomainDetailRequest, GetDomainDetailResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDomainDetailCommand,
   serializeAws_json1_1GetDomainDetailCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDomainDetailCommandInput = GetDomainDetailRequest;
-export type GetDomainDetailCommandOutput = GetDomainDetailResponse &
-  __MetadataBearer;
+export type GetDomainDetailCommandOutput = GetDomainDetailResponse & __MetadataBearer;
 
 export class GetDomainDetailCommand extends $Command<
   GetDomainDetailCommandInput,
@@ -50,9 +46,7 @@ export class GetDomainDetailCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDomainDetailCommandInput, GetDomainDetailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisClient";
-import {
-  DescribeStreamSummaryInput,
-  DescribeStreamSummaryOutput
-} from "../models/index";
+import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStreamSummaryCommand,
   serializeAws_json1_1DescribeStreamSummaryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStreamSummaryCommandInput = DescribeStreamSummaryInput;
-export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput &
-  __MetadataBearer;
+export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput & __MetadataBearer;
 
 export class DescribeStreamSummaryCommand extends $Command<
   DescribeStreamSummaryCommandInput,
@@ -49,13 +45,8 @@ export class DescribeStreamSummaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStreamSummaryCommandInput,
-    DescribeStreamSummaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStreamSummaryCommandInput, DescribeStreamSummaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFunctionCommandInput = DeleteFunctionRequest;
-export type DeleteFunctionCommandOutput = DeleteFunctionResponse &
-  __MetadataBearer;
+export type DeleteFunctionCommandOutput = DeleteFunctionResponse & __MetadataBearer;
 
 export class DeleteFunctionCommand extends $Command<
   DeleteFunctionCommandInput,
@@ -47,9 +46,7 @@ export class DeleteFunctionCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFunctionCommandInput, DeleteFunctionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { PutLexiconInput, PutLexiconOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1PutLexiconCommand,
@@ -46,9 +42,7 @@ export class PutLexiconCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLexiconCommandInput, PutLexiconCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

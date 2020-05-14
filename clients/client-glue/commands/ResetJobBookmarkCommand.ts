@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  ResetJobBookmarkRequest,
-  ResetJobBookmarkResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/index";
 import {
   deserializeAws_json1_1ResetJobBookmarkCommand,
   serializeAws_json1_1ResetJobBookmarkCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetJobBookmarkCommandInput = ResetJobBookmarkRequest;
-export type ResetJobBookmarkCommandOutput = ResetJobBookmarkResponse &
-  __MetadataBearer;
+export type ResetJobBookmarkCommandOutput = ResetJobBookmarkResponse & __MetadataBearer;
 
 export class ResetJobBookmarkCommand extends $Command<
   ResetJobBookmarkCommandInput,
@@ -50,9 +42,7 @@ export class ResetJobBookmarkCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

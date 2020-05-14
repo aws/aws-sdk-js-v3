@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  CreateCloudFormationStackRequest,
-  CreateCloudFormationStackResult
-} from "../models/index";
+import { CreateCloudFormationStackRequest, CreateCloudFormationStackResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateCloudFormationStackCommand,
   serializeAws_json1_1CreateCloudFormationStackCommand
@@ -49,13 +46,8 @@ export class CreateCloudFormationStackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCloudFormationStackCommandInput,
-    CreateCloudFormationStackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCloudFormationStackCommandInput, CreateCloudFormationStackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateCloudFormationStackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationStackCommandOutput> {
-    return deserializeAws_json1_1CreateCloudFormationStackCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateCloudFormationStackCommand(output, context);
   }
 
   // Start section: command_body_extra

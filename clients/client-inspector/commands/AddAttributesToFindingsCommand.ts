@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  AddAttributesToFindingsRequest,
-  AddAttributesToFindingsResponse
-} from "../models/index";
+import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddAttributesToFindingsCommand,
   serializeAws_json1_1AddAttributesToFindingsCommand
@@ -49,13 +46,8 @@ export class AddAttributesToFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddAttributesToFindingsCommandInput,
-    AddAttributesToFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddAttributesToFindingsCommandInput, AddAttributesToFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class AddAttributesToFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddAttributesToFindingsCommandOutput> {
-    return deserializeAws_json1_1AddAttributesToFindingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddAttributesToFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

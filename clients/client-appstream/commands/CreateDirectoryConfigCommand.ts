@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  CreateDirectoryConfigRequest,
-  CreateDirectoryConfigResult
-} from "../models/index";
+import { CreateDirectoryConfigRequest, CreateDirectoryConfigResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDirectoryConfigCommand,
   serializeAws_json1_1CreateDirectoryConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDirectoryConfigCommandInput = CreateDirectoryConfigRequest;
-export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult &
-  __MetadataBearer;
+export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult & __MetadataBearer;
 
 export class CreateDirectoryConfigCommand extends $Command<
   CreateDirectoryConfigCommandInput,
@@ -49,13 +45,8 @@ export class CreateDirectoryConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDirectoryConfigCommandInput,
-    CreateDirectoryConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDirectoryConfigCommandInput, CreateDirectoryConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

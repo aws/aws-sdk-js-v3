@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeNFSFileSharesInput,
-  DescribeNFSFileSharesOutput
-} from "../models/index";
+import { DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeNFSFileSharesCommand,
   serializeAws_json1_1DescribeNFSFileSharesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeNFSFileSharesCommandInput = DescribeNFSFileSharesInput;
-export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput &
-  __MetadataBearer;
+export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput & __MetadataBearer;
 
 export class DescribeNFSFileSharesCommand extends $Command<
   DescribeNFSFileSharesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeNFSFileSharesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNFSFileSharesCommandInput,
-    DescribeNFSFileSharesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNFSFileSharesCommandInput, DescribeNFSFileSharesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

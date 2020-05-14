@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  GetTraceSummariesRequest,
-  GetTraceSummariesResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetTraceSummariesCommand,
   serializeAws_restJson1_1GetTraceSummariesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTraceSummariesCommandInput = GetTraceSummariesRequest;
-export type GetTraceSummariesCommandOutput = GetTraceSummariesResult &
-  __MetadataBearer;
+export type GetTraceSummariesCommandOutput = GetTraceSummariesResult & __MetadataBearer;
 
 export class GetTraceSummariesCommand extends $Command<
   GetTraceSummariesCommandInput,
@@ -50,9 +42,7 @@ export class GetTraceSummariesCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

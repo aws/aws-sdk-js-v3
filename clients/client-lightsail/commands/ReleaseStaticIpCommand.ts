@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ReleaseStaticIpCommandInput = ReleaseStaticIpRequest;
-export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult &
-  __MetadataBearer;
+export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult & __MetadataBearer;
 
 export class ReleaseStaticIpCommand extends $Command<
   ReleaseStaticIpCommandInput,
@@ -47,9 +46,7 @@ export class ReleaseStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReleaseStaticIpCommandInput, ReleaseStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

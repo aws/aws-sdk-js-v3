@@ -64,11 +64,7 @@ import {
   GenerateAccessLogsCommandInput,
   GenerateAccessLogsCommandOutput
 } from "./commands/GenerateAccessLogsCommand";
-import {
-  GetAppCommand,
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommand, GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetArtifactUrlCommand,
   GetArtifactUrlCommandInput,
@@ -89,11 +85,7 @@ import {
   GetDomainAssociationCommandInput,
   GetDomainAssociationCommandOutput
 } from "./commands/GetDomainAssociationCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetWebhookCommand,
   GetWebhookCommandInput,
@@ -212,9 +204,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
@@ -286,9 +276,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public createBranch(
     args: CreateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBranchCommandOutput) => void),
     cb?: (err: any, data?: CreateBranchCommandOutput) => void
   ): Promise<CreateBranchCommandOutput> | void {
     const command = new CreateBranchCommand(args);
@@ -323,9 +311,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -397,9 +383,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public createWebhook(
     args: CreateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebhookCommandOutput) => void),
     cb?: (err: any, data?: CreateWebhookCommandOutput) => void
   ): Promise<CreateWebhookCommandOutput> | void {
     const command = new CreateWebhookCommand(args);
@@ -434,9 +418,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
@@ -508,9 +490,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public deleteBranch(
     args: DeleteBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBranchCommandOutput) => void),
     cb?: (err: any, data?: DeleteBranchCommandOutput) => void
   ): Promise<DeleteBranchCommandOutput> | void {
     const command = new DeleteBranchCommand(args);
@@ -582,9 +562,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public deleteJob(
     args: DeleteJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
@@ -619,9 +597,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
@@ -682,10 +658,7 @@ export class Amplify extends AmplifyClient {
     args: GetAppCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAppCommandOutput>;
-  public getApp(
-    args: GetAppCommandInput,
-    cb: (err: any, data?: GetAppCommandOutput) => void
-  ): void;
+  public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
   public getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
@@ -693,9 +666,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public getApp(
     args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
     cb?: (err: any, data?: GetAppCommandOutput) => void
   ): Promise<GetAppCommandOutput> | void {
     const command = new GetAppCommand(args);
@@ -730,9 +701,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public getArtifactUrl(
     args: GetArtifactUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetArtifactUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetArtifactUrlCommandOutput) => void),
     cb?: (err: any, data?: GetArtifactUrlCommandOutput) => void
   ): Promise<GetArtifactUrlCommandOutput> | void {
     const command = new GetArtifactUrlCommand(args);
@@ -804,9 +773,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public getBranch(
     args: GetBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBranchCommandOutput) => void),
     cb?: (err: any, data?: GetBranchCommandOutput) => void
   ): Promise<GetBranchCommandOutput> | void {
     const command = new GetBranchCommand(args);
@@ -867,10 +834,7 @@ export class Amplify extends AmplifyClient {
     args: GetJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -878,9 +842,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
@@ -915,9 +877,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public getWebhook(
     args: GetWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebhookCommandOutput) => void),
     cb?: (err: any, data?: GetWebhookCommandOutput) => void
   ): Promise<GetWebhookCommandOutput> | void {
     const command = new GetWebhookCommand(args);
@@ -952,9 +912,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public listApps(
     args: ListAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsCommandOutput) => void),
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
@@ -989,9 +947,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public listArtifacts(
     args: ListArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListArtifactsCommandOutput) => void
   ): Promise<ListArtifactsCommandOutput> | void {
     const command = new ListArtifactsCommand(args);
@@ -1063,9 +1019,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public listBranches(
     args: ListBranchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBranchesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBranchesCommandOutput) => void),
     cb?: (err: any, data?: ListBranchesCommandOutput) => void
   ): Promise<ListBranchesCommandOutput> | void {
     const command = new ListBranchesCommand(args);
@@ -1137,9 +1091,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -1211,9 +1163,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public listWebhooks(
     args: ListWebhooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebhooksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebhooksCommandOutput) => void),
     cb?: (err: any, data?: ListWebhooksCommandOutput) => void
   ): Promise<ListWebhooksCommandOutput> | void {
     const command = new ListWebhooksCommand(args);
@@ -1248,9 +1198,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public startDeployment(
     args: StartDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StartDeploymentCommandOutput) => void
   ): Promise<StartDeploymentCommandOutput> | void {
     const command = new StartDeploymentCommand(args);
@@ -1285,9 +1233,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public startJob(
     args: StartJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobCommandOutput) => void),
     cb?: (err: any, data?: StartJobCommandOutput) => void
   ): Promise<StartJobCommandOutput> | void {
     const command = new StartJobCommand(args);
@@ -1322,9 +1268,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public stopJob(
     args: StopJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopJobCommandOutput) => void),
     cb?: (err: any, data?: StopJobCommandOutput) => void
   ): Promise<StopJobCommandOutput> | void {
     const command = new StopJobCommand(args);
@@ -1359,9 +1303,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1396,9 +1338,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1433,9 +1373,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public updateApp(
     args: UpdateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);
@@ -1470,9 +1408,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public updateBranch(
     args: UpdateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBranchCommandOutput) => void),
     cb?: (err: any, data?: UpdateBranchCommandOutput) => void
   ): Promise<UpdateBranchCommandOutput> | void {
     const command = new UpdateBranchCommand(args);
@@ -1544,9 +1480,7 @@ export class Amplify extends AmplifyClient {
   ): void;
   public updateWebhook(
     args: UpdateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebhookCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): Promise<UpdateWebhookCommandOutput> | void {
     const command = new UpdateWebhookCommand(args);

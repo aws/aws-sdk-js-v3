@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUsersCommandInput = DescribeUsersRequest;
-export type DescribeUsersCommandOutput = DescribeUsersResponse &
-  __MetadataBearer;
+export type DescribeUsersCommandOutput = DescribeUsersResponse & __MetadataBearer;
 
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,
@@ -47,9 +46,7 @@ export class DescribeUsersCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeUsersCommandInput, DescribeUsersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

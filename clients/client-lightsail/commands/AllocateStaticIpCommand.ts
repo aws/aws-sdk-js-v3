@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  AllocateStaticIpRequest,
-  AllocateStaticIpResult
-} from "../models/index";
+import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/index";
 import {
   deserializeAws_json1_1AllocateStaticIpCommand,
   serializeAws_json1_1AllocateStaticIpCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocateStaticIpCommandInput = AllocateStaticIpRequest;
-export type AllocateStaticIpCommandOutput = AllocateStaticIpResult &
-  __MetadataBearer;
+export type AllocateStaticIpCommandOutput = AllocateStaticIpResult & __MetadataBearer;
 
 export class AllocateStaticIpCommand extends $Command<
   AllocateStaticIpCommandInput,
@@ -50,9 +46,7 @@ export class AllocateStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

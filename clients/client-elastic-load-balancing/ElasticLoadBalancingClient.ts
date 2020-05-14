@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   ApplySecurityGroupsToLoadBalancerCommandInput,
   ApplySecurityGroupsToLoadBalancerCommandOutput
@@ -98,10 +95,7 @@ import {
   RegisterInstancesWithLoadBalancerCommandInput,
   RegisterInstancesWithLoadBalancerCommandOutput
 } from "./commands/RegisterInstancesWithLoadBalancerCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   SetLoadBalancerListenerSSLCertificateCommandInput,
   SetLoadBalancerListenerSSLCertificateCommandOutput

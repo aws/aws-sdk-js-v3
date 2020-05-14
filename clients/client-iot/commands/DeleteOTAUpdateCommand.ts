@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteOTAUpdateRequest,
-  DeleteOTAUpdateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteOTAUpdateCommand,
   serializeAws_restJson1_1DeleteOTAUpdateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteOTAUpdateCommandInput = DeleteOTAUpdateRequest;
-export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse &
-  __MetadataBearer;
+export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse & __MetadataBearer;
 
 export class DeleteOTAUpdateCommand extends $Command<
   DeleteOTAUpdateCommandInput,
@@ -50,9 +42,7 @@ export class DeleteOTAUpdateCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

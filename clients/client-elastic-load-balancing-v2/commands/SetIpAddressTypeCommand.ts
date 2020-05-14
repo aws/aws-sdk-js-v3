@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetIpAddressTypeCommandInput = SetIpAddressTypeInput;
-export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput &
-  __MetadataBearer;
+export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput & __MetadataBearer;
 
 export class SetIpAddressTypeCommand extends $Command<
   SetIpAddressTypeCommandInput,
@@ -47,9 +46,7 @@ export class SetIpAddressTypeCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

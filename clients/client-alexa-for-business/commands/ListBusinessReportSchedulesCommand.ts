@@ -49,13 +49,8 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBusinessReportSchedulesCommandInput,
-    ListBusinessReportSchedulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBusinessReportSchedulesCommandInput, ListBusinessReportSchedulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListBusinessReportSchedulesCommand extends $Command<
     input: ListBusinessReportSchedulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBusinessReportSchedulesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListBusinessReportSchedulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBusinessReportSchedulesCommandOutput> {
-    return deserializeAws_json1_1ListBusinessReportSchedulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListBusinessReportSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

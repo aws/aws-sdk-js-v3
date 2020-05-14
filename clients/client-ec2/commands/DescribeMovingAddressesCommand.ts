@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeMovingAddressesRequest,
-  DescribeMovingAddressesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeMovingAddressesCommand,
   serializeAws_ec2DescribeMovingAddressesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMovingAddressesCommandInput = DescribeMovingAddressesRequest;
-export type DescribeMovingAddressesCommandOutput = DescribeMovingAddressesResult &
-  __MetadataBearer;
+export type DescribeMovingAddressesCommandOutput = DescribeMovingAddressesResult & __MetadataBearer;
 
 export class DescribeMovingAddressesCommand extends $Command<
   DescribeMovingAddressesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeMovingAddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMovingAddressesCommandInput,
-    DescribeMovingAddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMovingAddressesCommandInput, DescribeMovingAddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GreetingWithErrorsCommandInput = {};
-export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput &
-  __MetadataBearer;
+export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput & __MetadataBearer;
 
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,
@@ -47,9 +46,7 @@ export class GreetingWithErrorsCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

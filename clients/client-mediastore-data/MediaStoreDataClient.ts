@@ -6,18 +6,9 @@ import {
   DescribeObjectCommandInput,
   DescribeObjectCommandOutput
 } from "./commands/DescribeObjectCommand";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "./commands/GetObjectCommand";
-import {
-  ListItemsCommandInput,
-  ListItemsCommandOutput
-} from "./commands/ListItemsCommand";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "./commands/PutObjectCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
+import { ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -169,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaStoreDataClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaStoreDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

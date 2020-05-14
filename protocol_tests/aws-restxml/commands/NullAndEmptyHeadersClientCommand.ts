@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NullAndEmptyHeadersClientCommandInput = NullAndEmptyHeadersIO;
-export type NullAndEmptyHeadersClientCommandOutput = NullAndEmptyHeadersIO &
-  __MetadataBearer;
+export type NullAndEmptyHeadersClientCommandOutput = NullAndEmptyHeadersIO & __MetadataBearer;
 
 export class NullAndEmptyHeadersClientCommand extends $Command<
   NullAndEmptyHeadersClientCommandInput,
@@ -46,13 +45,8 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    NullAndEmptyHeadersClientCommandInput,
-    NullAndEmptyHeadersClientCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<NullAndEmptyHeadersClientCommandInput, NullAndEmptyHeadersClientCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NullAndEmptyHeadersClientCommandOutput> {
-    return deserializeAws_restXmlNullAndEmptyHeadersClientCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlNullAndEmptyHeadersClientCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   GetPatchBaselineForPatchGroupRequest,
   GetPatchBaselineForPatchGroupResult
@@ -53,9 +49,7 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     GetPatchBaselineForPatchGroupCommandInput,
     GetPatchBaselineForPatchGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     input: GetPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

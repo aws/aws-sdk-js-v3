@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  DescribeFargateProfileRequest,
-  DescribeFargateProfileResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFargateProfileCommand,
   serializeAws_restJson1_1DescribeFargateProfileCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFargateProfileCommandInput = DescribeFargateProfileRequest;
-export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse &
-  __MetadataBearer;
+export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse & __MetadataBearer;
 
 export class DescribeFargateProfileCommand extends $Command<
   DescribeFargateProfileCommandInput,
@@ -49,13 +41,8 @@ export class DescribeFargateProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFargateProfileCommandInput,
-    DescribeFargateProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFargateProfileCommandInput, DescribeFargateProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class DescribeFargateProfileCommand extends $Command<
     input: DescribeFargateProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFargateProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeFargateProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFargateProfileCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFargateProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

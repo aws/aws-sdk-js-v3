@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DeleteCustomMetadataRequest,
-  DeleteCustomMetadataResponse
-} from "../models/index";
+import { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteCustomMetadataCommand,
   serializeAws_restJson1_1DeleteCustomMetadataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCustomMetadataCommandInput = DeleteCustomMetadataRequest;
-export type DeleteCustomMetadataCommandOutput = DeleteCustomMetadataResponse &
-  __MetadataBearer;
+export type DeleteCustomMetadataCommandOutput = DeleteCustomMetadataResponse & __MetadataBearer;
 
 export class DeleteCustomMetadataCommand extends $Command<
   DeleteCustomMetadataCommandInput,
@@ -49,13 +45,8 @@ export class DeleteCustomMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCustomMetadataCommandInput,
-    DeleteCustomMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCustomMetadataCommandInput, DeleteCustomMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteCustomMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1_1DeleteCustomMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

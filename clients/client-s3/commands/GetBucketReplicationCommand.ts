@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketReplicationOutput,
-  GetBucketReplicationRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketReplicationOutput, GetBucketReplicationRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketReplicationCommand,
   serializeAws_restXmlGetBucketReplicationCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketReplicationCommandInput = GetBucketReplicationRequest;
-export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput &
-  __MetadataBearer;
+export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput & __MetadataBearer;
 
 export class GetBucketReplicationCommand extends $Command<
   GetBucketReplicationCommandInput,
@@ -50,13 +42,8 @@ export class GetBucketReplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketReplicationCommandInput,
-    GetBucketReplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketReplicationCommandInput, GetBucketReplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

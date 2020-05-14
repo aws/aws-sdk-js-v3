@@ -70,10 +70,7 @@ import {
   InvalidateProjectCacheCommandInput,
   InvalidateProjectCacheCommandOutput
 } from "./commands/InvalidateProjectCacheCommand";
-import {
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand";
+import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import {
   ListBuildsForProjectCommandInput,
   ListBuildsForProjectCommandOutput
@@ -90,10 +87,7 @@ import {
   ListReportGroupsCommandInput,
   ListReportGroupsCommandOutput
 } from "./commands/ListReportGroupsCommand";
-import {
-  ListReportsCommandInput,
-  ListReportsCommandOutput
-} from "./commands/ListReportsCommand";
+import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput
@@ -114,14 +108,8 @@ import {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput
 } from "./commands/PutResourcePolicyCommand";
-import {
-  StartBuildCommandInput,
-  StartBuildCommandOutput
-} from "./commands/StartBuildCommand";
-import {
-  StopBuildCommandInput,
-  StopBuildCommandOutput
-} from "./commands/StopBuildCommand";
+import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
+import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
 import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput
@@ -343,9 +331,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeBuildClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeBuildClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -354,9 +340,7 @@ export type CodeBuildClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  CreateParameterGroupRequest,
-  CreateParameterGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { CreateParameterGroupRequest, CreateParameterGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateParameterGroupCommand,
   serializeAws_json1_1CreateParameterGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateParameterGroupCommandInput = CreateParameterGroupRequest;
-export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse &
-  __MetadataBearer;
+export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse & __MetadataBearer;
 
 export class CreateParameterGroupCommand extends $Command<
   CreateParameterGroupCommandInput,
@@ -49,13 +41,8 @@ export class CreateParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateParameterGroupCommandInput,
-    CreateParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateParameterGroupCommandInput, CreateParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

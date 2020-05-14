@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeRdsDbInstancesRequest,
-  DescribeRdsDbInstancesResult
-} from "../models/index";
+import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeRdsDbInstancesCommand,
   serializeAws_json1_1DescribeRdsDbInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRdsDbInstancesCommandInput = DescribeRdsDbInstancesRequest;
-export type DescribeRdsDbInstancesCommandOutput = DescribeRdsDbInstancesResult &
-  __MetadataBearer;
+export type DescribeRdsDbInstancesCommandOutput = DescribeRdsDbInstancesResult & __MetadataBearer;
 
 export class DescribeRdsDbInstancesCommand extends $Command<
   DescribeRdsDbInstancesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRdsDbInstancesCommandInput,
-    DescribeRdsDbInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRdsDbInstancesCommandInput, DescribeRdsDbInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

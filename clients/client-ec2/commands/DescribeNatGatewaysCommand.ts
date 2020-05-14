@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeNatGatewaysRequest,
-  DescribeNatGatewaysResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeNatGatewaysCommand,
   serializeAws_ec2DescribeNatGatewaysCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeNatGatewaysCommandInput = DescribeNatGatewaysRequest;
-export type DescribeNatGatewaysCommandOutput = DescribeNatGatewaysResult &
-  __MetadataBearer;
+export type DescribeNatGatewaysCommandOutput = DescribeNatGatewaysResult & __MetadataBearer;
 
 export class DescribeNatGatewaysCommand extends $Command<
   DescribeNatGatewaysCommandInput,
@@ -49,13 +41,8 @@ export class DescribeNatGatewaysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNatGatewaysCommandInput,
-    DescribeNatGatewaysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNatGatewaysCommandInput, DescribeNatGatewaysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

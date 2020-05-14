@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostExplorerClient";
-import {
-  GetSavingsPlansCoverageRequest,
-  GetSavingsPlansCoverageResponse
-} from "../models/index";
+import { GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSavingsPlansCoverageCommand,
   serializeAws_json1_1GetSavingsPlansCoverageCommand
@@ -49,13 +46,8 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSavingsPlansCoverageCommandInput,
-    GetSavingsPlansCoverageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSavingsPlansCoverageCommandInput, GetSavingsPlansCoverageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansCoverageCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansCoverageCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSavingsPlansCoverageCommand(output, context);
   }
 
   // Start section: command_body_extra

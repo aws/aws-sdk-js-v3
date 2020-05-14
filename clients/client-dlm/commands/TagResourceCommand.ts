@@ -1,8 +1,4 @@
-import {
-  DLMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DLMClient";
+import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { TagResourceRequest, TagResourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1TagResourceCommand,
@@ -46,9 +42,7 @@ export class TagResourceCommand extends $Command<
     configuration: DLMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

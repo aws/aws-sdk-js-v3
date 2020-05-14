@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  AcceptHandshakeRequest,
-  AcceptHandshakeResponse
-} from "../models/index";
+import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/index";
 import {
   deserializeAws_json1_1AcceptHandshakeCommand,
   serializeAws_json1_1AcceptHandshakeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AcceptHandshakeCommandInput = AcceptHandshakeRequest;
-export type AcceptHandshakeCommandOutput = AcceptHandshakeResponse &
-  __MetadataBearer;
+export type AcceptHandshakeCommandOutput = AcceptHandshakeResponse & __MetadataBearer;
 
 export class AcceptHandshakeCommand extends $Command<
   AcceptHandshakeCommandInput,
@@ -50,9 +46,7 @@ export class AcceptHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

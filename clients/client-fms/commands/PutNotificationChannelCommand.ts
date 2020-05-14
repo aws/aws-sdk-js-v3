@@ -1,8 +1,4 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutNotificationChannelRequest } from "../models/index";
 import {
   deserializeAws_json1_1PutNotificationChannelCommand,
@@ -45,13 +41,8 @@ export class PutNotificationChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutNotificationChannelCommandInput,
-    PutNotificationChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutNotificationChannelCommandInput, PutNotificationChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

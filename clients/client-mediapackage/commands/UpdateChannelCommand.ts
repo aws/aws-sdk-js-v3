@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateChannelCommandInput = UpdateChannelRequest;
-export type UpdateChannelCommandOutput = UpdateChannelResponse &
-  __MetadataBearer;
+export type UpdateChannelCommandOutput = UpdateChannelResponse & __MetadataBearer;
 
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,
@@ -47,9 +46,7 @@ export class UpdateChannelCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateChannelCommandInput, UpdateChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

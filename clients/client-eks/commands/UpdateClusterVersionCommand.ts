@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  UpdateClusterVersionRequest,
-  UpdateClusterVersionResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { UpdateClusterVersionRequest, UpdateClusterVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateClusterVersionCommand,
   serializeAws_restJson1_1UpdateClusterVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateClusterVersionCommandInput = UpdateClusterVersionRequest;
-export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse &
-  __MetadataBearer;
+export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse & __MetadataBearer;
 
 export class UpdateClusterVersionCommand extends $Command<
   UpdateClusterVersionCommandInput,
@@ -49,13 +41,8 @@ export class UpdateClusterVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClusterVersionCommandInput,
-    UpdateClusterVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClusterVersionCommandInput, UpdateClusterVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateClusterVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateClusterVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateClusterVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateClusterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

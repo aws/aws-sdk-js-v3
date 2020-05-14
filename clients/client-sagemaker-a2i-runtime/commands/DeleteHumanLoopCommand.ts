@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerA2IRuntimeClient";
-import {
-  DeleteHumanLoopRequest,
-  DeleteHumanLoopResponse
-} from "../models/index";
+import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteHumanLoopCommand,
   serializeAws_restJson1_1DeleteHumanLoopCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteHumanLoopCommandInput = DeleteHumanLoopRequest;
-export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse &
-  __MetadataBearer;
+export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse & __MetadataBearer;
 
 export class DeleteHumanLoopCommand extends $Command<
   DeleteHumanLoopCommandInput,
@@ -50,9 +46,7 @@ export class DeleteHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHumanLoopCommandInput, DeleteHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

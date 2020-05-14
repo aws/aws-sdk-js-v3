@@ -46,9 +46,7 @@ export class ListStreamsCommand extends $Command<
     configuration: DynamoDBStreamsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListStreamsCommandInput, ListStreamsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

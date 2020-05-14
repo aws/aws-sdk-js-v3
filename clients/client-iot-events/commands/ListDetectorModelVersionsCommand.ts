@@ -49,13 +49,8 @@ export class ListDetectorModelVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDetectorModelVersionsCommandInput,
-    ListDetectorModelVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDetectorModelVersionsCommandInput, ListDetectorModelVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListDetectorModelVersionsCommand extends $Command<
     input: ListDetectorModelVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDetectorModelVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListDetectorModelVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectorModelVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDetectorModelVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDetectorModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

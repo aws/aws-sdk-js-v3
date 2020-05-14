@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  DisassociateIpGroupsRequest,
-  DisassociateIpGroupsResult
-} from "../models/index";
+import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateIpGroupsCommand,
   serializeAws_json1_1DisassociateIpGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateIpGroupsCommandInput = DisassociateIpGroupsRequest;
-export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult &
-  __MetadataBearer;
+export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult & __MetadataBearer;
 
 export class DisassociateIpGroupsCommand extends $Command<
   DisassociateIpGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DisassociateIpGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateIpGroupsCommandInput,
-    DisassociateIpGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateIpGroupsCommandInput, DisassociateIpGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

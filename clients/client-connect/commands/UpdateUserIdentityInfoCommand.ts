@@ -45,13 +45,8 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserIdentityInfoCommandInput,
-    UpdateUserIdentityInfoCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserIdentityInfoCommandInput, UpdateUserIdentityInfoCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     input: UpdateUserIdentityInfoCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateUserIdentityInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserIdentityInfoCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

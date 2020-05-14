@@ -53,9 +53,7 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     CreateLoadBalancerTlsCertificateCommandInput,
     CreateLoadBalancerTlsCertificateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
     input: CreateLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

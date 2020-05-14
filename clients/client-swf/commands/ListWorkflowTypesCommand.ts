@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/index";
 import {
   deserializeAws_json1_0ListWorkflowTypesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListWorkflowTypesCommandInput = ListWorkflowTypesInput;
-export type ListWorkflowTypesCommandOutput = WorkflowTypeInfos &
-  __MetadataBearer;
+export type ListWorkflowTypesCommandOutput = WorkflowTypeInfos & __MetadataBearer;
 
 export class ListWorkflowTypesCommand extends $Command<
   ListWorkflowTypesCommandInput,
@@ -47,9 +42,7 @@ export class ListWorkflowTypesCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkflowTypesCommandInput, ListWorkflowTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

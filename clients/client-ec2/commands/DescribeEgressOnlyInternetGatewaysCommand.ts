@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult
@@ -53,9 +49,7 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     DescribeEgressOnlyInternetGatewaysCommandInput,
     DescribeEgressOnlyInternetGatewaysCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     input: DescribeEgressOnlyInternetGatewaysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

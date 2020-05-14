@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsClient";
-import {
-  DiscoverInputSchemaRequest,
-  DiscoverInputSchemaResponse
-} from "../models/index";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/index";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
   serializeAws_json1_1DiscoverInputSchemaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DiscoverInputSchemaCommandInput = DiscoverInputSchemaRequest;
-export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse &
-  __MetadataBearer;
+export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse & __MetadataBearer;
 
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,
@@ -49,13 +45,8 @@ export class DiscoverInputSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DiscoverInputSchemaCommandInput,
-    DiscoverInputSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DiscoverInputSchemaCommandInput, DiscoverInputSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -138,10 +138,7 @@ import {
   ListRestoreJobsCommandInput,
   ListRestoreJobsCommandOutput
 } from "../commands/ListRestoreJobsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "../commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput
@@ -166,10 +163,7 @@ import {
   StopBackupJobCommandInput,
   StopBackupJobCommandOutput
 } from "../commands/StopBackupJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -239,16 +233,10 @@ export const serializeAws_restJson1_1CreateBackupPlanCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.BackupPlan !== undefined && {
-      BackupPlan: serializeAws_restJson1_1BackupPlanInput(
-        input.BackupPlan,
-        context
-      )
+      BackupPlan: serializeAws_restJson1_1BackupPlanInput(input.BackupPlan, context)
     }),
     ...(input.BackupPlanTags !== undefined && {
-      BackupPlanTags: serializeAws_restJson1_1Tags(
-        input.BackupPlanTags,
-        context
-      )
+      BackupPlanTags: serializeAws_restJson1_1Tags(input.BackupPlanTags, context)
     }),
     ...(input.CreatorRequestId !== undefined && {
       CreatorRequestId: input.CreatorRequestId
@@ -277,24 +265,16 @@ export const serializeAws_restJson1_1CreateBackupSelectionCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.BackupSelection !== undefined && {
-      BackupSelection: serializeAws_restJson1_1BackupSelection(
-        input.BackupSelection,
-        context
-      )
+      BackupSelection: serializeAws_restJson1_1BackupSelection(input.BackupSelection, context)
     }),
     ...(input.CreatorRequestId !== undefined && {
       CreatorRequestId: input.CreatorRequestId
@@ -323,9 +303,7 @@ export const serializeAws_restJson1_1CreateBackupVaultCommand = async (
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -337,10 +315,7 @@ export const serializeAws_restJson1_1CreateBackupVaultCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.BackupVaultTags !== undefined && {
-      BackupVaultTags: serializeAws_restJson1_1Tags(
-        input.BackupVaultTags,
-        context
-      )
+      BackupVaultTags: serializeAws_restJson1_1Tags(input.BackupVaultTags, context)
     }),
     ...(input.CreatorRequestId !== undefined && {
       CreatorRequestId: input.CreatorRequestId
@@ -372,14 +347,9 @@ export const serializeAws_restJson1_1DeleteBackupPlanCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -407,28 +377,18 @@ export const serializeAws_restJson1_1DeleteBackupSelectionCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
     const labelValue: string = input.SelectionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SelectionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SelectionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SelectionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
@@ -456,9 +416,7 @@ export const serializeAws_restJson1_1DeleteBackupVaultCommand = async (
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -491,9 +449,7 @@ export const serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand = asyn
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -522,14 +478,11 @@ export const serializeAws_restJson1_1DeleteBackupVaultNotificationsCommand = asy
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -558,14 +511,11 @@ export const serializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -577,18 +527,14 @@ export const serializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   if (input.RecoveryPointArn !== undefined) {
     const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RecoveryPointArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: RecoveryPointArn."
-    );
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -614,14 +560,9 @@ export const serializeAws_restJson1_1DescribeBackupJobCommand = async (
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupJobId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupJobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupJobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupJobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
@@ -649,9 +590,7 @@ export const serializeAws_restJson1_1DescribeBackupVaultCommand = async (
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -686,10 +625,7 @@ export const serializeAws_restJson1_1DescribeCopyJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CopyJobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CopyJobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CopyJobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CopyJobId.");
   }
@@ -717,14 +653,9 @@ export const serializeAws_restJson1_1DescribeProtectedResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -748,14 +679,11 @@ export const serializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -767,18 +695,14 @@ export const serializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   if (input.RecoveryPointArn !== undefined) {
     const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RecoveryPointArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: RecoveryPointArn."
-    );
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -804,14 +728,9 @@ export const serializeAws_restJson1_1DescribeRestoreJobCommand = async (
   if (input.RestoreJobId !== undefined) {
     const labelValue: string = input.RestoreJobId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RestoreJobId."
-      );
+      throw new Error("Empty value provided for input HTTP label: RestoreJobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RestoreJobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RestoreJobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RestoreJobId.");
   }
@@ -839,14 +758,9 @@ export const serializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -874,14 +788,9 @@ export const serializeAws_restJson1_1GetBackupPlanCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -939,18 +848,14 @@ export const serializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async (
   if (input.BackupPlanTemplateId !== undefined) {
     const labelValue: string = input.BackupPlanTemplateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanTemplateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanTemplateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupPlanTemplateId}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: BackupPlanTemplateId."
-    );
+    throw new Error("No value provided for input HTTP label: BackupPlanTemplateId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -976,28 +881,18 @@ export const serializeAws_restJson1_1GetBackupSelectionCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   if (input.SelectionId !== undefined) {
     const labelValue: string = input.SelectionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SelectionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SelectionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SelectionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SelectionId.");
   }
@@ -1025,9 +920,7 @@ export const serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand = async (
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1056,14 +949,11 @@ export const serializeAws_restJson1_1GetBackupVaultNotificationsCommand = async 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1097,9 +987,7 @@ export const serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = as
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1111,18 +999,14 @@ export const serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = as
   if (input.RecoveryPointArn !== undefined) {
     const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RecoveryPointArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: RecoveryPointArn."
-    );
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1172,14 +1056,10 @@ export const serializeAws_restJson1_1ListBackupJobsCommand = async (
       backupVaultName: input.ByBackupVaultName
     }),
     ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (
-        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (
-        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByResourceArn !== undefined && {
       resourceArn: input.ByResourceArn
@@ -1246,14 +1126,9 @@ export const serializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -1319,14 +1194,9 @@ export const serializeAws_restJson1_1ListBackupSelectionsCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
@@ -1388,14 +1258,10 @@ export const serializeAws_restJson1_1ListCopyJobsCommand = async (
   let resolvedPath = "/copy-jobs";
   const query: any = {
     ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (
-        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (
-        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByDestinationVaultArn !== undefined && {
       destinationVaultArn: input.ByDestinationVaultArn
@@ -1465,9 +1331,7 @@ export const serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = as
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1481,14 +1345,10 @@ export const serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = as
       backupPlanId: input.ByBackupPlanId
     }),
     ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (
-        input.ByCreatedAfter.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (
-        input.ByCreatedBefore.toISOString().split(".")[0] + "Z"
-      ).toString()
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.ByResourceArn !== undefined && {
       resourceArn: input.ByResourceArn
@@ -1526,14 +1386,9 @@ export const serializeAws_restJson1_1ListRecoveryPointsByResourceCommand = async
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1596,14 +1451,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1638,9 +1488,7 @@ export const serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async (
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1672,14 +1520,11 @@ export const serializeAws_restJson1_1PutBackupVaultNotificationsCommand = async 
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/notification-configuration";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -1691,10 +1536,7 @@ export const serializeAws_restJson1_1PutBackupVaultNotificationsCommand = async 
   let body: any;
   body = JSON.stringify({
     ...(input.BackupVaultEvents !== undefined && {
-      BackupVaultEvents: serializeAws_restJson1_1BackupVaultEvents(
-        input.BackupVaultEvents,
-        context
-      )
+      BackupVaultEvents: serializeAws_restJson1_1BackupVaultEvents(input.BackupVaultEvents, context)
     }),
     ...(input.SNSTopicArn !== undefined && { SNSTopicArn: input.SNSTopicArn })
   });
@@ -1734,10 +1576,7 @@ export const serializeAws_restJson1_1StartBackupJobCommand = async (
       Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
     }),
     ...(input.RecoveryPointTags !== undefined && {
-      RecoveryPointTags: serializeAws_restJson1_1Tags(
-        input.RecoveryPointTags,
-        context
-      )
+      RecoveryPointTags: serializeAws_restJson1_1Tags(input.RecoveryPointTags, context)
     }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.StartWindowMinutes !== undefined && {
@@ -1842,14 +1681,9 @@ export const serializeAws_restJson1_1StopBackupJobCommand = async (
   if (input.BackupJobId !== undefined) {
     const labelValue: string = input.BackupJobId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupJobId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupJobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupJobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupJobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupJobId.");
   }
@@ -1877,14 +1711,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1917,14 +1746,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1957,24 +1781,16 @@ export const serializeAws_restJson1_1UpdateBackupPlanCommand = async (
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupPlanId."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BackupPlanId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.BackupPlan !== undefined && {
-      BackupPlan: serializeAws_restJson1_1BackupPlanInput(
-        input.BackupPlan,
-        context
-      )
+      BackupPlan: serializeAws_restJson1_1BackupPlanInput(input.BackupPlan, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1996,14 +1812,11 @@ export const serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: BackupVaultName."
-      );
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
     }
     resolvedPath = resolvedPath.replace(
       "{BackupVaultName}",
@@ -2015,18 +1828,14 @@ export const serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async
   if (input.RecoveryPointArn !== undefined) {
     const labelValue: string = input.RecoveryPointArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RecoveryPointArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{RecoveryPointArn}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: RecoveryPointArn."
-    );
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2051,10 +1860,7 @@ export const deserializeAws_restJson1_1CreateBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateBackupPlanCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBackupPlanCommandError(output, context);
   }
   const contents: CreateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2095,10 +1901,7 @@ const deserializeAws_restJson1_1CreateBackupPlanCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2117,10 +1920,7 @@ const deserializeAws_restJson1_1CreateBackupPlanCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2169,10 +1969,7 @@ export const deserializeAws_restJson1_1CreateBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateBackupSelectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBackupSelectionCommandError(output, context);
   }
   const contents: CreateBackupSelectionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2209,10 +2006,7 @@ const deserializeAws_restJson1_1CreateBackupSelectionCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2231,10 +2025,7 @@ const deserializeAws_restJson1_1CreateBackupSelectionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2283,10 +2074,7 @@ export const deserializeAws_restJson1_1CreateBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateBackupVaultCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBackupVaultCommandError(output, context);
   }
   const contents: CreateBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2323,10 +2111,7 @@ const deserializeAws_restJson1_1CreateBackupVaultCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2345,10 +2130,7 @@ const deserializeAws_restJson1_1CreateBackupVaultCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2397,10 +2179,7 @@ export const deserializeAws_restJson1_1DeleteBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBackupPlanCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupPlanCommandError(output, context);
   }
   const contents: DeleteBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2452,10 +2231,7 @@ const deserializeAws_restJson1_1DeleteBackupPlanCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2515,10 +2291,7 @@ export const deserializeAws_restJson1_1DeleteBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupSelectionCommandError(output, context);
   }
   const contents: DeleteBackupSelectionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2605,10 +2378,7 @@ export const deserializeAws_restJson1_1DeleteBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBackupVaultCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupVaultCommandError(output, context);
   }
   const contents: DeleteBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2643,10 +2413,7 @@ const deserializeAws_restJson1_1DeleteBackupVaultCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2706,10 +2473,7 @@ export const deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand = as
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: DeleteBackupVaultAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2796,10 +2560,7 @@ export const deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommand = a
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError(output, context);
   }
   const contents: DeleteBackupVaultNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2886,10 +2647,7 @@ export const deserializeAws_restJson1_1DeleteRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRecoveryPointCommandError(output, context);
   }
   const contents: DeleteRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2924,10 +2682,7 @@ const deserializeAws_restJson1_1DeleteRecoveryPointCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2987,10 +2742,7 @@ export const deserializeAws_restJson1_1DescribeBackupJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBackupJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBackupJobCommandError(output, context);
   }
   const contents: DescribeBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3033,21 +2785,13 @@ export const deserializeAws_restJson1_1DescribeBackupJobCommand = async (
     contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
-      data.CreatedBy,
-      context
-    );
+    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(data.CreatedBy, context);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
   }
-  if (
-    data.ExpectedCompletionDate !== undefined &&
-    data.ExpectedCompletionDate !== null
-  ) {
-    contents.ExpectedCompletionDate = new Date(
-      Math.round(data.ExpectedCompletionDate * 1000)
-    );
+  if (data.ExpectedCompletionDate !== undefined && data.ExpectedCompletionDate !== null) {
+    contents.ExpectedCompletionDate = new Date(Math.round(data.ExpectedCompletionDate * 1000));
   }
   if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
     contents.IamRoleArn = data.IamRoleArn;
@@ -3165,10 +2909,7 @@ export const deserializeAws_restJson1_1DescribeBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBackupVaultCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBackupVaultCommandError(output, context);
   }
   const contents: DescribeBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3196,10 +2937,7 @@ export const deserializeAws_restJson1_1DescribeBackupVaultCommand = async (
   if (data.EncryptionKeyArn !== undefined && data.EncryptionKeyArn !== null) {
     contents.EncryptionKeyArn = data.EncryptionKeyArn;
   }
-  if (
-    data.NumberOfRecoveryPoints !== undefined &&
-    data.NumberOfRecoveryPoints !== null
-  ) {
+  if (data.NumberOfRecoveryPoints !== undefined && data.NumberOfRecoveryPoints !== null) {
     contents.NumberOfRecoveryPoints = data.NumberOfRecoveryPoints;
   }
   return Promise.resolve(contents);
@@ -3283,10 +3021,7 @@ export const deserializeAws_restJson1_1DescribeCopyJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeCopyJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCopyJobCommandError(output, context);
   }
   const contents: DescribeCopyJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3378,10 +3113,7 @@ export const deserializeAws_restJson1_1DescribeProtectedResourceCommand = async 
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeProtectedResourceCommandError(output, context);
   }
   const contents: DescribeProtectedResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3481,10 +3213,7 @@ export const deserializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRecoveryPointCommandError(output, context);
   }
   const contents: DescribeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3517,10 +3246,7 @@ export const deserializeAws_restJson1_1DescribeRecoveryPointCommand = async (
   if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
     contents.BackupVaultName = data.BackupVaultName;
   }
-  if (
-    data.CalculatedLifecycle !== undefined &&
-    data.CalculatedLifecycle !== null
-  ) {
+  if (data.CalculatedLifecycle !== undefined && data.CalculatedLifecycle !== null) {
     contents.CalculatedLifecycle = deserializeAws_restJson1_1CalculatedLifecycle(
       data.CalculatedLifecycle,
       context
@@ -3530,10 +3256,7 @@ export const deserializeAws_restJson1_1DescribeRecoveryPointCommand = async (
     contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
-      data.CreatedBy,
-      context
-    );
+    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(data.CreatedBy, context);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
     contents.CreationDate = new Date(Math.round(data.CreationDate * 1000));
@@ -3548,15 +3271,10 @@ export const deserializeAws_restJson1_1DescribeRecoveryPointCommand = async (
     contents.IsEncrypted = data.IsEncrypted;
   }
   if (data.LastRestoreTime !== undefined && data.LastRestoreTime !== null) {
-    contents.LastRestoreTime = new Date(
-      Math.round(data.LastRestoreTime * 1000)
-    );
+    contents.LastRestoreTime = new Date(Math.round(data.LastRestoreTime * 1000));
   }
   if (data.Lifecycle !== undefined && data.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
-      data.Lifecycle,
-      context
-    );
+    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(data.Lifecycle, context);
   }
   if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
     contents.RecoveryPointArn = data.RecoveryPointArn;
@@ -3654,10 +3372,7 @@ export const deserializeAws_restJson1_1DescribeRestoreJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeRestoreJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRestoreJobCommandError(output, context);
   }
   const contents: DescribeRestoreJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3681,10 +3396,7 @@ export const deserializeAws_restJson1_1DescribeRestoreJobCommand = async (
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
     contents.CompletionDate = new Date(Math.round(data.CompletionDate * 1000));
   }
-  if (
-    data.CreatedResourceArn !== undefined &&
-    data.CreatedResourceArn !== null
-  ) {
+  if (data.CreatedResourceArn !== undefined && data.CreatedResourceArn !== null) {
     contents.CreatedResourceArn = data.CreatedResourceArn;
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
@@ -3806,10 +3518,7 @@ export const deserializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(output, context);
   }
   const contents: ExportBackupPlanTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3817,10 +3526,7 @@ export const deserializeAws_restJson1_1ExportBackupPlanTemplateCommand = async (
     BackupPlanTemplateJson: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BackupPlanTemplateJson !== undefined &&
-    data.BackupPlanTemplateJson !== null
-  ) {
+  if (data.BackupPlanTemplateJson !== undefined && data.BackupPlanTemplateJson !== null) {
     contents.BackupPlanTemplateJson = data.BackupPlanTemplateJson;
   }
   return Promise.resolve(contents);
@@ -3920,10 +3626,7 @@ export const deserializeAws_restJson1_1GetBackupPlanCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BackupPlan !== undefined && data.BackupPlan !== null) {
-    contents.BackupPlan = deserializeAws_restJson1_1BackupPlan(
-      data.BackupPlan,
-      context
-    );
+    contents.BackupPlan = deserializeAws_restJson1_1BackupPlan(data.BackupPlan, context);
   }
   if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
     contents.BackupPlanArn = data.BackupPlanArn;
@@ -3941,9 +3644,7 @@ export const deserializeAws_restJson1_1GetBackupPlanCommand = async (
     contents.DeletionDate = new Date(Math.round(data.DeletionDate * 1000));
   }
   if (data.LastExecutionDate !== undefined && data.LastExecutionDate !== null) {
-    contents.LastExecutionDate = new Date(
-      Math.round(data.LastExecutionDate * 1000)
-    );
+    contents.LastExecutionDate = new Date(Math.round(data.LastExecutionDate * 1000));
   }
   if (data.VersionId !== undefined && data.VersionId !== null) {
     contents.VersionId = data.VersionId;
@@ -4029,10 +3730,7 @@ export const deserializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(output, context);
   }
   const contents: GetBackupPlanFromJSONCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4041,10 +3739,7 @@ export const deserializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BackupPlan !== undefined && data.BackupPlan !== null) {
-    contents.BackupPlan = deserializeAws_restJson1_1BackupPlan(
-      data.BackupPlan,
-      context
-    );
+    contents.BackupPlan = deserializeAws_restJson1_1BackupPlan(data.BackupPlan, context);
   }
   return Promise.resolve(contents);
 };
@@ -4075,10 +3770,7 @@ const deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4086,10 +3778,7 @@ const deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4138,10 +3827,7 @@ export const deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async 
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(output, context);
   }
   const contents: GetBackupPlanFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4149,10 +3835,7 @@ export const deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand = async 
     BackupPlanDocument: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BackupPlanDocument !== undefined &&
-    data.BackupPlanDocument !== null
-  ) {
+  if (data.BackupPlanDocument !== undefined && data.BackupPlanDocument !== null) {
     contents.BackupPlanDocument = deserializeAws_restJson1_1BackupPlan(
       data.BackupPlanDocument,
       context
@@ -4239,10 +3922,7 @@ export const deserializeAws_restJson1_1GetBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBackupSelectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupSelectionCommandError(output, context);
   }
   const contents: GetBackupSelectionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4353,10 +4033,7 @@ export const deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand = async
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: GetBackupVaultAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4456,10 +4133,7 @@ export const deserializeAws_restJson1_1GetBackupVaultNotificationsCommand = asyn
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError(output, context);
   }
   const contents: GetBackupVaultNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4566,10 +4240,7 @@ export const deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = 
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError(output, context);
   }
   const contents: GetRecoveryPointRestoreMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4586,10 +4257,7 @@ export const deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand = 
     contents.RecoveryPointArn = data.RecoveryPointArn;
   }
   if (data.RestoreMetadata !== undefined && data.RestoreMetadata !== null) {
-    contents.RestoreMetadata = deserializeAws_restJson1_1Metadata(
-      data.RestoreMetadata,
-      context
-    );
+    contents.RestoreMetadata = deserializeAws_restJson1_1Metadata(data.RestoreMetadata, context);
   }
   return Promise.resolve(contents);
 };
@@ -4672,10 +4340,7 @@ export const deserializeAws_restJson1_1GetSupportedResourceTypesCommand = async 
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(output, context);
   }
   const contents: GetSupportedResourceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4684,10 +4349,7 @@ export const deserializeAws_restJson1_1GetSupportedResourceTypesCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.ResourceTypes !== undefined && data.ResourceTypes !== null) {
-    contents.ResourceTypes = deserializeAws_restJson1_1ResourceTypes(
-      data.ResourceTypes,
-      context
-    );
+    contents.ResourceTypes = deserializeAws_restJson1_1ResourceTypes(data.ResourceTypes, context);
   }
   return Promise.resolve(contents);
 };
@@ -4737,10 +4399,7 @@ export const deserializeAws_restJson1_1ListBackupJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupJobsCommandError(output, context);
   }
   const contents: ListBackupJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4750,10 +4409,7 @@ export const deserializeAws_restJson1_1ListBackupJobsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BackupJobs !== undefined && data.BackupJobs !== null) {
-    contents.BackupJobs = deserializeAws_restJson1_1BackupJobsList(
-      data.BackupJobs,
-      context
-    );
+    contents.BackupJobs = deserializeAws_restJson1_1BackupJobsList(data.BackupJobs, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -4787,10 +4443,7 @@ const deserializeAws_restJson1_1ListBackupJobsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4828,10 +4481,7 @@ export const deserializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(output, context);
   }
   const contents: ListBackupPlanTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4840,10 +4490,7 @@ export const deserializeAws_restJson1_1ListBackupPlanTemplatesCommand = async (
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BackupPlanTemplatesList !== undefined &&
-    data.BackupPlanTemplatesList !== null
-  ) {
+  if (data.BackupPlanTemplatesList !== undefined && data.BackupPlanTemplatesList !== null) {
     contents.BackupPlanTemplatesList = deserializeAws_restJson1_1BackupPlanTemplatesList(
       data.BackupPlanTemplatesList,
       context
@@ -4933,10 +4580,7 @@ export const deserializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(output, context);
   }
   const contents: ListBackupPlanVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4945,10 +4589,7 @@ export const deserializeAws_restJson1_1ListBackupPlanVersionsCommand = async (
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BackupPlanVersionsList !== undefined &&
-    data.BackupPlanVersionsList !== null
-  ) {
+  if (data.BackupPlanVersionsList !== undefined && data.BackupPlanVersionsList !== null) {
     contents.BackupPlanVersionsList = deserializeAws_restJson1_1BackupPlanVersionsList(
       data.BackupPlanVersionsList,
       context
@@ -5038,10 +4679,7 @@ export const deserializeAws_restJson1_1ListBackupPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupPlansCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupPlansCommandError(output, context);
   }
   const contents: ListBackupPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5140,10 +4778,7 @@ export const deserializeAws_restJson1_1ListBackupSelectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupSelectionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupSelectionsCommandError(output, context);
   }
   const contents: ListBackupSelectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5152,10 +4787,7 @@ export const deserializeAws_restJson1_1ListBackupSelectionsCommand = async (
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BackupSelectionsList !== undefined &&
-    data.BackupSelectionsList !== null
-  ) {
+  if (data.BackupSelectionsList !== undefined && data.BackupSelectionsList !== null) {
     contents.BackupSelectionsList = deserializeAws_restJson1_1BackupSelectionsList(
       data.BackupSelectionsList,
       context
@@ -5245,10 +4877,7 @@ export const deserializeAws_restJson1_1ListBackupVaultsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBackupVaultsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupVaultsCommandError(output, context);
   }
   const contents: ListBackupVaultsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5357,10 +4986,7 @@ export const deserializeAws_restJson1_1ListCopyJobsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CopyJobs !== undefined && data.CopyJobs !== null) {
-    contents.CopyJobs = deserializeAws_restJson1_1CopyJobsList(
-      data.CopyJobs,
-      context
-    );
+    contents.CopyJobs = deserializeAws_restJson1_1CopyJobsList(data.CopyJobs, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -5424,10 +5050,7 @@ export const deserializeAws_restJson1_1ListProtectedResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListProtectedResourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProtectedResourcesCommandError(output, context);
   }
   const contents: ListProtectedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5440,10 +5063,7 @@ export const deserializeAws_restJson1_1ListProtectedResourcesCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Results !== undefined && data.Results !== null) {
-    contents.Results = deserializeAws_restJson1_1ProtectedResourcesList(
-      data.Results,
-      context
-    );
+    contents.Results = deserializeAws_restJson1_1ProtectedResourcesList(data.Results, context);
   }
   return Promise.resolve(contents);
 };
@@ -5504,10 +5124,7 @@ export const deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand = 
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError(output, context);
   }
   const contents: ListRecoveryPointsByBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5606,10 +5223,7 @@ export const deserializeAws_restJson1_1ListRecoveryPointsByResourceCommand = asy
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError(output, context);
   }
   const contents: ListRecoveryPointsByResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5708,10 +5322,7 @@ export const deserializeAws_restJson1_1ListRestoreJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListRestoreJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRestoreJobsCommandError(output, context);
   }
   const contents: ListRestoreJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5724,10 +5335,7 @@ export const deserializeAws_restJson1_1ListRestoreJobsCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.RestoreJobs !== undefined && data.RestoreJobs !== null) {
-    contents.RestoreJobs = deserializeAws_restJson1_1RestoreJobsList(
-      data.RestoreJobs,
-      context
-    );
+    contents.RestoreJobs = deserializeAws_restJson1_1RestoreJobsList(data.RestoreJobs, context);
   }
   return Promise.resolve(contents);
 };
@@ -5906,10 +5514,7 @@ export const deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: PutBackupVaultAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5996,10 +5601,7 @@ export const deserializeAws_restJson1_1PutBackupVaultNotificationsCommand = asyn
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError(output, context);
   }
   const contents: PutBackupVaultNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -6086,10 +5688,7 @@ export const deserializeAws_restJson1_1StartBackupJobCommand = async (
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartBackupJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartBackupJobCommandError(output, context);
   }
   const contents: StartBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6137,10 +5736,7 @@ const deserializeAws_restJson1_1StartBackupJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6244,10 +5840,7 @@ const deserializeAws_restJson1_1StartCopyJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6307,10 +5900,7 @@ export const deserializeAws_restJson1_1StartRestoreJobCommand = async (
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartRestoreJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartRestoreJobCommandError(output, context);
   }
   const contents: StartRestoreJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6437,10 +6027,7 @@ const deserializeAws_restJson1_1StopBackupJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.services.cryo#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6535,10 +6122,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.cryo#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6685,10 +6269,7 @@ export const deserializeAws_restJson1_1UpdateBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateBackupPlanCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateBackupPlanCommandError(output, context);
   }
   const contents: UpdateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6792,10 +6373,7 @@ export const deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = asy
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError(output, context);
   }
   const contents: UpdateRecoveryPointLifecycleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6809,20 +6387,14 @@ export const deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = asy
   if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
     contents.BackupVaultArn = data.BackupVaultArn;
   }
-  if (
-    data.CalculatedLifecycle !== undefined &&
-    data.CalculatedLifecycle !== null
-  ) {
+  if (data.CalculatedLifecycle !== undefined && data.CalculatedLifecycle !== null) {
     contents.CalculatedLifecycle = deserializeAws_restJson1_1CalculatedLifecycle(
       data.CalculatedLifecycle,
       context
     );
   }
   if (data.Lifecycle !== undefined && data.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
-      data.Lifecycle,
-      context
-    );
+    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(data.Lifecycle, context);
   }
   if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
     contents.RecoveryPointArn = data.RecoveryPointArn;
@@ -7166,19 +6738,13 @@ const serializeAws_restJson1_1BackupRuleInput = (
       CompletionWindowMinutes: input.CompletionWindowMinutes
     }),
     ...(input.CopyActions !== undefined && {
-      CopyActions: serializeAws_restJson1_1CopyActions(
-        input.CopyActions,
-        context
-      )
+      CopyActions: serializeAws_restJson1_1CopyActions(input.CopyActions, context)
     }),
     ...(input.Lifecycle !== undefined && {
       Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
     }),
     ...(input.RecoveryPointTags !== undefined && {
-      RecoveryPointTags: serializeAws_restJson1_1Tags(
-        input.RecoveryPointTags,
-        context
-      )
+      RecoveryPointTags: serializeAws_restJson1_1Tags(input.RecoveryPointTags, context)
     }),
     ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
     ...(input.ScheduleExpression !== undefined && {
@@ -7197,9 +6763,7 @@ const serializeAws_restJson1_1BackupRulesInput = (
   input: BackupRuleInput[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1BackupRuleInput(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1BackupRuleInput(entry, context));
 };
 
 const serializeAws_restJson1_1BackupSelection = (
@@ -7227,10 +6791,7 @@ const serializeAws_restJson1_1BackupVaultEvents = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Condition = (
-  input: Condition,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.ConditionKey !== undefined && {
       ConditionKey: input.ConditionKey
@@ -7244,10 +6805,7 @@ const serializeAws_restJson1_1Condition = (
   };
 };
 
-const serializeAws_restJson1_1CopyAction = (
-  input: CopyAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CopyAction = (input: CopyAction, context: __SerdeContext): any => {
   return {
     ...(input.DestinationBackupVaultArn !== undefined && {
       DestinationBackupVaultArn: input.DestinationBackupVaultArn
@@ -7258,17 +6816,11 @@ const serializeAws_restJson1_1CopyAction = (
   };
 };
 
-const serializeAws_restJson1_1CopyActions = (
-  input: CopyAction[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CopyActions = (input: CopyAction[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1CopyAction(entry, context));
 };
 
-const serializeAws_restJson1_1Lifecycle = (
-  input: Lifecycle,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
   return {
     ...(input.DeleteAfterDays !== undefined && {
       DeleteAfterDays: input.DeleteAfterDays
@@ -7279,10 +6831,7 @@ const serializeAws_restJson1_1Lifecycle = (
   };
 };
 
-const serializeAws_restJson1_1ListOfTags = (
-  input: Condition[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ListOfTags = (input: Condition[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Condition(entry, context));
 };
 
@@ -7299,17 +6848,11 @@ const serializeAws_restJson1_1Metadata = (
   );
 };
 
-const serializeAws_restJson1_1ResourceArns = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ResourceArns = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -7326,10 +6869,7 @@ const serializeAws_restJson1_1Tags = (
   );
 };
 
-const deserializeAws_restJson1_1BackupJob = (
-  output: any,
-  context: __SerdeContext
-): BackupJob => {
+const deserializeAws_restJson1_1BackupJob = (output: any, context: __SerdeContext): BackupJob => {
   return {
     __type: "BackupJob",
     BackupJobId:
@@ -7337,8 +6877,7 @@ const deserializeAws_restJson1_1BackupJob = (
         ? output.BackupJobId
         : undefined,
     BackupSizeInBytes:
-      output.BackupSizeInBytes !== undefined &&
-      output.BackupSizeInBytes !== null
+      output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
         : undefined,
     BackupVaultArn:
@@ -7359,24 +6898,18 @@ const deserializeAws_restJson1_1BackupJob = (
         : undefined,
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1_1RecoveryPointCreator(
-            output.CreatedBy,
-            context
-          )
+        ? deserializeAws_restJson1_1RecoveryPointCreator(output.CreatedBy, context)
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
     ExpectedCompletionDate:
-      output.ExpectedCompletionDate !== undefined &&
-      output.ExpectedCompletionDate !== null
+      output.ExpectedCompletionDate !== undefined && output.ExpectedCompletionDate !== null
         ? new Date(Math.round(output.ExpectedCompletionDate * 1000))
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     PercentDone:
       output.PercentDone !== undefined && output.PercentDone !== null
         ? output.PercentDone
@@ -7397,10 +6930,7 @@ const deserializeAws_restJson1_1BackupJob = (
       output.StartBy !== undefined && output.StartBy !== null
         ? new Date(Math.round(output.StartBy * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null
         ? output.StatusMessage
@@ -7412,15 +6942,10 @@ const deserializeAws_restJson1_1BackupJobsList = (
   output: any,
   context: __SerdeContext
 ): BackupJob[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BackupJob(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BackupJob(entry, context));
 };
 
-const deserializeAws_restJson1_1BackupPlan = (
-  output: any,
-  context: __SerdeContext
-): BackupPlan => {
+const deserializeAws_restJson1_1BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
   return {
     __type: "BackupPlan",
     BackupPlanName:
@@ -7450,13 +6975,11 @@ const deserializeAws_restJson1_1BackupPlanTemplatesListMember = (
   return {
     __type: "BackupPlanTemplatesListMember",
     BackupPlanTemplateId:
-      output.BackupPlanTemplateId !== undefined &&
-      output.BackupPlanTemplateId !== null
+      output.BackupPlanTemplateId !== undefined && output.BackupPlanTemplateId !== null
         ? output.BackupPlanTemplateId
         : undefined,
     BackupPlanTemplateName:
-      output.BackupPlanTemplateName !== undefined &&
-      output.BackupPlanTemplateName !== null
+      output.BackupPlanTemplateName !== undefined && output.BackupPlanTemplateName !== null
         ? output.BackupPlanTemplateName
         : undefined
   } as any;
@@ -7511,26 +7034,19 @@ const deserializeAws_restJson1_1BackupPlansListMember = (
         ? new Date(Math.round(output.DeletionDate * 1000))
         : undefined,
     LastExecutionDate:
-      output.LastExecutionDate !== undefined &&
-      output.LastExecutionDate !== null
+      output.LastExecutionDate !== undefined && output.LastExecutionDate !== null
         ? new Date(Math.round(output.LastExecutionDate * 1000))
         : undefined,
     VersionId:
-      output.VersionId !== undefined && output.VersionId !== null
-        ? output.VersionId
-        : undefined
+      output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1BackupRule = (
-  output: any,
-  context: __SerdeContext
-): BackupRule => {
+const deserializeAws_restJson1_1BackupRule = (output: any, context: __SerdeContext): BackupRule => {
   return {
     __type: "BackupRule",
     CompletionWindowMinutes:
-      output.CompletionWindowMinutes !== undefined &&
-      output.CompletionWindowMinutes !== null
+      output.CompletionWindowMinutes !== undefined && output.CompletionWindowMinutes !== null
         ? output.CompletionWindowMinutes
         : undefined,
     CopyActions:
@@ -7542,31 +7058,22 @@ const deserializeAws_restJson1_1BackupRule = (
         ? deserializeAws_restJson1_1Lifecycle(output.Lifecycle, context)
         : undefined,
     RecoveryPointTags:
-      output.RecoveryPointTags !== undefined &&
-      output.RecoveryPointTags !== null
+      output.RecoveryPointTags !== undefined && output.RecoveryPointTags !== null
         ? deserializeAws_restJson1_1Tags(output.RecoveryPointTags, context)
         : undefined,
-    RuleId:
-      output.RuleId !== undefined && output.RuleId !== null
-        ? output.RuleId
-        : undefined,
+    RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
     RuleName:
-      output.RuleName !== undefined && output.RuleName !== null
-        ? output.RuleName
-        : undefined,
+      output.RuleName !== undefined && output.RuleName !== null ? output.RuleName : undefined,
     ScheduleExpression:
-      output.ScheduleExpression !== undefined &&
-      output.ScheduleExpression !== null
+      output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
     StartWindowMinutes:
-      output.StartWindowMinutes !== undefined &&
-      output.StartWindowMinutes !== null
+      output.StartWindowMinutes !== undefined && output.StartWindowMinutes !== null
         ? output.StartWindowMinutes
         : undefined,
     TargetBackupVaultName:
-      output.TargetBackupVaultName !== undefined &&
-      output.TargetBackupVaultName !== null
+      output.TargetBackupVaultName !== undefined && output.TargetBackupVaultName !== null
         ? output.TargetBackupVaultName
         : undefined
   } as any;
@@ -7576,9 +7083,7 @@ const deserializeAws_restJson1_1BackupRules = (
   output: any,
   context: __SerdeContext
 ): BackupRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BackupRule(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BackupRule(entry, context));
 };
 
 const deserializeAws_restJson1_1BackupSelection = (
@@ -7588,9 +7093,7 @@ const deserializeAws_restJson1_1BackupSelection = (
   return {
     __type: "BackupSelection",
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     ListOfTags:
       output.ListOfTags !== undefined && output.ListOfTags !== null
         ? deserializeAws_restJson1_1ListOfTags(output.ListOfTags, context)
@@ -7634,9 +7137,7 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
         ? output.CreatorRequestId
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     SelectionId:
       output.SelectionId !== undefined && output.SelectionId !== null
         ? output.SelectionId
@@ -7691,8 +7192,7 @@ const deserializeAws_restJson1_1BackupVaultListMember = (
         ? output.EncryptionKeyArn
         : undefined,
     NumberOfRecoveryPoints:
-      output.NumberOfRecoveryPoints !== undefined &&
-      output.NumberOfRecoveryPoints !== null
+      output.NumberOfRecoveryPoints !== undefined && output.NumberOfRecoveryPoints !== null
         ? output.NumberOfRecoveryPoints
         : undefined
   } as any;
@@ -7709,17 +7209,13 @@ const deserializeAws_restJson1_1CalculatedLifecycle = (
         ? new Date(Math.round(output.DeleteAt * 1000))
         : undefined,
     MoveToColdStorageAt:
-      output.MoveToColdStorageAt !== undefined &&
-      output.MoveToColdStorageAt !== null
+      output.MoveToColdStorageAt !== undefined && output.MoveToColdStorageAt !== null
         ? new Date(Math.round(output.MoveToColdStorageAt * 1000))
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Condition = (
-  output: any,
-  context: __SerdeContext
-): Condition => {
+const deserializeAws_restJson1_1Condition = (output: any, context: __SerdeContext): Condition => {
   return {
     __type: "Condition",
     ConditionKey:
@@ -7737,15 +7233,11 @@ const deserializeAws_restJson1_1Condition = (
   } as any;
 };
 
-const deserializeAws_restJson1_1CopyAction = (
-  output: any,
-  context: __SerdeContext
-): CopyAction => {
+const deserializeAws_restJson1_1CopyAction = (output: any, context: __SerdeContext): CopyAction => {
   return {
     __type: "CopyAction",
     DestinationBackupVaultArn:
-      output.DestinationBackupVaultArn !== undefined &&
-      output.DestinationBackupVaultArn !== null
+      output.DestinationBackupVaultArn !== undefined && output.DestinationBackupVaultArn !== null
         ? output.DestinationBackupVaultArn
         : undefined,
     Lifecycle:
@@ -7759,20 +7251,14 @@ const deserializeAws_restJson1_1CopyActions = (
   output: any,
   context: __SerdeContext
 ): CopyAction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1CopyAction(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1CopyAction(entry, context));
 };
 
-const deserializeAws_restJson1_1CopyJob = (
-  output: any,
-  context: __SerdeContext
-): CopyJob => {
+const deserializeAws_restJson1_1CopyJob = (output: any, context: __SerdeContext): CopyJob => {
   return {
     __type: "CopyJob",
     BackupSizeInBytes:
-      output.BackupSizeInBytes !== undefined &&
-      output.BackupSizeInBytes !== null
+      output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
         : undefined,
     CompletionDate:
@@ -7780,23 +7266,17 @@ const deserializeAws_restJson1_1CopyJob = (
         ? new Date(Math.round(output.CompletionDate * 1000))
         : undefined,
     CopyJobId:
-      output.CopyJobId !== undefined && output.CopyJobId !== null
-        ? output.CopyJobId
-        : undefined,
+      output.CopyJobId !== undefined && output.CopyJobId !== null ? output.CopyJobId : undefined,
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1_1RecoveryPointCreator(
-            output.CreatedBy,
-            context
-          )
+        ? deserializeAws_restJson1_1RecoveryPointCreator(output.CreatedBy, context)
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
     DestinationBackupVaultArn:
-      output.DestinationBackupVaultArn !== undefined &&
-      output.DestinationBackupVaultArn !== null
+      output.DestinationBackupVaultArn !== undefined && output.DestinationBackupVaultArn !== null
         ? output.DestinationBackupVaultArn
         : undefined,
     DestinationRecoveryPointArn:
@@ -7805,9 +7285,7 @@ const deserializeAws_restJson1_1CopyJob = (
         ? output.DestinationRecoveryPointArn
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     ResourceArn:
       output.ResourceArn !== undefined && output.ResourceArn !== null
         ? output.ResourceArn
@@ -7817,19 +7295,14 @@ const deserializeAws_restJson1_1CopyJob = (
         ? output.ResourceType
         : undefined,
     SourceBackupVaultArn:
-      output.SourceBackupVaultArn !== undefined &&
-      output.SourceBackupVaultArn !== null
+      output.SourceBackupVaultArn !== undefined && output.SourceBackupVaultArn !== null
         ? output.SourceBackupVaultArn
         : undefined,
     SourceRecoveryPointArn:
-      output.SourceRecoveryPointArn !== undefined &&
-      output.SourceRecoveryPointArn !== null
+      output.SourceRecoveryPointArn !== undefined && output.SourceRecoveryPointArn !== null
         ? output.SourceRecoveryPointArn
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null
         ? output.StatusMessage
@@ -7841,15 +7314,10 @@ const deserializeAws_restJson1_1CopyJobsList = (
   output: any,
   context: __SerdeContext
 ): CopyJob[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1CopyJob(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1CopyJob(entry, context));
 };
 
-const deserializeAws_restJson1_1Lifecycle = (
-  output: any,
-  context: __SerdeContext
-): Lifecycle => {
+const deserializeAws_restJson1_1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
   return {
     __type: "Lifecycle",
     DeleteAfterDays:
@@ -7857,8 +7325,7 @@ const deserializeAws_restJson1_1Lifecycle = (
         ? output.DeleteAfterDays
         : undefined,
     MoveToColdStorageAfterDays:
-      output.MoveToColdStorageAfterDays !== undefined &&
-      output.MoveToColdStorageAfterDays !== null
+      output.MoveToColdStorageAfterDays !== undefined && output.MoveToColdStorageAfterDays !== null
         ? output.MoveToColdStorageAfterDays
         : undefined
   } as any;
@@ -7868,9 +7335,7 @@ const deserializeAws_restJson1_1ListOfTags = (
   output: any,
   context: __SerdeContext
 ): Condition[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Condition(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Condition(entry, context));
 };
 
 const deserializeAws_restJson1_1Metadata = (
@@ -7923,8 +7388,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
   return {
     __type: "RecoveryPointByBackupVault",
     BackupSizeInBytes:
-      output.BackupSizeInBytes !== undefined &&
-      output.BackupSizeInBytes !== null
+      output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
         : undefined,
     BackupVaultArn:
@@ -7936,12 +7400,8 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
         ? output.BackupVaultName
         : undefined,
     CalculatedLifecycle:
-      output.CalculatedLifecycle !== undefined &&
-      output.CalculatedLifecycle !== null
-        ? deserializeAws_restJson1_1CalculatedLifecycle(
-            output.CalculatedLifecycle,
-            context
-          )
+      output.CalculatedLifecycle !== undefined && output.CalculatedLifecycle !== null
+        ? deserializeAws_restJson1_1CalculatedLifecycle(output.CalculatedLifecycle, context)
         : undefined,
     CompletionDate:
       output.CompletionDate !== undefined && output.CompletionDate !== null
@@ -7949,10 +7409,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
         : undefined,
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1_1RecoveryPointCreator(
-            output.CreatedBy,
-            context
-          )
+        ? deserializeAws_restJson1_1RecoveryPointCreator(output.CreatedBy, context)
         : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
@@ -7963,9 +7420,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
         ? output.EncryptionKeyArn
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     IsEncrypted:
       output.IsEncrypted !== undefined && output.IsEncrypted !== null
         ? output.IsEncrypted
@@ -7990,10 +7445,7 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
       output.ResourceType !== undefined && output.ResourceType !== null
         ? output.ResourceType
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -8032,10 +7484,7 @@ const deserializeAws_restJson1_1RecoveryPointByResource = (
       output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null
         ? output.RecoveryPointArn
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -8063,8 +7512,7 @@ const deserializeAws_restJson1_1RecoveryPointCreator = (
         ? output.BackupPlanId
         : undefined,
     BackupPlanVersion:
-      output.BackupPlanVersion !== undefined &&
-      output.BackupPlanVersion !== null
+      output.BackupPlanVersion !== undefined && output.BackupPlanVersion !== null
         ? output.BackupPlanVersion
         : undefined,
     BackupRuleId:
@@ -8074,10 +7522,7 @@ const deserializeAws_restJson1_1RecoveryPointCreator = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ResourceArns = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ResourceArns = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8104,8 +7549,7 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
   return {
     __type: "RestoreJobsListMember",
     BackupSizeInBytes:
-      output.BackupSizeInBytes !== undefined &&
-      output.BackupSizeInBytes !== null
+      output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
         : undefined,
     CompletionDate:
@@ -8113,8 +7557,7 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
         ? new Date(Math.round(output.CompletionDate * 1000))
         : undefined,
     CreatedResourceArn:
-      output.CreatedResourceArn !== undefined &&
-      output.CreatedResourceArn !== null
+      output.CreatedResourceArn !== undefined && output.CreatedResourceArn !== null
         ? output.CreatedResourceArn
         : undefined,
     CreationDate:
@@ -8127,9 +7570,7 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
         ? output.ExpectedCompletionTimeMinutes
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     PercentDone:
       output.PercentDone !== undefined && output.PercentDone !== null
         ? output.PercentDone
@@ -8142,10 +7583,7 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
       output.RestoreJobId !== undefined && output.RestoreJobId !== null
         ? output.RestoreJobId
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null
         ? output.StatusMessage
@@ -8180,23 +7618,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

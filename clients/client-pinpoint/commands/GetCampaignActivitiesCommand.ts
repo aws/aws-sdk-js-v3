@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetCampaignActivitiesRequest,
-  GetCampaignActivitiesResponse
-} from "../models/index";
+import { GetCampaignActivitiesRequest, GetCampaignActivitiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCampaignActivitiesCommand,
   serializeAws_restJson1_1GetCampaignActivitiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCampaignActivitiesCommandInput = GetCampaignActivitiesRequest;
-export type GetCampaignActivitiesCommandOutput = GetCampaignActivitiesResponse &
-  __MetadataBearer;
+export type GetCampaignActivitiesCommandOutput = GetCampaignActivitiesResponse & __MetadataBearer;
 
 export class GetCampaignActivitiesCommand extends $Command<
   GetCampaignActivitiesCommandInput,
@@ -49,13 +45,8 @@ export class GetCampaignActivitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCampaignActivitiesCommandInput,
-    GetCampaignActivitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCampaignActivitiesCommandInput, GetCampaignActivitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetCampaignActivitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignActivitiesCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignActivitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCampaignActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

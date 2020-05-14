@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  CancelImageCreationRequest,
-  CancelImageCreationResponse
-} from "../models/index";
+import { CancelImageCreationRequest, CancelImageCreationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelImageCreationCommand,
   serializeAws_restJson1_1CancelImageCreationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelImageCreationCommandInput = CancelImageCreationRequest;
-export type CancelImageCreationCommandOutput = CancelImageCreationResponse &
-  __MetadataBearer;
+export type CancelImageCreationCommandOutput = CancelImageCreationResponse & __MetadataBearer;
 
 export class CancelImageCreationCommand extends $Command<
   CancelImageCreationCommandInput,
@@ -49,13 +45,8 @@ export class CancelImageCreationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelImageCreationCommandInput,
-    CancelImageCreationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelImageCreationCommandInput, CancelImageCreationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CancelImageCreationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelImageCreationCommandOutput> {
-    return deserializeAws_restJson1_1CancelImageCreationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelImageCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

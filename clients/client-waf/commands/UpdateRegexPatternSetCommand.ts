@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  UpdateRegexPatternSetRequest,
-  UpdateRegexPatternSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRegexPatternSetCommand,
   serializeAws_json1_1UpdateRegexPatternSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRegexPatternSetCommandInput = UpdateRegexPatternSetRequest;
-export type UpdateRegexPatternSetCommandOutput = UpdateRegexPatternSetResponse &
-  __MetadataBearer;
+export type UpdateRegexPatternSetCommandOutput = UpdateRegexPatternSetResponse & __MetadataBearer;
 
 export class UpdateRegexPatternSetCommand extends $Command<
   UpdateRegexPatternSetCommandInput,
@@ -49,13 +41,8 @@ export class UpdateRegexPatternSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRegexPatternSetCommandInput,
-    UpdateRegexPatternSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRegexPatternSetCommandInput, UpdateRegexPatternSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

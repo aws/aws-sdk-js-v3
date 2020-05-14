@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionMessage,
-  CreateApplicationMessage
-} from "../models/index";
+import { ApplicationDescriptionMessage, CreateApplicationMessage } from "../models/index";
 import {
   deserializeAws_queryCreateApplicationCommand,
   serializeAws_queryCreateApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateApplicationCommandInput = CreateApplicationMessage;
-export type CreateApplicationCommandOutput = ApplicationDescriptionMessage &
-  __MetadataBearer;
+export type CreateApplicationCommandOutput = ApplicationDescriptionMessage & __MetadataBearer;
 
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
@@ -50,9 +46,7 @@ export class CreateApplicationCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

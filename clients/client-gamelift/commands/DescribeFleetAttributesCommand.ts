@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeFleetAttributesInput,
-  DescribeFleetAttributesOutput
-} from "../models/index";
+import { DescribeFleetAttributesInput, DescribeFleetAttributesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFleetAttributesCommand,
   serializeAws_json1_1DescribeFleetAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFleetAttributesCommandInput = DescribeFleetAttributesInput;
-export type DescribeFleetAttributesCommandOutput = DescribeFleetAttributesOutput &
-  __MetadataBearer;
+export type DescribeFleetAttributesCommandOutput = DescribeFleetAttributesOutput & __MetadataBearer;
 
 export class DescribeFleetAttributesCommand extends $Command<
   DescribeFleetAttributesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeFleetAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetAttributesCommandInput,
-    DescribeFleetAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetAttributesCommandInput, DescribeFleetAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeFleetAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

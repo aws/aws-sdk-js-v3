@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ReplaceNetworkAclAssociationRequest,
   ReplaceNetworkAclAssociationResult
@@ -49,13 +45,8 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ReplaceNetworkAclAssociationCommandInput,
-    ReplaceNetworkAclAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ReplaceNetworkAclAssociationCommandInput, ReplaceNetworkAclAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceNetworkAclAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ReplaceNetworkAclAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

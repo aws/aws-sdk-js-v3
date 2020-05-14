@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMLModelsCommandInput = DescribeMLModelsInput;
-export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput &
-  __MetadataBearer;
+export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput & __MetadataBearer;
 
 export class DescribeMLModelsCommand extends $Command<
   DescribeMLModelsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeMLModelsCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

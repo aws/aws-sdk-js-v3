@@ -49,13 +49,8 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetNamespaceDeletionStatusCommandInput,
-    GetNamespaceDeletionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetNamespaceDeletionStatusCommandInput, GetNamespaceDeletionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     input: GetNamespaceDeletionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

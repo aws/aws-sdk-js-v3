@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDiskSnapshotCommandInput = GetDiskSnapshotRequest;
-export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult &
-  __MetadataBearer;
+export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult & __MetadataBearer;
 
 export class GetDiskSnapshotCommand extends $Command<
   GetDiskSnapshotCommandInput,
@@ -47,9 +46,7 @@ export class GetDiskSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

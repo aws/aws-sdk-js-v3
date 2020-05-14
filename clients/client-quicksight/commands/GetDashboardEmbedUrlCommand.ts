@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  GetDashboardEmbedUrlRequest,
-  GetDashboardEmbedUrlResponse
-} from "../models/index";
+import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDashboardEmbedUrlCommand,
   serializeAws_restJson1_1GetDashboardEmbedUrlCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDashboardEmbedUrlCommandInput = GetDashboardEmbedUrlRequest;
-export type GetDashboardEmbedUrlCommandOutput = GetDashboardEmbedUrlResponse &
-  __MetadataBearer;
+export type GetDashboardEmbedUrlCommandOutput = GetDashboardEmbedUrlResponse & __MetadataBearer;
 
 export class GetDashboardEmbedUrlCommand extends $Command<
   GetDashboardEmbedUrlCommandInput,
@@ -49,13 +45,8 @@ export class GetDashboardEmbedUrlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDashboardEmbedUrlCommandInput,
-    GetDashboardEmbedUrlCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDashboardEmbedUrlCommandInput, GetDashboardEmbedUrlCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDashboardEmbedUrlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDashboardEmbedUrlCommandOutput> {
-    return deserializeAws_restJson1_1GetDashboardEmbedUrlCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDashboardEmbedUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

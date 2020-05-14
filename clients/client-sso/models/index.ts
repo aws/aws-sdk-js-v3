@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -70,17 +67,14 @@ export namespace GetRoleCredentialsResponse {
  * <p>Indicates that a problem occurred with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListAccountRolesRequest {
@@ -108,8 +102,7 @@ export interface ListAccountRolesRequest {
 }
 
 export namespace ListAccountRolesRequest {
-  export const isa = (o: any): o is ListAccountRolesRequest =>
-    __isa(o, "ListAccountRolesRequest");
+  export const isa = (o: any): o is ListAccountRolesRequest => __isa(o, "ListAccountRolesRequest");
 }
 
 export interface ListAccountRolesResponse {
@@ -150,8 +143,7 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
-  export const isa = (o: any): o is ListAccountsRequest =>
-    __isa(o, "ListAccountsRequest");
+  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
@@ -168,8 +160,7 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
-  export const isa = (o: any): o is ListAccountsResponse =>
-    __isa(o, "ListAccountsResponse");
+  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface LogoutRequest {
@@ -188,9 +179,7 @@ export namespace LogoutRequest {
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -232,8 +221,7 @@ export interface RoleCredentials {
 }
 
 export namespace RoleCredentials {
-  export const isa = (o: any): o is RoleCredentials =>
-    __isa(o, "RoleCredentials");
+  export const isa = (o: any): o is RoleCredentials => __isa(o, "RoleCredentials");
 }
 
 /**
@@ -259,9 +247,7 @@ export namespace RoleInfo {
 /**
  * <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -275,15 +261,12 @@ export namespace TooManyRequestsException {
 /**
  * <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnauthorizedException {
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFolderPathCommandInput = GetFolderPathRequest;
-export type GetFolderPathCommandOutput = GetFolderPathResponse &
-  __MetadataBearer;
+export type GetFolderPathCommandOutput = GetFolderPathResponse & __MetadataBearer;
 
 export class GetFolderPathCommand extends $Command<
   GetFolderPathCommandInput,
@@ -47,9 +46,7 @@ export class GetFolderPathCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFolderPathCommandInput, GetFolderPathCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
 import { DescribeFaqRequest, DescribeFaqResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFaqCommand,
@@ -46,9 +42,7 @@ export class DescribeFaqCommand extends $Command<
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFaqCommandInput, DescribeFaqCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

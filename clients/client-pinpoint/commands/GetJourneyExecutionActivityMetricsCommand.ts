@@ -53,9 +53,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     GetJourneyExecutionActivityMetricsCommandInput,
     GetJourneyExecutionActivityMetricsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
     input: GetJourneyExecutionActivityMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
-    return deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

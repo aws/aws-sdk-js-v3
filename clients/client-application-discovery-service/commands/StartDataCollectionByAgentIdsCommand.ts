@@ -53,9 +53,7 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     StartDataCollectionByAgentIdsCommandInput,
     StartDataCollectionByAgentIdsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     input: StartDataCollectionByAgentIdsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartDataCollectionByAgentIdsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

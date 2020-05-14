@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  UpdateDestinationInput,
-  UpdateDestinationOutput
-} from "../models/index";
+import { UpdateDestinationInput, UpdateDestinationOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDestinationCommand,
   serializeAws_json1_1UpdateDestinationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDestinationCommandInput = UpdateDestinationInput;
-export type UpdateDestinationCommandOutput = UpdateDestinationOutput &
-  __MetadataBearer;
+export type UpdateDestinationCommandOutput = UpdateDestinationOutput & __MetadataBearer;
 
 export class UpdateDestinationCommand extends $Command<
   UpdateDestinationCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDestinationCommand extends $Command<
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDestinationCommandInput, UpdateDestinationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

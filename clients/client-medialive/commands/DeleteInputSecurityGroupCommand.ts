@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DeleteInputSecurityGroupRequest,
-  DeleteInputSecurityGroupResponse
-} from "../models/index";
+import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteInputSecurityGroupCommand,
   serializeAws_restJson1_1DeleteInputSecurityGroupCommand
@@ -49,13 +46,8 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteInputSecurityGroupCommandInput,
-    DeleteInputSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteInputSecurityGroupCommandInput, DeleteInputSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteInputSecurityGroupCommand extends $Command<
     input: DeleteInputSecurityGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInputSecurityGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteInputSecurityGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInputSecurityGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

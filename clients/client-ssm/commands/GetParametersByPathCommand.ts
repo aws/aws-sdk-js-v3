@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetParametersByPathRequest,
-  GetParametersByPathResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetParametersByPathRequest, GetParametersByPathResult } from "../models/index";
 import {
   deserializeAws_json1_1GetParametersByPathCommand,
   serializeAws_json1_1GetParametersByPathCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetParametersByPathCommandInput = GetParametersByPathRequest;
-export type GetParametersByPathCommandOutput = GetParametersByPathResult &
-  __MetadataBearer;
+export type GetParametersByPathCommandOutput = GetParametersByPathResult & __MetadataBearer;
 
 export class GetParametersByPathCommand extends $Command<
   GetParametersByPathCommandInput,
@@ -49,13 +41,8 @@ export class GetParametersByPathCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetParametersByPathCommandInput,
-    GetParametersByPathCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetParametersByPathCommandInput, GetParametersByPathCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

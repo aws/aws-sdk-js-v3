@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListListenersCommandInput = ListListenersRequest;
-export type ListListenersCommandOutput = ListListenersResponse &
-  __MetadataBearer;
+export type ListListenersCommandOutput = ListListenersResponse & __MetadataBearer;
 
 export class ListListenersCommand extends $Command<
   ListListenersCommandInput,
@@ -47,9 +46,7 @@ export class ListListenersCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListListenersCommandInput, ListListenersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

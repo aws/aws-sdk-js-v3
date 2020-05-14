@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DeleteDocumentClassifierRequest,
-  DeleteDocumentClassifierResponse
-} from "../models/index";
+import { DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDocumentClassifierCommand,
   serializeAws_json1_1DeleteDocumentClassifierCommand
@@ -49,13 +46,8 @@ export class DeleteDocumentClassifierCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDocumentClassifierCommandInput,
-    DeleteDocumentClassifierCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDocumentClassifierCommandInput, DeleteDocumentClassifierCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteDocumentClassifierCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1DeleteDocumentClassifierCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

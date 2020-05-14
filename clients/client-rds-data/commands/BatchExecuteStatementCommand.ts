@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSDataClient";
-import {
-  BatchExecuteStatementRequest,
-  BatchExecuteStatementResponse
-} from "../models/index";
+import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchExecuteStatementCommand,
   serializeAws_restJson1_1BatchExecuteStatementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchExecuteStatementCommandInput = BatchExecuteStatementRequest;
-export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse &
-  __MetadataBearer;
+export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse & __MetadataBearer;
 
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,
@@ -49,13 +45,8 @@ export class BatchExecuteStatementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchExecuteStatementCommandInput,
-    BatchExecuteStatementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchExecuteStatementCommandInput, BatchExecuteStatementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class BatchExecuteStatementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1_1BatchExecuteStatementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

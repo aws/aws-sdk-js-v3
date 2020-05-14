@@ -1,12 +1,5 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient";
-import {
-  GetSpeechSynthesisTaskInput,
-  GetSpeechSynthesisTaskOutput
-} from "../models/index";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
+import { GetSpeechSynthesisTaskInput, GetSpeechSynthesisTaskOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand,
   serializeAws_restJson1_1GetSpeechSynthesisTaskCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSpeechSynthesisTaskCommandInput = GetSpeechSynthesisTaskInput;
-export type GetSpeechSynthesisTaskCommandOutput = GetSpeechSynthesisTaskOutput &
-  __MetadataBearer;
+export type GetSpeechSynthesisTaskCommandOutput = GetSpeechSynthesisTaskOutput & __MetadataBearer;
 
 export class GetSpeechSynthesisTaskCommand extends $Command<
   GetSpeechSynthesisTaskCommandInput,
@@ -49,13 +41,8 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSpeechSynthesisTaskCommandInput,
-    GetSpeechSynthesisTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSpeechSynthesisTaskCommandInput, GetSpeechSynthesisTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class GetSpeechSynthesisTaskCommand extends $Command<
     input: GetSpeechSynthesisTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSpeechSynthesisTaskCommandOutput> {
-    return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

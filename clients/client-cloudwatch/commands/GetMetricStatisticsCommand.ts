@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  GetMetricStatisticsInput,
-  GetMetricStatisticsOutput
-} from "../models/index";
+import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/index";
 import {
   deserializeAws_queryGetMetricStatisticsCommand,
   serializeAws_queryGetMetricStatisticsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMetricStatisticsCommandInput = GetMetricStatisticsInput;
-export type GetMetricStatisticsCommandOutput = GetMetricStatisticsOutput &
-  __MetadataBearer;
+export type GetMetricStatisticsCommandOutput = GetMetricStatisticsOutput & __MetadataBearer;
 
 export class GetMetricStatisticsCommand extends $Command<
   GetMetricStatisticsCommandInput,
@@ -49,13 +45,8 @@ export class GetMetricStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMetricStatisticsCommandInput,
-    GetMetricStatisticsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMetricStatisticsCommandInput, GetMetricStatisticsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

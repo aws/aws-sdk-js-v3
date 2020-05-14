@@ -1,7 +1,4 @@
-import {
-  UpdateDiscovererRequest,
-  UpdateDiscovererResponse
-} from "../models/index";
+import { UpdateDiscovererRequest, UpdateDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDiscovererCommand,
   serializeAws_restJson1_1UpdateDiscovererCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDiscovererCommandInput = UpdateDiscovererRequest;
-export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse &
-  __MetadataBearer;
+export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse & __MetadataBearer;
 
 export class UpdateDiscovererCommand extends $Command<
   UpdateDiscovererCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  UpdateDashboardRequest,
-  UpdateDashboardResponse
-} from "../models/index";
+import { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDashboardCommand,
   serializeAws_restJson1_1UpdateDashboardCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDashboardCommandInput = UpdateDashboardRequest;
-export type UpdateDashboardCommandOutput = UpdateDashboardResponse &
-  __MetadataBearer;
+export type UpdateDashboardCommandOutput = UpdateDashboardResponse & __MetadataBearer;
 
 export class UpdateDashboardCommand extends $Command<
   UpdateDashboardCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDashboardCommandInput, UpdateDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

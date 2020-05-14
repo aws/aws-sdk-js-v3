@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  ModifyReplicationTaskMessage,
-  ModifyReplicationTaskResponse
-} from "../models/index";
+import { ModifyReplicationTaskMessage, ModifyReplicationTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1ModifyReplicationTaskCommand,
   serializeAws_json1_1ModifyReplicationTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyReplicationTaskCommandInput = ModifyReplicationTaskMessage;
-export type ModifyReplicationTaskCommandOutput = ModifyReplicationTaskResponse &
-  __MetadataBearer;
+export type ModifyReplicationTaskCommandOutput = ModifyReplicationTaskResponse & __MetadataBearer;
 
 export class ModifyReplicationTaskCommand extends $Command<
   ModifyReplicationTaskCommandInput,
@@ -49,13 +45,8 @@ export class ModifyReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReplicationTaskCommandInput,
-    ModifyReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyReplicationTaskCommandInput, ModifyReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

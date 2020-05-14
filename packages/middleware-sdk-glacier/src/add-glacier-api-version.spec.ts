@@ -17,10 +17,7 @@ describe("addGlacierApiVersion", () => {
   };
 
   it("sets the x-amz-glacier-version header", async () => {
-    const handler = addGlacierApiVersionMiddleware(config)(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addGlacierApiVersionMiddleware(config)(mockNextHandler, {} as any);
 
     await handler({
       input: {},

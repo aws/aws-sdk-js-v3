@@ -45,13 +45,8 @@ export class DeletePartnerEventSourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePartnerEventSourceCommandInput,
-    DeletePartnerEventSourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePartnerEventSourceCommandInput, DeletePartnerEventSourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeletePartnerEventSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1DeletePartnerEventSourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeletePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

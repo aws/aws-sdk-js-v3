@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  GetParametersForImportRequest,
-  GetParametersForImportResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { GetParametersForImportRequest, GetParametersForImportResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetParametersForImportCommand,
   serializeAws_json1_1GetParametersForImportCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetParametersForImportCommandInput = GetParametersForImportRequest;
-export type GetParametersForImportCommandOutput = GetParametersForImportResponse &
-  __MetadataBearer;
+export type GetParametersForImportCommandOutput = GetParametersForImportResponse & __MetadataBearer;
 
 export class GetParametersForImportCommand extends $Command<
   GetParametersForImportCommandInput,
@@ -49,13 +41,8 @@ export class GetParametersForImportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetParametersForImportCommandInput,
-    GetParametersForImportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetParametersForImportCommandInput, GetParametersForImportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

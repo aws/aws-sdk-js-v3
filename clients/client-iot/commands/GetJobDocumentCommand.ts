@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetJobDocumentRequest, GetJobDocumentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetJobDocumentCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJobDocumentCommandInput = GetJobDocumentRequest;
-export type GetJobDocumentCommandOutput = GetJobDocumentResponse &
-  __MetadataBearer;
+export type GetJobDocumentCommandOutput = GetJobDocumentResponse & __MetadataBearer;
 
 export class GetJobDocumentCommand extends $Command<
   GetJobDocumentCommandInput,
@@ -47,9 +42,7 @@ export class GetJobDocumentCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobDocumentCommandInput, GetJobDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

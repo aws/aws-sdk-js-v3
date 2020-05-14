@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  DeleteReplicationJobRequest,
-  DeleteReplicationJobResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { DeleteReplicationJobRequest, DeleteReplicationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReplicationJobCommand,
   serializeAws_json1_1DeleteReplicationJobCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReplicationJobCommandInput = DeleteReplicationJobRequest;
-export type DeleteReplicationJobCommandOutput = DeleteReplicationJobResponse &
-  __MetadataBearer;
+export type DeleteReplicationJobCommandOutput = DeleteReplicationJobResponse & __MetadataBearer;
 
 export class DeleteReplicationJobCommand extends $Command<
   DeleteReplicationJobCommandInput,
@@ -49,13 +41,8 @@ export class DeleteReplicationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationJobCommandInput,
-    DeleteReplicationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationJobCommandInput, DeleteReplicationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

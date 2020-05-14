@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  UpdateBrokerCountRequest,
-  UpdateBrokerCountResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateBrokerCountCommand,
   serializeAws_restJson1_1UpdateBrokerCountCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateBrokerCountCommandInput = UpdateBrokerCountRequest;
-export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse &
-  __MetadataBearer;
+export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse & __MetadataBearer;
 
 export class UpdateBrokerCountCommand extends $Command<
   UpdateBrokerCountCommandInput,
@@ -50,9 +42,7 @@ export class UpdateBrokerCountCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

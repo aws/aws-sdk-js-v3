@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  CreateSnapshotCopyGrantMessage,
-  CreateSnapshotCopyGrantResult
-} from "../models/index";
+import { CreateSnapshotCopyGrantMessage, CreateSnapshotCopyGrantResult } from "../models/index";
 import {
   deserializeAws_queryCreateSnapshotCopyGrantCommand,
   serializeAws_queryCreateSnapshotCopyGrantCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCopyGrantCommandInput = CreateSnapshotCopyGrantMessage;
-export type CreateSnapshotCopyGrantCommandOutput = CreateSnapshotCopyGrantResult &
-  __MetadataBearer;
+export type CreateSnapshotCopyGrantCommandOutput = CreateSnapshotCopyGrantResult & __MetadataBearer;
 
 export class CreateSnapshotCopyGrantCommand extends $Command<
   CreateSnapshotCopyGrantCommandInput,
@@ -49,13 +45,8 @@ export class CreateSnapshotCopyGrantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSnapshotCopyGrantCommandInput,
-    CreateSnapshotCopyGrantCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSnapshotCopyGrantCommandInput, CreateSnapshotCopyGrantCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

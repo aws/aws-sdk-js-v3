@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  CheckDNSAvailabilityMessage,
-  CheckDNSAvailabilityResultMessage
-} from "../models/index";
+import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/index";
 import {
   deserializeAws_queryCheckDNSAvailabilityCommand,
   serializeAws_queryCheckDNSAvailabilityCommand
@@ -49,13 +46,8 @@ export class CheckDNSAvailabilityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CheckDNSAvailabilityCommandInput,
-    CheckDNSAvailabilityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CheckDNSAvailabilityCommandInput, CheckDNSAvailabilityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

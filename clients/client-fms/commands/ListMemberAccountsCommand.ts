@@ -1,12 +1,5 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  ListMemberAccountsRequest,
-  ListMemberAccountsResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
   serializeAws_json1_1ListMemberAccountsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse &
-  __MetadataBearer;
+export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse & __MetadataBearer;
 
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,
@@ -50,9 +42,7 @@ export class ListMemberAccountsCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

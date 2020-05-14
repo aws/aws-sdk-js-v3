@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostandUsageReportServiceClient";
-import {
-  PutReportDefinitionRequest,
-  PutReportDefinitionResponse
-} from "../models/index";
+import { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutReportDefinitionCommand,
   serializeAws_json1_1PutReportDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutReportDefinitionCommandInput = PutReportDefinitionRequest;
-export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse &
-  __MetadataBearer;
+export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse & __MetadataBearer;
 
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class PutReportDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutReportDefinitionCommandInput,
-    PutReportDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

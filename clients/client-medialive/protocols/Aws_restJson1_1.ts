@@ -6,10 +6,7 @@ import {
   CreateChannelCommandInput,
   CreateChannelCommandOutput
 } from "../commands/CreateChannelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "../commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "../commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommandInput,
   CreateInputSecurityGroupCommandOutput
@@ -22,18 +19,12 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput
 } from "../commands/CreateMultiplexProgramCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "../commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput
 } from "../commands/DeleteChannelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "../commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "../commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommandInput,
   DeleteInputSecurityGroupCommandOutput
@@ -54,10 +45,7 @@ import {
   DeleteScheduleCommandInput,
   DeleteScheduleCommandOutput
 } from "../commands/DeleteScheduleCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput
@@ -98,10 +86,7 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput
 } from "../commands/ListInputSecurityGroupsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "../commands/ListInputsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "../commands/ListInputsCommand";
 import {
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput
@@ -134,10 +119,7 @@ import {
   StartMultiplexCommandInput,
   StartMultiplexCommandOutput
 } from "../commands/StartMultiplexCommand";
-import {
-  StopChannelCommandInput,
-  StopChannelCommandOutput
-} from "../commands/StopChannelCommand";
+import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand";
 import {
   StopMultiplexCommandInput,
   StopMultiplexCommandOutput
@@ -150,10 +132,7 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput
 } from "../commands/UpdateChannelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "../commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput
@@ -385,26 +364,17 @@ export const serializeAws_restJson1_1BatchUpdateScheduleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Creates !== undefined && {
-      creates: serializeAws_restJson1_1BatchScheduleActionCreateRequest(
-        input.Creates,
-        context
-      )
+      creates: serializeAws_restJson1_1BatchScheduleActionCreateRequest(input.Creates, context)
     }),
     ...(input.Deletes !== undefined && {
-      deletes: serializeAws_restJson1_1BatchScheduleActionDeleteRequest(
-        input.Deletes,
-        context
-      )
+      deletes: serializeAws_restJson1_1BatchScheduleActionDeleteRequest(input.Deletes, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -433,16 +403,10 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
       channelClass: input.ChannelClass
     }),
     ...(input.Destinations !== undefined && {
-      destinations: serializeAws_restJson1_1__listOfOutputDestination(
-        input.Destinations,
-        context
-      )
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(input.Destinations, context)
     }),
     ...(input.EncoderSettings !== undefined && {
-      encoderSettings: serializeAws_restJson1_1EncoderSettings(
-        input.EncoderSettings,
-        context
-      )
+      encoderSettings: serializeAws_restJson1_1EncoderSettings(input.EncoderSettings, context)
     }),
     ...(input.InputAttachments !== undefined && {
       inputAttachments: serializeAws_restJson1_1__listOfInputAttachment(
@@ -509,10 +473,7 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
     requestId: input.RequestId ?? generateIdempotencyToken(),
     ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
     ...(input.Sources !== undefined && {
-      sources: serializeAws_restJson1_1__listOfInputSourceRequest(
-        input.Sources,
-        context
-      )
+      sources: serializeAws_restJson1_1__listOfInputSourceRequest(input.Sources, context)
     }),
     ...(input.Tags !== undefined && {
       tags: serializeAws_restJson1_1Tags(input.Tags, context)
@@ -577,16 +538,10 @@ export const serializeAws_restJson1_1CreateMultiplexCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AvailabilityZones !== undefined && {
-      availabilityZones: serializeAws_restJson1_1__listOf__string(
-        input.AvailabilityZones,
-        context
-      )
+      availabilityZones: serializeAws_restJson1_1__listOf__string(input.AvailabilityZones, context)
     }),
     ...(input.MultiplexSettings !== undefined && {
-      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(
-        input.MultiplexSettings,
-        context
-      )
+      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(input.MultiplexSettings, context)
     }),
     ...(input.Name !== undefined && { name: input.Name }),
     requestId: input.RequestId ?? generateIdempotencyToken(),
@@ -617,14 +572,9 @@ export const serializeAws_restJson1_1CreateMultiplexProgramCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -662,14 +612,9 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -704,10 +649,7 @@ export const serializeAws_restJson1_1DeleteChannelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -737,10 +679,7 @@ export const serializeAws_restJson1_1DeleteInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{InputId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{InputId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
   }
@@ -768,18 +707,14 @@ export const serializeAws_restJson1_1DeleteInputSecurityGroupCommand = async (
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InputSecurityGroupId."
-      );
+      throw new Error("Empty value provided for input HTTP label: InputSecurityGroupId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: InputSecurityGroupId."
-    );
+    throw new Error("No value provided for input HTTP label: InputSecurityGroupId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -805,14 +740,9 @@ export const serializeAws_restJson1_1DeleteMultiplexCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -840,28 +770,18 @@ export const serializeAws_restJson1_1DeleteMultiplexProgramCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
     const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ProgramName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ProgramName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProgramName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
@@ -889,9 +809,7 @@ export const serializeAws_restJson1_1DeleteReservationCommand = async (
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ReservationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ReservationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
@@ -926,10 +844,7 @@ export const serializeAws_restJson1_1DeleteScheduleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -957,14 +872,9 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1000,10 +910,7 @@ export const serializeAws_restJson1_1DescribeChannelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -1033,10 +940,7 @@ export const serializeAws_restJson1_1DescribeInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{InputId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{InputId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
   }
@@ -1064,18 +968,14 @@ export const serializeAws_restJson1_1DescribeInputSecurityGroupCommand = async (
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InputSecurityGroupId."
-      );
+      throw new Error("Empty value provided for input HTTP label: InputSecurityGroupId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: InputSecurityGroupId."
-    );
+    throw new Error("No value provided for input HTTP label: InputSecurityGroupId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1101,14 +1001,9 @@ export const serializeAws_restJson1_1DescribeMultiplexCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -1136,28 +1031,18 @@ export const serializeAws_restJson1_1DescribeMultiplexProgramCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
     const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ProgramName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ProgramName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProgramName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
@@ -1187,10 +1072,7 @@ export const serializeAws_restJson1_1DescribeOfferingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OfferingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OfferingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OfferingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OfferingId.");
   }
@@ -1218,9 +1100,7 @@ export const serializeAws_restJson1_1DescribeReservationCommand = async (
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ReservationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ReservationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
@@ -1255,10 +1135,7 @@ export const serializeAws_restJson1_1DescribeScheduleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -1377,14 +1254,9 @@ export const serializeAws_restJson1_1ListMultiplexProgramsCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -1547,14 +1419,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -1584,10 +1451,7 @@ export const serializeAws_restJson1_1PurchaseOfferingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OfferingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OfferingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OfferingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OfferingId.");
   }
@@ -1626,10 +1490,7 @@ export const serializeAws_restJson1_1StartChannelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -1657,14 +1518,9 @@ export const serializeAws_restJson1_1StartMultiplexCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -1694,10 +1550,7 @@ export const serializeAws_restJson1_1StopChannelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -1725,14 +1578,9 @@ export const serializeAws_restJson1_1StopMultiplexCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
@@ -1762,26 +1610,17 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Destinations !== undefined && {
-      destinations: serializeAws_restJson1_1__listOfOutputDestination(
-        input.Destinations,
-        context
-      )
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(input.Destinations, context)
     }),
     ...(input.EncoderSettings !== undefined && {
-      encoderSettings: serializeAws_restJson1_1EncoderSettings(
-        input.EncoderSettings,
-        context
-      )
+      encoderSettings: serializeAws_restJson1_1EncoderSettings(input.EncoderSettings, context)
     }),
     ...(input.InputAttachments !== undefined && {
       inputAttachments: serializeAws_restJson1_1__listOfInputAttachment(
@@ -1824,10 +1663,7 @@ export const serializeAws_restJson1_1UpdateChannelClassCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ChannelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ChannelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
@@ -1837,10 +1673,7 @@ export const serializeAws_restJson1_1UpdateChannelClassCommand = async (
       channelClass: input.ChannelClass
     }),
     ...(input.Destinations !== undefined && {
-      destinations: serializeAws_restJson1_1__listOfOutputDestination(
-        input.Destinations,
-        context
-      )
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(input.Destinations, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1868,10 +1701,7 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{InputId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{InputId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
   }
@@ -1898,10 +1728,7 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
     ...(input.Sources !== undefined && {
-      sources: serializeAws_restJson1_1__listOfInputSourceRequest(
-        input.Sources,
-        context
-      )
+      sources: serializeAws_restJson1_1__listOfInputSourceRequest(input.Sources, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1927,18 +1754,14 @@ export const serializeAws_restJson1_1UpdateInputSecurityGroupCommand = async (
   if (input.InputSecurityGroupId !== undefined) {
     const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InputSecurityGroupId."
-      );
+      throw new Error("Empty value provided for input HTTP label: InputSecurityGroupId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: InputSecurityGroupId."
-    );
+    throw new Error("No value provided for input HTTP label: InputSecurityGroupId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1975,24 +1798,16 @@ export const serializeAws_restJson1_1UpdateMultiplexCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.MultiplexSettings !== undefined && {
-      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(
-        input.MultiplexSettings,
-        context
-      )
+      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(input.MultiplexSettings, context)
     }),
     ...(input.Name !== undefined && { name: input.Name })
   });
@@ -2019,28 +1834,18 @@ export const serializeAws_restJson1_1UpdateMultiplexProgramCommand = async (
   if (input.MultiplexId !== undefined) {
     const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MultiplexId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MultiplexId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MultiplexId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MultiplexId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
     const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ProgramName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ProgramName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProgramName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
@@ -2076,9 +1881,7 @@ export const serializeAws_restJson1_1UpdateReservationCommand = async (
   if (input.ReservationId !== undefined) {
     const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ReservationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ReservationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
@@ -2108,10 +1911,7 @@ export const deserializeAws_restJson1_1BatchUpdateScheduleCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchUpdateScheduleCommandError(output, context);
   }
   const contents: BatchUpdateScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2150,10 +1950,7 @@ const deserializeAws_restJson1_1BatchUpdateScheduleCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2161,10 +1958,7 @@ const deserializeAws_restJson1_1BatchUpdateScheduleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2172,10 +1966,7 @@ const deserializeAws_restJson1_1BatchUpdateScheduleCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2183,10 +1974,7 @@ const deserializeAws_restJson1_1BatchUpdateScheduleCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2205,10 +1993,7 @@ const deserializeAws_restJson1_1BatchUpdateScheduleCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2286,10 +2071,7 @@ const deserializeAws_restJson1_1CreateChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2297,10 +2079,7 @@ const deserializeAws_restJson1_1CreateChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2308,10 +2087,7 @@ const deserializeAws_restJson1_1CreateChannelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2319,10 +2095,7 @@ const deserializeAws_restJson1_1CreateChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2330,10 +2103,7 @@ const deserializeAws_restJson1_1CreateChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2422,10 +2192,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2433,10 +2200,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2444,10 +2208,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2455,10 +2216,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2507,10 +2265,7 @@ export const deserializeAws_restJson1_1CreateInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(output, context);
   }
   const contents: CreateInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2542,10 +2297,7 @@ const deserializeAws_restJson1_1CreateInputSecurityGroupCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2553,10 +2305,7 @@ const deserializeAws_restJson1_1CreateInputSecurityGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2564,10 +2313,7 @@ const deserializeAws_restJson1_1CreateInputSecurityGroupCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2575,10 +2321,7 @@ const deserializeAws_restJson1_1CreateInputSecurityGroupCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2627,10 +2370,7 @@ export const deserializeAws_restJson1_1CreateMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<CreateMultiplexCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateMultiplexCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateMultiplexCommandError(output, context);
   }
   const contents: CreateMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2639,10 +2379,7 @@ export const deserializeAws_restJson1_1CreateMultiplexCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.multiplex !== undefined && data.multiplex !== null) {
-    contents.Multiplex = deserializeAws_restJson1_1Multiplex(
-      data.multiplex,
-      context
-    );
+    contents.Multiplex = deserializeAws_restJson1_1Multiplex(data.multiplex, context);
   }
   return Promise.resolve(contents);
 };
@@ -2662,10 +2399,7 @@ const deserializeAws_restJson1_1CreateMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2673,10 +2407,7 @@ const deserializeAws_restJson1_1CreateMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2684,10 +2415,7 @@ const deserializeAws_restJson1_1CreateMultiplexCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2695,10 +2423,7 @@ const deserializeAws_restJson1_1CreateMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2706,10 +2431,7 @@ const deserializeAws_restJson1_1CreateMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2769,10 +2491,7 @@ export const deserializeAws_restJson1_1CreateMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<CreateMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateMultiplexProgramCommandError(output, context);
   }
   const contents: CreateMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2804,10 +2523,7 @@ const deserializeAws_restJson1_1CreateMultiplexProgramCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2815,10 +2531,7 @@ const deserializeAws_restJson1_1CreateMultiplexProgramCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2826,10 +2539,7 @@ const deserializeAws_restJson1_1CreateMultiplexProgramCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2837,10 +2547,7 @@ const deserializeAws_restJson1_1CreateMultiplexProgramCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2848,10 +2555,7 @@ const deserializeAws_restJson1_1CreateMultiplexProgramCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2935,10 +2639,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2946,10 +2647,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2968,10 +2666,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3053,10 +2748,7 @@ export const deserializeAws_restJson1_1DeleteChannelCommand = async (
       context
     );
   }
-  if (
-    data.inputSpecification !== undefined &&
-    data.inputSpecification !== null
-  ) {
+  if (data.inputSpecification !== undefined && data.inputSpecification !== null) {
     contents.InputSpecification = deserializeAws_restJson1_1InputSpecification(
       data.inputSpecification,
       context
@@ -3074,10 +2766,7 @@ export const deserializeAws_restJson1_1DeleteChannelCommand = async (
       context
     );
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
@@ -3107,10 +2796,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3118,10 +2804,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3129,10 +2812,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3140,10 +2820,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3151,10 +2828,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3173,10 +2847,7 @@ const deserializeAws_restJson1_1DeleteChannelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3239,10 +2910,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3250,10 +2918,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3261,10 +2926,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3272,10 +2934,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3283,10 +2942,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3305,10 +2961,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3346,10 +2999,7 @@ export const deserializeAws_restJson1_1DeleteInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(output, context);
   }
   const contents: DeleteInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3374,10 +3024,7 @@ const deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3385,10 +3032,7 @@ const deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3396,10 +3040,7 @@ const deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3407,10 +3048,7 @@ const deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3429,10 +3067,7 @@ const deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3470,10 +3105,7 @@ export const deserializeAws_restJson1_1DeleteMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMultiplexCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteMultiplexCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMultiplexCommandError(output, context);
   }
   const contents: DeleteMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3517,10 +3149,7 @@ export const deserializeAws_restJson1_1DeleteMultiplexCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.programCount !== undefined && data.programCount !== null) {
@@ -3550,10 +3179,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3561,10 +3187,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3572,10 +3195,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3583,10 +3203,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3594,10 +3211,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3616,10 +3230,7 @@ const deserializeAws_restJson1_1DeleteMultiplexCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3657,10 +3268,7 @@ export const deserializeAws_restJson1_1DeleteMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(output, context);
   }
   const contents: DeleteMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3674,19 +3282,13 @@ export const deserializeAws_restJson1_1DeleteMultiplexProgramCommand = async (
   if (data.channelId !== undefined && data.channelId !== null) {
     contents.ChannelId = data.channelId;
   }
-  if (
-    data.multiplexProgramSettings !== undefined &&
-    data.multiplexProgramSettings !== null
-  ) {
+  if (data.multiplexProgramSettings !== undefined && data.multiplexProgramSettings !== null) {
     contents.MultiplexProgramSettings = deserializeAws_restJson1_1MultiplexProgramSettings(
       data.multiplexProgramSettings,
       context
     );
   }
-  if (
-    data.packetIdentifiersMap !== undefined &&
-    data.packetIdentifiersMap !== null
-  ) {
+  if (data.packetIdentifiersMap !== undefined && data.packetIdentifiersMap !== null) {
     contents.PacketIdentifiersMap = deserializeAws_restJson1_1MultiplexProgramPacketIdentifiersMap(
       data.packetIdentifiersMap,
       context
@@ -3713,10 +3315,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3724,10 +3323,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3735,10 +3331,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3746,10 +3339,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3757,10 +3347,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3779,10 +3366,7 @@ const deserializeAws_restJson1_1DeleteMultiplexProgramCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3820,10 +3404,7 @@ export const deserializeAws_restJson1_1DeleteReservationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteReservationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteReservationCommandError(output, context);
   }
   const contents: DeleteReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3872,10 +3453,7 @@ export const deserializeAws_restJson1_1DeleteReservationCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.offeringDescription !== undefined &&
-    data.offeringDescription !== null
-  ) {
+  if (data.offeringDescription !== undefined && data.offeringDescription !== null) {
     contents.OfferingDescription = data.offeringDescription;
   }
   if (data.offeringId !== undefined && data.offeringId !== null) {
@@ -3890,10 +3468,7 @@ export const deserializeAws_restJson1_1DeleteReservationCommand = async (
   if (data.reservationId !== undefined && data.reservationId !== null) {
     contents.ReservationId = data.reservationId;
   }
-  if (
-    data.resourceSpecification !== undefined &&
-    data.resourceSpecification !== null
-  ) {
+  if (data.resourceSpecification !== undefined && data.resourceSpecification !== null) {
     contents.ResourceSpecification = deserializeAws_restJson1_1ReservationResourceSpecification(
       data.resourceSpecification,
       context
@@ -3929,10 +3504,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3940,10 +3512,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3951,10 +3520,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3962,10 +3528,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3973,10 +3536,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3995,10 +3555,7 @@ const deserializeAws_restJson1_1DeleteReservationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4036,10 +3593,7 @@ export const deserializeAws_restJson1_1DeleteScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteScheduleCommandError(output, context);
   }
   const contents: DeleteScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4064,10 +3618,7 @@ const deserializeAws_restJson1_1DeleteScheduleCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4075,10 +3626,7 @@ const deserializeAws_restJson1_1DeleteScheduleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4086,10 +3634,7 @@ const deserializeAws_restJson1_1DeleteScheduleCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4097,10 +3642,7 @@ const deserializeAws_restJson1_1DeleteScheduleCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4119,10 +3661,7 @@ const deserializeAws_restJson1_1DeleteScheduleCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4184,10 +3723,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4195,10 +3731,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4217,10 +3750,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4247,10 +3777,7 @@ export const deserializeAws_restJson1_1DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeChannelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeChannelCommandError(output, context);
   }
   const contents: DescribeChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4305,10 +3832,7 @@ export const deserializeAws_restJson1_1DescribeChannelCommand = async (
       context
     );
   }
-  if (
-    data.inputSpecification !== undefined &&
-    data.inputSpecification !== null
-  ) {
+  if (data.inputSpecification !== undefined && data.inputSpecification !== null) {
     contents.InputSpecification = deserializeAws_restJson1_1InputSpecification(
       data.inputSpecification,
       context
@@ -4326,10 +3850,7 @@ export const deserializeAws_restJson1_1DescribeChannelCommand = async (
       context
     );
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
@@ -4359,10 +3880,7 @@ const deserializeAws_restJson1_1DescribeChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4370,10 +3888,7 @@ const deserializeAws_restJson1_1DescribeChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4381,10 +3896,7 @@ const deserializeAws_restJson1_1DescribeChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4392,10 +3904,7 @@ const deserializeAws_restJson1_1DescribeChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4414,10 +3923,7 @@ const deserializeAws_restJson1_1DescribeChannelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4519,10 +4025,7 @@ export const deserializeAws_restJson1_1DescribeInputCommand = async (
     );
   }
   if (data.sources !== undefined && data.sources !== null) {
-    contents.Sources = deserializeAws_restJson1_1__listOfInputSource(
-      data.sources,
-      context
-    );
+    contents.Sources = deserializeAws_restJson1_1__listOfInputSource(data.sources, context);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = data.state;
@@ -4551,10 +4054,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4562,10 +4062,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4573,10 +4070,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4584,10 +4078,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4606,10 +4097,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4647,10 +4135,7 @@ export const deserializeAws_restJson1_1DescribeInputSecurityGroupCommand = async
   context: __SerdeContext
 ): Promise<DescribeInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(output, context);
   }
   const contents: DescribeInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4670,10 +4155,7 @@ export const deserializeAws_restJson1_1DescribeInputSecurityGroupCommand = async
     contents.Id = data.id;
   }
   if (data.inputs !== undefined && data.inputs !== null) {
-    contents.Inputs = deserializeAws_restJson1_1__listOf__string(
-      data.inputs,
-      context
-    );
+    contents.Inputs = deserializeAws_restJson1_1__listOf__string(data.inputs, context);
   }
   if (data.state !== undefined && data.state !== null) {
     contents.State = data.state;
@@ -4705,10 +4187,7 @@ const deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4716,10 +4195,7 @@ const deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4727,10 +4203,7 @@ const deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4738,10 +4211,7 @@ const deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4760,10 +4230,7 @@ const deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4801,10 +4268,7 @@ export const deserializeAws_restJson1_1DescribeMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMultiplexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeMultiplexCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMultiplexCommandError(output, context);
   }
   const contents: DescribeMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4848,10 +4312,7 @@ export const deserializeAws_restJson1_1DescribeMultiplexCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.programCount !== undefined && data.programCount !== null) {
@@ -4881,10 +4342,7 @@ const deserializeAws_restJson1_1DescribeMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4892,10 +4350,7 @@ const deserializeAws_restJson1_1DescribeMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4903,10 +4358,7 @@ const deserializeAws_restJson1_1DescribeMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4914,10 +4366,7 @@ const deserializeAws_restJson1_1DescribeMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4936,10 +4385,7 @@ const deserializeAws_restJson1_1DescribeMultiplexCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4977,10 +4423,7 @@ export const deserializeAws_restJson1_1DescribeMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(output, context);
   }
   const contents: DescribeMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4994,19 +4437,13 @@ export const deserializeAws_restJson1_1DescribeMultiplexProgramCommand = async (
   if (data.channelId !== undefined && data.channelId !== null) {
     contents.ChannelId = data.channelId;
   }
-  if (
-    data.multiplexProgramSettings !== undefined &&
-    data.multiplexProgramSettings !== null
-  ) {
+  if (data.multiplexProgramSettings !== undefined && data.multiplexProgramSettings !== null) {
     contents.MultiplexProgramSettings = deserializeAws_restJson1_1MultiplexProgramSettings(
       data.multiplexProgramSettings,
       context
     );
   }
-  if (
-    data.packetIdentifiersMap !== undefined &&
-    data.packetIdentifiersMap !== null
-  ) {
+  if (data.packetIdentifiersMap !== undefined && data.packetIdentifiersMap !== null) {
     contents.PacketIdentifiersMap = deserializeAws_restJson1_1MultiplexProgramPacketIdentifiersMap(
       data.packetIdentifiersMap,
       context
@@ -5033,10 +4470,7 @@ const deserializeAws_restJson1_1DescribeMultiplexProgramCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5044,10 +4478,7 @@ const deserializeAws_restJson1_1DescribeMultiplexProgramCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5055,10 +4486,7 @@ const deserializeAws_restJson1_1DescribeMultiplexProgramCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5066,10 +4494,7 @@ const deserializeAws_restJson1_1DescribeMultiplexProgramCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5088,10 +4513,7 @@ const deserializeAws_restJson1_1DescribeMultiplexProgramCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5129,10 +4551,7 @@ export const deserializeAws_restJson1_1DescribeOfferingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeOfferingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeOfferingCommandError(output, context);
   }
   const contents: DescribeOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5165,10 +4584,7 @@ export const deserializeAws_restJson1_1DescribeOfferingCommand = async (
   if (data.fixedPrice !== undefined && data.fixedPrice !== null) {
     contents.FixedPrice = data.fixedPrice;
   }
-  if (
-    data.offeringDescription !== undefined &&
-    data.offeringDescription !== null
-  ) {
+  if (data.offeringDescription !== undefined && data.offeringDescription !== null) {
     contents.OfferingDescription = data.offeringDescription;
   }
   if (data.offeringId !== undefined && data.offeringId !== null) {
@@ -5180,10 +4596,7 @@ export const deserializeAws_restJson1_1DescribeOfferingCommand = async (
   if (data.region !== undefined && data.region !== null) {
     contents.Region = data.region;
   }
-  if (
-    data.resourceSpecification !== undefined &&
-    data.resourceSpecification !== null
-  ) {
+  if (data.resourceSpecification !== undefined && data.resourceSpecification !== null) {
     contents.ResourceSpecification = deserializeAws_restJson1_1ReservationResourceSpecification(
       data.resourceSpecification,
       context
@@ -5210,10 +4623,7 @@ const deserializeAws_restJson1_1DescribeOfferingCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5221,10 +4631,7 @@ const deserializeAws_restJson1_1DescribeOfferingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5232,10 +4639,7 @@ const deserializeAws_restJson1_1DescribeOfferingCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5243,10 +4647,7 @@ const deserializeAws_restJson1_1DescribeOfferingCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5265,10 +4666,7 @@ const deserializeAws_restJson1_1DescribeOfferingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5306,10 +4704,7 @@ export const deserializeAws_restJson1_1DescribeReservationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeReservationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeReservationCommandError(output, context);
   }
   const contents: DescribeReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5358,10 +4753,7 @@ export const deserializeAws_restJson1_1DescribeReservationCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.offeringDescription !== undefined &&
-    data.offeringDescription !== null
-  ) {
+  if (data.offeringDescription !== undefined && data.offeringDescription !== null) {
     contents.OfferingDescription = data.offeringDescription;
   }
   if (data.offeringId !== undefined && data.offeringId !== null) {
@@ -5376,10 +4768,7 @@ export const deserializeAws_restJson1_1DescribeReservationCommand = async (
   if (data.reservationId !== undefined && data.reservationId !== null) {
     contents.ReservationId = data.reservationId;
   }
-  if (
-    data.resourceSpecification !== undefined &&
-    data.resourceSpecification !== null
-  ) {
+  if (data.resourceSpecification !== undefined && data.resourceSpecification !== null) {
     contents.ResourceSpecification = deserializeAws_restJson1_1ReservationResourceSpecification(
       data.resourceSpecification,
       context
@@ -5415,10 +4804,7 @@ const deserializeAws_restJson1_1DescribeReservationCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5426,10 +4812,7 @@ const deserializeAws_restJson1_1DescribeReservationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5437,10 +4820,7 @@ const deserializeAws_restJson1_1DescribeReservationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5448,10 +4828,7 @@ const deserializeAws_restJson1_1DescribeReservationCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5470,10 +4847,7 @@ const deserializeAws_restJson1_1DescribeReservationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5511,10 +4885,7 @@ export const deserializeAws_restJson1_1DescribeScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeScheduleCommandError(output, context);
   }
   const contents: DescribeScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5550,10 +4921,7 @@ const deserializeAws_restJson1_1DescribeScheduleCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5561,10 +4929,7 @@ const deserializeAws_restJson1_1DescribeScheduleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5572,10 +4937,7 @@ const deserializeAws_restJson1_1DescribeScheduleCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5583,10 +4945,7 @@ const deserializeAws_restJson1_1DescribeScheduleCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5605,10 +4964,7 @@ const deserializeAws_restJson1_1DescribeScheduleCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5656,10 +5012,7 @@ export const deserializeAws_restJson1_1ListChannelsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.channels !== undefined && data.channels !== null) {
-    contents.Channels = deserializeAws_restJson1_1__listOfChannelSummary(
-      data.channels,
-      context
-    );
+    contents.Channels = deserializeAws_restJson1_1__listOfChannelSummary(data.channels, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -5682,10 +5035,7 @@ const deserializeAws_restJson1_1ListChannelsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5693,10 +5043,7 @@ const deserializeAws_restJson1_1ListChannelsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5704,10 +5051,7 @@ const deserializeAws_restJson1_1ListChannelsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5715,10 +5059,7 @@ const deserializeAws_restJson1_1ListChannelsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5767,10 +5108,7 @@ export const deserializeAws_restJson1_1ListInputSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListInputSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(output, context);
   }
   const contents: ListInputSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5779,10 +5117,7 @@ export const deserializeAws_restJson1_1ListInputSecurityGroupsCommand = async (
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.inputSecurityGroups !== undefined &&
-    data.inputSecurityGroups !== null
-  ) {
+  if (data.inputSecurityGroups !== undefined && data.inputSecurityGroups !== null) {
     contents.InputSecurityGroups = deserializeAws_restJson1_1__listOfInputSecurityGroup(
       data.inputSecurityGroups,
       context
@@ -5809,10 +5144,7 @@ const deserializeAws_restJson1_1ListInputSecurityGroupsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5820,10 +5152,7 @@ const deserializeAws_restJson1_1ListInputSecurityGroupsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5831,10 +5160,7 @@ const deserializeAws_restJson1_1ListInputSecurityGroupsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5842,10 +5168,7 @@ const deserializeAws_restJson1_1ListInputSecurityGroupsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5904,10 +5227,7 @@ export const deserializeAws_restJson1_1ListInputsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.inputs !== undefined && data.inputs !== null) {
-    contents.Inputs = deserializeAws_restJson1_1__listOfInput(
-      data.inputs,
-      context
-    );
+    contents.Inputs = deserializeAws_restJson1_1__listOfInput(data.inputs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -5930,10 +5250,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5941,10 +5258,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5952,10 +5266,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5963,10 +5274,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6015,10 +5323,7 @@ export const deserializeAws_restJson1_1ListMultiplexProgramsCommand = async (
   context: __SerdeContext
 ): Promise<ListMultiplexProgramsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMultiplexProgramsCommandError(output, context);
   }
   const contents: ListMultiplexProgramsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6054,10 +5359,7 @@ const deserializeAws_restJson1_1ListMultiplexProgramsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6065,10 +5367,7 @@ const deserializeAws_restJson1_1ListMultiplexProgramsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6076,10 +5375,7 @@ const deserializeAws_restJson1_1ListMultiplexProgramsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6087,10 +5383,7 @@ const deserializeAws_restJson1_1ListMultiplexProgramsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6109,10 +5402,7 @@ const deserializeAws_restJson1_1ListMultiplexProgramsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6150,10 +5440,7 @@ export const deserializeAws_restJson1_1ListMultiplexesCommand = async (
   context: __SerdeContext
 ): Promise<ListMultiplexesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListMultiplexesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMultiplexesCommandError(output, context);
   }
   const contents: ListMultiplexesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6189,10 +5476,7 @@ const deserializeAws_restJson1_1ListMultiplexesCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6200,10 +5484,7 @@ const deserializeAws_restJson1_1ListMultiplexesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6211,10 +5492,7 @@ const deserializeAws_restJson1_1ListMultiplexesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6222,10 +5500,7 @@ const deserializeAws_restJson1_1ListMultiplexesCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6287,10 +5562,7 @@ export const deserializeAws_restJson1_1ListOfferingsCommand = async (
     contents.NextToken = data.nextToken;
   }
   if (data.offerings !== undefined && data.offerings !== null) {
-    contents.Offerings = deserializeAws_restJson1_1__listOfOffering(
-      data.offerings,
-      context
-    );
+    contents.Offerings = deserializeAws_restJson1_1__listOfOffering(data.offerings, context);
   }
   return Promise.resolve(contents);
 };
@@ -6310,10 +5582,7 @@ const deserializeAws_restJson1_1ListOfferingsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6321,10 +5590,7 @@ const deserializeAws_restJson1_1ListOfferingsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6332,10 +5598,7 @@ const deserializeAws_restJson1_1ListOfferingsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6343,10 +5606,7 @@ const deserializeAws_restJson1_1ListOfferingsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6395,10 +5655,7 @@ export const deserializeAws_restJson1_1ListReservationsCommand = async (
   context: __SerdeContext
 ): Promise<ListReservationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListReservationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListReservationsCommandError(output, context);
   }
   const contents: ListReservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6434,10 +5691,7 @@ const deserializeAws_restJson1_1ListReservationsCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6445,10 +5699,7 @@ const deserializeAws_restJson1_1ListReservationsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6456,10 +5707,7 @@ const deserializeAws_restJson1_1ListReservationsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6467,10 +5715,7 @@ const deserializeAws_restJson1_1ListReservationsCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6519,10 +5764,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6551,10 +5793,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6562,10 +5801,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6584,10 +5820,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6614,10 +5847,7 @@ export const deserializeAws_restJson1_1PurchaseOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PurchaseOfferingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PurchaseOfferingCommandError(output, context);
   }
   const contents: PurchaseOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6626,10 +5856,7 @@ export const deserializeAws_restJson1_1PurchaseOfferingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.reservation !== undefined && data.reservation !== null) {
-    contents.Reservation = deserializeAws_restJson1_1Reservation(
-      data.reservation,
-      context
-    );
+    contents.Reservation = deserializeAws_restJson1_1Reservation(data.reservation, context);
   }
   return Promise.resolve(contents);
 };
@@ -6649,10 +5876,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6660,10 +5884,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6671,10 +5892,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6682,10 +5900,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6693,10 +5908,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6715,10 +5927,7 @@ const deserializeAws_restJson1_1PurchaseOfferingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6811,10 +6020,7 @@ export const deserializeAws_restJson1_1StartChannelCommand = async (
       context
     );
   }
-  if (
-    data.inputSpecification !== undefined &&
-    data.inputSpecification !== null
-  ) {
+  if (data.inputSpecification !== undefined && data.inputSpecification !== null) {
     contents.InputSpecification = deserializeAws_restJson1_1InputSpecification(
       data.inputSpecification,
       context
@@ -6832,10 +6038,7 @@ export const deserializeAws_restJson1_1StartChannelCommand = async (
       context
     );
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
@@ -6865,10 +6068,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6876,10 +6076,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6887,10 +6084,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6898,10 +6092,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6909,10 +6100,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6931,10 +6119,7 @@ const deserializeAws_restJson1_1StartChannelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6972,10 +6157,7 @@ export const deserializeAws_restJson1_1StartMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<StartMultiplexCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartMultiplexCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartMultiplexCommandError(output, context);
   }
   const contents: StartMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7019,10 +6201,7 @@ export const deserializeAws_restJson1_1StartMultiplexCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.programCount !== undefined && data.programCount !== null) {
@@ -7052,10 +6231,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7063,10 +6239,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7074,10 +6247,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7085,10 +6255,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7096,10 +6263,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7118,10 +6282,7 @@ const deserializeAws_restJson1_1StartMultiplexCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7214,10 +6375,7 @@ export const deserializeAws_restJson1_1StopChannelCommand = async (
       context
     );
   }
-  if (
-    data.inputSpecification !== undefined &&
-    data.inputSpecification !== null
-  ) {
+  if (data.inputSpecification !== undefined && data.inputSpecification !== null) {
     contents.InputSpecification = deserializeAws_restJson1_1InputSpecification(
       data.inputSpecification,
       context
@@ -7235,10 +6393,7 @@ export const deserializeAws_restJson1_1StopChannelCommand = async (
       context
     );
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
@@ -7268,10 +6423,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7279,10 +6431,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7290,10 +6439,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7301,10 +6447,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7312,10 +6455,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7334,10 +6474,7 @@ const deserializeAws_restJson1_1StopChannelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7419,10 +6556,7 @@ export const deserializeAws_restJson1_1StopMultiplexCommand = async (
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
-  if (
-    data.pipelinesRunningCount !== undefined &&
-    data.pipelinesRunningCount !== null
-  ) {
+  if (data.pipelinesRunningCount !== undefined && data.pipelinesRunningCount !== null) {
     contents.PipelinesRunningCount = data.pipelinesRunningCount;
   }
   if (data.programCount !== undefined && data.programCount !== null) {
@@ -7452,10 +6586,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7463,10 +6594,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7474,10 +6602,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7485,10 +6610,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7496,10 +6618,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7518,10 +6637,7 @@ const deserializeAws_restJson1_1StopMultiplexCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7588,10 +6704,7 @@ const deserializeAws_restJson1_1UpdateChannelCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7599,10 +6712,7 @@ const deserializeAws_restJson1_1UpdateChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7610,10 +6720,7 @@ const deserializeAws_restJson1_1UpdateChannelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7621,10 +6728,7 @@ const deserializeAws_restJson1_1UpdateChannelCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7632,10 +6736,7 @@ const deserializeAws_restJson1_1UpdateChannelCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7684,10 +6785,7 @@ export const deserializeAws_restJson1_1UpdateChannelClassCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelClassCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateChannelClassCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateChannelClassCommandError(output, context);
   }
   const contents: UpdateChannelClassCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7716,10 +6814,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7727,10 +6822,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7738,10 +6830,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7749,10 +6838,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7760,10 +6846,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7782,10 +6865,7 @@ const deserializeAws_restJson1_1UpdateChannelClassCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7863,10 +6943,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7874,10 +6951,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7885,10 +6959,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7896,10 +6967,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7907,10 +6975,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7929,10 +6994,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7959,10 +7021,7 @@ export const deserializeAws_restJson1_1UpdateInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(output, context);
   }
   const contents: UpdateInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7994,10 +7053,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8005,10 +7061,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8016,10 +7069,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8027,10 +7077,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8038,10 +7085,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8060,10 +7104,7 @@ const deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8090,10 +7131,7 @@ export const deserializeAws_restJson1_1UpdateMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMultiplexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateMultiplexCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMultiplexCommandError(output, context);
   }
   const contents: UpdateMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8102,10 +7140,7 @@ export const deserializeAws_restJson1_1UpdateMultiplexCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.multiplex !== undefined && data.multiplex !== null) {
-    contents.Multiplex = deserializeAws_restJson1_1Multiplex(
-      data.multiplex,
-      context
-    );
+    contents.Multiplex = deserializeAws_restJson1_1Multiplex(data.multiplex, context);
   }
   return Promise.resolve(contents);
 };
@@ -8125,10 +7160,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8136,10 +7168,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8147,10 +7176,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8158,10 +7184,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8169,10 +7192,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8191,10 +7211,7 @@ const deserializeAws_restJson1_1UpdateMultiplexCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8232,10 +7249,7 @@ export const deserializeAws_restJson1_1UpdateMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(output, context);
   }
   const contents: UpdateMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8267,10 +7281,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8278,10 +7289,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8289,10 +7297,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8300,10 +7305,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8311,10 +7313,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8333,10 +7332,7 @@ const deserializeAws_restJson1_1UpdateMultiplexProgramCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8374,10 +7370,7 @@ export const deserializeAws_restJson1_1UpdateReservationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateReservationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateReservationCommandError(output, context);
   }
   const contents: UpdateReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8386,10 +7379,7 @@ export const deserializeAws_restJson1_1UpdateReservationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.reservation !== undefined && data.reservation !== null) {
-    contents.Reservation = deserializeAws_restJson1_1Reservation(
-      data.reservation,
-      context
-    );
+    contents.Reservation = deserializeAws_restJson1_1Reservation(data.reservation, context);
   }
   return Promise.resolve(contents);
 };
@@ -8409,10 +7399,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
       response = {
-        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadGatewayExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8420,10 +7407,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8431,10 +7415,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.medialive#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8442,10 +7423,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8453,10 +7431,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "GatewayTimeoutException":
     case "com.amazonaws.medialive#GatewayTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GatewayTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8475,10 +7450,7 @@ const deserializeAws_restJson1_1UpdateReservationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.medialive#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8671,10 +7643,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1AacSettings = (
-  input: AacSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AacSettings = (input: AacSettings, context: __SerdeContext): any => {
   return {
     ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
     ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
@@ -8690,10 +7659,7 @@ const serializeAws_restJson1_1AacSettings = (
   };
 };
 
-const serializeAws_restJson1_1Ac3Settings = (
-  input: Ac3Settings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
   return {
     ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
     ...(input.BitstreamMode !== undefined && {
@@ -8715,10 +7681,7 @@ const serializeAws_restJson1_1ArchiveContainerSettings = (
 ): any => {
   return {
     ...(input.M2tsSettings !== undefined && {
-      m2tsSettings: serializeAws_restJson1_1M2tsSettings(
-        input.M2tsSettings,
-        context
-      )
+      m2tsSettings: serializeAws_restJson1_1M2tsSettings(input.M2tsSettings, context)
     })
   };
 };
@@ -8729,10 +7692,7 @@ const serializeAws_restJson1_1ArchiveGroupSettings = (
 ): any => {
   return {
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     }),
     ...(input.RolloverInterval !== undefined && {
       rolloverInterval: input.RolloverInterval
@@ -8795,28 +7755,16 @@ const serializeAws_restJson1_1AudioCodecSettings = (
 ): any => {
   return {
     ...(input.AacSettings !== undefined && {
-      aacSettings: serializeAws_restJson1_1AacSettings(
-        input.AacSettings,
-        context
-      )
+      aacSettings: serializeAws_restJson1_1AacSettings(input.AacSettings, context)
     }),
     ...(input.Ac3Settings !== undefined && {
-      ac3Settings: serializeAws_restJson1_1Ac3Settings(
-        input.Ac3Settings,
-        context
-      )
+      ac3Settings: serializeAws_restJson1_1Ac3Settings(input.Ac3Settings, context)
     }),
     ...(input.Eac3Settings !== undefined && {
-      eac3Settings: serializeAws_restJson1_1Eac3Settings(
-        input.Eac3Settings,
-        context
-      )
+      eac3Settings: serializeAws_restJson1_1Eac3Settings(input.Eac3Settings, context)
     }),
     ...(input.Mp2Settings !== undefined && {
-      mp2Settings: serializeAws_restJson1_1Mp2Settings(
-        input.Mp2Settings,
-        context
-      )
+      mp2Settings: serializeAws_restJson1_1Mp2Settings(input.Mp2Settings, context)
     }),
     ...(input.PassThroughSettings !== undefined && {
       passThroughSettings: serializeAws_restJson1_1PassThroughSettings(
@@ -8846,10 +7794,7 @@ const serializeAws_restJson1_1AudioDescription = (
       audioTypeControl: input.AudioTypeControl
     }),
     ...(input.CodecSettings !== undefined && {
-      codecSettings: serializeAws_restJson1_1AudioCodecSettings(
-        input.CodecSettings,
-        context
-      )
+      codecSettings: serializeAws_restJson1_1AudioCodecSettings(input.CodecSettings, context)
     }),
     ...(input.LanguageCode !== undefined && {
       languageCode: input.LanguageCode
@@ -8859,10 +7804,7 @@ const serializeAws_restJson1_1AudioDescription = (
     }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.RemixSettings !== undefined && {
-      remixSettings: serializeAws_restJson1_1RemixSettings(
-        input.RemixSettings,
-        context
-      )
+      remixSettings: serializeAws_restJson1_1RemixSettings(input.RemixSettings, context)
     }),
     ...(input.StreamName !== undefined && { streamName: input.StreamName })
   };
@@ -8904,10 +7846,7 @@ const serializeAws_restJson1_1AudioOnlyHlsSettings = (
       audioGroupId: input.AudioGroupId
     }),
     ...(input.AudioOnlyImage !== undefined && {
-      audioOnlyImage: serializeAws_restJson1_1InputLocation(
-        input.AudioOnlyImage,
-        context
-      )
+      audioOnlyImage: serializeAws_restJson1_1InputLocation(input.AudioOnlyImage, context)
     }),
     ...(input.AudioTrackType !== undefined && {
       audioTrackType: input.AudioTrackType
@@ -8952,10 +7891,7 @@ const serializeAws_restJson1_1AudioSelectorSettings = (
       )
     }),
     ...(input.AudioPidSelection !== undefined && {
-      audioPidSelection: serializeAws_restJson1_1AudioPidSelection(
-        input.AudioPidSelection,
-        context
-      )
+      audioPidSelection: serializeAws_restJson1_1AudioPidSelection(input.AudioPidSelection, context)
     })
   };
 };
@@ -8966,10 +7902,7 @@ const serializeAws_restJson1_1AvailBlanking = (
 ): any => {
   return {
     ...(input.AvailBlankingImage !== undefined && {
-      availBlankingImage: serializeAws_restJson1_1InputLocation(
-        input.AvailBlankingImage,
-        context
-      )
+      availBlankingImage: serializeAws_restJson1_1InputLocation(input.AvailBlankingImage, context)
     }),
     ...(input.State !== undefined && { state: input.State })
   };
@@ -8981,10 +7914,7 @@ const serializeAws_restJson1_1AvailConfiguration = (
 ): any => {
   return {
     ...(input.AvailSettings !== undefined && {
-      availSettings: serializeAws_restJson1_1AvailSettings(
-        input.AvailSettings,
-        context
-      )
+      availSettings: serializeAws_restJson1_1AvailSettings(input.AvailSettings, context)
     })
   };
 };
@@ -9029,10 +7959,7 @@ const serializeAws_restJson1_1BatchScheduleActionDeleteRequest = (
 ): any => {
   return {
     ...(input.ActionNames !== undefined && {
-      actionNames: serializeAws_restJson1_1__listOf__string(
-        input.ActionNames,
-        context
-      )
+      actionNames: serializeAws_restJson1_1__listOf__string(input.ActionNames, context)
     })
   };
 };
@@ -9043,10 +7970,7 @@ const serializeAws_restJson1_1BlackoutSlate = (
 ): any => {
   return {
     ...(input.BlackoutSlateImage !== undefined && {
-      blackoutSlateImage: serializeAws_restJson1_1InputLocation(
-        input.BlackoutSlateImage,
-        context
-      )
+      blackoutSlateImage: serializeAws_restJson1_1InputLocation(input.BlackoutSlateImage, context)
     }),
     ...(input.NetworkEndBlackout !== undefined && {
       networkEndBlackout: input.NetworkEndBlackout
@@ -9479,10 +8403,7 @@ const serializeAws_restJson1_1EncoderSettings = (
       )
     }),
     ...(input.AvailBlanking !== undefined && {
-      availBlanking: serializeAws_restJson1_1AvailBlanking(
-        input.AvailBlanking,
-        context
-      )
+      availBlanking: serializeAws_restJson1_1AvailBlanking(input.AvailBlanking, context)
     }),
     ...(input.AvailConfiguration !== undefined && {
       availConfiguration: serializeAws_restJson1_1AvailConfiguration(
@@ -9491,10 +8412,7 @@ const serializeAws_restJson1_1EncoderSettings = (
       )
     }),
     ...(input.BlackoutSlate !== undefined && {
-      blackoutSlate: serializeAws_restJson1_1BlackoutSlate(
-        input.BlackoutSlate,
-        context
-      )
+      blackoutSlate: serializeAws_restJson1_1BlackoutSlate(input.BlackoutSlate, context)
     }),
     ...(input.CaptionDescriptions !== undefined && {
       captionDescriptions: serializeAws_restJson1_1__listOfCaptionDescription(
@@ -9515,16 +8433,10 @@ const serializeAws_restJson1_1EncoderSettings = (
       )
     }),
     ...(input.OutputGroups !== undefined && {
-      outputGroups: serializeAws_restJson1_1__listOfOutputGroup(
-        input.OutputGroups,
-        context
-      )
+      outputGroups: serializeAws_restJson1_1__listOfOutputGroup(input.OutputGroups, context)
     }),
     ...(input.TimecodeConfig !== undefined && {
-      timecodeConfig: serializeAws_restJson1_1TimecodeConfig(
-        input.TimecodeConfig,
-        context
-      )
+      timecodeConfig: serializeAws_restJson1_1TimecodeConfig(input.TimecodeConfig, context)
     }),
     ...(input.VideoDescriptions !== undefined && {
       videoDescriptions: serializeAws_restJson1_1__listOfVideoDescription(
@@ -9584,10 +8496,7 @@ const serializeAws_restJson1_1FrameCaptureGroupSettings = (
 ): any => {
   return {
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     })
   };
 };
@@ -9629,10 +8538,7 @@ const serializeAws_restJson1_1GlobalConfiguration = (
       inputEndAction: input.InputEndAction
     }),
     ...(input.InputLossBehavior !== undefined && {
-      inputLossBehavior: serializeAws_restJson1_1InputLossBehavior(
-        input.InputLossBehavior,
-        context
-      )
+      inputLossBehavior: serializeAws_restJson1_1InputLossBehavior(input.InputLossBehavior, context)
     }),
     ...(input.OutputLockingMode !== undefined && {
       outputLockingMode: input.OutputLockingMode
@@ -9658,16 +8564,10 @@ const serializeAws_restJson1_1H264ColorSpaceSettings = (
       )
     }),
     ...(input.Rec601Settings !== undefined && {
-      rec601Settings: serializeAws_restJson1_1Rec601Settings(
-        input.Rec601Settings,
-        context
-      )
+      rec601Settings: serializeAws_restJson1_1Rec601Settings(input.Rec601Settings, context)
     }),
     ...(input.Rec709Settings !== undefined && {
-      rec709Settings: serializeAws_restJson1_1Rec709Settings(
-        input.Rec709Settings,
-        context
-      )
+      rec709Settings: serializeAws_restJson1_1Rec709Settings(input.Rec709Settings, context)
     })
   };
 };
@@ -9777,22 +8677,13 @@ const serializeAws_restJson1_1H265ColorSpaceSettings = (
       )
     }),
     ...(input.Hdr10Settings !== undefined && {
-      hdr10Settings: serializeAws_restJson1_1Hdr10Settings(
-        input.Hdr10Settings,
-        context
-      )
+      hdr10Settings: serializeAws_restJson1_1Hdr10Settings(input.Hdr10Settings, context)
     }),
     ...(input.Rec601Settings !== undefined && {
-      rec601Settings: serializeAws_restJson1_1Rec601Settings(
-        input.Rec601Settings,
-        context
-      )
+      rec601Settings: serializeAws_restJson1_1Rec601Settings(input.Rec601Settings, context)
     }),
     ...(input.Rec709Settings !== undefined && {
-      rec709Settings: serializeAws_restJson1_1Rec709Settings(
-        input.Rec709Settings,
-        context
-      )
+      rec709Settings: serializeAws_restJson1_1Rec709Settings(input.Rec709Settings, context)
     })
   };
 };
@@ -9927,10 +8818,7 @@ const serializeAws_restJson1_1HlsCdnSettings = (
 ): any => {
   return {
     ...(input.HlsAkamaiSettings !== undefined && {
-      hlsAkamaiSettings: serializeAws_restJson1_1HlsAkamaiSettings(
-        input.HlsAkamaiSettings,
-        context
-      )
+      hlsAkamaiSettings: serializeAws_restJson1_1HlsAkamaiSettings(input.HlsAkamaiSettings, context)
     }),
     ...(input.HlsBasicPutSettings !== undefined && {
       hlsBasicPutSettings: serializeAws_restJson1_1HlsBasicPutSettings(
@@ -9945,10 +8833,7 @@ const serializeAws_restJson1_1HlsCdnSettings = (
       )
     }),
     ...(input.HlsWebdavSettings !== undefined && {
-      hlsWebdavSettings: serializeAws_restJson1_1HlsWebdavSettings(
-        input.HlsWebdavSettings,
-        context
-      )
+      hlsWebdavSettings: serializeAws_restJson1_1HlsWebdavSettings(input.HlsWebdavSettings, context)
     })
   };
 };
@@ -9959,10 +8844,7 @@ const serializeAws_restJson1_1HlsGroupSettings = (
 ): any => {
   return {
     ...(input.AdMarkers !== undefined && {
-      adMarkers: serializeAws_restJson1_1__listOfHlsAdMarkers(
-        input.AdMarkers,
-        context
-      )
+      adMarkers: serializeAws_restJson1_1__listOfHlsAdMarkers(input.AdMarkers, context)
     }),
     ...(input.BaseUrlContent !== undefined && {
       baseUrlContent: input.BaseUrlContent
@@ -9991,10 +8873,7 @@ const serializeAws_restJson1_1HlsGroupSettings = (
     }),
     ...(input.ConstantIv !== undefined && { constantIv: input.ConstantIv }),
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     }),
     ...(input.DirectoryStructure !== undefined && {
       directoryStructure: input.DirectoryStructure
@@ -10003,10 +8882,7 @@ const serializeAws_restJson1_1HlsGroupSettings = (
       encryptionType: input.EncryptionType
     }),
     ...(input.HlsCdnSettings !== undefined && {
-      hlsCdnSettings: serializeAws_restJson1_1HlsCdnSettings(
-        input.HlsCdnSettings,
-        context
-      )
+      hlsCdnSettings: serializeAws_restJson1_1HlsCdnSettings(input.HlsCdnSettings, context)
     }),
     ...(input.HlsId3SegmentTagging !== undefined && {
       hlsId3SegmentTagging: input.HlsId3SegmentTagging
@@ -10139,10 +9015,7 @@ const serializeAws_restJson1_1HlsOutputSettings = (
       h265PackagingType: input.H265PackagingType
     }),
     ...(input.HlsSettings !== undefined && {
-      hlsSettings: serializeAws_restJson1_1HlsSettings(
-        input.HlsSettings,
-        context
-      )
+      hlsSettings: serializeAws_restJson1_1HlsSettings(input.HlsSettings, context)
     }),
     ...(input.NameModifier !== undefined && {
       nameModifier: input.NameModifier
@@ -10153,10 +9026,7 @@ const serializeAws_restJson1_1HlsOutputSettings = (
   };
 };
 
-const serializeAws_restJson1_1HlsSettings = (
-  input: HlsSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1HlsSettings = (input: HlsSettings, context: __SerdeContext): any => {
   return {
     ...(input.AudioOnlyHlsSettings !== undefined && {
       audioOnlyHlsSettings: serializeAws_restJson1_1AudioOnlyHlsSettings(
@@ -10165,10 +9035,7 @@ const serializeAws_restJson1_1HlsSettings = (
       )
     }),
     ...(input.Fmp4HlsSettings !== undefined && {
-      fmp4HlsSettings: serializeAws_restJson1_1Fmp4HlsSettings(
-        input.Fmp4HlsSettings,
-        context
-      )
+      fmp4HlsSettings: serializeAws_restJson1_1Fmp4HlsSettings(input.Fmp4HlsSettings, context)
     }),
     ...(input.StandardHlsSettings !== undefined && {
       standardHlsSettings: serializeAws_restJson1_1StandardHlsSettings(
@@ -10226,10 +9093,7 @@ const serializeAws_restJson1_1InputAttachment = (
     }),
     ...(input.InputId !== undefined && { inputId: input.InputId }),
     ...(input.InputSettings !== undefined && {
-      inputSettings: serializeAws_restJson1_1InputSettings(
-        input.InputSettings,
-        context
-      )
+      inputSettings: serializeAws_restJson1_1InputSettings(input.InputSettings, context)
     })
   };
 };
@@ -10255,16 +9119,10 @@ const serializeAws_restJson1_1InputClippingSettings = (
       inputTimecodeSource: input.InputTimecodeSource
     }),
     ...(input.StartTimecode !== undefined && {
-      startTimecode: serializeAws_restJson1_1StartTimecode(
-        input.StartTimecode,
-        context
-      )
+      startTimecode: serializeAws_restJson1_1StartTimecode(input.StartTimecode, context)
     }),
     ...(input.StopTimecode !== undefined && {
-      stopTimecode: serializeAws_restJson1_1StopTimecode(
-        input.StopTimecode,
-        context
-      )
+      stopTimecode: serializeAws_restJson1_1StopTimecode(input.StopTimecode, context)
     })
   };
 };
@@ -10303,10 +9161,7 @@ const serializeAws_restJson1_1InputLossBehavior = (
       inputLossImageColor: input.InputLossImageColor
     }),
     ...(input.InputLossImageSlate !== undefined && {
-      inputLossImageSlate: serializeAws_restJson1_1InputLocation(
-        input.InputLossImageSlate,
-        context
-      )
+      inputLossImageSlate: serializeAws_restJson1_1InputLocation(input.InputLossImageSlate, context)
     }),
     ...(input.InputLossImageType !== undefined && {
       inputLossImageType: input.InputLossImageType
@@ -10323,10 +9178,7 @@ const serializeAws_restJson1_1InputSettings = (
 ): any => {
   return {
     ...(input.AudioSelectors !== undefined && {
-      audioSelectors: serializeAws_restJson1_1__listOfAudioSelector(
-        input.AudioSelectors,
-        context
-      )
+      audioSelectors: serializeAws_restJson1_1__listOfAudioSelector(input.AudioSelectors, context)
     }),
     ...(input.CaptionSelectors !== undefined && {
       captionSelectors: serializeAws_restJson1_1__listOfCaptionSelector(
@@ -10354,10 +9206,7 @@ const serializeAws_restJson1_1InputSettings = (
       sourceEndBehavior: input.SourceEndBehavior
     }),
     ...(input.VideoSelector !== undefined && {
-      videoSelector: serializeAws_restJson1_1VideoSelector(
-        input.VideoSelector,
-        context
-      )
+      videoSelector: serializeAws_restJson1_1VideoSelector(input.VideoSelector, context)
     })
   };
 };
@@ -10414,16 +9263,10 @@ const serializeAws_restJson1_1InputVpcRequest = (
 ): any => {
   return {
     ...(input.SecurityGroupIds !== undefined && {
-      securityGroupIds: serializeAws_restJson1_1__listOf__string(
-        input.SecurityGroupIds,
-        context
-      )
+      securityGroupIds: serializeAws_restJson1_1__listOf__string(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
-      subnetIds: serializeAws_restJson1_1__listOf__string(
-        input.SubnetIds,
-        context
-      )
+      subnetIds: serializeAws_restJson1_1__listOf__string(input.SubnetIds, context)
     })
   };
 };
@@ -10443,10 +9286,7 @@ const serializeAws_restJson1_1KeyProviderSettings = (
 ): any => {
   return {
     ...(input.StaticKeySettings !== undefined && {
-      staticKeySettings: serializeAws_restJson1_1StaticKeySettings(
-        input.StaticKeySettings,
-        context
-      )
+      staticKeySettings: serializeAws_restJson1_1StaticKeySettings(input.StaticKeySettings, context)
     })
   };
 };
@@ -10482,23 +9322,14 @@ const serializeAws_restJson1_1M2tsSettings = (
       ccDescriptor: input.CcDescriptor
     }),
     ...(input.DvbNitSettings !== undefined && {
-      dvbNitSettings: serializeAws_restJson1_1DvbNitSettings(
-        input.DvbNitSettings,
-        context
-      )
+      dvbNitSettings: serializeAws_restJson1_1DvbNitSettings(input.DvbNitSettings, context)
     }),
     ...(input.DvbSdtSettings !== undefined && {
-      dvbSdtSettings: serializeAws_restJson1_1DvbSdtSettings(
-        input.DvbSdtSettings,
-        context
-      )
+      dvbSdtSettings: serializeAws_restJson1_1DvbSdtSettings(input.DvbSdtSettings, context)
     }),
     ...(input.DvbSubPids !== undefined && { dvbSubPids: input.DvbSubPids }),
     ...(input.DvbTdtSettings !== undefined && {
-      dvbTdtSettings: serializeAws_restJson1_1DvbTdtSettings(
-        input.DvbTdtSettings,
-        context
-      )
+      dvbTdtSettings: serializeAws_restJson1_1DvbTdtSettings(input.DvbTdtSettings, context)
     }),
     ...(input.DvbTeletextPid !== undefined && {
       dvbTeletextPid: input.DvbTeletextPid
@@ -10619,10 +9450,7 @@ const serializeAws_restJson1_1MediaPackageGroupSettings = (
 ): any => {
   return {
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     })
   };
 };
@@ -10643,10 +9471,7 @@ const serializeAws_restJson1_1MediaPackageOutputSettings = (
   return {};
 };
 
-const serializeAws_restJson1_1Mp2Settings = (
-  input: Mp2Settings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Mp2Settings = (input: Mp2Settings, context: __SerdeContext): any => {
   return {
     ...(input.Bitrate !== undefined && { bitrate: input.Bitrate }),
     ...(input.CodingMode !== undefined && { codingMode: input.CodingMode }),
@@ -10672,10 +9497,7 @@ const serializeAws_restJson1_1MsSmoothGroupSettings = (
       connectionRetryInterval: input.ConnectionRetryInterval
     }),
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     }),
     ...(input.EventId !== undefined && { eventId: input.EventId }),
     ...(input.EventIdMode !== undefined && { eventIdMode: input.EventIdMode }),
@@ -10741,10 +9563,7 @@ const serializeAws_restJson1_1MultiplexOutputSettings = (
 ): any => {
   return {
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     })
   };
 };
@@ -10786,10 +9605,7 @@ const serializeAws_restJson1_1MultiplexProgramSettings = (
       )
     }),
     ...(input.VideoSettings !== undefined && {
-      videoSettings: serializeAws_restJson1_1MultiplexVideoSettings(
-        input.VideoSettings,
-        context
-      )
+      videoSettings: serializeAws_restJson1_1MultiplexVideoSettings(input.VideoSettings, context)
     })
   };
 };
@@ -10800,8 +9616,7 @@ const serializeAws_restJson1_1MultiplexSettings = (
 ): any => {
   return {
     ...(input.MaximumVideoBufferDelayMilliseconds !== undefined && {
-      maximumVideoBufferDelayMilliseconds:
-        input.MaximumVideoBufferDelayMilliseconds
+      maximumVideoBufferDelayMilliseconds: input.MaximumVideoBufferDelayMilliseconds
     }),
     ...(input.TransportStreamBitrate !== undefined && {
       transportStreamBitrate: input.TransportStreamBitrate
@@ -10852,10 +9667,7 @@ const serializeAws_restJson1_1NetworkInputSettings = (
 ): any => {
   return {
     ...(input.HlsInputSettings !== undefined && {
-      hlsInputSettings: serializeAws_restJson1_1HlsInputSettings(
-        input.HlsInputSettings,
-        context
-      )
+      hlsInputSettings: serializeAws_restJson1_1HlsInputSettings(input.HlsInputSettings, context)
     }),
     ...(input.ServerValidation !== undefined && {
       serverValidation: input.ServerValidation
@@ -10877,10 +9689,7 @@ const serializeAws_restJson1_1NielsenConfiguration = (
   };
 };
 
-const serializeAws_restJson1_1Output = (
-  input: Output,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Output = (input: Output, context: __SerdeContext): any => {
   return {
     ...(input.AudioDescriptionNames !== undefined && {
       audioDescriptionNames: serializeAws_restJson1_1__listOf__string(
@@ -10896,10 +9705,7 @@ const serializeAws_restJson1_1Output = (
     }),
     ...(input.OutputName !== undefined && { outputName: input.OutputName }),
     ...(input.OutputSettings !== undefined && {
-      outputSettings: serializeAws_restJson1_1OutputSettings(
-        input.OutputSettings,
-        context
-      )
+      outputSettings: serializeAws_restJson1_1OutputSettings(input.OutputSettings, context)
     }),
     ...(input.VideoDescriptionName !== undefined && {
       videoDescriptionName: input.VideoDescriptionName
@@ -10926,10 +9732,7 @@ const serializeAws_restJson1_1OutputDestination = (
       )
     }),
     ...(input.Settings !== undefined && {
-      settings: serializeAws_restJson1_1__listOfOutputDestinationSettings(
-        input.Settings,
-        context
-      )
+      settings: serializeAws_restJson1_1__listOfOutputDestinationSettings(input.Settings, context)
     })
   };
 };
@@ -10948,10 +9751,7 @@ const serializeAws_restJson1_1OutputDestinationSettings = (
   };
 };
 
-const serializeAws_restJson1_1OutputGroup = (
-  input: OutputGroup,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1OutputGroup = (input: OutputGroup, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.OutputGroupSettings !== undefined && {
@@ -10984,10 +9784,7 @@ const serializeAws_restJson1_1OutputGroupSettings = (
       )
     }),
     ...(input.HlsGroupSettings !== undefined && {
-      hlsGroupSettings: serializeAws_restJson1_1HlsGroupSettings(
-        input.HlsGroupSettings,
-        context
-      )
+      hlsGroupSettings: serializeAws_restJson1_1HlsGroupSettings(input.HlsGroupSettings, context)
     }),
     ...(input.MediaPackageGroupSettings !== undefined && {
       mediaPackageGroupSettings: serializeAws_restJson1_1MediaPackageGroupSettings(
@@ -11008,16 +9805,10 @@ const serializeAws_restJson1_1OutputGroupSettings = (
       )
     }),
     ...(input.RtmpGroupSettings !== undefined && {
-      rtmpGroupSettings: serializeAws_restJson1_1RtmpGroupSettings(
-        input.RtmpGroupSettings,
-        context
-      )
+      rtmpGroupSettings: serializeAws_restJson1_1RtmpGroupSettings(input.RtmpGroupSettings, context)
     }),
     ...(input.UdpGroupSettings !== undefined && {
-      udpGroupSettings: serializeAws_restJson1_1UdpGroupSettings(
-        input.UdpGroupSettings,
-        context
-      )
+      udpGroupSettings: serializeAws_restJson1_1UdpGroupSettings(input.UdpGroupSettings, context)
     })
   };
 };
@@ -11051,10 +9842,7 @@ const serializeAws_restJson1_1OutputSettings = (
       )
     }),
     ...(input.HlsOutputSettings !== undefined && {
-      hlsOutputSettings: serializeAws_restJson1_1HlsOutputSettings(
-        input.HlsOutputSettings,
-        context
-      )
+      hlsOutputSettings: serializeAws_restJson1_1HlsOutputSettings(input.HlsOutputSettings, context)
     }),
     ...(input.MediaPackageOutputSettings !== undefined && {
       mediaPackageOutputSettings: serializeAws_restJson1_1MediaPackageOutputSettings(
@@ -11081,10 +9869,7 @@ const serializeAws_restJson1_1OutputSettings = (
       )
     }),
     ...(input.UdpOutputSettings !== undefined && {
-      udpOutputSettings: serializeAws_restJson1_1UdpOutputSettings(
-        input.UdpOutputSettings,
-        context
-      )
+      udpOutputSettings: serializeAws_restJson1_1UdpOutputSettings(input.UdpOutputSettings, context)
     })
   };
 };
@@ -11190,10 +9975,7 @@ const serializeAws_restJson1_1RtmpOutputSettings = (
       connectionRetryInterval: input.ConnectionRetryInterval
     }),
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     }),
     ...(input.NumRetries !== undefined && { numRetries: input.NumRetries })
   };
@@ -11522,10 +10304,7 @@ const serializeAws_restJson1_1StandardHlsSettings = (
       audioRenditionSets: input.AudioRenditionSets
     }),
     ...(input.M3u8Settings !== undefined && {
-      m3u8Settings: serializeAws_restJson1_1M3u8Settings(
-        input.M3u8Settings,
-        context
-      )
+      m3u8Settings: serializeAws_restJson1_1M3u8Settings(input.M3u8Settings, context)
     })
   };
 };
@@ -11575,10 +10354,7 @@ const serializeAws_restJson1_1StaticKeySettings = (
 ): any => {
   return {
     ...(input.KeyProviderServer !== undefined && {
-      keyProviderServer: serializeAws_restJson1_1InputLocation(
-        input.KeyProviderServer,
-        context
-      )
+      keyProviderServer: serializeAws_restJson1_1InputLocation(input.KeyProviderServer, context)
     }),
     ...(input.StaticKeyValue !== undefined && {
       staticKeyValue: input.StaticKeyValue
@@ -11656,10 +10432,7 @@ const serializeAws_restJson1_1UdpContainerSettings = (
 ): any => {
   return {
     ...(input.M2tsSettings !== undefined && {
-      m2tsSettings: serializeAws_restJson1_1M2tsSettings(
-        input.M2tsSettings,
-        context
-      )
+      m2tsSettings: serializeAws_restJson1_1M2tsSettings(input.M2tsSettings, context)
     })
   };
 };
@@ -11694,16 +10467,10 @@ const serializeAws_restJson1_1UdpOutputSettings = (
       )
     }),
     ...(input.Destination !== undefined && {
-      destination: serializeAws_restJson1_1OutputLocationRef(
-        input.Destination,
-        context
-      )
+      destination: serializeAws_restJson1_1OutputLocationRef(input.Destination, context)
     }),
     ...(input.FecOutputSettings !== undefined && {
-      fecOutputSettings: serializeAws_restJson1_1FecOutputSettings(
-        input.FecOutputSettings,
-        context
-      )
+      fecOutputSettings: serializeAws_restJson1_1FecOutputSettings(input.FecOutputSettings, context)
     })
   };
 };
@@ -11720,16 +10487,10 @@ const serializeAws_restJson1_1VideoCodecSettings = (
       )
     }),
     ...(input.H264Settings !== undefined && {
-      h264Settings: serializeAws_restJson1_1H264Settings(
-        input.H264Settings,
-        context
-      )
+      h264Settings: serializeAws_restJson1_1H264Settings(input.H264Settings, context)
     }),
     ...(input.H265Settings !== undefined && {
-      h265Settings: serializeAws_restJson1_1H265Settings(
-        input.H265Settings,
-        context
-      )
+      h265Settings: serializeAws_restJson1_1H265Settings(input.H265Settings, context)
     })
   };
 };
@@ -11740,10 +10501,7 @@ const serializeAws_restJson1_1VideoDescription = (
 ): any => {
   return {
     ...(input.CodecSettings !== undefined && {
-      codecSettings: serializeAws_restJson1_1VideoCodecSettings(
-        input.CodecSettings,
-        context
-      )
+      codecSettings: serializeAws_restJson1_1VideoCodecSettings(input.CodecSettings, context)
     }),
     ...(input.Height !== undefined && { height: input.Height }),
     ...(input.Name !== undefined && { name: input.Name }),
@@ -11800,10 +10558,7 @@ const serializeAws_restJson1_1VideoSelectorSettings = (
 ): any => {
   return {
     ...(input.VideoSelectorPid !== undefined && {
-      videoSelectorPid: serializeAws_restJson1_1VideoSelectorPid(
-        input.VideoSelectorPid,
-        context
-      )
+      videoSelectorPid: serializeAws_restJson1_1VideoSelectorPid(input.VideoSelectorPid, context)
     }),
     ...(input.VideoSelectorProgramId !== undefined && {
       videoSelectorProgramId: serializeAws_restJson1_1VideoSelectorProgramId(
@@ -11825,54 +10580,42 @@ const serializeAws_restJson1_1__listOfAudioChannelMapping = (
   input: AudioChannelMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AudioChannelMapping(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AudioChannelMapping(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfAudioDescription = (
   input: AudioDescription[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AudioDescription(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AudioDescription(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfAudioSelector = (
   input: AudioSelector[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AudioSelector(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AudioSelector(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfCaptionDescription = (
   input: CaptionDescription[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1CaptionDescription(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1CaptionDescription(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfCaptionLanguageMapping = (
   input: CaptionLanguageMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1CaptionLanguageMapping(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1CaptionLanguageMapping(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfCaptionSelector = (
   input: CaptionSelector[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1CaptionSelector(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1CaptionSelector(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
@@ -11886,54 +10629,42 @@ const serializeAws_restJson1_1__listOfInputAttachment = (
   input: InputAttachment[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputAttachment(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1InputAttachment(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfInputChannelLevel = (
   input: InputChannelLevel[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputChannelLevel(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1InputChannelLevel(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfInputDestinationRequest = (
   input: InputDestinationRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputDestinationRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1InputDestinationRequest(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfInputSourceRequest = (
   input: InputSourceRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputSourceRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1InputSourceRequest(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfInputWhitelistRuleCidr = (
   input: InputWhitelistRuleCidr[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputWhitelistRuleCidr(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1InputWhitelistRuleCidr(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfMediaConnectFlowRequest = (
   input: MediaConnectFlowRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1MediaConnectFlowRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1MediaConnectFlowRequest(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
@@ -11941,17 +10672,11 @@ const serializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return input.map(entry =>
-    serializeAws_restJson1_1MediaPackageOutputDestinationSettings(
-      entry,
-      context
-    )
+    serializeAws_restJson1_1MediaPackageOutputDestinationSettings(entry, context)
   );
 };
 
-const serializeAws_restJson1_1__listOfOutput = (
-  input: Output[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__listOfOutput = (input: Output[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Output(entry, context));
 };
 
@@ -11959,63 +10684,49 @@ const serializeAws_restJson1_1__listOfOutputDestination = (
   input: OutputDestination[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1OutputDestination(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1OutputDestination(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfOutputDestinationSettings = (
   input: OutputDestinationSettings[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1OutputDestinationSettings(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1OutputDestinationSettings(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfOutputGroup = (
   input: OutputGroup[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1OutputGroup(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1OutputGroup(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
   input: PipelinePauseStateSettings[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1PipelinePauseStateSettings(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1PipelinePauseStateSettings(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfScheduleAction = (
   input: ScheduleAction[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ScheduleAction(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ScheduleAction(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfScte35Descriptor = (
   input: Scte35Descriptor[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1Scte35Descriptor(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1Scte35Descriptor(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfVideoDescription = (
   input: VideoDescription[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1VideoDescription(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1VideoDescription(entry, context));
 };
 
 const serializeAws_restJson1_1__listOf__string = (
@@ -12031,42 +10742,23 @@ const deserializeAws_restJson1_1AacSettings = (
 ): AacSettings => {
   return {
     __type: "AacSettings",
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     CodingMode:
-      output.codingMode !== undefined && output.codingMode !== null
-        ? output.codingMode
-        : undefined,
+      output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     InputType:
-      output.inputType !== undefined && output.inputType !== null
-        ? output.inputType
-        : undefined,
-    Profile:
-      output.profile !== undefined && output.profile !== null
-        ? output.profile
-        : undefined,
+      output.inputType !== undefined && output.inputType !== null ? output.inputType : undefined,
+    Profile: output.profile !== undefined && output.profile !== null ? output.profile : undefined,
     RateControlMode:
       output.rateControlMode !== undefined && output.rateControlMode !== null
         ? output.rateControlMode
         : undefined,
     RawFormat:
-      output.rawFormat !== undefined && output.rawFormat !== null
-        ? output.rawFormat
-        : undefined,
+      output.rawFormat !== undefined && output.rawFormat !== null ? output.rawFormat : undefined,
     SampleRate:
-      output.sampleRate !== undefined && output.sampleRate !== null
-        ? output.sampleRate
-        : undefined,
-    Spec:
-      output.spec !== undefined && output.spec !== null
-        ? output.spec
-        : undefined,
+      output.sampleRate !== undefined && output.sampleRate !== null ? output.sampleRate : undefined,
+    Spec: output.spec !== undefined && output.spec !== null ? output.spec : undefined,
     VbrQuality:
-      output.vbrQuality !== undefined && output.vbrQuality !== null
-        ? output.vbrQuality
-        : undefined
+      output.vbrQuality !== undefined && output.vbrQuality !== null ? output.vbrQuality : undefined
   } as any;
 };
 
@@ -12076,30 +10768,19 @@ const deserializeAws_restJson1_1Ac3Settings = (
 ): Ac3Settings => {
   return {
     __type: "Ac3Settings",
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     BitstreamMode:
       output.bitstreamMode !== undefined && output.bitstreamMode !== null
         ? output.bitstreamMode
         : undefined,
     CodingMode:
-      output.codingMode !== undefined && output.codingMode !== null
-        ? output.codingMode
-        : undefined,
+      output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     Dialnorm:
-      output.dialnorm !== undefined && output.dialnorm !== null
-        ? output.dialnorm
-        : undefined,
+      output.dialnorm !== undefined && output.dialnorm !== null ? output.dialnorm : undefined,
     DrcProfile:
-      output.drcProfile !== undefined && output.drcProfile !== null
-        ? output.drcProfile
-        : undefined,
+      output.drcProfile !== undefined && output.drcProfile !== null ? output.drcProfile : undefined,
     LfeFilter:
-      output.lfeFilter !== undefined && output.lfeFilter !== null
-        ? output.lfeFilter
-        : undefined,
+      output.lfeFilter !== undefined && output.lfeFilter !== null ? output.lfeFilter : undefined,
     MetadataControl:
       output.metadataControl !== undefined && output.metadataControl !== null
         ? output.metadataControl
@@ -12128,10 +10809,7 @@ const deserializeAws_restJson1_1ArchiveGroupSettings = (
     __type: "ArchiveGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined,
     RolloverInterval:
       output.rolloverInterval !== undefined && output.rolloverInterval !== null
@@ -12147,17 +10825,11 @@ const deserializeAws_restJson1_1ArchiveOutputSettings = (
   return {
     __type: "ArchiveOutputSettings",
     ContainerSettings:
-      output.containerSettings !== undefined &&
-      output.containerSettings !== null
-        ? deserializeAws_restJson1_1ArchiveContainerSettings(
-            output.containerSettings,
-            context
-          )
+      output.containerSettings !== undefined && output.containerSettings !== null
+        ? deserializeAws_restJson1_1ArchiveContainerSettings(output.containerSettings, context)
         : undefined,
     Extension:
-      output.extension !== undefined && output.extension !== null
-        ? output.extension
-        : undefined,
+      output.extension !== undefined && output.extension !== null ? output.extension : undefined,
     NameModifier:
       output.nameModifier !== undefined && output.nameModifier !== null
         ? output.nameModifier
@@ -12190,12 +10862,8 @@ const deserializeAws_restJson1_1AudioChannelMapping = (
   return {
     __type: "AudioChannelMapping",
     InputChannelLevels:
-      output.inputChannelLevels !== undefined &&
-      output.inputChannelLevels !== null
-        ? deserializeAws_restJson1_1__listOfInputChannelLevel(
-            output.inputChannelLevels,
-            context
-          )
+      output.inputChannelLevels !== undefined && output.inputChannelLevels !== null
+        ? deserializeAws_restJson1_1__listOfInputChannelLevel(output.inputChannelLevels, context)
         : undefined,
     OutputChannel:
       output.outputChannel !== undefined && output.outputChannel !== null
@@ -12227,12 +10895,8 @@ const deserializeAws_restJson1_1AudioCodecSettings = (
         ? deserializeAws_restJson1_1Mp2Settings(output.mp2Settings, context)
         : undefined,
     PassThroughSettings:
-      output.passThroughSettings !== undefined &&
-      output.passThroughSettings !== null
-        ? deserializeAws_restJson1_1PassThroughSettings(
-            output.passThroughSettings,
-            context
-          )
+      output.passThroughSettings !== undefined && output.passThroughSettings !== null
+        ? deserializeAws_restJson1_1PassThroughSettings(output.passThroughSettings, context)
         : undefined
   } as any;
 };
@@ -12244,54 +10908,41 @@ const deserializeAws_restJson1_1AudioDescription = (
   return {
     __type: "AudioDescription",
     AudioNormalizationSettings:
-      output.audioNormalizationSettings !== undefined &&
-      output.audioNormalizationSettings !== null
+      output.audioNormalizationSettings !== undefined && output.audioNormalizationSettings !== null
         ? deserializeAws_restJson1_1AudioNormalizationSettings(
             output.audioNormalizationSettings,
             context
           )
         : undefined,
     AudioSelectorName:
-      output.audioSelectorName !== undefined &&
-      output.audioSelectorName !== null
+      output.audioSelectorName !== undefined && output.audioSelectorName !== null
         ? output.audioSelectorName
         : undefined,
     AudioType:
-      output.audioType !== undefined && output.audioType !== null
-        ? output.audioType
-        : undefined,
+      output.audioType !== undefined && output.audioType !== null ? output.audioType : undefined,
     AudioTypeControl:
       output.audioTypeControl !== undefined && output.audioTypeControl !== null
         ? output.audioTypeControl
         : undefined,
     CodecSettings:
       output.codecSettings !== undefined && output.codecSettings !== null
-        ? deserializeAws_restJson1_1AudioCodecSettings(
-            output.codecSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1AudioCodecSettings(output.codecSettings, context)
         : undefined,
     LanguageCode:
       output.languageCode !== undefined && output.languageCode !== null
         ? output.languageCode
         : undefined,
     LanguageCodeControl:
-      output.languageCodeControl !== undefined &&
-      output.languageCodeControl !== null
+      output.languageCodeControl !== undefined && output.languageCodeControl !== null
         ? output.languageCodeControl
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     RemixSettings:
       output.remixSettings !== undefined && output.remixSettings !== null
         ? deserializeAws_restJson1_1RemixSettings(output.remixSettings, context)
         : undefined,
     StreamName:
-      output.streamName !== undefined && output.streamName !== null
-        ? output.streamName
-        : undefined
+      output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined
   } as any;
 };
 
@@ -12306,8 +10957,7 @@ const deserializeAws_restJson1_1AudioLanguageSelection = (
         ? output.languageCode
         : undefined,
     LanguageSelectionPolicy:
-      output.languageSelectionPolicy !== undefined &&
-      output.languageSelectionPolicy !== null
+      output.languageSelectionPolicy !== undefined && output.languageSelectionPolicy !== null
         ? output.languageSelectionPolicy
         : undefined
   } as any;
@@ -12320,17 +10970,13 @@ const deserializeAws_restJson1_1AudioNormalizationSettings = (
   return {
     __type: "AudioNormalizationSettings",
     Algorithm:
-      output.algorithm !== undefined && output.algorithm !== null
-        ? output.algorithm
-        : undefined,
+      output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
     AlgorithmControl:
       output.algorithmControl !== undefined && output.algorithmControl !== null
         ? output.algorithmControl
         : undefined,
     TargetLkfs:
-      output.targetLkfs !== undefined && output.targetLkfs !== null
-        ? output.targetLkfs
-        : undefined
+      output.targetLkfs !== undefined && output.targetLkfs !== null ? output.targetLkfs : undefined
   } as any;
 };
 
@@ -12346,10 +10992,7 @@ const deserializeAws_restJson1_1AudioOnlyHlsSettings = (
         : undefined,
     AudioOnlyImage:
       output.audioOnlyImage !== undefined && output.audioOnlyImage !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.audioOnlyImage,
-            context
-          )
+        ? deserializeAws_restJson1_1InputLocation(output.audioOnlyImage, context)
         : undefined,
     AudioTrackType:
       output.audioTrackType !== undefined && output.audioTrackType !== null
@@ -12368,8 +11011,7 @@ const deserializeAws_restJson1_1AudioPidSelection = (
 ): AudioPidSelection => {
   return {
     __type: "AudioPidSelection",
-    Pid:
-      output.pid !== undefined && output.pid !== null ? output.pid : undefined
+    Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined
   } as any;
 };
 
@@ -12379,16 +11021,10 @@ const deserializeAws_restJson1_1AudioSelector = (
 ): AudioSelector => {
   return {
     __type: "AudioSelector",
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SelectorSettings:
       output.selectorSettings !== undefined && output.selectorSettings !== null
-        ? deserializeAws_restJson1_1AudioSelectorSettings(
-            output.selectorSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1AudioSelectorSettings(output.selectorSettings, context)
         : undefined
   } as any;
 };
@@ -12400,20 +11036,12 @@ const deserializeAws_restJson1_1AudioSelectorSettings = (
   return {
     __type: "AudioSelectorSettings",
     AudioLanguageSelection:
-      output.audioLanguageSelection !== undefined &&
-      output.audioLanguageSelection !== null
-        ? deserializeAws_restJson1_1AudioLanguageSelection(
-            output.audioLanguageSelection,
-            context
-          )
+      output.audioLanguageSelection !== undefined && output.audioLanguageSelection !== null
+        ? deserializeAws_restJson1_1AudioLanguageSelection(output.audioLanguageSelection, context)
         : undefined,
     AudioPidSelection:
-      output.audioPidSelection !== undefined &&
-      output.audioPidSelection !== null
-        ? deserializeAws_restJson1_1AudioPidSelection(
-            output.audioPidSelection,
-            context
-          )
+      output.audioPidSelection !== undefined && output.audioPidSelection !== null
+        ? deserializeAws_restJson1_1AudioPidSelection(output.audioPidSelection, context)
         : undefined
   } as any;
 };
@@ -12425,17 +11053,10 @@ const deserializeAws_restJson1_1AvailBlanking = (
   return {
     __type: "AvailBlanking",
     AvailBlankingImage:
-      output.availBlankingImage !== undefined &&
-      output.availBlankingImage !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.availBlankingImage,
-            context
-          )
+      output.availBlankingImage !== undefined && output.availBlankingImage !== null
+        ? deserializeAws_restJson1_1InputLocation(output.availBlankingImage, context)
         : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined
+    State: output.state !== undefined && output.state !== null ? output.state : undefined
   } as any;
 };
 
@@ -12459,20 +11080,12 @@ const deserializeAws_restJson1_1AvailSettings = (
   return {
     __type: "AvailSettings",
     Scte35SpliceInsert:
-      output.scte35SpliceInsert !== undefined &&
-      output.scte35SpliceInsert !== null
-        ? deserializeAws_restJson1_1Scte35SpliceInsert(
-            output.scte35SpliceInsert,
-            context
-          )
+      output.scte35SpliceInsert !== undefined && output.scte35SpliceInsert !== null
+        ? deserializeAws_restJson1_1Scte35SpliceInsert(output.scte35SpliceInsert, context)
         : undefined,
     Scte35TimeSignalApos:
-      output.scte35TimeSignalApos !== undefined &&
-      output.scte35TimeSignalApos !== null
-        ? deserializeAws_restJson1_1Scte35TimeSignalApos(
-            output.scte35TimeSignalApos,
-            context
-          )
+      output.scte35TimeSignalApos !== undefined && output.scte35TimeSignalApos !== null
+        ? deserializeAws_restJson1_1Scte35TimeSignalApos(output.scte35TimeSignalApos, context)
         : undefined
   } as any;
 };
@@ -12485,10 +11098,7 @@ const deserializeAws_restJson1_1BatchScheduleActionCreateResult = (
     __type: "BatchScheduleActionCreateResult",
     ScheduleActions:
       output.scheduleActions !== undefined && output.scheduleActions !== null
-        ? deserializeAws_restJson1_1__listOfScheduleAction(
-            output.scheduleActions,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfScheduleAction(output.scheduleActions, context)
         : undefined
   } as any;
 };
@@ -12501,10 +11111,7 @@ const deserializeAws_restJson1_1BatchScheduleActionDeleteResult = (
     __type: "BatchScheduleActionDeleteResult",
     ScheduleActions:
       output.scheduleActions !== undefined && output.scheduleActions !== null
-        ? deserializeAws_restJson1_1__listOfScheduleAction(
-            output.scheduleActions,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfScheduleAction(output.scheduleActions, context)
         : undefined
   } as any;
 };
@@ -12516,34 +11123,20 @@ const deserializeAws_restJson1_1BlackoutSlate = (
   return {
     __type: "BlackoutSlate",
     BlackoutSlateImage:
-      output.blackoutSlateImage !== undefined &&
-      output.blackoutSlateImage !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.blackoutSlateImage,
-            context
-          )
+      output.blackoutSlateImage !== undefined && output.blackoutSlateImage !== null
+        ? deserializeAws_restJson1_1InputLocation(output.blackoutSlateImage, context)
         : undefined,
     NetworkEndBlackout:
-      output.networkEndBlackout !== undefined &&
-      output.networkEndBlackout !== null
+      output.networkEndBlackout !== undefined && output.networkEndBlackout !== null
         ? output.networkEndBlackout
         : undefined,
     NetworkEndBlackoutImage:
-      output.networkEndBlackoutImage !== undefined &&
-      output.networkEndBlackoutImage !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.networkEndBlackoutImage,
-            context
-          )
+      output.networkEndBlackoutImage !== undefined && output.networkEndBlackoutImage !== null
+        ? deserializeAws_restJson1_1InputLocation(output.networkEndBlackoutImage, context)
         : undefined,
     NetworkId:
-      output.networkId !== undefined && output.networkId !== null
-        ? output.networkId
-        : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined
+      output.networkId !== undefined && output.networkId !== null ? output.networkId : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined
   } as any;
 };
 
@@ -12554,16 +11147,13 @@ const deserializeAws_restJson1_1BurnInDestinationSettings = (
   return {
     __type: "BurnInDestinationSettings",
     Alignment:
-      output.alignment !== undefined && output.alignment !== null
-        ? output.alignment
-        : undefined,
+      output.alignment !== undefined && output.alignment !== null ? output.alignment : undefined,
     BackgroundColor:
       output.backgroundColor !== undefined && output.backgroundColor !== null
         ? output.backgroundColor
         : undefined,
     BackgroundOpacity:
-      output.backgroundOpacity !== undefined &&
-      output.backgroundOpacity !== null
+      output.backgroundOpacity !== undefined && output.backgroundOpacity !== null
         ? output.backgroundOpacity
         : undefined,
     Font:
@@ -12571,9 +11161,7 @@ const deserializeAws_restJson1_1BurnInDestinationSettings = (
         ? deserializeAws_restJson1_1InputLocation(output.font, context)
         : undefined,
     FontColor:
-      output.fontColor !== undefined && output.fontColor !== null
-        ? output.fontColor
-        : undefined,
+      output.fontColor !== undefined && output.fontColor !== null ? output.fontColor : undefined,
     FontOpacity:
       output.fontOpacity !== undefined && output.fontOpacity !== null
         ? output.fontOpacity
@@ -12583,9 +11171,7 @@ const deserializeAws_restJson1_1BurnInDestinationSettings = (
         ? output.fontResolution
         : undefined,
     FontSize:
-      output.fontSize !== undefined && output.fontSize !== null
-        ? output.fontSize
-        : undefined,
+      output.fontSize !== undefined && output.fontSize !== null ? output.fontSize : undefined,
     OutlineColor:
       output.outlineColor !== undefined && output.outlineColor !== null
         ? output.outlineColor
@@ -12611,18 +11197,13 @@ const deserializeAws_restJson1_1BurnInDestinationSettings = (
         ? output.shadowYOffset
         : undefined,
     TeletextGridControl:
-      output.teletextGridControl !== undefined &&
-      output.teletextGridControl !== null
+      output.teletextGridControl !== undefined && output.teletextGridControl !== null
         ? output.teletextGridControl
         : undefined,
     XPosition:
-      output.xPosition !== undefined && output.xPosition !== null
-        ? output.xPosition
-        : undefined,
+      output.xPosition !== undefined && output.xPosition !== null ? output.xPosition : undefined,
     YPosition:
-      output.yPosition !== undefined && output.yPosition !== null
-        ? output.yPosition
-        : undefined
+      output.yPosition !== undefined && output.yPosition !== null ? output.yPosition : undefined
   } as any;
 };
 
@@ -12633,31 +11214,22 @@ const deserializeAws_restJson1_1CaptionDescription = (
   return {
     __type: "CaptionDescription",
     CaptionSelectorName:
-      output.captionSelectorName !== undefined &&
-      output.captionSelectorName !== null
+      output.captionSelectorName !== undefined && output.captionSelectorName !== null
         ? output.captionSelectorName
         : undefined,
     DestinationSettings:
-      output.destinationSettings !== undefined &&
-      output.destinationSettings !== null
-        ? deserializeAws_restJson1_1CaptionDestinationSettings(
-            output.destinationSettings,
-            context
-          )
+      output.destinationSettings !== undefined && output.destinationSettings !== null
+        ? deserializeAws_restJson1_1CaptionDestinationSettings(output.destinationSettings, context)
         : undefined,
     LanguageCode:
       output.languageCode !== undefined && output.languageCode !== null
         ? output.languageCode
         : undefined,
     LanguageDescription:
-      output.languageDescription !== undefined &&
-      output.languageDescription !== null
+      output.languageDescription !== undefined && output.languageDescription !== null
         ? output.languageDescription
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -12668,24 +11240,18 @@ const deserializeAws_restJson1_1CaptionDestinationSettings = (
   return {
     __type: "CaptionDestinationSettings",
     AribDestinationSettings:
-      output.aribDestinationSettings !== undefined &&
-      output.aribDestinationSettings !== null
-        ? deserializeAws_restJson1_1AribDestinationSettings(
-            output.aribDestinationSettings,
-            context
-          )
+      output.aribDestinationSettings !== undefined && output.aribDestinationSettings !== null
+        ? deserializeAws_restJson1_1AribDestinationSettings(output.aribDestinationSettings, context)
         : undefined,
     BurnInDestinationSettings:
-      output.burnInDestinationSettings !== undefined &&
-      output.burnInDestinationSettings !== null
+      output.burnInDestinationSettings !== undefined && output.burnInDestinationSettings !== null
         ? deserializeAws_restJson1_1BurnInDestinationSettings(
             output.burnInDestinationSettings,
             context
           )
         : undefined,
     DvbSubDestinationSettings:
-      output.dvbSubDestinationSettings !== undefined &&
-      output.dvbSubDestinationSettings !== null
+      output.dvbSubDestinationSettings !== undefined && output.dvbSubDestinationSettings !== null
         ? deserializeAws_restJson1_1DvbSubDestinationSettings(
             output.dvbSubDestinationSettings,
             context
@@ -12724,16 +11290,14 @@ const deserializeAws_restJson1_1CaptionDestinationSettings = (
           )
         : undefined,
     Scte27DestinationSettings:
-      output.scte27DestinationSettings !== undefined &&
-      output.scte27DestinationSettings !== null
+      output.scte27DestinationSettings !== undefined && output.scte27DestinationSettings !== null
         ? deserializeAws_restJson1_1Scte27DestinationSettings(
             output.scte27DestinationSettings,
             context
           )
         : undefined,
     SmpteTtDestinationSettings:
-      output.smpteTtDestinationSettings !== undefined &&
-      output.smpteTtDestinationSettings !== null
+      output.smpteTtDestinationSettings !== undefined && output.smpteTtDestinationSettings !== null
         ? deserializeAws_restJson1_1SmpteTtDestinationSettings(
             output.smpteTtDestinationSettings,
             context
@@ -12748,16 +11312,11 @@ const deserializeAws_restJson1_1CaptionDestinationSettings = (
           )
         : undefined,
     TtmlDestinationSettings:
-      output.ttmlDestinationSettings !== undefined &&
-      output.ttmlDestinationSettings !== null
-        ? deserializeAws_restJson1_1TtmlDestinationSettings(
-            output.ttmlDestinationSettings,
-            context
-          )
+      output.ttmlDestinationSettings !== undefined && output.ttmlDestinationSettings !== null
+        ? deserializeAws_restJson1_1TtmlDestinationSettings(output.ttmlDestinationSettings, context)
         : undefined,
     WebvttDestinationSettings:
-      output.webvttDestinationSettings !== undefined &&
-      output.webvttDestinationSettings !== null
+      output.webvttDestinationSettings !== undefined && output.webvttDestinationSettings !== null
         ? deserializeAws_restJson1_1WebvttDestinationSettings(
             output.webvttDestinationSettings,
             context
@@ -12781,8 +11340,7 @@ const deserializeAws_restJson1_1CaptionLanguageMapping = (
         ? output.languageCode
         : undefined,
     LanguageDescription:
-      output.languageDescription !== undefined &&
-      output.languageDescription !== null
+      output.languageDescription !== undefined && output.languageDescription !== null
         ? output.languageDescription
         : undefined
   } as any;
@@ -12798,16 +11356,10 @@ const deserializeAws_restJson1_1CaptionSelector = (
       output.languageCode !== undefined && output.languageCode !== null
         ? output.languageCode
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SelectorSettings:
       output.selectorSettings !== undefined && output.selectorSettings !== null
-        ? deserializeAws_restJson1_1CaptionSelectorSettings(
-            output.selectorSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1CaptionSelectorSettings(output.selectorSettings, context)
         : undefined
   } as any;
 };
@@ -12819,133 +11371,74 @@ const deserializeAws_restJson1_1CaptionSelectorSettings = (
   return {
     __type: "CaptionSelectorSettings",
     AribSourceSettings:
-      output.aribSourceSettings !== undefined &&
-      output.aribSourceSettings !== null
-        ? deserializeAws_restJson1_1AribSourceSettings(
-            output.aribSourceSettings,
-            context
-          )
+      output.aribSourceSettings !== undefined && output.aribSourceSettings !== null
+        ? deserializeAws_restJson1_1AribSourceSettings(output.aribSourceSettings, context)
         : undefined,
     DvbSubSourceSettings:
-      output.dvbSubSourceSettings !== undefined &&
-      output.dvbSubSourceSettings !== null
-        ? deserializeAws_restJson1_1DvbSubSourceSettings(
-            output.dvbSubSourceSettings,
-            context
-          )
+      output.dvbSubSourceSettings !== undefined && output.dvbSubSourceSettings !== null
+        ? deserializeAws_restJson1_1DvbSubSourceSettings(output.dvbSubSourceSettings, context)
         : undefined,
     EmbeddedSourceSettings:
-      output.embeddedSourceSettings !== undefined &&
-      output.embeddedSourceSettings !== null
-        ? deserializeAws_restJson1_1EmbeddedSourceSettings(
-            output.embeddedSourceSettings,
-            context
-          )
+      output.embeddedSourceSettings !== undefined && output.embeddedSourceSettings !== null
+        ? deserializeAws_restJson1_1EmbeddedSourceSettings(output.embeddedSourceSettings, context)
         : undefined,
     Scte20SourceSettings:
-      output.scte20SourceSettings !== undefined &&
-      output.scte20SourceSettings !== null
-        ? deserializeAws_restJson1_1Scte20SourceSettings(
-            output.scte20SourceSettings,
-            context
-          )
+      output.scte20SourceSettings !== undefined && output.scte20SourceSettings !== null
+        ? deserializeAws_restJson1_1Scte20SourceSettings(output.scte20SourceSettings, context)
         : undefined,
     Scte27SourceSettings:
-      output.scte27SourceSettings !== undefined &&
-      output.scte27SourceSettings !== null
-        ? deserializeAws_restJson1_1Scte27SourceSettings(
-            output.scte27SourceSettings,
-            context
-          )
+      output.scte27SourceSettings !== undefined && output.scte27SourceSettings !== null
+        ? deserializeAws_restJson1_1Scte27SourceSettings(output.scte27SourceSettings, context)
         : undefined,
     TeletextSourceSettings:
-      output.teletextSourceSettings !== undefined &&
-      output.teletextSourceSettings !== null
-        ? deserializeAws_restJson1_1TeletextSourceSettings(
-            output.teletextSourceSettings,
-            context
-          )
+      output.teletextSourceSettings !== undefined && output.teletextSourceSettings !== null
+        ? deserializeAws_restJson1_1TeletextSourceSettings(output.teletextSourceSettings, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Channel = (
-  output: any,
-  context: __SerdeContext
-): Channel => {
+const deserializeAws_restJson1_1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     __type: "Channel",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ChannelClass:
       output.channelClass !== undefined && output.channelClass !== null
         ? output.channelClass
         : undefined,
     Destinations:
       output.destinations !== undefined && output.destinations !== null
-        ? deserializeAws_restJson1_1__listOfOutputDestination(
-            output.destinations,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfOutputDestination(output.destinations, context)
         : undefined,
     EgressEndpoints:
       output.egressEndpoints !== undefined && output.egressEndpoints !== null
-        ? deserializeAws_restJson1_1__listOfChannelEgressEndpoint(
-            output.egressEndpoints,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfChannelEgressEndpoint(output.egressEndpoints, context)
         : undefined,
     EncoderSettings:
       output.encoderSettings !== undefined && output.encoderSettings !== null
-        ? deserializeAws_restJson1_1EncoderSettings(
-            output.encoderSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1EncoderSettings(output.encoderSettings, context)
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     InputAttachments:
       output.inputAttachments !== undefined && output.inputAttachments !== null
-        ? deserializeAws_restJson1_1__listOfInputAttachment(
-            output.inputAttachments,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfInputAttachment(output.inputAttachments, context)
         : undefined,
     InputSpecification:
-      output.inputSpecification !== undefined &&
-      output.inputSpecification !== null
-        ? deserializeAws_restJson1_1InputSpecification(
-            output.inputSpecification,
-            context
-          )
+      output.inputSpecification !== undefined && output.inputSpecification !== null
+        ? deserializeAws_restJson1_1InputSpecification(output.inputSpecification, context)
         : undefined,
     LogLevel:
-      output.logLevel !== undefined && output.logLevel !== null
-        ? output.logLevel
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     PipelineDetails:
       output.pipelineDetails !== undefined && output.pipelineDetails !== null
-        ? deserializeAws_restJson1_1__listOfPipelineDetail(
-            output.pipelineDetails,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfPipelineDetail(output.pipelineDetails, context)
         : undefined,
     PipelinesRunningCount:
-      output.pipelinesRunningCount !== undefined &&
-      output.pipelinesRunningCount !== null
+      output.pipelinesRunningCount !== undefined && output.pipelinesRunningCount !== null
         ? output.pipelinesRunningCount
         : undefined,
-    RoleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
@@ -12960,9 +11453,7 @@ const deserializeAws_restJson1_1ChannelEgressEndpoint = (
   return {
     __type: "ChannelEgressEndpoint",
     SourceIp:
-      output.sourceIp !== undefined && output.sourceIp !== null
-        ? output.sourceIp
-        : undefined
+      output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined
   } as any;
 };
 
@@ -12972,63 +11463,37 @@ const deserializeAws_restJson1_1ChannelSummary = (
 ): ChannelSummary => {
   return {
     __type: "ChannelSummary",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ChannelClass:
       output.channelClass !== undefined && output.channelClass !== null
         ? output.channelClass
         : undefined,
     Destinations:
       output.destinations !== undefined && output.destinations !== null
-        ? deserializeAws_restJson1_1__listOfOutputDestination(
-            output.destinations,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfOutputDestination(output.destinations, context)
         : undefined,
     EgressEndpoints:
       output.egressEndpoints !== undefined && output.egressEndpoints !== null
-        ? deserializeAws_restJson1_1__listOfChannelEgressEndpoint(
-            output.egressEndpoints,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfChannelEgressEndpoint(output.egressEndpoints, context)
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     InputAttachments:
       output.inputAttachments !== undefined && output.inputAttachments !== null
-        ? deserializeAws_restJson1_1__listOfInputAttachment(
-            output.inputAttachments,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfInputAttachment(output.inputAttachments, context)
         : undefined,
     InputSpecification:
-      output.inputSpecification !== undefined &&
-      output.inputSpecification !== null
-        ? deserializeAws_restJson1_1InputSpecification(
-            output.inputSpecification,
-            context
-          )
+      output.inputSpecification !== undefined && output.inputSpecification !== null
+        ? deserializeAws_restJson1_1InputSpecification(output.inputSpecification, context)
         : undefined,
     LogLevel:
-      output.logLevel !== undefined && output.logLevel !== null
-        ? output.logLevel
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     PipelinesRunningCount:
-      output.pipelinesRunningCount !== undefined &&
-      output.pipelinesRunningCount !== null
+      output.pipelinesRunningCount !== undefined && output.pipelinesRunningCount !== null
         ? output.pipelinesRunningCount
         : undefined,
-    RoleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
@@ -13052,9 +11517,7 @@ const deserializeAws_restJson1_1DvbNitSettings = (
   return {
     __type: "DvbNitSettings",
     NetworkId:
-      output.networkId !== undefined && output.networkId !== null
-        ? output.networkId
-        : undefined,
+      output.networkId !== undefined && output.networkId !== null ? output.networkId : undefined,
     NetworkName:
       output.networkName !== undefined && output.networkName !== null
         ? output.networkName
@@ -13073,9 +11536,7 @@ const deserializeAws_restJson1_1DvbSdtSettings = (
   return {
     __type: "DvbSdtSettings",
     OutputSdt:
-      output.outputSdt !== undefined && output.outputSdt !== null
-        ? output.outputSdt
-        : undefined,
+      output.outputSdt !== undefined && output.outputSdt !== null ? output.outputSdt : undefined,
     RepInterval:
       output.repInterval !== undefined && output.repInterval !== null
         ? output.repInterval
@@ -13085,8 +11546,7 @@ const deserializeAws_restJson1_1DvbSdtSettings = (
         ? output.serviceName
         : undefined,
     ServiceProviderName:
-      output.serviceProviderName !== undefined &&
-      output.serviceProviderName !== null
+      output.serviceProviderName !== undefined && output.serviceProviderName !== null
         ? output.serviceProviderName
         : undefined
   } as any;
@@ -13099,16 +11559,13 @@ const deserializeAws_restJson1_1DvbSubDestinationSettings = (
   return {
     __type: "DvbSubDestinationSettings",
     Alignment:
-      output.alignment !== undefined && output.alignment !== null
-        ? output.alignment
-        : undefined,
+      output.alignment !== undefined && output.alignment !== null ? output.alignment : undefined,
     BackgroundColor:
       output.backgroundColor !== undefined && output.backgroundColor !== null
         ? output.backgroundColor
         : undefined,
     BackgroundOpacity:
-      output.backgroundOpacity !== undefined &&
-      output.backgroundOpacity !== null
+      output.backgroundOpacity !== undefined && output.backgroundOpacity !== null
         ? output.backgroundOpacity
         : undefined,
     Font:
@@ -13116,9 +11573,7 @@ const deserializeAws_restJson1_1DvbSubDestinationSettings = (
         ? deserializeAws_restJson1_1InputLocation(output.font, context)
         : undefined,
     FontColor:
-      output.fontColor !== undefined && output.fontColor !== null
-        ? output.fontColor
-        : undefined,
+      output.fontColor !== undefined && output.fontColor !== null ? output.fontColor : undefined,
     FontOpacity:
       output.fontOpacity !== undefined && output.fontOpacity !== null
         ? output.fontOpacity
@@ -13128,9 +11583,7 @@ const deserializeAws_restJson1_1DvbSubDestinationSettings = (
         ? output.fontResolution
         : undefined,
     FontSize:
-      output.fontSize !== undefined && output.fontSize !== null
-        ? output.fontSize
-        : undefined,
+      output.fontSize !== undefined && output.fontSize !== null ? output.fontSize : undefined,
     OutlineColor:
       output.outlineColor !== undefined && output.outlineColor !== null
         ? output.outlineColor
@@ -13156,18 +11609,13 @@ const deserializeAws_restJson1_1DvbSubDestinationSettings = (
         ? output.shadowYOffset
         : undefined,
     TeletextGridControl:
-      output.teletextGridControl !== undefined &&
-      output.teletextGridControl !== null
+      output.teletextGridControl !== undefined && output.teletextGridControl !== null
         ? output.teletextGridControl
         : undefined,
     XPosition:
-      output.xPosition !== undefined && output.xPosition !== null
-        ? output.xPosition
-        : undefined,
+      output.xPosition !== undefined && output.xPosition !== null ? output.xPosition : undefined,
     YPosition:
-      output.yPosition !== undefined && output.yPosition !== null
-        ? output.yPosition
-        : undefined
+      output.yPosition !== undefined && output.yPosition !== null ? output.yPosition : undefined
   } as any;
 };
 
@@ -13177,8 +11625,7 @@ const deserializeAws_restJson1_1DvbSubSourceSettings = (
 ): DvbSubSourceSettings => {
   return {
     __type: "DvbSubSourceSettings",
-    Pid:
-      output.pid !== undefined && output.pid !== null ? output.pid : undefined
+    Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined
   } as any;
 };
 
@@ -13202,64 +11649,40 @@ const deserializeAws_restJson1_1Eac3Settings = (
   return {
     __type: "Eac3Settings",
     AttenuationControl:
-      output.attenuationControl !== undefined &&
-      output.attenuationControl !== null
+      output.attenuationControl !== undefined && output.attenuationControl !== null
         ? output.attenuationControl
         : undefined,
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     BitstreamMode:
       output.bitstreamMode !== undefined && output.bitstreamMode !== null
         ? output.bitstreamMode
         : undefined,
     CodingMode:
-      output.codingMode !== undefined && output.codingMode !== null
-        ? output.codingMode
-        : undefined,
+      output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     DcFilter:
-      output.dcFilter !== undefined && output.dcFilter !== null
-        ? output.dcFilter
-        : undefined,
+      output.dcFilter !== undefined && output.dcFilter !== null ? output.dcFilter : undefined,
     Dialnorm:
-      output.dialnorm !== undefined && output.dialnorm !== null
-        ? output.dialnorm
-        : undefined,
-    DrcLine:
-      output.drcLine !== undefined && output.drcLine !== null
-        ? output.drcLine
-        : undefined,
-    DrcRf:
-      output.drcRf !== undefined && output.drcRf !== null
-        ? output.drcRf
-        : undefined,
+      output.dialnorm !== undefined && output.dialnorm !== null ? output.dialnorm : undefined,
+    DrcLine: output.drcLine !== undefined && output.drcLine !== null ? output.drcLine : undefined,
+    DrcRf: output.drcRf !== undefined && output.drcRf !== null ? output.drcRf : undefined,
     LfeControl:
-      output.lfeControl !== undefined && output.lfeControl !== null
-        ? output.lfeControl
-        : undefined,
+      output.lfeControl !== undefined && output.lfeControl !== null ? output.lfeControl : undefined,
     LfeFilter:
-      output.lfeFilter !== undefined && output.lfeFilter !== null
-        ? output.lfeFilter
-        : undefined,
+      output.lfeFilter !== undefined && output.lfeFilter !== null ? output.lfeFilter : undefined,
     LoRoCenterMixLevel:
-      output.loRoCenterMixLevel !== undefined &&
-      output.loRoCenterMixLevel !== null
+      output.loRoCenterMixLevel !== undefined && output.loRoCenterMixLevel !== null
         ? output.loRoCenterMixLevel
         : undefined,
     LoRoSurroundMixLevel:
-      output.loRoSurroundMixLevel !== undefined &&
-      output.loRoSurroundMixLevel !== null
+      output.loRoSurroundMixLevel !== undefined && output.loRoSurroundMixLevel !== null
         ? output.loRoSurroundMixLevel
         : undefined,
     LtRtCenterMixLevel:
-      output.ltRtCenterMixLevel !== undefined &&
-      output.ltRtCenterMixLevel !== null
+      output.ltRtCenterMixLevel !== undefined && output.ltRtCenterMixLevel !== null
         ? output.ltRtCenterMixLevel
         : undefined,
     LtRtSurroundMixLevel:
-      output.ltRtSurroundMixLevel !== undefined &&
-      output.ltRtSurroundMixLevel !== null
+      output.ltRtSurroundMixLevel !== undefined && output.ltRtSurroundMixLevel !== null
         ? output.ltRtSurroundMixLevel
         : undefined,
     MetadataControl:
@@ -13267,8 +11690,7 @@ const deserializeAws_restJson1_1Eac3Settings = (
         ? output.metadataControl
         : undefined,
     PassthroughControl:
-      output.passthroughControl !== undefined &&
-      output.passthroughControl !== null
+      output.passthroughControl !== undefined && output.passthroughControl !== null
         ? output.passthroughControl
         : undefined,
     PhaseControl:
@@ -13323,13 +11745,11 @@ const deserializeAws_restJson1_1EmbeddedSourceSettings = (
         ? output.scte20Detection
         : undefined,
     Source608ChannelNumber:
-      output.source608ChannelNumber !== undefined &&
-      output.source608ChannelNumber !== null
+      output.source608ChannelNumber !== undefined && output.source608ChannelNumber !== null
         ? output.source608ChannelNumber
         : undefined,
     Source608TrackNumber:
-      output.source608TrackNumber !== undefined &&
-      output.source608TrackNumber !== null
+      output.source608TrackNumber !== undefined && output.source608TrackNumber !== null
         ? output.source608TrackNumber
         : undefined
   } as any;
@@ -13342,74 +11762,44 @@ const deserializeAws_restJson1_1EncoderSettings = (
   return {
     __type: "EncoderSettings",
     AudioDescriptions:
-      output.audioDescriptions !== undefined &&
-      output.audioDescriptions !== null
-        ? deserializeAws_restJson1_1__listOfAudioDescription(
-            output.audioDescriptions,
-            context
-          )
+      output.audioDescriptions !== undefined && output.audioDescriptions !== null
+        ? deserializeAws_restJson1_1__listOfAudioDescription(output.audioDescriptions, context)
         : undefined,
     AvailBlanking:
       output.availBlanking !== undefined && output.availBlanking !== null
         ? deserializeAws_restJson1_1AvailBlanking(output.availBlanking, context)
         : undefined,
     AvailConfiguration:
-      output.availConfiguration !== undefined &&
-      output.availConfiguration !== null
-        ? deserializeAws_restJson1_1AvailConfiguration(
-            output.availConfiguration,
-            context
-          )
+      output.availConfiguration !== undefined && output.availConfiguration !== null
+        ? deserializeAws_restJson1_1AvailConfiguration(output.availConfiguration, context)
         : undefined,
     BlackoutSlate:
       output.blackoutSlate !== undefined && output.blackoutSlate !== null
         ? deserializeAws_restJson1_1BlackoutSlate(output.blackoutSlate, context)
         : undefined,
     CaptionDescriptions:
-      output.captionDescriptions !== undefined &&
-      output.captionDescriptions !== null
-        ? deserializeAws_restJson1_1__listOfCaptionDescription(
-            output.captionDescriptions,
-            context
-          )
+      output.captionDescriptions !== undefined && output.captionDescriptions !== null
+        ? deserializeAws_restJson1_1__listOfCaptionDescription(output.captionDescriptions, context)
         : undefined,
     GlobalConfiguration:
-      output.globalConfiguration !== undefined &&
-      output.globalConfiguration !== null
-        ? deserializeAws_restJson1_1GlobalConfiguration(
-            output.globalConfiguration,
-            context
-          )
+      output.globalConfiguration !== undefined && output.globalConfiguration !== null
+        ? deserializeAws_restJson1_1GlobalConfiguration(output.globalConfiguration, context)
         : undefined,
     NielsenConfiguration:
-      output.nielsenConfiguration !== undefined &&
-      output.nielsenConfiguration !== null
-        ? deserializeAws_restJson1_1NielsenConfiguration(
-            output.nielsenConfiguration,
-            context
-          )
+      output.nielsenConfiguration !== undefined && output.nielsenConfiguration !== null
+        ? deserializeAws_restJson1_1NielsenConfiguration(output.nielsenConfiguration, context)
         : undefined,
     OutputGroups:
       output.outputGroups !== undefined && output.outputGroups !== null
-        ? deserializeAws_restJson1_1__listOfOutputGroup(
-            output.outputGroups,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfOutputGroup(output.outputGroups, context)
         : undefined,
     TimecodeConfig:
       output.timecodeConfig !== undefined && output.timecodeConfig !== null
-        ? deserializeAws_restJson1_1TimecodeConfig(
-            output.timecodeConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1TimecodeConfig(output.timecodeConfig, context)
         : undefined,
     VideoDescriptions:
-      output.videoDescriptions !== undefined &&
-      output.videoDescriptions !== null
-        ? deserializeAws_restJson1_1__listOfVideoDescription(
-            output.videoDescriptions,
-            context
-          )
+      output.videoDescriptions !== undefined && output.videoDescriptions !== null
+        ? deserializeAws_restJson1_1__listOfVideoDescription(output.videoDescriptions, context)
         : undefined
   } as any;
 };
@@ -13425,13 +11815,9 @@ const deserializeAws_restJson1_1FecOutputSettings = (
         ? output.columnDepth
         : undefined,
     IncludeFec:
-      output.includeFec !== undefined && output.includeFec !== null
-        ? output.includeFec
-        : undefined,
+      output.includeFec !== undefined && output.includeFec !== null ? output.includeFec : undefined,
     RowLength:
-      output.rowLength !== undefined && output.rowLength !== null
-        ? output.rowLength
-        : undefined
+      output.rowLength !== undefined && output.rowLength !== null ? output.rowLength : undefined
   } as any;
 };
 
@@ -13441,10 +11827,7 @@ const deserializeAws_restJson1_1FixedModeScheduleActionStartSettings = (
 ): FixedModeScheduleActionStartSettings => {
   return {
     __type: "FixedModeScheduleActionStartSettings",
-    Time:
-      output.time !== undefined && output.time !== null
-        ? output.time
-        : undefined
+    Time: output.time !== undefined && output.time !== null ? output.time : undefined
   } as any;
 };
 
@@ -13455,8 +11838,7 @@ const deserializeAws_restJson1_1Fmp4HlsSettings = (
   return {
     __type: "Fmp4HlsSettings",
     AudioRenditionSets:
-      output.audioRenditionSets !== undefined &&
-      output.audioRenditionSets !== null
+      output.audioRenditionSets !== undefined && output.audioRenditionSets !== null
         ? output.audioRenditionSets
         : undefined
   } as any;
@@ -13473,8 +11855,7 @@ const deserializeAws_restJson1_1FollowModeScheduleActionStartSettings = (
         ? output.followPoint
         : undefined,
     ReferenceActionName:
-      output.referenceActionName !== undefined &&
-      output.referenceActionName !== null
+      output.referenceActionName !== undefined && output.referenceActionName !== null
         ? output.referenceActionName
         : undefined
   } as any;
@@ -13488,10 +11869,7 @@ const deserializeAws_restJson1_1FrameCaptureGroupSettings = (
     __type: "FrameCaptureGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined
   } as any;
 };
@@ -13520,8 +11898,7 @@ const deserializeAws_restJson1_1FrameCaptureSettings = (
         ? output.captureInterval
         : undefined,
     CaptureIntervalUnits:
-      output.captureIntervalUnits !== undefined &&
-      output.captureIntervalUnits !== null
+      output.captureIntervalUnits !== undefined && output.captureIntervalUnits !== null
         ? output.captureIntervalUnits
         : undefined
   } as any;
@@ -13542,26 +11919,19 @@ const deserializeAws_restJson1_1GlobalConfiguration = (
         ? output.inputEndAction
         : undefined,
     InputLossBehavior:
-      output.inputLossBehavior !== undefined &&
-      output.inputLossBehavior !== null
-        ? deserializeAws_restJson1_1InputLossBehavior(
-            output.inputLossBehavior,
-            context
-          )
+      output.inputLossBehavior !== undefined && output.inputLossBehavior !== null
+        ? deserializeAws_restJson1_1InputLossBehavior(output.inputLossBehavior, context)
         : undefined,
     OutputLockingMode:
-      output.outputLockingMode !== undefined &&
-      output.outputLockingMode !== null
+      output.outputLockingMode !== undefined && output.outputLockingMode !== null
         ? output.outputLockingMode
         : undefined,
     OutputTimingSource:
-      output.outputTimingSource !== undefined &&
-      output.outputTimingSource !== null
+      output.outputTimingSource !== undefined && output.outputTimingSource !== null
         ? output.outputTimingSource
         : undefined,
     SupportLowFramerateInputs:
-      output.supportLowFramerateInputs !== undefined &&
-      output.supportLowFramerateInputs !== null
+      output.supportLowFramerateInputs !== undefined && output.supportLowFramerateInputs !== null
         ? output.supportLowFramerateInputs
         : undefined
   } as any;
@@ -13583,17 +11953,11 @@ const deserializeAws_restJson1_1H264ColorSpaceSettings = (
         : undefined,
     Rec601Settings:
       output.rec601Settings !== undefined && output.rec601Settings !== null
-        ? deserializeAws_restJson1_1Rec601Settings(
-            output.rec601Settings,
-            context
-          )
+        ? deserializeAws_restJson1_1Rec601Settings(output.rec601Settings, context)
         : undefined,
     Rec709Settings:
       output.rec709Settings !== undefined && output.rec709Settings !== null
-        ? deserializeAws_restJson1_1Rec709Settings(
-            output.rec709Settings,
-            context
-          )
+        ? deserializeAws_restJson1_1Rec709Settings(output.rec709Settings, context)
         : undefined
   } as any;
 };
@@ -13605,62 +11969,43 @@ const deserializeAws_restJson1_1H264Settings = (
   return {
     __type: "H264Settings",
     AdaptiveQuantization:
-      output.adaptiveQuantization !== undefined &&
-      output.adaptiveQuantization !== null
+      output.adaptiveQuantization !== undefined && output.adaptiveQuantization !== null
         ? output.adaptiveQuantization
         : undefined,
     AfdSignaling:
       output.afdSignaling !== undefined && output.afdSignaling !== null
         ? output.afdSignaling
         : undefined,
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     BufFillPct:
-      output.bufFillPct !== undefined && output.bufFillPct !== null
-        ? output.bufFillPct
-        : undefined,
-    BufSize:
-      output.bufSize !== undefined && output.bufSize !== null
-        ? output.bufSize
-        : undefined,
+      output.bufFillPct !== undefined && output.bufFillPct !== null ? output.bufFillPct : undefined,
+    BufSize: output.bufSize !== undefined && output.bufSize !== null ? output.bufSize : undefined,
     ColorMetadata:
       output.colorMetadata !== undefined && output.colorMetadata !== null
         ? output.colorMetadata
         : undefined,
     ColorSpaceSettings:
-      output.colorSpaceSettings !== undefined &&
-      output.colorSpaceSettings !== null
-        ? deserializeAws_restJson1_1H264ColorSpaceSettings(
-            output.colorSpaceSettings,
-            context
-          )
+      output.colorSpaceSettings !== undefined && output.colorSpaceSettings !== null
+        ? deserializeAws_restJson1_1H264ColorSpaceSettings(output.colorSpaceSettings, context)
         : undefined,
     EntropyEncoding:
       output.entropyEncoding !== undefined && output.entropyEncoding !== null
         ? output.entropyEncoding
         : undefined,
     FixedAfd:
-      output.fixedAfd !== undefined && output.fixedAfd !== null
-        ? output.fixedAfd
-        : undefined,
+      output.fixedAfd !== undefined && output.fixedAfd !== null ? output.fixedAfd : undefined,
     FlickerAq:
-      output.flickerAq !== undefined && output.flickerAq !== null
-        ? output.flickerAq
-        : undefined,
+      output.flickerAq !== undefined && output.flickerAq !== null ? output.flickerAq : undefined,
     FramerateControl:
       output.framerateControl !== undefined && output.framerateControl !== null
         ? output.framerateControl
         : undefined,
     FramerateDenominator:
-      output.framerateDenominator !== undefined &&
-      output.framerateDenominator !== null
+      output.framerateDenominator !== undefined && output.framerateDenominator !== null
         ? output.framerateDenominator
         : undefined,
     FramerateNumerator:
-      output.framerateNumerator !== undefined &&
-      output.framerateNumerator !== null
+      output.framerateNumerator !== undefined && output.framerateNumerator !== null
         ? output.framerateNumerator
         : undefined,
     GopBReference:
@@ -13675,27 +12020,18 @@ const deserializeAws_restJson1_1H264Settings = (
       output.gopNumBFrames !== undefined && output.gopNumBFrames !== null
         ? output.gopNumBFrames
         : undefined,
-    GopSize:
-      output.gopSize !== undefined && output.gopSize !== null
-        ? output.gopSize
-        : undefined,
+    GopSize: output.gopSize !== undefined && output.gopSize !== null ? output.gopSize : undefined,
     GopSizeUnits:
       output.gopSizeUnits !== undefined && output.gopSizeUnits !== null
         ? output.gopSizeUnits
         : undefined,
-    Level:
-      output.level !== undefined && output.level !== null
-        ? output.level
-        : undefined,
+    Level: output.level !== undefined && output.level !== null ? output.level : undefined,
     LookAheadRateControl:
-      output.lookAheadRateControl !== undefined &&
-      output.lookAheadRateControl !== null
+      output.lookAheadRateControl !== undefined && output.lookAheadRateControl !== null
         ? output.lookAheadRateControl
         : undefined,
     MaxBitrate:
-      output.maxBitrate !== undefined && output.maxBitrate !== null
-        ? output.maxBitrate
-        : undefined,
+      output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
     MinIInterval:
       output.minIInterval !== undefined && output.minIInterval !== null
         ? output.minIInterval
@@ -13705,9 +12041,7 @@ const deserializeAws_restJson1_1H264Settings = (
         ? output.numRefFrames
         : undefined,
     ParControl:
-      output.parControl !== undefined && output.parControl !== null
-        ? output.parControl
-        : undefined,
+      output.parControl !== undefined && output.parControl !== null ? output.parControl : undefined,
     ParDenominator:
       output.parDenominator !== undefined && output.parDenominator !== null
         ? output.parDenominator
@@ -13716,10 +12050,7 @@ const deserializeAws_restJson1_1H264Settings = (
       output.parNumerator !== undefined && output.parNumerator !== null
         ? output.parNumerator
         : undefined,
-    Profile:
-      output.profile !== undefined && output.profile !== null
-        ? output.profile
-        : undefined,
+    Profile: output.profile !== undefined && output.profile !== null ? output.profile : undefined,
     QvbrQualityLevel:
       output.qvbrQualityLevel !== undefined && output.qvbrQualityLevel !== null
         ? output.qvbrQualityLevel
@@ -13729,41 +12060,25 @@ const deserializeAws_restJson1_1H264Settings = (
         ? output.rateControlMode
         : undefined,
     ScanType:
-      output.scanType !== undefined && output.scanType !== null
-        ? output.scanType
-        : undefined,
+      output.scanType !== undefined && output.scanType !== null ? output.scanType : undefined,
     SceneChangeDetect:
-      output.sceneChangeDetect !== undefined &&
-      output.sceneChangeDetect !== null
+      output.sceneChangeDetect !== undefined && output.sceneChangeDetect !== null
         ? output.sceneChangeDetect
         : undefined,
-    Slices:
-      output.slices !== undefined && output.slices !== null
-        ? output.slices
-        : undefined,
+    Slices: output.slices !== undefined && output.slices !== null ? output.slices : undefined,
     Softness:
-      output.softness !== undefined && output.softness !== null
-        ? output.softness
-        : undefined,
+      output.softness !== undefined && output.softness !== null ? output.softness : undefined,
     SpatialAq:
-      output.spatialAq !== undefined && output.spatialAq !== null
-        ? output.spatialAq
-        : undefined,
+      output.spatialAq !== undefined && output.spatialAq !== null ? output.spatialAq : undefined,
     SubgopLength:
       output.subgopLength !== undefined && output.subgopLength !== null
         ? output.subgopLength
         : undefined,
-    Syntax:
-      output.syntax !== undefined && output.syntax !== null
-        ? output.syntax
-        : undefined,
+    Syntax: output.syntax !== undefined && output.syntax !== null ? output.syntax : undefined,
     TemporalAq:
-      output.temporalAq !== undefined && output.temporalAq !== null
-        ? output.temporalAq
-        : undefined,
+      output.temporalAq !== undefined && output.temporalAq !== null ? output.temporalAq : undefined,
     TimecodeInsertion:
-      output.timecodeInsertion !== undefined &&
-      output.timecodeInsertion !== null
+      output.timecodeInsertion !== undefined && output.timecodeInsertion !== null
         ? output.timecodeInsertion
         : undefined
   } as any;
@@ -13789,17 +12104,11 @@ const deserializeAws_restJson1_1H265ColorSpaceSettings = (
         : undefined,
     Rec601Settings:
       output.rec601Settings !== undefined && output.rec601Settings !== null
-        ? deserializeAws_restJson1_1Rec601Settings(
-            output.rec601Settings,
-            context
-          )
+        ? deserializeAws_restJson1_1Rec601Settings(output.rec601Settings, context)
         : undefined,
     Rec709Settings:
       output.rec709Settings !== undefined && output.rec709Settings !== null
-        ? deserializeAws_restJson1_1Rec709Settings(
-            output.rec709Settings,
-            context
-          )
+        ? deserializeAws_restJson1_1Rec709Settings(output.rec709Settings, context)
         : undefined
   } as any;
 };
@@ -13811,8 +12120,7 @@ const deserializeAws_restJson1_1H265Settings = (
   return {
     __type: "H265Settings",
     AdaptiveQuantization:
-      output.adaptiveQuantization !== undefined &&
-      output.adaptiveQuantization !== null
+      output.adaptiveQuantization !== undefined && output.adaptiveQuantization !== null
         ? output.adaptiveQuantization
         : undefined,
     AfdSignaling:
@@ -13824,69 +12132,44 @@ const deserializeAws_restJson1_1H265Settings = (
       output.alternativeTransferFunction !== null
         ? output.alternativeTransferFunction
         : undefined,
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
-    BufSize:
-      output.bufSize !== undefined && output.bufSize !== null
-        ? output.bufSize
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
+    BufSize: output.bufSize !== undefined && output.bufSize !== null ? output.bufSize : undefined,
     ColorMetadata:
       output.colorMetadata !== undefined && output.colorMetadata !== null
         ? output.colorMetadata
         : undefined,
     ColorSpaceSettings:
-      output.colorSpaceSettings !== undefined &&
-      output.colorSpaceSettings !== null
-        ? deserializeAws_restJson1_1H265ColorSpaceSettings(
-            output.colorSpaceSettings,
-            context
-          )
+      output.colorSpaceSettings !== undefined && output.colorSpaceSettings !== null
+        ? deserializeAws_restJson1_1H265ColorSpaceSettings(output.colorSpaceSettings, context)
         : undefined,
     FixedAfd:
-      output.fixedAfd !== undefined && output.fixedAfd !== null
-        ? output.fixedAfd
-        : undefined,
+      output.fixedAfd !== undefined && output.fixedAfd !== null ? output.fixedAfd : undefined,
     FlickerAq:
-      output.flickerAq !== undefined && output.flickerAq !== null
-        ? output.flickerAq
-        : undefined,
+      output.flickerAq !== undefined && output.flickerAq !== null ? output.flickerAq : undefined,
     FramerateDenominator:
-      output.framerateDenominator !== undefined &&
-      output.framerateDenominator !== null
+      output.framerateDenominator !== undefined && output.framerateDenominator !== null
         ? output.framerateDenominator
         : undefined,
     FramerateNumerator:
-      output.framerateNumerator !== undefined &&
-      output.framerateNumerator !== null
+      output.framerateNumerator !== undefined && output.framerateNumerator !== null
         ? output.framerateNumerator
         : undefined,
     GopClosedCadence:
       output.gopClosedCadence !== undefined && output.gopClosedCadence !== null
         ? output.gopClosedCadence
         : undefined,
-    GopSize:
-      output.gopSize !== undefined && output.gopSize !== null
-        ? output.gopSize
-        : undefined,
+    GopSize: output.gopSize !== undefined && output.gopSize !== null ? output.gopSize : undefined,
     GopSizeUnits:
       output.gopSizeUnits !== undefined && output.gopSizeUnits !== null
         ? output.gopSizeUnits
         : undefined,
-    Level:
-      output.level !== undefined && output.level !== null
-        ? output.level
-        : undefined,
+    Level: output.level !== undefined && output.level !== null ? output.level : undefined,
     LookAheadRateControl:
-      output.lookAheadRateControl !== undefined &&
-      output.lookAheadRateControl !== null
+      output.lookAheadRateControl !== undefined && output.lookAheadRateControl !== null
         ? output.lookAheadRateControl
         : undefined,
     MaxBitrate:
-      output.maxBitrate !== undefined && output.maxBitrate !== null
-        ? output.maxBitrate
-        : undefined,
+      output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
     MinIInterval:
       output.minIInterval !== undefined && output.minIInterval !== null
         ? output.minIInterval
@@ -13899,10 +12182,7 @@ const deserializeAws_restJson1_1H265Settings = (
       output.parNumerator !== undefined && output.parNumerator !== null
         ? output.parNumerator
         : undefined,
-    Profile:
-      output.profile !== undefined && output.profile !== null
-        ? output.profile
-        : undefined,
+    Profile: output.profile !== undefined && output.profile !== null ? output.profile : undefined,
     QvbrQualityLevel:
       output.qvbrQualityLevel !== undefined && output.qvbrQualityLevel !== null
         ? output.qvbrQualityLevel
@@ -13912,25 +12192,15 @@ const deserializeAws_restJson1_1H265Settings = (
         ? output.rateControlMode
         : undefined,
     ScanType:
-      output.scanType !== undefined && output.scanType !== null
-        ? output.scanType
-        : undefined,
+      output.scanType !== undefined && output.scanType !== null ? output.scanType : undefined,
     SceneChangeDetect:
-      output.sceneChangeDetect !== undefined &&
-      output.sceneChangeDetect !== null
+      output.sceneChangeDetect !== undefined && output.sceneChangeDetect !== null
         ? output.sceneChangeDetect
         : undefined,
-    Slices:
-      output.slices !== undefined && output.slices !== null
-        ? output.slices
-        : undefined,
-    Tier:
-      output.tier !== undefined && output.tier !== null
-        ? output.tier
-        : undefined,
+    Slices: output.slices !== undefined && output.slices !== null ? output.slices : undefined,
+    Tier: output.tier !== undefined && output.tier !== null ? output.tier : undefined,
     TimecodeInsertion:
-      output.timecodeInsertion !== undefined &&
-      output.timecodeInsertion !== null
+      output.timecodeInsertion !== undefined && output.timecodeInsertion !== null
         ? output.timecodeInsertion
         : undefined
   } as any;
@@ -13942,14 +12212,8 @@ const deserializeAws_restJson1_1Hdr10Settings = (
 ): Hdr10Settings => {
   return {
     __type: "Hdr10Settings",
-    MaxCll:
-      output.maxCll !== undefined && output.maxCll !== null
-        ? output.maxCll
-        : undefined,
-    MaxFall:
-      output.maxFall !== undefined && output.maxFall !== null
-        ? output.maxFall
-        : undefined
+    MaxCll: output.maxCll !== undefined && output.maxCll !== null ? output.maxCll : undefined,
+    MaxFall: output.maxFall !== undefined && output.maxFall !== null ? output.maxFall : undefined
   } as any;
 };
 
@@ -13960,13 +12224,11 @@ const deserializeAws_restJson1_1HlsAkamaiSettings = (
   return {
     __type: "HlsAkamaiSettings",
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     FilecacheDuration:
-      output.filecacheDuration !== undefined &&
-      output.filecacheDuration !== null
+      output.filecacheDuration !== undefined && output.filecacheDuration !== null
         ? output.filecacheDuration
         : undefined,
     HttpTransferMode:
@@ -13974,21 +12236,13 @@ const deserializeAws_restJson1_1HlsAkamaiSettings = (
         ? output.httpTransferMode
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined,
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined,
     RestartDelay:
       output.restartDelay !== undefined && output.restartDelay !== null
         ? output.restartDelay
         : undefined,
-    Salt:
-      output.salt !== undefined && output.salt !== null
-        ? output.salt
-        : undefined,
-    Token:
-      output.token !== undefined && output.token !== null
-        ? output.token
-        : undefined
+    Salt: output.salt !== undefined && output.salt !== null ? output.salt : undefined,
+    Token: output.token !== undefined && output.token !== null ? output.token : undefined
   } as any;
 };
 
@@ -13999,19 +12253,15 @@ const deserializeAws_restJson1_1HlsBasicPutSettings = (
   return {
     __type: "HlsBasicPutSettings",
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     FilecacheDuration:
-      output.filecacheDuration !== undefined &&
-      output.filecacheDuration !== null
+      output.filecacheDuration !== undefined && output.filecacheDuration !== null
         ? output.filecacheDuration
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined,
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined,
     RestartDelay:
       output.restartDelay !== undefined && output.restartDelay !== null
         ? output.restartDelay
@@ -14026,36 +12276,20 @@ const deserializeAws_restJson1_1HlsCdnSettings = (
   return {
     __type: "HlsCdnSettings",
     HlsAkamaiSettings:
-      output.hlsAkamaiSettings !== undefined &&
-      output.hlsAkamaiSettings !== null
-        ? deserializeAws_restJson1_1HlsAkamaiSettings(
-            output.hlsAkamaiSettings,
-            context
-          )
+      output.hlsAkamaiSettings !== undefined && output.hlsAkamaiSettings !== null
+        ? deserializeAws_restJson1_1HlsAkamaiSettings(output.hlsAkamaiSettings, context)
         : undefined,
     HlsBasicPutSettings:
-      output.hlsBasicPutSettings !== undefined &&
-      output.hlsBasicPutSettings !== null
-        ? deserializeAws_restJson1_1HlsBasicPutSettings(
-            output.hlsBasicPutSettings,
-            context
-          )
+      output.hlsBasicPutSettings !== undefined && output.hlsBasicPutSettings !== null
+        ? deserializeAws_restJson1_1HlsBasicPutSettings(output.hlsBasicPutSettings, context)
         : undefined,
     HlsMediaStoreSettings:
-      output.hlsMediaStoreSettings !== undefined &&
-      output.hlsMediaStoreSettings !== null
-        ? deserializeAws_restJson1_1HlsMediaStoreSettings(
-            output.hlsMediaStoreSettings,
-            context
-          )
+      output.hlsMediaStoreSettings !== undefined && output.hlsMediaStoreSettings !== null
+        ? deserializeAws_restJson1_1HlsMediaStoreSettings(output.hlsMediaStoreSettings, context)
         : undefined,
     HlsWebdavSettings:
-      output.hlsWebdavSettings !== undefined &&
-      output.hlsWebdavSettings !== null
-        ? deserializeAws_restJson1_1HlsWebdavSettings(
-            output.hlsWebdavSettings,
-            context
-          )
+      output.hlsWebdavSettings !== undefined && output.hlsWebdavSettings !== null
+        ? deserializeAws_restJson1_1HlsWebdavSettings(output.hlsWebdavSettings, context)
         : undefined
   } as any;
 };
@@ -14068,10 +12302,7 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
     __type: "HlsGroupSettings",
     AdMarkers:
       output.adMarkers !== undefined && output.adMarkers !== null
-        ? deserializeAws_restJson1_1__listOfHlsAdMarkers(
-            output.adMarkers,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfHlsAdMarkers(output.adMarkers, context)
         : undefined,
     BaseUrlContent:
       output.baseUrlContent !== undefined && output.baseUrlContent !== null
@@ -14090,16 +12321,14 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         ? output.baseUrlManifest1
         : undefined,
     CaptionLanguageMappings:
-      output.captionLanguageMappings !== undefined &&
-      output.captionLanguageMappings !== null
+      output.captionLanguageMappings !== undefined && output.captionLanguageMappings !== null
         ? deserializeAws_restJson1_1__listOfCaptionLanguageMapping(
             output.captionLanguageMappings,
             context
           )
         : undefined,
     CaptionLanguageSetting:
-      output.captionLanguageSetting !== undefined &&
-      output.captionLanguageSetting !== null
+      output.captionLanguageSetting !== undefined && output.captionLanguageSetting !== null
         ? output.captionLanguageSetting
         : undefined,
     ClientCache:
@@ -14107,24 +12336,17 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         ? output.clientCache
         : undefined,
     CodecSpecification:
-      output.codecSpecification !== undefined &&
-      output.codecSpecification !== null
+      output.codecSpecification !== undefined && output.codecSpecification !== null
         ? output.codecSpecification
         : undefined,
     ConstantIv:
-      output.constantIv !== undefined && output.constantIv !== null
-        ? output.constantIv
-        : undefined,
+      output.constantIv !== undefined && output.constantIv !== null ? output.constantIv : undefined,
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined,
     DirectoryStructure:
-      output.directoryStructure !== undefined &&
-      output.directoryStructure !== null
+      output.directoryStructure !== undefined && output.directoryStructure !== null
         ? output.directoryStructure
         : undefined,
     EncryptionType:
@@ -14133,19 +12355,14 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         : undefined,
     HlsCdnSettings:
       output.hlsCdnSettings !== undefined && output.hlsCdnSettings !== null
-        ? deserializeAws_restJson1_1HlsCdnSettings(
-            output.hlsCdnSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1HlsCdnSettings(output.hlsCdnSettings, context)
         : undefined,
     HlsId3SegmentTagging:
-      output.hlsId3SegmentTagging !== undefined &&
-      output.hlsId3SegmentTagging !== null
+      output.hlsId3SegmentTagging !== undefined && output.hlsId3SegmentTagging !== null
         ? output.hlsId3SegmentTagging
         : undefined,
     IFrameOnlyPlaylists:
-      output.iFrameOnlyPlaylists !== undefined &&
-      output.iFrameOnlyPlaylists !== null
+      output.iFrameOnlyPlaylists !== undefined && output.iFrameOnlyPlaylists !== null
         ? output.iFrameOnlyPlaylists
         : undefined,
     IndexNSegments:
@@ -14161,48 +12378,34 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         ? output.ivInManifest
         : undefined,
     IvSource:
-      output.ivSource !== undefined && output.ivSource !== null
-        ? output.ivSource
-        : undefined,
+      output.ivSource !== undefined && output.ivSource !== null ? output.ivSource : undefined,
     KeepSegments:
       output.keepSegments !== undefined && output.keepSegments !== null
         ? output.keepSegments
         : undefined,
     KeyFormat:
-      output.keyFormat !== undefined && output.keyFormat !== null
-        ? output.keyFormat
-        : undefined,
+      output.keyFormat !== undefined && output.keyFormat !== null ? output.keyFormat : undefined,
     KeyFormatVersions:
-      output.keyFormatVersions !== undefined &&
-      output.keyFormatVersions !== null
+      output.keyFormatVersions !== undefined && output.keyFormatVersions !== null
         ? output.keyFormatVersions
         : undefined,
     KeyProviderSettings:
-      output.keyProviderSettings !== undefined &&
-      output.keyProviderSettings !== null
-        ? deserializeAws_restJson1_1KeyProviderSettings(
-            output.keyProviderSettings,
-            context
-          )
+      output.keyProviderSettings !== undefined && output.keyProviderSettings !== null
+        ? deserializeAws_restJson1_1KeyProviderSettings(output.keyProviderSettings, context)
         : undefined,
     ManifestCompression:
-      output.manifestCompression !== undefined &&
-      output.manifestCompression !== null
+      output.manifestCompression !== undefined && output.manifestCompression !== null
         ? output.manifestCompression
         : undefined,
     ManifestDurationFormat:
-      output.manifestDurationFormat !== undefined &&
-      output.manifestDurationFormat !== null
+      output.manifestDurationFormat !== undefined && output.manifestDurationFormat !== null
         ? output.manifestDurationFormat
         : undefined,
     MinSegmentLength:
       output.minSegmentLength !== undefined && output.minSegmentLength !== null
         ? output.minSegmentLength
         : undefined,
-    Mode:
-      output.mode !== undefined && output.mode !== null
-        ? output.mode
-        : undefined,
+    Mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
     OutputSelection:
       output.outputSelection !== undefined && output.outputSelection !== null
         ? output.outputSelection
@@ -14212,13 +12415,11 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         ? output.programDateTime
         : undefined,
     ProgramDateTimePeriod:
-      output.programDateTimePeriod !== undefined &&
-      output.programDateTimePeriod !== null
+      output.programDateTimePeriod !== undefined && output.programDateTimePeriod !== null
         ? output.programDateTimePeriod
         : undefined,
     RedundantManifest:
-      output.redundantManifest !== undefined &&
-      output.redundantManifest !== null
+      output.redundantManifest !== undefined && output.redundantManifest !== null
         ? output.redundantManifest
         : undefined,
     SegmentLength:
@@ -14230,34 +12431,27 @@ const deserializeAws_restJson1_1HlsGroupSettings = (
         ? output.segmentationMode
         : undefined,
     SegmentsPerSubdirectory:
-      output.segmentsPerSubdirectory !== undefined &&
-      output.segmentsPerSubdirectory !== null
+      output.segmentsPerSubdirectory !== undefined && output.segmentsPerSubdirectory !== null
         ? output.segmentsPerSubdirectory
         : undefined,
     StreamInfResolution:
-      output.streamInfResolution !== undefined &&
-      output.streamInfResolution !== null
+      output.streamInfResolution !== undefined && output.streamInfResolution !== null
         ? output.streamInfResolution
         : undefined,
     TimedMetadataId3Frame:
-      output.timedMetadataId3Frame !== undefined &&
-      output.timedMetadataId3Frame !== null
+      output.timedMetadataId3Frame !== undefined && output.timedMetadataId3Frame !== null
         ? output.timedMetadataId3Frame
         : undefined,
     TimedMetadataId3Period:
-      output.timedMetadataId3Period !== undefined &&
-      output.timedMetadataId3Period !== null
+      output.timedMetadataId3Period !== undefined && output.timedMetadataId3Period !== null
         ? output.timedMetadataId3Period
         : undefined,
     TimestampDeltaMilliseconds:
-      output.timestampDeltaMilliseconds !== undefined &&
-      output.timestampDeltaMilliseconds !== null
+      output.timestampDeltaMilliseconds !== undefined && output.timestampDeltaMilliseconds !== null
         ? output.timestampDeltaMilliseconds
         : undefined,
     TsFileMode:
-      output.tsFileMode !== undefined && output.tsFileMode !== null
-        ? output.tsFileMode
-        : undefined
+      output.tsFileMode !== undefined && output.tsFileMode !== null ? output.tsFileMode : undefined
   } as any;
 };
 
@@ -14267,8 +12461,7 @@ const deserializeAws_restJson1_1HlsId3SegmentTaggingScheduleActionSettings = (
 ): HlsId3SegmentTaggingScheduleActionSettings => {
   return {
     __type: "HlsId3SegmentTaggingScheduleActionSettings",
-    Tag:
-      output.tag !== undefined && output.tag !== null ? output.tag : undefined
+    Tag: output.tag !== undefined && output.tag !== null ? output.tag : undefined
   } as any;
 };
 
@@ -14279,17 +12472,12 @@ const deserializeAws_restJson1_1HlsInputSettings = (
   return {
     __type: "HlsInputSettings",
     Bandwidth:
-      output.bandwidth !== undefined && output.bandwidth !== null
-        ? output.bandwidth
-        : undefined,
+      output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
     BufferSegments:
       output.bufferSegments !== undefined && output.bufferSegments !== null
         ? output.bufferSegments
         : undefined,
-    Retries:
-      output.retries !== undefined && output.retries !== null
-        ? output.retries
-        : undefined,
+    Retries: output.retries !== undefined && output.retries !== null ? output.retries : undefined,
     RetryInterval:
       output.retryInterval !== undefined && output.retryInterval !== null
         ? output.retryInterval
@@ -14304,24 +12492,19 @@ const deserializeAws_restJson1_1HlsMediaStoreSettings = (
   return {
     __type: "HlsMediaStoreSettings",
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     FilecacheDuration:
-      output.filecacheDuration !== undefined &&
-      output.filecacheDuration !== null
+      output.filecacheDuration !== undefined && output.filecacheDuration !== null
         ? output.filecacheDuration
         : undefined,
     MediaStoreStorageClass:
-      output.mediaStoreStorageClass !== undefined &&
-      output.mediaStoreStorageClass !== null
+      output.mediaStoreStorageClass !== undefined && output.mediaStoreStorageClass !== null
         ? output.mediaStoreStorageClass
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined,
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined,
     RestartDelay:
       output.restartDelay !== undefined && output.restartDelay !== null
         ? output.restartDelay
@@ -14336,8 +12519,7 @@ const deserializeAws_restJson1_1HlsOutputSettings = (
   return {
     __type: "HlsOutputSettings",
     H265PackagingType:
-      output.h265PackagingType !== undefined &&
-      output.h265PackagingType !== null
+      output.h265PackagingType !== undefined && output.h265PackagingType !== null
         ? output.h265PackagingType
         : undefined,
     HlsSettings:
@@ -14362,27 +12544,16 @@ const deserializeAws_restJson1_1HlsSettings = (
   return {
     __type: "HlsSettings",
     AudioOnlyHlsSettings:
-      output.audioOnlyHlsSettings !== undefined &&
-      output.audioOnlyHlsSettings !== null
-        ? deserializeAws_restJson1_1AudioOnlyHlsSettings(
-            output.audioOnlyHlsSettings,
-            context
-          )
+      output.audioOnlyHlsSettings !== undefined && output.audioOnlyHlsSettings !== null
+        ? deserializeAws_restJson1_1AudioOnlyHlsSettings(output.audioOnlyHlsSettings, context)
         : undefined,
     Fmp4HlsSettings:
       output.fmp4HlsSettings !== undefined && output.fmp4HlsSettings !== null
-        ? deserializeAws_restJson1_1Fmp4HlsSettings(
-            output.fmp4HlsSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1Fmp4HlsSettings(output.fmp4HlsSettings, context)
         : undefined,
     StandardHlsSettings:
-      output.standardHlsSettings !== undefined &&
-      output.standardHlsSettings !== null
-        ? deserializeAws_restJson1_1StandardHlsSettings(
-            output.standardHlsSettings,
-            context
-          )
+      output.standardHlsSettings !== undefined && output.standardHlsSettings !== null
+        ? deserializeAws_restJson1_1StandardHlsSettings(output.standardHlsSettings, context)
         : undefined
   } as any;
 };
@@ -14393,8 +12564,7 @@ const deserializeAws_restJson1_1HlsTimedMetadataScheduleActionSettings = (
 ): HlsTimedMetadataScheduleActionSettings => {
   return {
     __type: "HlsTimedMetadataScheduleActionSettings",
-    Id3:
-      output.id3 !== undefined && output.id3 !== null ? output.id3 : undefined
+    Id3: output.id3 !== undefined && output.id3 !== null ? output.id3 : undefined
   } as any;
 };
 
@@ -14405,13 +12575,11 @@ const deserializeAws_restJson1_1HlsWebdavSettings = (
   return {
     __type: "HlsWebdavSettings",
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     FilecacheDuration:
-      output.filecacheDuration !== undefined &&
-      output.filecacheDuration !== null
+      output.filecacheDuration !== undefined && output.filecacheDuration !== null
         ? output.filecacheDuration
         : undefined,
     HttpTransferMode:
@@ -14419,9 +12587,7 @@ const deserializeAws_restJson1_1HlsWebdavSettings = (
         ? output.httpTransferMode
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined,
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined,
     RestartDelay:
       output.restartDelay !== undefined && output.restartDelay !== null
         ? output.restartDelay
@@ -14438,76 +12604,45 @@ const deserializeAws_restJson1_1ImmediateModeScheduleActionStartSettings = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Input = (
-  output: any,
-  context: __SerdeContext
-): Input => {
+const deserializeAws_restJson1_1Input = (output: any, context: __SerdeContext): Input => {
   return {
     __type: "Input",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AttachedChannels:
       output.attachedChannels !== undefined && output.attachedChannels !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.attachedChannels,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__string(output.attachedChannels, context)
         : undefined,
     Destinations:
       output.destinations !== undefined && output.destinations !== null
-        ? deserializeAws_restJson1_1__listOfInputDestination(
-            output.destinations,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfInputDestination(output.destinations, context)
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     InputClass:
-      output.inputClass !== undefined && output.inputClass !== null
-        ? output.inputClass
-        : undefined,
+      output.inputClass !== undefined && output.inputClass !== null ? output.inputClass : undefined,
     InputSourceType:
       output.inputSourceType !== undefined && output.inputSourceType !== null
         ? output.inputSourceType
         : undefined,
     MediaConnectFlows:
-      output.mediaConnectFlows !== undefined &&
-      output.mediaConnectFlows !== null
-        ? deserializeAws_restJson1_1__listOfMediaConnectFlow(
-            output.mediaConnectFlows,
-            context
-          )
+      output.mediaConnectFlows !== undefined && output.mediaConnectFlows !== null
+        ? deserializeAws_restJson1_1__listOfMediaConnectFlow(output.mediaConnectFlows, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    RoleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     SecurityGroups:
       output.securityGroups !== undefined && output.securityGroups !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.securityGroups,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__string(output.securityGroups, context)
         : undefined,
     Sources:
       output.sources !== undefined && output.sources !== null
         ? deserializeAws_restJson1_1__listOfInputSource(output.sources, context)
         : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
         : undefined,
-    Type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    Type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -14518,14 +12653,10 @@ const deserializeAws_restJson1_1InputAttachment = (
   return {
     __type: "InputAttachment",
     InputAttachmentName:
-      output.inputAttachmentName !== undefined &&
-      output.inputAttachmentName !== null
+      output.inputAttachmentName !== undefined && output.inputAttachmentName !== null
         ? output.inputAttachmentName
         : undefined,
-    InputId:
-      output.inputId !== undefined && output.inputId !== null
-        ? output.inputId
-        : undefined,
+    InputId: output.inputId !== undefined && output.inputId !== null ? output.inputId : undefined,
     InputSettings:
       output.inputSettings !== undefined && output.inputSettings !== null
         ? deserializeAws_restJson1_1InputSettings(output.inputSettings, context)
@@ -14539,10 +12670,7 @@ const deserializeAws_restJson1_1InputChannelLevel = (
 ): InputChannelLevel => {
   return {
     __type: "InputChannelLevel",
-    Gain:
-      output.gain !== undefined && output.gain !== null
-        ? output.gain
-        : undefined,
+    Gain: output.gain !== undefined && output.gain !== null ? output.gain : undefined,
     InputChannel:
       output.inputChannel !== undefined && output.inputChannel !== null
         ? output.inputChannel
@@ -14557,8 +12685,7 @@ const deserializeAws_restJson1_1InputClippingSettings = (
   return {
     __type: "InputClippingSettings",
     InputTimecodeSource:
-      output.inputTimecodeSource !== undefined &&
-      output.inputTimecodeSource !== null
+      output.inputTimecodeSource !== undefined && output.inputTimecodeSource !== null
         ? output.inputTimecodeSource
         : undefined,
     StartTimecode:
@@ -14579,12 +12706,8 @@ const deserializeAws_restJson1_1InputDestination = (
   return {
     __type: "InputDestination",
     Ip: output.ip !== undefined && output.ip !== null ? output.ip : undefined,
-    Port:
-      output.port !== undefined && output.port !== null
-        ? output.port
-        : undefined,
-    Url:
-      output.url !== undefined && output.url !== null ? output.url : undefined,
+    Port: output.port !== undefined && output.port !== null ? output.port : undefined,
+    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
     Vpc:
       output.vpc !== undefined && output.vpc !== null
         ? deserializeAws_restJson1_1InputDestinationVpc(output.vpc, context)
@@ -14603,8 +12726,7 @@ const deserializeAws_restJson1_1InputDestinationVpc = (
         ? output.availabilityZone
         : undefined,
     NetworkInterfaceId:
-      output.networkInterfaceId !== undefined &&
-      output.networkInterfaceId !== null
+      output.networkInterfaceId !== undefined && output.networkInterfaceId !== null
         ? output.networkInterfaceId
         : undefined
   } as any;
@@ -14620,12 +12742,9 @@ const deserializeAws_restJson1_1InputLocation = (
       output.passwordParam !== undefined && output.passwordParam !== null
         ? output.passwordParam
         : undefined,
-    Uri:
-      output.uri !== undefined && output.uri !== null ? output.uri : undefined,
+    Uri: output.uri !== undefined && output.uri !== null ? output.uri : undefined,
     Username:
-      output.username !== undefined && output.username !== null
-        ? output.username
-        : undefined
+      output.username !== undefined && output.username !== null ? output.username : undefined
   } as any;
 };
 
@@ -14640,21 +12759,15 @@ const deserializeAws_restJson1_1InputLossBehavior = (
         ? output.blackFrameMsec
         : undefined,
     InputLossImageColor:
-      output.inputLossImageColor !== undefined &&
-      output.inputLossImageColor !== null
+      output.inputLossImageColor !== undefined && output.inputLossImageColor !== null
         ? output.inputLossImageColor
         : undefined,
     InputLossImageSlate:
-      output.inputLossImageSlate !== undefined &&
-      output.inputLossImageSlate !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.inputLossImageSlate,
-            context
-          )
+      output.inputLossImageSlate !== undefined && output.inputLossImageSlate !== null
+        ? deserializeAws_restJson1_1InputLocation(output.inputLossImageSlate, context)
         : undefined,
     InputLossImageType:
-      output.inputLossImageType !== undefined &&
-      output.inputLossImageType !== null
+      output.inputLossImageType !== undefined && output.inputLossImageType !== null
         ? output.inputLossImageType
         : undefined,
     RepeatFrameMsec:
@@ -14670,27 +12783,20 @@ const deserializeAws_restJson1_1InputSecurityGroup = (
 ): InputSecurityGroup => {
   return {
     __type: "InputSecurityGroup",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     Inputs:
       output.inputs !== undefined && output.inputs !== null
         ? deserializeAws_restJson1_1__listOf__string(output.inputs, context)
         : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
         : undefined,
     WhitelistRules:
       output.whitelistRules !== undefined && output.whitelistRules !== null
-        ? deserializeAws_restJson1_1__listOfInputWhitelistRule(
-            output.whitelistRules,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfInputWhitelistRule(output.whitelistRules, context)
         : undefined
   } as any;
 };
@@ -14703,17 +12809,11 @@ const deserializeAws_restJson1_1InputSettings = (
     __type: "InputSettings",
     AudioSelectors:
       output.audioSelectors !== undefined && output.audioSelectors !== null
-        ? deserializeAws_restJson1_1__listOfAudioSelector(
-            output.audioSelectors,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfAudioSelector(output.audioSelectors, context)
         : undefined,
     CaptionSelectors:
       output.captionSelectors !== undefined && output.captionSelectors !== null
-        ? deserializeAws_restJson1_1__listOfCaptionSelector(
-            output.captionSelectors,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfCaptionSelector(output.captionSelectors, context)
         : undefined,
     DeblockFilter:
       output.deblockFilter !== undefined && output.deblockFilter !== null
@@ -14732,16 +12832,11 @@ const deserializeAws_restJson1_1InputSettings = (
         ? output.inputFilter
         : undefined,
     NetworkInputSettings:
-      output.networkInputSettings !== undefined &&
-      output.networkInputSettings !== null
-        ? deserializeAws_restJson1_1NetworkInputSettings(
-            output.networkInputSettings,
-            context
-          )
+      output.networkInputSettings !== undefined && output.networkInputSettings !== null
+        ? deserializeAws_restJson1_1NetworkInputSettings(output.networkInputSettings, context)
         : undefined,
     SourceEndBehavior:
-      output.sourceEndBehavior !== undefined &&
-      output.sourceEndBehavior !== null
+      output.sourceEndBehavior !== undefined && output.sourceEndBehavior !== null
         ? output.sourceEndBehavior
         : undefined,
     VideoSelector:
@@ -14761,12 +12856,9 @@ const deserializeAws_restJson1_1InputSource = (
       output.passwordParam !== undefined && output.passwordParam !== null
         ? output.passwordParam
         : undefined,
-    Url:
-      output.url !== undefined && output.url !== null ? output.url : undefined,
+    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
     Username:
-      output.username !== undefined && output.username !== null
-        ? output.username
-        : undefined
+      output.username !== undefined && output.username !== null ? output.username : undefined
   } as any;
 };
 
@@ -14776,18 +12868,13 @@ const deserializeAws_restJson1_1InputSpecification = (
 ): InputSpecification => {
   return {
     __type: "InputSpecification",
-    Codec:
-      output.codec !== undefined && output.codec !== null
-        ? output.codec
-        : undefined,
+    Codec: output.codec !== undefined && output.codec !== null ? output.codec : undefined,
     MaximumBitrate:
       output.maximumBitrate !== undefined && output.maximumBitrate !== null
         ? output.maximumBitrate
         : undefined,
     Resolution:
-      output.resolution !== undefined && output.resolution !== null
-        ? output.resolution
-        : undefined
+      output.resolution !== undefined && output.resolution !== null ? output.resolution : undefined
   } as any;
 };
 
@@ -14803,12 +12890,8 @@ const deserializeAws_restJson1_1InputSwitchScheduleActionSettings = (
         ? output.inputAttachmentNameReference
         : undefined,
     InputClippingSettings:
-      output.inputClippingSettings !== undefined &&
-      output.inputClippingSettings !== null
-        ? deserializeAws_restJson1_1InputClippingSettings(
-            output.inputClippingSettings,
-            context
-          )
+      output.inputClippingSettings !== undefined && output.inputClippingSettings !== null
+        ? deserializeAws_restJson1_1InputClippingSettings(output.inputClippingSettings, context)
         : undefined,
     UrlPath:
       output.urlPath !== undefined && output.urlPath !== null
@@ -14823,10 +12906,7 @@ const deserializeAws_restJson1_1InputWhitelistRule = (
 ): InputWhitelistRule => {
   return {
     __type: "InputWhitelistRule",
-    Cidr:
-      output.cidr !== undefined && output.cidr !== null
-        ? output.cidr
-        : undefined
+    Cidr: output.cidr !== undefined && output.cidr !== null ? output.cidr : undefined
   } as any;
 };
 
@@ -14837,12 +12917,8 @@ const deserializeAws_restJson1_1KeyProviderSettings = (
   return {
     __type: "KeyProviderSettings",
     StaticKeySettings:
-      output.staticKeySettings !== undefined &&
-      output.staticKeySettings !== null
-        ? deserializeAws_restJson1_1StaticKeySettings(
-            output.staticKeySettings,
-            context
-          )
+      output.staticKeySettings !== undefined && output.staticKeySettings !== null
+        ? deserializeAws_restJson1_1StaticKeySettings(output.staticKeySettings, context)
         : undefined
   } as any;
 };
@@ -14854,21 +12930,16 @@ const deserializeAws_restJson1_1M2tsSettings = (
   return {
     __type: "M2tsSettings",
     AbsentInputAudioBehavior:
-      output.absentInputAudioBehavior !== undefined &&
-      output.absentInputAudioBehavior !== null
+      output.absentInputAudioBehavior !== undefined && output.absentInputAudioBehavior !== null
         ? output.absentInputAudioBehavior
         : undefined,
-    Arib:
-      output.arib !== undefined && output.arib !== null
-        ? output.arib
-        : undefined,
+    Arib: output.arib !== undefined && output.arib !== null ? output.arib : undefined,
     AribCaptionsPid:
       output.aribCaptionsPid !== undefined && output.aribCaptionsPid !== null
         ? output.aribCaptionsPid
         : undefined,
     AribCaptionsPidControl:
-      output.aribCaptionsPidControl !== undefined &&
-      output.aribCaptionsPidControl !== null
+      output.aribCaptionsPidControl !== undefined && output.aribCaptionsPidControl !== null
         ? output.aribCaptionsPidControl
         : undefined,
     AudioBufferModel:
@@ -14876,22 +12947,16 @@ const deserializeAws_restJson1_1M2tsSettings = (
         ? output.audioBufferModel
         : undefined,
     AudioFramesPerPes:
-      output.audioFramesPerPes !== undefined &&
-      output.audioFramesPerPes !== null
+      output.audioFramesPerPes !== undefined && output.audioFramesPerPes !== null
         ? output.audioFramesPerPes
         : undefined,
     AudioPids:
-      output.audioPids !== undefined && output.audioPids !== null
-        ? output.audioPids
-        : undefined,
+      output.audioPids !== undefined && output.audioPids !== null ? output.audioPids : undefined,
     AudioStreamType:
       output.audioStreamType !== undefined && output.audioStreamType !== null
         ? output.audioStreamType
         : undefined,
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     BufferModel:
       output.bufferModel !== undefined && output.bufferModel !== null
         ? output.bufferModel
@@ -14902,37 +12967,23 @@ const deserializeAws_restJson1_1M2tsSettings = (
         : undefined,
     DvbNitSettings:
       output.dvbNitSettings !== undefined && output.dvbNitSettings !== null
-        ? deserializeAws_restJson1_1DvbNitSettings(
-            output.dvbNitSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1DvbNitSettings(output.dvbNitSettings, context)
         : undefined,
     DvbSdtSettings:
       output.dvbSdtSettings !== undefined && output.dvbSdtSettings !== null
-        ? deserializeAws_restJson1_1DvbSdtSettings(
-            output.dvbSdtSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1DvbSdtSettings(output.dvbSdtSettings, context)
         : undefined,
     DvbSubPids:
-      output.dvbSubPids !== undefined && output.dvbSubPids !== null
-        ? output.dvbSubPids
-        : undefined,
+      output.dvbSubPids !== undefined && output.dvbSubPids !== null ? output.dvbSubPids : undefined,
     DvbTdtSettings:
       output.dvbTdtSettings !== undefined && output.dvbTdtSettings !== null
-        ? deserializeAws_restJson1_1DvbTdtSettings(
-            output.dvbTdtSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1DvbTdtSettings(output.dvbTdtSettings, context)
         : undefined,
     DvbTeletextPid:
       output.dvbTeletextPid !== undefined && output.dvbTeletextPid !== null
         ? output.dvbTeletextPid
         : undefined,
-    Ebif:
-      output.ebif !== undefined && output.ebif !== null
-        ? output.ebif
-        : undefined,
+    Ebif: output.ebif !== undefined && output.ebif !== null ? output.ebif : undefined,
     EbpAudioInterval:
       output.ebpAudioInterval !== undefined && output.ebpAudioInterval !== null
         ? output.ebpAudioInterval
@@ -14945,10 +12996,7 @@ const deserializeAws_restJson1_1M2tsSettings = (
       output.ebpPlacement !== undefined && output.ebpPlacement !== null
         ? output.ebpPlacement
         : undefined,
-    EcmPid:
-      output.ecmPid !== undefined && output.ecmPid !== null
-        ? output.ecmPid
-        : undefined,
+    EcmPid: output.ecmPid !== undefined && output.ecmPid !== null ? output.ecmPid : undefined,
     EsRateInPes:
       output.esRateInPes !== undefined && output.esRateInPes !== null
         ? output.esRateInPes
@@ -14965,20 +13013,17 @@ const deserializeAws_restJson1_1M2tsSettings = (
       output.fragmentTime !== undefined && output.fragmentTime !== null
         ? output.fragmentTime
         : undefined,
-    Klv:
-      output.klv !== undefined && output.klv !== null ? output.klv : undefined,
+    Klv: output.klv !== undefined && output.klv !== null ? output.klv : undefined,
     KlvDataPids:
       output.klvDataPids !== undefined && output.klvDataPids !== null
         ? output.klvDataPids
         : undefined,
     NielsenId3Behavior:
-      output.nielsenId3Behavior !== undefined &&
-      output.nielsenId3Behavior !== null
+      output.nielsenId3Behavior !== undefined && output.nielsenId3Behavior !== null
         ? output.nielsenId3Behavior
         : undefined,
     NullPacketBitrate:
-      output.nullPacketBitrate !== undefined &&
-      output.nullPacketBitrate !== null
+      output.nullPacketBitrate !== undefined && output.nullPacketBitrate !== null
         ? output.nullPacketBitrate
         : undefined,
     PatInterval:
@@ -14986,53 +13031,33 @@ const deserializeAws_restJson1_1M2tsSettings = (
         ? output.patInterval
         : undefined,
     PcrControl:
-      output.pcrControl !== undefined && output.pcrControl !== null
-        ? output.pcrControl
-        : undefined,
+      output.pcrControl !== undefined && output.pcrControl !== null ? output.pcrControl : undefined,
     PcrPeriod:
-      output.pcrPeriod !== undefined && output.pcrPeriod !== null
-        ? output.pcrPeriod
-        : undefined,
-    PcrPid:
-      output.pcrPid !== undefined && output.pcrPid !== null
-        ? output.pcrPid
-        : undefined,
+      output.pcrPeriod !== undefined && output.pcrPeriod !== null ? output.pcrPeriod : undefined,
+    PcrPid: output.pcrPid !== undefined && output.pcrPid !== null ? output.pcrPid : undefined,
     PmtInterval:
       output.pmtInterval !== undefined && output.pmtInterval !== null
         ? output.pmtInterval
         : undefined,
-    PmtPid:
-      output.pmtPid !== undefined && output.pmtPid !== null
-        ? output.pmtPid
-        : undefined,
+    PmtPid: output.pmtPid !== undefined && output.pmtPid !== null ? output.pmtPid : undefined,
     ProgramNum:
-      output.programNum !== undefined && output.programNum !== null
-        ? output.programNum
-        : undefined,
+      output.programNum !== undefined && output.programNum !== null ? output.programNum : undefined,
     RateMode:
-      output.rateMode !== undefined && output.rateMode !== null
-        ? output.rateMode
-        : undefined,
+      output.rateMode !== undefined && output.rateMode !== null ? output.rateMode : undefined,
     Scte27Pids:
-      output.scte27Pids !== undefined && output.scte27Pids !== null
-        ? output.scte27Pids
-        : undefined,
+      output.scte27Pids !== undefined && output.scte27Pids !== null ? output.scte27Pids : undefined,
     Scte35Control:
       output.scte35Control !== undefined && output.scte35Control !== null
         ? output.scte35Control
         : undefined,
     Scte35Pid:
-      output.scte35Pid !== undefined && output.scte35Pid !== null
-        ? output.scte35Pid
-        : undefined,
+      output.scte35Pid !== undefined && output.scte35Pid !== null ? output.scte35Pid : undefined,
     SegmentationMarkers:
-      output.segmentationMarkers !== undefined &&
-      output.segmentationMarkers !== null
+      output.segmentationMarkers !== undefined && output.segmentationMarkers !== null
         ? output.segmentationMarkers
         : undefined,
     SegmentationStyle:
-      output.segmentationStyle !== undefined &&
-      output.segmentationStyle !== null
+      output.segmentationStyle !== undefined && output.segmentationStyle !== null
         ? output.segmentationStyle
         : undefined,
     SegmentationTime:
@@ -15040,8 +13065,7 @@ const deserializeAws_restJson1_1M2tsSettings = (
         ? output.segmentationTime
         : undefined,
     TimedMetadataBehavior:
-      output.timedMetadataBehavior !== undefined &&
-      output.timedMetadataBehavior !== null
+      output.timedMetadataBehavior !== undefined && output.timedMetadataBehavior !== null
         ? output.timedMetadataBehavior
         : undefined,
     TimedMetadataPid:
@@ -15049,14 +13073,11 @@ const deserializeAws_restJson1_1M2tsSettings = (
         ? output.timedMetadataPid
         : undefined,
     TransportStreamId:
-      output.transportStreamId !== undefined &&
-      output.transportStreamId !== null
+      output.transportStreamId !== undefined && output.transportStreamId !== null
         ? output.transportStreamId
         : undefined,
     VideoPid:
-      output.videoPid !== undefined && output.videoPid !== null
-        ? output.videoPid
-        : undefined
+      output.videoPid !== undefined && output.videoPid !== null ? output.videoPid : undefined
   } as any;
 };
 
@@ -15067,21 +13088,14 @@ const deserializeAws_restJson1_1M3u8Settings = (
   return {
     __type: "M3u8Settings",
     AudioFramesPerPes:
-      output.audioFramesPerPes !== undefined &&
-      output.audioFramesPerPes !== null
+      output.audioFramesPerPes !== undefined && output.audioFramesPerPes !== null
         ? output.audioFramesPerPes
         : undefined,
     AudioPids:
-      output.audioPids !== undefined && output.audioPids !== null
-        ? output.audioPids
-        : undefined,
-    EcmPid:
-      output.ecmPid !== undefined && output.ecmPid !== null
-        ? output.ecmPid
-        : undefined,
+      output.audioPids !== undefined && output.audioPids !== null ? output.audioPids : undefined,
+    EcmPid: output.ecmPid !== undefined && output.ecmPid !== null ? output.ecmPid : undefined,
     NielsenId3Behavior:
-      output.nielsenId3Behavior !== undefined &&
-      output.nielsenId3Behavior !== null
+      output.nielsenId3Behavior !== undefined && output.nielsenId3Behavior !== null
         ? output.nielsenId3Behavior
         : undefined,
     PatInterval:
@@ -15089,40 +13103,25 @@ const deserializeAws_restJson1_1M3u8Settings = (
         ? output.patInterval
         : undefined,
     PcrControl:
-      output.pcrControl !== undefined && output.pcrControl !== null
-        ? output.pcrControl
-        : undefined,
+      output.pcrControl !== undefined && output.pcrControl !== null ? output.pcrControl : undefined,
     PcrPeriod:
-      output.pcrPeriod !== undefined && output.pcrPeriod !== null
-        ? output.pcrPeriod
-        : undefined,
-    PcrPid:
-      output.pcrPid !== undefined && output.pcrPid !== null
-        ? output.pcrPid
-        : undefined,
+      output.pcrPeriod !== undefined && output.pcrPeriod !== null ? output.pcrPeriod : undefined,
+    PcrPid: output.pcrPid !== undefined && output.pcrPid !== null ? output.pcrPid : undefined,
     PmtInterval:
       output.pmtInterval !== undefined && output.pmtInterval !== null
         ? output.pmtInterval
         : undefined,
-    PmtPid:
-      output.pmtPid !== undefined && output.pmtPid !== null
-        ? output.pmtPid
-        : undefined,
+    PmtPid: output.pmtPid !== undefined && output.pmtPid !== null ? output.pmtPid : undefined,
     ProgramNum:
-      output.programNum !== undefined && output.programNum !== null
-        ? output.programNum
-        : undefined,
+      output.programNum !== undefined && output.programNum !== null ? output.programNum : undefined,
     Scte35Behavior:
       output.scte35Behavior !== undefined && output.scte35Behavior !== null
         ? output.scte35Behavior
         : undefined,
     Scte35Pid:
-      output.scte35Pid !== undefined && output.scte35Pid !== null
-        ? output.scte35Pid
-        : undefined,
+      output.scte35Pid !== undefined && output.scte35Pid !== null ? output.scte35Pid : undefined,
     TimedMetadataBehavior:
-      output.timedMetadataBehavior !== undefined &&
-      output.timedMetadataBehavior !== null
+      output.timedMetadataBehavior !== undefined && output.timedMetadataBehavior !== null
         ? output.timedMetadataBehavior
         : undefined,
     TimedMetadataPid:
@@ -15130,14 +13129,11 @@ const deserializeAws_restJson1_1M3u8Settings = (
         ? output.timedMetadataPid
         : undefined,
     TransportStreamId:
-      output.transportStreamId !== undefined &&
-      output.transportStreamId !== null
+      output.transportStreamId !== undefined && output.transportStreamId !== null
         ? output.transportStreamId
         : undefined,
     VideoPid:
-      output.videoPid !== undefined && output.videoPid !== null
-        ? output.videoPid
-        : undefined
+      output.videoPid !== undefined && output.videoPid !== null ? output.videoPid : undefined
   } as any;
 };
 
@@ -15147,10 +13143,7 @@ const deserializeAws_restJson1_1MediaConnectFlow = (
 ): MediaConnectFlow => {
   return {
     __type: "MediaConnectFlow",
-    FlowArn:
-      output.flowArn !== undefined && output.flowArn !== null
-        ? output.flowArn
-        : undefined
+    FlowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined
   } as any;
 };
 
@@ -15162,10 +13155,7 @@ const deserializeAws_restJson1_1MediaPackageGroupSettings = (
     __type: "MediaPackageGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined
   } as any;
 };
@@ -15177,9 +13167,7 @@ const deserializeAws_restJson1_1MediaPackageOutputDestinationSettings = (
   return {
     __type: "MediaPackageOutputDestinationSettings",
     ChannelId:
-      output.channelId !== undefined && output.channelId !== null
-        ? output.channelId
-        : undefined
+      output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined
   } as any;
 };
 
@@ -15198,18 +13186,11 @@ const deserializeAws_restJson1_1Mp2Settings = (
 ): Mp2Settings => {
   return {
     __type: "Mp2Settings",
-    Bitrate:
-      output.bitrate !== undefined && output.bitrate !== null
-        ? output.bitrate
-        : undefined,
+    Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     CodingMode:
-      output.codingMode !== undefined && output.codingMode !== null
-        ? output.codingMode
-        : undefined,
+      output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     SampleRate:
-      output.sampleRate !== undefined && output.sampleRate !== null
-        ? output.sampleRate
-        : undefined
+      output.sampleRate !== undefined && output.sampleRate !== null ? output.sampleRate : undefined
   } as any;
 };
 
@@ -15220,13 +13201,11 @@ const deserializeAws_restJson1_1MsSmoothGroupSettings = (
   return {
     __type: "MsSmoothGroupSettings",
     AcquisitionPointId:
-      output.acquisitionPointId !== undefined &&
-      output.acquisitionPointId !== null
+      output.acquisitionPointId !== undefined && output.acquisitionPointId !== null
         ? output.acquisitionPointId
         : undefined,
     AudioOnlyTimecodeControl:
-      output.audioOnlyTimecodeControl !== undefined &&
-      output.audioOnlyTimecodeControl !== null
+      output.audioOnlyTimecodeControl !== undefined && output.audioOnlyTimecodeControl !== null
         ? output.audioOnlyTimecodeControl
         : undefined,
     CertificateMode:
@@ -15234,33 +13213,24 @@ const deserializeAws_restJson1_1MsSmoothGroupSettings = (
         ? output.certificateMode
         : undefined,
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined,
-    EventId:
-      output.eventId !== undefined && output.eventId !== null
-        ? output.eventId
-        : undefined,
+    EventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
     EventIdMode:
       output.eventIdMode !== undefined && output.eventIdMode !== null
         ? output.eventIdMode
         : undefined,
     EventStopBehavior:
-      output.eventStopBehavior !== undefined &&
-      output.eventStopBehavior !== null
+      output.eventStopBehavior !== undefined && output.eventStopBehavior !== null
         ? output.eventStopBehavior
         : undefined,
     FilecacheDuration:
-      output.filecacheDuration !== undefined &&
-      output.filecacheDuration !== null
+      output.filecacheDuration !== undefined && output.filecacheDuration !== null
         ? output.filecacheDuration
         : undefined,
     FragmentLength:
@@ -15272,9 +13242,7 @@ const deserializeAws_restJson1_1MsSmoothGroupSettings = (
         ? output.inputLossAction
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined,
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined,
     RestartDelay:
       output.restartDelay !== undefined && output.restartDelay !== null
         ? output.restartDelay
@@ -15292,8 +13260,7 @@ const deserializeAws_restJson1_1MsSmoothGroupSettings = (
         ? output.sparseTrackType
         : undefined,
     StreamManifestBehavior:
-      output.streamManifestBehavior !== undefined &&
-      output.streamManifestBehavior !== null
+      output.streamManifestBehavior !== undefined && output.streamManifestBehavior !== null
         ? output.streamManifestBehavior
         : undefined,
     TimestampOffset:
@@ -15301,8 +13268,7 @@ const deserializeAws_restJson1_1MsSmoothGroupSettings = (
         ? output.timestampOffset
         : undefined,
     TimestampOffsetMode:
-      output.timestampOffsetMode !== undefined &&
-      output.timestampOffsetMode !== null
+      output.timestampOffsetMode !== undefined && output.timestampOffsetMode !== null
         ? output.timestampOffsetMode
         : undefined
   } as any;
@@ -15315,8 +13281,7 @@ const deserializeAws_restJson1_1MsSmoothOutputSettings = (
   return {
     __type: "MsSmoothOutputSettings",
     H265PackagingType:
-      output.h265PackagingType !== undefined &&
-      output.h265PackagingType !== null
+      output.h265PackagingType !== undefined && output.h265PackagingType !== null
         ? output.h265PackagingType
         : undefined,
     NameModifier:
@@ -15326,55 +13291,33 @@ const deserializeAws_restJson1_1MsSmoothOutputSettings = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Multiplex = (
-  output: any,
-  context: __SerdeContext
-): Multiplex => {
+const deserializeAws_restJson1_1Multiplex = (output: any, context: __SerdeContext): Multiplex => {
   return {
     __type: "Multiplex",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AvailabilityZones:
-      output.availabilityZones !== undefined &&
-      output.availabilityZones !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.availabilityZones,
-            context
-          )
+      output.availabilityZones !== undefined && output.availabilityZones !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.availabilityZones, context)
         : undefined,
     Destinations:
       output.destinations !== undefined && output.destinations !== null
-        ? deserializeAws_restJson1_1__listOfMultiplexOutputDestination(
-            output.destinations,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfMultiplexOutputDestination(output.destinations, context)
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     MultiplexSettings:
-      output.multiplexSettings !== undefined &&
-      output.multiplexSettings !== null
-        ? deserializeAws_restJson1_1MultiplexSettings(
-            output.multiplexSettings,
-            context
-          )
+      output.multiplexSettings !== undefined && output.multiplexSettings !== null
+        ? deserializeAws_restJson1_1MultiplexSettings(output.multiplexSettings, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     PipelinesRunningCount:
-      output.pipelinesRunningCount !== undefined &&
-      output.pipelinesRunningCount !== null
+      output.pipelinesRunningCount !== undefined && output.pipelinesRunningCount !== null
         ? output.pipelinesRunningCount
         : undefined,
     ProgramCount:
       output.programCount !== undefined && output.programCount !== null
         ? output.programCount
         : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
@@ -15411,8 +13354,7 @@ const deserializeAws_restJson1_1MultiplexOutputDestination = (
   return {
     __type: "MultiplexOutputDestination",
     MediaConnectSettings:
-      output.mediaConnectSettings !== undefined &&
-      output.mediaConnectSettings !== null
+      output.mediaConnectSettings !== undefined && output.mediaConnectSettings !== null
         ? deserializeAws_restJson1_1MultiplexMediaConnectOutputDestinationSettings(
             output.mediaConnectSettings,
             context
@@ -15429,10 +13371,7 @@ const deserializeAws_restJson1_1MultiplexOutputSettings = (
     __type: "MultiplexOutputSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined
   } as any;
 };
@@ -15444,20 +13383,16 @@ const deserializeAws_restJson1_1MultiplexProgram = (
   return {
     __type: "MultiplexProgram",
     ChannelId:
-      output.channelId !== undefined && output.channelId !== null
-        ? output.channelId
-        : undefined,
+      output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
     MultiplexProgramSettings:
-      output.multiplexProgramSettings !== undefined &&
-      output.multiplexProgramSettings !== null
+      output.multiplexProgramSettings !== undefined && output.multiplexProgramSettings !== null
         ? deserializeAws_restJson1_1MultiplexProgramSettings(
             output.multiplexProgramSettings,
             context
           )
         : undefined,
     PacketIdentifiersMap:
-      output.packetIdentifiersMap !== undefined &&
-      output.packetIdentifiersMap !== null
+      output.packetIdentifiersMap !== undefined && output.packetIdentifiersMap !== null
         ? deserializeAws_restJson1_1MultiplexProgramPacketIdentifiersMap(
             output.packetIdentifiersMap,
             context
@@ -15499,10 +13434,7 @@ const deserializeAws_restJson1_1MultiplexProgramPacketIdentifiersMap = (
         : undefined,
     DvbSubPids:
       output.dvbSubPids !== undefined && output.dvbSubPids !== null
-        ? deserializeAws_restJson1_1__listOf__integer(
-            output.dvbSubPids,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__integer(output.dvbSubPids, context)
         : undefined,
     DvbTeletextPid:
       output.dvbTeletextPid !== undefined && output.dvbTeletextPid !== null
@@ -15518,43 +13450,26 @@ const deserializeAws_restJson1_1MultiplexProgramPacketIdentifiersMap = (
         : undefined,
     KlvDataPids:
       output.klvDataPids !== undefined && output.klvDataPids !== null
-        ? deserializeAws_restJson1_1__listOf__integer(
-            output.klvDataPids,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__integer(output.klvDataPids, context)
         : undefined,
-    PcrPid:
-      output.pcrPid !== undefined && output.pcrPid !== null
-        ? output.pcrPid
-        : undefined,
-    PmtPid:
-      output.pmtPid !== undefined && output.pmtPid !== null
-        ? output.pmtPid
-        : undefined,
+    PcrPid: output.pcrPid !== undefined && output.pcrPid !== null ? output.pcrPid : undefined,
+    PmtPid: output.pmtPid !== undefined && output.pmtPid !== null ? output.pmtPid : undefined,
     PrivateMetadataPid:
-      output.privateMetadataPid !== undefined &&
-      output.privateMetadataPid !== null
+      output.privateMetadataPid !== undefined && output.privateMetadataPid !== null
         ? output.privateMetadataPid
         : undefined,
     Scte27Pids:
       output.scte27Pids !== undefined && output.scte27Pids !== null
-        ? deserializeAws_restJson1_1__listOf__integer(
-            output.scte27Pids,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__integer(output.scte27Pids, context)
         : undefined,
     Scte35Pid:
-      output.scte35Pid !== undefined && output.scte35Pid !== null
-        ? output.scte35Pid
-        : undefined,
+      output.scte35Pid !== undefined && output.scte35Pid !== null ? output.scte35Pid : undefined,
     TimedMetadataPid:
       output.timedMetadataPid !== undefined && output.timedMetadataPid !== null
         ? output.timedMetadataPid
         : undefined,
     VideoPid:
-      output.videoPid !== undefined && output.videoPid !== null
-        ? output.videoPid
-        : undefined
+      output.videoPid !== undefined && output.videoPid !== null ? output.videoPid : undefined
   } as any;
 };
 
@@ -15586,8 +13501,7 @@ const deserializeAws_restJson1_1MultiplexProgramSettings = (
         ? output.programNumber
         : undefined,
     ServiceDescriptor:
-      output.serviceDescriptor !== undefined &&
-      output.serviceDescriptor !== null
+      output.serviceDescriptor !== undefined && output.serviceDescriptor !== null
         ? deserializeAws_restJson1_1MultiplexProgramServiceDescriptor(
             output.serviceDescriptor,
             context
@@ -15595,10 +13509,7 @@ const deserializeAws_restJson1_1MultiplexProgramSettings = (
         : undefined,
     VideoSettings:
       output.videoSettings !== undefined && output.videoSettings !== null
-        ? deserializeAws_restJson1_1MultiplexVideoSettings(
-            output.videoSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1MultiplexVideoSettings(output.videoSettings, context)
         : undefined
   } as any;
 };
@@ -15610,9 +13521,7 @@ const deserializeAws_restJson1_1MultiplexProgramSummary = (
   return {
     __type: "MultiplexProgramSummary",
     ChannelId:
-      output.channelId !== undefined && output.channelId !== null
-        ? output.channelId
-        : undefined,
+      output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
     ProgramName:
       output.programName !== undefined && output.programName !== null
         ? output.programName
@@ -15632,13 +13541,11 @@ const deserializeAws_restJson1_1MultiplexSettings = (
         ? output.maximumVideoBufferDelayMilliseconds
         : undefined,
     TransportStreamBitrate:
-      output.transportStreamBitrate !== undefined &&
-      output.transportStreamBitrate !== null
+      output.transportStreamBitrate !== undefined && output.transportStreamBitrate !== null
         ? output.transportStreamBitrate
         : undefined,
     TransportStreamId:
-      output.transportStreamId !== undefined &&
-      output.transportStreamId !== null
+      output.transportStreamId !== undefined && output.transportStreamId !== null
         ? output.transportStreamId
         : undefined,
     TransportStreamReservedBitrate:
@@ -15656,8 +13563,7 @@ const deserializeAws_restJson1_1MultiplexSettingsSummary = (
   return {
     __type: "MultiplexSettingsSummary",
     TransportStreamBitrate:
-      output.transportStreamBitrate !== undefined &&
-      output.transportStreamBitrate !== null
+      output.transportStreamBitrate !== undefined && output.transportStreamBitrate !== null
         ? output.transportStreamBitrate
         : undefined
   } as any;
@@ -15686,42 +13592,26 @@ const deserializeAws_restJson1_1MultiplexSummary = (
 ): MultiplexSummary => {
   return {
     __type: "MultiplexSummary",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AvailabilityZones:
-      output.availabilityZones !== undefined &&
-      output.availabilityZones !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.availabilityZones,
-            context
-          )
+      output.availabilityZones !== undefined && output.availabilityZones !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.availabilityZones, context)
         : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     MultiplexSettings:
-      output.multiplexSettings !== undefined &&
-      output.multiplexSettings !== null
-        ? deserializeAws_restJson1_1MultiplexSettingsSummary(
-            output.multiplexSettings,
-            context
-          )
+      output.multiplexSettings !== undefined && output.multiplexSettings !== null
+        ? deserializeAws_restJson1_1MultiplexSettingsSummary(output.multiplexSettings, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     PipelinesRunningCount:
-      output.pipelinesRunningCount !== undefined &&
-      output.pipelinesRunningCount !== null
+      output.pipelinesRunningCount !== undefined && output.pipelinesRunningCount !== null
         ? output.pipelinesRunningCount
         : undefined,
     ProgramCount:
       output.programCount !== undefined && output.programCount !== null
         ? output.programCount
         : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
@@ -15741,10 +13631,7 @@ const deserializeAws_restJson1_1MultiplexVideoSettings = (
         : undefined,
     StatmuxSettings:
       output.statmuxSettings !== undefined && output.statmuxSettings !== null
-        ? deserializeAws_restJson1_1MultiplexStatmuxVideoSettings(
-            output.statmuxSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1MultiplexStatmuxVideoSettings(output.statmuxSettings, context)
         : undefined
   } as any;
 };
@@ -15757,10 +13644,7 @@ const deserializeAws_restJson1_1NetworkInputSettings = (
     __type: "NetworkInputSettings",
     HlsInputSettings:
       output.hlsInputSettings !== undefined && output.hlsInputSettings !== null
-        ? deserializeAws_restJson1_1HlsInputSettings(
-            output.hlsInputSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1HlsInputSettings(output.hlsInputSettings, context)
         : undefined,
     ServerValidation:
       output.serverValidation !== undefined && output.serverValidation !== null
@@ -15780,105 +13664,70 @@ const deserializeAws_restJson1_1NielsenConfiguration = (
         ? output.distributorId
         : undefined,
     NielsenPcmToId3Tagging:
-      output.nielsenPcmToId3Tagging !== undefined &&
-      output.nielsenPcmToId3Tagging !== null
+      output.nielsenPcmToId3Tagging !== undefined && output.nielsenPcmToId3Tagging !== null
         ? output.nielsenPcmToId3Tagging
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Offering = (
-  output: any,
-  context: __SerdeContext
-): Offering => {
+const deserializeAws_restJson1_1Offering = (output: any, context: __SerdeContext): Offering => {
   return {
     __type: "Offering",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     CurrencyCode:
       output.currencyCode !== undefined && output.currencyCode !== null
         ? output.currencyCode
         : undefined,
     Duration:
-      output.duration !== undefined && output.duration !== null
-        ? output.duration
-        : undefined,
+      output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     DurationUnits:
       output.durationUnits !== undefined && output.durationUnits !== null
         ? output.durationUnits
         : undefined,
     FixedPrice:
-      output.fixedPrice !== undefined && output.fixedPrice !== null
-        ? output.fixedPrice
-        : undefined,
+      output.fixedPrice !== undefined && output.fixedPrice !== null ? output.fixedPrice : undefined,
     OfferingDescription:
-      output.offeringDescription !== undefined &&
-      output.offeringDescription !== null
+      output.offeringDescription !== undefined && output.offeringDescription !== null
         ? output.offeringDescription
         : undefined,
     OfferingId:
-      output.offeringId !== undefined && output.offeringId !== null
-        ? output.offeringId
-        : undefined,
+      output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
     OfferingType:
       output.offeringType !== undefined && output.offeringType !== null
         ? output.offeringType
         : undefined,
-    Region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+    Region: output.region !== undefined && output.region !== null ? output.region : undefined,
     ResourceSpecification:
-      output.resourceSpecification !== undefined &&
-      output.resourceSpecification !== null
+      output.resourceSpecification !== undefined && output.resourceSpecification !== null
         ? deserializeAws_restJson1_1ReservationResourceSpecification(
             output.resourceSpecification,
             context
           )
         : undefined,
     UsagePrice:
-      output.usagePrice !== undefined && output.usagePrice !== null
-        ? output.usagePrice
-        : undefined
+      output.usagePrice !== undefined && output.usagePrice !== null ? output.usagePrice : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Output = (
-  output: any,
-  context: __SerdeContext
-): Output => {
+const deserializeAws_restJson1_1Output = (output: any, context: __SerdeContext): Output => {
   return {
     __type: "Output",
     AudioDescriptionNames:
-      output.audioDescriptionNames !== undefined &&
-      output.audioDescriptionNames !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.audioDescriptionNames,
-            context
-          )
+      output.audioDescriptionNames !== undefined && output.audioDescriptionNames !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.audioDescriptionNames, context)
         : undefined,
     CaptionDescriptionNames:
-      output.captionDescriptionNames !== undefined &&
-      output.captionDescriptionNames !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.captionDescriptionNames,
-            context
-          )
+      output.captionDescriptionNames !== undefined && output.captionDescriptionNames !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.captionDescriptionNames, context)
         : undefined,
     OutputName:
-      output.outputName !== undefined && output.outputName !== null
-        ? output.outputName
-        : undefined,
+      output.outputName !== undefined && output.outputName !== null ? output.outputName : undefined,
     OutputSettings:
       output.outputSettings !== undefined && output.outputSettings !== null
-        ? deserializeAws_restJson1_1OutputSettings(
-            output.outputSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputSettings(output.outputSettings, context)
         : undefined,
     VideoDescriptionName:
-      output.videoDescriptionName !== undefined &&
-      output.videoDescriptionName !== null
+      output.videoDescriptionName !== undefined && output.videoDescriptionName !== null
         ? output.videoDescriptionName
         : undefined
   } as any;
@@ -15892,16 +13741,14 @@ const deserializeAws_restJson1_1OutputDestination = (
     __type: "OutputDestination",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     MediaPackageSettings:
-      output.mediaPackageSettings !== undefined &&
-      output.mediaPackageSettings !== null
+      output.mediaPackageSettings !== undefined && output.mediaPackageSettings !== null
         ? deserializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings(
             output.mediaPackageSettings,
             context
           )
         : undefined,
     MultiplexSettings:
-      output.multiplexSettings !== undefined &&
-      output.multiplexSettings !== null
+      output.multiplexSettings !== undefined && output.multiplexSettings !== null
         ? deserializeAws_restJson1_1MultiplexProgramChannelDestinationSettings(
             output.multiplexSettings,
             context
@@ -15909,10 +13756,7 @@ const deserializeAws_restJson1_1OutputDestination = (
         : undefined,
     Settings:
       output.settings !== undefined && output.settings !== null
-        ? deserializeAws_restJson1_1__listOfOutputDestinationSettings(
-            output.settings,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfOutputDestinationSettings(output.settings, context)
         : undefined
   } as any;
 };
@@ -15928,15 +13772,10 @@ const deserializeAws_restJson1_1OutputDestinationSettings = (
         ? output.passwordParam
         : undefined,
     StreamName:
-      output.streamName !== undefined && output.streamName !== null
-        ? output.streamName
-        : undefined,
-    Url:
-      output.url !== undefined && output.url !== null ? output.url : undefined,
+      output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined,
+    Url: output.url !== undefined && output.url !== null ? output.url : undefined,
     Username:
-      output.username !== undefined && output.username !== null
-        ? output.username
-        : undefined
+      output.username !== undefined && output.username !== null ? output.username : undefined
   } as any;
 };
 
@@ -15946,17 +13785,10 @@ const deserializeAws_restJson1_1OutputGroup = (
 ): OutputGroup => {
   return {
     __type: "OutputGroup",
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OutputGroupSettings:
-      output.outputGroupSettings !== undefined &&
-      output.outputGroupSettings !== null
-        ? deserializeAws_restJson1_1OutputGroupSettings(
-            output.outputGroupSettings,
-            context
-          )
+      output.outputGroupSettings !== undefined && output.outputGroupSettings !== null
+        ? deserializeAws_restJson1_1OutputGroupSettings(output.outputGroupSettings, context)
         : undefined,
     Outputs:
       output.outputs !== undefined && output.outputs !== null
@@ -15972,16 +13804,11 @@ const deserializeAws_restJson1_1OutputGroupSettings = (
   return {
     __type: "OutputGroupSettings",
     ArchiveGroupSettings:
-      output.archiveGroupSettings !== undefined &&
-      output.archiveGroupSettings !== null
-        ? deserializeAws_restJson1_1ArchiveGroupSettings(
-            output.archiveGroupSettings,
-            context
-          )
+      output.archiveGroupSettings !== undefined && output.archiveGroupSettings !== null
+        ? deserializeAws_restJson1_1ArchiveGroupSettings(output.archiveGroupSettings, context)
         : undefined,
     FrameCaptureGroupSettings:
-      output.frameCaptureGroupSettings !== undefined &&
-      output.frameCaptureGroupSettings !== null
+      output.frameCaptureGroupSettings !== undefined && output.frameCaptureGroupSettings !== null
         ? deserializeAws_restJson1_1FrameCaptureGroupSettings(
             output.frameCaptureGroupSettings,
             context
@@ -15989,49 +13816,30 @@ const deserializeAws_restJson1_1OutputGroupSettings = (
         : undefined,
     HlsGroupSettings:
       output.hlsGroupSettings !== undefined && output.hlsGroupSettings !== null
-        ? deserializeAws_restJson1_1HlsGroupSettings(
-            output.hlsGroupSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1HlsGroupSettings(output.hlsGroupSettings, context)
         : undefined,
     MediaPackageGroupSettings:
-      output.mediaPackageGroupSettings !== undefined &&
-      output.mediaPackageGroupSettings !== null
+      output.mediaPackageGroupSettings !== undefined && output.mediaPackageGroupSettings !== null
         ? deserializeAws_restJson1_1MediaPackageGroupSettings(
             output.mediaPackageGroupSettings,
             context
           )
         : undefined,
     MsSmoothGroupSettings:
-      output.msSmoothGroupSettings !== undefined &&
-      output.msSmoothGroupSettings !== null
-        ? deserializeAws_restJson1_1MsSmoothGroupSettings(
-            output.msSmoothGroupSettings,
-            context
-          )
+      output.msSmoothGroupSettings !== undefined && output.msSmoothGroupSettings !== null
+        ? deserializeAws_restJson1_1MsSmoothGroupSettings(output.msSmoothGroupSettings, context)
         : undefined,
     MultiplexGroupSettings:
-      output.multiplexGroupSettings !== undefined &&
-      output.multiplexGroupSettings !== null
-        ? deserializeAws_restJson1_1MultiplexGroupSettings(
-            output.multiplexGroupSettings,
-            context
-          )
+      output.multiplexGroupSettings !== undefined && output.multiplexGroupSettings !== null
+        ? deserializeAws_restJson1_1MultiplexGroupSettings(output.multiplexGroupSettings, context)
         : undefined,
     RtmpGroupSettings:
-      output.rtmpGroupSettings !== undefined &&
-      output.rtmpGroupSettings !== null
-        ? deserializeAws_restJson1_1RtmpGroupSettings(
-            output.rtmpGroupSettings,
-            context
-          )
+      output.rtmpGroupSettings !== undefined && output.rtmpGroupSettings !== null
+        ? deserializeAws_restJson1_1RtmpGroupSettings(output.rtmpGroupSettings, context)
         : undefined,
     UdpGroupSettings:
       output.udpGroupSettings !== undefined && output.udpGroupSettings !== null
-        ? deserializeAws_restJson1_1UdpGroupSettings(
-            output.udpGroupSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1UdpGroupSettings(output.udpGroupSettings, context)
         : undefined
   } as any;
 };
@@ -16056,68 +13864,42 @@ const deserializeAws_restJson1_1OutputSettings = (
   return {
     __type: "OutputSettings",
     ArchiveOutputSettings:
-      output.archiveOutputSettings !== undefined &&
-      output.archiveOutputSettings !== null
-        ? deserializeAws_restJson1_1ArchiveOutputSettings(
-            output.archiveOutputSettings,
-            context
-          )
+      output.archiveOutputSettings !== undefined && output.archiveOutputSettings !== null
+        ? deserializeAws_restJson1_1ArchiveOutputSettings(output.archiveOutputSettings, context)
         : undefined,
     FrameCaptureOutputSettings:
-      output.frameCaptureOutputSettings !== undefined &&
-      output.frameCaptureOutputSettings !== null
+      output.frameCaptureOutputSettings !== undefined && output.frameCaptureOutputSettings !== null
         ? deserializeAws_restJson1_1FrameCaptureOutputSettings(
             output.frameCaptureOutputSettings,
             context
           )
         : undefined,
     HlsOutputSettings:
-      output.hlsOutputSettings !== undefined &&
-      output.hlsOutputSettings !== null
-        ? deserializeAws_restJson1_1HlsOutputSettings(
-            output.hlsOutputSettings,
-            context
-          )
+      output.hlsOutputSettings !== undefined && output.hlsOutputSettings !== null
+        ? deserializeAws_restJson1_1HlsOutputSettings(output.hlsOutputSettings, context)
         : undefined,
     MediaPackageOutputSettings:
-      output.mediaPackageOutputSettings !== undefined &&
-      output.mediaPackageOutputSettings !== null
+      output.mediaPackageOutputSettings !== undefined && output.mediaPackageOutputSettings !== null
         ? deserializeAws_restJson1_1MediaPackageOutputSettings(
             output.mediaPackageOutputSettings,
             context
           )
         : undefined,
     MsSmoothOutputSettings:
-      output.msSmoothOutputSettings !== undefined &&
-      output.msSmoothOutputSettings !== null
-        ? deserializeAws_restJson1_1MsSmoothOutputSettings(
-            output.msSmoothOutputSettings,
-            context
-          )
+      output.msSmoothOutputSettings !== undefined && output.msSmoothOutputSettings !== null
+        ? deserializeAws_restJson1_1MsSmoothOutputSettings(output.msSmoothOutputSettings, context)
         : undefined,
     MultiplexOutputSettings:
-      output.multiplexOutputSettings !== undefined &&
-      output.multiplexOutputSettings !== null
-        ? deserializeAws_restJson1_1MultiplexOutputSettings(
-            output.multiplexOutputSettings,
-            context
-          )
+      output.multiplexOutputSettings !== undefined && output.multiplexOutputSettings !== null
+        ? deserializeAws_restJson1_1MultiplexOutputSettings(output.multiplexOutputSettings, context)
         : undefined,
     RtmpOutputSettings:
-      output.rtmpOutputSettings !== undefined &&
-      output.rtmpOutputSettings !== null
-        ? deserializeAws_restJson1_1RtmpOutputSettings(
-            output.rtmpOutputSettings,
-            context
-          )
+      output.rtmpOutputSettings !== undefined && output.rtmpOutputSettings !== null
+        ? deserializeAws_restJson1_1RtmpOutputSettings(output.rtmpOutputSettings, context)
         : undefined,
     UdpOutputSettings:
-      output.udpOutputSettings !== undefined &&
-      output.udpOutputSettings !== null
-        ? deserializeAws_restJson1_1UdpOutputSettings(
-            output.udpOutputSettings,
-            context
-          )
+      output.udpOutputSettings !== undefined && output.udpOutputSettings !== null
+        ? deserializeAws_restJson1_1UdpOutputSettings(output.udpOutputSettings, context)
         : undefined
   } as any;
 };
@@ -16139,10 +13921,7 @@ const deserializeAws_restJson1_1PauseStateScheduleActionSettings = (
     __type: "PauseStateScheduleActionSettings",
     Pipelines:
       output.pipelines !== undefined && output.pipelines !== null
-        ? deserializeAws_restJson1_1__listOfPipelinePauseStateSettings(
-            output.pipelines,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfPipelinePauseStateSettings(output.pipelines, context)
         : undefined
   } as any;
 };
@@ -16154,8 +13933,7 @@ const deserializeAws_restJson1_1PipelineDetail = (
   return {
     __type: "PipelineDetail",
     ActiveInputAttachmentName:
-      output.activeInputAttachmentName !== undefined &&
-      output.activeInputAttachmentName !== null
+      output.activeInputAttachmentName !== undefined && output.activeInputAttachmentName !== null
         ? output.activeInputAttachmentName
         : undefined,
     ActiveInputSwitchActionName:
@@ -16164,9 +13942,7 @@ const deserializeAws_restJson1_1PipelineDetail = (
         ? output.activeInputSwitchActionName
         : undefined,
     PipelineId:
-      output.pipelineId !== undefined && output.pipelineId !== null
-        ? output.pipelineId
-        : undefined
+      output.pipelineId !== undefined && output.pipelineId !== null ? output.pipelineId : undefined
   } as any;
 };
 
@@ -16177,9 +13953,7 @@ const deserializeAws_restJson1_1PipelinePauseStateSettings = (
   return {
     __type: "PipelinePauseStateSettings",
     PipelineId:
-      output.pipelineId !== undefined && output.pipelineId !== null
-        ? output.pipelineId
-        : undefined
+      output.pipelineId !== undefined && output.pipelineId !== null ? output.pipelineId : undefined
   } as any;
 };
 
@@ -16209,15 +13983,10 @@ const deserializeAws_restJson1_1RemixSettings = (
     __type: "RemixSettings",
     ChannelMappings:
       output.channelMappings !== undefined && output.channelMappings !== null
-        ? deserializeAws_restJson1_1__listOfAudioChannelMapping(
-            output.channelMappings,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfAudioChannelMapping(output.channelMappings, context)
         : undefined,
     ChannelsIn:
-      output.channelsIn !== undefined && output.channelsIn !== null
-        ? output.channelsIn
-        : undefined,
+      output.channelsIn !== undefined && output.channelsIn !== null ? output.channelsIn : undefined,
     ChannelsOut:
       output.channelsOut !== undefined && output.channelsOut !== null
         ? output.channelsOut
@@ -16231,79 +14000,52 @@ const deserializeAws_restJson1_1Reservation = (
 ): Reservation => {
   return {
     __type: "Reservation",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    Count:
-      output.count !== undefined && output.count !== null
-        ? output.count
-        : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Count: output.count !== undefined && output.count !== null ? output.count : undefined,
     CurrencyCode:
       output.currencyCode !== undefined && output.currencyCode !== null
         ? output.currencyCode
         : undefined,
     Duration:
-      output.duration !== undefined && output.duration !== null
-        ? output.duration
-        : undefined,
+      output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     DurationUnits:
       output.durationUnits !== undefined && output.durationUnits !== null
         ? output.durationUnits
         : undefined,
-    End:
-      output.end !== undefined && output.end !== null ? output.end : undefined,
+    End: output.end !== undefined && output.end !== null ? output.end : undefined,
     FixedPrice:
-      output.fixedPrice !== undefined && output.fixedPrice !== null
-        ? output.fixedPrice
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.fixedPrice !== undefined && output.fixedPrice !== null ? output.fixedPrice : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OfferingDescription:
-      output.offeringDescription !== undefined &&
-      output.offeringDescription !== null
+      output.offeringDescription !== undefined && output.offeringDescription !== null
         ? output.offeringDescription
         : undefined,
     OfferingId:
-      output.offeringId !== undefined && output.offeringId !== null
-        ? output.offeringId
-        : undefined,
+      output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
     OfferingType:
       output.offeringType !== undefined && output.offeringType !== null
         ? output.offeringType
         : undefined,
-    Region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+    Region: output.region !== undefined && output.region !== null ? output.region : undefined,
     ReservationId:
       output.reservationId !== undefined && output.reservationId !== null
         ? output.reservationId
         : undefined,
     ResourceSpecification:
-      output.resourceSpecification !== undefined &&
-      output.resourceSpecification !== null
+      output.resourceSpecification !== undefined && output.resourceSpecification !== null
         ? deserializeAws_restJson1_1ReservationResourceSpecification(
             output.resourceSpecification,
             context
           )
         : undefined,
-    Start:
-      output.start !== undefined && output.start !== null
-        ? output.start
-        : undefined,
-    State:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    Start: output.start !== undefined && output.start !== null ? output.start : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
         : undefined,
     UsagePrice:
-      output.usagePrice !== undefined && output.usagePrice !== null
-        ? output.usagePrice
-        : undefined
+      output.usagePrice !== undefined && output.usagePrice !== null ? output.usagePrice : undefined
   } as any;
 };
 
@@ -16317,10 +14059,7 @@ const deserializeAws_restJson1_1ReservationResourceSpecification = (
       output.channelClass !== undefined && output.channelClass !== null
         ? output.channelClass
         : undefined,
-    Codec:
-      output.codec !== undefined && output.codec !== null
-        ? output.codec
-        : undefined,
+    Codec: output.codec !== undefined && output.codec !== null ? output.codec : undefined,
     MaximumBitrate:
       output.maximumBitrate !== undefined && output.maximumBitrate !== null
         ? output.maximumBitrate
@@ -16330,9 +14069,7 @@ const deserializeAws_restJson1_1ReservationResourceSpecification = (
         ? output.maximumFramerate
         : undefined,
     Resolution:
-      output.resolution !== undefined && output.resolution !== null
-        ? output.resolution
-        : undefined,
+      output.resolution !== undefined && output.resolution !== null ? output.resolution : undefined,
     ResourceType:
       output.resourceType !== undefined && output.resourceType !== null
         ? output.resourceType
@@ -16364,13 +14101,11 @@ const deserializeAws_restJson1_1RtmpGroupSettings = (
   return {
     __type: "RtmpGroupSettings",
     AuthenticationScheme:
-      output.authenticationScheme !== undefined &&
-      output.authenticationScheme !== null
+      output.authenticationScheme !== undefined && output.authenticationScheme !== null
         ? output.authenticationScheme
         : undefined,
     CacheFullBehavior:
-      output.cacheFullBehavior !== undefined &&
-      output.cacheFullBehavior !== null
+      output.cacheFullBehavior !== undefined && output.cacheFullBehavior !== null
         ? output.cacheFullBehavior
         : undefined,
     CacheLength:
@@ -16403,21 +14138,15 @@ const deserializeAws_restJson1_1RtmpOutputSettings = (
         ? output.certificateMode
         : undefined,
     ConnectionRetryInterval:
-      output.connectionRetryInterval !== undefined &&
-      output.connectionRetryInterval !== null
+      output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
         : undefined,
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined,
     NumRetries:
-      output.numRetries !== undefined && output.numRetries !== null
-        ? output.numRetries
-        : undefined
+      output.numRetries !== undefined && output.numRetries !== null ? output.numRetries : undefined
   } as any;
 };
 
@@ -16428,16 +14157,10 @@ const deserializeAws_restJson1_1ScheduleAction = (
   return {
     __type: "ScheduleAction",
     ActionName:
-      output.actionName !== undefined && output.actionName !== null
-        ? output.actionName
-        : undefined,
+      output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     ScheduleActionSettings:
-      output.scheduleActionSettings !== undefined &&
-      output.scheduleActionSettings !== null
-        ? deserializeAws_restJson1_1ScheduleActionSettings(
-            output.scheduleActionSettings,
-            context
-          )
+      output.scheduleActionSettings !== undefined && output.scheduleActionSettings !== null
+        ? deserializeAws_restJson1_1ScheduleActionSettings(output.scheduleActionSettings, context)
         : undefined,
     ScheduleActionStartSettings:
       output.scheduleActionStartSettings !== undefined &&
@@ -16465,24 +14188,21 @@ const deserializeAws_restJson1_1ScheduleActionSettings = (
           )
         : undefined,
     HlsTimedMetadataSettings:
-      output.hlsTimedMetadataSettings !== undefined &&
-      output.hlsTimedMetadataSettings !== null
+      output.hlsTimedMetadataSettings !== undefined && output.hlsTimedMetadataSettings !== null
         ? deserializeAws_restJson1_1HlsTimedMetadataScheduleActionSettings(
             output.hlsTimedMetadataSettings,
             context
           )
         : undefined,
     InputSwitchSettings:
-      output.inputSwitchSettings !== undefined &&
-      output.inputSwitchSettings !== null
+      output.inputSwitchSettings !== undefined && output.inputSwitchSettings !== null
         ? deserializeAws_restJson1_1InputSwitchScheduleActionSettings(
             output.inputSwitchSettings,
             context
           )
         : undefined,
     PauseStateSettings:
-      output.pauseStateSettings !== undefined &&
-      output.pauseStateSettings !== null
+      output.pauseStateSettings !== undefined && output.pauseStateSettings !== null
         ? deserializeAws_restJson1_1PauseStateScheduleActionSettings(
             output.pauseStateSettings,
             context
@@ -16497,16 +14217,14 @@ const deserializeAws_restJson1_1ScheduleActionSettings = (
           )
         : undefined,
     Scte35SpliceInsertSettings:
-      output.scte35SpliceInsertSettings !== undefined &&
-      output.scte35SpliceInsertSettings !== null
+      output.scte35SpliceInsertSettings !== undefined && output.scte35SpliceInsertSettings !== null
         ? deserializeAws_restJson1_1Scte35SpliceInsertScheduleActionSettings(
             output.scte35SpliceInsertSettings,
             context
           )
         : undefined,
     Scte35TimeSignalSettings:
-      output.scte35TimeSignalSettings !== undefined &&
-      output.scte35TimeSignalSettings !== null
+      output.scte35TimeSignalSettings !== undefined && output.scte35TimeSignalSettings !== null
         ? deserializeAws_restJson1_1Scte35TimeSignalScheduleActionSettings(
             output.scte35TimeSignalSettings,
             context
@@ -16584,8 +14302,7 @@ const deserializeAws_restJson1_1Scte20SourceSettings = (
         ? output.convert608To708
         : undefined,
     Source608ChannelNumber:
-      output.source608ChannelNumber !== undefined &&
-      output.source608ChannelNumber !== null
+      output.source608ChannelNumber !== undefined && output.source608ChannelNumber !== null
         ? output.source608ChannelNumber
         : undefined
   } as any;
@@ -16606,8 +14323,7 @@ const deserializeAws_restJson1_1Scte27SourceSettings = (
 ): Scte27SourceSettings => {
   return {
     __type: "Scte27SourceSettings",
-    Pid:
-      output.pid !== undefined && output.pid !== null ? output.pid : undefined
+    Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined
   } as any;
 };
 
@@ -16618,23 +14334,19 @@ const deserializeAws_restJson1_1Scte35DeliveryRestrictions = (
   return {
     __type: "Scte35DeliveryRestrictions",
     ArchiveAllowedFlag:
-      output.archiveAllowedFlag !== undefined &&
-      output.archiveAllowedFlag !== null
+      output.archiveAllowedFlag !== undefined && output.archiveAllowedFlag !== null
         ? output.archiveAllowedFlag
         : undefined,
     DeviceRestrictions:
-      output.deviceRestrictions !== undefined &&
-      output.deviceRestrictions !== null
+      output.deviceRestrictions !== undefined && output.deviceRestrictions !== null
         ? output.deviceRestrictions
         : undefined,
     NoRegionalBlackoutFlag:
-      output.noRegionalBlackoutFlag !== undefined &&
-      output.noRegionalBlackoutFlag !== null
+      output.noRegionalBlackoutFlag !== undefined && output.noRegionalBlackoutFlag !== null
         ? output.noRegionalBlackoutFlag
         : undefined,
     WebDeliveryAllowedFlag:
-      output.webDeliveryAllowedFlag !== undefined &&
-      output.webDeliveryAllowedFlag !== null
+      output.webDeliveryAllowedFlag !== undefined && output.webDeliveryAllowedFlag !== null
         ? output.webDeliveryAllowedFlag
         : undefined
   } as any;
@@ -16647,8 +14359,7 @@ const deserializeAws_restJson1_1Scte35Descriptor = (
   return {
     __type: "Scte35Descriptor",
     Scte35DescriptorSettings:
-      output.scte35DescriptorSettings !== undefined &&
-      output.scte35DescriptorSettings !== null
+      output.scte35DescriptorSettings !== undefined && output.scte35DescriptorSettings !== null
         ? deserializeAws_restJson1_1Scte35DescriptorSettings(
             output.scte35DescriptorSettings,
             context
@@ -16694,35 +14405,26 @@ const deserializeAws_restJson1_1Scte35SegmentationDescriptor = (
   return {
     __type: "Scte35SegmentationDescriptor",
     DeliveryRestrictions:
-      output.deliveryRestrictions !== undefined &&
-      output.deliveryRestrictions !== null
-        ? deserializeAws_restJson1_1Scte35DeliveryRestrictions(
-            output.deliveryRestrictions,
-            context
-          )
+      output.deliveryRestrictions !== undefined && output.deliveryRestrictions !== null
+        ? deserializeAws_restJson1_1Scte35DeliveryRestrictions(output.deliveryRestrictions, context)
         : undefined,
     SegmentNum:
-      output.segmentNum !== undefined && output.segmentNum !== null
-        ? output.segmentNum
-        : undefined,
+      output.segmentNum !== undefined && output.segmentNum !== null ? output.segmentNum : undefined,
     SegmentationCancelIndicator:
       output.segmentationCancelIndicator !== undefined &&
       output.segmentationCancelIndicator !== null
         ? output.segmentationCancelIndicator
         : undefined,
     SegmentationDuration:
-      output.segmentationDuration !== undefined &&
-      output.segmentationDuration !== null
+      output.segmentationDuration !== undefined && output.segmentationDuration !== null
         ? output.segmentationDuration
         : undefined,
     SegmentationEventId:
-      output.segmentationEventId !== undefined &&
-      output.segmentationEventId !== null
+      output.segmentationEventId !== undefined && output.segmentationEventId !== null
         ? output.segmentationEventId
         : undefined,
     SegmentationTypeId:
-      output.segmentationTypeId !== undefined &&
-      output.segmentationTypeId !== null
+      output.segmentationTypeId !== undefined && output.segmentationTypeId !== null
         ? output.segmentationTypeId
         : undefined,
     SegmentationUpid:
@@ -16730,8 +14432,7 @@ const deserializeAws_restJson1_1Scte35SegmentationDescriptor = (
         ? output.segmentationUpid
         : undefined,
     SegmentationUpidType:
-      output.segmentationUpidType !== undefined &&
-      output.segmentationUpidType !== null
+      output.segmentationUpidType !== undefined && output.segmentationUpidType !== null
         ? output.segmentationUpidType
         : undefined,
     SegmentsExpected:
@@ -16743,8 +14444,7 @@ const deserializeAws_restJson1_1Scte35SegmentationDescriptor = (
         ? output.subSegmentNum
         : undefined,
     SubSegmentsExpected:
-      output.subSegmentsExpected !== undefined &&
-      output.subSegmentsExpected !== null
+      output.subSegmentsExpected !== undefined && output.subSegmentsExpected !== null
         ? output.subSegmentsExpected
         : undefined
   } as any;
@@ -16761,13 +14461,11 @@ const deserializeAws_restJson1_1Scte35SpliceInsert = (
         ? output.adAvailOffset
         : undefined,
     NoRegionalBlackoutFlag:
-      output.noRegionalBlackoutFlag !== undefined &&
-      output.noRegionalBlackoutFlag !== null
+      output.noRegionalBlackoutFlag !== undefined && output.noRegionalBlackoutFlag !== null
         ? output.noRegionalBlackoutFlag
         : undefined,
     WebDeliveryAllowedFlag:
-      output.webDeliveryAllowedFlag !== undefined &&
-      output.webDeliveryAllowedFlag !== null
+      output.webDeliveryAllowedFlag !== undefined && output.webDeliveryAllowedFlag !== null
         ? output.webDeliveryAllowedFlag
         : undefined
   } as any;
@@ -16780,9 +14478,7 @@ const deserializeAws_restJson1_1Scte35SpliceInsertScheduleActionSettings = (
   return {
     __type: "Scte35SpliceInsertScheduleActionSettings",
     Duration:
-      output.duration !== undefined && output.duration !== null
-        ? output.duration
-        : undefined,
+      output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     SpliceEventId:
       output.spliceEventId !== undefined && output.spliceEventId !== null
         ? output.spliceEventId
@@ -16801,13 +14497,11 @@ const deserializeAws_restJson1_1Scte35TimeSignalApos = (
         ? output.adAvailOffset
         : undefined,
     NoRegionalBlackoutFlag:
-      output.noRegionalBlackoutFlag !== undefined &&
-      output.noRegionalBlackoutFlag !== null
+      output.noRegionalBlackoutFlag !== undefined && output.noRegionalBlackoutFlag !== null
         ? output.noRegionalBlackoutFlag
         : undefined,
     WebDeliveryAllowedFlag:
-      output.webDeliveryAllowedFlag !== undefined &&
-      output.webDeliveryAllowedFlag !== null
+      output.webDeliveryAllowedFlag !== undefined && output.webDeliveryAllowedFlag !== null
         ? output.webDeliveryAllowedFlag
         : undefined
   } as any;
@@ -16820,12 +14514,8 @@ const deserializeAws_restJson1_1Scte35TimeSignalScheduleActionSettings = (
   return {
     __type: "Scte35TimeSignalScheduleActionSettings",
     Scte35Descriptors:
-      output.scte35Descriptors !== undefined &&
-      output.scte35Descriptors !== null
-        ? deserializeAws_restJson1_1__listOfScte35Descriptor(
-            output.scte35Descriptors,
-            context
-          )
+      output.scte35Descriptors !== undefined && output.scte35Descriptors !== null
+        ? deserializeAws_restJson1_1__listOfScte35Descriptor(output.scte35Descriptors, context)
         : undefined
   } as any;
 };
@@ -16846,8 +14536,7 @@ const deserializeAws_restJson1_1StandardHlsSettings = (
   return {
     __type: "StandardHlsSettings",
     AudioRenditionSets:
-      output.audioRenditionSets !== undefined &&
-      output.audioRenditionSets !== null
+      output.audioRenditionSets !== undefined && output.audioRenditionSets !== null
         ? output.audioRenditionSets
         : undefined,
     M3u8Settings:
@@ -16864,9 +14553,7 @@ const deserializeAws_restJson1_1StartTimecode = (
   return {
     __type: "StartTimecode",
     Timecode:
-      output.timecode !== undefined && output.timecode !== null
-        ? output.timecode
-        : undefined
+      output.timecode !== undefined && output.timecode !== null ? output.timecode : undefined
   } as any;
 };
 
@@ -16877,45 +14564,19 @@ const deserializeAws_restJson1_1StaticImageActivateScheduleActionSettings = (
   return {
     __type: "StaticImageActivateScheduleActionSettings",
     Duration:
-      output.duration !== undefined && output.duration !== null
-        ? output.duration
-        : undefined,
-    FadeIn:
-      output.fadeIn !== undefined && output.fadeIn !== null
-        ? output.fadeIn
-        : undefined,
-    FadeOut:
-      output.fadeOut !== undefined && output.fadeOut !== null
-        ? output.fadeOut
-        : undefined,
-    Height:
-      output.height !== undefined && output.height !== null
-        ? output.height
-        : undefined,
+      output.duration !== undefined && output.duration !== null ? output.duration : undefined,
+    FadeIn: output.fadeIn !== undefined && output.fadeIn !== null ? output.fadeIn : undefined,
+    FadeOut: output.fadeOut !== undefined && output.fadeOut !== null ? output.fadeOut : undefined,
+    Height: output.height !== undefined && output.height !== null ? output.height : undefined,
     Image:
       output.image !== undefined && output.image !== null
         ? deserializeAws_restJson1_1InputLocation(output.image, context)
         : undefined,
-    ImageX:
-      output.imageX !== undefined && output.imageX !== null
-        ? output.imageX
-        : undefined,
-    ImageY:
-      output.imageY !== undefined && output.imageY !== null
-        ? output.imageY
-        : undefined,
-    Layer:
-      output.layer !== undefined && output.layer !== null
-        ? output.layer
-        : undefined,
-    Opacity:
-      output.opacity !== undefined && output.opacity !== null
-        ? output.opacity
-        : undefined,
-    Width:
-      output.width !== undefined && output.width !== null
-        ? output.width
-        : undefined
+    ImageX: output.imageX !== undefined && output.imageX !== null ? output.imageX : undefined,
+    ImageY: output.imageY !== undefined && output.imageY !== null ? output.imageY : undefined,
+    Layer: output.layer !== undefined && output.layer !== null ? output.layer : undefined,
+    Opacity: output.opacity !== undefined && output.opacity !== null ? output.opacity : undefined,
+    Width: output.width !== undefined && output.width !== null ? output.width : undefined
   } as any;
 };
 
@@ -16925,14 +14586,8 @@ const deserializeAws_restJson1_1StaticImageDeactivateScheduleActionSettings = (
 ): StaticImageDeactivateScheduleActionSettings => {
   return {
     __type: "StaticImageDeactivateScheduleActionSettings",
-    FadeOut:
-      output.fadeOut !== undefined && output.fadeOut !== null
-        ? output.fadeOut
-        : undefined,
-    Layer:
-      output.layer !== undefined && output.layer !== null
-        ? output.layer
-        : undefined
+    FadeOut: output.fadeOut !== undefined && output.fadeOut !== null ? output.fadeOut : undefined,
+    Layer: output.layer !== undefined && output.layer !== null ? output.layer : undefined
   } as any;
 };
 
@@ -16943,12 +14598,8 @@ const deserializeAws_restJson1_1StaticKeySettings = (
   return {
     __type: "StaticKeySettings",
     KeyProviderServer:
-      output.keyProviderServer !== undefined &&
-      output.keyProviderServer !== null
-        ? deserializeAws_restJson1_1InputLocation(
-            output.keyProviderServer,
-            context
-          )
+      output.keyProviderServer !== undefined && output.keyProviderServer !== null
+        ? deserializeAws_restJson1_1InputLocation(output.keyProviderServer, context)
         : undefined,
     StaticKeyValue:
       output.staticKeyValue !== undefined && output.staticKeyValue !== null
@@ -16964,14 +14615,11 @@ const deserializeAws_restJson1_1StopTimecode = (
   return {
     __type: "StopTimecode",
     LastFrameClippingBehavior:
-      output.lastFrameClippingBehavior !== undefined &&
-      output.lastFrameClippingBehavior !== null
+      output.lastFrameClippingBehavior !== undefined && output.lastFrameClippingBehavior !== null
         ? output.lastFrameClippingBehavior
         : undefined,
     Timecode:
-      output.timecode !== undefined && output.timecode !== null
-        ? output.timecode
-        : undefined
+      output.timecode !== undefined && output.timecode !== null ? output.timecode : undefined
   } as any;
 };
 
@@ -17004,9 +14652,7 @@ const deserializeAws_restJson1_1TeletextSourceSettings = (
   return {
     __type: "TeletextSourceSettings",
     PageNumber:
-      output.pageNumber !== undefined && output.pageNumber !== null
-        ? output.pageNumber
-        : undefined
+      output.pageNumber !== undefined && output.pageNumber !== null ? output.pageNumber : undefined
   } as any;
 };
 
@@ -17016,10 +14662,7 @@ const deserializeAws_restJson1_1TimecodeConfig = (
 ): TimecodeConfig => {
   return {
     __type: "TimecodeConfig",
-    Source:
-      output.source !== undefined && output.source !== null
-        ? output.source
-        : undefined,
+    Source: output.source !== undefined && output.source !== null ? output.source : undefined,
     SyncThreshold:
       output.syncThreshold !== undefined && output.syncThreshold !== null
         ? output.syncThreshold
@@ -17064,13 +14707,11 @@ const deserializeAws_restJson1_1UdpGroupSettings = (
         ? output.inputLossAction
         : undefined,
     TimedMetadataId3Frame:
-      output.timedMetadataId3Frame !== undefined &&
-      output.timedMetadataId3Frame !== null
+      output.timedMetadataId3Frame !== undefined && output.timedMetadataId3Frame !== null
         ? output.timedMetadataId3Frame
         : undefined,
     TimedMetadataId3Period:
-      output.timedMetadataId3Period !== undefined &&
-      output.timedMetadataId3Period !== null
+      output.timedMetadataId3Period !== undefined && output.timedMetadataId3Period !== null
         ? output.timedMetadataId3Period
         : undefined
   } as any;
@@ -17083,31 +14724,18 @@ const deserializeAws_restJson1_1UdpOutputSettings = (
   return {
     __type: "UdpOutputSettings",
     BufferMsec:
-      output.bufferMsec !== undefined && output.bufferMsec !== null
-        ? output.bufferMsec
-        : undefined,
+      output.bufferMsec !== undefined && output.bufferMsec !== null ? output.bufferMsec : undefined,
     ContainerSettings:
-      output.containerSettings !== undefined &&
-      output.containerSettings !== null
-        ? deserializeAws_restJson1_1UdpContainerSettings(
-            output.containerSettings,
-            context
-          )
+      output.containerSettings !== undefined && output.containerSettings !== null
+        ? deserializeAws_restJson1_1UdpContainerSettings(output.containerSettings, context)
         : undefined,
     Destination:
       output.destination !== undefined && output.destination !== null
-        ? deserializeAws_restJson1_1OutputLocationRef(
-            output.destination,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputLocationRef(output.destination, context)
         : undefined,
     FecOutputSettings:
-      output.fecOutputSettings !== undefined &&
-      output.fecOutputSettings !== null
-        ? deserializeAws_restJson1_1FecOutputSettings(
-            output.fecOutputSettings,
-            context
-          )
+      output.fecOutputSettings !== undefined && output.fecOutputSettings !== null
+        ? deserializeAws_restJson1_1FecOutputSettings(output.fecOutputSettings, context)
         : undefined
   } as any;
 };
@@ -17136,12 +14764,8 @@ const deserializeAws_restJson1_1VideoCodecSettings = (
   return {
     __type: "VideoCodecSettings",
     FrameCaptureSettings:
-      output.frameCaptureSettings !== undefined &&
-      output.frameCaptureSettings !== null
-        ? deserializeAws_restJson1_1FrameCaptureSettings(
-            output.frameCaptureSettings,
-            context
-          )
+      output.frameCaptureSettings !== undefined && output.frameCaptureSettings !== null
+        ? deserializeAws_restJson1_1FrameCaptureSettings(output.frameCaptureSettings, context)
         : undefined,
     H264Settings:
       output.h264Settings !== undefined && output.h264Settings !== null
@@ -17162,19 +14786,10 @@ const deserializeAws_restJson1_1VideoDescription = (
     __type: "VideoDescription",
     CodecSettings:
       output.codecSettings !== undefined && output.codecSettings !== null
-        ? deserializeAws_restJson1_1VideoCodecSettings(
-            output.codecSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1VideoCodecSettings(output.codecSettings, context)
         : undefined,
-    Height:
-      output.height !== undefined && output.height !== null
-        ? output.height
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Height: output.height !== undefined && output.height !== null ? output.height : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     RespondToAfd:
       output.respondToAfd !== undefined && output.respondToAfd !== null
         ? output.respondToAfd
@@ -17184,13 +14799,8 @@ const deserializeAws_restJson1_1VideoDescription = (
         ? output.scalingBehavior
         : undefined,
     Sharpness:
-      output.sharpness !== undefined && output.sharpness !== null
-        ? output.sharpness
-        : undefined,
-    Width:
-      output.width !== undefined && output.width !== null
-        ? output.width
-        : undefined
+      output.sharpness !== undefined && output.sharpness !== null ? output.sharpness : undefined,
+    Width: output.width !== undefined && output.width !== null ? output.width : undefined
   } as any;
 };
 
@@ -17201,19 +14811,14 @@ const deserializeAws_restJson1_1VideoSelector = (
   return {
     __type: "VideoSelector",
     ColorSpace:
-      output.colorSpace !== undefined && output.colorSpace !== null
-        ? output.colorSpace
-        : undefined,
+      output.colorSpace !== undefined && output.colorSpace !== null ? output.colorSpace : undefined,
     ColorSpaceUsage:
       output.colorSpaceUsage !== undefined && output.colorSpaceUsage !== null
         ? output.colorSpaceUsage
         : undefined,
     SelectorSettings:
       output.selectorSettings !== undefined && output.selectorSettings !== null
-        ? deserializeAws_restJson1_1VideoSelectorSettings(
-            output.selectorSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1VideoSelectorSettings(output.selectorSettings, context)
         : undefined
   } as any;
 };
@@ -17224,8 +14829,7 @@ const deserializeAws_restJson1_1VideoSelectorPid = (
 ): VideoSelectorPid => {
   return {
     __type: "VideoSelectorPid",
-    Pid:
-      output.pid !== undefined && output.pid !== null ? output.pid : undefined
+    Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined
   } as any;
 };
 
@@ -17236,9 +14840,7 @@ const deserializeAws_restJson1_1VideoSelectorProgramId = (
   return {
     __type: "VideoSelectorProgramId",
     ProgramId:
-      output.programId !== undefined && output.programId !== null
-        ? output.programId
-        : undefined
+      output.programId !== undefined && output.programId !== null ? output.programId : undefined
   } as any;
 };
 
@@ -17250,18 +14852,11 @@ const deserializeAws_restJson1_1VideoSelectorSettings = (
     __type: "VideoSelectorSettings",
     VideoSelectorPid:
       output.videoSelectorPid !== undefined && output.videoSelectorPid !== null
-        ? deserializeAws_restJson1_1VideoSelectorPid(
-            output.videoSelectorPid,
-            context
-          )
+        ? deserializeAws_restJson1_1VideoSelectorPid(output.videoSelectorPid, context)
         : undefined,
     VideoSelectorProgramId:
-      output.videoSelectorProgramId !== undefined &&
-      output.videoSelectorProgramId !== null
-        ? deserializeAws_restJson1_1VideoSelectorProgramId(
-            output.videoSelectorProgramId,
-            context
-          )
+      output.videoSelectorProgramId !== undefined && output.videoSelectorProgramId !== null
+        ? deserializeAws_restJson1_1VideoSelectorProgramId(output.videoSelectorProgramId, context)
         : undefined
   } as any;
 };
@@ -17354,13 +14949,8 @@ const deserializeAws_restJson1_1__listOfHlsAdMarkers = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1__listOfInput = (
-  output: any,
-  context: __SerdeContext
-): Input[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Input(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfInput = (output: any, context: __SerdeContext): Input[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Input(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfInputAttachment = (
@@ -17403,9 +14993,7 @@ const deserializeAws_restJson1_1__listOfInputSource = (
   output: any,
   context: __SerdeContext
 ): InputSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1InputSource(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1InputSource(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfInputWhitelistRule = (
@@ -17431,10 +15019,7 @@ const deserializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = 
   context: __SerdeContext
 ): MediaPackageOutputDestinationSettings[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MediaPackageOutputDestinationSettings(
-      entry,
-      context
-    )
+    deserializeAws_restJson1_1MediaPackageOutputDestinationSettings(entry, context)
   );
 };
 
@@ -17469,18 +15054,14 @@ const deserializeAws_restJson1_1__listOfOffering = (
   output: any,
   context: __SerdeContext
 ): Offering[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Offering(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Offering(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfOutput = (
   output: any,
   context: __SerdeContext
 ): Output[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Output(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Output(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfOutputDestination = (
@@ -17505,9 +15086,7 @@ const deserializeAws_restJson1_1__listOfOutputGroup = (
   output: any,
   context: __SerdeContext
 ): OutputGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1OutputGroup(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1OutputGroup(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfPipelineDetail = (
@@ -17532,9 +15111,7 @@ const deserializeAws_restJson1_1__listOfReservation = (
   output: any,
   context: __SerdeContext
 ): Reservation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Reservation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Reservation(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfScheduleAction = (
@@ -17601,23 +15178,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

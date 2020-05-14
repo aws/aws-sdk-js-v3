@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateJourneyCommandInput = CreateJourneyRequest;
-export type CreateJourneyCommandOutput = CreateJourneyResponse &
-  __MetadataBearer;
+export type CreateJourneyCommandOutput = CreateJourneyResponse & __MetadataBearer;
 
 export class CreateJourneyCommand extends $Command<
   CreateJourneyCommandInput,
@@ -47,9 +46,7 @@ export class CreateJourneyCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJourneyCommandInput, CreateJourneyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

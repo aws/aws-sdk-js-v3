@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribePermissionsRequest,
-  DescribePermissionsResult
-} from "../models/index";
+import { DescribePermissionsRequest, DescribePermissionsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribePermissionsCommand,
   serializeAws_json1_1DescribePermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePermissionsCommandInput = DescribePermissionsRequest;
-export type DescribePermissionsCommandOutput = DescribePermissionsResult &
-  __MetadataBearer;
+export type DescribePermissionsCommandOutput = DescribePermissionsResult & __MetadataBearer;
 
 export class DescribePermissionsCommand extends $Command<
   DescribePermissionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePermissionsCommandInput,
-    DescribePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePermissionsCommandInput, DescribePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

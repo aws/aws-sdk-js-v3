@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateComputerCommandInput = CreateComputerRequest;
-export type CreateComputerCommandOutput = CreateComputerResult &
-  __MetadataBearer;
+export type CreateComputerCommandOutput = CreateComputerResult & __MetadataBearer;
 
 export class CreateComputerCommand extends $Command<
   CreateComputerCommandInput,
@@ -47,9 +46,7 @@ export class CreateComputerCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateComputerCommandInput, CreateComputerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

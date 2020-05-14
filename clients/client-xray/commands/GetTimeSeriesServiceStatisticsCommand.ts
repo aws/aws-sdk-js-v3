@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 import {
   GetTimeSeriesServiceStatisticsRequest,
   GetTimeSeriesServiceStatisticsResult
@@ -53,9 +49,7 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     GetTimeSeriesServiceStatisticsCommandInput,
     GetTimeSeriesServiceStatisticsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     input: GetTimeSeriesServiceStatisticsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  ListStackInstancesInput,
-  ListStackInstancesOutput
-} from "../models/index";
+import { ListStackInstancesInput, ListStackInstancesOutput } from "../models/index";
 import {
   deserializeAws_queryListStackInstancesCommand,
   serializeAws_queryListStackInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListStackInstancesCommandInput = ListStackInstancesInput;
-export type ListStackInstancesCommandOutput = ListStackInstancesOutput &
-  __MetadataBearer;
+export type ListStackInstancesCommandOutput = ListStackInstancesOutput & __MetadataBearer;
 
 export class ListStackInstancesCommand extends $Command<
   ListStackInstancesCommandInput,
@@ -50,9 +46,7 @@ export class ListStackInstancesCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListStackInstancesCommandInput, ListStackInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

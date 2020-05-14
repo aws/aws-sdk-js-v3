@@ -49,13 +49,8 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingPlanResourcesCommandInput,
-    DescribeScalingPlanResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingPlanResourcesCommandInput, DescribeScalingPlanResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeScalingPlanResourcesCommand extends $Command<
     input: DescribeScalingPlanResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPlanResourcesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeScalingPlanResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingPlanResourcesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPlanResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingPlanResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

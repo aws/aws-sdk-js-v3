@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  ListTemplateAliasesRequest,
-  ListTemplateAliasesResponse
-} from "../models/index";
+import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTemplateAliasesCommand,
   serializeAws_restJson1_1ListTemplateAliasesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTemplateAliasesCommandInput = ListTemplateAliasesRequest;
-export type ListTemplateAliasesCommandOutput = ListTemplateAliasesResponse &
-  __MetadataBearer;
+export type ListTemplateAliasesCommandOutput = ListTemplateAliasesResponse & __MetadataBearer;
 
 export class ListTemplateAliasesCommand extends $Command<
   ListTemplateAliasesCommandInput,
@@ -49,13 +45,8 @@ export class ListTemplateAliasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTemplateAliasesCommandInput,
-    ListTemplateAliasesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTemplateAliasesCommandInput, ListTemplateAliasesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListTemplateAliasesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTemplateAliasesCommandOutput> {
-    return deserializeAws_restJson1_1ListTemplateAliasesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTemplateAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

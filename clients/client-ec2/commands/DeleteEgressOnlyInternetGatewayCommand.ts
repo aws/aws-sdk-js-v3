@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteEgressOnlyInternetGatewayRequest,
   DeleteEgressOnlyInternetGatewayResult
@@ -53,9 +49,7 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     DeleteEgressOnlyInternetGatewayCommandInput,
     DeleteEgressOnlyInternetGatewayCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     input: DeleteEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

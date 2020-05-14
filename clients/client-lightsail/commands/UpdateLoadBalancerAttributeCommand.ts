@@ -49,13 +49,8 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateLoadBalancerAttributeCommandInput,
-    UpdateLoadBalancerAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateLoadBalancerAttributeCommandInput, UpdateLoadBalancerAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     input: UpdateLoadBalancerAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLoadBalancerAttributeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateLoadBalancerAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLoadBalancerAttributeCommandOutput> {
-    return deserializeAws_json1_1UpdateLoadBalancerAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateLoadBalancerAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

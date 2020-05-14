@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountRoleStatus {
@@ -51,8 +48,7 @@ export interface ComplianceViolator {
 }
 
 export namespace ComplianceViolator {
-  export const isa = (o: any): o is ComplianceViolator =>
-    __isa(o, "ComplianceViolator");
+  export const isa = (o: any): o is ComplianceViolator => __isa(o, "ComplianceViolator");
 }
 
 export enum CustomerPolicyScopeIdType {
@@ -112,8 +108,7 @@ export interface DeletePolicyRequest {
 }
 
 export namespace DeletePolicyRequest {
-  export const isa = (o: any): o is DeletePolicyRequest =>
-    __isa(o, "DeletePolicyRequest");
+  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export enum DependentServiceName {
@@ -160,8 +155,7 @@ export interface EvaluationResult {
 }
 
 export namespace EvaluationResult {
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 export interface GetAdminAccountRequest {
@@ -169,8 +163,7 @@ export interface GetAdminAccountRequest {
 }
 
 export namespace GetAdminAccountRequest {
-  export const isa = (o: any): o is GetAdminAccountRequest =>
-    __isa(o, "GetAdminAccountRequest");
+  export const isa = (o: any): o is GetAdminAccountRequest => __isa(o, "GetAdminAccountRequest");
 }
 
 export interface GetAdminAccountResponse {
@@ -188,8 +181,7 @@ export interface GetAdminAccountResponse {
 }
 
 export namespace GetAdminAccountResponse {
-  export const isa = (o: any): o is GetAdminAccountResponse =>
-    __isa(o, "GetAdminAccountResponse");
+  export const isa = (o: any): o is GetAdminAccountResponse => __isa(o, "GetAdminAccountResponse");
 }
 
 export interface GetComplianceDetailRequest {
@@ -261,8 +253,7 @@ export interface GetPolicyRequest {
 }
 
 export namespace GetPolicyRequest {
-  export const isa = (o: any): o is GetPolicyRequest =>
-    __isa(o, "GetPolicyRequest");
+  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
@@ -279,8 +270,7 @@ export interface GetPolicyResponse {
 }
 
 export namespace GetPolicyResponse {
-  export const isa = (o: any): o is GetPolicyResponse =>
-    __isa(o, "GetPolicyResponse");
+  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProtectionStatusRequest {
@@ -391,33 +381,27 @@ export namespace GetProtectionStatusResponse {
  * <p>The operation failed because of a system problem, even though the request was valid. Retry
  *       your request.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>The parameters of the request were invalid.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -425,9 +409,7 @@ export namespace InvalidInputException {
  *       submitted an <code>AssociateAdminAccount</code> request, but the account ID that you submitted
  *       was already set as the AWS Firewall Manager administrator.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -441,17 +423,14 @@ export namespace InvalidOperationException {
 /**
  * <p>The value of the <code>Type</code> parameter is invalid.</p>
  */
-export interface InvalidTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTypeException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidTypeException {
-  export const isa = (o: any): o is InvalidTypeException =>
-    __isa(o, "InvalidTypeException");
+  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -460,17 +439,14 @@ export namespace InvalidTypeException {
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListComplianceStatusRequest {
@@ -601,8 +577,7 @@ export interface ListPoliciesRequest {
 }
 
 export namespace ListPoliciesRequest {
-  export const isa = (o: any): o is ListPoliciesRequest =>
-    __isa(o, "ListPoliciesRequest");
+  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 export interface ListPoliciesResponse {
@@ -623,8 +598,7 @@ export interface ListPoliciesResponse {
 }
 
 export namespace ListPoliciesResponse {
-  export const isa = (o: any): o is ListPoliciesResponse =>
-    __isa(o, "ListPoliciesResponse");
+  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -792,8 +766,7 @@ export interface PolicyComplianceDetail {
 }
 
 export namespace PolicyComplianceDetail {
-  export const isa = (o: any): o is PolicyComplianceDetail =>
-    __isa(o, "PolicyComplianceDetail");
+  export const isa = (o: any): o is PolicyComplianceDetail => __isa(o, "PolicyComplianceDetail");
 }
 
 /**
@@ -843,8 +816,7 @@ export interface PolicyComplianceStatus {
 }
 
 export namespace PolicyComplianceStatus {
-  export const isa = (o: any): o is PolicyComplianceStatus =>
-    __isa(o, "PolicyComplianceStatus");
+  export const isa = (o: any): o is PolicyComplianceStatus => __isa(o, "PolicyComplianceStatus");
 }
 
 export enum PolicyComplianceStatusType {
@@ -935,8 +907,7 @@ export interface PutPolicyRequest {
 }
 
 export namespace PutPolicyRequest {
-  export const isa = (o: any): o is PutPolicyRequest =>
-    __isa(o, "PutPolicyRequest");
+  export const isa = (o: any): o is PutPolicyRequest => __isa(o, "PutPolicyRequest");
 }
 
 export interface PutPolicyResponse {
@@ -953,16 +924,13 @@ export interface PutPolicyResponse {
 }
 
 export namespace PutPolicyResponse {
-  export const isa = (o: any): o is PutPolicyResponse =>
-    __isa(o, "PutPolicyResponse");
+  export const isa = (o: any): o is PutPolicyResponse => __isa(o, "PutPolicyResponse");
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1108,8 +1076,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1117,8 +1084,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1135,8 +1101,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1144,8 +1109,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export enum ViolationReason {

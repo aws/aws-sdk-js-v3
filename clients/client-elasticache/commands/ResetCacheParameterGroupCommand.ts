@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupNameMessage,
-  ResetCacheParameterGroupMessage
-} from "../models/index";
+import { CacheParameterGroupNameMessage, ResetCacheParameterGroupMessage } from "../models/index";
 import {
   deserializeAws_queryResetCacheParameterGroupCommand,
   serializeAws_queryResetCacheParameterGroupCommand
@@ -49,13 +46,8 @@ export class ResetCacheParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetCacheParameterGroupCommandInput,
-    ResetCacheParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetCacheParameterGroupCommandInput, ResetCacheParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -42,10 +42,7 @@ import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput
 } from "./commands/CancelCertificateTransferCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CancelJobExecutionCommandInput,
   CancelJobExecutionCommandOutput
@@ -78,10 +75,7 @@ import {
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput
 } from "./commands/CreateDynamicThingGroupCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput
@@ -130,10 +124,7 @@ import {
   CreateStreamCommandInput,
   CreateStreamCommandOutput
 } from "./commands/CreateStreamCommand";
-import {
-  CreateThingCommandInput,
-  CreateThingCommandOutput
-} from "./commands/CreateThingCommand";
+import { CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand";
 import {
   CreateThingGroupCommandInput,
   CreateThingGroupCommandOutput
@@ -178,10 +169,7 @@ import {
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput
 } from "./commands/DeleteDynamicThingGroupCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteJobExecutionCommandInput,
   DeleteJobExecutionCommandOutput
@@ -230,10 +218,7 @@ import {
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput
 } from "./commands/DeleteStreamCommand";
-import {
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput
-} from "./commands/DeleteThingCommand";
+import { DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand";
 import {
   DeleteThingGroupCommandInput,
   DeleteThingGroupCommandOutput
@@ -310,10 +295,7 @@ import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput
 } from "./commands/DescribeIndexCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput
@@ -414,10 +396,7 @@ import {
   GetPercentilesCommandInput,
   GetPercentilesCommandOutput
 } from "./commands/GetPercentilesCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetPolicyVersionCommandInput,
   GetPolicyVersionCommandOutput
@@ -490,10 +469,7 @@ import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput
 } from "./commands/ListDomainConfigurationsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommandInput,
   ListJobExecutionsForJobCommandOutput
@@ -502,10 +478,7 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput
 } from "./commands/ListJobExecutionsForThingCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput
@@ -562,10 +535,7 @@ import {
   ListSecurityProfilesForTargetCommandInput,
   ListSecurityProfilesForTargetCommandOutput
 } from "./commands/ListSecurityProfilesForTargetCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -602,10 +572,7 @@ import {
   ListThingTypesCommandInput,
   ListThingTypesCommandOutput
 } from "./commands/ListThingTypesCommand";
-import {
-  ListThingsCommandInput,
-  ListThingsCommandOutput
-} from "./commands/ListThingsCommand";
+import { ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand";
 import {
   ListThingsInBillingGroupCommandInput,
   ListThingsInBillingGroupCommandOutput
@@ -658,10 +625,7 @@ import {
   ReplaceTopicRuleCommandInput,
   ReplaceTopicRuleCommandOutput
 } from "./commands/ReplaceTopicRuleCommand";
-import {
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput
-} from "./commands/SearchIndexCommand";
+import { SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand";
 import {
   SetDefaultAuthorizerCommandInput,
   SetDefaultAuthorizerCommandOutput
@@ -698,10 +662,7 @@ import {
   StopThingRegistrationTaskCommandInput,
   StopThingRegistrationTaskCommandOutput
 } from "./commands/StopThingRegistrationTaskCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestAuthorizationCommandInput,
   TestAuthorizationCommandOutput
@@ -754,10 +715,7 @@ import {
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput
 } from "./commands/UpdateIndexingConfigurationCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateMitigationActionCommandInput,
   UpdateMitigationActionCommandOutput
@@ -782,10 +740,7 @@ import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput
 } from "./commands/UpdateStreamCommand";
-import {
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput
-} from "./commands/UpdateThingCommand";
+import { UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand";
 import {
   UpdateThingGroupCommandInput,
   UpdateThingGroupCommandOutput
@@ -1345,9 +1300,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1356,9 +1309,7 @@ export type IoTClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

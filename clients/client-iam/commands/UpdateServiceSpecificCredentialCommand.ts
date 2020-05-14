@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateServiceSpecificCredentialRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateServiceSpecificCredentialCommand,
@@ -49,9 +45,7 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     UpdateServiceSpecificCredentialCommandInput,
     UpdateServiceSpecificCredentialCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     input: UpdateServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServiceSpecificCredentialCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateServiceSpecificCredentialCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryUpdateServiceSpecificCredentialCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

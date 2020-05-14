@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import {
   GetLifecyclePolicyPreviewRequest,
   GetLifecyclePolicyPreviewResponse
@@ -49,13 +45,8 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLifecyclePolicyPreviewCommandInput,
-    GetLifecyclePolicyPreviewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLifecyclePolicyPreviewCommandInput, GetLifecyclePolicyPreviewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetLifecyclePolicyPreviewCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLifecyclePolicyPreviewCommandOutput> {
-    return deserializeAws_json1_1GetLifecyclePolicyPreviewCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLifecyclePolicyPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

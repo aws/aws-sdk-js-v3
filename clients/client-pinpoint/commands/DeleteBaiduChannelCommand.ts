@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteBaiduChannelRequest,
-  DeleteBaiduChannelResponse
-} from "../models/index";
+import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBaiduChannelCommand,
   serializeAws_restJson1_1DeleteBaiduChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteBaiduChannelCommandInput = DeleteBaiduChannelRequest;
-export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse &
-  __MetadataBearer;
+export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse & __MetadataBearer;
 
 export class DeleteBaiduChannelCommand extends $Command<
   DeleteBaiduChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteBaiduChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBaiduChannelCommandInput, DeleteBaiduChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

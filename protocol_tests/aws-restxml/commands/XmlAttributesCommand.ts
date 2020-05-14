@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type XmlAttributesCommandInput = XmlAttributesInputOutput;
-export type XmlAttributesCommandOutput = XmlAttributesInputOutput &
-  __MetadataBearer;
+export type XmlAttributesCommandOutput = XmlAttributesInputOutput & __MetadataBearer;
 
 export class XmlAttributesCommand extends $Command<
   XmlAttributesCommandInput,
@@ -47,9 +46,7 @@ export class XmlAttributesCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlAttributesCommandInput, XmlAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

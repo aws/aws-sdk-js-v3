@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  CancelIngestionRequest,
-  CancelIngestionResponse
-} from "../models/index";
+import { CancelIngestionRequest, CancelIngestionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelIngestionCommand,
   serializeAws_restJson1_1CancelIngestionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelIngestionCommandInput = CancelIngestionRequest;
-export type CancelIngestionCommandOutput = CancelIngestionResponse &
-  __MetadataBearer;
+export type CancelIngestionCommandOutput = CancelIngestionResponse & __MetadataBearer;
 
 export class CancelIngestionCommand extends $Command<
   CancelIngestionCommandInput,
@@ -50,9 +46,7 @@ export class CancelIngestionCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelIngestionCommandInput, CancelIngestionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

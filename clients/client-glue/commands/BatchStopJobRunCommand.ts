@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchStopJobRunRequest,
-  BatchStopJobRunResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchStopJobRunCommand,
   serializeAws_json1_1BatchStopJobRunCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchStopJobRunCommandInput = BatchStopJobRunRequest;
-export type BatchStopJobRunCommandOutput = BatchStopJobRunResponse &
-  __MetadataBearer;
+export type BatchStopJobRunCommandOutput = BatchStopJobRunResponse & __MetadataBearer;
 
 export class BatchStopJobRunCommand extends $Command<
   BatchStopJobRunCommandInput,
@@ -50,9 +42,7 @@ export class BatchStopJobRunCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

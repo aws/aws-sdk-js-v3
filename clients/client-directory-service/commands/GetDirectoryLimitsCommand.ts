@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  GetDirectoryLimitsRequest,
-  GetDirectoryLimitsResult
-} from "../models/index";
+import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetDirectoryLimitsCommand,
   serializeAws_json1_1GetDirectoryLimitsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDirectoryLimitsCommandInput = GetDirectoryLimitsRequest;
-export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult &
-  __MetadataBearer;
+export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult & __MetadataBearer;
 
 export class GetDirectoryLimitsCommand extends $Command<
   GetDirectoryLimitsCommandInput,
@@ -50,9 +46,7 @@ export class GetDirectoryLimitsCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

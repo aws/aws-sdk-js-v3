@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  ListConfigurationHistoryRequest,
-  ListConfigurationHistoryResponse
-} from "../models/index";
+import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListConfigurationHistoryCommand,
   serializeAws_json1_1ListConfigurationHistoryCommand
@@ -49,13 +46,8 @@ export class ListConfigurationHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConfigurationHistoryCommandInput,
-    ListConfigurationHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConfigurationHistoryCommandInput, ListConfigurationHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListConfigurationHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConfigurationHistoryCommandOutput> {
-    return deserializeAws_json1_1ListConfigurationHistoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListConfigurationHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

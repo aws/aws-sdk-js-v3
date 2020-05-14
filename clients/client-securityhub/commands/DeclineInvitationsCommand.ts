@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsResponse
-} from "../models/index";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeclineInvitationsCommand,
   serializeAws_restJson1_1DeclineInvitationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
-export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse &
-  __MetadataBearer;
+export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __MetadataBearer;
 
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,
@@ -50,9 +46,7 @@ export class DeclineInvitationsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

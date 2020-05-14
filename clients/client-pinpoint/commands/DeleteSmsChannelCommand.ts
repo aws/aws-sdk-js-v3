@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteSmsChannelRequest,
-  DeleteSmsChannelResponse
-} from "../models/index";
+import { DeleteSmsChannelRequest, DeleteSmsChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteSmsChannelCommand,
   serializeAws_restJson1_1DeleteSmsChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSmsChannelCommandInput = DeleteSmsChannelRequest;
-export type DeleteSmsChannelCommandOutput = DeleteSmsChannelResponse &
-  __MetadataBearer;
+export type DeleteSmsChannelCommandOutput = DeleteSmsChannelResponse & __MetadataBearer;
 
 export class DeleteSmsChannelCommand extends $Command<
   DeleteSmsChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteSmsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSmsChannelCommandInput, DeleteSmsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

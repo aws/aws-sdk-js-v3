@@ -39,9 +39,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateResolverEndpointIpAddressCommandInput
-  ) {
+  constructor(readonly input: DisassociateResolverEndpointIpAddressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     DisassociateResolverEndpointIpAddressCommandInput,
     DisassociateResolverEndpointIpAddressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
     input: DisassociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

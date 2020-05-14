@@ -49,13 +49,8 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartAvailabilityMonitorTestCommandInput,
-    StartAvailabilityMonitorTestCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartAvailabilityMonitorTestCommandInput, StartAvailabilityMonitorTestCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     input: StartAvailabilityMonitorTestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAvailabilityMonitorTestCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartAvailabilityMonitorTestCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartAvailabilityMonitorTestCommandOutput> {
-    return deserializeAws_json1_1StartAvailabilityMonitorTestCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAvailabilityMonitorTestCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  CreateDevEndpointRequest,
-  CreateDevEndpointResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDevEndpointCommand,
   serializeAws_json1_1CreateDevEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDevEndpointCommandInput = CreateDevEndpointRequest;
-export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse &
-  __MetadataBearer;
+export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse & __MetadataBearer;
 
 export class CreateDevEndpointCommand extends $Command<
   CreateDevEndpointCommandInput,
@@ -50,9 +42,7 @@ export class CreateDevEndpointCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

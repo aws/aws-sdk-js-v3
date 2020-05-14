@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  CreatePublicVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { CreatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1CreatePublicVirtualInterfaceCommand,
   serializeAws_json1_1CreatePublicVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePublicVirtualInterfaceCommandInput = CreatePublicVirtualInterfaceRequest;
-export type CreatePublicVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type CreatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class CreatePublicVirtualInterfaceCommand extends $Command<
   CreatePublicVirtualInterfaceCommandInput,
@@ -49,13 +45,8 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePublicVirtualInterfaceCommandInput,
-    CreatePublicVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePublicVirtualInterfaceCommandInput, CreatePublicVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreatePublicVirtualInterfaceCommand extends $Command<
     input: CreatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePublicVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreatePublicVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

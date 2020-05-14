@@ -24,19 +24,8 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
   config: {},
   middlewareStack: new MiddlewareStack<InputTypesUnion, OutputTypesUnion>(),
   send: (
-    command: Command<
-      InputTypesUnion,
-      OutputTypesUnion,
-      any,
-      OperationInput,
-      OperationOutput
-    >
-  ) =>
-    command.resolveMiddleware(
-      this.middlewareStack,
-      this.config,
-      undefined
-    )({ input }),
+    command: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput>
+  ) => command.resolveMiddleware(this.middlewareStack, this.config, undefined)({ input }),
   destroy: () => {}
 };
 
@@ -55,10 +44,7 @@ export const operationCommand: Command<
     options: any
   ) => {
     const concatStack = stack.concat(operationCommand.middlewareStack);
-    return concatStack.resolve(
-      () => Promise.resolve({ output, response: {} }),
-      {} as any
-    );
+    return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
   }
 };
 

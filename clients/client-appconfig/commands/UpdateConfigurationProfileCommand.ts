@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppConfigClient";
-import {
-  ConfigurationProfile,
-  UpdateConfigurationProfileRequest
-} from "../models/index";
+import { ConfigurationProfile, UpdateConfigurationProfileRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateConfigurationProfileCommand,
   serializeAws_restJson1_1UpdateConfigurationProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationProfileCommandInput = UpdateConfigurationProfileRequest;
-export type UpdateConfigurationProfileCommandOutput = ConfigurationProfile &
-  __MetadataBearer;
+export type UpdateConfigurationProfileCommandOutput = ConfigurationProfile & __MetadataBearer;
 
 export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandInput,
@@ -49,13 +45,8 @@ export class UpdateConfigurationProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConfigurationProfileCommandInput,
-    UpdateConfigurationProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConfigurationProfileCommandInput, UpdateConfigurationProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateConfigurationProfileCommand extends $Command<
     input: UpdateConfigurationProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConfigurationProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateConfigurationProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConfigurationProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

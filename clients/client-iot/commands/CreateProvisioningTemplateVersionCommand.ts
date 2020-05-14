@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateProvisioningTemplateVersionRequest,
   CreateProvisioningTemplateVersionResponse
@@ -53,9 +49,7 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     CreateProvisioningTemplateVersionCommandInput,
     CreateProvisioningTemplateVersionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
     input: CreateProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateProvisioningTemplateVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateProvisioningTemplateVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

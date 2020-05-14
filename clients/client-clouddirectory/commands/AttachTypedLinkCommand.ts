@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  AttachTypedLinkRequest,
-  AttachTypedLinkResponse
-} from "../models/index";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AttachTypedLinkCommand,
   serializeAws_restJson1_1AttachTypedLinkCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
-export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse &
-  __MetadataBearer;
+export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse & __MetadataBearer;
 
 export class AttachTypedLinkCommand extends $Command<
   AttachTypedLinkCommandInput,
@@ -50,9 +46,7 @@ export class AttachTypedLinkCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachTypedLinkCommandInput, AttachTypedLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

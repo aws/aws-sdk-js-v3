@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutRecordBatchCommandInput = PutRecordBatchInput;
-export type PutRecordBatchCommandOutput = PutRecordBatchOutput &
-  __MetadataBearer;
+export type PutRecordBatchCommandOutput = PutRecordBatchOutput & __MetadataBearer;
 
 export class PutRecordBatchCommand extends $Command<
   PutRecordBatchCommandInput,
@@ -47,9 +46,7 @@ export class PutRecordBatchCommand extends $Command<
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutRecordBatchCommandInput, PutRecordBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

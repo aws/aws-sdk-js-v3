@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  DescribeClusterRequest,
-  DescribeClusterResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { DescribeClusterRequest, DescribeClusterResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeClusterCommand,
   serializeAws_restJson1_1DescribeClusterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterCommandInput = DescribeClusterRequest;
-export type DescribeClusterCommandOutput = DescribeClusterResponse &
-  __MetadataBearer;
+export type DescribeClusterCommandOutput = DescribeClusterResponse & __MetadataBearer;
 
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
@@ -50,9 +42,7 @@ export class DescribeClusterCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterCommandInput, DescribeClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

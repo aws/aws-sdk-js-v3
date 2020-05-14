@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  GetApprovalRuleTemplateInput,
-  GetApprovalRuleTemplateOutput
-} from "../models/index";
+import { GetApprovalRuleTemplateInput, GetApprovalRuleTemplateOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetApprovalRuleTemplateCommand,
   serializeAws_json1_1GetApprovalRuleTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApprovalRuleTemplateCommandInput = GetApprovalRuleTemplateInput;
-export type GetApprovalRuleTemplateCommandOutput = GetApprovalRuleTemplateOutput &
-  __MetadataBearer;
+export type GetApprovalRuleTemplateCommandOutput = GetApprovalRuleTemplateOutput & __MetadataBearer;
 
 export class GetApprovalRuleTemplateCommand extends $Command<
   GetApprovalRuleTemplateCommandInput,
@@ -49,13 +45,8 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetApprovalRuleTemplateCommandInput,
-    GetApprovalRuleTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetApprovalRuleTemplateCommandInput, GetApprovalRuleTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -39,9 +39,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
-  ) {
+  constructor(readonly input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
     BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,9 +81,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  > {
+  ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> {
     return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(
       output,
       context

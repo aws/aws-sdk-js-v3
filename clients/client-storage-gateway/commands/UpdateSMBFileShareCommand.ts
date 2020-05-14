@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateSMBFileShareInput,
-  UpdateSMBFileShareOutput
-} from "../models/index";
+import { UpdateSMBFileShareInput, UpdateSMBFileShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSMBFileShareCommand,
   serializeAws_json1_1UpdateSMBFileShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSMBFileShareCommandInput = UpdateSMBFileShareInput;
-export type UpdateSMBFileShareCommandOutput = UpdateSMBFileShareOutput &
-  __MetadataBearer;
+export type UpdateSMBFileShareCommandOutput = UpdateSMBFileShareOutput & __MetadataBearer;
 
 export class UpdateSMBFileShareCommand extends $Command<
   UpdateSMBFileShareCommandInput,
@@ -50,9 +46,7 @@ export class UpdateSMBFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

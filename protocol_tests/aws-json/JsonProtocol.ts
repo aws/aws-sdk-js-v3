@@ -32,9 +32,7 @@ export class JsonProtocol extends JsonProtocolClient {
   ): void;
   public emptyOperation(
     args: EmptyOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EmptyOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EmptyOperationCommandOutput) => void),
     cb?: (err: any, data?: EmptyOperationCommandOutput) => void
   ): Promise<EmptyOperationCommandOutput> | void {
     const command = new EmptyOperationCommand(args);
@@ -98,14 +96,8 @@ export class JsonProtocol extends JsonProtocolClient {
     args: OperationWithOptionalInputOutputCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: OperationWithOptionalInputOutputCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: OperationWithOptionalInputOutputCommandOutput
-    ) => void
+      | ((err: any, data?: OperationWithOptionalInputOutputCommandOutput) => void),
+    cb?: (err: any, data?: OperationWithOptionalInputOutputCommandOutput) => void
   ): Promise<OperationWithOptionalInputOutputCommandOutput> | void {
     const command = new OperationWithOptionalInputOutputCommand(args);
     if (typeof optionsOrCb === "function") {

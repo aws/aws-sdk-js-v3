@@ -1,12 +1,5 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  DeleteStateMachineInput,
-  DeleteStateMachineOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/index";
 import {
   deserializeAws_json1_0DeleteStateMachineCommand,
   serializeAws_json1_0DeleteStateMachineCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
-export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput &
-  __MetadataBearer;
+export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput & __MetadataBearer;
 
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,
@@ -50,9 +42,7 @@ export class DeleteStateMachineCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

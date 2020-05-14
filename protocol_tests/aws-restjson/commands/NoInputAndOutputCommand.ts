@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NoInputAndOutputCommandInput = {};
-export type NoInputAndOutputCommandOutput = NoInputAndOutputOutput &
-  __MetadataBearer;
+export type NoInputAndOutputCommandOutput = NoInputAndOutputOutput & __MetadataBearer;
 
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,
@@ -47,9 +46,7 @@ export class NoInputAndOutputCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

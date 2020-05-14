@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetCredentialReportResponse } from "../models/index";
 import {
   deserializeAws_queryGetCredentialReportCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCredentialReportCommandInput = {};
-export type GetCredentialReportCommandOutput = GetCredentialReportResponse &
-  __MetadataBearer;
+export type GetCredentialReportCommandOutput = GetCredentialReportResponse & __MetadataBearer;
 
 export class GetCredentialReportCommand extends $Command<
   GetCredentialReportCommandInput,
@@ -46,13 +41,8 @@ export class GetCredentialReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCredentialReportCommandInput,
-    GetCredentialReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCredentialReportCommandInput, GetCredentialReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

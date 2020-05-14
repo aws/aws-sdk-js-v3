@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchGetTracesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetTracesCommandInput = BatchGetTracesRequest;
-export type BatchGetTracesCommandOutput = BatchGetTracesResult &
-  __MetadataBearer;
+export type BatchGetTracesCommandOutput = BatchGetTracesResult & __MetadataBearer;
 
 export class BatchGetTracesCommand extends $Command<
   BatchGetTracesCommandInput,
@@ -47,9 +42,7 @@ export class BatchGetTracesCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetTracesCommandInput, BatchGetTracesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

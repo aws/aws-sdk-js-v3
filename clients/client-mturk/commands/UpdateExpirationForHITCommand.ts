@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  UpdateExpirationForHITRequest,
-  UpdateExpirationForHITResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateExpirationForHITCommand,
   serializeAws_json1_1UpdateExpirationForHITCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateExpirationForHITCommandInput = UpdateExpirationForHITRequest;
-export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse &
-  __MetadataBearer;
+export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse & __MetadataBearer;
 
 export class UpdateExpirationForHITCommand extends $Command<
   UpdateExpirationForHITCommandInput,
@@ -49,13 +41,8 @@ export class UpdateExpirationForHITCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateExpirationForHITCommandInput,
-    UpdateExpirationForHITCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateExpirationForHITCommandInput, UpdateExpirationForHITCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

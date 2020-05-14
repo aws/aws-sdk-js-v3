@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEndpointCommandInput = CreateEndpointInput;
-export type CreateEndpointCommandOutput = CreateEndpointOutput &
-  __MetadataBearer;
+export type CreateEndpointCommandOutput = CreateEndpointOutput & __MetadataBearer;
 
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
@@ -47,9 +46,7 @@ export class CreateEndpointCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEndpointCommandInput, CreateEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

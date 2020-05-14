@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeReservedDBInstancesMessage,
-  ReservedDBInstanceMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReservedDBInstancesCommand,
   serializeAws_queryDescribeReservedDBInstancesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReservedDBInstancesCommandInput = DescribeReservedDBInstancesMessage;
-export type DescribeReservedDBInstancesCommandOutput = ReservedDBInstanceMessage &
-  __MetadataBearer;
+export type DescribeReservedDBInstancesCommandOutput = ReservedDBInstanceMessage & __MetadataBearer;
 
 export class DescribeReservedDBInstancesCommand extends $Command<
   DescribeReservedDBInstancesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedDBInstancesCommandInput,
-    DescribeReservedDBInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedDBInstancesCommandInput, DescribeReservedDBInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeReservedDBInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeReservedDBInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReservedDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

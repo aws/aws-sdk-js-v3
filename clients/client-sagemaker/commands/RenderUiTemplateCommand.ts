@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  RenderUiTemplateRequest,
-  RenderUiTemplateResponse
-} from "../models/index";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1RenderUiTemplateCommand,
   serializeAws_json1_1RenderUiTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RenderUiTemplateCommandInput = RenderUiTemplateRequest;
-export type RenderUiTemplateCommandOutput = RenderUiTemplateResponse &
-  __MetadataBearer;
+export type RenderUiTemplateCommandOutput = RenderUiTemplateResponse & __MetadataBearer;
 
 export class RenderUiTemplateCommand extends $Command<
   RenderUiTemplateCommandInput,
@@ -50,9 +46,7 @@ export class RenderUiTemplateCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

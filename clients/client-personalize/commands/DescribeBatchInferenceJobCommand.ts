@@ -49,13 +49,8 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBatchInferenceJobCommandInput,
-    DescribeBatchInferenceJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBatchInferenceJobCommandInput, DescribeBatchInferenceJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeBatchInferenceJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBatchInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeBatchInferenceJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBatchInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

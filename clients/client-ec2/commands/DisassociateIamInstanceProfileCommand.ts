@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateIamInstanceProfileRequest,
   DisassociateIamInstanceProfileResult
@@ -53,9 +49,7 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     DisassociateIamInstanceProfileCommandInput,
     DisassociateIamInstanceProfileCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     input: DisassociateIamInstanceProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateIamInstanceProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DisassociateIamInstanceProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateIamInstanceProfileCommandOutput> {
-    return deserializeAws_ec2DisassociateIamInstanceProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DisassociateIamInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

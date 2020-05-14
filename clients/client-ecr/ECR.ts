@@ -219,9 +219,7 @@ export class ECR extends ECRClient {
   ): void;
   public batchDeleteImage(
     args: BatchDeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteImageCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteImageCommandOutput) => void
   ): Promise<BatchDeleteImageCommandOutput> | void {
     const command = new BatchDeleteImageCommand(args);
@@ -255,9 +253,7 @@ export class ECR extends ECRClient {
   ): void;
   public batchGetImage(
     args: BatchGetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetImageCommandOutput) => void),
     cb?: (err: any, data?: BatchGetImageCommandOutput) => void
   ): Promise<BatchGetImageCommandOutput> | void {
     const command = new BatchGetImageCommand(args);
@@ -333,9 +329,7 @@ export class ECR extends ECRClient {
   ): void;
   public createRepository(
     args: CreateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): Promise<CreateRepositoryCommandOutput> | void {
     const command = new CreateRepositoryCommand(args);
@@ -404,9 +398,7 @@ export class ECR extends ECRClient {
   ): void;
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): Promise<DeleteRepositoryCommandOutput> | void {
     const command = new DeleteRepositoryCommand(args);
@@ -516,9 +508,7 @@ export class ECR extends ECRClient {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
@@ -817,9 +807,7 @@ export class ECR extends ECRClient {
   ): void;
   public listImages(
     args: ListImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesCommandOutput) => void),
     cb?: (err: any, data?: ListImagesCommandOutput) => void
   ): Promise<ListImagesCommandOutput> | void {
     const command = new ListImagesCommand(args);
@@ -892,9 +880,7 @@ export class ECR extends ECRClient {
   ): void;
   public putImage(
     args: PutImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImageCommandOutput) => void),
     cb?: (err: any, data?: PutImageCommandOutput) => void
   ): Promise<PutImageCommandOutput> | void {
     const command = new PutImageCommand(args);
@@ -1076,9 +1062,7 @@ export class ECR extends ECRClient {
   ): void;
   public startImageScan(
     args: StartImageScanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImageScanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImageScanCommandOutput) => void),
     cb?: (err: any, data?: StartImageScanCommandOutput) => void
   ): Promise<StartImageScanCommandOutput> | void {
     const command = new StartImageScanCommand(args);
@@ -1148,9 +1132,7 @@ export class ECR extends ECRClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1183,9 +1165,7 @@ export class ECR extends ECRClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1222,9 +1202,7 @@ export class ECR extends ECRClient {
   ): void;
   public uploadLayerPart(
     args: UploadLayerPartCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadLayerPartCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadLayerPartCommandOutput) => void),
     cb?: (err: any, data?: UploadLayerPartCommandOutput) => void
   ): Promise<UploadLayerPartCommandOutput> | void {
     const command = new UploadLayerPartCommand(args);

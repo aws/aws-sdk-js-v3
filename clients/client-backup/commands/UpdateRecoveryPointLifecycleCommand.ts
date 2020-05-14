@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
   UpdateRecoveryPointLifecycleInput,
   UpdateRecoveryPointLifecycleOutput
@@ -49,13 +45,8 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRecoveryPointLifecycleCommandInput,
-    UpdateRecoveryPointLifecycleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRecoveryPointLifecycleCommandInput, UpdateRecoveryPointLifecycleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     input: UpdateRecoveryPointLifecycleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
-    return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

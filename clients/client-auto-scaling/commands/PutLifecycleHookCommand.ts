@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutLifecycleHookCommandInput = PutLifecycleHookType;
-export type PutLifecycleHookCommandOutput = PutLifecycleHookAnswer &
-  __MetadataBearer;
+export type PutLifecycleHookCommandOutput = PutLifecycleHookAnswer & __MetadataBearer;
 
 export class PutLifecycleHookCommand extends $Command<
   PutLifecycleHookCommandInput,
@@ -47,9 +46,7 @@ export class PutLifecycleHookCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

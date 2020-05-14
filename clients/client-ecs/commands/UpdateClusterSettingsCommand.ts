@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  UpdateClusterSettingsRequest,
-  UpdateClusterSettingsResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateClusterSettingsCommand,
   serializeAws_json1_1UpdateClusterSettingsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateClusterSettingsCommandInput = UpdateClusterSettingsRequest;
-export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse &
-  __MetadataBearer;
+export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse & __MetadataBearer;
 
 export class UpdateClusterSettingsCommand extends $Command<
   UpdateClusterSettingsCommandInput,
@@ -49,13 +41,8 @@ export class UpdateClusterSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClusterSettingsCommandInput,
-    UpdateClusterSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClusterSettingsCommandInput, UpdateClusterSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInstancesCommandInput = CreateInstancesRequest;
-export type CreateInstancesCommandOutput = CreateInstancesResult &
-  __MetadataBearer;
+export type CreateInstancesCommandOutput = CreateInstancesResult & __MetadataBearer;
 
 export class CreateInstancesCommand extends $Command<
   CreateInstancesCommandInput,
@@ -47,9 +46,7 @@ export class CreateInstancesCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInstancesCommandInput, CreateInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDeploymentCommandInput = StopDeploymentInput;
-export type StopDeploymentCommandOutput = StopDeploymentOutput &
-  __MetadataBearer;
+export type StopDeploymentCommandOutput = StopDeploymentOutput & __MetadataBearer;
 
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,
@@ -47,9 +46,7 @@ export class StopDeploymentCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDeploymentCommandInput, StopDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

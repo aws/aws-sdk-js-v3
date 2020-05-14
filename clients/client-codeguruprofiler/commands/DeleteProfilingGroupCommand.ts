@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  DeleteProfilingGroupRequest,
-  DeleteProfilingGroupResponse
-} from "../models/index";
+import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteProfilingGroupCommand,
   serializeAws_restJson1_1DeleteProfilingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteProfilingGroupCommandInput = DeleteProfilingGroupRequest;
-export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse &
-  __MetadataBearer;
+export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse & __MetadataBearer;
 
 export class DeleteProfilingGroupCommand extends $Command<
   DeleteProfilingGroupCommandInput,
@@ -49,13 +45,8 @@ export class DeleteProfilingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteProfilingGroupCommandInput,
-    DeleteProfilingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteProfilingGroupCommandInput, DeleteProfilingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteProfilingGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteProfilingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

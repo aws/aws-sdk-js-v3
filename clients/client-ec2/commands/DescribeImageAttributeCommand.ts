@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeImageAttributeRequest, ImageAttribute } from "../models/index";
 import {
   deserializeAws_ec2DescribeImageAttributeCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeImageAttributeCommandInput = DescribeImageAttributeRequest;
-export type DescribeImageAttributeCommandOutput = ImageAttribute &
-  __MetadataBearer;
+export type DescribeImageAttributeCommandOutput = ImageAttribute & __MetadataBearer;
 
 export class DescribeImageAttributeCommand extends $Command<
   DescribeImageAttributeCommandInput,
@@ -46,13 +41,8 @@ export class DescribeImageAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImageAttributeCommandInput,
-    DescribeImageAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImageAttributeCommandInput, DescribeImageAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

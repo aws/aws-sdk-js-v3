@@ -1,16 +1,9 @@
-import {
-  ListSigningJobsRequest,
-  ListSigningJobsResponse
-} from "../models/index";
+import { ListSigningJobsRequest, ListSigningJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSigningJobsCommand,
   serializeAws_restJson1_1ListSigningJobsCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSigningJobsCommandInput = ListSigningJobsRequest;
-export type ListSigningJobsCommandOutput = ListSigningJobsResponse &
-  __MetadataBearer;
+export type ListSigningJobsCommandOutput = ListSigningJobsResponse & __MetadataBearer;
 
 export class ListSigningJobsCommand extends $Command<
   ListSigningJobsCommandInput,
@@ -50,9 +42,7 @@ export class ListSigningJobsCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSigningJobsCommandInput, ListSigningJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -46,9 +46,7 @@ export class PublishCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class PublishCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PublishCommand(input, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteJobQueueCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteJobQueueCommandInput = DeleteJobQueueRequest;
-export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse &
-  __MetadataBearer;
+export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBearer;
 
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,
@@ -47,9 +42,7 @@ export class DeleteJobQueueCommand extends $Command<
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  DescribeConnectionLoaRequest,
-  DescribeConnectionLoaResponse
-} from "../models/index";
+import { DescribeConnectionLoaRequest, DescribeConnectionLoaResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConnectionLoaCommand,
   serializeAws_json1_1DescribeConnectionLoaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConnectionLoaCommandInput = DescribeConnectionLoaRequest;
-export type DescribeConnectionLoaCommandOutput = DescribeConnectionLoaResponse &
-  __MetadataBearer;
+export type DescribeConnectionLoaCommandOutput = DescribeConnectionLoaResponse & __MetadataBearer;
 
 export class DescribeConnectionLoaCommand extends $Command<
   DescribeConnectionLoaCommandInput,
@@ -49,13 +45,8 @@ export class DescribeConnectionLoaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConnectionLoaCommandInput,
-    DescribeConnectionLoaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConnectionLoaCommandInput, DescribeConnectionLoaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

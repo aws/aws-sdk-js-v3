@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  RegisterToWorkMailRequest,
-  RegisterToWorkMailResponse
-} from "../models/index";
+import { RegisterToWorkMailRequest, RegisterToWorkMailResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterToWorkMailCommand,
   serializeAws_json1_1RegisterToWorkMailCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterToWorkMailCommandInput = RegisterToWorkMailRequest;
-export type RegisterToWorkMailCommandOutput = RegisterToWorkMailResponse &
-  __MetadataBearer;
+export type RegisterToWorkMailCommandOutput = RegisterToWorkMailResponse & __MetadataBearer;
 
 export class RegisterToWorkMailCommand extends $Command<
   RegisterToWorkMailCommandInput,
@@ -50,9 +46,7 @@ export class RegisterToWorkMailCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

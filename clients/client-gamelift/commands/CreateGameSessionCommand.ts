@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  CreateGameSessionInput,
-  CreateGameSessionOutput
-} from "../models/index";
+import { CreateGameSessionInput, CreateGameSessionOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateGameSessionCommand,
   serializeAws_json1_1CreateGameSessionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGameSessionCommandInput = CreateGameSessionInput;
-export type CreateGameSessionCommandOutput = CreateGameSessionOutput &
-  __MetadataBearer;
+export type CreateGameSessionCommandOutput = CreateGameSessionOutput & __MetadataBearer;
 
 export class CreateGameSessionCommand extends $Command<
   CreateGameSessionCommandInput,
@@ -50,9 +46,7 @@ export class CreateGameSessionCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGameSessionCommandInput, CreateGameSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

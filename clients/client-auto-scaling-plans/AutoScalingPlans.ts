@@ -200,31 +200,19 @@ export class AutoScalingPlans extends AutoScalingPlansClient {
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput>;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
-    cb: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+    cb: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): void;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+    cb: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): void;
   public getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetScalingPlanResourceForecastDataCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetScalingPlanResourceForecastDataCommandOutput
-    ) => void
+      | ((err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void),
+    cb?: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput> | void {
     const command = new GetScalingPlanResourceForecastDataCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostExplorerClient";
-import {
-  GetReservationCoverageRequest,
-  GetReservationCoverageResponse
-} from "../models/index";
+import { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetReservationCoverageCommand,
   serializeAws_json1_1GetReservationCoverageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetReservationCoverageCommandInput = GetReservationCoverageRequest;
-export type GetReservationCoverageCommandOutput = GetReservationCoverageResponse &
-  __MetadataBearer;
+export type GetReservationCoverageCommandOutput = GetReservationCoverageResponse & __MetadataBearer;
 
 export class GetReservationCoverageCommand extends $Command<
   GetReservationCoverageCommandInput,
@@ -49,13 +45,8 @@ export class GetReservationCoverageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetReservationCoverageCommandInput,
-    GetReservationCoverageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetReservationCoverageCommandInput, GetReservationCoverageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

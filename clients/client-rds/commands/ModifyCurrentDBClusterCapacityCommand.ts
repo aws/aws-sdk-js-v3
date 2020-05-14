@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBClusterCapacityInfo,
-  ModifyCurrentDBClusterCapacityMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/index";
 import {
   deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
   serializeAws_queryModifyCurrentDBClusterCapacityCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyCurrentDBClusterCapacityCommandInput = ModifyCurrentDBClusterCapacityMessage;
-export type ModifyCurrentDBClusterCapacityCommandOutput = DBClusterCapacityInfo &
-  __MetadataBearer;
+export type ModifyCurrentDBClusterCapacityCommandOutput = DBClusterCapacityInfo & __MetadataBearer;
 
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
   ModifyCurrentDBClusterCapacityCommandInput,
@@ -53,9 +45,7 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     ModifyCurrentDBClusterCapacityCommandInput,
     ModifyCurrentDBClusterCapacityCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +64,14 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     input: ModifyCurrentDBClusterCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCurrentDBClusterCapacityCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyCurrentDBClusterCapacityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> {
-    return deserializeAws_queryModifyCurrentDBClusterCapacityCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyCurrentDBClusterCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

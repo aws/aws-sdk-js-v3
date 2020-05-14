@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetConferenceProviderRequest,
-  GetConferenceProviderResponse
-} from "../models/index";
+import { GetConferenceProviderRequest, GetConferenceProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetConferenceProviderCommand,
   serializeAws_json1_1GetConferenceProviderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConferenceProviderCommandInput = GetConferenceProviderRequest;
-export type GetConferenceProviderCommandOutput = GetConferenceProviderResponse &
-  __MetadataBearer;
+export type GetConferenceProviderCommandOutput = GetConferenceProviderResponse & __MetadataBearer;
 
 export class GetConferenceProviderCommand extends $Command<
   GetConferenceProviderCommandInput,
@@ -49,13 +45,8 @@ export class GetConferenceProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConferenceProviderCommandInput,
-    GetConferenceProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConferenceProviderCommandInput, GetConferenceProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

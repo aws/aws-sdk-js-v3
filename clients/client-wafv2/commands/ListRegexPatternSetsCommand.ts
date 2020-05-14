@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  ListRegexPatternSetsRequest,
-  ListRegexPatternSetsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRegexPatternSetsCommand,
   serializeAws_json1_1ListRegexPatternSetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRegexPatternSetsCommandInput = ListRegexPatternSetsRequest;
-export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse &
-  __MetadataBearer;
+export type ListRegexPatternSetsCommandOutput = ListRegexPatternSetsResponse & __MetadataBearer;
 
 export class ListRegexPatternSetsCommand extends $Command<
   ListRegexPatternSetsCommandInput,
@@ -49,13 +41,8 @@ export class ListRegexPatternSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRegexPatternSetsCommandInput,
-    ListRegexPatternSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRegexPatternSetsCommandInput, ListRegexPatternSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

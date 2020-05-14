@@ -201,9 +201,7 @@ export class Athena extends AthenaClient {
   ): void;
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: CreateNamedQueryCommandOutput) => void
   ): Promise<CreateNamedQueryCommandOutput> | void {
     const command = new CreateNamedQueryCommand(args);
@@ -236,9 +234,7 @@ export class Athena extends AthenaClient {
   ): void;
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkGroupCommandOutput) => void
   ): Promise<CreateWorkGroupCommandOutput> | void {
     const command = new CreateWorkGroupCommand(args);
@@ -272,9 +268,7 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamedQueryCommandOutput) => void
   ): Promise<DeleteNamedQueryCommandOutput> | void {
     const command = new DeleteNamedQueryCommand(args);
@@ -307,9 +301,7 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkGroupCommandOutput) => void
   ): Promise<DeleteWorkGroupCommandOutput> | void {
     const command = new DeleteWorkGroupCommand(args);
@@ -342,9 +334,7 @@ export class Athena extends AthenaClient {
   ): void;
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNamedQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: GetNamedQueryCommandOutput) => void
   ): Promise<GetNamedQueryCommandOutput> | void {
     const command = new GetNamedQueryCommand(args);
@@ -416,9 +406,7 @@ export class Athena extends AthenaClient {
   ): void;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
@@ -451,9 +439,7 @@ export class Athena extends AthenaClient {
   ): void;
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: GetWorkGroupCommandOutput) => void
   ): Promise<GetWorkGroupCommandOutput> | void {
     const command = new GetWorkGroupCommand(args);
@@ -487,9 +473,7 @@ export class Athena extends AthenaClient {
   ): void;
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
     cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): Promise<ListNamedQueriesCommandOutput> | void {
     const command = new ListNamedQueriesCommand(args);
@@ -593,9 +577,7 @@ export class Athena extends AthenaClient {
   ): void;
   public listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkGroupsCommandOutput) => void
   ): Promise<ListWorkGroupsCommandOutput> | void {
     const command = new ListWorkGroupsCommand(args);
@@ -704,9 +686,7 @@ export class Athena extends AthenaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -739,9 +719,7 @@ export class Athena extends AthenaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -774,9 +752,7 @@ export class Athena extends AthenaClient {
   ): void;
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkGroupCommandOutput) => void
   ): Promise<UpdateWorkGroupCommandOutput> | void {
     const command = new UpdateWorkGroupCommand(args);

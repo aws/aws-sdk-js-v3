@@ -28,14 +28,8 @@ export class EventStreamMarshaller {
     deserializer: (input: { [event: string]: Message }) => T
   ): AsyncIterable<T> {
     const chunkedStream = getChunkedStream(body);
-    const messageStream = getEventMessageStream(
-      chunkedStream,
-      this.eventMarshaller
-    );
-    const deserialingStream = getDeserializingStream(
-      messageStream,
-      deserializer
-    );
+    const messageStream = getEventMessageStream(chunkedStream, this.eventMarshaller);
+    const deserialingStream = getDeserializingStream(messageStream, deserializer);
     return ReadableStreamtoIterable(deserialingStream);
   }
 
@@ -51,10 +45,7 @@ export class EventStreamMarshaller {
    * * https://bugzilla.mozilla.org/show_bug.cgi?id=1387483
    *
    */
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): ReadableStream {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): ReadableStream {
     throw new Error(`event stream request in browser is not supported
 Reference: https://bugs.chromium.org/p/chromium/issues/detail?id=688906`);
   }

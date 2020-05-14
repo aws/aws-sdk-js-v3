@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTJobsDataPlaneClient";
-import {
-  UpdateJobExecutionRequest,
-  UpdateJobExecutionResponse
-} from "../models/index";
+import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJobExecutionCommand,
   serializeAws_restJson1_1UpdateJobExecutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJobExecutionCommandInput = UpdateJobExecutionRequest;
-export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse &
-  __MetadataBearer;
+export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse & __MetadataBearer;
 
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,
@@ -50,9 +46,7 @@ export class UpdateJobExecutionCommand extends $Command<
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

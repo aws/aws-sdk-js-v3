@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdMarkers {
@@ -67,8 +64,7 @@ export interface CmafEncryption {
 }
 
 export namespace CmafEncryption {
-  export const isa = (o: any): o is CmafEncryption =>
-    __isa(o, "CmafEncryption");
+  export const isa = (o: any): o is CmafEncryption => __isa(o, "CmafEncryption");
 }
 
 /**
@@ -129,8 +125,7 @@ export interface CreateAssetRequest {
 }
 
 export namespace CreateAssetRequest {
-  export const isa = (o: any): o is CreateAssetRequest =>
-    __isa(o, "CreateAssetRequest");
+  export const isa = (o: any): o is CreateAssetRequest => __isa(o, "CreateAssetRequest");
 }
 
 export interface CreateAssetResponse {
@@ -177,8 +172,7 @@ export interface CreateAssetResponse {
 }
 
 export namespace CreateAssetResponse {
-  export const isa = (o: any): o is CreateAssetResponse =>
-    __isa(o, "CreateAssetResponse");
+  export const isa = (o: any): o is CreateAssetResponse => __isa(o, "CreateAssetResponse");
 }
 
 /**
@@ -316,8 +310,7 @@ export interface DashEncryption {
 }
 
 export namespace DashEncryption {
-  export const isa = (o: any): o is DashEncryption =>
-    __isa(o, "DashEncryption");
+  export const isa = (o: any): o is DashEncryption => __isa(o, "DashEncryption");
 }
 
 /**
@@ -385,8 +378,7 @@ export interface DeleteAssetRequest {
 }
 
 export namespace DeleteAssetRequest {
-  export const isa = (o: any): o is DeleteAssetRequest =>
-    __isa(o, "DeleteAssetRequest");
+  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
 export interface DeleteAssetResponse {
@@ -394,8 +386,7 @@ export interface DeleteAssetResponse {
 }
 
 export namespace DeleteAssetResponse {
-  export const isa = (o: any): o is DeleteAssetResponse =>
-    __isa(o, "DeleteAssetResponse");
+  export const isa = (o: any): o is DeleteAssetResponse => __isa(o, "DeleteAssetResponse");
 }
 
 export interface DeletePackagingConfigurationRequest {
@@ -451,8 +442,7 @@ export interface DescribeAssetRequest {
 }
 
 export namespace DescribeAssetRequest {
-  export const isa = (o: any): o is DescribeAssetRequest =>
-    __isa(o, "DescribeAssetRequest");
+  export const isa = (o: any): o is DescribeAssetRequest => __isa(o, "DescribeAssetRequest");
 }
 
 export interface DescribeAssetResponse {
@@ -499,8 +489,7 @@ export interface DescribeAssetResponse {
 }
 
 export namespace DescribeAssetResponse {
-  export const isa = (o: any): o is DescribeAssetResponse =>
-    __isa(o, "DescribeAssetResponse");
+  export const isa = (o: any): o is DescribeAssetResponse => __isa(o, "DescribeAssetResponse");
 }
 
 export interface DescribePackagingConfigurationRequest {
@@ -612,8 +601,7 @@ export interface EgressEndpoint {
 }
 
 export namespace EgressEndpoint {
-  export const isa = (o: any): o is EgressEndpoint =>
-    __isa(o, "EgressEndpoint");
+  export const isa = (o: any): o is EgressEndpoint => __isa(o, "EgressEndpoint");
 }
 
 export enum EncryptionMethod {
@@ -631,8 +619,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -748,9 +735,7 @@ export namespace HlsPackage {
 /**
  * An unexpected error occurred.
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -780,8 +765,7 @@ export interface ListAssetsRequest {
 }
 
 export namespace ListAssetsRequest {
-  export const isa = (o: any): o is ListAssetsRequest =>
-    __isa(o, "ListAssetsRequest");
+  export const isa = (o: any): o is ListAssetsRequest => __isa(o, "ListAssetsRequest");
 }
 
 export interface ListAssetsResponse {
@@ -798,8 +782,7 @@ export interface ListAssetsResponse {
 }
 
 export namespace ListAssetsResponse {
-  export const isa = (o: any): o is ListAssetsResponse =>
-    __isa(o, "ListAssetsResponse");
+  export const isa = (o: any): o is ListAssetsResponse => __isa(o, "ListAssetsResponse");
 }
 
 export interface ListPackagingConfigurationsRequest {
@@ -949,8 +932,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -995,8 +977,7 @@ export interface PackagingConfiguration {
 }
 
 export namespace PackagingConfiguration {
-  export const isa = (o: any): o is PackagingConfiguration =>
-    __isa(o, "PackagingConfiguration");
+  export const isa = (o: any): o is PackagingConfiguration => __isa(o, "PackagingConfiguration");
 }
 
 /**
@@ -1021,8 +1002,7 @@ export interface PackagingGroup {
 }
 
 export namespace PackagingGroup {
-  export const isa = (o: any): o is PackagingGroup =>
-    __isa(o, "PackagingGroup");
+  export const isa = (o: any): o is PackagingGroup => __isa(o, "PackagingGroup");
 }
 
 export enum Profile {
@@ -1033,9 +1013,7 @@ export enum Profile {
 /**
  * An unexpected error occurred.
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1069,8 +1047,7 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
-  export const isa = (o: any): o is SpekeKeyProvider =>
-    __isa(o, "SpekeKeyProvider");
+  export const isa = (o: any): o is SpekeKeyProvider => __isa(o, "SpekeKeyProvider");
 }
 
 export enum StreamOrder {
@@ -1101,16 +1078,13 @@ export interface StreamSelection {
 }
 
 export namespace StreamSelection {
-  export const isa = (o: any): o is StreamSelection =>
-    __isa(o, "StreamSelection");
+  export const isa = (o: any): o is StreamSelection => __isa(o, "StreamSelection");
 }
 
 /**
  * The client has exceeded their resource or throttling limits.
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1124,9 +1098,7 @@ export namespace TooManyRequestsException {
 /**
  * The parameters sent in the request are not valid.
  */
-export interface UnprocessableEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
   name: "UnprocessableEntityException";
   $fault: "client";
   Message?: string;

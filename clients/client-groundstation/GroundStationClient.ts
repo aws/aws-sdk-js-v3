@@ -30,10 +30,7 @@ import {
   DescribeContactCommandInput,
   DescribeContactCommandOutput
 } from "./commands/DescribeContactCommand";
-import {
-  GetConfigCommandInput,
-  GetConfigCommandOutput
-} from "./commands/GetConfigCommand";
+import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
   GetDataflowEndpointGroupCommandOutput
@@ -50,10 +47,7 @@ import {
   GetSatelliteCommandInput,
   GetSatelliteCommandOutput
 } from "./commands/GetSatelliteCommand";
-import {
-  ListConfigsCommandInput,
-  ListConfigsCommandOutput
-} from "./commands/ListConfigsCommand";
+import { ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
 import {
   ListContactsCommandInput,
   ListContactsCommandOutput
@@ -82,10 +76,7 @@ import {
   ReserveContactCommandInput,
   ReserveContactCommandOutput
 } from "./commands/ReserveContactCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -289,9 +280,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GroundStationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GroundStationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

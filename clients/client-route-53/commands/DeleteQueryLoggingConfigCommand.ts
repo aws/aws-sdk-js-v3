@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  DeleteQueryLoggingConfigRequest,
-  DeleteQueryLoggingConfigResponse
-} from "../models/index";
+import { DeleteQueryLoggingConfigRequest, DeleteQueryLoggingConfigResponse } from "../models/index";
 import {
   deserializeAws_restXmlDeleteQueryLoggingConfigCommand,
   serializeAws_restXmlDeleteQueryLoggingConfigCommand
@@ -50,13 +47,8 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteQueryLoggingConfigCommandInput,
-    DeleteQueryLoggingConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteQueryLoggingConfigCommandInput, DeleteQueryLoggingConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteQueryLoggingConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

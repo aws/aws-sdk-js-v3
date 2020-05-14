@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMyUserProfileCommandInput = {};
-export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult &
-  __MetadataBearer;
+export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult & __MetadataBearer;
 
 export class DescribeMyUserProfileCommand extends $Command<
   DescribeMyUserProfileCommandInput,
@@ -46,13 +45,8 @@ export class DescribeMyUserProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMyUserProfileCommandInput,
-    DescribeMyUserProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMyUserProfileCommandInput, DescribeMyUserProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

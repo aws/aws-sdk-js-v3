@@ -46,10 +46,7 @@ import {
   CreateGroupCertificateAuthorityCommandInput,
   CreateGroupCertificateAuthorityCommandOutput
 } from "./commands/CreateGroupCertificateAuthorityCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupVersionCommandInput,
   CreateGroupVersionCommandOutput
@@ -98,10 +95,7 @@ import {
   DeleteFunctionDefinitionCommandInput,
   DeleteFunctionDefinitionCommandOutput
 } from "./commands/DeleteFunctionDefinitionCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteLoggerDefinitionCommandInput,
   DeleteLoggerDefinitionCommandOutput
@@ -178,10 +172,7 @@ import {
   GetGroupCertificateConfigurationCommandInput,
   GetGroupCertificateConfigurationCommandOutput
 } from "./commands/GetGroupCertificateConfigurationCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetGroupVersionCommandInput,
   GetGroupVersionCommandOutput
@@ -266,10 +257,7 @@ import {
   ListGroupVersionsCommandInput,
   ListGroupVersionsCommandOutput
 } from "./commands/ListGroupVersionsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListLoggerDefinitionVersionsCommandInput,
   ListLoggerDefinitionVersionsCommandOutput
@@ -310,10 +298,7 @@ import {
   StopBulkDeploymentCommandInput,
   StopBulkDeploymentCommandOutput
 } from "./commands/StopBulkDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -342,10 +327,7 @@ import {
   UpdateGroupCertificateConfigurationCommandInput,
   UpdateGroupCertificateConfigurationCommandOutput
 } from "./commands/UpdateGroupCertificateConfigurationCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateLoggerDefinitionCommandInput,
   UpdateLoggerDefinitionCommandOutput
@@ -679,9 +661,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GreengrassClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -690,9 +670,7 @@ export type GreengrassClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

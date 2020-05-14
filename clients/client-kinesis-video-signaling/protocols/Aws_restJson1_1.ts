@@ -89,10 +89,7 @@ export const deserializeAws_restJson1_1GetIceServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIceServerConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIceServerConfigCommandError(output, context);
   }
   const contents: GetIceServerConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -101,10 +98,7 @@ export const deserializeAws_restJson1_1GetIceServerConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.IceServerList !== undefined && data.IceServerList !== null) {
-    contents.IceServerList = deserializeAws_restJson1_1IceServerList(
-      data.IceServerList,
-      context
-    );
+    contents.IceServerList = deserializeAws_restJson1_1IceServerList(data.IceServerList, context);
   }
   return Promise.resolve(contents);
 };
@@ -146,10 +140,7 @@ const deserializeAws_restJson1_1GetIceServerConfigCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -168,10 +159,7 @@ const deserializeAws_restJson1_1GetIceServerConfigCommandError = async (
     case "InvalidClientException":
     case "com.amazonaws.kinesisvideo.signaling#InvalidClientException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -179,10 +167,7 @@ const deserializeAws_restJson1_1GetIceServerConfigCommandError = async (
     case "SessionExpiredException":
     case "com.amazonaws.kinesisvideo.signaling#SessionExpiredException":
       response = {
-        ...(await deserializeAws_restJson1_1SessionExpiredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SessionExpiredExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -209,10 +194,7 @@ export const deserializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   context: __SerdeContext
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError(output, context);
   }
   const contents: SendAlexaOfferToMasterCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -263,10 +245,7 @@ const deserializeAws_restJson1_1SendAlexaOfferToMasterCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -401,26 +380,18 @@ const deserializeAws_restJson1_1SessionExpiredExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1_1IceServer = (
-  output: any,
-  context: __SerdeContext
-): IceServer => {
+const deserializeAws_restJson1_1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
     __type: "IceServer",
     Password:
-      output.Password !== undefined && output.Password !== null
-        ? output.Password
-        : undefined,
-    Ttl:
-      output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
+      output.Password !== undefined && output.Password !== null ? output.Password : undefined,
+    Ttl: output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
     Uris:
       output.Uris !== undefined && output.Uris !== null
         ? deserializeAws_restJson1_1Uris(output.Uris, context)
         : undefined,
     Username:
-      output.Username !== undefined && output.Username !== null
-        ? output.Username
-        : undefined
+      output.Username !== undefined && output.Username !== null ? output.Username : undefined
   } as any;
 };
 
@@ -428,15 +399,10 @@ const deserializeAws_restJson1_1IceServerList = (
   output: any,
   context: __SerdeContext
 ): IceServer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IceServer(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IceServer(entry, context));
 };
 
-const deserializeAws_restJson1_1Uris = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Uris = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -454,23 +420,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

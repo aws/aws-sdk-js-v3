@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  CreateCodeRepositoryInput,
-  CreateCodeRepositoryOutput
-} from "../models/index";
+import { CreateCodeRepositoryInput, CreateCodeRepositoryOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateCodeRepositoryCommand,
   serializeAws_json1_1CreateCodeRepositoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCodeRepositoryCommandInput = CreateCodeRepositoryInput;
-export type CreateCodeRepositoryCommandOutput = CreateCodeRepositoryOutput &
-  __MetadataBearer;
+export type CreateCodeRepositoryCommandOutput = CreateCodeRepositoryOutput & __MetadataBearer;
 
 export class CreateCodeRepositoryCommand extends $Command<
   CreateCodeRepositoryCommandInput,
@@ -49,13 +45,8 @@ export class CreateCodeRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCodeRepositoryCommandInput,
-    CreateCodeRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCodeRepositoryCommandInput, CreateCodeRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

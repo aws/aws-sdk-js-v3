@@ -49,13 +49,8 @@ export class GetContactReachabilityStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetContactReachabilityStatusCommandInput,
-    GetContactReachabilityStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetContactReachabilityStatusCommandInput, GetContactReachabilityStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetContactReachabilityStatusCommand extends $Command<
     input: GetContactReachabilityStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContactReachabilityStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetContactReachabilityStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContactReachabilityStatusCommandOutput> {
-    return deserializeAws_json1_1GetContactReachabilityStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetContactReachabilityStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

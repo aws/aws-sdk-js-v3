@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  CreateGlobalNetworkRequest,
-  CreateGlobalNetworkResponse
-} from "../models/index";
+import { CreateGlobalNetworkRequest, CreateGlobalNetworkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateGlobalNetworkCommand,
   serializeAws_restJson1_1CreateGlobalNetworkCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGlobalNetworkCommandInput = CreateGlobalNetworkRequest;
-export type CreateGlobalNetworkCommandOutput = CreateGlobalNetworkResponse &
-  __MetadataBearer;
+export type CreateGlobalNetworkCommandOutput = CreateGlobalNetworkResponse & __MetadataBearer;
 
 export class CreateGlobalNetworkCommand extends $Command<
   CreateGlobalNetworkCommandInput,
@@ -49,13 +45,8 @@ export class CreateGlobalNetworkCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateGlobalNetworkCommandInput,
-    CreateGlobalNetworkCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateGlobalNetworkCommandInput, CreateGlobalNetworkCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateGlobalNetworkCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1_1CreateGlobalNetworkCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

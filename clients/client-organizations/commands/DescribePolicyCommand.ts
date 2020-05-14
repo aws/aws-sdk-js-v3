@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePolicyCommandInput = DescribePolicyRequest;
-export type DescribePolicyCommandOutput = DescribePolicyResponse &
-  __MetadataBearer;
+export type DescribePolicyCommandOutput = DescribePolicyResponse & __MetadataBearer;
 
 export class DescribePolicyCommand extends $Command<
   DescribePolicyCommandInput,
@@ -47,9 +46,7 @@ export class DescribePolicyCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePolicyCommandInput, DescribePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

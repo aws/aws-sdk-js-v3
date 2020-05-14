@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  CreateTestGridUrlRequest,
-  CreateTestGridUrlResult
-} from "../models/index";
+import { CreateTestGridUrlRequest, CreateTestGridUrlResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateTestGridUrlCommand,
   serializeAws_json1_1CreateTestGridUrlCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTestGridUrlCommandInput = CreateTestGridUrlRequest;
-export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult &
-  __MetadataBearer;
+export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult & __MetadataBearer;
 
 export class CreateTestGridUrlCommand extends $Command<
   CreateTestGridUrlCommandInput,
@@ -50,9 +46,7 @@ export class CreateTestGridUrlCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

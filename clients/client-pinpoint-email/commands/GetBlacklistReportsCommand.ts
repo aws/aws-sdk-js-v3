@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointEmailClient";
-import {
-  GetBlacklistReportsRequest,
-  GetBlacklistReportsResponse
-} from "../models/index";
+import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBlacklistReportsCommand,
   serializeAws_restJson1_1GetBlacklistReportsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBlacklistReportsCommandInput = GetBlacklistReportsRequest;
-export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse &
-  __MetadataBearer;
+export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse & __MetadataBearer;
 
 export class GetBlacklistReportsCommand extends $Command<
   GetBlacklistReportsCommandInput,
@@ -49,13 +45,8 @@ export class GetBlacklistReportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBlacklistReportsCommandInput,
-    GetBlacklistReportsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBlacklistReportsCommandInput, GetBlacklistReportsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetBlacklistReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBlacklistReportsCommandOutput> {
-    return deserializeAws_restJson1_1GetBlacklistReportsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBlacklistReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

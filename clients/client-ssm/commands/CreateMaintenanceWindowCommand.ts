@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreateMaintenanceWindowRequest,
-  CreateMaintenanceWindowResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreateMaintenanceWindowRequest, CreateMaintenanceWindowResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateMaintenanceWindowCommand,
   serializeAws_json1_1CreateMaintenanceWindowCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMaintenanceWindowCommandInput = CreateMaintenanceWindowRequest;
-export type CreateMaintenanceWindowCommandOutput = CreateMaintenanceWindowResult &
-  __MetadataBearer;
+export type CreateMaintenanceWindowCommandOutput = CreateMaintenanceWindowResult & __MetadataBearer;
 
 export class CreateMaintenanceWindowCommand extends $Command<
   CreateMaintenanceWindowCommandInput,
@@ -49,13 +41,8 @@ export class CreateMaintenanceWindowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateMaintenanceWindowCommandInput,
-    CreateMaintenanceWindowCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateMaintenanceWindowCommandInput, CreateMaintenanceWindowCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class CreateMaintenanceWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1CreateMaintenanceWindowCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

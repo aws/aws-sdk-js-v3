@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SupportClientResolvedConfig
 } from "../SupportClient";
-import {
-  AddCommunicationToCaseRequest,
-  AddCommunicationToCaseResponse
-} from "../models/index";
+import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddCommunicationToCaseCommand,
   serializeAws_json1_1AddCommunicationToCaseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddCommunicationToCaseCommandInput = AddCommunicationToCaseRequest;
-export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse &
-  __MetadataBearer;
+export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse & __MetadataBearer;
 
 export class AddCommunicationToCaseCommand extends $Command<
   AddCommunicationToCaseCommandInput,
@@ -49,13 +45,8 @@ export class AddCommunicationToCaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddCommunicationToCaseCommandInput,
-    AddCommunicationToCaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddCommunicationToCaseCommandInput, AddCommunicationToCaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

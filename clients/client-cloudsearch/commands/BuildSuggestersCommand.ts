@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  BuildSuggestersRequest,
-  BuildSuggestersResponse
-} from "../models/index";
+import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/index";
 import {
   deserializeAws_queryBuildSuggestersCommand,
   serializeAws_queryBuildSuggestersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BuildSuggestersCommandInput = BuildSuggestersRequest;
-export type BuildSuggestersCommandOutput = BuildSuggestersResponse &
-  __MetadataBearer;
+export type BuildSuggestersCommandOutput = BuildSuggestersResponse & __MetadataBearer;
 
 export class BuildSuggestersCommand extends $Command<
   BuildSuggestersCommandInput,
@@ -50,9 +46,7 @@ export class BuildSuggestersCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BuildSuggestersCommandInput, BuildSuggestersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

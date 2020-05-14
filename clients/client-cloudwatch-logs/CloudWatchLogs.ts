@@ -264,9 +264,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public associateKmsKey(
     args: AssociateKmsKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateKmsKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateKmsKeyCommandOutput) => void),
     cb?: (err: any, data?: AssociateKmsKeyCommandOutput) => void
   ): Promise<AssociateKmsKeyCommandOutput> | void {
     const command = new AssociateKmsKeyCommand(args);
@@ -300,9 +298,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public cancelExportTask(
     args: CancelExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): Promise<CancelExportTaskCommandOutput> | void {
     const command = new CancelExportTaskCommand(args);
@@ -346,9 +342,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createExportTask(
     args: CreateExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateExportTaskCommandOutput) => void
   ): Promise<CreateExportTaskCommandOutput> | void {
     const command = new CreateExportTaskCommand(args);
@@ -406,9 +400,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createLogGroup(
     args: CreateLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateLogGroupCommandOutput) => void
   ): Promise<CreateLogGroupCommandOutput> | void {
     const command = new CreateLogGroupCommand(args);
@@ -455,9 +447,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public createLogStream(
     args: CreateLogStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLogStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateLogStreamCommandOutput) => void
   ): Promise<CreateLogStreamCommandOutput> | void {
     const command = new CreateLogStreamCommand(args);
@@ -528,9 +518,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteLogGroup(
     args: DeleteLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogGroupCommandOutput) => void
   ): Promise<DeleteLogGroupCommandOutput> | void {
     const command = new DeleteLogGroupCommand(args);
@@ -564,9 +552,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public deleteLogStream(
     args: DeleteLogStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLogStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogStreamCommandOutput) => void
   ): Promise<DeleteLogStreamCommandOutput> | void {
     const command = new DeleteLogStreamCommand(args);
@@ -925,9 +911,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public describeQueries(
     args: DescribeQueriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeQueriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeQueriesCommandOutput) => void
   ): Promise<DescribeQueriesCommandOutput> | void {
     const command = new DescribeQueriesCommand(args);
@@ -1074,9 +1058,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public filterLogEvents(
     args: FilterLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FilterLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FilterLogEventsCommandOutput) => void),
     cb?: (err: any, data?: FilterLogEventsCommandOutput) => void
   ): Promise<FilterLogEventsCommandOutput> | void {
     const command = new FilterLogEventsCommand(args);
@@ -1113,9 +1095,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getLogEvents(
     args: GetLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogEventsCommandOutput) => void),
     cb?: (err: any, data?: GetLogEventsCommandOutput) => void
   ): Promise<GetLogEventsCommandOutput> | void {
     const command = new GetLogEventsCommand(args);
@@ -1191,9 +1171,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getLogRecord(
     args: GetLogRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLogRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogRecordCommandOutput) => void),
     cb?: (err: any, data?: GetLogRecordCommandOutput) => void
   ): Promise<GetLogRecordCommandOutput> | void {
     const command = new GetLogRecordCommand(args);
@@ -1235,9 +1213,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
@@ -1270,9 +1246,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsLogGroupCommandOutput) => void),
     cb?: (err: any, data?: ListTagsLogGroupCommandOutput) => void
   ): Promise<ListTagsLogGroupCommandOutput> | void {
     const command = new ListTagsLogGroupCommand(args);
@@ -1312,9 +1286,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putDestination(
     args: PutDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDestinationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDestinationCommandOutput) => void),
     cb?: (err: any, data?: PutDestinationCommandOutput) => void
   ): Promise<PutDestinationCommandOutput> | void {
     const command = new PutDestinationCommand(args);
@@ -1421,9 +1393,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putLogEvents(
     args: PutLogEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLogEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLogEventsCommandOutput) => void),
     cb?: (err: any, data?: PutLogEventsCommandOutput) => void
   ): Promise<PutLogEventsCommandOutput> | void {
     const command = new PutLogEventsCommand(args);
@@ -1460,9 +1430,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public putMetricFilter(
     args: PutMetricFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMetricFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricFilterCommandOutput) => void),
     cb?: (err: any, data?: PutMetricFilterCommandOutput) => void
   ): Promise<PutMetricFilterCommandOutput> | void {
     const command = new PutMetricFilterCommand(args);
@@ -1632,9 +1600,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public startQuery(
     args: StartQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryCommandOutput) => void),
     cb?: (err: any, data?: StartQueryCommandOutput) => void
   ): Promise<StartQueryCommandOutput> | void {
     const command = new StartQueryCommand(args);
@@ -1668,9 +1634,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public stopQuery(
     args: StopQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopQueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopQueryCommandOutput) => void),
     cb?: (err: any, data?: StopQueryCommandOutput) => void
   ): Promise<StopQueryCommandOutput> | void {
     const command = new StopQueryCommand(args);
@@ -1707,9 +1671,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public tagLogGroup(
     args: TagLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagLogGroupCommandOutput) => void),
     cb?: (err: any, data?: TagLogGroupCommandOutput) => void
   ): Promise<TagLogGroupCommandOutput> | void {
     const command = new TagLogGroupCommand(args);
@@ -1743,9 +1705,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public testMetricFilter(
     args: TestMetricFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestMetricFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestMetricFilterCommandOutput) => void),
     cb?: (err: any, data?: TestMetricFilterCommandOutput) => void
   ): Promise<TestMetricFilterCommandOutput> | void {
     const command = new TestMetricFilterCommand(args);
@@ -1780,9 +1740,7 @@ export class CloudWatchLogs extends CloudWatchLogsClient {
   ): void;
   public untagLogGroup(
     args: UntagLogGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagLogGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagLogGroupCommandOutput) => void),
     cb?: (err: any, data?: UntagLogGroupCommandOutput) => void
   ): Promise<UntagLogGroupCommandOutput> | void {
     const command = new UntagLogGroupCommand(args);

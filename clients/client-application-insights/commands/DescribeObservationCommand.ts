@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DescribeObservationRequest,
-  DescribeObservationResponse
-} from "../models/index";
+import { DescribeObservationRequest, DescribeObservationResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeObservationCommand,
   serializeAws_json1_1DescribeObservationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeObservationCommandInput = DescribeObservationRequest;
-export type DescribeObservationCommandOutput = DescribeObservationResponse &
-  __MetadataBearer;
+export type DescribeObservationCommandOutput = DescribeObservationResponse & __MetadataBearer;
 
 export class DescribeObservationCommand extends $Command<
   DescribeObservationCommandInput,
@@ -49,13 +45,8 @@ export class DescribeObservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeObservationCommandInput,
-    DescribeObservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeObservationCommandInput, DescribeObservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

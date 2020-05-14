@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  DisassociateCertificateRequest,
-  DisassociateCertificateResponse
-} from "../models/index";
+import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateCertificateCommand,
   serializeAws_restJson1_1DisassociateCertificateCommand
@@ -49,13 +46,8 @@ export class DisassociateCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateCertificateCommandInput,
-    DisassociateCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateCertificateCommandInput, DisassociateCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DisassociateCertificateCommand extends $Command<
     input: DisassociateCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCertificateCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

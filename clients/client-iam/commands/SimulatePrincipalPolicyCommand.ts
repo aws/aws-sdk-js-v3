@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  SimulatePolicyResponse,
-  SimulatePrincipalPolicyRequest
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { SimulatePolicyResponse, SimulatePrincipalPolicyRequest } from "../models/index";
 import {
   deserializeAws_querySimulatePrincipalPolicyCommand,
   serializeAws_querySimulatePrincipalPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SimulatePrincipalPolicyCommandInput = SimulatePrincipalPolicyRequest;
-export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse &
-  __MetadataBearer;
+export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse & __MetadataBearer;
 
 export class SimulatePrincipalPolicyCommand extends $Command<
   SimulatePrincipalPolicyCommandInput,
@@ -49,13 +41,8 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SimulatePrincipalPolicyCommandInput,
-    SimulatePrincipalPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SimulatePrincipalPolicyCommandInput, SimulatePrincipalPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

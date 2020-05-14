@@ -18,10 +18,7 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput
 } from "./commands/CreatePlatformEndpointCommand";
-import {
-  CreateTopicCommandInput,
-  CreateTopicCommandOutput
-} from "./commands/CreateTopicCommand";
+import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput
@@ -30,10 +27,7 @@ import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput
 } from "./commands/DeletePlatformApplicationCommand";
-import {
-  DeleteTopicCommandInput,
-  DeleteTopicCommandOutput
-} from "./commands/DeleteTopicCommand";
+import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput
@@ -78,18 +72,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTopicsCommandInput,
-  ListTopicsCommandOutput
-} from "./commands/ListTopicsCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
   OptInPhoneNumberCommandInput,
   OptInPhoneNumberCommandOutput
 } from "./commands/OptInPhoneNumberCommand";
-import {
-  PublishCommandInput,
-  PublishCommandOutput
-} from "./commands/PublishCommand";
+import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput
@@ -114,18 +102,9 @@ import {
   SetTopicAttributesCommandInput,
   SetTopicAttributesCommandOutput
 } from "./commands/SetTopicAttributesCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "./commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "./commands/UnsubscribeCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -337,9 +316,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SNSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SNSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -348,9 +325,7 @@ export type SNSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

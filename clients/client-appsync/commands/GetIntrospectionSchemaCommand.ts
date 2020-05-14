@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  GetIntrospectionSchemaRequest,
-  GetIntrospectionSchemaResponse
-} from "../models/index";
+import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntrospectionSchemaCommand,
   serializeAws_restJson1_1GetIntrospectionSchemaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIntrospectionSchemaCommandInput = GetIntrospectionSchemaRequest;
-export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse &
-  __MetadataBearer;
+export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse & __MetadataBearer;
 
 export class GetIntrospectionSchemaCommand extends $Command<
   GetIntrospectionSchemaCommandInput,
@@ -49,13 +45,8 @@ export class GetIntrospectionSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIntrospectionSchemaCommandInput,
-    GetIntrospectionSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIntrospectionSchemaCommandInput, GetIntrospectionSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetIntrospectionSchemaCommand extends $Command<
     input: GetIntrospectionSchemaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntrospectionSchemaCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetIntrospectionSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIntrospectionSchemaCommandOutput> {
-    return deserializeAws_restJson1_1GetIntrospectionSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntrospectionSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

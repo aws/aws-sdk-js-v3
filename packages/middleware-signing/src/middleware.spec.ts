@@ -22,10 +22,7 @@ describe("SigningHandler", () => {
 
   it("should sign the request and pass it to the next handler", async () => {
     expect.assertions(2);
-    const signingHandler = awsAuthMiddleware({ signer: noOpSigner } as any)(
-      noOpNext,
-      {} as any
-    );
+    const signingHandler = awsAuthMiddleware({ signer: noOpSigner } as any)(noOpNext, {} as any);
     await signingHandler({
       input: {},
       request: new HttpRequest({
@@ -80,10 +77,7 @@ describe("SigningHandler", () => {
           signer: noOpSigner,
           systemClockOffset
         };
-        const signingHandler = awsAuthMiddleware(options as any)(
-          noOpNext,
-          {} as any
-        );
+        const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
         noOpNext.mockReturnValue({
           response: {
             headers: {
@@ -126,10 +120,7 @@ describe("SigningHandler", () => {
           systemClockOffset
         };
 
-        const signingHandler = awsAuthMiddleware(options as any)(
-          noOpNext,
-          {} as any
-        );
+        const signingHandler = awsAuthMiddleware(options as any)(noOpNext, {} as any);
         noOpNext.mockReturnValue({
           response: {
             headers: {

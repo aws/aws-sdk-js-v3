@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetUserRequest, GetUserResponse } from "../models/index";
 import {
   deserializeAws_queryGetUserCommand,
@@ -46,9 +42,7 @@ export class GetUserCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserCommandInput, GetUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetUserCommand(input, context);
   }
 

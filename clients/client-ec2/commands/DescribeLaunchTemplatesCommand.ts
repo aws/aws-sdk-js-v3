@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeLaunchTemplatesCommand,
   serializeAws_ec2DescribeLaunchTemplatesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLaunchTemplatesCommandInput = DescribeLaunchTemplatesRequest;
-export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult &
-  __MetadataBearer;
+export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult & __MetadataBearer;
 
 export class DescribeLaunchTemplatesCommand extends $Command<
   DescribeLaunchTemplatesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLaunchTemplatesCommandInput,
-    DescribeLaunchTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLaunchTemplatesCommandInput, DescribeLaunchTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

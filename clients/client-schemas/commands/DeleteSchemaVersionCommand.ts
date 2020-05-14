@@ -45,13 +45,8 @@ export class DeleteSchemaVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSchemaVersionCommandInput,
-    DeleteSchemaVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSchemaVersionCommandInput, DeleteSchemaVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteSchemaVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSchemaVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

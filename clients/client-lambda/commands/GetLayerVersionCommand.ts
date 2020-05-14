@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetLayerVersionRequest,
-  GetLayerVersionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLayerVersionCommand,
   serializeAws_restJson1_1GetLayerVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLayerVersionCommandInput = GetLayerVersionRequest;
-export type GetLayerVersionCommandOutput = GetLayerVersionResponse &
-  __MetadataBearer;
+export type GetLayerVersionCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
 export class GetLayerVersionCommand extends $Command<
   GetLayerVersionCommandInput,
@@ -50,9 +42,7 @@ export class GetLayerVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLayerVersionCommandInput, GetLayerVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

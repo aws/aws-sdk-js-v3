@@ -130,9 +130,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -165,9 +163,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public createTrail(
     args: CreateTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrailCommandOutput) => void),
     cb?: (err: any, data?: CreateTrailCommandOutput) => void
   ): Promise<CreateTrailCommandOutput> | void {
     const command = new CreateTrailCommand(args);
@@ -202,9 +198,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public deleteTrail(
     args: DeleteTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrailCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrailCommandOutput) => void
   ): Promise<DeleteTrailCommandOutput> | void {
     const command = new DeleteTrailCommand(args);
@@ -237,9 +231,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public describeTrails(
     args: DescribeTrailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrailsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrailsCommandOutput) => void
   ): Promise<DescribeTrailsCommandOutput> | void {
     const command = new DescribeTrailsCommand(args);
@@ -364,9 +356,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getTrail(
     args: GetTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailCommandOutput) => void),
     cb?: (err: any, data?: GetTrailCommandOutput) => void
   ): Promise<GetTrailCommandOutput> | void {
     const command = new GetTrailCommand(args);
@@ -399,9 +389,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public getTrailStatus(
     args: GetTrailStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrailStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrailStatusCommandOutput) => void),
     cb?: (err: any, data?: GetTrailStatusCommandOutput) => void
   ): Promise<GetTrailStatusCommandOutput> | void {
     const command = new GetTrailStatusCommand(args);
@@ -437,9 +425,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listPublicKeys(
     args: ListPublicKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPublicKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublicKeysCommandOutput) => void),
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
@@ -472,9 +458,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -507,9 +491,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public listTrails(
     args: ListTrailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrailsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrailsCommandOutput) => void),
     cb?: (err: any, data?: ListTrailsCommandOutput) => void
   ): Promise<ListTrailsCommandOutput> | void {
     const command = new ListTrailsCommand(args);
@@ -589,9 +571,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public lookupEvents(
     args: LookupEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LookupEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LookupEventsCommandOutput) => void),
     cb?: (err: any, data?: LookupEventsCommandOutput) => void
   ): Promise<LookupEventsCommandOutput> | void {
     const command = new LookupEventsCommand(args);
@@ -734,9 +714,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
@@ -769,9 +747,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public startLogging(
     args: StartLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLoggingCommandOutput) => void),
     cb?: (err: any, data?: StartLoggingCommandOutput) => void
   ): Promise<StartLoggingCommandOutput> | void {
     const command = new StartLoggingCommand(args);
@@ -810,9 +786,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public stopLogging(
     args: StopLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopLoggingCommandOutput) => void),
     cb?: (err: any, data?: StopLoggingCommandOutput) => void
   ): Promise<StopLoggingCommandOutput> | void {
     const command = new StopLoggingCommand(args);
@@ -850,9 +824,7 @@ export class CloudTrail extends CloudTrailClient {
   ): void;
   public updateTrail(
     args: UpdateTrailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrailCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrailCommandOutput) => void
   ): Promise<UpdateTrailCommandOutput> | void {
     const command = new UpdateTrailCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinIntentsRequest,
-  GetBuiltinIntentsResponse
-} from "../models/index";
+import { GetBuiltinIntentsRequest, GetBuiltinIntentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBuiltinIntentsCommand,
   serializeAws_restJson1_1GetBuiltinIntentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBuiltinIntentsCommandInput = GetBuiltinIntentsRequest;
-export type GetBuiltinIntentsCommandOutput = GetBuiltinIntentsResponse &
-  __MetadataBearer;
+export type GetBuiltinIntentsCommandOutput = GetBuiltinIntentsResponse & __MetadataBearer;
 
 export class GetBuiltinIntentsCommand extends $Command<
   GetBuiltinIntentsCommandInput,
@@ -50,9 +46,7 @@ export class GetBuiltinIntentsCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

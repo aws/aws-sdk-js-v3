@@ -46,9 +46,7 @@ export class StopContactCommand extends $Command<
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopContactCommandInput, StopContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

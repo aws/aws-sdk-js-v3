@@ -49,13 +49,8 @@ export class DissociateEntityFromThingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DissociateEntityFromThingCommandInput,
-    DissociateEntityFromThingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DissociateEntityFromThingCommandInput, DissociateEntityFromThingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DissociateEntityFromThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DissociateEntityFromThingCommandOutput> {
-    return deserializeAws_json1_1DissociateEntityFromThingCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DissociateEntityFromThingCommand(output, context);
   }
 
   // Start section: command_body_extra

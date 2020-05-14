@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetImagePolicyCommandInput = GetImagePolicyRequest;
-export type GetImagePolicyCommandOutput = GetImagePolicyResponse &
-  __MetadataBearer;
+export type GetImagePolicyCommandOutput = GetImagePolicyResponse & __MetadataBearer;
 
 export class GetImagePolicyCommand extends $Command<
   GetImagePolicyCommandInput,
@@ -47,9 +46,7 @@ export class GetImagePolicyCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetImagePolicyCommandInput, GetImagePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

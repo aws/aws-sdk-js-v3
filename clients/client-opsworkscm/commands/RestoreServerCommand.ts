@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreServerCommandInput = RestoreServerRequest;
-export type RestoreServerCommandOutput = RestoreServerResponse &
-  __MetadataBearer;
+export type RestoreServerCommandOutput = RestoreServerResponse & __MetadataBearer;
 
 export class RestoreServerCommand extends $Command<
   RestoreServerCommandInput,
@@ -47,9 +46,7 @@ export class RestoreServerCommand extends $Command<
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreServerCommandInput, RestoreServerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

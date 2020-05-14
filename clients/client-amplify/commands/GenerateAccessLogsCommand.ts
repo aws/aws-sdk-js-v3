@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  GenerateAccessLogsRequest,
-  GenerateAccessLogsResult
-} from "../models/index";
+import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GenerateAccessLogsCommand,
   serializeAws_restJson1_1GenerateAccessLogsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateAccessLogsCommandInput = GenerateAccessLogsRequest;
-export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult &
-  __MetadataBearer;
+export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult & __MetadataBearer;
 
 export class GenerateAccessLogsCommand extends $Command<
   GenerateAccessLogsCommandInput,
@@ -50,9 +46,7 @@ export class GenerateAccessLogsCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateAccessLogsCommandInput, GenerateAccessLogsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

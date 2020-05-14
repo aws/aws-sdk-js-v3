@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DisassociateFleetRequest,
-  DisassociateFleetResult
-} from "../models/index";
+import { DisassociateFleetRequest, DisassociateFleetResult } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateFleetCommand,
   serializeAws_json1_1DisassociateFleetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateFleetCommandInput = DisassociateFleetRequest;
-export type DisassociateFleetCommandOutput = DisassociateFleetResult &
-  __MetadataBearer;
+export type DisassociateFleetCommandOutput = DisassociateFleetResult & __MetadataBearer;
 
 export class DisassociateFleetCommand extends $Command<
   DisassociateFleetCommandInput,
@@ -50,9 +46,7 @@ export class DisassociateFleetCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateFleetCommandInput, DisassociateFleetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

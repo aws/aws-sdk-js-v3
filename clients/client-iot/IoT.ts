@@ -1076,9 +1076,7 @@ export class IoT extends IoTClient {
   ): void;
   public createTopicRule(
     args: CreateTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateTopicRuleCommandOutput) => void
   ): Promise<CreateTopicRuleCommandOutput> | void {
     const command = new CreateTopicRuleCommand(args);
@@ -1146,9 +1144,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteTopicRuleCommandOutput) => void
   ): Promise<DeleteTopicRuleCommandOutput> | void {
     const command = new DeleteTopicRuleCommand(args);
@@ -1251,9 +1247,7 @@ export class IoT extends IoTClient {
   ): void;
   public disableTopicRule(
     args: DisableTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: DisableTopicRuleCommandOutput) => void
   ): Promise<DisableTopicRuleCommandOutput> | void {
     const command = new DisableTopicRuleCommand(args);
@@ -1286,9 +1280,7 @@ export class IoT extends IoTClient {
   ): void;
   public enableTopicRule(
     args: EnableTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: EnableTopicRuleCommandOutput) => void
   ): Promise<EnableTopicRuleCommandOutput> | void {
     const command = new EnableTopicRuleCommand(args);
@@ -1358,9 +1350,7 @@ export class IoT extends IoTClient {
   ): void;
   public getTopicRule(
     args: GetTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: GetTopicRuleCommandOutput) => void
   ): Promise<GetTopicRuleCommandOutput> | void {
     const command = new GetTopicRuleCommand(args);
@@ -1498,9 +1488,7 @@ export class IoT extends IoTClient {
   ): void;
   public listTopicRules(
     args: ListTopicRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTopicRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTopicRulesCommandOutput) => void),
     cb?: (err: any, data?: ListTopicRulesCommandOutput) => void
   ): Promise<ListTopicRulesCommandOutput> | void {
     const command = new ListTopicRulesCommand(args);
@@ -1570,9 +1558,7 @@ export class IoT extends IoTClient {
   ): void;
   public replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReplaceTopicRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceTopicRuleCommandOutput) => void),
     cb?: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
   ): Promise<ReplaceTopicRuleCommandOutput> | void {
     const command = new ReplaceTopicRuleCommand(args);
@@ -1786,9 +1772,7 @@ export class IoT extends IoTClient {
   ): void;
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachPolicyCommandOutput) => void
   ): Promise<AttachPolicyCommandOutput> | void {
     const command = new AttachPolicyCommand(args);
@@ -1936,9 +1920,7 @@ export class IoT extends IoTClient {
   ): void;
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): Promise<CreateAuthorizerCommandOutput> | void {
     const command = new CreateAuthorizerCommand(args);
@@ -2121,9 +2103,7 @@ export class IoT extends IoTClient {
   ): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyCommandOutput) => void
   ): Promise<CreatePolicyCommandOutput> | void {
     const command = new CreatePolicyCommand(args);
@@ -2258,31 +2238,19 @@ export class IoT extends IoTClient {
   ): Promise<CreateProvisioningTemplateVersionCommandOutput>;
   public createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
-    cb: (
-      err: any,
-      data?: CreateProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateProvisioningTemplateVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateProvisioningTemplateVersionCommandOutput
-    ) => void
+      | ((err: any, data?: CreateProvisioningTemplateVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateProvisioningTemplateVersionCommandOutput) => void
   ): Promise<CreateProvisioningTemplateVersionCommandOutput> | void {
     const command = new CreateProvisioningTemplateVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2314,9 +2282,7 @@ export class IoT extends IoTClient {
   ): void;
   public createRoleAlias(
     args: CreateRoleAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoleAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoleAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateRoleAliasCommandOutput) => void
   ): Promise<CreateRoleAliasCommandOutput> | void {
     const command = new CreateRoleAliasCommand(args);
@@ -2349,9 +2315,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): Promise<DeleteAuthorizerCommandOutput> | void {
     const command = new DeleteAuthorizerCommand(args);
@@ -2502,9 +2466,7 @@ export class IoT extends IoTClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
@@ -2600,31 +2562,19 @@ export class IoT extends IoTClient {
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput>;
   public deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteProvisioningTemplateVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteProvisioningTemplateVersionCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteProvisioningTemplateVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProvisioningTemplateVersionCommandOutput) => void
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput> | void {
     const command = new DeleteProvisioningTemplateVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2691,9 +2641,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoleAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoleAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoleAliasCommandOutput) => void
   ): Promise<DeleteRoleAliasCommandOutput> | void {
     const command = new DeleteRoleAliasCommand(args);
@@ -2904,9 +2852,7 @@ export class IoT extends IoTClient {
   ): void;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): Promise<DescribeEndpointCommandOutput> | void {
     const command = new DescribeEndpointCommand(args);
@@ -2965,31 +2911,19 @@ export class IoT extends IoTClient {
   ): Promise<DescribeProvisioningTemplateVersionCommandOutput>;
   public describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeProvisioningTemplateVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeProvisioningTemplateVersionCommandOutput) => void
   ): void;
   public describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeProvisioningTemplateVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeProvisioningTemplateVersionCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeProvisioningTemplateVersionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeProvisioningTemplateVersionCommandOutput) => void
   ): Promise<DescribeProvisioningTemplateVersionCommandOutput> | void {
     const command = new DescribeProvisioningTemplateVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3056,9 +2990,7 @@ export class IoT extends IoTClient {
   ): void;
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachPolicyCommandOutput) => void
   ): Promise<DetachPolicyCommandOutput> | void {
     const command = new DetachPolicyCommand(args);
@@ -3165,9 +3097,7 @@ export class IoT extends IoTClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
@@ -3200,9 +3130,7 @@ export class IoT extends IoTClient {
   ): void;
   public getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyVersionCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): Promise<GetPolicyVersionCommandOutput> | void {
     const command = new GetPolicyVersionCommand(args);
@@ -3305,9 +3233,7 @@ export class IoT extends IoTClient {
   ): void;
   public listAuthorizers(
     args: ListAuthorizersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAuthorizersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAuthorizersCommandOutput) => void),
     cb?: (err: any, data?: ListAuthorizersCommandOutput) => void
   ): Promise<ListAuthorizersCommandOutput> | void {
     const command = new ListAuthorizersCommand(args);
@@ -3379,9 +3305,7 @@ export class IoT extends IoTClient {
   ): void;
   public listCertificates(
     args: ListCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificatesCommandOutput) => void
   ): Promise<ListCertificatesCommandOutput> | void {
     const command = new ListCertificatesCommand(args);
@@ -3522,9 +3446,7 @@ export class IoT extends IoTClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
@@ -3670,14 +3592,8 @@ export class IoT extends IoTClient {
     args: ListProvisioningTemplateVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisioningTemplateVersionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisioningTemplateVersionsCommandOutput
-    ) => void
+      | ((err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
   ): Promise<ListProvisioningTemplateVersionsCommandOutput> | void {
     const command = new ListProvisioningTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3744,9 +3660,7 @@ export class IoT extends IoTClient {
   ): void;
   public listRoleAliases(
     args: ListRoleAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoleAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoleAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListRoleAliasesCommandOutput) => void
   ): Promise<ListRoleAliasesCommandOutput> | void {
     const command = new ListRoleAliasesCommand(args);
@@ -3894,9 +3808,7 @@ export class IoT extends IoTClient {
   ): void;
   public registerThing(
     args: RegisterThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterThingCommandOutput) => void),
     cb?: (err: any, data?: RegisterThingCommandOutput) => void
   ): Promise<RegisterThingCommandOutput> | void {
     const command = new RegisterThingCommand(args);
@@ -4160,9 +4072,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): Promise<UpdateAuthorizerCommandOutput> | void {
     const command = new UpdateAuthorizerCommand(args);
@@ -4343,9 +4253,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoleAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoleAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoleAliasCommandOutput) => void
   ): Promise<UpdateRoleAliasCommandOutput> | void {
     const command = new UpdateRoleAliasCommand(args);
@@ -4378,9 +4286,7 @@ export class IoT extends IoTClient {
   ): void;
   public describeIndex(
     args: DescribeIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIndexCommandOutput) => void),
     cb?: (err: any, data?: DescribeIndexCommandOutput) => void
   ): Promise<DescribeIndexCommandOutput> | void {
     const command = new DescribeIndexCommand(args);
@@ -4413,9 +4319,7 @@ export class IoT extends IoTClient {
   ): void;
   public getCardinality(
     args: GetCardinalityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCardinalityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCardinalityCommandOutput) => void),
     cb?: (err: any, data?: GetCardinalityCommandOutput) => void
   ): Promise<GetCardinalityCommandOutput> | void {
     const command = new GetCardinalityCommand(args);
@@ -4491,9 +4395,7 @@ export class IoT extends IoTClient {
   ): void;
   public getPercentiles(
     args: GetPercentilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPercentilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPercentilesCommandOutput) => void),
     cb?: (err: any, data?: GetPercentilesCommandOutput) => void
   ): Promise<GetPercentilesCommandOutput> | void {
     const command = new GetPercentilesCommand(args);
@@ -4528,9 +4430,7 @@ export class IoT extends IoTClient {
   ): void;
   public getStatistics(
     args: GetStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStatisticsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStatisticsCommandOutput) => void),
     cb?: (err: any, data?: GetStatisticsCommandOutput) => void
   ): Promise<GetStatisticsCommandOutput> | void {
     const command = new GetStatisticsCommand(args);
@@ -4563,9 +4463,7 @@ export class IoT extends IoTClient {
   ): void;
   public listIndices(
     args: ListIndicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIndicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIndicesCommandOutput) => void),
     cb?: (err: any, data?: ListIndicesCommandOutput) => void
   ): Promise<ListIndicesCommandOutput> | void {
     const command = new ListIndicesCommand(args);
@@ -4598,9 +4496,7 @@ export class IoT extends IoTClient {
   ): void;
   public searchIndex(
     args: SearchIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchIndexCommandOutput) => void),
     cb?: (err: any, data?: SearchIndexCommandOutput) => void
   ): Promise<SearchIndexCommandOutput> | void {
     const command = new SearchIndexCommand(args);
@@ -4715,9 +4611,7 @@ export class IoT extends IoTClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -4785,9 +4679,7 @@ export class IoT extends IoTClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -4827,9 +4719,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteJob(
     args: DeleteJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
@@ -4897,9 +4787,7 @@ export class IoT extends IoTClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
@@ -4967,9 +4855,7 @@ export class IoT extends IoTClient {
   ): void;
   public getJobDocument(
     args: GetJobDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobDocumentCommandOutput) => void),
     cb?: (err: any, data?: GetJobDocumentCommandOutput) => void
   ): Promise<GetJobDocumentCommandOutput> | void {
     const command = new GetJobDocumentCommand(args);
@@ -5072,9 +4958,7 @@ export class IoT extends IoTClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -5107,9 +4991,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateJob(
     args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);
@@ -5142,9 +5024,7 @@ export class IoT extends IoTClient {
   ): void;
   public createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOTAUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOTAUpdateCommandOutput) => void),
     cb?: (err: any, data?: CreateOTAUpdateCommandOutput) => void
   ): Promise<CreateOTAUpdateCommandOutput> | void {
     const command = new CreateOTAUpdateCommand(args);
@@ -5177,9 +5057,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteOTAUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOTAUpdateCommandOutput) => void),
     cb?: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
   ): Promise<DeleteOTAUpdateCommandOutput> | void {
     const command = new DeleteOTAUpdateCommand(args);
@@ -5212,9 +5090,7 @@ export class IoT extends IoTClient {
   ): void;
   public getOTAUpdate(
     args: GetOTAUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOTAUpdateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOTAUpdateCommandOutput) => void),
     cb?: (err: any, data?: GetOTAUpdateCommandOutput) => void
   ): Promise<GetOTAUpdateCommandOutput> | void {
     const command = new GetOTAUpdateCommand(args);
@@ -5247,9 +5123,7 @@ export class IoT extends IoTClient {
   ): void;
   public listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOTAUpdatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOTAUpdatesCommandOutput) => void),
     cb?: (err: any, data?: ListOTAUpdatesCommandOutput) => void
   ): Promise<ListOTAUpdatesCommandOutput> | void {
     const command = new ListOTAUpdatesCommand(args);
@@ -5466,9 +5340,7 @@ export class IoT extends IoTClient {
   ): void;
   public createThing(
     args: CreateThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThingCommandOutput) => void),
     cb?: (err: any, data?: CreateThingCommandOutput) => void
   ): Promise<CreateThingCommandOutput> | void {
     const command = new CreateThingCommand(args);
@@ -5505,9 +5377,7 @@ export class IoT extends IoTClient {
   ): void;
   public createThingGroup(
     args: CreateThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThingGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateThingGroupCommandOutput) => void
   ): Promise<CreateThingGroupCommandOutput> | void {
     const command = new CreateThingGroupCommand(args);
@@ -5540,9 +5410,7 @@ export class IoT extends IoTClient {
   ): void;
   public createThingType(
     args: CreateThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateThingTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateThingTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateThingTypeCommandOutput) => void
   ): Promise<CreateThingTypeCommandOutput> | void {
     const command = new CreateThingTypeCommand(args);
@@ -5646,9 +5514,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteThing(
     args: DeleteThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThingCommandOutput) => void),
     cb?: (err: any, data?: DeleteThingCommandOutput) => void
   ): Promise<DeleteThingCommandOutput> | void {
     const command = new DeleteThingCommand(args);
@@ -5681,9 +5547,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteThingGroup(
     args: DeleteThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThingGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteThingGroupCommandOutput) => void
   ): Promise<DeleteThingGroupCommandOutput> | void {
     const command = new DeleteThingGroupCommand(args);
@@ -5718,9 +5582,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteThingType(
     args: DeleteThingTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteThingTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteThingTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteThingTypeCommandOutput) => void
   ): Promise<DeleteThingTypeCommandOutput> | void {
     const command = new DeleteThingTypeCommand(args);
@@ -5859,9 +5721,7 @@ export class IoT extends IoTClient {
   ): void;
   public describeThing(
     args: DescribeThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeThingCommandOutput) => void),
     cb?: (err: any, data?: DescribeThingCommandOutput) => void
   ): Promise<DescribeThingCommandOutput> | void {
     const command = new DescribeThingCommand(args);
@@ -6147,9 +6007,7 @@ export class IoT extends IoTClient {
   ): void;
   public listThingGroups(
     args: ListThingGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListThingGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThingGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListThingGroupsCommandOutput) => void
   ): Promise<ListThingGroupsCommandOutput> | void {
     const command = new ListThingGroupsCommand(args);
@@ -6256,14 +6114,8 @@ export class IoT extends IoTClient {
     args: ListThingRegistrationTaskReportsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListThingRegistrationTaskReportsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListThingRegistrationTaskReportsCommandOutput
-    ) => void
+      | ((err: any, data?: ListThingRegistrationTaskReportsCommandOutput) => void),
+    cb?: (err: any, data?: ListThingRegistrationTaskReportsCommandOutput) => void
   ): Promise<ListThingRegistrationTaskReportsCommandOutput> | void {
     const command = new ListThingRegistrationTaskReportsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6330,9 +6182,7 @@ export class IoT extends IoTClient {
   ): void;
   public listThingTypes(
     args: ListThingTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListThingTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThingTypesCommandOutput) => void),
     cb?: (err: any, data?: ListThingTypesCommandOutput) => void
   ): Promise<ListThingTypesCommandOutput> | void {
     const command = new ListThingTypesCommand(args);
@@ -6369,9 +6219,7 @@ export class IoT extends IoTClient {
   ): void;
   public listThings(
     args: ListThingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListThingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListThingsCommandOutput) => void),
     cb?: (err: any, data?: ListThingsCommandOutput) => void
   ): Promise<ListThingsCommandOutput> | void {
     const command = new ListThingsCommand(args);
@@ -6615,9 +6463,7 @@ export class IoT extends IoTClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -6650,9 +6496,7 @@ export class IoT extends IoTClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -6790,9 +6634,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateThing(
     args: UpdateThingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateThingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThingCommandOutput) => void),
     cb?: (err: any, data?: UpdateThingCommandOutput) => void
   ): Promise<UpdateThingCommandOutput> | void {
     const command = new UpdateThingCommand(args);
@@ -6825,9 +6667,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateThingGroup(
     args: UpdateThingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateThingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThingGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateThingGroupCommandOutput) => void
   ): Promise<UpdateThingGroupCommandOutput> | void {
     const command = new UpdateThingGroupCommand(args);
@@ -6933,14 +6773,8 @@ export class IoT extends IoTClient {
     args: CancelAuditMitigationActionsTaskCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelAuditMitigationActionsTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CancelAuditMitigationActionsTaskCommandOutput
-    ) => void
+      | ((err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void),
+    cb?: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
   ): Promise<CancelAuditMitigationActionsTaskCommandOutput> | void {
     const command = new CancelAuditMitigationActionsTaskCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -6973,9 +6807,7 @@ export class IoT extends IoTClient {
   ): void;
   public cancelAuditTask(
     args: CancelAuditTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelAuditTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelAuditTaskCommandOutput) => void),
     cb?: (err: any, data?: CancelAuditTaskCommandOutput) => void
   ): Promise<CancelAuditTaskCommandOutput> | void {
     const command = new CancelAuditTaskCommand(args);
@@ -7118,10 +6950,7 @@ export class IoT extends IoTClient {
     args: DeleteAccountAuditConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAccountAuditConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> | void {
     const command = new DeleteAccountAuditConfigurationCommand(args);
@@ -7252,31 +7081,19 @@ export class IoT extends IoTClient {
   ): Promise<DescribeAccountAuditConfigurationCommandOutput>;
   public describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAccountAuditConfigurationCommandOutput) => void
   ): void;
   public describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAccountAuditConfigurationCommandOutput) => void
   ): void;
   public describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAccountAuditConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAccountAuditConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAccountAuditConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccountAuditConfigurationCommandOutput) => void
   ): Promise<DescribeAccountAuditConfigurationCommandOutput> | void {
     const command = new DescribeAccountAuditConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7334,31 +7151,19 @@ export class IoT extends IoTClient {
   ): Promise<DescribeAuditMitigationActionsTaskCommandOutput>;
   public describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void
   ): void;
   public describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void
   ): void;
   public describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAuditMitigationActionsTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAuditMitigationActionsTaskCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void
   ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> | void {
     const command = new DescribeAuditMitigationActionsTaskCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7627,31 +7432,19 @@ export class IoT extends IoTClient {
   ): Promise<ListAuditMitigationActionsExecutionsCommandOutput>;
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
-    cb: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAuditMitigationActionsExecutionsCommandOutput) => void
   ): void;
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAuditMitigationActionsExecutionsCommandOutput) => void
   ): void;
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAuditMitigationActionsExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAuditMitigationActionsExecutionsCommandOutput
-    ) => void
+      | ((err: any, data?: ListAuditMitigationActionsExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListAuditMitigationActionsExecutionsCommandOutput) => void
   ): Promise<ListAuditMitigationActionsExecutionsCommandOutput> | void {
     const command = new ListAuditMitigationActionsExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -7685,10 +7478,7 @@ export class IoT extends IoTClient {
     args: ListAuditMitigationActionsTasksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAuditMitigationActionsTasksCommandOutput
-        ) => void),
+      | ((err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void),
     cb?: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
   ): Promise<ListAuditMitigationActionsTasksCommandOutput> | void {
     const command = new ListAuditMitigationActionsTasksCommand(args);
@@ -7722,9 +7512,7 @@ export class IoT extends IoTClient {
   ): void;
   public listAuditTasks(
     args: ListAuditTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAuditTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAuditTasksCommandOutput) => void),
     cb?: (err: any, data?: ListAuditTasksCommandOutput) => void
   ): Promise<ListAuditTasksCommandOutput> | void {
     const command = new ListAuditTasksCommand(args);
@@ -7972,10 +7760,7 @@ export class IoT extends IoTClient {
     args: StartAuditMitigationActionsTaskCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartAuditMitigationActionsTaskCommandOutput
-        ) => void),
+      | ((err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void),
     cb?: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
   ): Promise<StartAuditMitigationActionsTaskCommandOutput> | void {
     const command = new StartAuditMitigationActionsTaskCommand(args);
@@ -8047,10 +7832,7 @@ export class IoT extends IoTClient {
     args: UpdateAccountAuditConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateAccountAuditConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
   ): Promise<UpdateAccountAuditConfigurationCommandOutput> | void {
     const command = new UpdateAccountAuditConfigurationCommand(args);
@@ -8191,14 +7973,8 @@ export class IoT extends IoTClient {
     args: ValidateSecurityProfileBehaviorsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ValidateSecurityProfileBehaviorsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ValidateSecurityProfileBehaviorsCommandOutput
-    ) => void
+      | ((err: any, data?: ValidateSecurityProfileBehaviorsCommandOutput) => void),
+    cb?: (err: any, data?: ValidateSecurityProfileBehaviorsCommandOutput) => void
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> | void {
     const command = new ValidateSecurityProfileBehaviorsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -8232,9 +8008,7 @@ export class IoT extends IoTClient {
   ): void;
   public createStream(
     args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamCommandOutput) => void
   ): Promise<CreateStreamCommandOutput> | void {
     const command = new CreateStreamCommand(args);
@@ -8267,9 +8041,7 @@ export class IoT extends IoTClient {
   ): void;
   public deleteStream(
     args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamCommandOutput) => void
   ): Promise<DeleteStreamCommandOutput> | void {
     const command = new DeleteStreamCommand(args);
@@ -8302,9 +8074,7 @@ export class IoT extends IoTClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
@@ -8337,9 +8107,7 @@ export class IoT extends IoTClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
@@ -8372,9 +8140,7 @@ export class IoT extends IoTClient {
   ): void;
   public updateStream(
     args: UpdateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStreamCommandOutput) => void),
     cb?: (err: any, data?: UpdateStreamCommandOutput) => void
   ): Promise<UpdateStreamCommandOutput> | void {
     const command = new UpdateStreamCommand(args);

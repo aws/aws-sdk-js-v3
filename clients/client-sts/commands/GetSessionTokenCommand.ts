@@ -1,12 +1,5 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  GetSessionTokenRequest,
-  GetSessionTokenResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/index";
 import {
   deserializeAws_queryGetSessionTokenCommand,
   serializeAws_queryGetSessionTokenCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSessionTokenCommandInput = GetSessionTokenRequest;
-export type GetSessionTokenCommandOutput = GetSessionTokenResponse &
-  __MetadataBearer;
+export type GetSessionTokenCommandOutput = GetSessionTokenResponse & __MetadataBearer;
 
 export class GetSessionTokenCommand extends $Command<
   GetSessionTokenCommandInput,
@@ -50,9 +42,7 @@ export class GetSessionTokenCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSessionTokenCommandInput, GetSessionTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

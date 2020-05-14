@@ -126,9 +126,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public cancelCluster(
     args: CancelClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelClusterCommandOutput) => void),
     cb?: (err: any, data?: CancelClusterCommandOutput) => void
   ): Promise<CancelClusterCommandOutput> | void {
     const command = new CancelClusterCommand(args);
@@ -164,9 +162,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -202,9 +198,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public createAddress(
     args: CreateAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAddressCommandOutput) => void),
     cb?: (err: any, data?: CreateAddressCommandOutput) => void
   ): Promise<CreateAddressCommandOutput> | void {
     const command = new CreateAddressCommand(args);
@@ -238,9 +232,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -277,9 +269,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -313,9 +303,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeAddress(
     args: DescribeAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAddressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressCommandOutput) => void),
     cb?: (err: any, data?: DescribeAddressCommandOutput) => void
   ): Promise<DescribeAddressCommandOutput> | void {
     const command = new DescribeAddressCommand(args);
@@ -386,9 +374,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
@@ -422,9 +408,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
@@ -475,9 +459,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public getJobManifest(
     args: GetJobManifestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobManifestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobManifestCommandOutput) => void),
     cb?: (err: any, data?: GetJobManifestCommandOutput) => void
   ): Promise<GetJobManifestCommandOutput> | void {
     const command = new GetJobManifestCommand(args);
@@ -522,9 +504,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public getJobUnlockCode(
     args: GetJobUnlockCodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobUnlockCodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobUnlockCodeCommandOutput) => void),
     cb?: (err: any, data?: GetJobUnlockCodeCommandOutput) => void
   ): Promise<GetJobUnlockCodeCommandOutput> | void {
     const command = new GetJobUnlockCodeCommand(args);
@@ -561,9 +541,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public getSnowballUsage(
     args: GetSnowballUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSnowballUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnowballUsageCommandOutput) => void),
     cb?: (err: any, data?: GetSnowballUsageCommandOutput) => void
   ): Promise<GetSnowballUsageCommandOutput> | void {
     const command = new GetSnowballUsageCommand(args);
@@ -634,9 +612,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public listClusterJobs(
     args: ListClusterJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClusterJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClusterJobsCommandOutput) => void),
     cb?: (err: any, data?: ListClusterJobsCommandOutput) => void
   ): Promise<ListClusterJobsCommandOutput> | void {
     const command = new ListClusterJobsCommand(args);
@@ -671,9 +647,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
@@ -749,9 +723,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -787,9 +759,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public updateCluster(
     args: UpdateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterCommandOutput) => void
   ): Promise<UpdateClusterCommandOutput> | void {
     const command = new UpdateClusterCommand(args);
@@ -824,9 +794,7 @@ export class Snowball extends SnowballClient {
   ): void;
   public updateJob(
     args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);

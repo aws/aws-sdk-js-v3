@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreBackupCommandInput = RestoreBackupRequest;
-export type RestoreBackupCommandOutput = RestoreBackupResponse &
-  __MetadataBearer;
+export type RestoreBackupCommandOutput = RestoreBackupResponse & __MetadataBearer;
 
 export class RestoreBackupCommand extends $Command<
   RestoreBackupCommandInput,
@@ -47,9 +46,7 @@ export class RestoreBackupCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreBackupCommandInput, RestoreBackupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  RotateEncryptionKeyMessage,
-  RotateEncryptionKeyResult
-} from "../models/index";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/index";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
   serializeAws_queryRotateEncryptionKeyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
-export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult &
-  __MetadataBearer;
+export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult & __MetadataBearer;
 
 export class RotateEncryptionKeyCommand extends $Command<
   RotateEncryptionKeyCommandInput,
@@ -49,13 +45,8 @@ export class RotateEncryptionKeyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RotateEncryptionKeyCommandInput,
-    RotateEncryptionKeyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RotateEncryptionKeyCommandInput, RotateEncryptionKeyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

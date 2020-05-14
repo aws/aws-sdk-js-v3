@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  DescribeEndpointsRequest,
-  DescribeEndpointsResponse
-} from "../models/index";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/index";
 import {
   deserializeAws_json1_0DescribeEndpointsCommand,
   serializeAws_json1_0DescribeEndpointsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEndpointsCommandInput = DescribeEndpointsRequest;
-export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse &
-  __MetadataBearer;
+export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse & __MetadataBearer;
 
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeEndpointsCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

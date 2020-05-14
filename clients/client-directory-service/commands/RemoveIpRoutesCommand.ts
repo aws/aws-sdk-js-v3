@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveIpRoutesCommandInput = RemoveIpRoutesRequest;
-export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult &
-  __MetadataBearer;
+export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult & __MetadataBearer;
 
 export class RemoveIpRoutesCommand extends $Command<
   RemoveIpRoutesCommandInput,
@@ -47,9 +46,7 @@ export class RemoveIpRoutesCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

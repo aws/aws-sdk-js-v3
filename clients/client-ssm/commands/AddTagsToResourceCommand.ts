@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/index";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddTagsToResourceCommandInput = AddTagsToResourceRequest;
-export type AddTagsToResourceCommandOutput = AddTagsToResourceResult &
-  __MetadataBearer;
+export type AddTagsToResourceCommandOutput = AddTagsToResourceResult & __MetadataBearer;
 
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,
@@ -50,9 +42,7 @@ export class AddTagsToResourceCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

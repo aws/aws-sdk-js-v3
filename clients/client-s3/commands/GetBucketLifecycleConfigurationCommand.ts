@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import {
   GetBucketLifecycleConfigurationOutput,
   GetBucketLifecycleConfigurationRequest
@@ -54,9 +50,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     GetBucketLifecycleConfigurationCommandInput,
     GetBucketLifecycleConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +70,14 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

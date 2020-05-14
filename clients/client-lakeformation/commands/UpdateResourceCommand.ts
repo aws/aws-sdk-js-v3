@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = UpdateResourceResponse &
-  __MetadataBearer;
+export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
 
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,
@@ -47,9 +46,7 @@ export class UpdateResourceCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateResourceCommandInput, UpdateResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

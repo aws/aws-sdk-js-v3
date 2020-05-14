@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeListenerRequest,
-  DescribeListenerResponse
-} from "../models/index";
+import { DescribeListenerRequest, DescribeListenerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeListenerCommand,
   serializeAws_json1_1DescribeListenerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeListenerCommandInput = DescribeListenerRequest;
-export type DescribeListenerCommandOutput = DescribeListenerResponse &
-  __MetadataBearer;
+export type DescribeListenerCommandOutput = DescribeListenerResponse & __MetadataBearer;
 
 export class DescribeListenerCommand extends $Command<
   DescribeListenerCommandInput,
@@ -50,9 +46,7 @@ export class DescribeListenerCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeListenerCommandInput, DescribeListenerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

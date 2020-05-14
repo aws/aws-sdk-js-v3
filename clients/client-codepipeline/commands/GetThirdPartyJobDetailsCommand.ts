@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  GetThirdPartyJobDetailsInput,
-  GetThirdPartyJobDetailsOutput
-} from "../models/index";
+import { GetThirdPartyJobDetailsInput, GetThirdPartyJobDetailsOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetThirdPartyJobDetailsCommand,
   serializeAws_json1_1GetThirdPartyJobDetailsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetThirdPartyJobDetailsCommandInput = GetThirdPartyJobDetailsInput;
-export type GetThirdPartyJobDetailsCommandOutput = GetThirdPartyJobDetailsOutput &
-  __MetadataBearer;
+export type GetThirdPartyJobDetailsCommandOutput = GetThirdPartyJobDetailsOutput & __MetadataBearer;
 
 export class GetThirdPartyJobDetailsCommand extends $Command<
   GetThirdPartyJobDetailsCommandInput,
@@ -49,13 +45,8 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetThirdPartyJobDetailsCommandInput,
-    GetThirdPartyJobDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetThirdPartyJobDetailsCommandInput, GetThirdPartyJobDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetThirdPartyJobDetailsCommandOutput> {
-    return deserializeAws_json1_1GetThirdPartyJobDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetThirdPartyJobDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

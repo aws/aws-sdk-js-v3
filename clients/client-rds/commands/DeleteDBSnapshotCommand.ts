@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeleteDBSnapshotMessage,
-  DeleteDBSnapshotResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBSnapshotCommand,
   serializeAws_queryDeleteDBSnapshotCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBSnapshotCommandInput = DeleteDBSnapshotMessage;
-export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult &
-  __MetadataBearer;
+export type DeleteDBSnapshotCommandOutput = DeleteDBSnapshotResult & __MetadataBearer;
 
 export class DeleteDBSnapshotCommand extends $Command<
   DeleteDBSnapshotCommandInput,
@@ -50,9 +42,7 @@ export class DeleteDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

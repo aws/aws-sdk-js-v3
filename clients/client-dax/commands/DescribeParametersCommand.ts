@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DescribeParametersRequest,
-  DescribeParametersResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DescribeParametersRequest, DescribeParametersResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeParametersCommand,
   serializeAws_json1_1DescribeParametersCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeParametersCommandInput = DescribeParametersRequest;
-export type DescribeParametersCommandOutput = DescribeParametersResponse &
-  __MetadataBearer;
+export type DescribeParametersCommandOutput = DescribeParametersResponse & __MetadataBearer;
 
 export class DescribeParametersCommand extends $Command<
   DescribeParametersCommandInput,
@@ -50,9 +42,7 @@ export class DescribeParametersCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeParametersCommandInput, DescribeParametersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type IgnoresWrappingXmlNameCommandInput = {};
-export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput &
-  __MetadataBearer;
+export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput & __MetadataBearer;
 
 export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandInput,
@@ -46,13 +45,8 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IgnoresWrappingXmlNameCommandInput,
-    IgnoresWrappingXmlNameCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IgnoresWrappingXmlNameCommandInput, IgnoresWrappingXmlNameCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

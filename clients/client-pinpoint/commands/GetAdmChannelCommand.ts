@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAdmChannelCommandInput = GetAdmChannelRequest;
-export type GetAdmChannelCommandOutput = GetAdmChannelResponse &
-  __MetadataBearer;
+export type GetAdmChannelCommandOutput = GetAdmChannelResponse & __MetadataBearer;
 
 export class GetAdmChannelCommand extends $Command<
   GetAdmChannelCommandInput,
@@ -47,9 +46,7 @@ export class GetAdmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAdmChannelCommandInput, GetAdmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

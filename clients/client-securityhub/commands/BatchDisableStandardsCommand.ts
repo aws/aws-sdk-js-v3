@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  BatchDisableStandardsRequest,
-  BatchDisableStandardsResponse
-} from "../models/index";
+import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchDisableStandardsCommand,
   serializeAws_restJson1_1BatchDisableStandardsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDisableStandardsCommandInput = BatchDisableStandardsRequest;
-export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse &
-  __MetadataBearer;
+export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse & __MetadataBearer;
 
 export class BatchDisableStandardsCommand extends $Command<
   BatchDisableStandardsCommandInput,
@@ -49,13 +45,8 @@ export class BatchDisableStandardsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDisableStandardsCommandInput,
-    BatchDisableStandardsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDisableStandardsCommandInput, BatchDisableStandardsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class BatchDisableStandardsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisableStandardsCommandOutput> {
-    return deserializeAws_restJson1_1BatchDisableStandardsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchDisableStandardsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  CreateApiMappingRequest,
-  CreateApiMappingResponse
-} from "../models/index";
+import { CreateApiMappingRequest, CreateApiMappingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateApiMappingCommand,
   serializeAws_restJson1_1CreateApiMappingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateApiMappingCommandInput = CreateApiMappingRequest;
-export type CreateApiMappingCommandOutput = CreateApiMappingResponse &
-  __MetadataBearer;
+export type CreateApiMappingCommandOutput = CreateApiMappingResponse & __MetadataBearer;
 
 export class CreateApiMappingCommand extends $Command<
   CreateApiMappingCommandInput,
@@ -50,9 +46,7 @@ export class CreateApiMappingCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApiMappingCommandInput, CreateApiMappingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  UpdateDirectoryConfigRequest,
-  UpdateDirectoryConfigResult
-} from "../models/index";
+import { UpdateDirectoryConfigRequest, UpdateDirectoryConfigResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDirectoryConfigCommand,
   serializeAws_json1_1UpdateDirectoryConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDirectoryConfigCommandInput = UpdateDirectoryConfigRequest;
-export type UpdateDirectoryConfigCommandOutput = UpdateDirectoryConfigResult &
-  __MetadataBearer;
+export type UpdateDirectoryConfigCommandOutput = UpdateDirectoryConfigResult & __MetadataBearer;
 
 export class UpdateDirectoryConfigCommand extends $Command<
   UpdateDirectoryConfigCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDirectoryConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDirectoryConfigCommandInput,
-    UpdateDirectoryConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDirectoryConfigCommandInput, UpdateDirectoryConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

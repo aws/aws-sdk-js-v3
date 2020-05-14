@@ -204,11 +204,7 @@ import {
   GetAttendeeCommandInput,
   GetAttendeeCommandOutput
 } from "./commands/GetAttendeeCommand";
-import {
-  GetBotCommand,
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
+import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
 import {
   GetEventsConfigurationCommand,
   GetEventsConfigurationCommandInput,
@@ -555,31 +551,19 @@ export class Chime extends ChimeClient {
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput>;
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    cb: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): void;
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): void;
   public associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-    ) => void
+      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void),
+    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> | void {
     const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -602,35 +586,21 @@ export class Chime extends ChimeClient {
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>;
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    cb: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): void;
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): void;
   public associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
-    ) => void
+      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void),
+    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput> | void {
-    const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(
-      args
-    );
+    const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -651,31 +621,19 @@ export class Chime extends ChimeClient {
   ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput>;
   public associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
   ): void;
   public associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
   ): void;
   public associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateSigninDelegateGroupsWithAccountCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void),
+    cb?: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
   ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> | void {
     const command = new AssociateSigninDelegateGroupsWithAccountCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -830,9 +788,7 @@ export class Chime extends ChimeClient {
   ): void;
   public batchSuspendUser(
     args: BatchSuspendUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchSuspendUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchSuspendUserCommandOutput) => void),
     cb?: (err: any, data?: BatchSuspendUserCommandOutput) => void
   ): Promise<BatchSuspendUserCommandOutput> | void {
     const command = new BatchSuspendUserCommand(args);
@@ -946,9 +902,7 @@ export class Chime extends ChimeClient {
   ): void;
   public batchUpdateUser(
     args: BatchUpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchUpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateUserCommandOutput) => void),
     cb?: (err: any, data?: BatchUpdateUserCommandOutput) => void
   ): Promise<BatchUpdateUserCommandOutput> | void {
     const command = new BatchUpdateUserCommand(args);
@@ -985,9 +939,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createAccount(
     args: CreateAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountCommandOutput) => void),
     cb?: (err: any, data?: CreateAccountCommandOutput) => void
   ): Promise<CreateAccountCommandOutput> | void {
     const command = new CreateAccountCommand(args);
@@ -1020,9 +972,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createAttendee(
     args: CreateAttendeeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAttendeeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAttendeeCommandOutput) => void),
     cb?: (err: any, data?: CreateAttendeeCommandOutput) => void
   ): Promise<CreateAttendeeCommandOutput> | void {
     const command = new CreateAttendeeCommand(args);
@@ -1055,9 +1005,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createBot(
     args: CreateBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBotCommandOutput) => void),
     cb?: (err: any, data?: CreateBotCommandOutput) => void
   ): Promise<CreateBotCommandOutput> | void {
     const command = new CreateBotCommand(args);
@@ -1090,9 +1038,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createMeeting(
     args: CreateMeetingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMeetingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingCommandOutput) => void),
     cb?: (err: any, data?: CreateMeetingCommandOutput) => void
   ): Promise<CreateMeetingCommandOutput> | void {
     const command = new CreateMeetingCommand(args);
@@ -1162,9 +1108,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createRoom(
     args: CreateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoomCommandOutput) => void),
     cb?: (err: any, data?: CreateRoomCommandOutput) => void
   ): Promise<CreateRoomCommandOutput> | void {
     const command = new CreateRoomCommand(args);
@@ -1232,9 +1176,7 @@ export class Chime extends ChimeClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -1352,9 +1294,7 @@ export class Chime extends ChimeClient {
   ): void;
   public deleteAccount(
     args: DeleteAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccountCommandOutput) => void
   ): Promise<DeleteAccountCommandOutput> | void {
     const command = new DeleteAccountCommand(args);
@@ -1387,9 +1327,7 @@ export class Chime extends ChimeClient {
   ): void;
   public deleteAttendee(
     args: DeleteAttendeeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAttendeeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAttendeeCommandOutput) => void),
     cb?: (err: any, data?: DeleteAttendeeCommandOutput) => void
   ): Promise<DeleteAttendeeCommandOutput> | void {
     const command = new DeleteAttendeeCommand(args);
@@ -1457,9 +1395,7 @@ export class Chime extends ChimeClient {
   ): void;
   public deleteMeeting(
     args: DeleteMeetingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMeetingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMeetingCommandOutput) => void),
     cb?: (err: any, data?: DeleteMeetingCommandOutput) => void
   ): Promise<DeleteMeetingCommandOutput> | void {
     const command = new DeleteMeetingCommand(args);
@@ -1531,9 +1467,7 @@ export class Chime extends ChimeClient {
   ): void;
   public deleteRoom(
     args: DeleteRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoomCommandOutput) => void
   ): Promise<DeleteRoomCommandOutput> | void {
     const command = new DeleteRoomCommand(args);
@@ -1674,10 +1608,7 @@ export class Chime extends ChimeClient {
     args: DeleteVoiceConnectorOriginationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVoiceConnectorOriginationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void),
     cb?: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
   ): Promise<DeleteVoiceConnectorOriginationCommandOutput> | void {
     const command = new DeleteVoiceConnectorOriginationCommand(args);
@@ -1701,31 +1632,19 @@ export class Chime extends ChimeClient {
   ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput>;
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput> | void {
     const command = new DeleteVoiceConnectorStreamingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1759,10 +1678,7 @@ export class Chime extends ChimeClient {
     args: DeleteVoiceConnectorTerminationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVoiceConnectorTerminationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void),
     cb?: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
   ): Promise<DeleteVoiceConnectorTerminationCommandOutput> | void {
     const command = new DeleteVoiceConnectorTerminationCommand(args);
@@ -1786,31 +1702,19 @@ export class Chime extends ChimeClient {
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput>;
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new DeleteVoiceConnectorTerminationCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1845,10 +1749,7 @@ export class Chime extends ChimeClient {
     args: DisassociatePhoneNumberFromUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociatePhoneNumberFromUserCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void),
     cb?: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
   ): Promise<DisassociatePhoneNumberFromUserCommandOutput> | void {
     const command = new DisassociatePhoneNumberFromUserCommand(args);
@@ -1872,31 +1773,19 @@ export class Chime extends ChimeClient {
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>;
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): void;
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): void;
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> | void {
     const command = new DisassociatePhoneNumbersFromVoiceConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1919,37 +1808,21 @@ export class Chime extends ChimeClient {
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>;
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
   ): void;
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
   ): void;
   public disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-    ) => void
-  ): Promise<
-    DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
-  > | void {
-    const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
-      args
-    );
+      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
+  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> | void {
+    const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1970,35 +1843,21 @@ export class Chime extends ChimeClient {
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput>;
   public disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
   ): void;
   public disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
   ): void;
   public disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> | void {
-    const command = new DisassociateSigninDelegateGroupsFromAccountCommand(
-      args
-    );
+    const command = new DisassociateSigninDelegateGroupsFromAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2029,9 +1888,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getAccount(
     args: GetAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountCommandOutput) => void),
     cb?: (err: any, data?: GetAccountCommandOutput) => void
   ): Promise<GetAccountCommandOutput> | void {
     const command = new GetAccountCommand(args);
@@ -2102,9 +1959,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getAttendee(
     args: GetAttendeeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAttendeeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAttendeeCommandOutput) => void),
     cb?: (err: any, data?: GetAttendeeCommandOutput) => void
   ): Promise<GetAttendeeCommandOutput> | void {
     const command = new GetAttendeeCommand(args);
@@ -2126,10 +1981,7 @@ export class Chime extends ChimeClient {
     args: GetBotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBotCommandOutput>;
-  public getBot(
-    args: GetBotCommandInput,
-    cb: (err: any, data?: GetBotCommandOutput) => void
-  ): void;
+  public getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
   public getBot(
     args: GetBotCommandInput,
     options: __HttpHandlerOptions,
@@ -2137,9 +1989,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getBot(
     args: GetBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotCommandOutput) => void),
     cb?: (err: any, data?: GetBotCommandOutput) => void
   ): Promise<GetBotCommandOutput> | void {
     const command = new GetBotCommand(args);
@@ -2243,9 +2093,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getMeeting(
     args: GetMeetingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMeetingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMeetingCommandOutput) => void),
     cb?: (err: any, data?: GetMeetingCommandOutput) => void
   ): Promise<GetMeetingCommandOutput> | void {
     const command = new GetMeetingCommand(args);
@@ -2279,9 +2127,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getPhoneNumber(
     args: GetPhoneNumberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPhoneNumberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberCommandOutput) => void),
     cb?: (err: any, data?: GetPhoneNumberCommandOutput) => void
   ): Promise<GetPhoneNumberCommandOutput> | void {
     const command = new GetPhoneNumberCommand(args);
@@ -2385,9 +2231,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getRoom(
     args: GetRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoomCommandOutput) => void),
     cb?: (err: any, data?: GetRoomCommandOutput) => void
   ): Promise<GetRoomCommandOutput> | void {
     const command = new GetRoomCommand(args);
@@ -2422,9 +2266,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getUser(
     args: GetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
     cb?: (err: any, data?: GetUserCommandOutput) => void
   ): Promise<GetUserCommandOutput> | void {
     const command = new GetUserCommand(args);
@@ -2457,9 +2299,7 @@ export class Chime extends ChimeClient {
   ): void;
   public getUserSettings(
     args: GetUserSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetUserSettingsCommandOutput) => void
   ): Promise<GetUserSettingsCommandOutput> | void {
     const command = new GetUserSettingsCommand(args);
@@ -2555,31 +2395,19 @@ export class Chime extends ChimeClient {
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput>;
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
   public getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetVoiceConnectorLoggingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> | void {
     const command = new GetVoiceConnectorLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2639,31 +2467,19 @@ export class Chime extends ChimeClient {
   ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput>;
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetVoiceConnectorStreamingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> | void {
     const command = new GetVoiceConnectorStreamingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2722,31 +2538,19 @@ export class Chime extends ChimeClient {
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput>;
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorTerminationHealthCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): void;
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetVoiceConnectorTerminationHealthCommandOutput
-    ) => void
+    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): void;
   public getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetVoiceConnectorTerminationHealthCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetVoiceConnectorTerminationHealthCommandOutput
-    ) => void
+      | ((err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> | void {
     const command = new GetVoiceConnectorTerminationHealthCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2780,9 +2584,7 @@ export class Chime extends ChimeClient {
   ): void;
   public inviteUsers(
     args: InviteUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InviteUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteUsersCommandOutput) => void),
     cb?: (err: any, data?: InviteUsersCommandOutput) => void
   ): Promise<InviteUsersCommandOutput> | void {
     const command = new InviteUsersCommand(args);
@@ -2817,9 +2619,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listAccounts(
     args: ListAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
@@ -2852,9 +2652,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listAttendees(
     args: ListAttendeesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttendeesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttendeesCommandOutput) => void),
     cb?: (err: any, data?: ListAttendeesCommandOutput) => void
   ): Promise<ListAttendeesCommandOutput> | void {
     const command = new ListAttendeesCommand(args);
@@ -2887,9 +2685,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listBots(
     args: ListBotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBotsCommandOutput) => void),
     cb?: (err: any, data?: ListBotsCommandOutput) => void
   ): Promise<ListBotsCommandOutput> | void {
     const command = new ListBotsCommand(args);
@@ -2922,9 +2718,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listMeetings(
     args: ListMeetingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMeetingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeetingsCommandOutput) => void),
     cb?: (err: any, data?: ListMeetingsCommandOutput) => void
   ): Promise<ListMeetingsCommandOutput> | void {
     const command = new ListMeetingsCommand(args);
@@ -2992,9 +2786,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
     cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): Promise<ListPhoneNumbersCommandOutput> | void {
     const command = new ListPhoneNumbersCommand(args);
@@ -3063,9 +2855,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listRooms(
     args: ListRoomsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoomsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoomsCommandOutput) => void),
     cb?: (err: any, data?: ListRoomsCommandOutput) => void
   ): Promise<ListRoomsCommandOutput> | void {
     const command = new ListRoomsCommand(args);
@@ -3099,9 +2889,7 @@ export class Chime extends ChimeClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -3160,31 +2948,19 @@ export class Chime extends ChimeClient {
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput>;
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (
-      err: any,
-      data?: ListVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListVoiceConnectorTerminationCredentialsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+      | ((err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new ListVoiceConnectorTerminationCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3251,9 +3027,7 @@ export class Chime extends ChimeClient {
   ): void;
   public logoutUser(
     args: LogoutUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LogoutUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LogoutUserCommandOutput) => void),
     cb?: (err: any, data?: LogoutUserCommandOutput) => void
   ): Promise<LogoutUserCommandOutput> | void {
     const command = new LogoutUserCommand(args);
@@ -3313,31 +3087,19 @@ export class Chime extends ChimeClient {
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput>;
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
   public putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutVoiceConnectorLoggingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutVoiceConnectorLoggingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> | void {
     const command = new PutVoiceConnectorLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3397,31 +3159,19 @@ export class Chime extends ChimeClient {
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput>;
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
   public putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutVoiceConnectorStreamingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutVoiceConnectorStreamingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> | void {
     const command = new PutVoiceConnectorStreamingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3479,31 +3229,19 @@ export class Chime extends ChimeClient {
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput>;
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
   public putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutVoiceConnectorTerminationCredentialsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutVoiceConnectorTerminationCredentialsCommandOutput
-    ) => void
+      | ((err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new PutVoiceConnectorTerminationCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3571,9 +3309,7 @@ export class Chime extends ChimeClient {
   ): void;
   public resetPersonalPIN(
     args: ResetPersonalPINCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetPersonalPINCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetPersonalPINCommandOutput) => void),
     cb?: (err: any, data?: ResetPersonalPINCommandOutput) => void
   ): Promise<ResetPersonalPINCommandOutput> | void {
     const command = new ResetPersonalPINCommand(args);
@@ -3678,9 +3414,7 @@ export class Chime extends ChimeClient {
   ): void;
   public updateAccount(
     args: UpdateAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccountCommandOutput) => void
   ): Promise<UpdateAccountCommandOutput> | void {
     const command = new UpdateAccountCommand(args);
@@ -3752,9 +3486,7 @@ export class Chime extends ChimeClient {
   ): void;
   public updateBot(
     args: UpdateBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBotCommandOutput) => void),
     cb?: (err: any, data?: UpdateBotCommandOutput) => void
   ): Promise<UpdateBotCommandOutput> | void {
     const command = new UpdateBotCommand(args);
@@ -3898,9 +3630,7 @@ export class Chime extends ChimeClient {
   ): void;
   public updateRoom(
     args: UpdateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoomCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoomCommandOutput) => void
   ): Promise<UpdateRoomCommandOutput> | void {
     const command = new UpdateRoomCommand(args);
@@ -3970,9 +3700,7 @@ export class Chime extends ChimeClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeDBLogFilesMessage,
-  DescribeDBLogFilesResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDBLogFilesCommand,
   serializeAws_queryDescribeDBLogFilesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBLogFilesCommandInput = DescribeDBLogFilesMessage;
-export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse &
-  __MetadataBearer;
+export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse & __MetadataBearer;
 
 export class DescribeDBLogFilesCommand extends $Command<
   DescribeDBLogFilesCommandInput,
@@ -50,9 +42,7 @@ export class DescribeDBLogFilesCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

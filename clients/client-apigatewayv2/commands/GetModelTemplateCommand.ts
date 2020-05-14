@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  GetModelTemplateRequest,
-  GetModelTemplateResponse
-} from "../models/index";
+import { GetModelTemplateRequest, GetModelTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetModelTemplateCommand,
   serializeAws_restJson1_1GetModelTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetModelTemplateCommandInput = GetModelTemplateRequest;
-export type GetModelTemplateCommandOutput = GetModelTemplateResponse &
-  __MetadataBearer;
+export type GetModelTemplateCommandOutput = GetModelTemplateResponse & __MetadataBearer;
 
 export class GetModelTemplateCommand extends $Command<
   GetModelTemplateCommandInput,
@@ -50,9 +46,7 @@ export class GetModelTemplateCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetModelTemplateCommandInput, GetModelTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

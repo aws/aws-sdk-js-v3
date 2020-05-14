@@ -53,9 +53,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     UpdateApplicationResourceLifecycleCommandInput,
     UpdateApplicationResourceLifecycleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     input: UpdateApplicationResourceLifecycleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateApplicationResourceLifecycleCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateApplicationResourceLifecycleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> {
-    return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

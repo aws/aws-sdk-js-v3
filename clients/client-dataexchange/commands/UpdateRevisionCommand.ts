@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRevisionCommandInput = UpdateRevisionRequest;
-export type UpdateRevisionCommandOutput = UpdateRevisionResponse &
-  __MetadataBearer;
+export type UpdateRevisionCommandOutput = UpdateRevisionResponse & __MetadataBearer;
 
 export class UpdateRevisionCommand extends $Command<
   UpdateRevisionCommandInput,
@@ -47,9 +46,7 @@ export class UpdateRevisionCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRevisionCommandInput, UpdateRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

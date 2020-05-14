@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InputAndOutputWithHeadersCommandInput = InputAndOutputWithHeadersIO;
-export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO &
-  __MetadataBearer;
+export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO & __MetadataBearer;
 
 export class InputAndOutputWithHeadersCommand extends $Command<
   InputAndOutputWithHeadersCommandInput,
@@ -46,13 +45,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InputAndOutputWithHeadersCommandInput,
-    InputAndOutputWithHeadersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InputAndOutputWithHeadersCommandInput, InputAndOutputWithHeadersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +65,14 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     input: InputAndOutputWithHeadersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1InputAndOutputWithHeadersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

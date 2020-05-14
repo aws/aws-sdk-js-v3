@@ -1,8 +1,4 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/index";
 import {
   deserializeAws_json1_1AddJobFlowStepsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddJobFlowStepsCommandInput = AddJobFlowStepsInput;
-export type AddJobFlowStepsCommandOutput = AddJobFlowStepsOutput &
-  __MetadataBearer;
+export type AddJobFlowStepsCommandOutput = AddJobFlowStepsOutput & __MetadataBearer;
 
 export class AddJobFlowStepsCommand extends $Command<
   AddJobFlowStepsCommandInput,
@@ -47,9 +42,7 @@ export class AddJobFlowStepsCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

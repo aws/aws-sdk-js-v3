@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -278,9 +272,7 @@ export interface GetAutoScalingGroupRecommendationsResponse {
 }
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
-  export const isa = (
-    o: any
-  ): o is GetAutoScalingGroupRecommendationsResponse =>
+  export const isa = (o: any): o is GetAutoScalingGroupRecommendationsResponse =>
     __isa(o, "GetAutoScalingGroupRecommendationsResponse");
 }
 
@@ -379,9 +371,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
-  export const isa = (
-    o: any
-  ): o is GetEC2RecommendationProjectedMetricsRequest =>
+  export const isa = (o: any): o is GetEC2RecommendationProjectedMetricsRequest =>
     __isa(o, "GetEC2RecommendationProjectedMetricsRequest");
 }
 
@@ -394,9 +384,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
-  export const isa = (
-    o: any
-  ): o is GetEC2RecommendationProjectedMetricsResponse =>
+  export const isa = (o: any): o is GetEC2RecommendationProjectedMetricsResponse =>
     __isa(o, "GetEC2RecommendationProjectedMetricsResponse");
 }
 
@@ -460,8 +448,7 @@ export interface GetRecommendationError {
 }
 
 export namespace GetRecommendationError {
-  export const isa = (o: any): o is GetRecommendationError =>
-    __isa(o, "GetRecommendationError");
+  export const isa = (o: any): o is GetRecommendationError => __isa(o, "GetRecommendationError");
 }
 
 export interface GetRecommendationSummariesRequest {
@@ -607,8 +594,7 @@ export interface InstanceRecommendation {
 }
 
 export namespace InstanceRecommendation {
-  export const isa = (o: any): o is InstanceRecommendation =>
-    __isa(o, "InstanceRecommendation");
+  export const isa = (o: any): o is InstanceRecommendation => __isa(o, "InstanceRecommendation");
 }
 
 /**
@@ -652,25 +638,20 @@ export namespace InstanceRecommendationOption {
  * <p>The request processing has failed because of an unknown error, exception, or
  *             failure.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -695,9 +676,7 @@ export enum MetricStatistic {
  * <p>The request must contain either a valid (registered) AWS access key ID or X.509
  *             certificate.</p>
  */
-export interface MissingAuthenticationToken
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingAuthenticationToken extends __SmithyException, $MetadataBearer {
   name: "MissingAuthenticationToken";
   $fault: "client";
   message?: string;
@@ -711,17 +690,14 @@ export namespace MissingAuthenticationToken {
 /**
  * <p>You must opt in to the service to perform this action.</p>
  */
-export interface OptInRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OptInRequiredException extends __SmithyException, $MetadataBearer {
   name: "OptInRequiredException";
   $fault: "client";
   message?: string;
 }
 
 export namespace OptInRequiredException {
-  export const isa = (o: any): o is OptInRequiredException =>
-    __isa(o, "OptInRequiredException");
+  export const isa = (o: any): o is OptInRequiredException => __isa(o, "OptInRequiredException");
 }
 
 /**
@@ -751,8 +727,7 @@ export interface ProjectedMetric {
 }
 
 export namespace ProjectedMetric {
-  export const isa = (o: any): o is ProjectedMetric =>
-    __isa(o, "ProjectedMetric");
+  export const isa = (o: any): o is ProjectedMetric => __isa(o, "ProjectedMetric");
 }
 
 /**
@@ -773,8 +748,7 @@ export interface RecommendationSource {
 }
 
 export namespace RecommendationSource {
-  export const isa = (o: any): o is RecommendationSource =>
-    __isa(o, "RecommendationSource");
+  export const isa = (o: any): o is RecommendationSource => __isa(o, "RecommendationSource");
 }
 
 export enum RecommendationSourceType {
@@ -804,8 +778,7 @@ export interface RecommendationSummary {
 }
 
 export namespace RecommendationSummary {
-  export const isa = (o: any): o is RecommendationSummary =>
-    __isa(o, "RecommendationSummary");
+  export const isa = (o: any): o is RecommendationSummary => __isa(o, "RecommendationSummary");
 }
 
 /**
@@ -841,9 +814,7 @@ export namespace RecommendedOptionProjectedMetric {
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -857,9 +828,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -900,17 +869,14 @@ export namespace Summary {
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateEnrollmentStatusRequest {
@@ -980,6 +946,5 @@ export interface UtilizationMetric {
 }
 
 export namespace UtilizationMetric {
-  export const isa = (o: any): o is UtilizationMetric =>
-    __isa(o, "UtilizationMetric");
+  export const isa = (o: any): o is UtilizationMetric => __isa(o, "UtilizationMetric");
 }

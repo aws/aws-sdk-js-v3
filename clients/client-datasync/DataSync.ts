@@ -220,9 +220,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createAgent(
     args: CreateAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAgentCommandOutput) => void),
     cb?: (err: any, data?: CreateAgentCommandOutput) => void
   ): Promise<CreateAgentCommandOutput> | void {
     const command = new CreateAgentCommand(args);
@@ -335,9 +333,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createLocationS3(
     args: CreateLocationS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocationS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationS3CommandOutput) => void),
     cb?: (err: any, data?: CreateLocationS3CommandOutput) => void
   ): Promise<CreateLocationS3CommandOutput> | void {
     const command = new CreateLocationS3Command(args);
@@ -417,9 +413,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createTask(
     args: CreateTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateTaskCommandOutput) => void
   ): Promise<CreateTaskCommandOutput> | void {
     const command = new CreateTaskCommand(args);
@@ -455,9 +449,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteAgent(
     args: DeleteAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAgentCommandOutput) => void),
     cb?: (err: any, data?: DeleteAgentCommandOutput) => void
   ): Promise<DeleteAgentCommandOutput> | void {
     const command = new DeleteAgentCommand(args);
@@ -490,9 +482,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteLocation(
     args: DeleteLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLocationCommandOutput) => void
   ): Promise<DeleteLocationCommandOutput> | void {
     const command = new DeleteLocationCommand(args);
@@ -525,9 +515,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteTask(
     args: DeleteTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskCommandOutput) => void),
     cb?: (err: any, data?: DeleteTaskCommandOutput) => void
   ): Promise<DeleteTaskCommandOutput> | void {
     const command = new DeleteTaskCommand(args);
@@ -562,9 +550,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeAgent(
     args: DescribeAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentCommandOutput) => void),
     cb?: (err: any, data?: DescribeAgentCommandOutput) => void
   ): Promise<DescribeAgentCommandOutput> | void {
     const command = new DescribeAgentCommand(args);
@@ -737,9 +723,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeTask(
     args: DescribeTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskCommandOutput) => void
   ): Promise<DescribeTaskCommandOutput> | void {
     const command = new DescribeTaskCommand(args);
@@ -814,9 +798,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listAgents(
     args: ListAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAgentsCommandOutput) => void),
     cb?: (err: any, data?: ListAgentsCommandOutput) => void
   ): Promise<ListAgentsCommandOutput> | void {
     const command = new ListAgentsCommand(args);
@@ -852,9 +834,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listLocations(
     args: ListLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLocationsCommandOutput) => void),
     cb?: (err: any, data?: ListLocationsCommandOutput) => void
   ): Promise<ListLocationsCommandOutput> | void {
     const command = new ListLocationsCommand(args);
@@ -957,9 +937,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listTasks(
     args: ListTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTasksCommandOutput) => void),
     cb?: (err: any, data?: ListTasksCommandOutput) => void
   ): Promise<ListTasksCommandOutput> | void {
     const command = new ListTasksCommand(args);
@@ -1035,9 +1013,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1070,9 +1046,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1105,9 +1079,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public updateAgent(
     args: UpdateAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentCommandOutput) => void),
     cb?: (err: any, data?: UpdateAgentCommandOutput) => void
   ): Promise<UpdateAgentCommandOutput> | void {
     const command = new UpdateAgentCommand(args);
@@ -1140,9 +1112,7 @@ export class DataSync extends DataSyncClient {
   ): void;
   public updateTask(
     args: UpdateTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskCommandOutput) => void),
     cb?: (err: any, data?: UpdateTaskCommandOutput) => void
   ): Promise<UpdateTaskCommandOutput> | void {
     const command = new UpdateTaskCommand(args);

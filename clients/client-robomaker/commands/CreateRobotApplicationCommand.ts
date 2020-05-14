@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  CreateRobotApplicationRequest,
-  CreateRobotApplicationResponse
-} from "../models/index";
+import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRobotApplicationCommand,
   serializeAws_restJson1_1CreateRobotApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRobotApplicationCommandInput = CreateRobotApplicationRequest;
-export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse &
-  __MetadataBearer;
+export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse & __MetadataBearer;
 
 export class CreateRobotApplicationCommand extends $Command<
   CreateRobotApplicationCommandInput,
@@ -49,13 +45,8 @@ export class CreateRobotApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRobotApplicationCommandInput,
-    CreateRobotApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRobotApplicationCommandInput, CreateRobotApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateRobotApplicationCommand extends $Command<
     input: CreateRobotApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRobotApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateRobotApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1CreateRobotApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

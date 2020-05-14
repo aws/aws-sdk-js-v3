@@ -295,9 +295,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type forecastClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type forecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -306,9 +304,7 @@ export type forecastClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

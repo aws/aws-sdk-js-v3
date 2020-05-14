@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteRecoveryPointInput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRecoveryPointCommand,
@@ -45,13 +41,8 @@ export class DeleteRecoveryPointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRecoveryPointCommandInput,
-    DeleteRecoveryPointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRecoveryPointCommandInput, DeleteRecoveryPointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DeleteRecoveryPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRecoveryPointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

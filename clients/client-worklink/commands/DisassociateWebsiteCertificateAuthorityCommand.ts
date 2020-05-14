@@ -39,9 +39,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateWebsiteCertificateAuthorityCommandInput
-  ) {
+  constructor(readonly input: DisassociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     DisassociateWebsiteCertificateAuthorityCommandInput,
     DisassociateWebsiteCertificateAuthorityCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(

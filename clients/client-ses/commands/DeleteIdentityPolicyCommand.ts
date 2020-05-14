@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteIdentityPolicyRequest,
-  DeleteIdentityPolicyResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteIdentityPolicyCommand,
   serializeAws_queryDeleteIdentityPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteIdentityPolicyCommandInput = DeleteIdentityPolicyRequest;
-export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse &
-  __MetadataBearer;
+export type DeleteIdentityPolicyCommandOutput = DeleteIdentityPolicyResponse & __MetadataBearer;
 
 export class DeleteIdentityPolicyCommand extends $Command<
   DeleteIdentityPolicyCommandInput,
@@ -49,13 +41,8 @@ export class DeleteIdentityPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIdentityPolicyCommandInput,
-    DeleteIdentityPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIdentityPolicyCommandInput, DeleteIdentityPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

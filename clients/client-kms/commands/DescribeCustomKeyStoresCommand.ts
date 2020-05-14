@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  DescribeCustomKeyStoresRequest,
-  DescribeCustomKeyStoresResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { DescribeCustomKeyStoresRequest, DescribeCustomKeyStoresResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCustomKeyStoresCommand,
   serializeAws_json1_1DescribeCustomKeyStoresCommand
@@ -49,13 +42,8 @@ export class DescribeCustomKeyStoresCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCustomKeyStoresCommandInput,
-    DescribeCustomKeyStoresCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCustomKeyStoresCommandInput, DescribeCustomKeyStoresCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeCustomKeyStoresCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCustomKeyStoresCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomKeyStoresCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCustomKeyStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

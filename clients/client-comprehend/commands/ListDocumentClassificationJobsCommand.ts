@@ -53,9 +53,7 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     ListDocumentClassificationJobsCommandInput,
     ListDocumentClassificationJobsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListDocumentClassificationJobsCommand extends $Command<
     input: ListDocumentClassificationJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassificationJobsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListDocumentClassificationJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDocumentClassificationJobsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

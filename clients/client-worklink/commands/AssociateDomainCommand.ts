@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  AssociateDomainRequest,
-  AssociateDomainResponse
-} from "../models/index";
+import { AssociateDomainRequest, AssociateDomainResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateDomainCommand,
   serializeAws_restJson1_1AssociateDomainCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateDomainCommandInput = AssociateDomainRequest;
-export type AssociateDomainCommandOutput = AssociateDomainResponse &
-  __MetadataBearer;
+export type AssociateDomainCommandOutput = AssociateDomainResponse & __MetadataBearer;
 
 export class AssociateDomainCommand extends $Command<
   AssociateDomainCommandInput,
@@ -50,9 +46,7 @@ export class AssociateDomainCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateDomainCommandInput, AssociateDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

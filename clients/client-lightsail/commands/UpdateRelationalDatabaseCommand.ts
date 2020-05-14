@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  UpdateRelationalDatabaseRequest,
-  UpdateRelationalDatabaseResult
-} from "../models/index";
+import { UpdateRelationalDatabaseRequest, UpdateRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseCommand,
   serializeAws_json1_1UpdateRelationalDatabaseCommand
@@ -49,13 +46,8 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRelationalDatabaseCommandInput,
-    UpdateRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRelationalDatabaseCommandInput, UpdateRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

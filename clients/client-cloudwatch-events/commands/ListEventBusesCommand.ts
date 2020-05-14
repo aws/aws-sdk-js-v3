@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEventBusesCommandInput = ListEventBusesRequest;
-export type ListEventBusesCommandOutput = ListEventBusesResponse &
-  __MetadataBearer;
+export type ListEventBusesCommandOutput = ListEventBusesResponse & __MetadataBearer;
 
 export class ListEventBusesCommand extends $Command<
   ListEventBusesCommandInput,
@@ -47,9 +46,7 @@ export class ListEventBusesCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventBusesCommandInput, ListEventBusesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

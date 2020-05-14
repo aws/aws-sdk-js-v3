@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketAnalyticsConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand,
@@ -50,9 +46,7 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
     DeleteBucketAnalyticsConfigurationCommandInput,
     DeleteBucketAnalyticsConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
     input: DeleteBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

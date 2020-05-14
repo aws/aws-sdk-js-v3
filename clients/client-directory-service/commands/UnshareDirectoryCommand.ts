@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  UnshareDirectoryRequest,
-  UnshareDirectoryResult
-} from "../models/index";
+import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/index";
 import {
   deserializeAws_json1_1UnshareDirectoryCommand,
   serializeAws_json1_1UnshareDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UnshareDirectoryCommandInput = UnshareDirectoryRequest;
-export type UnshareDirectoryCommandOutput = UnshareDirectoryResult &
-  __MetadataBearer;
+export type UnshareDirectoryCommandOutput = UnshareDirectoryResult & __MetadataBearer;
 
 export class UnshareDirectoryCommand extends $Command<
   UnshareDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class UnshareDirectoryCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnshareDirectoryCommandInput, UnshareDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

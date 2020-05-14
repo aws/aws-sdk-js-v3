@@ -119,11 +119,7 @@ import {
   DeleteStageCommandInput,
   DeleteStageCommandOutput
 } from "./commands/DeleteStageCommand";
-import {
-  GetApiCommand,
-  GetApiCommandInput,
-  GetApiCommandOutput
-} from "./commands/GetApiCommand";
+import { GetApiCommand, GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
 import {
   GetApiMappingCommand,
   GetApiMappingCommandInput,
@@ -338,9 +334,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createApi(
     args: CreateApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiCommandOutput) => void),
     cb?: (err: any, data?: CreateApiCommandOutput) => void
   ): Promise<CreateApiCommandOutput> | void {
     const command = new CreateApiCommand(args);
@@ -373,9 +367,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createApiMapping(
     args: CreateApiMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApiMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiMappingCommandOutput) => void),
     cb?: (err: any, data?: CreateApiMappingCommandOutput) => void
   ): Promise<CreateApiMappingCommandOutput> | void {
     const command = new CreateApiMappingCommand(args);
@@ -408,9 +400,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): Promise<CreateAuthorizerCommandOutput> | void {
     const command = new CreateAuthorizerCommand(args);
@@ -443,9 +433,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -478,9 +466,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createDomainName(
     args: CreateDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): Promise<CreateDomainNameCommandOutput> | void {
     const command = new CreateDomainNameCommand(args);
@@ -583,9 +569,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createModel(
     args: CreateModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
     cb?: (err: any, data?: CreateModelCommandOutput) => void
   ): Promise<CreateModelCommandOutput> | void {
     const command = new CreateModelCommand(args);
@@ -618,9 +602,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
@@ -688,9 +670,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createStage(
     args: CreateStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStageCommandOutput) => void),
     cb?: (err: any, data?: CreateStageCommandOutput) => void
   ): Promise<CreateStageCommandOutput> | void {
     const command = new CreateStageCommand(args);
@@ -723,9 +703,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteApi(
     args: DeleteApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiCommandOutput) => void
   ): Promise<DeleteApiCommandOutput> | void {
     const command = new DeleteApiCommand(args);
@@ -758,9 +736,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteApiMapping(
     args: DeleteApiMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApiMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiMappingCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiMappingCommandOutput) => void
   ): Promise<DeleteApiMappingCommandOutput> | void {
     const command = new DeleteApiMappingCommand(args);
@@ -793,9 +769,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): Promise<DeleteAuthorizerCommandOutput> | void {
     const command = new DeleteAuthorizerCommand(args);
@@ -863,9 +837,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): Promise<DeleteDeploymentCommandOutput> | void {
     const command = new DeleteDeploymentCommand(args);
@@ -898,9 +870,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): Promise<DeleteDomainNameCommandOutput> | void {
     const command = new DeleteDomainNameCommand(args);
@@ -1003,9 +973,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteModel(
     args: DeleteModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelCommandOutput) => void
   ): Promise<DeleteModelCommandOutput> | void {
     const command = new DeleteModelCommand(args);
@@ -1038,9 +1006,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
@@ -1143,9 +1109,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteStage(
     args: DeleteStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStageCommandOutput) => void),
     cb?: (err: any, data?: DeleteStageCommandOutput) => void
   ): Promise<DeleteStageCommandOutput> | void {
     const command = new DeleteStageCommand(args);
@@ -1167,10 +1131,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     args: GetApiCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApiCommandOutput>;
-  public getApi(
-    args: GetApiCommandInput,
-    cb: (err: any, data?: GetApiCommandOutput) => void
-  ): void;
+  public getApi(args: GetApiCommandInput, cb: (err: any, data?: GetApiCommandOutput) => void): void;
   public getApi(
     args: GetApiCommandInput,
     options: __HttpHandlerOptions,
@@ -1178,9 +1139,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApi(
     args: GetApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiCommandOutput) => void),
     cb?: (err: any, data?: GetApiCommandOutput) => void
   ): Promise<GetApiCommandOutput> | void {
     const command = new GetApiCommand(args);
@@ -1213,9 +1172,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApiMapping(
     args: GetApiMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApiMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingCommandOutput) => void),
     cb?: (err: any, data?: GetApiMappingCommandOutput) => void
   ): Promise<GetApiMappingCommandOutput> | void {
     const command = new GetApiMappingCommand(args);
@@ -1248,9 +1205,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApiMappings(
     args: GetApiMappingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApiMappingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingsCommandOutput) => void),
     cb?: (err: any, data?: GetApiMappingsCommandOutput) => void
   ): Promise<GetApiMappingsCommandOutput> | void {
     const command = new GetApiMappingsCommand(args);
@@ -1283,9 +1238,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApis(
     args: GetApisCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApisCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApisCommandOutput) => void),
     cb?: (err: any, data?: GetApisCommandOutput) => void
   ): Promise<GetApisCommandOutput> | void {
     const command = new GetApisCommand(args);
@@ -1318,9 +1271,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizerCommandOutput) => void
   ): Promise<GetAuthorizerCommandOutput> | void {
     const command = new GetAuthorizerCommand(args);
@@ -1353,9 +1304,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAuthorizersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizersCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizersCommandOutput) => void
   ): Promise<GetAuthorizersCommandOutput> | void {
     const command = new GetAuthorizersCommand(args);
@@ -1388,9 +1337,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
@@ -1423,9 +1370,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDeployments(
     args: GetDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): Promise<GetDeploymentsCommandOutput> | void {
     const command = new GetDeploymentsCommand(args);
@@ -1458,9 +1403,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDomainName(
     args: GetDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNameCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNameCommandOutput) => void
   ): Promise<GetDomainNameCommandOutput> | void {
     const command = new GetDomainNameCommand(args);
@@ -1493,9 +1436,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDomainNames(
     args: GetDomainNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNamesCommandOutput) => void
   ): Promise<GetDomainNamesCommandOutput> | void {
     const command = new GetDomainNamesCommand(args);
@@ -1528,9 +1469,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegration(
     args: GetIntegrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntegrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationCommandOutput) => void
   ): Promise<GetIntegrationCommandOutput> | void {
     const command = new GetIntegrationCommand(args);
@@ -1633,9 +1572,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegrations(
     args: GetIntegrationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntegrationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationsCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationsCommandOutput) => void
   ): Promise<GetIntegrationsCommandOutput> | void {
     const command = new GetIntegrationsCommand(args);
@@ -1668,9 +1605,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModel(
     args: GetModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelCommandOutput) => void),
     cb?: (err: any, data?: GetModelCommandOutput) => void
   ): Promise<GetModelCommandOutput> | void {
     const command = new GetModelCommand(args);
@@ -1703,9 +1638,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModelTemplate(
     args: GetModelTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): Promise<GetModelTemplateCommandOutput> | void {
     const command = new GetModelTemplateCommand(args);
@@ -1738,9 +1671,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModels(
     args: GetModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
@@ -1773,9 +1704,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRoute(
     args: GetRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteCommandOutput) => void),
     cb?: (err: any, data?: GetRouteCommandOutput) => void
   ): Promise<GetRouteCommandOutput> | void {
     const command = new GetRouteCommand(args);
@@ -1808,9 +1737,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRouteResponse(
     args: GetRouteResponseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRouteResponseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteResponseCommandOutput) => void),
     cb?: (err: any, data?: GetRouteResponseCommandOutput) => void
   ): Promise<GetRouteResponseCommandOutput> | void {
     const command = new GetRouteResponseCommand(args);
@@ -1878,9 +1805,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRoutes(
     args: GetRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoutesCommandOutput) => void),
     cb?: (err: any, data?: GetRoutesCommandOutput) => void
   ): Promise<GetRoutesCommandOutput> | void {
     const command = new GetRoutesCommand(args);
@@ -1913,9 +1838,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getStage(
     args: GetStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStageCommandOutput) => void),
     cb?: (err: any, data?: GetStageCommandOutput) => void
   ): Promise<GetStageCommandOutput> | void {
     const command = new GetStageCommand(args);
@@ -1948,9 +1871,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getStages(
     args: GetStagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStagesCommandOutput) => void),
     cb?: (err: any, data?: GetStagesCommandOutput) => void
   ): Promise<GetStagesCommandOutput> | void {
     const command = new GetStagesCommand(args);
@@ -1983,9 +1904,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
@@ -2018,9 +1937,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public importApi(
     args: ImportApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportApiCommandOutput) => void),
     cb?: (err: any, data?: ImportApiCommandOutput) => void
   ): Promise<ImportApiCommandOutput> | void {
     const command = new ImportApiCommand(args);
@@ -2053,9 +1970,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public reimportApi(
     args: ReimportApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReimportApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReimportApiCommandOutput) => void),
     cb?: (err: any, data?: ReimportApiCommandOutput) => void
   ): Promise<ReimportApiCommandOutput> | void {
     const command = new ReimportApiCommand(args);
@@ -2088,9 +2003,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2123,9 +2036,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2158,9 +2069,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateApi(
     args: UpdateApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiCommandOutput) => void
   ): Promise<UpdateApiCommandOutput> | void {
     const command = new UpdateApiCommand(args);
@@ -2193,9 +2102,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateApiMapping(
     args: UpdateApiMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApiMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiMappingCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiMappingCommandOutput) => void
   ): Promise<UpdateApiMappingCommandOutput> | void {
     const command = new UpdateApiMappingCommand(args);
@@ -2228,9 +2135,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): Promise<UpdateAuthorizerCommandOutput> | void {
     const command = new UpdateAuthorizerCommand(args);
@@ -2263,9 +2168,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): Promise<UpdateDeploymentCommandOutput> | void {
     const command = new UpdateDeploymentCommand(args);
@@ -2298,9 +2201,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): Promise<UpdateDomainNameCommandOutput> | void {
     const command = new UpdateDomainNameCommand(args);
@@ -2403,9 +2304,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateModel(
     args: UpdateModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateModelCommandOutput) => void
   ): Promise<UpdateModelCommandOutput> | void {
     const command = new UpdateModelCommand(args);
@@ -2438,9 +2337,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateRoute(
     args: UpdateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
     cb?: (err: any, data?: UpdateRouteCommandOutput) => void
   ): Promise<UpdateRouteCommandOutput> | void {
     const command = new UpdateRouteCommand(args);
@@ -2508,9 +2405,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateStage(
     args: UpdateStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStageCommandOutput) => void),
     cb?: (err: any, data?: UpdateStageCommandOutput) => void
   ): Promise<UpdateStageCommandOutput> | void {
     const command = new UpdateStageCommand(args);

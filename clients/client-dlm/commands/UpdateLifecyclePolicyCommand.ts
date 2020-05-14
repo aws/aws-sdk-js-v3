@@ -1,12 +1,5 @@
-import {
-  DLMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DLMClient";
-import {
-  UpdateLifecyclePolicyRequest,
-  UpdateLifecyclePolicyResponse
-} from "../models/index";
+import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
+import { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLifecyclePolicyCommand,
   serializeAws_restJson1_1UpdateLifecyclePolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateLifecyclePolicyCommandInput = UpdateLifecyclePolicyRequest;
-export type UpdateLifecyclePolicyCommandOutput = UpdateLifecyclePolicyResponse &
-  __MetadataBearer;
+export type UpdateLifecyclePolicyCommandOutput = UpdateLifecyclePolicyResponse & __MetadataBearer;
 
 export class UpdateLifecyclePolicyCommand extends $Command<
   UpdateLifecyclePolicyCommandInput,
@@ -49,13 +41,8 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DLMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateLifecyclePolicyCommandInput,
-    UpdateLifecyclePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateLifecyclePolicyCommandInput, UpdateLifecyclePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateLifecyclePolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLifecyclePolicyCommandOutput> {
-    return deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  RegisterScalableTargetRequest,
-  RegisterScalableTargetResponse
-} from "../models/index";
+import { RegisterScalableTargetRequest, RegisterScalableTargetResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterScalableTargetCommand,
   serializeAws_json1_1RegisterScalableTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterScalableTargetCommandInput = RegisterScalableTargetRequest;
-export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse &
-  __MetadataBearer;
+export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse & __MetadataBearer;
 
 export class RegisterScalableTargetCommand extends $Command<
   RegisterScalableTargetCommandInput,
@@ -49,13 +45,8 @@ export class RegisterScalableTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterScalableTargetCommandInput,
-    RegisterScalableTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterScalableTargetCommandInput, RegisterScalableTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

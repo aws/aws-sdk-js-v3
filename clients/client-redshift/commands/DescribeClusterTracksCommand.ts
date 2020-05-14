@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeClusterTracksMessage,
-  TrackListMessage
-} from "../models/index";
+import { DescribeClusterTracksMessage, TrackListMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterTracksCommand,
   serializeAws_queryDescribeClusterTracksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterTracksCommandInput = DescribeClusterTracksMessage;
-export type DescribeClusterTracksCommandOutput = TrackListMessage &
-  __MetadataBearer;
+export type DescribeClusterTracksCommandOutput = TrackListMessage & __MetadataBearer;
 
 export class DescribeClusterTracksCommand extends $Command<
   DescribeClusterTracksCommandInput,
@@ -49,13 +45,8 @@ export class DescribeClusterTracksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterTracksCommandInput,
-    DescribeClusterTracksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterTracksCommandInput, DescribeClusterTracksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

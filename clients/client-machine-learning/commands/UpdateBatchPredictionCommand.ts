@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  UpdateBatchPredictionInput,
-  UpdateBatchPredictionOutput
-} from "../models/index";
+import { UpdateBatchPredictionInput, UpdateBatchPredictionOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateBatchPredictionCommand,
   serializeAws_json1_1UpdateBatchPredictionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateBatchPredictionCommandInput = UpdateBatchPredictionInput;
-export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput &
-  __MetadataBearer;
+export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput & __MetadataBearer;
 
 export class UpdateBatchPredictionCommand extends $Command<
   UpdateBatchPredictionCommandInput,
@@ -49,13 +45,8 @@ export class UpdateBatchPredictionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateBatchPredictionCommandInput,
-    UpdateBatchPredictionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateBatchPredictionCommandInput, UpdateBatchPredictionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

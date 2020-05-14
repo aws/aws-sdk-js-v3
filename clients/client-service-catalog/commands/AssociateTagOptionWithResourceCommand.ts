@@ -53,9 +53,7 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     AssociateTagOptionWithResourceCommandInput,
     AssociateTagOptionWithResourceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     input: AssociateTagOptionWithResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateTagOptionWithResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateTagOptionWithResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateTagOptionWithResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateTagOptionWithResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateTagOptionWithResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

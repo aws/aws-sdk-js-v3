@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  GetDataLakeSettingsRequest,
-  GetDataLakeSettingsResponse
-} from "../models/index";
+import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDataLakeSettingsCommand,
   serializeAws_json1_1GetDataLakeSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataLakeSettingsCommandInput = GetDataLakeSettingsRequest;
-export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse &
-  __MetadataBearer;
+export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse & __MetadataBearer;
 
 export class GetDataLakeSettingsCommand extends $Command<
   GetDataLakeSettingsCommandInput,
@@ -49,13 +45,8 @@ export class GetDataLakeSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataLakeSettingsCommandInput,
-    GetDataLakeSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataLakeSettingsCommandInput, GetDataLakeSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

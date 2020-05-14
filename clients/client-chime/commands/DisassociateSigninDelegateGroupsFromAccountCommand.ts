@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse
@@ -39,9 +35,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput
-  ) {
+  constructor(readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     DisassociateSigninDelegateGroupsFromAccountCommandInput,
     DisassociateSigninDelegateGroupsFromAccountCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

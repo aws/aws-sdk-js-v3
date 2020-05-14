@@ -64,10 +64,7 @@ export const getApplyMd5BodyChecksumPlugin = (
   config: Md5BodyChecksumResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      applyMd5BodyChecksumMiddleware(config),
-      applyMd5BodyChecksumMiddlewareOptions
-    );
+    clientStack.add(applyMd5BodyChecksumMiddleware(config), applyMd5BodyChecksumMiddlewareOptions);
   }
 });
 

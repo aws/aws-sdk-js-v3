@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  EnvironmentDescription,
-  TerminateEnvironmentMessage
-} from "../models/index";
+import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/index";
 import {
   deserializeAws_queryTerminateEnvironmentCommand,
   serializeAws_queryTerminateEnvironmentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateEnvironmentCommandInput = TerminateEnvironmentMessage;
-export type TerminateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type TerminateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class TerminateEnvironmentCommand extends $Command<
   TerminateEnvironmentCommandInput,
@@ -49,13 +45,8 @@ export class TerminateEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TerminateEnvironmentCommandInput,
-    TerminateEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TerminateEnvironmentCommandInput, TerminateEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

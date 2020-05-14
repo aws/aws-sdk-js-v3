@@ -2,10 +2,7 @@ import {
   AcceptSharedDirectoryCommandInput,
   AcceptSharedDirectoryCommandOutput
 } from "./commands/AcceptSharedDirectoryCommand";
-import {
-  AddIpRoutesCommandInput,
-  AddIpRoutesCommandOutput
-} from "./commands/AddIpRoutesCommand";
+import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
 import {
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput
@@ -18,10 +15,7 @@ import {
   ConnectDirectoryCommandInput,
   ConnectDirectoryCommandOutput
 } from "./commands/ConnectDirectoryCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateComputerCommandInput,
   CreateComputerCommandOutput
@@ -46,10 +40,7 @@ import {
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput
 } from "./commands/CreateSnapshotCommand";
-import {
-  CreateTrustCommandInput,
-  CreateTrustCommandOutput
-} from "./commands/CreateTrustCommand";
+import { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
 import {
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput
@@ -66,10 +57,7 @@ import {
   DeleteSnapshotCommandInput,
   DeleteSnapshotCommandOutput
 } from "./commands/DeleteSnapshotCommand";
-import {
-  DeleteTrustCommandInput,
-  DeleteTrustCommandOutput
-} from "./commands/DeleteTrustCommand";
+import { DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
 import {
   DeregisterCertificateCommandInput,
   DeregisterCertificateCommandOutput
@@ -122,22 +110,13 @@ import {
   DisableRadiusCommandInput,
   DisableRadiusCommandOutput
 } from "./commands/DisableRadiusCommand";
-import {
-  DisableSsoCommandInput,
-  DisableSsoCommandOutput
-} from "./commands/DisableSsoCommand";
-import {
-  EnableLDAPSCommandInput,
-  EnableLDAPSCommandOutput
-} from "./commands/EnableLDAPSCommand";
+import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
 import {
   EnableRadiusCommandInput,
   EnableRadiusCommandOutput
 } from "./commands/EnableRadiusCommand";
-import {
-  EnableSsoCommandInput,
-  EnableSsoCommandOutput
-} from "./commands/EnableSsoCommand";
+import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
 import {
   GetDirectoryLimitsCommandInput,
   GetDirectoryLimitsCommandOutput
@@ -218,14 +197,8 @@ import {
   UpdateRadiusCommandInput,
   UpdateRadiusCommandOutput
 } from "./commands/UpdateRadiusCommand";
-import {
-  UpdateTrustCommandInput,
-  UpdateTrustCommandOutput
-} from "./commands/UpdateTrustCommand";
-import {
-  VerifyTrustCommandInput,
-  VerifyTrustCommandOutput
-} from "./commands/VerifyTrustCommand";
+import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
+import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -481,9 +454,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectoryServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectoryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

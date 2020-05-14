@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataSetCommandInput = CreateDataSetRequest;
-export type CreateDataSetCommandOutput = CreateDataSetResponse &
-  __MetadataBearer;
+export type CreateDataSetCommandOutput = CreateDataSetResponse & __MetadataBearer;
 
 export class CreateDataSetCommand extends $Command<
   CreateDataSetCommandInput,
@@ -47,9 +46,7 @@ export class CreateDataSetCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSetCommandInput, CreateDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

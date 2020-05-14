@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListUserProfilesRequest,
-  ListUserProfilesResponse
-} from "../models/index";
+import { ListUserProfilesRequest, ListUserProfilesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListUserProfilesCommand,
   serializeAws_json1_1ListUserProfilesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUserProfilesCommandInput = ListUserProfilesRequest;
-export type ListUserProfilesCommandOutput = ListUserProfilesResponse &
-  __MetadataBearer;
+export type ListUserProfilesCommandOutput = ListUserProfilesResponse & __MetadataBearer;
 
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,
@@ -50,9 +46,7 @@ export class ListUserProfilesCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUserProfilesCommandInput, ListUserProfilesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

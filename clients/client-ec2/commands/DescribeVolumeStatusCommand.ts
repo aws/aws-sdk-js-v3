@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVolumeStatusRequest, DescribeVolumeStatusResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeVolumeStatusCommand,
   serializeAws_ec2DescribeVolumeStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVolumeStatusCommandInput = DescribeVolumeStatusRequest;
-export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult &
-  __MetadataBearer;
+export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult & __MetadataBearer;
 
 export class DescribeVolumeStatusCommand extends $Command<
   DescribeVolumeStatusCommandInput,
@@ -49,13 +41,8 @@ export class DescribeVolumeStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVolumeStatusCommandInput,
-    DescribeVolumeStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVolumeStatusCommandInput, DescribeVolumeStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

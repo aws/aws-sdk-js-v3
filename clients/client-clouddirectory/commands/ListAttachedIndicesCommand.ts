@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListAttachedIndicesRequest,
-  ListAttachedIndicesResponse
-} from "../models/index";
+import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAttachedIndicesCommand,
   serializeAws_restJson1_1ListAttachedIndicesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
-export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse &
-  __MetadataBearer;
+export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse & __MetadataBearer;
 
 export class ListAttachedIndicesCommand extends $Command<
   ListAttachedIndicesCommandInput,
@@ -49,13 +45,8 @@ export class ListAttachedIndicesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAttachedIndicesCommandInput,
-    ListAttachedIndicesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAttachedIndicesCommandInput, ListAttachedIndicesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListAttachedIndicesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAttachedIndicesCommandOutput> {
-    return deserializeAws_restJson1_1ListAttachedIndicesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAttachedIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -4,9 +4,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
 const mockRegion = "mars-west-1";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => {
-  const module = jest.genMockFromModule(
-    "@aws-sdk/shared-ini-file-loader"
-  ) as any;
+  const module = jest.genMockFromModule("@aws-sdk/shared-ini-file-loader") as any;
   module.loadSharedConfigFiles = jest.fn(() =>
     Promise.resolve({
       credentialsFile: {},
@@ -25,12 +23,8 @@ describe("fromSharedConfigFiles", () => {
       credentialsFile: {}
     });
 
-    return expect(
-      fromSharedConfigFiles({ loadedConfig: emptyConfig })()
-    ).rejects.toMatchObject(
-      new ProviderError(
-        `No region found for profile default in SDK configuration files`
-      )
+    return expect(fromSharedConfigFiles({ loadedConfig: emptyConfig })()).rejects.toMatchObject(
+      new ProviderError(`No region found for profile default in SDK configuration files`)
     );
   });
 
@@ -55,9 +49,7 @@ describe("fromSharedConfigFiles", () => {
       }
     });
 
-    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe(
-      "us-west-1"
-    );
+    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe("us-west-1");
   });
 
   it("should use the region from the config file", async () => {
@@ -81,9 +73,7 @@ describe("fromSharedConfigFiles", () => {
       }
     });
 
-    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe(
-      "us-west-1"
-    );
+    expect(await fromSharedConfigFiles({ loadedConfig, profile })()).toBe("us-west-1");
   });
 
   it("should prefer a region defined in the credentials file", async () => {

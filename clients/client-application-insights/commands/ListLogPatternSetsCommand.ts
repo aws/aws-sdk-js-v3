@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  ListLogPatternSetsRequest,
-  ListLogPatternSetsResponse
-} from "../models/index";
+import { ListLogPatternSetsRequest, ListLogPatternSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListLogPatternSetsCommand,
   serializeAws_json1_1ListLogPatternSetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLogPatternSetsCommandInput = ListLogPatternSetsRequest;
-export type ListLogPatternSetsCommandOutput = ListLogPatternSetsResponse &
-  __MetadataBearer;
+export type ListLogPatternSetsCommandOutput = ListLogPatternSetsResponse & __MetadataBearer;
 
 export class ListLogPatternSetsCommand extends $Command<
   ListLogPatternSetsCommandInput,
@@ -50,9 +46,7 @@ export class ListLogPatternSetsCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLogPatternSetsCommandInput, ListLogPatternSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeSecurityGroupReferencesRequest,
   DescribeSecurityGroupReferencesResult
@@ -53,9 +49,7 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     DescribeSecurityGroupReferencesCommandInput,
     DescribeSecurityGroupReferencesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     input: DescribeSecurityGroupReferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSecurityGroupReferencesCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeSecurityGroupReferencesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityGroupReferencesCommandOutput> {
-    return deserializeAws_ec2DescribeSecurityGroupReferencesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeSecurityGroupReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

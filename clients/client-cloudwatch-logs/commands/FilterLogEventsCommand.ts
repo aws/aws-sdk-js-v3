@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  FilterLogEventsRequest,
-  FilterLogEventsResponse
-} from "../models/index";
+import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/index";
 import {
   deserializeAws_json1_1FilterLogEventsCommand,
   serializeAws_json1_1FilterLogEventsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FilterLogEventsCommandInput = FilterLogEventsRequest;
-export type FilterLogEventsCommandOutput = FilterLogEventsResponse &
-  __MetadataBearer;
+export type FilterLogEventsCommandOutput = FilterLogEventsResponse & __MetadataBearer;
 
 export class FilterLogEventsCommand extends $Command<
   FilterLogEventsCommandInput,
@@ -50,9 +46,7 @@ export class FilterLogEventsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FilterLogEventsCommandInput, FilterLogEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

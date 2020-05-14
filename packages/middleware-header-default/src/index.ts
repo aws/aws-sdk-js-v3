@@ -1,17 +1,11 @@
-import {
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildMiddleware
-} from "@aws-sdk/types";
+import { BuildHandler, BuildHandlerArguments, BuildMiddleware } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export interface HeaderDefaultArgs {
   [header: string]: string;
 }
 
-export function headerDefault(
-  headerBag: HeaderDefaultArgs
-): BuildMiddleware<any, any> {
+export function headerDefault(headerBag: HeaderDefaultArgs): BuildMiddleware<any, any> {
   return (next: BuildHandler<any, any>) => {
     return (args: BuildHandlerArguments<any>) => {
       if (HttpRequest.isInstance(args.request)) {

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeNetworkAclsRequest,
-  DescribeNetworkAclsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeNetworkAclsCommand,
   serializeAws_ec2DescribeNetworkAclsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeNetworkAclsCommandInput = DescribeNetworkAclsRequest;
-export type DescribeNetworkAclsCommandOutput = DescribeNetworkAclsResult &
-  __MetadataBearer;
+export type DescribeNetworkAclsCommandOutput = DescribeNetworkAclsResult & __MetadataBearer;
 
 export class DescribeNetworkAclsCommand extends $Command<
   DescribeNetworkAclsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeNetworkAclsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNetworkAclsCommandInput,
-    DescribeNetworkAclsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNetworkAclsCommandInput, DescribeNetworkAclsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

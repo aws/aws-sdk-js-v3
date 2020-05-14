@@ -53,9 +53,7 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     RegisterWebhookWithThirdPartyCommandInput,
     RegisterWebhookWithThirdPartyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     input: RegisterWebhookWithThirdPartyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

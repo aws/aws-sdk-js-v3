@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DescribeTypeRegistrationInput,
-  DescribeTypeRegistrationOutput
-} from "../models/index";
+import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeTypeRegistrationCommand,
   serializeAws_queryDescribeTypeRegistrationCommand
@@ -49,13 +46,8 @@ export class DescribeTypeRegistrationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTypeRegistrationCommandInput,
-    DescribeTypeRegistrationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTypeRegistrationCommandInput, DescribeTypeRegistrationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

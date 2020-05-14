@@ -45,13 +45,8 @@ export class DeleteDatasetContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDatasetContentCommandInput,
-    DeleteDatasetContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDatasetContentCommandInput, DeleteDatasetContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteDatasetContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatasetContentCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDatasetContentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDatasetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

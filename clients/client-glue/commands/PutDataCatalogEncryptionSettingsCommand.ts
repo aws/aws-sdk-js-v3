@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse
@@ -53,9 +49,7 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     PutDataCatalogEncryptionSettingsCommandInput,
     PutDataCatalogEncryptionSettingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     input: PutDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> {
-    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

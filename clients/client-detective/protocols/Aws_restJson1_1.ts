@@ -2,18 +2,12 @@ import {
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput
 } from "../commands/AcceptInvitationCommand";
-import {
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput
-} from "../commands/CreateGraphCommand";
+import { CreateGraphCommandInput, CreateGraphCommandOutput } from "../commands/CreateGraphCommand";
 import {
   CreateMembersCommandInput,
   CreateMembersCommandOutput
 } from "../commands/CreateMembersCommand";
-import {
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput
-} from "../commands/DeleteGraphCommand";
+import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "../commands/DeleteGraphCommand";
 import {
   DeleteMembersCommandInput,
   DeleteMembersCommandOutput
@@ -22,22 +16,13 @@ import {
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput
 } from "../commands/DisassociateMembershipCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "../commands/GetMembersCommand";
-import {
-  ListGraphsCommandInput,
-  ListGraphsCommandOutput
-} from "../commands/ListGraphsCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
+import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput
 } from "../commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "../commands/ListMembersCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
   RejectInvitationCommandInput,
   RejectInvitationCommandOutput
@@ -174,10 +159,7 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountIds !== undefined && {
-      AccountIds: serializeAws_restJson1_1AccountIdList(
-        input.AccountIds,
-        context
-      )
+      AccountIds: serializeAws_restJson1_1AccountIdList(input.AccountIds, context)
     }),
     ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
   });
@@ -228,10 +210,7 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccountIds !== undefined && {
-      AccountIds: serializeAws_restJson1_1AccountIdList(
-        input.AccountIds,
-        context
-      )
+      AccountIds: serializeAws_restJson1_1AccountIdList(input.AccountIds, context)
     }),
     ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
   });
@@ -352,10 +331,7 @@ export const deserializeAws_restJson1_1AcceptInvitationCommand = async (
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AcceptInvitationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AcceptInvitationCommandError(output, context);
   }
   const contents: AcceptInvitationCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -379,10 +355,7 @@ const deserializeAws_restJson1_1AcceptInvitationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -390,10 +363,7 @@ const deserializeAws_restJson1_1AcceptInvitationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -412,10 +382,7 @@ const deserializeAws_restJson1_1AcceptInvitationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -471,10 +438,7 @@ const deserializeAws_restJson1_1CreateGraphCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -482,10 +446,7 @@ const deserializeAws_restJson1_1CreateGraphCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -522,15 +483,9 @@ export const deserializeAws_restJson1_1CreateMembersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Members !== undefined && data.Members !== null) {
-    contents.Members = deserializeAws_restJson1_1MemberDetailList(
-      data.Members,
-      context
-    );
+    contents.Members = deserializeAws_restJson1_1MemberDetailList(data.Members, context);
   }
-  if (
-    data.UnprocessedAccounts !== undefined &&
-    data.UnprocessedAccounts !== null
-  ) {
+  if (data.UnprocessedAccounts !== undefined && data.UnprocessedAccounts !== null) {
     contents.UnprocessedAccounts = deserializeAws_restJson1_1UnprocessedAccountList(
       data.UnprocessedAccounts,
       context
@@ -554,10 +509,7 @@ const deserializeAws_restJson1_1CreateMembersCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -587,10 +539,7 @@ const deserializeAws_restJson1_1CreateMembersCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -641,10 +590,7 @@ const deserializeAws_restJson1_1DeleteGraphCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -663,10 +609,7 @@ const deserializeAws_restJson1_1DeleteGraphCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -703,15 +646,9 @@ export const deserializeAws_restJson1_1DeleteMembersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountIds !== undefined && data.AccountIds !== null) {
-    contents.AccountIds = deserializeAws_restJson1_1AccountIdList(
-      data.AccountIds,
-      context
-    );
+    contents.AccountIds = deserializeAws_restJson1_1AccountIdList(data.AccountIds, context);
   }
-  if (
-    data.UnprocessedAccounts !== undefined &&
-    data.UnprocessedAccounts !== null
-  ) {
+  if (data.UnprocessedAccounts !== undefined && data.UnprocessedAccounts !== null) {
     contents.UnprocessedAccounts = deserializeAws_restJson1_1UnprocessedAccountList(
       data.UnprocessedAccounts,
       context
@@ -735,10 +672,7 @@ const deserializeAws_restJson1_1DeleteMembersCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -746,10 +680,7 @@ const deserializeAws_restJson1_1DeleteMembersCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -768,10 +699,7 @@ const deserializeAws_restJson1_1DeleteMembersCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -798,10 +726,7 @@ export const deserializeAws_restJson1_1DisassociateMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DisassociateMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateMembershipCommandError(output, context);
   }
   const contents: DisassociateMembershipCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -825,10 +750,7 @@ const deserializeAws_restJson1_1DisassociateMembershipCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -836,10 +758,7 @@ const deserializeAws_restJson1_1DisassociateMembershipCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -858,10 +777,7 @@ const deserializeAws_restJson1_1DisassociateMembershipCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -903,10 +819,7 @@ export const deserializeAws_restJson1_1GetMembersCommand = async (
       context
     );
   }
-  if (
-    data.UnprocessedAccounts !== undefined &&
-    data.UnprocessedAccounts !== null
-  ) {
+  if (data.UnprocessedAccounts !== undefined && data.UnprocessedAccounts !== null) {
     contents.UnprocessedAccounts = deserializeAws_restJson1_1UnprocessedAccountList(
       data.UnprocessedAccounts,
       context
@@ -930,10 +843,7 @@ const deserializeAws_restJson1_1GetMembersCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -952,10 +862,7 @@ const deserializeAws_restJson1_1GetMembersCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -992,10 +899,7 @@ export const deserializeAws_restJson1_1ListGraphsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GraphList !== undefined && data.GraphList !== null) {
-    contents.GraphList = deserializeAws_restJson1_1GraphList(
-      data.GraphList,
-      context
-    );
+    contents.GraphList = deserializeAws_restJson1_1GraphList(data.GraphList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -1018,10 +922,7 @@ const deserializeAws_restJson1_1ListGraphsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1029,10 +930,7 @@ const deserializeAws_restJson1_1ListGraphsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1059,10 +957,7 @@ export const deserializeAws_restJson1_1ListInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListInvitationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1072,10 +967,7 @@ export const deserializeAws_restJson1_1ListInvitationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Invitations !== undefined && data.Invitations !== null) {
-    contents.Invitations = deserializeAws_restJson1_1MemberDetailList(
-      data.Invitations,
-      context
-    );
+    contents.Invitations = deserializeAws_restJson1_1MemberDetailList(data.Invitations, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -1098,10 +990,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1109,10 +998,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1175,10 +1061,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1197,10 +1080,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1227,10 +1107,7 @@ export const deserializeAws_restJson1_1RejectInvitationCommand = async (
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RejectInvitationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RejectInvitationCommandError(output, context);
   }
   const contents: RejectInvitationCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1254,10 +1131,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1265,10 +1139,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1287,10 +1158,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1397,10 +1265,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Account = (
-  input: Account,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Account = (input: Account, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.EmailAddress !== undefined && {
@@ -1409,17 +1274,11 @@ const serializeAws_restJson1_1Account = (
   };
 };
 
-const serializeAws_restJson1_1AccountIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AccountIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1AccountList = (
-  input: Account[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AccountList = (input: Account[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Account(entry, context));
 };
 
@@ -1430,14 +1289,10 @@ const deserializeAws_restJson1_1AccountIdList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Graph = (
-  output: any,
-  context: __SerdeContext
-): Graph => {
+const deserializeAws_restJson1_1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
     __type: "Graph",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -1445,13 +1300,8 @@ const deserializeAws_restJson1_1Graph = (
   } as any;
 };
 
-const deserializeAws_restJson1_1GraphList = (
-  output: any,
-  context: __SerdeContext
-): Graph[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Graph(entry, context)
-  );
+const deserializeAws_restJson1_1GraphList = (output: any, context: __SerdeContext): Graph[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Graph(entry, context));
 };
 
 const deserializeAws_restJson1_1MemberDetail = (
@@ -1461,29 +1311,20 @@ const deserializeAws_restJson1_1MemberDetail = (
   return {
     __type: "MemberDetail",
     AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+      output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     EmailAddress:
       output.EmailAddress !== undefined && output.EmailAddress !== null
         ? output.EmailAddress
         : undefined,
     GraphArn:
-      output.GraphArn !== undefined && output.GraphArn !== null
-        ? output.GraphArn
-        : undefined,
+      output.GraphArn !== undefined && output.GraphArn !== null ? output.GraphArn : undefined,
     InvitedTime:
       output.InvitedTime !== undefined && output.InvitedTime !== null
         ? new Date(Math.round(output.InvitedTime * 1000))
         : undefined,
     MasterId:
-      output.MasterId !== undefined && output.MasterId !== null
-        ? output.MasterId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+      output.MasterId !== undefined && output.MasterId !== null ? output.MasterId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null
         ? new Date(Math.round(output.UpdatedTime * 1000))
@@ -1495,9 +1336,7 @@ const deserializeAws_restJson1_1MemberDetailList = (
   output: any,
   context: __SerdeContext
 ): MemberDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MemberDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1MemberDetail(entry, context));
 };
 
 const deserializeAws_restJson1_1UnprocessedAccount = (
@@ -1507,13 +1346,8 @@ const deserializeAws_restJson1_1UnprocessedAccount = (
   return {
     __type: "UnprocessedAccount",
     AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
-    Reason:
-      output.Reason !== undefined && output.Reason !== null
-        ? output.Reason
-        : undefined
+      output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined
   } as any;
 };
 
@@ -1540,23 +1374,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

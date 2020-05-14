@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetGeoMatchSetCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGeoMatchSetCommandInput = GetGeoMatchSetRequest;
-export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse &
-  __MetadataBearer;
+export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse & __MetadataBearer;
 
 export class GetGeoMatchSetCommand extends $Command<
   GetGeoMatchSetCommandInput,
@@ -47,9 +42,7 @@ export class GetGeoMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

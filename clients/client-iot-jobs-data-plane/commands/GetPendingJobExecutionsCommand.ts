@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTJobsDataPlaneClient";
-import {
-  GetPendingJobExecutionsRequest,
-  GetPendingJobExecutionsResponse
-} from "../models/index";
+import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPendingJobExecutionsCommand,
   serializeAws_restJson1_1GetPendingJobExecutionsCommand
@@ -49,13 +46,8 @@ export class GetPendingJobExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPendingJobExecutionsCommandInput,
-    GetPendingJobExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPendingJobExecutionsCommandInput, GetPendingJobExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetPendingJobExecutionsCommand extends $Command<
     input: GetPendingJobExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPendingJobExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetPendingJobExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPendingJobExecutionsCommandOutput> {
-    return deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPendingJobExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

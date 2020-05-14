@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksCMClient";
-import {
-  DisassociateNodeRequest,
-  DisassociateNodeResponse
-} from "../models/index";
+import { DisassociateNodeRequest, DisassociateNodeResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateNodeCommand,
   serializeAws_json1_1DisassociateNodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateNodeCommandInput = DisassociateNodeRequest;
-export type DisassociateNodeCommandOutput = DisassociateNodeResponse &
-  __MetadataBearer;
+export type DisassociateNodeCommandOutput = DisassociateNodeResponse & __MetadataBearer;
 
 export class DisassociateNodeCommand extends $Command<
   DisassociateNodeCommandInput,
@@ -50,9 +46,7 @@ export class DisassociateNodeCommand extends $Command<
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateNodeCommandInput, DisassociateNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

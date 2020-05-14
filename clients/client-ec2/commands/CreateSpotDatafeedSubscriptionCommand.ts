@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateSpotDatafeedSubscriptionRequest,
   CreateSpotDatafeedSubscriptionResult
@@ -53,9 +49,7 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     CreateSpotDatafeedSubscriptionCommandInput,
     CreateSpotDatafeedSubscriptionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
     input: CreateSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

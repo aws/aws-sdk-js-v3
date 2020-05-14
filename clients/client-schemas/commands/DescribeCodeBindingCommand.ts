@@ -1,7 +1,4 @@
-import {
-  DescribeCodeBindingRequest,
-  DescribeCodeBindingResponse
-} from "../models/index";
+import { DescribeCodeBindingRequest, DescribeCodeBindingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeCodeBindingCommand,
   serializeAws_restJson1_1DescribeCodeBindingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCodeBindingCommandInput = DescribeCodeBindingRequest;
-export type DescribeCodeBindingCommandOutput = DescribeCodeBindingResponse &
-  __MetadataBearer;
+export type DescribeCodeBindingCommandOutput = DescribeCodeBindingResponse & __MetadataBearer;
 
 export class DescribeCodeBindingCommand extends $Command<
   DescribeCodeBindingCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCodeBindingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCodeBindingCommandInput,
-    DescribeCodeBindingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCodeBindingCommandInput, DescribeCodeBindingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeCodeBindingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCodeBindingCommandOutput> {
-    return deserializeAws_restJson1_1DescribeCodeBindingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

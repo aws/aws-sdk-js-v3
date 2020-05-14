@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  DescribeHarvestJobRequest,
-  DescribeHarvestJobResponse
-} from "../models/index";
+import { DescribeHarvestJobRequest, DescribeHarvestJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeHarvestJobCommand,
   serializeAws_restJson1_1DescribeHarvestJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeHarvestJobCommandInput = DescribeHarvestJobRequest;
-export type DescribeHarvestJobCommandOutput = DescribeHarvestJobResponse &
-  __MetadataBearer;
+export type DescribeHarvestJobCommandOutput = DescribeHarvestJobResponse & __MetadataBearer;
 
 export class DescribeHarvestJobCommand extends $Command<
   DescribeHarvestJobCommandInput,
@@ -50,9 +46,7 @@ export class DescribeHarvestJobCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeHarvestJobCommandInput, DescribeHarvestJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

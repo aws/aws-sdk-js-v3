@@ -6,10 +6,7 @@ import {
   DescribeVoicesCommandInput,
   DescribeVoicesCommandOutput
 } from "./commands/DescribeVoicesCommand";
-import {
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "./commands/GetLexiconCommand";
+import { GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand";
 import {
   GetSpeechSynthesisTaskCommandInput,
   GetSpeechSynthesisTaskCommandOutput
@@ -22,10 +19,7 @@ import {
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput
 } from "./commands/ListSpeechSynthesisTasksCommand";
-import {
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "./commands/PutLexiconCommand";
+import { PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
   StartSpeechSynthesisTaskCommandInput,
   StartSpeechSynthesisTaskCommandOutput
@@ -193,9 +187,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PollyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PollyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +196,7 @@ export type PollyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

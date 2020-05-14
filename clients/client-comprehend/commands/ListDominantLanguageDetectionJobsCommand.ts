@@ -53,9 +53,7 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
     ListDominantLanguageDetectionJobsCommandInput,
     ListDominantLanguageDetectionJobsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command<
     input: ListDominantLanguageDetectionJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDominantLanguageDetectionJobsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListDominantLanguageDetectionJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDominantLanguageDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

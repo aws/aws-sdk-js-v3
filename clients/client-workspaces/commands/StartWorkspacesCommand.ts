@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartWorkspacesCommandInput = StartWorkspacesRequest;
-export type StartWorkspacesCommandOutput = StartWorkspacesResult &
-  __MetadataBearer;
+export type StartWorkspacesCommandOutput = StartWorkspacesResult & __MetadataBearer;
 
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,
@@ -47,9 +46,7 @@ export class StartWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartWorkspacesCommandInput, StartWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

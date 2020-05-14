@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  DeregisterScalableTargetRequest,
-  DeregisterScalableTargetResponse
-} from "../models/index";
+import { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterScalableTargetCommand,
   serializeAws_json1_1DeregisterScalableTargetCommand
@@ -49,13 +46,8 @@ export class DeregisterScalableTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterScalableTargetCommandInput,
-    DeregisterScalableTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterScalableTargetCommandInput, DeregisterScalableTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeregisterScalableTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterScalableTargetCommandOutput> {
-    return deserializeAws_json1_1DeregisterScalableTargetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterScalableTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

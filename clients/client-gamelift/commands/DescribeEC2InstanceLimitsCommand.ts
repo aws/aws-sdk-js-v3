@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeEC2InstanceLimitsInput,
-  DescribeEC2InstanceLimitsOutput
-} from "../models/index";
+import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEC2InstanceLimitsCommand,
   serializeAws_json1_1DescribeEC2InstanceLimitsCommand
@@ -49,13 +46,8 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEC2InstanceLimitsCommandInput,
-    DescribeEC2InstanceLimitsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEC2InstanceLimitsCommandInput, DescribeEC2InstanceLimitsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
-    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -215,14 +215,8 @@ export class RAM extends RAMClient {
     args: AssociateResourceSharePermissionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateResourceSharePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateResourceSharePermissionCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateResourceSharePermissionCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResourceSharePermissionCommandOutput) => void
   ): Promise<AssociateResourceSharePermissionCommandOutput> | void {
     const command = new AssociateResourceSharePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -350,31 +344,19 @@ export class RAM extends RAMClient {
   ): Promise<DisassociateResourceSharePermissionCommandOutput>;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): void;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): void;
   public disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateResourceSharePermissionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateResourceSharePermissionCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): Promise<DisassociateResourceSharePermissionCommandOutput> | void {
     const command = new DisassociateResourceSharePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -409,14 +391,8 @@ export class RAM extends RAMClient {
     args: EnableSharingWithAwsOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableSharingWithAwsOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableSharingWithAwsOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> | void {
     const command = new EnableSharingWithAwsOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -448,9 +424,7 @@ export class RAM extends RAMClient {
   ): void;
   public getPermission(
     args: GetPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionCommandOutput) => void),
     cb?: (err: any, data?: GetPermissionCommandOutput) => void
   ): Promise<GetPermissionCommandOutput> | void {
     const command = new GetPermissionCommand(args);
@@ -625,10 +599,7 @@ export class RAM extends RAMClient {
     args: ListPendingInvitationResourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPendingInvitationResourcesCommandOutput
-        ) => void),
+      | ((err: any, data?: ListPendingInvitationResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListPendingInvitationResourcesCommandOutput) => void
   ): Promise<ListPendingInvitationResourcesCommandOutput> | void {
     const command = new ListPendingInvitationResourcesCommand(args);
@@ -661,9 +632,7 @@ export class RAM extends RAMClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
@@ -697,9 +666,7 @@ export class RAM extends RAMClient {
   ): void;
   public listPrincipals(
     args: ListPrincipalsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPrincipalsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPrincipalsCommandOutput) => void),
     cb?: (err: any, data?: ListPrincipalsCommandOutput) => void
   ): Promise<ListPrincipalsCommandOutput> | void {
     const command = new ListPrincipalsCommand(args);
@@ -767,9 +734,7 @@ export class RAM extends RAMClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
@@ -805,31 +770,19 @@ export class RAM extends RAMClient {
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput>;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): void;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): void;
   public promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+      | ((err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> | void {
     const command = new PromoteResourceShareCreatedFromPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -896,9 +849,7 @@ export class RAM extends RAMClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -931,9 +882,7 @@ export class RAM extends RAMClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

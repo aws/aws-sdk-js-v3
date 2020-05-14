@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteDynamicThingGroupRequest,
-  DeleteDynamicThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDynamicThingGroupCommand,
   serializeAws_restJson1_1DeleteDynamicThingGroupCommand
@@ -49,13 +42,8 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDynamicThingGroupCommandInput,
-    DeleteDynamicThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDynamicThingGroupCommandInput, DeleteDynamicThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     input: DeleteDynamicThingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDynamicThingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDynamicThingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDynamicThingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDynamicThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

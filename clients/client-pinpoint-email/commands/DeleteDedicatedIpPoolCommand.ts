@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointEmailClient";
-import {
-  DeleteDedicatedIpPoolRequest,
-  DeleteDedicatedIpPoolResponse
-} from "../models/index";
+import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDedicatedIpPoolCommand,
   serializeAws_restJson1_1DeleteDedicatedIpPoolCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDedicatedIpPoolCommandInput = DeleteDedicatedIpPoolRequest;
-export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse &
-  __MetadataBearer;
+export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse & __MetadataBearer;
 
 export class DeleteDedicatedIpPoolCommand extends $Command<
   DeleteDedicatedIpPoolCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDedicatedIpPoolCommandInput,
-    DeleteDedicatedIpPoolCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDedicatedIpPoolCommandInput, DeleteDedicatedIpPoolCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  DeleteByteMatchSetRequest,
-  DeleteByteMatchSetResponse
-} from "../models/index";
+import { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteByteMatchSetCommand,
   serializeAws_json1_1DeleteByteMatchSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteByteMatchSetCommandInput = DeleteByteMatchSetRequest;
-export type DeleteByteMatchSetCommandOutput = DeleteByteMatchSetResponse &
-  __MetadataBearer;
+export type DeleteByteMatchSetCommandOutput = DeleteByteMatchSetResponse & __MetadataBearer;
 
 export class DeleteByteMatchSetCommand extends $Command<
   DeleteByteMatchSetCommandInput,
@@ -50,9 +46,7 @@ export class DeleteByteMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteByteMatchSetCommandInput, DeleteByteMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

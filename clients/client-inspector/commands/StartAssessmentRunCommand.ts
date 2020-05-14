@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  StartAssessmentRunRequest,
-  StartAssessmentRunResponse
-} from "../models/index";
+import { StartAssessmentRunRequest, StartAssessmentRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartAssessmentRunCommand,
   serializeAws_json1_1StartAssessmentRunCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartAssessmentRunCommandInput = StartAssessmentRunRequest;
-export type StartAssessmentRunCommandOutput = StartAssessmentRunResponse &
-  __MetadataBearer;
+export type StartAssessmentRunCommandOutput = StartAssessmentRunResponse & __MetadataBearer;
 
 export class StartAssessmentRunCommand extends $Command<
   StartAssessmentRunCommandInput,
@@ -50,9 +46,7 @@ export class StartAssessmentRunCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartAssessmentRunCommandInput, StartAssessmentRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

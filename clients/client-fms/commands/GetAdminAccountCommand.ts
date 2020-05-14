@@ -1,12 +1,5 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  GetAdminAccountRequest,
-  GetAdminAccountResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { GetAdminAccountRequest, GetAdminAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAdminAccountCommand,
   serializeAws_json1_1GetAdminAccountCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAdminAccountCommandInput = GetAdminAccountRequest;
-export type GetAdminAccountCommandOutput = GetAdminAccountResponse &
-  __MetadataBearer;
+export type GetAdminAccountCommandOutput = GetAdminAccountResponse & __MetadataBearer;
 
 export class GetAdminAccountCommand extends $Command<
   GetAdminAccountCommandInput,
@@ -50,9 +42,7 @@ export class GetAdminAccountCommand extends $Command<
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAdminAccountCommandInput, GetAdminAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

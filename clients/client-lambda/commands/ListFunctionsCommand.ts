@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { ListFunctionsRequest, ListFunctionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFunctionsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFunctionsCommandInput = ListFunctionsRequest;
-export type ListFunctionsCommandOutput = ListFunctionsResponse &
-  __MetadataBearer;
+export type ListFunctionsCommandOutput = ListFunctionsResponse & __MetadataBearer;
 
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,
@@ -47,9 +42,7 @@ export class ListFunctionsCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFunctionsCommandInput, ListFunctionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/index";
 import {
   deserializeAws_json1_1NotifyWorkersCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NotifyWorkersCommandInput = NotifyWorkersRequest;
-export type NotifyWorkersCommandOutput = NotifyWorkersResponse &
-  __MetadataBearer;
+export type NotifyWorkersCommandOutput = NotifyWorkersResponse & __MetadataBearer;
 
 export class NotifyWorkersCommand extends $Command<
   NotifyWorkersCommandInput,
@@ -47,9 +42,7 @@ export class NotifyWorkersCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NotifyWorkersCommandInput, NotifyWorkersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateBackendEnvironmentCommandInput,
   CreateBackendEnvironmentCommandOutput
@@ -22,10 +19,7 @@ import {
   CreateWebhookCommandInput,
   CreateWebhookCommandOutput
 } from "./commands/CreateWebhookCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteBackendEnvironmentCommandInput,
   DeleteBackendEnvironmentCommandOutput
@@ -38,10 +32,7 @@ import {
   DeleteDomainAssociationCommandInput,
   DeleteDomainAssociationCommandOutput
 } from "./commands/DeleteDomainAssociationCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteWebhookCommandInput,
   DeleteWebhookCommandOutput
@@ -50,10 +41,7 @@ import {
   GenerateAccessLogsCommandInput,
   GenerateAccessLogsCommandOutput
 } from "./commands/GenerateAccessLogsCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetArtifactUrlCommandInput,
   GetArtifactUrlCommandOutput
@@ -62,26 +50,14 @@ import {
   GetBackendEnvironmentCommandInput,
   GetBackendEnvironmentCommandOutput
 } from "./commands/GetBackendEnvironmentCommand";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import {
   GetDomainAssociationCommandInput,
   GetDomainAssociationCommandOutput
 } from "./commands/GetDomainAssociationCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetWebhookCommandInput,
-  GetWebhookCommandOutput
-} from "./commands/GetWebhookCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import {
   ListArtifactsCommandInput,
   ListArtifactsCommandOutput
@@ -98,10 +74,7 @@ import {
   ListDomainAssociationsCommandInput,
   ListDomainAssociationsCommandOutput
 } from "./commands/ListDomainAssociationsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -114,26 +87,14 @@ import {
   StartDeploymentCommandInput,
   StartDeploymentCommandOutput
 } from "./commands/StartDeploymentCommand";
-import {
-  StartJobCommandInput,
-  StartJobCommandOutput
-} from "./commands/StartJobCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
 import {
   UpdateBranchCommandInput,
   UpdateBranchCommandOutput
@@ -361,9 +322,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AmplifyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AmplifyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +331,7 @@ export type AmplifyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

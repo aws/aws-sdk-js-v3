@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MarketplaceCatalogClient";
-import {
-  DescribeChangeSetRequest,
-  DescribeChangeSetResponse
-} from "../models/index";
+import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeChangeSetCommand,
   serializeAws_restJson1_1DescribeChangeSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeChangeSetCommandInput = DescribeChangeSetRequest;
-export type DescribeChangeSetCommandOutput = DescribeChangeSetResponse &
-  __MetadataBearer;
+export type DescribeChangeSetCommandOutput = DescribeChangeSetResponse & __MetadataBearer;
 
 export class DescribeChangeSetCommand extends $Command<
   DescribeChangeSetCommandInput,
@@ -50,9 +46,7 @@ export class DescribeChangeSetCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

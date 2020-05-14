@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateEmailTemplateRequest,
-  UpdateEmailTemplateResponse
-} from "../models/index";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateEmailTemplateCommand,
   serializeAws_restJson1_1UpdateEmailTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEmailTemplateCommandInput = UpdateEmailTemplateRequest;
-export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse &
-  __MetadataBearer;
+export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse & __MetadataBearer;
 
 export class UpdateEmailTemplateCommand extends $Command<
   UpdateEmailTemplateCommandInput,
@@ -49,13 +45,8 @@ export class UpdateEmailTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEmailTemplateCommandInput,
-    UpdateEmailTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEmailTemplateCommandInput, UpdateEmailTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateEmailTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEmailTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

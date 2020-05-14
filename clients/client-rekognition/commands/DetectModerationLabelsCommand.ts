@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DetectModerationLabelsRequest,
-  DetectModerationLabelsResponse
-} from "../models/index";
+import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectModerationLabelsCommand,
   serializeAws_json1_1DetectModerationLabelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectModerationLabelsCommandInput = DetectModerationLabelsRequest;
-export type DetectModerationLabelsCommandOutput = DetectModerationLabelsResponse &
-  __MetadataBearer;
+export type DetectModerationLabelsCommandOutput = DetectModerationLabelsResponse & __MetadataBearer;
 
 export class DetectModerationLabelsCommand extends $Command<
   DetectModerationLabelsCommandInput,
@@ -49,13 +45,8 @@ export class DetectModerationLabelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetectModerationLabelsCommandInput,
-    DetectModerationLabelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetectModerationLabelsCommandInput, DetectModerationLabelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

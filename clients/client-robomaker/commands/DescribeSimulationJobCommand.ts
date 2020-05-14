@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  DescribeSimulationJobRequest,
-  DescribeSimulationJobResponse
-} from "../models/index";
+import { DescribeSimulationJobRequest, DescribeSimulationJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSimulationJobCommand,
   serializeAws_restJson1_1DescribeSimulationJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSimulationJobCommandInput = DescribeSimulationJobRequest;
-export type DescribeSimulationJobCommandOutput = DescribeSimulationJobResponse &
-  __MetadataBearer;
+export type DescribeSimulationJobCommandOutput = DescribeSimulationJobResponse & __MetadataBearer;
 
 export class DescribeSimulationJobCommand extends $Command<
   DescribeSimulationJobCommandInput,
@@ -49,13 +45,8 @@ export class DescribeSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSimulationJobCommandInput,
-    DescribeSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSimulationJobCommandInput, DescribeSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeSimulationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSimulationJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

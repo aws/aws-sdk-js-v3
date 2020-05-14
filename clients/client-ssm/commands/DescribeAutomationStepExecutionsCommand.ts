@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeAutomationStepExecutionsRequest,
   DescribeAutomationStepExecutionsResult
@@ -53,9 +49,7 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     DescribeAutomationStepExecutionsCommandInput,
     DescribeAutomationStepExecutionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     input: DescribeAutomationStepExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAutomationStepExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAutomationStepExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

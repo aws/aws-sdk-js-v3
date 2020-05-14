@@ -115,9 +115,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public bulkPublish(
     args: BulkPublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BulkPublishCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BulkPublishCommandOutput) => void),
     cb?: (err: any, data?: BulkPublishCommandOutput) => void
   ): Promise<BulkPublishCommandOutput> | void {
     const command = new BulkPublishCommand(args);
@@ -151,9 +149,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
@@ -187,9 +183,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
@@ -331,9 +325,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public getCognitoEvents(
     args: GetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
     cb?: (err: any, data?: GetCognitoEventsCommandOutput) => void
   ): Promise<GetCognitoEventsCommandOutput> | void {
     const command = new GetCognitoEventsCommand(args);
@@ -403,9 +395,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
@@ -475,9 +465,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public listRecords(
     args: ListRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecordsCommandOutput) => void),
     cb?: (err: any, data?: ListRecordsCommandOutput) => void
   ): Promise<ListRecordsCommandOutput> | void {
     const command = new ListRecordsCommand(args);
@@ -511,9 +499,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public registerDevice(
     args: RegisterDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDeviceCommandOutput) => void),
     cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
   ): Promise<RegisterDeviceCommandOutput> | void {
     const command = new RegisterDeviceCommand(args);
@@ -547,9 +533,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public setCognitoEvents(
     args: SetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
     cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
   ): Promise<SetCognitoEventsCommandOutput> | void {
     const command = new SetCognitoEventsCommand(args);
@@ -693,9 +677,7 @@ export class CognitoSync extends CognitoSyncClient {
   ): void;
   public updateRecords(
     args: UpdateRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRecordsCommandOutput) => void),
     cb?: (err: any, data?: UpdateRecordsCommandOutput) => void
   ): Promise<UpdateRecordsCommandOutput> | void {
     const command = new UpdateRecordsCommand(args);

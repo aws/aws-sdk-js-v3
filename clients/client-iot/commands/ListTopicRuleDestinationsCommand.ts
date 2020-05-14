@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListTopicRuleDestinationsRequest,
   ListTopicRuleDestinationsResponse
@@ -49,13 +45,8 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTopicRuleDestinationsCommandInput,
-    ListTopicRuleDestinationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTopicRuleDestinationsCommandInput, ListTopicRuleDestinationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListTopicRuleDestinationsCommand extends $Command<
     input: ListTopicRuleDestinationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTopicRuleDestinationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListTopicRuleDestinationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTopicRuleDestinationsCommandOutput> {
-    return deserializeAws_restJson1_1ListTopicRuleDestinationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTopicRuleDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

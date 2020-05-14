@@ -119,11 +119,7 @@ import {
   GetInstanceProfileCommandInput,
   GetInstanceProfileCommandOutput
 } from "./commands/GetInstanceProfileCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetNetworkProfileCommand,
   GetNetworkProfileCommandInput,
@@ -144,11 +140,7 @@ import {
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput
 } from "./commands/GetRemoteAccessSessionCommand";
-import {
-  GetRunCommand,
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "./commands/GetRunCommand";
+import { GetRunCommand, GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import {
   GetSuiteCommand,
   GetSuiteCommandInput,
@@ -422,9 +414,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createDevicePool(
     args: CreateDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: CreateDevicePoolCommandOutput) => void
   ): Promise<CreateDevicePoolCommandOutput> | void {
     const command = new CreateDevicePoolCommand(args);
@@ -528,9 +518,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
@@ -670,9 +658,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public createUpload(
     args: CreateUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUploadCommandOutput) => void),
     cb?: (err: any, data?: CreateUploadCommandOutput) => void
   ): Promise<CreateUploadCommandOutput> | void {
     const command = new CreateUploadCommand(args);
@@ -742,9 +728,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteDevicePoolCommandOutput) => void
   ): Promise<DeleteDevicePoolCommandOutput> | void {
     const command = new DeleteDevicePoolCommand(args);
@@ -848,9 +832,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
@@ -919,9 +901,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteRun(
     args: DeleteRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRunCommandOutput) => void),
     cb?: (err: any, data?: DeleteRunCommandOutput) => void
   ): Promise<DeleteRunCommandOutput> | void {
     const command = new DeleteRunCommand(args);
@@ -995,9 +975,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public deleteUpload(
     args: DeleteUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUploadCommandOutput) => void),
     cb?: (err: any, data?: DeleteUploadCommandOutput) => void
   ): Promise<DeleteUploadCommandOutput> | void {
     const command = new DeleteUploadCommand(args);
@@ -1101,9 +1079,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
@@ -1171,9 +1147,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getDevicePool(
     args: GetDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: GetDevicePoolCommandOutput) => void
   ): Promise<GetDevicePoolCommandOutput> | void {
     const command = new GetDevicePoolCommand(args);
@@ -1265,10 +1239,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: GetJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1276,9 +1247,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
@@ -1384,9 +1353,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getProject(
     args: GetProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProjectCommandOutput) => void),
     cb?: (err: any, data?: GetProjectCommandOutput) => void
   ): Promise<GetProjectCommandOutput> | void {
     const command = new GetProjectCommand(args);
@@ -1443,10 +1410,7 @@ export class DeviceFarm extends DeviceFarmClient {
     args: GetRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRunCommandOutput>;
-  public getRun(
-    args: GetRunCommandInput,
-    cb: (err: any, data?: GetRunCommandOutput) => void
-  ): void;
+  public getRun(args: GetRunCommandInput, cb: (err: any, data?: GetRunCommandOutput) => void): void;
   public getRun(
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
@@ -1454,9 +1418,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getRun(
     args: GetRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRunCommandOutput) => void),
     cb?: (err: any, data?: GetRunCommandOutput) => void
   ): Promise<GetRunCommandOutput> | void {
     const command = new GetRunCommand(args);
@@ -1489,9 +1451,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getSuite(
     args: GetSuiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSuiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSuiteCommandOutput) => void),
     cb?: (err: any, data?: GetSuiteCommandOutput) => void
   ): Promise<GetSuiteCommandOutput> | void {
     const command = new GetSuiteCommand(args);
@@ -1524,9 +1484,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getTest(
     args: GetTestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTestCommandOutput) => void),
     cb?: (err: any, data?: GetTestCommandOutput) => void
   ): Promise<GetTestCommandOutput> | void {
     const command = new GetTestCommand(args);
@@ -1638,9 +1596,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public getUpload(
     args: GetUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUploadCommandOutput) => void),
     cb?: (err: any, data?: GetUploadCommandOutput) => void
   ): Promise<GetUploadCommandOutput> | void {
     const command = new GetUploadCommand(args);
@@ -1746,9 +1702,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listArtifacts(
     args: ListArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListArtifactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArtifactsCommandOutput) => void),
     cb?: (err: any, data?: ListArtifactsCommandOutput) => void
   ): Promise<ListArtifactsCommandOutput> | void {
     const command = new ListArtifactsCommand(args);
@@ -1817,9 +1771,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listDevicePools(
     args: ListDevicePoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicePoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicePoolsCommandOutput) => void),
     cb?: (err: any, data?: ListDevicePoolsCommandOutput) => void
   ): Promise<ListDevicePoolsCommandOutput> | void {
     const command = new ListDevicePoolsCommand(args);
@@ -1852,9 +1804,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
@@ -1922,9 +1872,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -2070,9 +2018,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listOfferings(
     args: ListOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingsCommandOutput) => void
   ): Promise<ListOfferingsCommandOutput> | void {
     const command = new ListOfferingsCommand(args);
@@ -2105,9 +2051,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
@@ -2175,9 +2119,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listRuns(
     args: ListRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRunsCommandOutput) => void),
     cb?: (err: any, data?: ListRunsCommandOutput) => void
   ): Promise<ListRunsCommandOutput> | void {
     const command = new ListRunsCommand(args);
@@ -2210,9 +2152,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listSamples(
     args: ListSamplesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSamplesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSamplesCommandOutput) => void),
     cb?: (err: any, data?: ListSamplesCommandOutput) => void
   ): Promise<ListSamplesCommandOutput> | void {
     const command = new ListSamplesCommand(args);
@@ -2245,9 +2185,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listSuites(
     args: ListSuitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSuitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSuitesCommandOutput) => void),
     cb?: (err: any, data?: ListSuitesCommandOutput) => void
   ): Promise<ListSuitesCommandOutput> | void {
     const command = new ListSuitesCommand(args);
@@ -2455,9 +2393,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listTests(
     args: ListTestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestsCommandOutput) => void),
     cb?: (err: any, data?: ListTestsCommandOutput) => void
   ): Promise<ListTestsCommandOutput> | void {
     const command = new ListTestsCommand(args);
@@ -2529,9 +2465,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public listUploads(
     args: ListUploadsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUploadsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUploadsCommandOutput) => void),
     cb?: (err: any, data?: ListUploadsCommandOutput) => void
   ): Promise<ListUploadsCommandOutput> | void {
     const command = new ListUploadsCommand(args);
@@ -2603,9 +2537,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
     cb?: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): Promise<PurchaseOfferingCommandOutput> | void {
     const command = new PurchaseOfferingCommand(args);
@@ -2640,9 +2572,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public renewOffering(
     args: RenewOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewOfferingCommandOutput) => void),
     cb?: (err: any, data?: RenewOfferingCommandOutput) => void
   ): Promise<RenewOfferingCommandOutput> | void {
     const command = new RenewOfferingCommand(args);
@@ -2675,9 +2605,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public scheduleRun(
     args: ScheduleRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ScheduleRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScheduleRunCommandOutput) => void),
     cb?: (err: any, data?: ScheduleRunCommandOutput) => void
   ): Promise<ScheduleRunCommandOutput> | void {
     const command = new ScheduleRunCommand(args);
@@ -2713,9 +2641,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public stopJob(
     args: StopJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopJobCommandOutput) => void),
     cb?: (err: any, data?: StopJobCommandOutput) => void
   ): Promise<StopJobCommandOutput> | void {
     const command = new StopJobCommand(args);
@@ -2786,9 +2712,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public stopRun(
     args: StopRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopRunCommandOutput) => void),
     cb?: (err: any, data?: StopRunCommandOutput) => void
   ): Promise<StopRunCommandOutput> | void {
     const command = new StopRunCommand(args);
@@ -2823,9 +2747,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2858,9 +2780,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2930,9 +2850,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateDevicePool(
     args: UpdateDevicePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDevicePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDevicePoolCommandOutput) => void),
     cb?: (err: any, data?: UpdateDevicePoolCommandOutput) => void
   ): Promise<UpdateDevicePoolCommandOutput> | void {
     const command = new UpdateDevicePoolCommand(args);
@@ -3036,9 +2954,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
@@ -3106,9 +3022,7 @@ export class DeviceFarm extends DeviceFarmClient {
   ): void;
   public updateUpload(
     args: UpdateUploadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUploadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUploadCommandOutput) => void),
     cb?: (err: any, data?: UpdateUploadCommandOutput) => void
   ): Promise<UpdateUploadCommandOutput> | void {
     const command = new UpdateUploadCommand(args);

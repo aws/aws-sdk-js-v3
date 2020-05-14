@@ -49,13 +49,8 @@ export class CreateDistributionWithTagsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDistributionWithTagsCommandInput,
-    CreateDistributionWithTagsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDistributionWithTagsCommandInput, CreateDistributionWithTagsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateDistributionWithTagsCommand extends $Command<
     input: CreateDistributionWithTagsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionWithTagsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlCreateDistributionWithTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionWithTagsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

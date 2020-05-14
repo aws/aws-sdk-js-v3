@@ -247,9 +247,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createChannel(
     args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
@@ -285,9 +283,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
@@ -356,9 +352,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createDatastore(
     args: CreateDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatastoreCommandOutput) => void),
     cb?: (err: any, data?: CreateDatastoreCommandOutput) => void
   ): Promise<CreateDatastoreCommandOutput> | void {
     const command = new CreateDatastoreCommand(args);
@@ -394,9 +388,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
@@ -429,9 +421,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteChannel(
     args: DeleteChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteChannelCommandOutput) => void
   ): Promise<DeleteChannelCommandOutput> | void {
     const command = new DeleteChannelCommand(args);
@@ -465,9 +455,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
@@ -535,9 +523,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteDatastore(
     args: DeleteDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatastoreCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatastoreCommandOutput) => void
   ): Promise<DeleteDatastoreCommandOutput> | void {
     const command = new DeleteDatastoreCommand(args);
@@ -570,9 +556,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
@@ -605,9 +589,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeChannel(
     args: DescribeChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
@@ -640,9 +622,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
@@ -745,9 +725,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describePipeline(
     args: DescribePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePipelineCommandOutput) => void),
     cb?: (err: any, data?: DescribePipelineCommandOutput) => void
   ): Promise<DescribePipelineCommandOutput> | void {
     const command = new DescribePipelineCommand(args);
@@ -815,9 +793,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listChannels(
     args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
@@ -885,9 +861,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
@@ -920,9 +894,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listDatastores(
     args: ListDatastoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatastoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatastoresCommandOutput) => void),
     cb?: (err: any, data?: ListDatastoresCommandOutput) => void
   ): Promise<ListDatastoresCommandOutput> | void {
     const command = new ListDatastoresCommand(args);
@@ -955,9 +927,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
@@ -1172,9 +1142,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1207,9 +1175,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1242,9 +1208,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateChannel(
     args: UpdateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
@@ -1277,9 +1241,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateDataset(
     args: UpdateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatasetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatasetCommandOutput) => void
   ): Promise<UpdateDatasetCommandOutput> | void {
     const command = new UpdateDatasetCommand(args);
@@ -1312,9 +1274,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateDatastore(
     args: UpdateDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatastoreCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatastoreCommandOutput) => void
   ): Promise<UpdateDatastoreCommandOutput> | void {
     const command = new UpdateDatastoreCommand(args);
@@ -1349,9 +1309,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);
@@ -1384,9 +1342,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public batchPutMessage(
     args: BatchPutMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutMessageCommandOutput) => void),
     cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
   ): Promise<BatchPutMessageCommandOutput> | void {
     const command = new BatchPutMessageCommand(args);

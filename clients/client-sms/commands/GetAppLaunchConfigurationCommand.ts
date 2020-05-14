@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import {
   GetAppLaunchConfigurationRequest,
   GetAppLaunchConfigurationResponse
@@ -49,13 +45,8 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAppLaunchConfigurationCommandInput,
-    GetAppLaunchConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAppLaunchConfigurationCommandInput, GetAppLaunchConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetAppLaunchConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetAppLaunchConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

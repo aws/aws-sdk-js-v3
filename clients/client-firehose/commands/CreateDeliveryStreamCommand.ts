@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  CreateDeliveryStreamInput,
-  CreateDeliveryStreamOutput
-} from "../models/index";
+import { CreateDeliveryStreamInput, CreateDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateDeliveryStreamCommand,
   serializeAws_json1_1CreateDeliveryStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeliveryStreamCommandInput = CreateDeliveryStreamInput;
-export type CreateDeliveryStreamCommandOutput = CreateDeliveryStreamOutput &
-  __MetadataBearer;
+export type CreateDeliveryStreamCommandOutput = CreateDeliveryStreamOutput & __MetadataBearer;
 
 export class CreateDeliveryStreamCommand extends $Command<
   CreateDeliveryStreamCommandInput,
@@ -49,13 +45,8 @@ export class CreateDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeliveryStreamCommandInput,
-    CreateDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeliveryStreamCommandInput, CreateDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

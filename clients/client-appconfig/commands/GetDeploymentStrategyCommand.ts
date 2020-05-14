@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppConfigClient";
-import {
-  DeploymentStrategy,
-  GetDeploymentStrategyRequest
-} from "../models/index";
+import { DeploymentStrategy, GetDeploymentStrategyRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDeploymentStrategyCommand,
   serializeAws_restJson1_1GetDeploymentStrategyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDeploymentStrategyCommandInput = GetDeploymentStrategyRequest;
-export type GetDeploymentStrategyCommandOutput = DeploymentStrategy &
-  __MetadataBearer;
+export type GetDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
 export class GetDeploymentStrategyCommand extends $Command<
   GetDeploymentStrategyCommandInput,
@@ -49,13 +45,8 @@ export class GetDeploymentStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeploymentStrategyCommandInput,
-    GetDeploymentStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeploymentStrategyCommandInput, GetDeploymentStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDeploymentStrategyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1GetDeploymentStrategyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

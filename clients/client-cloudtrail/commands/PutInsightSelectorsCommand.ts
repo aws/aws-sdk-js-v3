@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudTrailClient";
-import {
-  PutInsightSelectorsRequest,
-  PutInsightSelectorsResponse
-} from "../models/index";
+import { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutInsightSelectorsCommand,
   serializeAws_json1_1PutInsightSelectorsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutInsightSelectorsCommandInput = PutInsightSelectorsRequest;
-export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse &
-  __MetadataBearer;
+export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse & __MetadataBearer;
 
 export class PutInsightSelectorsCommand extends $Command<
   PutInsightSelectorsCommandInput,
@@ -49,13 +45,8 @@ export class PutInsightSelectorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutInsightSelectorsCommandInput,
-    PutInsightSelectorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutInsightSelectorsCommandInput, PutInsightSelectorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

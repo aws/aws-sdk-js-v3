@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDistributionCommandInput = GetDistributionRequest;
-export type GetDistributionCommandOutput = GetDistributionResult &
-  __MetadataBearer;
+export type GetDistributionCommandOutput = GetDistributionResult & __MetadataBearer;
 
 export class GetDistributionCommand extends $Command<
   GetDistributionCommandInput,
@@ -47,9 +46,7 @@ export class GetDistributionCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDistributionCommandInput, GetDistributionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

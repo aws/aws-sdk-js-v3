@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  DescribeDeliveryChannelsRequest,
-  DescribeDeliveryChannelsResponse
-} from "../models/index";
+import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDeliveryChannelsCommand,
   serializeAws_json1_1DescribeDeliveryChannelsCommand
@@ -49,13 +46,8 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDeliveryChannelsCommandInput,
-    DescribeDeliveryChannelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDeliveryChannelsCommandInput, DescribeDeliveryChannelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDeliveryChannelsCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryChannelsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDeliveryChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

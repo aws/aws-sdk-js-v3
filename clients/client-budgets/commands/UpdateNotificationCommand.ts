@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  UpdateNotificationRequest,
-  UpdateNotificationResponse
-} from "../models/index";
+import { UpdateNotificationRequest, UpdateNotificationResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateNotificationCommand,
   serializeAws_json1_1UpdateNotificationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNotificationCommandInput = UpdateNotificationRequest;
-export type UpdateNotificationCommandOutput = UpdateNotificationResponse &
-  __MetadataBearer;
+export type UpdateNotificationCommandOutput = UpdateNotificationResponse & __MetadataBearer;
 
 export class UpdateNotificationCommand extends $Command<
   UpdateNotificationCommandInput,
@@ -50,9 +46,7 @@ export class UpdateNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateNotificationCommandInput, UpdateNotificationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     ModifyWorkspaceAccessPropertiesCommandInput,
     ModifyWorkspaceAccessPropertiesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     input: ModifyWorkspaceAccessPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

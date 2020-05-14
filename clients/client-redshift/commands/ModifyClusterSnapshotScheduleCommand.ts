@@ -49,9 +49,7 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     ModifyClusterSnapshotScheduleCommandInput,
     ModifyClusterSnapshotScheduleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     input: ModifyClusterSnapshotScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSnapshotScheduleCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyClusterSnapshotScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

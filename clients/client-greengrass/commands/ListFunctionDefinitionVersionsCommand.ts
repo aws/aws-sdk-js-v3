@@ -53,9 +53,7 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     ListFunctionDefinitionVersionsCommandInput,
     ListFunctionDefinitionVersionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListFunctionDefinitionVersionsCommand extends $Command<
     input: ListFunctionDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFunctionDefinitionVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListFunctionDefinitionVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFunctionDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

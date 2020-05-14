@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeVpcAttributeRequest,
-  DescribeVpcAttributeResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVpcAttributeRequest, DescribeVpcAttributeResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeVpcAttributeCommand,
   serializeAws_ec2DescribeVpcAttributeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVpcAttributeCommandInput = DescribeVpcAttributeRequest;
-export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult &
-  __MetadataBearer;
+export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult & __MetadataBearer;
 
 export class DescribeVpcAttributeCommand extends $Command<
   DescribeVpcAttributeCommandInput,
@@ -49,13 +41,8 @@ export class DescribeVpcAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpcAttributeCommandInput,
-    DescribeVpcAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpcAttributeCommandInput, DescribeVpcAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

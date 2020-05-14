@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  DisassociateDRTRoleRequest,
-  DisassociateDRTRoleResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateDRTRoleCommand,
   serializeAws_json1_1DisassociateDRTRoleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
-export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse &
-  __MetadataBearer;
+export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse & __MetadataBearer;
 
 export class DisassociateDRTRoleCommand extends $Command<
   DisassociateDRTRoleCommandInput,
@@ -49,13 +41,8 @@ export class DisassociateDRTRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateDRTRoleCommandInput,
-    DisassociateDRTRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateDRTRoleCommandInput, DisassociateDRTRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

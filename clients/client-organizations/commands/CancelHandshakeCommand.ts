@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  CancelHandshakeRequest,
-  CancelHandshakeResponse
-} from "../models/index";
+import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelHandshakeCommand,
   serializeAws_json1_1CancelHandshakeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelHandshakeCommandInput = CancelHandshakeRequest;
-export type CancelHandshakeCommandOutput = CancelHandshakeResponse &
-  __MetadataBearer;
+export type CancelHandshakeCommandOutput = CancelHandshakeResponse & __MetadataBearer;
 
 export class CancelHandshakeCommand extends $Command<
   CancelHandshakeCommandInput,
@@ -50,9 +46,7 @@ export class CancelHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelHandshakeCommandInput, CancelHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

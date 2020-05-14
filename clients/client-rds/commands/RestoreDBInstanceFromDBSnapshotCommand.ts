@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   RestoreDBInstanceFromDBSnapshotMessage,
   RestoreDBInstanceFromDBSnapshotResult
@@ -53,9 +49,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     RestoreDBInstanceFromDBSnapshotCommandInput,
     RestoreDBInstanceFromDBSnapshotCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     input: RestoreDBInstanceFromDBSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

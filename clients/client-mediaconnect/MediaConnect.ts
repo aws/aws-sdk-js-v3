@@ -108,9 +108,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public addFlowOutputs(
     args: AddFlowOutputsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddFlowOutputsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFlowOutputsCommandOutput) => void),
     cb?: (err: any, data?: AddFlowOutputsCommandOutput) => void
   ): Promise<AddFlowOutputsCommandOutput> | void {
     const command = new AddFlowOutputsCommand(args);
@@ -143,9 +141,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public createFlow(
     args: CreateFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlowCommandOutput) => void),
     cb?: (err: any, data?: CreateFlowCommandOutput) => void
   ): Promise<CreateFlowCommandOutput> | void {
     const command = new CreateFlowCommand(args);
@@ -178,9 +174,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public deleteFlow(
     args: DeleteFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlowCommandOutput) => void),
     cb?: (err: any, data?: DeleteFlowCommandOutput) => void
   ): Promise<DeleteFlowCommandOutput> | void {
     const command = new DeleteFlowCommand(args);
@@ -213,9 +207,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public describeFlow(
     args: DescribeFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlowCommandOutput) => void),
     cb?: (err: any, data?: DescribeFlowCommandOutput) => void
   ): Promise<DescribeFlowCommandOutput> | void {
     const command = new DescribeFlowCommand(args);
@@ -283,9 +275,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public listEntitlements(
     args: ListEntitlementsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitlementsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitlementsCommandOutput) => void),
     cb?: (err: any, data?: ListEntitlementsCommandOutput) => void
   ): Promise<ListEntitlementsCommandOutput> | void {
     const command = new ListEntitlementsCommand(args);
@@ -318,9 +308,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public listFlows(
     args: ListFlowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFlowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlowsCommandOutput) => void),
     cb?: (err: any, data?: ListFlowsCommandOutput) => void
   ): Promise<ListFlowsCommandOutput> | void {
     const command = new ListFlowsCommand(args);
@@ -388,9 +376,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public removeFlowOutput(
     args: RemoveFlowOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveFlowOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFlowOutputCommandOutput) => void),
     cb?: (err: any, data?: RemoveFlowOutputCommandOutput) => void
   ): Promise<RemoveFlowOutputCommandOutput> | void {
     const command = new RemoveFlowOutputCommand(args);
@@ -458,9 +444,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public startFlow(
     args: StartFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFlowCommandOutput) => void),
     cb?: (err: any, data?: StartFlowCommandOutput) => void
   ): Promise<StartFlowCommandOutput> | void {
     const command = new StartFlowCommand(args);
@@ -493,9 +477,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public stopFlow(
     args: StopFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopFlowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFlowCommandOutput) => void),
     cb?: (err: any, data?: StopFlowCommandOutput) => void
   ): Promise<StopFlowCommandOutput> | void {
     const command = new StopFlowCommand(args);
@@ -528,9 +510,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -563,9 +543,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -633,9 +611,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public updateFlowOutput(
     args: UpdateFlowOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFlowOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlowOutputCommandOutput) => void),
     cb?: (err: any, data?: UpdateFlowOutputCommandOutput) => void
   ): Promise<UpdateFlowOutputCommandOutput> | void {
     const command = new UpdateFlowOutputCommand(args);
@@ -668,9 +644,7 @@ export class MediaConnect extends MediaConnectClient {
   ): void;
   public updateFlowSource(
     args: UpdateFlowSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFlowSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlowSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateFlowSourceCommandOutput) => void
   ): Promise<UpdateFlowSourceCommandOutput> | void {
     const command = new UpdateFlowSourceCommand(args);

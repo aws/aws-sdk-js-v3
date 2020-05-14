@@ -1,16 +1,9 @@
-import {
-  PutSigningProfileRequest,
-  PutSigningProfileResponse
-} from "../models/index";
+import { PutSigningProfileRequest, PutSigningProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutSigningProfileCommand,
   serializeAws_restJson1_1PutSigningProfileCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutSigningProfileCommandInput = PutSigningProfileRequest;
-export type PutSigningProfileCommandOutput = PutSigningProfileResponse &
-  __MetadataBearer;
+export type PutSigningProfileCommandOutput = PutSigningProfileResponse & __MetadataBearer;
 
 export class PutSigningProfileCommand extends $Command<
   PutSigningProfileCommandInput,
@@ -50,9 +42,7 @@ export class PutSigningProfileCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutSigningProfileCommandInput, PutSigningProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

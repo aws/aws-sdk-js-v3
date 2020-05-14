@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CancelImportTaskRequest,
-  CancelImportTaskResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/index";
 import {
   deserializeAws_ec2CancelImportTaskCommand,
   serializeAws_ec2CancelImportTaskCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelImportTaskCommandInput = CancelImportTaskRequest;
-export type CancelImportTaskCommandOutput = CancelImportTaskResult &
-  __MetadataBearer;
+export type CancelImportTaskCommandOutput = CancelImportTaskResult & __MetadataBearer;
 
 export class CancelImportTaskCommand extends $Command<
   CancelImportTaskCommandInput,
@@ -50,9 +42,7 @@ export class CancelImportTaskCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelImportTaskCommandInput, CancelImportTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

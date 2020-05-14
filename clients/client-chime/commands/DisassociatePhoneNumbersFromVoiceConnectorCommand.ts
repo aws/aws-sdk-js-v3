@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorResponse
@@ -39,9 +35,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput
-  ) {
+  constructor(readonly input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

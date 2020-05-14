@@ -115,9 +115,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public createContainer(
     args: CreateContainerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateContainerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerCommandOutput) => void),
     cb?: (err: any, data?: CreateContainerCommandOutput) => void
   ): Promise<CreateContainerCommandOutput> | void {
     const command = new CreateContainerCommand(args);
@@ -152,9 +150,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteContainer(
     args: DeleteContainerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteContainerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerCommandOutput) => void),
     cb?: (err: any, data?: DeleteContainerCommandOutput) => void
   ): Promise<DeleteContainerCommandOutput> | void {
     const command = new DeleteContainerCommand(args);
@@ -226,9 +222,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public deleteCorsPolicy(
     args: DeleteCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteCorsPolicyCommandOutput) => void
   ): Promise<DeleteCorsPolicyCommandOutput> | void {
     const command = new DeleteCorsPolicyCommand(args);
@@ -378,9 +372,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public getCorsPolicy(
     args: GetCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetCorsPolicyCommandOutput) => void
   ): Promise<GetCorsPolicyCommandOutput> | void {
     const command = new GetCorsPolicyCommand(args);
@@ -456,9 +448,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public listContainers(
     args: ListContainersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContainersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContainersCommandOutput) => void),
     cb?: (err: any, data?: ListContainersCommandOutput) => void
   ): Promise<ListContainersCommandOutput> | void {
     const command = new ListContainersCommand(args);
@@ -577,9 +567,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public putCorsPolicy(
     args: PutCorsPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutCorsPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCorsPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutCorsPolicyCommandOutput) => void
   ): Promise<PutCorsPolicyCommandOutput> | void {
     const command = new PutCorsPolicyCommand(args);
@@ -720,9 +708,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -755,9 +741,7 @@ export class MediaStore extends MediaStoreClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

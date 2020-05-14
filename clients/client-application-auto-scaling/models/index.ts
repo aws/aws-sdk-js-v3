@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdjustmentType {
@@ -34,9 +31,7 @@ export namespace Alarm {
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
  */
-export interface ConcurrentUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentUpdateException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentUpdateException";
   $fault: "server";
   Message?: string;
@@ -1182,9 +1177,7 @@ export namespace DescribeScheduledActionsResponse {
  *          for example, if the role ARN specified for a scalable target does not have permission to
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
  */
-export interface FailedResourceAccessException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FailedResourceAccessException extends __SmithyException, $MetadataBearer {
   name: "FailedResourceAccessException";
   $fault: "client";
   Message?: string;
@@ -1198,9 +1191,7 @@ export namespace FailedResourceAccessException {
 /**
  * <p>The service encountered an internal error.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -1214,9 +1205,7 @@ export namespace InternalServiceException {
 /**
  * <p>The next token supplied was invalid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -1230,17 +1219,14 @@ export namespace InvalidNextTokenException {
 /**
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum MetricAggregationType {
@@ -1266,8 +1252,7 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export const isa = (o: any): o is MetricDimension =>
-    __isa(o, "MetricDimension");
+  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -1302,17 +1287,14 @@ export enum MetricType {
  *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
  *          found.</p>
  */
-export interface ObjectNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ObjectNotFoundException {
-  export const isa = (o: any): o is ObjectNotFoundException =>
-    __isa(o, "ObjectNotFoundException");
+  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -1512,8 +1494,7 @@ export interface PutScalingPolicyRequest {
 }
 
 export namespace PutScalingPolicyRequest {
-  export const isa = (o: any): o is PutScalingPolicyRequest =>
-    __isa(o, "PutScalingPolicyRequest");
+  export const isa = (o: any): o is PutScalingPolicyRequest => __isa(o, "PutScalingPolicyRequest");
 }
 
 export interface PutScalingPolicyResponse {
@@ -2067,8 +2048,7 @@ export interface ScalableTarget {
 }
 
 export namespace ScalableTarget {
-  export const isa = (o: any): o is ScalableTarget =>
-    __isa(o, "ScalableTarget");
+  export const isa = (o: any): o is ScalableTarget => __isa(o, "ScalableTarget");
 }
 
 /**
@@ -2088,8 +2068,7 @@ export interface ScalableTargetAction {
 }
 
 export namespace ScalableTargetAction {
-  export const isa = (o: any): o is ScalableTargetAction =>
-    __isa(o, "ScalableTargetAction");
+  export const isa = (o: any): o is ScalableTargetAction => __isa(o, "ScalableTargetAction");
 }
 
 /**
@@ -2257,8 +2236,7 @@ export interface ScalingActivity {
 }
 
 export namespace ScalingActivity {
-  export const isa = (o: any): o is ScalingActivity =>
-    __isa(o, "ScalingActivity");
+  export const isa = (o: any): o is ScalingActivity => __isa(o, "ScalingActivity");
 }
 
 export enum ScalingActivityStatusCode {
@@ -2612,8 +2590,7 @@ export interface ScheduledAction {
 }
 
 export namespace ScheduledAction {
-  export const isa = (o: any): o is ScheduledAction =>
-    __isa(o, "ScheduledAction");
+  export const isa = (o: any): o is ScheduledAction => __isa(o, "ScheduledAction");
 }
 
 export enum ServiceNamespace {
@@ -2695,8 +2672,7 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
-  export const isa = (o: any): o is StepAdjustment =>
-    __isa(o, "StepAdjustment");
+  export const isa = (o: any): o is StepAdjustment => __isa(o, "StepAdjustment");
 }
 
 /**
@@ -2790,8 +2766,7 @@ export interface SuspendedState {
 }
 
 export namespace SuspendedState {
-  export const isa = (o: any): o is SuspendedState =>
-    __isa(o, "SuspendedState");
+  export const isa = (o: any): o is SuspendedState => __isa(o, "SuspendedState");
 }
 
 /**
@@ -2856,15 +2831,12 @@ export namespace TargetTrackingScalingPolicyConfiguration {
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

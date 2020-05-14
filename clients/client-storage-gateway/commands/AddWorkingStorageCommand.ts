@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  AddWorkingStorageInput,
-  AddWorkingStorageOutput
-} from "../models/index";
+import { AddWorkingStorageInput, AddWorkingStorageOutput } from "../models/index";
 import {
   deserializeAws_json1_1AddWorkingStorageCommand,
   serializeAws_json1_1AddWorkingStorageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddWorkingStorageCommandInput = AddWorkingStorageInput;
-export type AddWorkingStorageCommandOutput = AddWorkingStorageOutput &
-  __MetadataBearer;
+export type AddWorkingStorageCommandOutput = AddWorkingStorageOutput & __MetadataBearer;
 
 export class AddWorkingStorageCommand extends $Command<
   AddWorkingStorageCommandInput,
@@ -50,9 +46,7 @@ export class AddWorkingStorageCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

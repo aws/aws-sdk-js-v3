@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { StartRestoreJobInput, StartRestoreJobOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1StartRestoreJobCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartRestoreJobCommandInput = StartRestoreJobInput;
-export type StartRestoreJobCommandOutput = StartRestoreJobOutput &
-  __MetadataBearer;
+export type StartRestoreJobCommandOutput = StartRestoreJobOutput & __MetadataBearer;
 
 export class StartRestoreJobCommand extends $Command<
   StartRestoreJobCommandInput,
@@ -47,9 +42,7 @@ export class StartRestoreJobCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartRestoreJobCommandInput, StartRestoreJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

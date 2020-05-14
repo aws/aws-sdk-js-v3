@@ -1,12 +1,5 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  ListPermissionsRequest,
-  ListPermissionsResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPermissionsCommand,
   serializeAws_restJson1_1ListPermissionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPermissionsCommandInput = ListPermissionsRequest;
-export type ListPermissionsCommandOutput = ListPermissionsResponse &
-  __MetadataBearer;
+export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
 
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,
@@ -50,9 +42,7 @@ export class ListPermissionsCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPermissionsCommandInput, ListPermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

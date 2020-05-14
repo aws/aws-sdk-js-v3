@@ -1,12 +1,5 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteConfigurationSetCommand,
   serializeAws_restJson1_1DeleteConfigurationSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
-export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse &
-  __MetadataBearer;
+export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
 
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,
@@ -49,13 +41,8 @@ export class DeleteConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConfigurationSetCommandInput,
-    DeleteConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConfigurationSetCommandInput, DeleteConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class DeleteConfigurationSetCommand extends $Command<
     input: DeleteConfigurationSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConfigurationSetCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteConfigurationSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConfigurationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

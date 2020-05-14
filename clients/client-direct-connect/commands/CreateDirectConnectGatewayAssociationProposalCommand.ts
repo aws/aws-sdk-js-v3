@@ -39,9 +39,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput
-  ) {
+  constructor(readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     CreateDirectConnectGatewayAssociationProposalCommandInput,
     CreateDirectConnectGatewayAssociationProposalCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     input: CreateDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
   private deserialize(

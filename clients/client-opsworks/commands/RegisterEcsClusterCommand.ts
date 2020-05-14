@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  RegisterEcsClusterRequest,
-  RegisterEcsClusterResult
-} from "../models/index";
+import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/index";
 import {
   deserializeAws_json1_1RegisterEcsClusterCommand,
   serializeAws_json1_1RegisterEcsClusterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterEcsClusterCommandInput = RegisterEcsClusterRequest;
-export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult &
-  __MetadataBearer;
+export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult & __MetadataBearer;
 
 export class RegisterEcsClusterCommand extends $Command<
   RegisterEcsClusterCommandInput,
@@ -50,9 +46,7 @@ export class RegisterEcsClusterCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterEcsClusterCommandInput, RegisterEcsClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

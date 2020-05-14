@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CancelAuditTaskRequest,
-  CancelAuditTaskResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CancelAuditTaskRequest, CancelAuditTaskResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelAuditTaskCommand,
   serializeAws_restJson1_1CancelAuditTaskCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelAuditTaskCommandInput = CancelAuditTaskRequest;
-export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse &
-  __MetadataBearer;
+export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse & __MetadataBearer;
 
 export class CancelAuditTaskCommand extends $Command<
   CancelAuditTaskCommandInput,
@@ -50,9 +42,7 @@ export class CancelAuditTaskCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelAuditTaskCommandInput, CancelAuditTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

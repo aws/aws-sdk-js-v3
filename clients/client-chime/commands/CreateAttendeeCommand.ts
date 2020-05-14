@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { CreateAttendeeRequest, CreateAttendeeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateAttendeeCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAttendeeCommandInput = CreateAttendeeRequest;
-export type CreateAttendeeCommandOutput = CreateAttendeeResponse &
-  __MetadataBearer;
+export type CreateAttendeeCommandOutput = CreateAttendeeResponse & __MetadataBearer;
 
 export class CreateAttendeeCommand extends $Command<
   CreateAttendeeCommandInput,
@@ -47,9 +42,7 @@ export class CreateAttendeeCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAttendeeCommandInput, CreateAttendeeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEndpointCommandInput = CreateEndpointMessage;
-export type CreateEndpointCommandOutput = CreateEndpointResponse &
-  __MetadataBearer;
+export type CreateEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
 
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,
@@ -47,9 +46,7 @@ export class CreateEndpointCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEndpointCommandInput, CreateEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

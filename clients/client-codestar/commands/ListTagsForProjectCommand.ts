@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  ListTagsForProjectRequest,
-  ListTagsForProjectResult
-} from "../models/index";
+import { ListTagsForProjectRequest, ListTagsForProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsForProjectCommand,
   serializeAws_json1_1ListTagsForProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForProjectCommandInput = ListTagsForProjectRequest;
-export type ListTagsForProjectCommandOutput = ListTagsForProjectResult &
-  __MetadataBearer;
+export type ListTagsForProjectCommandOutput = ListTagsForProjectResult & __MetadataBearer;
 
 export class ListTagsForProjectCommand extends $Command<
   ListTagsForProjectCommandInput,
@@ -50,9 +46,7 @@ export class ListTagsForProjectCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForProjectCommandInput, ListTagsForProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

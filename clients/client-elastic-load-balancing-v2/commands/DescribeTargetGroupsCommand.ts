@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeTargetGroupsInput,
-  DescribeTargetGroupsOutput
-} from "../models/index";
+import { DescribeTargetGroupsInput, DescribeTargetGroupsOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeTargetGroupsCommand,
   serializeAws_queryDescribeTargetGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTargetGroupsCommandInput = DescribeTargetGroupsInput;
-export type DescribeTargetGroupsCommandOutput = DescribeTargetGroupsOutput &
-  __MetadataBearer;
+export type DescribeTargetGroupsCommandOutput = DescribeTargetGroupsOutput & __MetadataBearer;
 
 export class DescribeTargetGroupsCommand extends $Command<
   DescribeTargetGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeTargetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTargetGroupsCommandInput,
-    DescribeTargetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTargetGroupsCommandInput, DescribeTargetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

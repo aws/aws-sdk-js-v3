@@ -1,11 +1,5 @@
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput
@@ -34,26 +28,14 @@ import {
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput
 } from "./commands/ListPipelinesCommand";
-import {
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput
-} from "./commands/ListPresetsCommand";
-import {
-  ReadJobCommandInput,
-  ReadJobCommandOutput
-} from "./commands/ReadJobCommand";
+import { ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand";
+import { ReadJobCommandInput, ReadJobCommandOutput } from "./commands/ReadJobCommand";
 import {
   ReadPipelineCommandInput,
   ReadPipelineCommandOutput
 } from "./commands/ReadPipelineCommand";
-import {
-  ReadPresetCommandInput,
-  ReadPresetCommandOutput
-} from "./commands/ReadPresetCommand";
-import {
-  TestRoleCommandInput,
-  TestRoleCommandOutput
-} from "./commands/TestRoleCommand";
+import { ReadPresetCommandInput, ReadPresetCommandOutput } from "./commands/ReadPresetCommand";
+import { TestRoleCommandInput, TestRoleCommandOutput } from "./commands/TestRoleCommand";
 import {
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput
@@ -241,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticTranscoderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticTranscoderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

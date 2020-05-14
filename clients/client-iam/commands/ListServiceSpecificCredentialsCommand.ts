@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListServiceSpecificCredentialsRequest,
   ListServiceSpecificCredentialsResponse
@@ -53,9 +49,7 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     ListServiceSpecificCredentialsCommandInput,
     ListServiceSpecificCredentialsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     input: ListServiceSpecificCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListServiceSpecificCredentialsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListServiceSpecificCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceSpecificCredentialsCommandOutput> {
-    return deserializeAws_queryListServiceSpecificCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListServiceSpecificCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

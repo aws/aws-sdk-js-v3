@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterCredentials,
-  GetClusterCredentialsMessage
-} from "../models/index";
+import { ClusterCredentials, GetClusterCredentialsMessage } from "../models/index";
 import {
   deserializeAws_queryGetClusterCredentialsCommand,
   serializeAws_queryGetClusterCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetClusterCredentialsCommandInput = GetClusterCredentialsMessage;
-export type GetClusterCredentialsCommandOutput = ClusterCredentials &
-  __MetadataBearer;
+export type GetClusterCredentialsCommandOutput = ClusterCredentials & __MetadataBearer;
 
 export class GetClusterCredentialsCommand extends $Command<
   GetClusterCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class GetClusterCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetClusterCredentialsCommandInput,
-    GetClusterCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetClusterCredentialsCommandInput, GetClusterCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

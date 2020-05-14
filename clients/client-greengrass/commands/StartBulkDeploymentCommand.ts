@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  StartBulkDeploymentRequest,
-  StartBulkDeploymentResponse
-} from "../models/index";
+import { StartBulkDeploymentRequest, StartBulkDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartBulkDeploymentCommand,
   serializeAws_restJson1_1StartBulkDeploymentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartBulkDeploymentCommandInput = StartBulkDeploymentRequest;
-export type StartBulkDeploymentCommandOutput = StartBulkDeploymentResponse &
-  __MetadataBearer;
+export type StartBulkDeploymentCommandOutput = StartBulkDeploymentResponse & __MetadataBearer;
 
 export class StartBulkDeploymentCommand extends $Command<
   StartBulkDeploymentCommandInput,
@@ -49,13 +45,8 @@ export class StartBulkDeploymentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartBulkDeploymentCommandInput,
-    StartBulkDeploymentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartBulkDeploymentCommandInput, StartBulkDeploymentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class StartBulkDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartBulkDeploymentCommandOutput> {
-    return deserializeAws_restJson1_1StartBulkDeploymentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartBulkDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCommandInput = CreateSnapshotInput;
-export type CreateSnapshotCommandOutput = CreateSnapshotOutput &
-  __MetadataBearer;
+export type CreateSnapshotCommandOutput = CreateSnapshotOutput & __MetadataBearer;
 
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,
@@ -47,9 +46,7 @@ export class CreateSnapshotCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSnapshotCommandInput, CreateSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

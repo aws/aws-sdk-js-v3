@@ -53,9 +53,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     AddApplicationVpcConfigurationCommandInput,
     AddApplicationVpcConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     input: AddApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationVpcConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AddApplicationVpcConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationVpcConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationVpcConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationVpcConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

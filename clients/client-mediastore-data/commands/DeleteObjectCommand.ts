@@ -46,9 +46,7 @@ export class DeleteObjectCommand extends $Command<
     configuration: MediaStoreDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteObjectCommandInput, DeleteObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -46,9 +46,7 @@ export class ListGraphsCommand extends $Command<
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGraphsCommandInput, ListGraphsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

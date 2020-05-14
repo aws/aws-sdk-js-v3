@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -32,8 +27,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateServerRequest {
@@ -98,8 +92,7 @@ export interface CreateServerRequest {
 }
 
 export namespace CreateServerRequest {
-  export const isa = (o: any): o is CreateServerRequest =>
-    __isa(o, "CreateServerRequest");
+  export const isa = (o: any): o is CreateServerRequest => __isa(o, "CreateServerRequest");
 }
 
 export interface CreateServerResponse {
@@ -111,8 +104,7 @@ export interface CreateServerResponse {
 }
 
 export namespace CreateServerResponse {
-  export const isa = (o: any): o is CreateServerResponse =>
-    __isa(o, "CreateServerResponse");
+  export const isa = (o: any): o is CreateServerResponse => __isa(o, "CreateServerResponse");
 }
 
 export interface CreateUserRequest {
@@ -221,8 +213,7 @@ export interface CreateUserRequest {
 }
 
 export namespace CreateUserRequest {
-  export const isa = (o: any): o is CreateUserRequest =>
-    __isa(o, "CreateUserRequest");
+  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
@@ -239,8 +230,7 @@ export interface CreateUserResponse {
 }
 
 export namespace CreateUserResponse {
-  export const isa = (o: any): o is CreateUserResponse =>
-    __isa(o, "CreateUserResponse");
+  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export interface DeleteServerRequest {
@@ -252,8 +242,7 @@ export interface DeleteServerRequest {
 }
 
 export namespace DeleteServerRequest {
-  export const isa = (o: any): o is DeleteServerRequest =>
-    __isa(o, "DeleteServerRequest");
+  export const isa = (o: any): o is DeleteServerRequest => __isa(o, "DeleteServerRequest");
 }
 
 export interface DeleteSshPublicKeyRequest {
@@ -295,8 +284,7 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
-  export const isa = (o: any): o is DeleteUserRequest =>
-    __isa(o, "DeleteUserRequest");
+  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DescribeServerRequest {
@@ -308,8 +296,7 @@ export interface DescribeServerRequest {
 }
 
 export namespace DescribeServerRequest {
-  export const isa = (o: any): o is DescribeServerRequest =>
-    __isa(o, "DescribeServerRequest");
+  export const isa = (o: any): o is DescribeServerRequest => __isa(o, "DescribeServerRequest");
 }
 
 export interface DescribeServerResponse {
@@ -322,8 +309,7 @@ export interface DescribeServerResponse {
 }
 
 export namespace DescribeServerResponse {
-  export const isa = (o: any): o is DescribeServerResponse =>
-    __isa(o, "DescribeServerResponse");
+  export const isa = (o: any): o is DescribeServerResponse => __isa(o, "DescribeServerResponse");
 }
 
 export interface DescribeUserRequest {
@@ -341,8 +327,7 @@ export interface DescribeUserRequest {
 }
 
 export namespace DescribeUserRequest {
-  export const isa = (o: any): o is DescribeUserRequest =>
-    __isa(o, "DescribeUserRequest");
+  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
@@ -360,8 +345,7 @@ export interface DescribeUserResponse {
 }
 
 export namespace DescribeUserResponse {
-  export const isa = (o: any): o is DescribeUserResponse =>
-    __isa(o, "DescribeUserResponse");
+  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -450,8 +434,7 @@ export interface DescribedServer {
 }
 
 export namespace DescribedServer {
-  export const isa = (o: any): o is DescribedServer =>
-    __isa(o, "DescribedServer");
+  export const isa = (o: any): o is DescribedServer => __isa(o, "DescribedServer");
 }
 
 /**
@@ -573,8 +556,7 @@ export interface EndpointDetails {
 }
 
 export namespace EndpointDetails {
-  export const isa = (o: any): o is EndpointDetails =>
-    __isa(o, "EndpointDetails");
+  export const isa = (o: any): o is EndpointDetails => __isa(o, "EndpointDetails");
 }
 
 export enum EndpointType {
@@ -601,8 +583,7 @@ export interface HomeDirectoryMapEntry {
 }
 
 export namespace HomeDirectoryMapEntry {
-  export const isa = (o: any): o is HomeDirectoryMapEntry =>
-    __isa(o, "HomeDirectoryMapEntry");
+  export const isa = (o: any): o is HomeDirectoryMapEntry => __isa(o, "HomeDirectoryMapEntry");
 }
 
 export enum HomeDirectoryType {
@@ -630,8 +611,7 @@ export interface IdentityProviderDetails {
 }
 
 export namespace IdentityProviderDetails {
-  export const isa = (o: any): o is IdentityProviderDetails =>
-    __isa(o, "IdentityProviderDetails");
+  export const isa = (o: any): o is IdentityProviderDetails => __isa(o, "IdentityProviderDetails");
 }
 
 export enum IdentityProviderType {
@@ -693,25 +673,20 @@ export namespace ImportSshPublicKeyResponse {
 /**
  * <p>This exception is thrown when an error occurs in the AWS Transfer for SFTP service.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   Message: string | undefined;
 }
 
 export namespace InternalServiceError {
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message: string | undefined;
@@ -725,17 +700,14 @@ export namespace InvalidNextTokenException {
 /**
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message: string | undefined;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListServersRequest {
@@ -757,8 +729,7 @@ export interface ListServersRequest {
 }
 
 export namespace ListServersRequest {
-  export const isa = (o: any): o is ListServersRequest =>
-    __isa(o, "ListServersRequest");
+  export const isa = (o: any): o is ListServersRequest => __isa(o, "ListServersRequest");
 }
 
 export interface ListServersResponse {
@@ -777,8 +748,7 @@ export interface ListServersResponse {
 }
 
 export namespace ListServersResponse {
-  export const isa = (o: any): o is ListServersResponse =>
-    __isa(o, "ListServersResponse");
+  export const isa = (o: any): o is ListServersResponse => __isa(o, "ListServersResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -859,8 +829,7 @@ export interface ListUsersRequest {
 }
 
 export namespace ListUsersRequest {
-  export const isa = (o: any): o is ListUsersRequest =>
-    __isa(o, "ListUsersRequest");
+  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
@@ -887,8 +856,7 @@ export interface ListUsersResponse {
 }
 
 export namespace ListUsersResponse {
-  export const isa = (o: any): o is ListUsersResponse =>
-    __isa(o, "ListUsersResponse");
+  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
@@ -1008,9 +976,7 @@ export namespace ListedUser {
 /**
  * <p>The requested resource does not exist.</p>
  */
-export interface ResourceExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceExistsException";
   $fault: "client";
   Message: string | undefined;
@@ -1019,17 +985,14 @@ export interface ResourceExistsException
 }
 
 export namespace ResourceExistsException {
-  export const isa = (o: any): o is ResourceExistsException =>
-    __isa(o, "ResourceExistsException");
+  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
  * <p>This exception is thrown when a resource is not found by the AWS Transfer for SFTP
  *       service.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
@@ -1081,8 +1044,7 @@ export interface StartServerRequest {
 }
 
 export namespace StartServerRequest {
-  export const isa = (o: any): o is StartServerRequest =>
-    __isa(o, "StartServerRequest");
+  export const isa = (o: any): o is StartServerRequest => __isa(o, "StartServerRequest");
 }
 
 export enum State {
@@ -1103,8 +1065,7 @@ export interface StopServerRequest {
 }
 
 export namespace StopServerRequest {
-  export const isa = (o: any): o is StopServerRequest =>
-    __isa(o, "StopServerRequest");
+  export const isa = (o: any): o is StopServerRequest => __isa(o, "StopServerRequest");
 }
 
 /**
@@ -1148,8 +1109,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TestIdentityProviderRequest {
@@ -1208,17 +1168,14 @@ export namespace TestIdentityProviderResponse {
  * <p>The request was denied due to request throttling.</p>
  *          <p> HTTP Status Code: 400</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   RetryAfterSeconds?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -1237,8 +1194,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateServerRequest {
@@ -1291,8 +1247,7 @@ export interface UpdateServerRequest {
 }
 
 export namespace UpdateServerRequest {
-  export const isa = (o: any): o is UpdateServerRequest =>
-    __isa(o, "UpdateServerRequest");
+  export const isa = (o: any): o is UpdateServerRequest => __isa(o, "UpdateServerRequest");
 }
 
 export interface UpdateServerResponse {
@@ -1305,8 +1260,7 @@ export interface UpdateServerResponse {
 }
 
 export namespace UpdateServerResponse {
-  export const isa = (o: any): o is UpdateServerResponse =>
-    __isa(o, "UpdateServerResponse");
+  export const isa = (o: any): o is UpdateServerResponse => __isa(o, "UpdateServerResponse");
 }
 
 export interface UpdateUserRequest {
@@ -1400,8 +1354,7 @@ export interface UpdateUserRequest {
 }
 
 export namespace UpdateUserRequest {
-  export const isa = (o: any): o is UpdateUserRequest =>
-    __isa(o, "UpdateUserRequest");
+  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 /**
@@ -1425,6 +1378,5 @@ export interface UpdateUserResponse {
 }
 
 export namespace UpdateUserResponse {
-  export const isa = (o: any): o is UpdateUserResponse =>
-    __isa(o, "UpdateUserResponse");
+  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }

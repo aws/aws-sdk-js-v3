@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentsMessage,
-  EnvironmentDescriptionsMessage
-} from "../models/index";
+import { DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeEnvironmentsCommand,
   serializeAws_queryDescribeEnvironmentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsMessage;
-export type DescribeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage &
-  __MetadataBearer;
+export type DescribeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
 
 export class DescribeEnvironmentsCommand extends $Command<
   DescribeEnvironmentsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentsCommandInput,
-    DescribeEnvironmentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentsCommandInput, DescribeEnvironmentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

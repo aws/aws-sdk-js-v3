@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  DeregisterEndPointsInput,
-  DeregisterEndPointsOutput
-} from "../models/index";
+import { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/index";
 import {
   deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
   serializeAws_queryDeregisterInstancesFromLoadBalancerCommand
@@ -53,9 +50,7 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     DeregisterInstancesFromLoadBalancerCommandInput,
     DeregisterInstancesFromLoadBalancerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     input: DeregisterInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> {
-    return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

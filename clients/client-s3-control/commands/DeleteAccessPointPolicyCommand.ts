@@ -45,13 +45,8 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAccessPointPolicyCommandInput,
-    DeleteAccessPointPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAccessPointPolicyCommandInput, DeleteAccessPointPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -107,8 +107,7 @@ export class EventMessageChunkerStream extends Transform {
   private allocateMessage(size: number) {
     if (typeof size !== "number") {
       throw new Error(
-        "Attempted to allocate an event message where size was not a number: " +
-          size
+        "Attempted to allocate an event message where size was not a number: " + size
       );
     }
     this.currentMessageTotalLength = size;

@@ -1,8 +1,4 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { RemoveTagsFromCertificateRequest } from "../models/index";
 import {
   deserializeAws_json1_1RemoveTagsFromCertificateCommand,
@@ -45,13 +41,8 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveTagsFromCertificateCommandInput,
-    RemoveTagsFromCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveTagsFromCertificateCommandInput, RemoveTagsFromCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromCertificateCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

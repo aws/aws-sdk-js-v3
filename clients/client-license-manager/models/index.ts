@@ -1,40 +1,31 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Access to resource denied.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The AWS user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  */
-export interface AuthorizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AuthorizationException {
-  export const isa = (o: any): o is AuthorizationException =>
-    __isa(o, "AuthorizationException");
+  export const isa = (o: any): o is AuthorizationException => __isa(o, "AuthorizationException");
 }
 
 /**
@@ -70,8 +61,7 @@ export interface ConsumedLicenseSummary {
 }
 
 export namespace ConsumedLicenseSummary {
-  export const isa = (o: any): o is ConsumedLicenseSummary =>
-    __isa(o, "ConsumedLicenseSummary");
+  export const isa = (o: any): o is ConsumedLicenseSummary => __isa(o, "ConsumedLicenseSummary");
 }
 
 export interface CreateLicenseConfigurationRequest {
@@ -186,9 +176,7 @@ export namespace DeleteLicenseConfigurationResponse {
 /**
  * <p>A dependency required to run the API is missing.</p>
  */
-export interface FailedDependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FailedDependencyException extends __SmithyException, $MetadataBearer {
   name: "FailedDependencyException";
   $fault: "client";
   Message?: string;
@@ -224,9 +212,7 @@ export namespace Filter {
 /**
  * <p>The request uses too many filters or too many filter values.</p>
  */
-export interface FilterLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FilterLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FilterLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -386,9 +372,7 @@ export namespace GetServiceSettingsResponse {
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
@@ -404,9 +388,7 @@ export namespace InvalidParameterValueException {
  *          <p>For example, you cannot allocate a license to an instance in the process of shutting
  *          down.</p>
  */
-export interface InvalidResourceStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
@@ -439,8 +421,7 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
-  export const isa = (o: any): o is InventoryFilter =>
-    __isa(o, "InventoryFilter");
+  export const isa = (o: any): o is InventoryFilter => __isa(o, "InventoryFilter");
 }
 
 export enum InventoryFilterCondition {
@@ -536,8 +517,7 @@ export interface LicenseConfiguration {
 }
 
 export namespace LicenseConfiguration {
-  export const isa = (o: any): o is LicenseConfiguration =>
-    __isa(o, "LicenseConfiguration");
+  export const isa = (o: any): o is LicenseConfiguration => __isa(o, "LicenseConfiguration");
 }
 
 /**
@@ -671,8 +651,7 @@ export interface LicenseOperationFailure {
 }
 
 export namespace LicenseOperationFailure {
-  export const isa = (o: any): o is LicenseOperationFailure =>
-    __isa(o, "LicenseOperationFailure");
+  export const isa = (o: any): o is LicenseOperationFailure => __isa(o, "LicenseOperationFailure");
 }
 
 /**
@@ -687,24 +666,20 @@ export interface LicenseSpecification {
 }
 
 export namespace LicenseSpecification {
-  export const isa = (o: any): o is LicenseSpecification =>
-    __isa(o, "LicenseSpecification");
+  export const isa = (o: any): o is LicenseSpecification => __isa(o, "LicenseSpecification");
 }
 
 /**
  * <p>You do not have enough licenses available to support a new resource launch.</p>
  */
-export interface LicenseUsageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LicenseUsageException extends __SmithyException, $MetadataBearer {
   name: "LicenseUsageException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LicenseUsageException {
-  export const isa = (o: any): o is LicenseUsageException =>
-    __isa(o, "LicenseUsageException");
+  export const isa = (o: any): o is LicenseUsageException => __isa(o, "LicenseUsageException");
 }
 
 export interface ListAssociationsForLicenseConfigurationRequest {
@@ -726,9 +701,7 @@ export interface ListAssociationsForLicenseConfigurationRequest {
 }
 
 export namespace ListAssociationsForLicenseConfigurationRequest {
-  export const isa = (
-    o: any
-  ): o is ListAssociationsForLicenseConfigurationRequest =>
+  export const isa = (o: any): o is ListAssociationsForLicenseConfigurationRequest =>
     __isa(o, "ListAssociationsForLicenseConfigurationRequest");
 }
 
@@ -746,9 +719,7 @@ export interface ListAssociationsForLicenseConfigurationResponse {
 }
 
 export namespace ListAssociationsForLicenseConfigurationResponse {
-  export const isa = (
-    o: any
-  ): o is ListAssociationsForLicenseConfigurationResponse =>
+  export const isa = (o: any): o is ListAssociationsForLicenseConfigurationResponse =>
     __isa(o, "ListAssociationsForLicenseConfigurationResponse");
 }
 
@@ -771,9 +742,7 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
-  export const isa = (
-    o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsRequest =>
+  export const isa = (o: any): o is ListFailuresForLicenseConfigurationOperationsRequest =>
     __isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
 }
 
@@ -791,9 +760,7 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsResponse {
-  export const isa = (
-    o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsResponse =>
+  export const isa = (o: any): o is ListFailuresForLicenseConfigurationOperationsResponse =>
     __isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
 }
 
@@ -880,9 +847,7 @@ export interface ListLicenseSpecificationsForResourceRequest {
 }
 
 export namespace ListLicenseSpecificationsForResourceRequest {
-  export const isa = (
-    o: any
-  ): o is ListLicenseSpecificationsForResourceRequest =>
+  export const isa = (o: any): o is ListLicenseSpecificationsForResourceRequest =>
     __isa(o, "ListLicenseSpecificationsForResourceRequest");
 }
 
@@ -900,9 +865,7 @@ export interface ListLicenseSpecificationsForResourceResponse {
 }
 
 export namespace ListLicenseSpecificationsForResourceResponse {
-  export const isa = (
-    o: any
-  ): o is ListLicenseSpecificationsForResourceResponse =>
+  export const isa = (o: any): o is ListLicenseSpecificationsForResourceResponse =>
     __isa(o, "ListLicenseSpecificationsForResourceResponse");
 }
 
@@ -1086,8 +1049,7 @@ export interface ManagedResourceSummary {
 }
 
 export namespace ManagedResourceSummary {
-  export const isa = (o: any): o is ManagedResourceSummary =>
-    __isa(o, "ManagedResourceSummary");
+  export const isa = (o: any): o is ManagedResourceSummary => __isa(o, "ManagedResourceSummary");
 }
 
 /**
@@ -1180,8 +1142,7 @@ export interface ProductInformation {
 }
 
 export namespace ProductInformation {
-  export const isa = (o: any): o is ProductInformation =>
-    __isa(o, "ProductInformation");
+  export const isa = (o: any): o is ProductInformation => __isa(o, "ProductInformation");
 }
 
 /**
@@ -1213,9 +1174,7 @@ export namespace ProductInformationFilter {
 /**
  * <p>Too many requests have been submitted. Try again after a brief wait.</p>
  */
-export interface RateLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RateLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RateLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1263,16 +1222,13 @@ export interface ResourceInventory {
 }
 
 export namespace ResourceInventory {
-  export const isa = (o: any): o is ResourceInventory =>
-    __isa(o, "ResourceInventory");
+  export const isa = (o: any): o is ResourceInventory => __isa(o, "ResourceInventory");
 }
 
 /**
  * <p>Your resource limits have been exceeded.</p>
  */
-export interface ResourceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1294,17 +1250,14 @@ export enum ResourceType {
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
-export interface ServerInternalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerInternalException extends __SmithyException, $MetadataBearer {
   name: "ServerInternalException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ServerInternalException {
-  export const isa = (o: any): o is ServerInternalException =>
-    __isa(o, "ServerInternalException");
+  export const isa = (o: any): o is ServerInternalException => __isa(o, "ServerInternalException");
 }
 
 /**
@@ -1341,8 +1294,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1350,8 +1302,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1368,8 +1319,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1377,8 +1327,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLicenseConfigurationRequest {
@@ -1457,9 +1406,7 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateLicenseSpecificationsForResourceRequest =>
+  export const isa = (o: any): o is UpdateLicenseSpecificationsForResourceRequest =>
     __isa(o, "UpdateLicenseSpecificationsForResourceRequest");
 }
 
@@ -1468,9 +1415,7 @@ export interface UpdateLicenseSpecificationsForResourceResponse {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceResponse {
-  export const isa = (
-    o: any
-  ): o is UpdateLicenseSpecificationsForResourceResponse =>
+  export const isa = (o: any): o is UpdateLicenseSpecificationsForResourceResponse =>
     __isa(o, "UpdateLicenseSpecificationsForResourceResponse");
 }
 

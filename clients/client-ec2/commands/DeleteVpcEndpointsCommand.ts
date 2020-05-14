@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteVpcEndpointsRequest,
-  DeleteVpcEndpointsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVpcEndpointsCommandInput = DeleteVpcEndpointsRequest;
-export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult &
-  __MetadataBearer;
+export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult & __MetadataBearer;
 
 export class DeleteVpcEndpointsCommand extends $Command<
   DeleteVpcEndpointsCommandInput,
@@ -50,9 +42,7 @@ export class DeleteVpcEndpointsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

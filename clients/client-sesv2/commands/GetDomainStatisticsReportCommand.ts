@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   GetDomainStatisticsReportRequest,
   GetDomainStatisticsReportResponse
@@ -49,13 +45,8 @@ export class GetDomainStatisticsReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDomainStatisticsReportCommandInput,
-    GetDomainStatisticsReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDomainStatisticsReportCommandInput, GetDomainStatisticsReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetDomainStatisticsReportCommand extends $Command<
     input: GetDomainStatisticsReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDomainStatisticsReportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDomainStatisticsReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainStatisticsReportCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainStatisticsReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDomainStatisticsReportCommand(output, context);
   }
 
   // Start section: command_body_extra

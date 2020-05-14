@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient";
-import {
-  DeregisterInstanceRequest,
-  DeregisterInstanceResponse
-} from "../models/index";
+import { DeregisterInstanceRequest, DeregisterInstanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterInstanceCommand,
   serializeAws_json1_1DeregisterInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterInstanceCommandInput = DeregisterInstanceRequest;
-export type DeregisterInstanceCommandOutput = DeregisterInstanceResponse &
-  __MetadataBearer;
+export type DeregisterInstanceCommandOutput = DeregisterInstanceResponse & __MetadataBearer;
 
 export class DeregisterInstanceCommand extends $Command<
   DeregisterInstanceCommandInput,
@@ -50,9 +46,7 @@ export class DeregisterInstanceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

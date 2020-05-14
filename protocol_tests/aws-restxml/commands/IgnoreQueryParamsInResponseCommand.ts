@@ -46,13 +46,8 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IgnoreQueryParamsInResponseCommandInput,
-    IgnoreQueryParamsInResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IgnoreQueryParamsInResponseCommandInput, IgnoreQueryParamsInResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +66,14 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     input: IgnoreQueryParamsInResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlIgnoreQueryParamsInResponseCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlIgnoreQueryParamsInResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
-    return deserializeAws_restXmlIgnoreQueryParamsInResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlIgnoreQueryParamsInResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  GetTopicRuleDestinationRequest,
-  GetTopicRuleDestinationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetTopicRuleDestinationRequest, GetTopicRuleDestinationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetTopicRuleDestinationCommand,
   serializeAws_restJson1_1GetTopicRuleDestinationCommand
@@ -49,13 +42,8 @@ export class GetTopicRuleDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTopicRuleDestinationCommandInput,
-    GetTopicRuleDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTopicRuleDestinationCommandInput, GetTopicRuleDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetTopicRuleDestinationCommand extends $Command<
     input: GetTopicRuleDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTopicRuleDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetTopicRuleDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1_1GetTopicRuleDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

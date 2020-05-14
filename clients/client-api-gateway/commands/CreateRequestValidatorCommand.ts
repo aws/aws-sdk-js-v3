@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  CreateRequestValidatorRequest,
-  RequestValidator
-} from "../models/index";
+import { CreateRequestValidatorRequest, RequestValidator } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRequestValidatorCommand,
   serializeAws_restJson1_1CreateRequestValidatorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRequestValidatorCommandInput = CreateRequestValidatorRequest;
-export type CreateRequestValidatorCommandOutput = RequestValidator &
-  __MetadataBearer;
+export type CreateRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
 
 export class CreateRequestValidatorCommand extends $Command<
   CreateRequestValidatorCommandInput,
@@ -49,13 +45,8 @@ export class CreateRequestValidatorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRequestValidatorCommandInput,
-    CreateRequestValidatorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRequestValidatorCommandInput, CreateRequestValidatorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateRequestValidatorCommand extends $Command<
     input: CreateRequestValidatorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRequestValidatorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateRequestValidatorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1CreateRequestValidatorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { CreateTaskSetRequest, CreateTaskSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateTaskSetCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTaskSetCommandInput = CreateTaskSetRequest;
-export type CreateTaskSetCommandOutput = CreateTaskSetResponse &
-  __MetadataBearer;
+export type CreateTaskSetCommandOutput = CreateTaskSetResponse & __MetadataBearer;
 
 export class CreateTaskSetCommand extends $Command<
   CreateTaskSetCommandInput,
@@ -47,9 +42,7 @@ export class CreateTaskSetCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTaskSetCommandInput, CreateTaskSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

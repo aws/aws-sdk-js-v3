@@ -6,10 +6,7 @@ import {
   GetThingShadowCommandInput,
   GetThingShadowCommandOutput
 } from "./commands/GetThingShadowCommand";
-import {
-  PublishCommandInput,
-  PublishCommandOutput
-} from "./commands/PublishCommand";
+import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
 import {
   UpdateThingShadowCommandInput,
   UpdateThingShadowCommandOutput
@@ -163,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTDataPlaneClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -174,9 +169,7 @@ export type IoTDataPlaneClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

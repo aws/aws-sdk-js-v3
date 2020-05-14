@@ -19,17 +19,14 @@ export function retryMiddleware(options: RetryResolvedConfig) {
   };
 }
 
-export const retryMiddlewareOptions: FinalizeRequestHandlerOptions &
-  AbsoluteLocation = {
+export const retryMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
   name: "retryMiddleware",
   tags: ["RETRY"],
   step: "finalizeRequest",
   priority: "high"
 };
 
-export const getRetryPlugin = (
-  options: RetryResolvedConfig
-): Pluggable<any, any> => ({
+export const getRetryPlugin = (options: RetryResolvedConfig): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     if (options.maxRetries > 0) {
       clientStack.add(retryMiddleware(options), retryMiddlewareOptions);

@@ -53,9 +53,7 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     DescribeWorkspacesConnectionStatusCommandInput,
     DescribeWorkspacesConnectionStatusCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     input: DescribeWorkspacesConnectionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

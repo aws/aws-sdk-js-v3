@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  UpdateResourceDefinitionRequest,
-  UpdateResourceDefinitionResponse
-} from "../models/index";
+import { UpdateResourceDefinitionRequest, UpdateResourceDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateResourceDefinitionCommand,
   serializeAws_restJson1_1UpdateResourceDefinitionCommand
@@ -49,13 +46,8 @@ export class UpdateResourceDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateResourceDefinitionCommandInput,
-    UpdateResourceDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateResourceDefinitionCommandInput, UpdateResourceDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class UpdateResourceDefinitionCommand extends $Command<
     input: UpdateResourceDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateResourceDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateResourceDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateResourceDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

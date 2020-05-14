@@ -53,9 +53,7 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     CreateTransitVirtualInterfaceCommandInput,
     CreateTransitVirtualInterfaceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     input: CreateTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTransitVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateTransitVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreateTransitVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

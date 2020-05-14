@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMembersCommandInput = CreateMembersRequest;
-export type CreateMembersCommandOutput = CreateMembersResponse &
-  __MetadataBearer;
+export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBearer;
 
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,
@@ -47,9 +46,7 @@ export class CreateMembersCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMembersCommandInput, CreateMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

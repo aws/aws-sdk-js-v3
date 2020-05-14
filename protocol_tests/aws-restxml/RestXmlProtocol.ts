@@ -247,10 +247,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     args: ConstantAndVariableQueryStringCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConstantAndVariableQueryStringCommandOutput
-        ) => void),
+      | ((err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void),
     cb?: (err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void
   ): Promise<ConstantAndVariableQueryStringCommandOutput> | void {
     const command = new ConstantAndVariableQueryStringCommand(args);
@@ -359,9 +356,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FlattenedXmlMapCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FlattenedXmlMapCommandOutput) => void),
     cb?: (err: any, data?: FlattenedXmlMapCommandOutput) => void
   ): Promise<FlattenedXmlMapCommandOutput> | void {
     const command = new FlattenedXmlMapCommand(args);
@@ -513,10 +508,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpPayloadTraitsWithMediaTypeCommandOutput
-        ) => void),
+      | ((err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void),
     cb?: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> | void {
     const command = new HttpPayloadTraitsWithMediaTypeCommand(args);
@@ -649,31 +641,19 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput>;
   public httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
-    cb: (
-      err: any,
-      data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput) => void
   ): void;
   public httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput) => void
   ): void;
   public httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
-    ) => void
+      | ((err: any, data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput) => void),
+    cb?: (err: any, data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput) => void
   ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> | void {
     const command = new HttpPayloadWithXmlNamespaceAndPrefixCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -739,14 +719,8 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpRequestWithGreedyLabelInPathCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: HttpRequestWithGreedyLabelInPathCommandOutput
-    ) => void
+      | ((err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> | void {
     const command = new HttpRequestWithGreedyLabelInPathCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -806,31 +780,19 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput>;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    cb: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+      | ((err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> | void {
     const command = new HttpRequestWithLabelsAndTimestampFormatCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -975,9 +937,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
     cb?: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): Promise<NoInputAndOutputCommandOutput> | void {
     const command = new NoInputAndOutputCommand(args);
@@ -1082,10 +1042,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     args: OmitsNullSerializesEmptyStringCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: OmitsNullSerializesEmptyStringCommandOutput
-        ) => void),
+      | ((err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void),
     cb?: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> | void {
     const command = new OmitsNullSerializesEmptyStringCommand(args);
@@ -1153,9 +1110,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public recursiveShapes(
     args: RecursiveShapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RecursiveShapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecursiveShapesCommandOutput) => void),
     cb?: (err: any, data?: RecursiveShapesCommandOutput) => void
   ): Promise<RecursiveShapesCommandOutput> | void {
     const command = new RecursiveShapesCommand(args);
@@ -1255,9 +1210,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlAttributes(
     args: XmlAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlAttributesCommandOutput) => void),
     cb?: (err: any, data?: XmlAttributesCommandOutput) => void
   ): Promise<XmlAttributesCommandOutput> | void {
     const command = new XmlAttributesCommand(args);
@@ -1325,9 +1278,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlBlobs(
     args: XmlBlobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlBlobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlBlobsCommandOutput) => void),
     cb?: (err: any, data?: XmlBlobsCommandOutput) => void
   ): Promise<XmlBlobsCommandOutput> | void {
     const command = new XmlBlobsCommand(args);
@@ -1360,9 +1311,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlEnums(
     args: XmlEnumsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlEnumsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlEnumsCommandOutput) => void),
     cb?: (err: any, data?: XmlEnumsCommandOutput) => void
   ): Promise<XmlEnumsCommandOutput> | void {
     const command = new XmlEnumsCommand(args);
@@ -1404,9 +1353,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlLists(
     args: XmlListsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlListsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlListsCommandOutput) => void),
     cb?: (err: any, data?: XmlListsCommandOutput) => void
   ): Promise<XmlListsCommandOutput> | void {
     const command = new XmlListsCommand(args);
@@ -1439,9 +1386,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlMaps(
     args: XmlMapsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlMapsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlMapsCommandOutput) => void),
     cb?: (err: any, data?: XmlMapsCommandOutput) => void
   ): Promise<XmlMapsCommandOutput> | void {
     const command = new XmlMapsCommand(args);
@@ -1471,9 +1416,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlMapsXmlNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlMapsXmlNameCommandOutput) => void),
     cb?: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
   ): Promise<XmlMapsXmlNameCommandOutput> | void {
     const command = new XmlMapsXmlNameCommand(args);
@@ -1503,9 +1446,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlNamespacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlNamespacesCommandOutput) => void),
     cb?: (err: any, data?: XmlNamespacesCommandOutput) => void
   ): Promise<XmlNamespacesCommandOutput> | void {
     const command = new XmlNamespacesCommand(args);
@@ -1540,9 +1481,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   ): void;
   public xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: XmlTimestampsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlTimestampsCommandOutput) => void),
     cb?: (err: any, data?: XmlTimestampsCommandOutput) => void
   ): Promise<XmlTimestampsCommandOutput> | void {
     const command = new XmlTimestampsCommand(args);

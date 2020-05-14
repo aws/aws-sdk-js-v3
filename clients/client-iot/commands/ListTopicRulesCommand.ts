@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListTopicRulesRequest, ListTopicRulesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTopicRulesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTopicRulesCommandInput = ListTopicRulesRequest;
-export type ListTopicRulesCommandOutput = ListTopicRulesResponse &
-  __MetadataBearer;
+export type ListTopicRulesCommandOutput = ListTopicRulesResponse & __MetadataBearer;
 
 export class ListTopicRulesCommand extends $Command<
   ListTopicRulesCommandInput,
@@ -47,9 +42,7 @@ export class ListTopicRulesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTopicRulesCommandInput, ListTopicRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

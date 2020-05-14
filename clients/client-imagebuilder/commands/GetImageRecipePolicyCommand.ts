@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  GetImageRecipePolicyRequest,
-  GetImageRecipePolicyResponse
-} from "../models/index";
+import { GetImageRecipePolicyRequest, GetImageRecipePolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetImageRecipePolicyCommand,
   serializeAws_restJson1_1GetImageRecipePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetImageRecipePolicyCommandInput = GetImageRecipePolicyRequest;
-export type GetImageRecipePolicyCommandOutput = GetImageRecipePolicyResponse &
-  __MetadataBearer;
+export type GetImageRecipePolicyCommandOutput = GetImageRecipePolicyResponse & __MetadataBearer;
 
 export class GetImageRecipePolicyCommand extends $Command<
   GetImageRecipePolicyCommandInput,
@@ -49,13 +45,8 @@ export class GetImageRecipePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetImageRecipePolicyCommandInput,
-    GetImageRecipePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetImageRecipePolicyCommandInput, GetImageRecipePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetImageRecipePolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetImageRecipePolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetImageRecipePolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetImageRecipePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

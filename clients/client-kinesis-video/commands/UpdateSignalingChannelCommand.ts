@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  UpdateSignalingChannelInput,
-  UpdateSignalingChannelOutput
-} from "../models/index";
+import { UpdateSignalingChannelInput, UpdateSignalingChannelOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateSignalingChannelCommand,
   serializeAws_restJson1_1UpdateSignalingChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSignalingChannelCommandInput = UpdateSignalingChannelInput;
-export type UpdateSignalingChannelCommandOutput = UpdateSignalingChannelOutput &
-  __MetadataBearer;
+export type UpdateSignalingChannelCommandOutput = UpdateSignalingChannelOutput & __MetadataBearer;
 
 export class UpdateSignalingChannelCommand extends $Command<
   UpdateSignalingChannelCommandInput,
@@ -49,13 +45,8 @@ export class UpdateSignalingChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSignalingChannelCommandInput,
-    UpdateSignalingChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSignalingChannelCommandInput, UpdateSignalingChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateSignalingChannelCommand extends $Command<
     input: UpdateSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSignalingChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

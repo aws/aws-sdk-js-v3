@@ -1,31 +1,23 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  */
-export interface AccessDeniedForDependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedForDependencyException";
   $fault: "client";
   message?: string;
@@ -68,8 +60,7 @@ export interface AssociateDRTRoleRequest {
 }
 
 export namespace AssociateDRTRoleRequest {
-  export const isa = (o: any): o is AssociateDRTRoleRequest =>
-    __isa(o, "AssociateDRTRoleRequest");
+  export const isa = (o: any): o is AssociateDRTRoleRequest => __isa(o, "AssociateDRTRoleRequest");
 }
 
 export interface AssociateDRTRoleResponse {
@@ -173,8 +164,7 @@ export interface AttackProperty {
 }
 
 export namespace AttackProperty {
-  export const isa = (o: any): o is AttackProperty =>
-    __isa(o, "AttackProperty");
+  export const isa = (o: any): o is AttackProperty => __isa(o, "AttackProperty");
 }
 
 export enum AttackPropertyIdentifier {
@@ -291,8 +281,7 @@ export interface AttackVectorDescription {
 }
 
 export namespace AttackVectorDescription {
-  export const isa = (o: any): o is AttackVectorDescription =>
-    __isa(o, "AttackVectorDescription");
+  export const isa = (o: any): o is AttackVectorDescription => __isa(o, "AttackVectorDescription");
 }
 
 export enum AutoRenew {
@@ -367,8 +356,7 @@ export interface CreateProtectionRequest {
 }
 
 export namespace CreateProtectionRequest {
-  export const isa = (o: any): o is CreateProtectionRequest =>
-    __isa(o, "CreateProtectionRequest");
+  export const isa = (o: any): o is CreateProtectionRequest => __isa(o, "CreateProtectionRequest");
 }
 
 export interface CreateProtectionResponse {
@@ -413,8 +401,7 @@ export interface DeleteProtectionRequest {
 }
 
 export namespace DeleteProtectionRequest {
-  export const isa = (o: any): o is DeleteProtectionRequest =>
-    __isa(o, "DeleteProtectionRequest");
+  export const isa = (o: any): o is DeleteProtectionRequest => __isa(o, "DeleteProtectionRequest");
 }
 
 export interface DeleteProtectionResponse {
@@ -453,8 +440,7 @@ export interface DescribeAttackRequest {
 }
 
 export namespace DescribeAttackRequest {
-  export const isa = (o: any): o is DescribeAttackRequest =>
-    __isa(o, "DescribeAttackRequest");
+  export const isa = (o: any): o is DescribeAttackRequest => __isa(o, "DescribeAttackRequest");
 }
 
 export interface DescribeAttackResponse {
@@ -466,8 +452,7 @@ export interface DescribeAttackResponse {
 }
 
 export namespace DescribeAttackResponse {
-  export const isa = (o: any): o is DescribeAttackResponse =>
-    __isa(o, "DescribeAttackResponse");
+  export const isa = (o: any): o is DescribeAttackResponse => __isa(o, "DescribeAttackResponse");
 }
 
 export interface DescribeDRTAccessRequest {
@@ -626,8 +611,7 @@ export interface EmergencyContact {
 }
 
 export namespace EmergencyContact {
-  export const isa = (o: any): o is EmergencyContact =>
-    __isa(o, "EmergencyContact");
+  export const isa = (o: any): o is EmergencyContact => __isa(o, "EmergencyContact");
 }
 
 export interface GetSubscriptionStateRequest {
@@ -656,25 +640,20 @@ export namespace GetSubscriptionStateResponse {
  * <p>Exception that indicates that a problem occurred with the service infrastructure. You
  *          can retry the request.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -688,9 +667,7 @@ export namespace InvalidOperationException {
 /**
  * <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>
  */
-export interface InvalidPaginationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
@@ -704,9 +681,7 @@ export namespace InvalidPaginationTokenException {
 /**
  * <p>Exception that indicates that the parameters passed to the API are invalid. </p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -720,9 +695,7 @@ export namespace InvalidParameterException {
 /**
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  */
-export interface InvalidResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceException";
   $fault: "client";
   message?: string;
@@ -760,9 +733,7 @@ export namespace Limit {
  *          <p>
  *             <code>Limit</code> is the threshold that would be exceeded.</p>
  */
-export interface LimitsExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
   Limit?: number;
@@ -771,8 +742,7 @@ export interface LimitsExceededException
 }
 
 export namespace LimitsExceededException {
-  export const isa = (o: any): o is LimitsExceededException =>
-    __isa(o, "LimitsExceededException");
+  export const isa = (o: any): o is LimitsExceededException => __isa(o, "LimitsExceededException");
 }
 
 export interface ListAttacksRequest {
@@ -806,8 +776,7 @@ export interface ListAttacksRequest {
 }
 
 export namespace ListAttacksRequest {
-  export const isa = (o: any): o is ListAttacksRequest =>
-    __isa(o, "ListAttacksRequest");
+  export const isa = (o: any): o is ListAttacksRequest => __isa(o, "ListAttacksRequest");
 }
 
 export interface ListAttacksResponse {
@@ -828,8 +797,7 @@ export interface ListAttacksResponse {
 }
 
 export namespace ListAttacksResponse {
-  export const isa = (o: any): o is ListAttacksResponse =>
-    __isa(o, "ListAttacksResponse");
+  export const isa = (o: any): o is ListAttacksResponse => __isa(o, "ListAttacksResponse");
 }
 
 export interface ListProtectionsRequest {
@@ -848,8 +816,7 @@ export interface ListProtectionsRequest {
 }
 
 export namespace ListProtectionsRequest {
-  export const isa = (o: any): o is ListProtectionsRequest =>
-    __isa(o, "ListProtectionsRequest");
+  export const isa = (o: any): o is ListProtectionsRequest => __isa(o, "ListProtectionsRequest");
 }
 
 export interface ListProtectionsResponse {
@@ -867,16 +834,13 @@ export interface ListProtectionsResponse {
 }
 
 export namespace ListProtectionsResponse {
-  export const isa = (o: any): o is ListProtectionsResponse =>
-    __isa(o, "ListProtectionsResponse");
+  export const isa = (o: any): o is ListProtectionsResponse => __isa(o, "ListProtectionsResponse");
 }
 
 /**
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  */
-export interface LockedSubscriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LockedSubscriptionException extends __SmithyException, $MetadataBearer {
   name: "LockedSubscriptionException";
   $fault: "client";
   message?: string;
@@ -905,9 +869,7 @@ export namespace Mitigation {
 /**
  * <p>The ARN of the role that you specifed does not exist.</p>
  */
-export interface NoAssociatedRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAssociatedRoleException extends __SmithyException, $MetadataBearer {
   name: "NoAssociatedRoleException";
   $fault: "client";
   message?: string;
@@ -922,17 +884,14 @@ export namespace NoAssociatedRoleException {
  * <p>Exception that indicates that the protection state has been modified by another
  *          client. You can retry the request.</p>
  */
-export interface OptimisticLockException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OptimisticLockException extends __SmithyException, $MetadataBearer {
   name: "OptimisticLockException";
   $fault: "client";
   message?: string;
 }
 
 export namespace OptimisticLockException {
-  export const isa = (o: any): o is OptimisticLockException =>
-    __isa(o, "OptimisticLockException");
+  export const isa = (o: any): o is OptimisticLockException => __isa(o, "OptimisticLockException");
 }
 
 /**
@@ -963,9 +922,7 @@ export namespace Protection {
 /**
  * <p>Exception indicating the specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -979,9 +936,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>Exception indicating the specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1019,8 +974,7 @@ export interface SubResourceSummary {
 }
 
 export namespace SubResourceSummary {
-  export const isa = (o: any): o is SubResourceSummary =>
-    __isa(o, "SubResourceSummary");
+  export const isa = (o: any): o is SubResourceSummary => __isa(o, "SubResourceSummary");
 }
 
 export enum SubResourceType {
@@ -1086,8 +1040,7 @@ export interface SummarizedAttackVector {
 }
 
 export namespace SummarizedAttackVector {
-  export const isa = (o: any): o is SummarizedAttackVector =>
-    __isa(o, "SummarizedAttackVector");
+  export const isa = (o: any): o is SummarizedAttackVector => __isa(o, "SummarizedAttackVector");
 }
 
 /**
@@ -1127,8 +1080,7 @@ export interface SummarizedCounter {
 }
 
 export namespace SummarizedCounter {
-  export const isa = (o: any): o is SummarizedCounter =>
-    __isa(o, "SummarizedCounter");
+  export const isa = (o: any): o is SummarizedCounter => __isa(o, "SummarizedCounter");
 }
 
 /**

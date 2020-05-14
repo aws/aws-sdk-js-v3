@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListSubscribedWorkteamsRequest,
-  ListSubscribedWorkteamsResponse
-} from "../models/index";
+import { ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSubscribedWorkteamsCommand,
   serializeAws_json1_1ListSubscribedWorkteamsCommand
@@ -49,13 +46,8 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSubscribedWorkteamsCommandInput,
-    ListSubscribedWorkteamsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSubscribedWorkteamsCommandInput, ListSubscribedWorkteamsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListSubscribedWorkteamsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSubscribedWorkteamsCommandOutput> {
-    return deserializeAws_json1_1ListSubscribedWorkteamsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSubscribedWorkteamsCommand(output, context);
   }
 
   // Start section: command_body_extra

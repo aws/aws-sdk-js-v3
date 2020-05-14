@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDetectorsCommandInput = ListDetectorsRequest;
-export type ListDetectorsCommandOutput = ListDetectorsResponse &
-  __MetadataBearer;
+export type ListDetectorsCommandOutput = ListDetectorsResponse & __MetadataBearer;
 
 export class ListDetectorsCommand extends $Command<
   ListDetectorsCommandInput,
@@ -47,9 +46,7 @@ export class ListDetectorsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDetectorsCommandInput, ListDetectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -50,9 +50,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
@@ -85,9 +83,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public describeObject(
     args: DescribeObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeObjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeObjectCommandOutput) => void
   ): Promise<DescribeObjectCommandOutput> | void {
     const command = new DescribeObjectCommand(args);
@@ -120,9 +116,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public getObject(
     args: GetObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectCommandOutput) => void),
     cb?: (err: any, data?: GetObjectCommandOutput) => void
   ): Promise<GetObjectCommandOutput> | void {
     const command = new GetObjectCommand(args);
@@ -156,9 +150,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public listItems(
     args: ListItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListItemsCommandOutput) => void),
     cb?: (err: any, data?: ListItemsCommandOutput) => void
   ): Promise<ListItemsCommandOutput> | void {
     const command = new ListItemsCommand(args);
@@ -191,9 +183,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public putObject(
     args: PutObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectCommandOutput) => void),
     cb?: (err: any, data?: PutObjectCommandOutput) => void
   ): Promise<PutObjectCommandOutput> | void {
     const command = new PutObjectCommand(args);

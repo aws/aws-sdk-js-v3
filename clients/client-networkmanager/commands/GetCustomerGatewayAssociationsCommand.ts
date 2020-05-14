@@ -53,9 +53,7 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     GetCustomerGatewayAssociationsCommandInput,
     GetCustomerGatewayAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     input: GetCustomerGatewayAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCustomerGatewayAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

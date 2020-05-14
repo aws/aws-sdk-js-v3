@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetHITRequest, GetHITResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetHITCommand,
@@ -46,9 +42,7 @@ export class GetHITCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHITCommandInput, GetHITCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetHITCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetHITCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHITCommand(input, context);
   }
 

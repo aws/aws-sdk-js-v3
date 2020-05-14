@@ -126,9 +126,7 @@ export class XRay extends XRayClient {
   ): void;
   public batchGetTraces(
     args: BatchGetTracesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetTracesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetTracesCommandOutput) => void),
     cb?: (err: any, data?: BatchGetTracesCommandOutput) => void
   ): Promise<BatchGetTracesCommandOutput> | void {
     const command = new BatchGetTracesCommand(args);
@@ -161,9 +159,7 @@ export class XRay extends XRayClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -237,9 +233,7 @@ export class XRay extends XRayClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -342,9 +336,7 @@ export class XRay extends XRayClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
@@ -377,9 +369,7 @@ export class XRay extends XRayClient {
   ): void;
   public getGroups(
     args: GetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupsCommandOutput) => void),
     cb?: (err: any, data?: GetGroupsCommandOutput) => void
   ): Promise<GetGroupsCommandOutput> | void {
     const command = new GetGroupsCommand(args);
@@ -412,9 +402,7 @@ export class XRay extends XRayClient {
   ): void;
   public getSamplingRules(
     args: GetSamplingRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
     cb?: (err: any, data?: GetSamplingRulesCommandOutput) => void
   ): Promise<GetSamplingRulesCommandOutput> | void {
     const command = new GetSamplingRulesCommand(args);
@@ -522,9 +510,7 @@ export class XRay extends XRayClient {
   ): void;
   public getServiceGraph(
     args: GetServiceGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceGraphCommandOutput) => void),
     cb?: (err: any, data?: GetServiceGraphCommandOutput) => void
   ): Promise<GetServiceGraphCommandOutput> | void {
     const command = new GetServiceGraphCommand(args);
@@ -560,10 +546,7 @@ export class XRay extends XRayClient {
     args: GetTimeSeriesServiceStatisticsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTimeSeriesServiceStatisticsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void),
     cb?: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> | void {
     const command = new GetTimeSeriesServiceStatisticsCommand(args);
@@ -596,9 +579,7 @@ export class XRay extends XRayClient {
   ): void;
   public getTraceGraph(
     args: GetTraceGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTraceGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTraceGraphCommandOutput) => void),
     cb?: (err: any, data?: GetTraceGraphCommandOutput) => void
   ): Promise<GetTraceGraphCommandOutput> | void {
     const command = new GetTraceGraphCommand(args);
@@ -815,9 +796,7 @@ export class XRay extends XRayClient {
   ): void;
   public putTraceSegments(
     args: PutTraceSegmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutTraceSegmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTraceSegmentsCommandOutput) => void),
     cb?: (err: any, data?: PutTraceSegmentsCommandOutput) => void
   ): Promise<PutTraceSegmentsCommandOutput> | void {
     const command = new PutTraceSegmentsCommand(args);
@@ -850,9 +829,7 @@ export class XRay extends XRayClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);

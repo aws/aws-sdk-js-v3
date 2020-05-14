@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupVaultAccessPolicyInput,
-  GetBackupVaultAccessPolicyOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupVaultAccessPolicyInput, GetBackupVaultAccessPolicyOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand,
   serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand
@@ -49,13 +42,8 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupVaultAccessPolicyCommandInput,
-    GetBackupVaultAccessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupVaultAccessPolicyCommandInput, GetBackupVaultAccessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     input: GetBackupVaultAccessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -194,9 +194,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -222,31 +220,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput>;
   public applySecurityGroupsToLoadBalancer(
     args: ApplySecurityGroupsToLoadBalancerCommandInput,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToLoadBalancerCommandOutput) => void
   ): void;
   public applySecurityGroupsToLoadBalancer(
     args: ApplySecurityGroupsToLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ApplySecurityGroupsToLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: ApplySecurityGroupsToLoadBalancerCommandOutput) => void
   ): void;
   public applySecurityGroupsToLoadBalancer(
     args: ApplySecurityGroupsToLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ApplySecurityGroupsToLoadBalancerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ApplySecurityGroupsToLoadBalancerCommandOutput
-    ) => void
+      | ((err: any, data?: ApplySecurityGroupsToLoadBalancerCommandOutput) => void),
+    cb?: (err: any, data?: ApplySecurityGroupsToLoadBalancerCommandOutput) => void
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> | void {
     const command = new ApplySecurityGroupsToLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -363,10 +349,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
     args: CreateAppCookieStickinessPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateAppCookieStickinessPolicyCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateAppCookieStickinessPolicyCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCookieStickinessPolicyCommandOutput) => void
   ): Promise<CreateAppCookieStickinessPolicyCommandOutput> | void {
     const command = new CreateAppCookieStickinessPolicyCommand(args);
@@ -407,10 +390,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
     args: CreateLBCookieStickinessPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateLBCookieStickinessPolicyCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateLBCookieStickinessPolicyCommandOutput) => void),
     cb?: (err: any, data?: CreateLBCookieStickinessPolicyCommandOutput) => void
   ): Promise<CreateLBCookieStickinessPolicyCommandOutput> | void {
     const command = new CreateLBCookieStickinessPolicyCommand(args);
@@ -668,31 +648,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput>;
   public deregisterInstancesFromLoadBalancer(
     args: DeregisterInstancesFromLoadBalancerCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterInstancesFromLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterInstancesFromLoadBalancerCommandOutput) => void
   ): void;
   public deregisterInstancesFromLoadBalancer(
     args: DeregisterInstancesFromLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterInstancesFromLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterInstancesFromLoadBalancerCommandOutput) => void
   ): void;
   public deregisterInstancesFromLoadBalancer(
     args: DeregisterInstancesFromLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterInstancesFromLoadBalancerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterInstancesFromLoadBalancerCommandOutput
-    ) => void
+      | ((err: any, data?: DeregisterInstancesFromLoadBalancerCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterInstancesFromLoadBalancerCommandOutput) => void
   ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> | void {
     const command = new DeregisterInstancesFromLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -798,10 +766,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
     args: DescribeLoadBalancerAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerAttributesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> | void {
     const command = new DescribeLoadBalancerAttributesCommand(args);
@@ -882,10 +847,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
     args: DescribeLoadBalancerPolicyTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerPolicyTypesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLoadBalancerPolicyTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancerPolicyTypesCommandOutput) => void
   ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> | void {
     const command = new DescribeLoadBalancerPolicyTypesCommand(args);
@@ -953,9 +915,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -1025,31 +985,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput>;
   public disableAvailabilityZonesForLoadBalancer(
     args: DisableAvailabilityZonesForLoadBalancerCommandInput,
-    cb: (
-      err: any,
-      data?: DisableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): void;
   public disableAvailabilityZonesForLoadBalancer(
     args: DisableAvailabilityZonesForLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): void;
   public disableAvailabilityZonesForLoadBalancer(
     args: DisableAvailabilityZonesForLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableAvailabilityZonesForLoadBalancerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+      | ((err: any, data?: DisableAvailabilityZonesForLoadBalancerCommandOutput) => void),
+    cb?: (err: any, data?: DisableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> | void {
     const command = new DisableAvailabilityZonesForLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1077,31 +1025,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput>;
   public enableAvailabilityZonesForLoadBalancer(
     args: EnableAvailabilityZonesForLoadBalancerCommandInput,
-    cb: (
-      err: any,
-      data?: EnableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): void;
   public enableAvailabilityZonesForLoadBalancer(
     args: EnableAvailabilityZonesForLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: EnableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): void;
   public enableAvailabilityZonesForLoadBalancer(
     args: EnableAvailabilityZonesForLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableAvailabilityZonesForLoadBalancerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableAvailabilityZonesForLoadBalancerCommandOutput
-    ) => void
+      | ((err: any, data?: EnableAvailabilityZonesForLoadBalancerCommandOutput) => void),
+    cb?: (err: any, data?: EnableAvailabilityZonesForLoadBalancerCommandOutput) => void
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> | void {
     const command = new EnableAvailabilityZonesForLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1203,31 +1139,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput>;
   public registerInstancesWithLoadBalancer(
     args: RegisterInstancesWithLoadBalancerCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterInstancesWithLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterInstancesWithLoadBalancerCommandOutput) => void
   ): void;
   public registerInstancesWithLoadBalancer(
     args: RegisterInstancesWithLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterInstancesWithLoadBalancerCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterInstancesWithLoadBalancerCommandOutput) => void
   ): void;
   public registerInstancesWithLoadBalancer(
     args: RegisterInstancesWithLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterInstancesWithLoadBalancerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterInstancesWithLoadBalancerCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterInstancesWithLoadBalancerCommandOutput) => void),
+    cb?: (err: any, data?: RegisterInstancesWithLoadBalancerCommandOutput) => void
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> | void {
     const command = new RegisterInstancesWithLoadBalancerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1259,9 +1183,7 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
@@ -1289,31 +1211,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput>;
   public setLoadBalancerListenerSSLCertificate(
     args: SetLoadBalancerListenerSSLCertificateCommandInput,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerListenerSSLCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerListenerSSLCertificateCommandOutput) => void
   ): void;
   public setLoadBalancerListenerSSLCertificate(
     args: SetLoadBalancerListenerSSLCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerListenerSSLCertificateCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerListenerSSLCertificateCommandOutput) => void
   ): void;
   public setLoadBalancerListenerSSLCertificate(
     args: SetLoadBalancerListenerSSLCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetLoadBalancerListenerSSLCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetLoadBalancerListenerSSLCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: SetLoadBalancerListenerSSLCertificateCommandOutput) => void),
+    cb?: (err: any, data?: SetLoadBalancerListenerSSLCertificateCommandOutput) => void
   ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> | void {
     const command = new SetLoadBalancerListenerSSLCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1346,31 +1256,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput>;
   public setLoadBalancerPoliciesForBackendServer(
     args: SetLoadBalancerPoliciesForBackendServerCommandInput,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerPoliciesForBackendServerCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerPoliciesForBackendServerCommandOutput) => void
   ): void;
   public setLoadBalancerPoliciesForBackendServer(
     args: SetLoadBalancerPoliciesForBackendServerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerPoliciesForBackendServerCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerPoliciesForBackendServerCommandOutput) => void
   ): void;
   public setLoadBalancerPoliciesForBackendServer(
     args: SetLoadBalancerPoliciesForBackendServerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetLoadBalancerPoliciesForBackendServerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetLoadBalancerPoliciesForBackendServerCommandOutput
-    ) => void
+      | ((err: any, data?: SetLoadBalancerPoliciesForBackendServerCommandOutput) => void),
+    cb?: (err: any, data?: SetLoadBalancerPoliciesForBackendServerCommandOutput) => void
   ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> | void {
     const command = new SetLoadBalancerPoliciesForBackendServerCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1399,31 +1297,19 @@ export class ElasticLoadBalancing extends ElasticLoadBalancingClient {
   ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput>;
   public setLoadBalancerPoliciesOfListener(
     args: SetLoadBalancerPoliciesOfListenerCommandInput,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerPoliciesOfListenerCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerPoliciesOfListenerCommandOutput) => void
   ): void;
   public setLoadBalancerPoliciesOfListener(
     args: SetLoadBalancerPoliciesOfListenerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetLoadBalancerPoliciesOfListenerCommandOutput
-    ) => void
+    cb: (err: any, data?: SetLoadBalancerPoliciesOfListenerCommandOutput) => void
   ): void;
   public setLoadBalancerPoliciesOfListener(
     args: SetLoadBalancerPoliciesOfListenerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetLoadBalancerPoliciesOfListenerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetLoadBalancerPoliciesOfListenerCommandOutput
-    ) => void
+      | ((err: any, data?: SetLoadBalancerPoliciesOfListenerCommandOutput) => void),
+    cb?: (err: any, data?: SetLoadBalancerPoliciesOfListenerCommandOutput) => void
   ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> | void {
     const command = new SetLoadBalancerPoliciesOfListenerCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3ControlClient";
-import {
-  ListAccessPointsRequest,
-  ListAccessPointsResult
-} from "../models/index";
+import { ListAccessPointsRequest, ListAccessPointsResult } from "../models/index";
 import {
   deserializeAws_restXmlListAccessPointsCommand,
   serializeAws_restXmlListAccessPointsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccessPointsCommandInput = ListAccessPointsRequest;
-export type ListAccessPointsCommandOutput = ListAccessPointsResult &
-  __MetadataBearer;
+export type ListAccessPointsCommandOutput = ListAccessPointsResult & __MetadataBearer;
 
 export class ListAccessPointsCommand extends $Command<
   ListAccessPointsCommandInput,
@@ -50,9 +46,7 @@ export class ListAccessPointsCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccessPointsCommandInput, ListAccessPointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

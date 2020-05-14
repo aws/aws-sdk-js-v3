@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJobTemplateCommandInput = GetJobTemplateRequest;
-export type GetJobTemplateCommandOutput = GetJobTemplateResponse &
-  __MetadataBearer;
+export type GetJobTemplateCommandOutput = GetJobTemplateResponse & __MetadataBearer;
 
 export class GetJobTemplateCommand extends $Command<
   GetJobTemplateCommandInput,
@@ -47,9 +46,7 @@ export class GetJobTemplateCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobTemplateCommandInput, GetJobTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

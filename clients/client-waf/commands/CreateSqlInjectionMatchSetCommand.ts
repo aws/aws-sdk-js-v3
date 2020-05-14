@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 import {
   CreateSqlInjectionMatchSetRequest,
   CreateSqlInjectionMatchSetResponse
@@ -49,13 +45,8 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSqlInjectionMatchSetCommandInput,
-    CreateSqlInjectionMatchSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSqlInjectionMatchSetCommandInput, CreateSqlInjectionMatchSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
     input: CreateSqlInjectionMatchSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateSqlInjectionMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateSqlInjectionMatchSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

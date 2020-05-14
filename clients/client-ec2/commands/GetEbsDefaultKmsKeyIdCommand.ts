@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  GetEbsDefaultKmsKeyIdRequest,
-  GetEbsDefaultKmsKeyIdResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResult } from "../models/index";
 import {
   deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2GetEbsDefaultKmsKeyIdCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEbsDefaultKmsKeyIdCommandInput = GetEbsDefaultKmsKeyIdRequest;
-export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult &
-  __MetadataBearer;
+export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
 export class GetEbsDefaultKmsKeyIdCommand extends $Command<
   GetEbsDefaultKmsKeyIdCommandInput,
@@ -49,13 +41,8 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEbsDefaultKmsKeyIdCommandInput,
-    GetEbsDefaultKmsKeyIdCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEbsDefaultKmsKeyIdCommandInput, GetEbsDefaultKmsKeyIdCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

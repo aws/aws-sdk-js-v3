@@ -35,9 +35,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput
-  ) {
+  constructor(readonly input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +49,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

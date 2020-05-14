@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetCampaignDateRangeKpiRequest,
-  GetCampaignDateRangeKpiResponse
-} from "../models/index";
+import { GetCampaignDateRangeKpiRequest, GetCampaignDateRangeKpiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand,
   serializeAws_restJson1_1GetCampaignDateRangeKpiCommand
@@ -49,13 +46,8 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCampaignDateRangeKpiCommandInput,
-    GetCampaignDateRangeKpiCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCampaignDateRangeKpiCommandInput, GetCampaignDateRangeKpiCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
     input: GetCampaignDateRangeKpiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetCampaignDateRangeKpiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCampaignDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

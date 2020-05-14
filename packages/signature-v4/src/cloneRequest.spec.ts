@@ -39,10 +39,7 @@ describe("cloneRequest", () => {
     const { snap } = clone.query as QueryParameterBag;
     (snap as Array<string>).shift();
 
-    expect((request.query as QueryParameterBag).snap).toEqual([
-      "crackle",
-      "pop"
-    ]);
+    expect((request.query as QueryParameterBag).snap).toEqual(["crackle", "pop"]);
     expect((clone.query as QueryParameterBag).snap).toEqual(["pop"]);
   });
 

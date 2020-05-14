@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  BatchDeleteBuildsInput,
-  BatchDeleteBuildsOutput
-} from "../models/index";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteBuildsCommand,
   serializeAws_json1_1BatchDeleteBuildsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteBuildsCommandInput = BatchDeleteBuildsInput;
-export type BatchDeleteBuildsCommandOutput = BatchDeleteBuildsOutput &
-  __MetadataBearer;
+export type BatchDeleteBuildsCommandOutput = BatchDeleteBuildsOutput & __MetadataBearer;
 
 export class BatchDeleteBuildsCommand extends $Command<
   BatchDeleteBuildsCommandInput,
@@ -50,9 +46,7 @@ export class BatchDeleteBuildsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

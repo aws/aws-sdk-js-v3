@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  ListProfileTimesRequest,
-  ListProfileTimesResponse
-} from "../models/index";
+import { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListProfileTimesCommand,
   serializeAws_restJson1_1ListProfileTimesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProfileTimesCommandInput = ListProfileTimesRequest;
-export type ListProfileTimesCommandOutput = ListProfileTimesResponse &
-  __MetadataBearer;
+export type ListProfileTimesCommandOutput = ListProfileTimesResponse & __MetadataBearer;
 
 export class ListProfileTimesCommand extends $Command<
   ListProfileTimesCommandInput,
@@ -50,9 +46,7 @@ export class ListProfileTimesCommand extends $Command<
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProfileTimesCommandInput, ListProfileTimesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

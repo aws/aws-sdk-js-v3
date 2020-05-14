@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient";
-import {
-  ReportTaskProgressInput,
-  ReportTaskProgressOutput
-} from "../models/index";
+import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/index";
 import {
   deserializeAws_json1_1ReportTaskProgressCommand,
   serializeAws_json1_1ReportTaskProgressCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ReportTaskProgressCommandInput = ReportTaskProgressInput;
-export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput &
-  __MetadataBearer;
+export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput & __MetadataBearer;
 
 export class ReportTaskProgressCommand extends $Command<
   ReportTaskProgressCommandInput,
@@ -50,9 +46,7 @@ export class ReportTaskProgressCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReportTaskProgressCommandInput, ReportTaskProgressCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

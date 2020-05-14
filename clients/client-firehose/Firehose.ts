@@ -385,9 +385,7 @@ export class Firehose extends FirehoseClient {
   ): void;
   public putRecord(
     args: PutRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordCommandOutput) => void),
     cb?: (err: any, data?: PutRecordCommandOutput) => void
   ): Promise<PutRecordCommandOutput> | void {
     const command = new PutRecordCommand(args);
@@ -475,9 +473,7 @@ export class Firehose extends FirehoseClient {
   ): void;
   public putRecordBatch(
     args: PutRecordBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordBatchCommandOutput) => void),
     cb?: (err: any, data?: PutRecordBatchCommandOutput) => void
   ): Promise<PutRecordBatchCommandOutput> | void {
     const command = new PutRecordBatchCommand(args);

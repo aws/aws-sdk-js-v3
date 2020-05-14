@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  CreateHarvestJobRequest,
-  CreateHarvestJobResponse
-} from "../models/index";
+import { CreateHarvestJobRequest, CreateHarvestJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateHarvestJobCommand,
   serializeAws_restJson1_1CreateHarvestJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHarvestJobCommandInput = CreateHarvestJobRequest;
-export type CreateHarvestJobCommandOutput = CreateHarvestJobResponse &
-  __MetadataBearer;
+export type CreateHarvestJobCommandOutput = CreateHarvestJobResponse & __MetadataBearer;
 
 export class CreateHarvestJobCommand extends $Command<
   CreateHarvestJobCommandInput,
@@ -50,9 +46,7 @@ export class CreateHarvestJobCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

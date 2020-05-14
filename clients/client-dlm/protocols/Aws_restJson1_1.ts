@@ -18,10 +18,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -78,10 +75,7 @@ export const serializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
       ExecutionRoleArn: input.ExecutionRoleArn
     }),
     ...(input.PolicyDetails !== undefined && {
-      PolicyDetails: serializeAws_restJson1_1PolicyDetails(
-        input.PolicyDetails,
-        context
-      )
+      PolicyDetails: serializeAws_restJson1_1PolicyDetails(input.PolicyDetails, context)
     }),
     ...(input.State !== undefined && { State: input.State }),
     ...(input.Tags !== undefined && {
@@ -113,10 +107,7 @@ export const serializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PolicyId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PolicyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
@@ -183,10 +174,7 @@ export const serializeAws_restJson1_1GetLifecyclePolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PolicyId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PolicyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
@@ -214,14 +202,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -249,14 +232,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -289,14 +267,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -332,10 +305,7 @@ export const serializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PolicyId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PolicyId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PolicyId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
@@ -346,10 +316,7 @@ export const serializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
       ExecutionRoleArn: input.ExecutionRoleArn
     }),
     ...(input.PolicyDetails !== undefined && {
-      PolicyDetails: serializeAws_restJson1_1PolicyDetails(
-        input.PolicyDetails,
-        context
-      )
+      PolicyDetails: serializeAws_restJson1_1PolicyDetails(input.PolicyDetails, context)
     }),
     ...(input.State !== undefined && { State: input.State })
   });
@@ -370,10 +337,7 @@ export const deserializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(output, context);
   }
   const contents: CreateLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -402,10 +366,7 @@ const deserializeAws_restJson1_1CreateLifecyclePolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -413,10 +374,7 @@ const deserializeAws_restJson1_1CreateLifecyclePolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -424,10 +382,7 @@ const deserializeAws_restJson1_1CreateLifecyclePolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dlm#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -454,10 +409,7 @@ export const deserializeAws_restJson1_1DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(output, context);
   }
   const contents: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -482,10 +434,7 @@ const deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -493,10 +442,7 @@ const deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dlm#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -534,10 +480,7 @@ export const deserializeAws_restJson1_1GetLifecyclePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(output, context);
   }
   const contents: GetLifecyclePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -569,10 +512,7 @@ const deserializeAws_restJson1_1GetLifecyclePoliciesCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -580,10 +520,7 @@ const deserializeAws_restJson1_1GetLifecyclePoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -591,10 +528,7 @@ const deserializeAws_restJson1_1GetLifecyclePoliciesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dlm#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -632,10 +566,7 @@ export const deserializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLifecyclePolicyCommandError(output, context);
   }
   const contents: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -644,10 +575,7 @@ export const deserializeAws_restJson1_1GetLifecyclePolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = deserializeAws_restJson1_1LifecyclePolicy(
-      data.Policy,
-      context
-    );
+    contents.Policy = deserializeAws_restJson1_1LifecyclePolicy(data.Policy, context);
   }
   return Promise.resolve(contents);
 };
@@ -667,10 +595,7 @@ const deserializeAws_restJson1_1GetLifecyclePolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -678,10 +603,7 @@ const deserializeAws_restJson1_1GetLifecyclePolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dlm#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -719,10 +641,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -751,10 +670,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -762,10 +678,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -828,10 +741,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -839,10 +749,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -905,10 +812,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -916,10 +820,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -957,10 +858,7 @@ export const deserializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(output, context);
   }
   const contents: UpdateLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -985,10 +883,7 @@ const deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.dlm#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -996,10 +891,7 @@ const deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.dlm#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1007,10 +899,7 @@ const deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dlm#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1084,19 +973,13 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
   }
-  if (
-    data.MutuallyExclusiveParameters !== undefined &&
-    data.MutuallyExclusiveParameters !== null
-  ) {
+  if (data.MutuallyExclusiveParameters !== undefined && data.MutuallyExclusiveParameters !== null) {
     contents.MutuallyExclusiveParameters = deserializeAws_restJson1_1ParameterList(
       data.MutuallyExclusiveParameters,
       context
     );
   }
-  if (
-    data.RequiredParameters !== undefined &&
-    data.RequiredParameters !== null
-  ) {
+  if (data.RequiredParameters !== undefined && data.RequiredParameters !== null) {
     contents.RequiredParameters = deserializeAws_restJson1_1ParameterList(
       data.RequiredParameters,
       context
@@ -1151,10 +1034,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     contents.Message = data.Message;
   }
   if (data.ResourceIds !== undefined && data.ResourceIds !== null) {
-    contents.ResourceIds = deserializeAws_restJson1_1PolicyIdList(
-      data.ResourceIds,
-      context
-    );
+    contents.ResourceIds = deserializeAws_restJson1_1PolicyIdList(data.ResourceIds, context);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
     contents.ResourceType = data.ResourceType;
@@ -1169,10 +1049,7 @@ const serializeAws_restJson1_1AvailabilityZoneList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1CreateRule = (
-  input: CreateRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CreateRule = (input: CreateRule, context: __SerdeContext): any => {
   return {
     ...(input.Interval !== undefined && { Interval: input.Interval }),
     ...(input.IntervalUnit !== undefined && {
@@ -1205,10 +1082,7 @@ const serializeAws_restJson1_1CrossRegionCopyRule = (
     ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
     ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
     ...(input.RetainRule !== undefined && {
-      RetainRule: serializeAws_restJson1_1CrossRegionCopyRetainRule(
-        input.RetainRule,
-        context
-      )
+      RetainRule: serializeAws_restJson1_1CrossRegionCopyRetainRule(input.RetainRule, context)
     }),
     ...(input.TargetRegion !== undefined && {
       TargetRegion: input.TargetRegion
@@ -1220,9 +1094,7 @@ const serializeAws_restJson1_1CrossRegionCopyRules = (
   input: CrossRegionCopyRule[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1CrossRegionCopyRule(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1CrossRegionCopyRule(entry, context));
 };
 
 const serializeAws_restJson1_1FastRestoreRule = (
@@ -1244,10 +1116,7 @@ const serializeAws_restJson1_1FastRestoreRule = (
   };
 };
 
-const serializeAws_restJson1_1_Parameters = (
-  input: _Parameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeBootVolume !== undefined && {
       ExcludeBootVolume: input.ExcludeBootVolume
@@ -1265,19 +1134,13 @@ const serializeAws_restJson1_1PolicyDetails = (
     }),
     ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
     ...(input.ResourceTypes !== undefined && {
-      ResourceTypes: serializeAws_restJson1_1ResourceTypeValuesList(
-        input.ResourceTypes,
-        context
-      )
+      ResourceTypes: serializeAws_restJson1_1ResourceTypeValuesList(input.ResourceTypes, context)
     }),
     ...(input.Schedules !== undefined && {
       Schedules: serializeAws_restJson1_1ScheduleList(input.Schedules, context)
     }),
     ...(input.TargetTags !== undefined && {
-      TargetTags: serializeAws_restJson1_1TargetTagList(
-        input.TargetTags,
-        context
-      )
+      TargetTags: serializeAws_restJson1_1TargetTagList(input.TargetTags, context)
     })
   };
 };
@@ -1289,10 +1152,7 @@ const serializeAws_restJson1_1ResourceTypeValuesList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1RetainRule = (
-  input: RetainRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RetainRule = (input: RetainRule, context: __SerdeContext): any => {
   return {
     ...(input.Count !== undefined && { Count: input.Count }),
     ...(input.Interval !== undefined && { Interval: input.Interval }),
@@ -1302,10 +1162,7 @@ const serializeAws_restJson1_1RetainRule = (
   };
 };
 
-const serializeAws_restJson1_1Schedule = (
-  input: Schedule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
     ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
     ...(input.CreateRule !== undefined && {
@@ -1318,10 +1175,7 @@ const serializeAws_restJson1_1Schedule = (
       )
     }),
     ...(input.FastRestoreRule !== undefined && {
-      FastRestoreRule: serializeAws_restJson1_1FastRestoreRule(
-        input.FastRestoreRule,
-        context
-      )
+      FastRestoreRule: serializeAws_restJson1_1FastRestoreRule(input.FastRestoreRule, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RetainRule !== undefined && {
@@ -1331,25 +1185,16 @@ const serializeAws_restJson1_1Schedule = (
       TagsToAdd: serializeAws_restJson1_1TagsToAddList(input.TagsToAdd, context)
     }),
     ...(input.VariableTags !== undefined && {
-      VariableTags: serializeAws_restJson1_1VariableTagsList(
-        input.VariableTags,
-        context
-      )
+      VariableTags: serializeAws_restJson1_1VariableTagsList(input.VariableTags, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ScheduleList = (
-  input: Schedule[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ScheduleList = (input: Schedule[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Schedule(entry, context));
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
@@ -1369,31 +1214,19 @@ const serializeAws_restJson1_1TagMap = (
   );
 };
 
-const serializeAws_restJson1_1TagsToAddList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagsToAddList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1TargetTagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TargetTagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1TimesList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TimesList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1VariableTagsList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1VariableTagsList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
@@ -1404,16 +1237,11 @@ const deserializeAws_restJson1_1AvailabilityZoneList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1CreateRule = (
-  output: any,
-  context: __SerdeContext
-): CreateRule => {
+const deserializeAws_restJson1_1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
   return {
     __type: "CreateRule",
     Interval:
-      output.Interval !== undefined && output.Interval !== null
-        ? output.Interval
-        : undefined,
+      output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit:
       output.IntervalUnit !== undefined && output.IntervalUnit !== null
         ? output.IntervalUnit
@@ -1432,9 +1260,7 @@ const deserializeAws_restJson1_1CrossRegionCopyRetainRule = (
   return {
     __type: "CrossRegionCopyRetainRule",
     Interval:
-      output.Interval !== undefined && output.Interval !== null
-        ? output.Interval
-        : undefined,
+      output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit:
       output.IntervalUnit !== undefined && output.IntervalUnit !== null
         ? output.IntervalUnit
@@ -1448,24 +1274,14 @@ const deserializeAws_restJson1_1CrossRegionCopyRule = (
 ): CrossRegionCopyRule => {
   return {
     __type: "CrossRegionCopyRule",
-    CmkArn:
-      output.CmkArn !== undefined && output.CmkArn !== null
-        ? output.CmkArn
-        : undefined,
+    CmkArn: output.CmkArn !== undefined && output.CmkArn !== null ? output.CmkArn : undefined,
     CopyTags:
-      output.CopyTags !== undefined && output.CopyTags !== null
-        ? output.CopyTags
-        : undefined,
+      output.CopyTags !== undefined && output.CopyTags !== null ? output.CopyTags : undefined,
     Encrypted:
-      output.Encrypted !== undefined && output.Encrypted !== null
-        ? output.Encrypted
-        : undefined,
+      output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
     RetainRule:
       output.RetainRule !== undefined && output.RetainRule !== null
-        ? deserializeAws_restJson1_1CrossRegionCopyRetainRule(
-            output.RetainRule,
-            context
-          )
+        ? deserializeAws_restJson1_1CrossRegionCopyRetainRule(output.RetainRule, context)
         : undefined,
     TargetRegion:
       output.TargetRegion !== undefined && output.TargetRegion !== null
@@ -1490,21 +1306,12 @@ const deserializeAws_restJson1_1FastRestoreRule = (
   return {
     __type: "FastRestoreRule",
     AvailabilityZones:
-      output.AvailabilityZones !== undefined &&
-      output.AvailabilityZones !== null
-        ? deserializeAws_restJson1_1AvailabilityZoneList(
-            output.AvailabilityZones,
-            context
-          )
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1_1AvailabilityZoneList(output.AvailabilityZones, context)
         : undefined,
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined,
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     Interval:
-      output.Interval !== undefined && output.Interval !== null
-        ? output.Interval
-        : undefined,
+      output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit:
       output.IntervalUnit !== undefined && output.IntervalUnit !== null
         ? output.IntervalUnit
@@ -1535,21 +1342,14 @@ const deserializeAws_restJson1_1LifecyclePolicy = (
         ? output.ExecutionRoleArn
         : undefined,
     PolicyArn:
-      output.PolicyArn !== undefined && output.PolicyArn !== null
-        ? output.PolicyArn
-        : undefined,
+      output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined,
     PolicyDetails:
       output.PolicyDetails !== undefined && output.PolicyDetails !== null
         ? deserializeAws_restJson1_1PolicyDetails(output.PolicyDetails, context)
         : undefined,
     PolicyId:
-      output.PolicyId !== undefined && output.PolicyId !== null
-        ? output.PolicyId
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+      output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null
         ? output.StatusMessage
@@ -1572,13 +1372,8 @@ const deserializeAws_restJson1_1LifecyclePolicySummary = (
         ? output.Description
         : undefined,
     PolicyId:
-      output.PolicyId !== undefined && output.PolicyId !== null
-        ? output.PolicyId
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+      output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1_1TagMap(output.Tags, context)
@@ -1609,8 +1404,7 @@ const deserializeAws_restJson1_1_Parameters = (
   return {
     __type: "Parameters",
     ExcludeBootVolume:
-      output.ExcludeBootVolume !== undefined &&
-      output.ExcludeBootVolume !== null
+      output.ExcludeBootVolume !== undefined && output.ExcludeBootVolume !== null
         ? output.ExcludeBootVolume
         : undefined
   } as any;
@@ -1627,15 +1421,10 @@ const deserializeAws_restJson1_1PolicyDetails = (
         ? deserializeAws_restJson1_1_Parameters(output.Parameters, context)
         : undefined,
     PolicyType:
-      output.PolicyType !== undefined && output.PolicyType !== null
-        ? output.PolicyType
-        : undefined,
+      output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
     ResourceTypes:
       output.ResourceTypes !== undefined && output.ResourceTypes !== null
-        ? deserializeAws_restJson1_1ResourceTypeValuesList(
-            output.ResourceTypes,
-            context
-          )
+        ? deserializeAws_restJson1_1ResourceTypeValuesList(output.ResourceTypes, context)
         : undefined,
     Schedules:
       output.Schedules !== undefined && output.Schedules !== null
@@ -1648,10 +1437,7 @@ const deserializeAws_restJson1_1PolicyDetails = (
   } as any;
 };
 
-const deserializeAws_restJson1_1PolicyIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1PolicyIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1662,20 +1448,12 @@ const deserializeAws_restJson1_1ResourceTypeValuesList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1RetainRule = (
-  output: any,
-  context: __SerdeContext
-): RetainRule => {
+const deserializeAws_restJson1_1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
   return {
     __type: "RetainRule",
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined,
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     Interval:
-      output.Interval !== undefined && output.Interval !== null
-        ? output.Interval
-        : undefined,
+      output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit:
       output.IntervalUnit !== undefined && output.IntervalUnit !== null
         ? output.IntervalUnit
@@ -1683,39 +1461,24 @@ const deserializeAws_restJson1_1RetainRule = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Schedule = (
-  output: any,
-  context: __SerdeContext
-): Schedule => {
+const deserializeAws_restJson1_1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
     __type: "Schedule",
     CopyTags:
-      output.CopyTags !== undefined && output.CopyTags !== null
-        ? output.CopyTags
-        : undefined,
+      output.CopyTags !== undefined && output.CopyTags !== null ? output.CopyTags : undefined,
     CreateRule:
       output.CreateRule !== undefined && output.CreateRule !== null
         ? deserializeAws_restJson1_1CreateRule(output.CreateRule, context)
         : undefined,
     CrossRegionCopyRules:
-      output.CrossRegionCopyRules !== undefined &&
-      output.CrossRegionCopyRules !== null
-        ? deserializeAws_restJson1_1CrossRegionCopyRules(
-            output.CrossRegionCopyRules,
-            context
-          )
+      output.CrossRegionCopyRules !== undefined && output.CrossRegionCopyRules !== null
+        ? deserializeAws_restJson1_1CrossRegionCopyRules(output.CrossRegionCopyRules, context)
         : undefined,
     FastRestoreRule:
       output.FastRestoreRule !== undefined && output.FastRestoreRule !== null
-        ? deserializeAws_restJson1_1FastRestoreRule(
-            output.FastRestoreRule,
-            context
-          )
+        ? deserializeAws_restJson1_1FastRestoreRule(output.FastRestoreRule, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     RetainRule:
       output.RetainRule !== undefined && output.RetainRule !== null
         ? deserializeAws_restJson1_1RetainRule(output.RetainRule, context)
@@ -1726,10 +1489,7 @@ const deserializeAws_restJson1_1Schedule = (
         : undefined,
     VariableTags:
       output.VariableTags !== undefined && output.VariableTags !== null
-        ? deserializeAws_restJson1_1VariableTagsList(
-            output.VariableTags,
-            context
-          )
+        ? deserializeAws_restJson1_1VariableTagsList(output.VariableTags, context)
         : undefined
   } as any;
 };
@@ -1738,23 +1498,14 @@ const deserializeAws_restJson1_1ScheduleList = (
   output: any,
   context: __SerdeContext
 ): Schedule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Schedule(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Schedule(entry, context));
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -1771,28 +1522,15 @@ const deserializeAws_restJson1_1TagMap = (
   );
 };
 
-const deserializeAws_restJson1_1TagsToAddList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TagsToAddList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
-const deserializeAws_restJson1_1TargetTagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TargetTagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
-const deserializeAws_restJson1_1TimesList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1TimesList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1800,9 +1538,7 @@ const deserializeAws_restJson1_1VariableTagsList = (
   output: any,
   context: __SerdeContext
 ): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1819,23 +1555,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  UpdateDataSourceRequest,
-  UpdateDataSourceResponse
-} from "../models/index";
+import { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDataSourceCommand,
   serializeAws_restJson1_1UpdateDataSourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDataSourceCommandInput = UpdateDataSourceRequest;
-export type UpdateDataSourceCommandOutput = UpdateDataSourceResponse &
-  __MetadataBearer;
+export type UpdateDataSourceCommandOutput = UpdateDataSourceResponse & __MetadataBearer;
 
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDataSourceCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

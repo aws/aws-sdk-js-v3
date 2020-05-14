@@ -138,10 +138,7 @@ import {
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput
 } from "./commands/ListOrganizationalUnitsForParentCommand";
-import {
-  ListParentsCommandInput,
-  ListParentsCommandOutput
-} from "./commands/ListParentsCommand";
+import { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
 import {
   ListPoliciesCommandInput,
   ListPoliciesCommandOutput
@@ -150,10 +147,7 @@ import {
   ListPoliciesForTargetCommandInput,
   ListPoliciesForTargetCommandOutput
 } from "./commands/ListPoliciesForTargetCommand";
-import {
-  ListRootsCommandInput,
-  ListRootsCommandOutput
-} from "./commands/ListRootsCommand";
+import { ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -162,18 +156,12 @@ import {
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput
 } from "./commands/ListTargetsForPolicyCommand";
-import {
-  MoveAccountCommandInput,
-  MoveAccountCommandOutput
-} from "./commands/MoveAccountCommand";
+import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
 import {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput
 } from "./commands/RemoveAccountFromOrganizationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -421,9 +409,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OrganizationsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OrganizationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DeleteTapeArchiveInput,
-  DeleteTapeArchiveOutput
-} from "../models/index";
+import { DeleteTapeArchiveInput, DeleteTapeArchiveOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTapeArchiveCommand,
   serializeAws_json1_1DeleteTapeArchiveCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTapeArchiveCommandInput = DeleteTapeArchiveInput;
-export type DeleteTapeArchiveCommandOutput = DeleteTapeArchiveOutput &
-  __MetadataBearer;
+export type DeleteTapeArchiveCommandOutput = DeleteTapeArchiveOutput & __MetadataBearer;
 
 export class DeleteTapeArchiveCommand extends $Command<
   DeleteTapeArchiveCommandInput,
@@ -50,9 +46,7 @@ export class DeleteTapeArchiveCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

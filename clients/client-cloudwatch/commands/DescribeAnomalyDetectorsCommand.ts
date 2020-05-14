@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DescribeAnomalyDetectorsInput,
-  DescribeAnomalyDetectorsOutput
-} from "../models/index";
+import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeAnomalyDetectorsCommand,
   serializeAws_queryDescribeAnomalyDetectorsCommand
@@ -49,13 +46,8 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAnomalyDetectorsCommandInput,
-    DescribeAnomalyDetectorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAnomalyDetectorsCommandInput, DescribeAnomalyDetectorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

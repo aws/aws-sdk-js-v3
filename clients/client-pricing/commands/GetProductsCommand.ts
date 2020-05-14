@@ -46,9 +46,7 @@ export class GetProductsCommand extends $Command<
     configuration: PricingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetProductsCommandInput, GetProductsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

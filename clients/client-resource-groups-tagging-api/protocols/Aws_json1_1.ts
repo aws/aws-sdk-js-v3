@@ -10,10 +10,7 @@ import {
   GetResourcesCommandInput,
   GetResourcesCommandOutput
 } from "../commands/GetResourcesCommand";
-import {
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput
-} from "../commands/GetTagKeysCommand";
+import { GetTagKeysCommandInput, GetTagKeysCommandOutput } from "../commands/GetTagKeysCommand";
 import {
   GetTagValuesCommandInput,
   GetTagValuesCommandOutput
@@ -83,9 +80,7 @@ export const serializeAws_json1_1DescribeReportCreationCommand = async (
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeReportCreationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -98,9 +93,7 @@ export const serializeAws_json1_1GetComplianceSummaryCommand = async (
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetComplianceSummaryInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetComplianceSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -152,9 +145,7 @@ export const serializeAws_json1_1StartReportCreationCommand = async (
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartReportCreationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -180,9 +171,7 @@ export const serializeAws_json1_1UntagResourcesCommand = async (
     "X-Amz-Target": "ResourceGroupsTaggingAPI_20170126.UntagResources"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourcesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -191,10 +180,7 @@ export const deserializeAws_json1_1DescribeReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReportCreationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeReportCreationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -218,8 +204,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
@@ -235,10 +220,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -246,10 +228,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -257,10 +236,7 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -287,10 +263,7 @@ export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetComplianceSummaryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetComplianceSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -314,8 +287,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ConstraintViolationException":
@@ -331,10 +303,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -342,10 +311,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -353,10 +319,7 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -407,16 +370,12 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -424,10 +383,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -446,10 +402,7 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -500,16 +453,12 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -517,10 +466,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -539,10 +485,7 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -593,16 +536,12 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -610,10 +549,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -632,10 +568,7 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -662,10 +595,7 @@ export const deserializeAws_json1_1StartReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<StartReportCreationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartReportCreationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -689,8 +619,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ConcurrentModificationException":
@@ -717,10 +646,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -728,10 +654,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -739,10 +662,7 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -793,16 +713,12 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -810,10 +726,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -821,10 +734,7 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -875,16 +785,12 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -892,10 +798,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.tagging.router.service.model.v20170126#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -903,10 +806,7 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tagging.router.service.model.v20170126#ThrottledException":
       response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -933,10 +833,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "client",
@@ -951,10 +848,7 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConstraintViolationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConstraintViolationException(body, context);
   const contents: ConstraintViolationException = {
     name: "ConstraintViolationException",
     $fault: "client",
@@ -969,10 +863,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
   const contents: InternalServiceException = {
     name: "InternalServiceException",
     $fault: "server",
@@ -987,10 +878,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
@@ -1005,10 +893,7 @@ const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PaginationTokenExpiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PaginationTokenExpiredException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PaginationTokenExpiredException(body, context);
   const contents: PaginationTokenExpiredException = {
     name: "PaginationTokenExpiredException",
     $fault: "client",
@@ -1023,10 +908,7 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottledException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottledException(body, context);
   const contents: ThrottledException = {
     name: "ThrottledException",
     $fault: "client",
@@ -1056,10 +938,7 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
       PaginationToken: input.PaginationToken
     }),
     ...(input.RegionFilters !== undefined && {
-      RegionFilters: serializeAws_json1_1RegionFilterList(
-        input.RegionFilters,
-        context
-      )
+      RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context)
     }),
     ...(input.ResourceTypeFilters !== undefined && {
       ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(
@@ -1068,16 +947,10 @@ const serializeAws_json1_1GetComplianceSummaryInput = (
       )
     }),
     ...(input.TagKeyFilters !== undefined && {
-      TagKeyFilters: serializeAws_json1_1TagKeyFilterList(
-        input.TagKeyFilters,
-        context
-      )
+      TagKeyFilters: serializeAws_json1_1TagKeyFilterList(input.TagKeyFilters, context)
     }),
     ...(input.TargetIdFilters !== undefined && {
-      TargetIdFilters: serializeAws_json1_1TargetIdFilterList(
-        input.TargetIdFilters,
-        context
-      )
+      TargetIdFilters: serializeAws_json1_1TargetIdFilterList(input.TargetIdFilters, context)
     })
   };
 };
@@ -1144,17 +1017,11 @@ const serializeAws_json1_1GroupBy = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1RegionFilterList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RegionFilterList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ResourceARNList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ResourceARNList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1174,10 +1041,7 @@ const serializeAws_json1_1StartReportCreationInput = (
   };
 };
 
-const serializeAws_json1_1TagFilter = (
-  input: TagFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Values !== undefined && {
@@ -1186,24 +1050,15 @@ const serializeAws_json1_1TagFilter = (
   };
 };
 
-const serializeAws_json1_1TagFilterList = (
-  input: TagFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
-const serializeAws_json1_1TagKeyFilterList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyFilterList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagKeyListForUntag = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyListForUntag = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1226,10 +1081,7 @@ const serializeAws_json1_1TagResourcesInput = (
 ): any => {
   return {
     ...(input.ResourceARNList !== undefined && {
-      ResourceARNList: serializeAws_json1_1ResourceARNList(
-        input.ResourceARNList,
-        context
-      )
+      ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_json1_1TagMap(input.Tags, context)
@@ -1237,17 +1089,11 @@ const serializeAws_json1_1TagResourcesInput = (
   };
 };
 
-const serializeAws_json1_1TagValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagValueList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TargetIdFilterList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TargetIdFilterList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1257,10 +1103,7 @@ const serializeAws_json1_1UntagResourcesInput = (
 ): any => {
   return {
     ...(input.ResourceARNList !== undefined && {
-      ResourceARNList: serializeAws_json1_1ResourceARNList(
-        input.ResourceARNList,
-        context
-      )
+      ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context)
     }),
     ...(input.TagKeys !== undefined && {
       TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context)
@@ -1279,12 +1122,8 @@ const deserializeAws_json1_1ComplianceDetails = (
         ? output.ComplianceStatus
         : undefined,
     KeysWithNoncompliantValues:
-      output.KeysWithNoncompliantValues !== undefined &&
-      output.KeysWithNoncompliantValues !== null
-        ? deserializeAws_json1_1TagKeyList(
-            output.KeysWithNoncompliantValues,
-            context
-          )
+      output.KeysWithNoncompliantValues !== undefined && output.KeysWithNoncompliantValues !== null
+        ? deserializeAws_json1_1TagKeyList(output.KeysWithNoncompliantValues, context)
         : undefined,
     NoncompliantKeys:
       output.NoncompliantKeys !== undefined && output.NoncompliantKeys !== null
@@ -1299,10 +1138,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1312,10 +1148,7 @@ const deserializeAws_json1_1ConstraintViolationException = (
 ): ConstraintViolationException => {
   return {
     __type: "ConstraintViolationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1330,17 +1163,10 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
         ? output.ErrorMessage
         : undefined,
     S3Location:
-      output.S3Location !== undefined && output.S3Location !== null
-        ? output.S3Location
-        : undefined,
+      output.S3Location !== undefined && output.S3Location !== null ? output.S3Location : undefined,
     StartDate:
-      output.StartDate !== undefined && output.StartDate !== null
-        ? output.StartDate
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+      output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -1357,24 +1183,17 @@ const deserializeAws_json1_1FailedResourcesMap = (
   );
 };
 
-const deserializeAws_json1_1FailureInfo = (
-  output: any,
-  context: __SerdeContext
-): FailureInfo => {
+const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
   return {
     __type: "FailureInfo",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     StatusCode:
-      output.StatusCode !== undefined && output.StatusCode !== null
-        ? output.StatusCode
-        : undefined
+      output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined
   } as any;
 };
 
@@ -1406,12 +1225,8 @@ const deserializeAws_json1_1GetResourcesOutput = (
         ? output.PaginationToken
         : undefined,
     ResourceTagMappingList:
-      output.ResourceTagMappingList !== undefined &&
-      output.ResourceTagMappingList !== null
-        ? deserializeAws_json1_1ResourceTagMappingList(
-            output.ResourceTagMappingList,
-            context
-          )
+      output.ResourceTagMappingList !== undefined && output.ResourceTagMappingList !== null
+        ? deserializeAws_json1_1ResourceTagMappingList(output.ResourceTagMappingList, context)
         : undefined
   } as any;
 };
@@ -1456,10 +1271,7 @@ const deserializeAws_json1_1InternalServiceException = (
 ): InternalServiceException => {
   return {
     __type: "InternalServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1469,10 +1281,7 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   return {
     __type: "InvalidParameterException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1482,10 +1291,7 @@ const deserializeAws_json1_1PaginationTokenExpiredException = (
 ): PaginationTokenExpiredException => {
   return {
     __type: "PaginationTokenExpiredException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1496,12 +1302,8 @@ const deserializeAws_json1_1ResourceTagMapping = (
   return {
     __type: "ResourceTagMapping",
     ComplianceDetails:
-      output.ComplianceDetails !== undefined &&
-      output.ComplianceDetails !== null
-        ? deserializeAws_json1_1ComplianceDetails(
-            output.ComplianceDetails,
-            context
-          )
+      output.ComplianceDetails !== undefined && output.ComplianceDetails !== null
+        ? deserializeAws_json1_1ComplianceDetails(output.ComplianceDetails, context)
         : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
@@ -1532,10 +1334,7 @@ const deserializeAws_json1_1StartReportCreationOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1Summary = (
-  output: any,
-  context: __SerdeContext
-): Summary => {
+const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
   return {
     __type: "Summary",
     LastUpdated:
@@ -1543,22 +1342,16 @@ const deserializeAws_json1_1Summary = (
         ? output.LastUpdated
         : undefined,
     NonCompliantResources:
-      output.NonCompliantResources !== undefined &&
-      output.NonCompliantResources !== null
+      output.NonCompliantResources !== undefined && output.NonCompliantResources !== null
         ? output.NonCompliantResources
         : undefined,
-    Region:
-      output.Region !== undefined && output.Region !== null
-        ? output.Region
-        : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
     ResourceType:
       output.ResourceType !== undefined && output.ResourceType !== null
         ? output.ResourceType
         : undefined,
     TargetId:
-      output.TargetId !== undefined && output.TargetId !== null
-        ? output.TargetId
-        : undefined,
+      output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined,
     TargetIdType:
       output.TargetIdType !== undefined && output.TargetIdType !== null
         ? output.TargetIdType
@@ -1566,44 +1359,24 @@ const deserializeAws_json1_1Summary = (
   } as any;
 };
 
-const deserializeAws_json1_1SummaryList = (
-  output: any,
-  context: __SerdeContext
-): Summary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Summary(entry, context)
-  );
+const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext): Summary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Summary(entry, context));
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagKeyList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TagResourcesOutput = (
@@ -1613,12 +1386,8 @@ const deserializeAws_json1_1TagResourcesOutput = (
   return {
     __type: "TagResourcesOutput",
     FailedResourcesMap:
-      output.FailedResourcesMap !== undefined &&
-      output.FailedResourcesMap !== null
-        ? deserializeAws_json1_1FailedResourcesMap(
-            output.FailedResourcesMap,
-            context
-          )
+      output.FailedResourcesMap !== undefined && output.FailedResourcesMap !== null
+        ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
         : undefined
   } as any;
 };
@@ -1636,10 +1405,7 @@ const deserializeAws_json1_1ThrottledException = (
 ): ThrottledException => {
   return {
     __type: "ThrottledException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1650,12 +1416,8 @@ const deserializeAws_json1_1UntagResourcesOutput = (
   return {
     __type: "UntagResourcesOutput",
     FailedResourcesMap:
-      output.FailedResourcesMap !== undefined &&
-      output.FailedResourcesMap !== null
-        ? deserializeAws_json1_1FailedResourcesMap(
-            output.FailedResourcesMap,
-            context
-          )
+      output.FailedResourcesMap !== undefined && output.FailedResourcesMap !== null
+        ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
         : undefined
   } as any;
 };
@@ -1674,16 +1436,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

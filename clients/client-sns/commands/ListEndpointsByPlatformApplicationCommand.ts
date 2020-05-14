@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import {
   ListEndpointsByPlatformApplicationInput,
   ListEndpointsByPlatformApplicationResponse
@@ -53,9 +49,7 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     ListEndpointsByPlatformApplicationCommandInput,
     ListEndpointsByPlatformApplicationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     input: ListEndpointsByPlatformApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListEndpointsByPlatformApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListEndpointsByPlatformApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

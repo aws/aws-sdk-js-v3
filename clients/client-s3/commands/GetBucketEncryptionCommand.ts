@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketEncryptionOutput,
-  GetBucketEncryptionRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketEncryptionOutput, GetBucketEncryptionRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketEncryptionCommand,
   serializeAws_restXmlGetBucketEncryptionCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketEncryptionCommandInput = GetBucketEncryptionRequest;
-export type GetBucketEncryptionCommandOutput = GetBucketEncryptionOutput &
-  __MetadataBearer;
+export type GetBucketEncryptionCommandOutput = GetBucketEncryptionOutput & __MetadataBearer;
 
 export class GetBucketEncryptionCommand extends $Command<
   GetBucketEncryptionCommandInput,
@@ -50,13 +42,8 @@ export class GetBucketEncryptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketEncryptionCommandInput,
-    GetBucketEncryptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketEncryptionCommandInput, GetBucketEncryptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

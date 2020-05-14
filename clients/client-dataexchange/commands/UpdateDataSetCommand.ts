@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDataSetCommandInput = UpdateDataSetRequest;
-export type UpdateDataSetCommandOutput = UpdateDataSetResponse &
-  __MetadataBearer;
+export type UpdateDataSetCommandOutput = UpdateDataSetResponse & __MetadataBearer;
 
 export class UpdateDataSetCommand extends $Command<
   UpdateDataSetCommandInput,
@@ -47,9 +46,7 @@ export class UpdateDataSetCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSetCommandInput, UpdateDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

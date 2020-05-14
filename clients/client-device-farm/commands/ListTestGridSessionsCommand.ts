@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListTestGridSessionsRequest,
-  ListTestGridSessionsResult
-} from "../models/index";
+import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListTestGridSessionsCommand,
   serializeAws_json1_1ListTestGridSessionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTestGridSessionsCommandInput = ListTestGridSessionsRequest;
-export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult &
-  __MetadataBearer;
+export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult & __MetadataBearer;
 
 export class ListTestGridSessionsCommand extends $Command<
   ListTestGridSessionsCommandInput,
@@ -49,13 +45,8 @@ export class ListTestGridSessionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTestGridSessionsCommandInput,
-    ListTestGridSessionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTestGridSessionsCommandInput, ListTestGridSessionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

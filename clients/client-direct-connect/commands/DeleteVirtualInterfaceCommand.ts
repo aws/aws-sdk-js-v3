@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  DeleteVirtualInterfaceRequest,
-  DeleteVirtualInterfaceResponse
-} from "../models/index";
+import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteVirtualInterfaceCommand,
   serializeAws_json1_1DeleteVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVirtualInterfaceCommandInput = DeleteVirtualInterfaceRequest;
-export type DeleteVirtualInterfaceCommandOutput = DeleteVirtualInterfaceResponse &
-  __MetadataBearer;
+export type DeleteVirtualInterfaceCommandOutput = DeleteVirtualInterfaceResponse & __MetadataBearer;
 
 export class DeleteVirtualInterfaceCommand extends $Command<
   DeleteVirtualInterfaceCommandInput,
@@ -49,13 +45,8 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVirtualInterfaceCommandInput,
-    DeleteVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVirtualInterfaceCommandInput, DeleteVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

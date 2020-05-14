@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostandUsageReportServiceClient";
-import {
-  DeleteReportDefinitionRequest,
-  DeleteReportDefinitionResponse
-} from "../models/index";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReportDefinitionCommand,
   serializeAws_json1_1DeleteReportDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReportDefinitionCommandInput = DeleteReportDefinitionRequest;
-export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse &
-  __MetadataBearer;
+export type DeleteReportDefinitionCommandOutput = DeleteReportDefinitionResponse & __MetadataBearer;
 
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteReportDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReportDefinitionCommandInput,
-    DeleteReportDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { SignRequest, SignResponse } from "../models/index";
 import {
   deserializeAws_json1_1SignCommand,
@@ -46,9 +42,7 @@ export class SignCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SignCommandInput, SignCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +57,11 @@ export class SignCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SignCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SignCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SignCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignCommandOutput> {
     return deserializeAws_json1_1SignCommand(output, context);
   }
 

@@ -39,9 +39,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeEnvironmentManagedActionHistoryCommandInput
-  ) {
+  constructor(readonly input: DescribeEnvironmentManagedActionHistoryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     DescribeEnvironmentManagedActionHistoryCommandInput,
     DescribeEnvironmentManagedActionHistoryCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     input: DescribeEnvironmentManagedActionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

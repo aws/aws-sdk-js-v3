@@ -2,22 +2,10 @@ import {
   DeleteSessionCommandInput,
   DeleteSessionCommandOutput
 } from "./commands/DeleteSessionCommand";
-import {
-  GetSessionCommandInput,
-  GetSessionCommandOutput
-} from "./commands/GetSessionCommand";
-import {
-  PostContentCommandInput,
-  PostContentCommandOutput
-} from "./commands/PostContentCommand";
-import {
-  PostTextCommandInput,
-  PostTextCommandOutput
-} from "./commands/PostTextCommand";
-import {
-  PutSessionCommandInput,
-  PutSessionCommandOutput
-} from "./commands/PutSessionCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand";
+import { PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand";
+import { PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -169,9 +157,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LexRuntimeServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LexRuntimeServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

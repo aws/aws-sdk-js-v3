@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteEventStreamRequest,
-  DeleteEventStreamResponse
-} from "../models/index";
+import { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteEventStreamCommand,
   serializeAws_restJson1_1DeleteEventStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEventStreamCommandInput = DeleteEventStreamRequest;
-export type DeleteEventStreamCommandOutput = DeleteEventStreamResponse &
-  __MetadataBearer;
+export type DeleteEventStreamCommandOutput = DeleteEventStreamResponse & __MetadataBearer;
 
 export class DeleteEventStreamCommand extends $Command<
   DeleteEventStreamCommandInput,
@@ -50,9 +46,7 @@ export class DeleteEventStreamCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSubscriptionDefinitionCommandInput,
-    DeleteSubscriptionDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSubscriptionDefinitionCommandInput, DeleteSubscriptionDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     input: DeleteSubscriptionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

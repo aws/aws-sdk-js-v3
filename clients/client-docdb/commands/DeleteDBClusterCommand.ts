@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterCommandInput = DeleteDBClusterMessage;
-export type DeleteDBClusterCommandOutput = DeleteDBClusterResult &
-  __MetadataBearer;
+export type DeleteDBClusterCommandOutput = DeleteDBClusterResult & __MetadataBearer;
 
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,
@@ -47,9 +42,7 @@ export class DeleteDBClusterCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

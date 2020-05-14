@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  BatchRevokePermissionsRequest,
-  BatchRevokePermissionsResponse
-} from "../models/index";
+import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchRevokePermissionsCommand,
   serializeAws_json1_1BatchRevokePermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchRevokePermissionsCommandInput = BatchRevokePermissionsRequest;
-export type BatchRevokePermissionsCommandOutput = BatchRevokePermissionsResponse &
-  __MetadataBearer;
+export type BatchRevokePermissionsCommandOutput = BatchRevokePermissionsResponse & __MetadataBearer;
 
 export class BatchRevokePermissionsCommand extends $Command<
   BatchRevokePermissionsCommandInput,
@@ -49,13 +45,8 @@ export class BatchRevokePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchRevokePermissionsCommandInput,
-    BatchRevokePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchRevokePermissionsCommandInput, BatchRevokePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

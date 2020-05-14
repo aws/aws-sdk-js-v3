@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import {
   DescribeImageScanFindingsRequest,
   DescribeImageScanFindingsResponse
@@ -49,13 +45,8 @@ export class DescribeImageScanFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImageScanFindingsCommandInput,
-    DescribeImageScanFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImageScanFindingsCommandInput, DescribeImageScanFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeImageScanFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageScanFindingsCommandOutput> {
-    return deserializeAws_json1_1DescribeImageScanFindingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImageScanFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

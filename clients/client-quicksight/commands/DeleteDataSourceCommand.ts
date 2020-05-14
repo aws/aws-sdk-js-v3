@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DeleteDataSourceRequest,
-  DeleteDataSourceResponse
-} from "../models/index";
+import { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDataSourceCommand,
   serializeAws_restJson1_1DeleteDataSourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDataSourceCommandInput = DeleteDataSourceRequest;
-export type DeleteDataSourceCommandOutput = DeleteDataSourceResponse &
-  __MetadataBearer;
+export type DeleteDataSourceCommandOutput = DeleteDataSourceResponse & __MetadataBearer;
 
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDataSourceCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

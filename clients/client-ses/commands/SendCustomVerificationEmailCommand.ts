@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SendCustomVerificationEmailRequest,
   SendCustomVerificationEmailResponse
@@ -49,13 +45,8 @@ export class SendCustomVerificationEmailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendCustomVerificationEmailCommandInput,
-    SendCustomVerificationEmailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendCustomVerificationEmailCommandInput, SendCustomVerificationEmailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class SendCustomVerificationEmailCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendCustomVerificationEmailCommandOutput> {
-    return deserializeAws_querySendCustomVerificationEmailCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySendCustomVerificationEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

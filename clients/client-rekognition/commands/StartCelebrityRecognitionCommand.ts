@@ -49,13 +49,8 @@ export class StartCelebrityRecognitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartCelebrityRecognitionCommandInput,
-    StartCelebrityRecognitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartCelebrityRecognitionCommandInput, StartCelebrityRecognitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class StartCelebrityRecognitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartCelebrityRecognitionCommandOutput> {
-    return deserializeAws_json1_1StartCelebrityRecognitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartCelebrityRecognitionCommand(output, context);
   }
 
   // Start section: command_body_extra

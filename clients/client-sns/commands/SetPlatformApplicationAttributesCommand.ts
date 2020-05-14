@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { SetPlatformApplicationAttributesInput } from "../models/index";
 import {
   deserializeAws_querySetPlatformApplicationAttributesCommand,
@@ -49,9 +45,7 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     SetPlatformApplicationAttributesCommandInput,
     SetPlatformApplicationAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     input: SetPlatformApplicationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetPlatformApplicationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetPlatformApplicationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetPlatformApplicationAttributesCommandOutput> {
-    return deserializeAws_querySetPlatformApplicationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetPlatformApplicationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

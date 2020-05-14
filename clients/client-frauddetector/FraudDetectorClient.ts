@@ -14,10 +14,7 @@ import {
   CreateModelVersionCommandInput,
   CreateModelVersionCommandOutput
 } from "./commands/CreateModelVersionCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateVariableCommandInput,
   CreateVariableCommandOutput
@@ -26,10 +23,7 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput
 } from "./commands/DeleteDetectorVersionCommand";
-import {
-  DeleteEventCommandInput,
-  DeleteEventCommandOutput
-} from "./commands/DeleteEventCommand";
+import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import {
   DescribeDetectorCommandInput,
   DescribeDetectorCommandOutput
@@ -54,42 +48,24 @@ import {
   GetModelVersionCommandInput,
   GetModelVersionCommandOutput
 } from "./commands/GetModelVersionCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "./commands/GetModelsCommand";
-import {
-  GetOutcomesCommandInput,
-  GetOutcomesCommandOutput
-} from "./commands/GetOutcomesCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
 import {
   GetPredictionCommandInput,
   GetPredictionCommandOutput
 } from "./commands/GetPredictionCommand";
-import {
-  GetRulesCommandInput,
-  GetRulesCommandOutput
-} from "./commands/GetRulesCommand";
+import { GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand";
 import {
   GetVariablesCommandInput,
   GetVariablesCommandOutput
 } from "./commands/GetVariablesCommand";
-import {
-  PutDetectorCommandInput,
-  PutDetectorCommandOutput
-} from "./commands/PutDetectorCommand";
+import { PutDetectorCommandInput, PutDetectorCommandOutput } from "./commands/PutDetectorCommand";
 import {
   PutExternalModelCommandInput,
   PutExternalModelCommandOutput
 } from "./commands/PutExternalModelCommand";
-import {
-  PutModelCommandInput,
-  PutModelCommandOutput
-} from "./commands/PutModelCommand";
-import {
-  PutOutcomeCommandInput,
-  PutOutcomeCommandOutput
-} from "./commands/PutOutcomeCommand";
+import { PutModelCommandInput, PutModelCommandOutput } from "./commands/PutModelCommand";
+import { PutOutcomeCommandInput, PutOutcomeCommandOutput } from "./commands/PutOutcomeCommand";
 import {
   UpdateDetectorVersionCommandInput,
   UpdateDetectorVersionCommandOutput
@@ -319,9 +295,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FraudDetectorClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FraudDetectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

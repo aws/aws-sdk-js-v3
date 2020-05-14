@@ -58,10 +58,7 @@ import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput
 } from "../commands/DeleteScheduledActionCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput
@@ -162,10 +159,7 @@ import {
   ExecutePolicyCommandInput,
   ExecutePolicyCommandOutput
 } from "../commands/ExecutePolicyCommand";
-import {
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput
-} from "../commands/ExitStandbyCommand";
+import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "../commands/ExitStandbyCommand";
 import {
   PutLifecycleHookCommandInput,
   PutLifecycleHookCommandOutput
@@ -744,10 +738,7 @@ export const serializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
   };
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(
-      input,
-      context
-    ),
+    ...serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(input, context),
     Action: "DescribeLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
@@ -1189,10 +1180,7 @@ export const serializeAws_queryTerminateInstanceInAutoScalingGroupCommand = asyn
   };
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTerminateInstanceInAutoScalingGroupType(
-      input,
-      context
-    ),
+    ...serializeAws_queryTerminateInstanceInAutoScalingGroupType(input, context),
     Action: "TerminateInstanceInAutoScalingGroup",
     Version: "2011-01-01"
   });
@@ -1244,10 +1232,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1255,10 +1240,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1269,8 +1251,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1286,10 +1267,7 @@ export const deserializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1320,10 +1298,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1331,10 +1306,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1345,8 +1317,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1393,10 +1364,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1404,10 +1372,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1418,8 +1383,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1435,10 +1399,7 @@ export const deserializeAws_queryBatchDeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryBatchDeleteScheduledActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchDeleteScheduledActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1469,10 +1430,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1483,8 +1441,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1500,10 +1457,7 @@ export const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand = asy
   context: __SerdeContext
 ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1534,10 +1488,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1545,10 +1496,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1556,10 +1504,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1570,8 +1515,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1587,10 +1531,7 @@ export const deserializeAws_queryCompleteLifecycleActionCommand = async (
   context: __SerdeContext
 ): Promise<CompleteLifecycleActionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCompleteLifecycleActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCompleteLifecycleActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1621,10 +1562,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1635,8 +1573,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1652,10 +1589,7 @@ export const deserializeAws_queryCreateAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCreateAutoScalingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateAutoScalingGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateAutoScalingGroupCommandOutput = {
@@ -1679,10 +1613,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1690,10 +1621,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1701,10 +1629,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1712,10 +1637,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1726,8 +1648,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1743,10 +1664,7 @@ export const deserializeAws_queryCreateLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryCreateLaunchConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateLaunchConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateLaunchConfigurationCommandOutput = {
@@ -1770,10 +1688,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1781,10 +1696,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1792,10 +1704,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1806,8 +1715,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1847,10 +1755,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1858,10 +1763,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1869,10 +1771,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1880,10 +1779,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1894,8 +1790,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1911,10 +1806,7 @@ export const deserializeAws_queryDeleteAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteAutoScalingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteAutoScalingGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAutoScalingGroupCommandOutput = {
@@ -1938,10 +1830,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1949,10 +1838,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1974,8 +1860,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1991,10 +1876,7 @@ export const deserializeAws_queryDeleteLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteLaunchConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteLaunchConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLaunchConfigurationCommandOutput = {
@@ -2018,10 +1900,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2029,10 +1908,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2043,8 +1919,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2064,10 +1939,7 @@ export const deserializeAws_queryDeleteLifecycleHookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteLifecycleHookAnswer(
-    data.DeleteLifecycleHookResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteLifecycleHookAnswer(data.DeleteLifecycleHookResult, context);
   const response: DeleteLifecycleHookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLifecycleHookAnswer",
@@ -2091,10 +1963,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2105,8 +1974,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2122,10 +1990,7 @@ export const deserializeAws_queryDeleteNotificationConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<DeleteNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteNotificationConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteNotificationConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotificationConfigurationCommandOutput = {
@@ -2149,10 +2014,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2163,8 +2025,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2204,10 +2065,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2215,10 +2073,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2229,8 +2084,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2246,10 +2100,7 @@ export const deserializeAws_queryDeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDeleteScheduledActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteScheduledActionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScheduledActionCommandOutput = {
@@ -2273,10 +2124,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2287,8 +2135,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2328,10 +2175,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2339,10 +2183,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2353,8 +2194,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2370,10 +2210,7 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAccountLimitsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2404,10 +2241,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2418,8 +2252,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2435,10 +2268,7 @@ export const deserializeAws_queryDescribeAdjustmentTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAdjustmentTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAdjustmentTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAdjustmentTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2469,10 +2299,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2483,8 +2310,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2500,10 +2326,7 @@ export const deserializeAws_queryDescribeAutoScalingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoScalingGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAutoScalingGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2534,10 +2357,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2545,10 +2365,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2559,8 +2376,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2576,10 +2392,7 @@ export const deserializeAws_queryDescribeAutoScalingInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoScalingInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAutoScalingInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2610,10 +2423,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2621,10 +2431,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2635,8 +2442,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2652,10 +2458,7 @@ export const deserializeAws_queryDescribeAutoScalingNotificationTypesCommand = a
   context: __SerdeContext
 ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2686,10 +2489,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2700,8 +2500,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2717,10 +2516,7 @@ export const deserializeAws_queryDescribeLaunchConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLaunchConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLaunchConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLaunchConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2751,10 +2547,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2762,10 +2555,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2776,8 +2566,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2793,10 +2582,7 @@ export const deserializeAws_queryDescribeLifecycleHookTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLifecycleHookTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2827,10 +2613,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2841,8 +2624,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2858,10 +2640,7 @@ export const deserializeAws_queryDescribeLifecycleHooksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLifecycleHooksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLifecycleHooksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLifecycleHooksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2892,10 +2671,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2906,8 +2682,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2923,10 +2698,7 @@ export const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2957,10 +2729,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2971,8 +2740,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -2988,10 +2756,7 @@ export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeLoadBalancersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3022,10 +2787,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3036,8 +2798,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3053,10 +2814,7 @@ export const deserializeAws_queryDescribeMetricCollectionTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetricCollectionTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeMetricCollectionTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeMetricCollectionTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3087,10 +2845,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3101,8 +2856,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3118,10 +2872,7 @@ export const deserializeAws_queryDescribeNotificationConfigurationsCommand = asy
   context: __SerdeContext
 ): Promise<DescribeNotificationConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeNotificationConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeNotificationConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3152,10 +2903,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3163,10 +2911,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3177,8 +2922,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3198,10 +2942,7 @@ export const deserializeAws_queryDescribePoliciesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPoliciesType(
-    data.DescribePoliciesResult,
-    context
-  );
+  contents = deserializeAws_queryPoliciesType(data.DescribePoliciesResult, context);
   const response: DescribePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PoliciesType",
@@ -3225,10 +2966,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3236,10 +2974,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3247,10 +2982,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3261,8 +2993,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3278,17 +3009,11 @@ export const deserializeAws_queryDescribeScalingActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeScalingActivitiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingActivitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryActivitiesType(
-    data.DescribeScalingActivitiesResult,
-    context
-  );
+  contents = deserializeAws_queryActivitiesType(data.DescribeScalingActivitiesResult, context);
   const response: DescribeScalingActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivitiesType",
@@ -3312,10 +3037,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3323,10 +3045,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3337,8 +3056,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3354,17 +3072,11 @@ export const deserializeAws_queryDescribeScalingProcessTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingProcessTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeScalingProcessTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScalingProcessTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryProcessesType(
-    data.DescribeScalingProcessTypesResult,
-    context
-  );
+  contents = deserializeAws_queryProcessesType(data.DescribeScalingProcessTypesResult, context);
   const response: DescribeScalingProcessTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ProcessesType",
@@ -3388,10 +3100,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3402,8 +3111,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3419,17 +3127,11 @@ export const deserializeAws_queryDescribeScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeScheduledActionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeScheduledActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryScheduledActionsType(
-    data.DescribeScheduledActionsResult,
-    context
-  );
+  contents = deserializeAws_queryScheduledActionsType(data.DescribeScheduledActionsResult, context);
   const response: DescribeScheduledActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScheduledActionsType",
@@ -3453,10 +3155,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3464,10 +3163,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3478,8 +3174,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3523,10 +3218,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
       response = {
-        ...(await deserializeAws_queryInvalidNextTokenResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3534,10 +3226,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3548,8 +3237,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3565,10 +3253,7 @@ export const deserializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTerminationPolicyTypesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTerminationPolicyTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3599,10 +3284,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3613,8 +3295,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3634,10 +3315,7 @@ export const deserializeAws_queryDetachInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDetachInstancesAnswer(
-    data.DetachInstancesResult,
-    context
-  );
+  contents = deserializeAws_queryDetachInstancesAnswer(data.DetachInstancesResult, context);
   const response: DetachInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetachInstancesAnswer",
@@ -3661,10 +3339,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3675,8 +3350,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3692,10 +3366,7 @@ export const deserializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3726,10 +3397,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3740,8 +3408,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3788,10 +3455,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3802,8 +3466,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3819,10 +3482,7 @@ export const deserializeAws_queryDisableMetricsCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DisableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryDisableMetricsCollectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryDisableMetricsCollectionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableMetricsCollectionCommandOutput = {
@@ -3846,10 +3506,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3860,8 +3517,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3877,10 +3533,7 @@ export const deserializeAws_queryEnableMetricsCollectionCommand = async (
   context: __SerdeContext
 ): Promise<EnableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryEnableMetricsCollectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryEnableMetricsCollectionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableMetricsCollectionCommandOutput = {
@@ -3904,10 +3557,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3918,8 +3568,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -3939,10 +3588,7 @@ export const deserializeAws_queryEnterStandbyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEnterStandbyAnswer(
-    data.EnterStandbyResult,
-    context
-  );
+  contents = deserializeAws_queryEnterStandbyAnswer(data.EnterStandbyResult, context);
   const response: EnterStandbyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnterStandbyAnswer",
@@ -3966,10 +3612,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3980,8 +3623,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4021,10 +3663,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4046,8 +3685,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4067,10 +3705,7 @@ export const deserializeAws_queryExitStandbyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryExitStandbyAnswer(
-    data.ExitStandbyResult,
-    context
-  );
+  contents = deserializeAws_queryExitStandbyAnswer(data.ExitStandbyResult, context);
   const response: ExitStandbyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExitStandbyAnswer",
@@ -4094,10 +3729,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4108,8 +3740,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4129,10 +3760,7 @@ export const deserializeAws_queryPutLifecycleHookCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPutLifecycleHookAnswer(
-    data.PutLifecycleHookResult,
-    context
-  );
+  contents = deserializeAws_queryPutLifecycleHookAnswer(data.PutLifecycleHookResult, context);
   const response: PutLifecycleHookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutLifecycleHookAnswer",
@@ -4156,10 +3784,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4167,10 +3792,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4181,8 +3803,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4198,10 +3819,7 @@ export const deserializeAws_queryPutNotificationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryPutNotificationConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryPutNotificationConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutNotificationConfigurationCommandOutput = {
@@ -4225,10 +3843,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4236,10 +3851,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4247,10 +3859,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4261,8 +3870,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4282,10 +3890,7 @@ export const deserializeAws_queryPutScalingPolicyCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPolicyARNType(
-    data.PutScalingPolicyResult,
-    context
-  );
+  contents = deserializeAws_queryPolicyARNType(data.PutScalingPolicyResult, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PolicyARNType",
@@ -4309,10 +3914,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4320,10 +3922,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4331,10 +3930,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4345,8 +3941,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4362,10 +3957,7 @@ export const deserializeAws_queryPutScheduledUpdateGroupActionCommand = async (
   context: __SerdeContext
 ): Promise<PutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryPutScheduledUpdateGroupActionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutScheduledUpdateGroupActionCommandOutput = {
@@ -4389,10 +3981,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
       response = {
-        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4400,10 +3989,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4411,10 +3997,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4425,8 +4008,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4442,10 +4024,7 @@ export const deserializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<RecordLifecycleActionHeartbeatCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4476,10 +4055,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4490,8 +4066,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4531,10 +4106,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4542,10 +4114,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4556,8 +4125,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4597,10 +4165,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4622,8 +4187,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4663,10 +4227,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4677,8 +4238,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4694,10 +4254,7 @@ export const deserializeAws_querySetInstanceProtectionCommand = async (
   context: __SerdeContext
 ): Promise<SetInstanceProtectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_querySetInstanceProtectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_querySetInstanceProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4728,10 +4285,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
       response = {
-        ...(await deserializeAws_queryLimitExceededFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4739,10 +4293,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4753,8 +4304,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4794,10 +4344,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4805,10 +4352,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
       response = {
-        ...(await deserializeAws_queryResourceInUseFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4819,8 +4363,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4836,10 +4379,7 @@ export const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand = as
   context: __SerdeContext
 ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4870,10 +4410,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4895,8 +4432,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4912,10 +4448,7 @@ export const deserializeAws_queryUpdateAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryUpdateAutoScalingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateAutoScalingGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAutoScalingGroupCommandOutput = {
@@ -4939,10 +4472,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
       response = {
-        ...(await deserializeAws_queryResourceContentionFaultResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4961,10 +4491,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
       response = {
-        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4975,8 +4502,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -4992,10 +4518,7 @@ const deserializeAws_queryAlreadyExistsFaultResponse = async (
   context: __SerdeContext
 ): Promise<AlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAlreadyExistsFault(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryAlreadyExistsFault(body.Error, context);
   const contents: AlreadyExistsFault = {
     name: "AlreadyExistsFault",
     $fault: "client",
@@ -5010,10 +4533,7 @@ const deserializeAws_queryInvalidNextTokenResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextToken> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidNextToken(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidNextToken(body.Error, context);
   const contents: InvalidNextToken = {
     name: "InvalidNextToken",
     $fault: "client",
@@ -5028,10 +4548,7 @@ const deserializeAws_queryLimitExceededFaultResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLimitExceededFault(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryLimitExceededFault(body.Error, context);
   const contents: LimitExceededFault = {
     name: "LimitExceededFault",
     $fault: "client",
@@ -5046,10 +4563,7 @@ const deserializeAws_queryResourceContentionFaultResponse = async (
   context: __SerdeContext
 ): Promise<ResourceContentionFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceContentionFault(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryResourceContentionFault(body.Error, context);
   const contents: ResourceContentionFault = {
     name: "ResourceContentionFault",
     $fault: "server",
@@ -5064,10 +4578,7 @@ const deserializeAws_queryResourceInUseFaultResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryResourceInUseFault(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryResourceInUseFault(body.Error, context);
   const contents: ResourceInUseFault = {
     name: "ResourceInUseFault",
     $fault: "client",
@@ -5082,10 +4593,7 @@ const deserializeAws_queryScalingActivityInProgressFaultResponse = async (
   context: __SerdeContext
 ): Promise<ScalingActivityInProgressFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryScalingActivityInProgressFault(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryScalingActivityInProgressFault(body.Error, context);
   const contents: ScalingActivityInProgressFault = {
     name: "ScalingActivityInProgressFault",
     $fault: "client",
@@ -5100,10 +4608,7 @@ const deserializeAws_queryServiceLinkedRoleFailureResponse = async (
   context: __SerdeContext
 ): Promise<ServiceLinkedRoleFailure> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryServiceLinkedRoleFailure(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryServiceLinkedRoleFailure(body.Error, context);
   const contents: ServiceLinkedRoleFailure = {
     name: "ServiceLinkedRoleFailure",
     $fault: "server",
@@ -5113,10 +4618,7 @@ const deserializeAws_queryServiceLinkedRoleFailureResponse = async (
   return contents;
 };
 
-const serializeAws_queryActivityIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryActivityIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5135,10 +4637,7 @@ const serializeAws_queryAttachInstancesQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -5156,10 +4655,7 @@ const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(
-      input.TargetGroupARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
@@ -5177,10 +4673,7 @@ const serializeAws_queryAttachLoadBalancersType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.LoadBalancerNames !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(
-      input.LoadBalancerNames,
-      context
-    );
+    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -5189,10 +4682,7 @@ const serializeAws_queryAttachLoadBalancersType = (
   return entries;
 };
 
-const serializeAws_queryAutoScalingGroupNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAutoScalingGroupNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5239,10 +4729,7 @@ const serializeAws_queryAutoScalingNotificationTypes = (
   return entries;
 };
 
-const serializeAws_queryAvailabilityZones = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -5379,10 +4866,7 @@ const serializeAws_queryCreateAutoScalingGroupType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.AvailabilityZones !== undefined) {
-    const memberEntries = serializeAws_queryAvailabilityZones(
-      input.AvailabilityZones,
-      context
-    );
+    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -5427,10 +4911,7 @@ const serializeAws_queryCreateAutoScalingGroupType = (
     });
   }
   if (input.LoadBalancerNames !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(
-      input.LoadBalancerNames,
-      context
-    );
+    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -5456,8 +4937,7 @@ const serializeAws_queryCreateAutoScalingGroupType = (
     });
   }
   if (input.NewInstancesProtectedFromScaleIn !== undefined) {
-    entries["NewInstancesProtectedFromScaleIn"] =
-      input.NewInstancesProtectedFromScaleIn;
+    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
   }
   if (input.PlacementGroup !== undefined) {
     entries["PlacementGroup"] = input.PlacementGroup;
@@ -5473,20 +4953,14 @@ const serializeAws_queryCreateAutoScalingGroupType = (
     });
   }
   if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(
-      input.TargetGroupARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
     });
   }
   if (input.TerminationPolicies !== undefined) {
-    const memberEntries = serializeAws_queryTerminationPolicies(
-      input.TerminationPolicies,
-      context
-    );
+    const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
       entries[loc] = value;
@@ -5507,10 +4981,7 @@ const serializeAws_queryCreateLaunchConfigurationType = (
     entries["AssociatePublicIpAddress"] = input.AssociatePublicIpAddress;
   }
   if (input.BlockDeviceMappings !== undefined) {
-    const memberEntries = serializeAws_queryBlockDeviceMappings(
-      input.BlockDeviceMappings,
-      context
-    );
+    const memberEntries = serializeAws_queryBlockDeviceMappings(input.BlockDeviceMappings, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMappings.${key}`;
       entries[loc] = value;
@@ -5542,10 +5013,7 @@ const serializeAws_queryCreateLaunchConfigurationType = (
     entries["InstanceId"] = input.InstanceId;
   }
   if (input.InstanceMonitoring !== undefined) {
-    const memberEntries = serializeAws_queryInstanceMonitoring(
-      input.InstanceMonitoring,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceMonitoring(input.InstanceMonitoring, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceMonitoring.${key}`;
       entries[loc] = value;
@@ -5570,10 +5038,7 @@ const serializeAws_queryCreateLaunchConfigurationType = (
     entries["RamdiskId"] = input.RamdiskId;
   }
   if (input.SecurityGroups !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroups(
-      input.SecurityGroups,
-      context
-    );
+    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -5609,10 +5074,7 @@ const serializeAws_queryCustomizedMetricSpecification = (
 ): any => {
   const entries: any = {};
   if (input.Dimensions !== undefined) {
-    const memberEntries = serializeAws_queryMetricDimensions(
-      input.Dimensions,
-      context
-    );
+    const memberEntries = serializeAws_queryMetricDimensions(input.Dimensions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Dimensions.${key}`;
       entries[loc] = value;
@@ -5703,10 +5165,7 @@ const serializeAws_queryDeleteScheduledActionType = (
   return entries;
 };
 
-const serializeAws_queryDeleteTagsType = (
-  input: DeleteTagsType,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryDeleteTagsType = (input: DeleteTagsType, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
@@ -5724,10 +5183,7 @@ const serializeAws_queryDescribeAutoScalingInstancesType = (
 ): any => {
   const entries: any = {};
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -5751,10 +5207,7 @@ const serializeAws_queryDescribeLifecycleHooksType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.LifecycleHookNames !== undefined) {
-    const memberEntries = serializeAws_queryLifecycleHookNames(
-      input.LifecycleHookNames,
-      context
-    );
+    const memberEntries = serializeAws_queryLifecycleHookNames(input.LifecycleHookNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LifecycleHookNames.${key}`;
       entries[loc] = value;
@@ -5836,20 +5289,14 @@ const serializeAws_queryDescribePoliciesType = (
     entries["NextToken"] = input.NextToken;
   }
   if (input.PolicyNames !== undefined) {
-    const memberEntries = serializeAws_queryPolicyNames(
-      input.PolicyNames,
-      context
-    );
+    const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
     });
   }
   if (input.PolicyTypes !== undefined) {
-    const memberEntries = serializeAws_queryPolicyTypes(
-      input.PolicyTypes,
-      context
-    );
+    const memberEntries = serializeAws_queryPolicyTypes(input.PolicyTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypes.${key}`;
       entries[loc] = value;
@@ -5864,10 +5311,7 @@ const serializeAws_queryDescribeScalingActivitiesType = (
 ): any => {
   const entries: any = {};
   if (input.ActivityIds !== undefined) {
-    const memberEntries = serializeAws_queryActivityIds(
-      input.ActivityIds,
-      context
-    );
+    const memberEntries = serializeAws_queryActivityIds(input.ActivityIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActivityIds.${key}`;
       entries[loc] = value;
@@ -5948,18 +5392,14 @@ const serializeAws_queryDetachInstancesQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
-    entries["ShouldDecrementDesiredCapacity"] =
-      input.ShouldDecrementDesiredCapacity;
+    entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
   }
   return entries;
 };
@@ -5973,10 +5413,7 @@ const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.TargetGroupARNs !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupARNs(
-      input.TargetGroupARNs,
-      context
-    );
+    const memberEntries = serializeAws_queryTargetGroupARNs(input.TargetGroupARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
       entries[loc] = value;
@@ -5994,10 +5431,7 @@ const serializeAws_queryDetachLoadBalancersType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.LoadBalancerNames !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(
-      input.LoadBalancerNames,
-      context
-    );
+    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -6077,18 +5511,14 @@ const serializeAws_queryEnterStandbyQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
     });
   }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
-    entries["ShouldDecrementDesiredCapacity"] =
-      input.ShouldDecrementDesiredCapacity;
+    entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
   }
   return entries;
 };
@@ -6125,10 +5555,7 @@ const serializeAws_queryExitStandbyQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -6137,10 +5564,7 @@ const serializeAws_queryExitStandbyQuery = (
   return entries;
 };
 
-const serializeAws_queryFilter = (
-  input: Filter,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name !== undefined) {
     entries["Name"] = input.Name;
@@ -6155,10 +5579,7 @@ const serializeAws_queryFilter = (
   return entries;
 };
 
-const serializeAws_queryFilters = (
-  input: Filter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryFilters = (input: Filter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6171,10 +5592,7 @@ const serializeAws_queryFilters = (
   return entries;
 };
 
-const serializeAws_queryInstanceIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryInstanceIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6207,8 +5625,7 @@ const serializeAws_queryInstancesDistribution = (
     entries["OnDemandBaseCapacity"] = input.OnDemandBaseCapacity;
   }
   if (input.OnDemandPercentageAboveBaseCapacity !== undefined) {
-    entries["OnDemandPercentageAboveBaseCapacity"] =
-      input.OnDemandPercentageAboveBaseCapacity;
+    entries["OnDemandPercentageAboveBaseCapacity"] = input.OnDemandPercentageAboveBaseCapacity;
   }
   if (input.SpotAllocationStrategy !== undefined) {
     entries["SpotAllocationStrategy"] = input.SpotAllocationStrategy;
@@ -6270,10 +5687,7 @@ const serializeAws_queryLaunchConfigurationNamesType = (
   return entries;
 };
 
-const serializeAws_queryLaunchTemplate = (
-  input: LaunchTemplate,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLaunchTemplate = (input: LaunchTemplate, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.LaunchTemplateSpecification !== undefined) {
     const memberEntries = serializeAws_queryLaunchTemplateSpecification(
@@ -6326,10 +5740,7 @@ const serializeAws_queryLaunchTemplateSpecification = (
   return entries;
 };
 
-const serializeAws_queryLifecycleHookNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLifecycleHookNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6375,10 +5786,7 @@ const serializeAws_queryLifecycleHookSpecifications = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_queryLifecycleHookSpecification(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_queryLifecycleHookSpecification(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -6387,10 +5795,7 @@ const serializeAws_queryLifecycleHookSpecifications = (
   return entries;
 };
 
-const serializeAws_queryLoadBalancerNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6430,10 +5835,7 @@ const serializeAws_queryMetricDimensions = (
   return entries;
 };
 
-const serializeAws_queryMetrics = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryMetrics = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6459,10 +5861,7 @@ const serializeAws_queryMixedInstancesPolicy = (
     });
   }
   if (input.LaunchTemplate !== undefined) {
-    const memberEntries = serializeAws_queryLaunchTemplate(
-      input.LaunchTemplate,
-      context
-    );
+    const memberEntries = serializeAws_queryLaunchTemplate(input.LaunchTemplate, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplate.${key}`;
       entries[loc] = value;
@@ -6478,10 +5877,7 @@ const serializeAws_queryOverrides = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_queryLaunchTemplateOverrides(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_queryLaunchTemplateOverrides(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -6490,10 +5886,7 @@ const serializeAws_queryOverrides = (
   return entries;
 };
 
-const serializeAws_queryPolicyNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6503,10 +5896,7 @@ const serializeAws_queryPolicyNames = (
   return entries;
 };
 
-const serializeAws_queryPolicyTypes = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryPolicyTypes = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6530,10 +5920,7 @@ const serializeAws_queryPredefinedMetricSpecification = (
   return entries;
 };
 
-const serializeAws_queryProcessNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryProcessNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6635,10 +6022,7 @@ const serializeAws_queryPutScalingPolicyType = (
     entries["ScalingAdjustment"] = input.ScalingAdjustment;
   }
   if (input.StepAdjustments !== undefined) {
-    const memberEntries = serializeAws_queryStepAdjustments(
-      input.StepAdjustments,
-      context
-    );
+    const memberEntries = serializeAws_queryStepAdjustments(input.StepAdjustments, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StepAdjustments.${key}`;
       entries[loc] = value;
@@ -6721,10 +6105,7 @@ const serializeAws_queryScalingProcessQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.ScalingProcesses !== undefined) {
-    const memberEntries = serializeAws_queryProcessNames(
-      input.ScalingProcesses,
-      context
-    );
+    const memberEntries = serializeAws_queryProcessNames(input.ScalingProcesses, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingProcesses.${key}`;
       entries[loc] = value;
@@ -6733,10 +6114,7 @@ const serializeAws_queryScalingProcessQuery = (
   return entries;
 };
 
-const serializeAws_queryScheduledActionNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryScheduledActionNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6782,10 +6160,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_queryScheduledUpdateGroupActionRequest(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_queryScheduledUpdateGroupActionRequest(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -6794,10 +6169,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
   return entries;
 };
 
-const serializeAws_querySecurityGroups = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_querySecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6850,10 +6222,7 @@ const serializeAws_querySetInstanceProtectionQuery = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.InstanceIds !== undefined) {
-    const memberEntries = serializeAws_queryInstanceIds(
-      input.InstanceIds,
-      context
-    );
+    const memberEntries = serializeAws_queryInstanceIds(input.InstanceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceIds.${key}`;
       entries[loc] = value;
@@ -6865,10 +6234,7 @@ const serializeAws_querySetInstanceProtectionQuery = (
   return entries;
 };
 
-const serializeAws_queryStepAdjustment = (
-  input: StepAdjustment,
-  context: __SerdeContext
-): any => {
+const serializeAws_queryStepAdjustment = (input: StepAdjustment, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.MetricIntervalLowerBound !== undefined) {
     entries["MetricIntervalLowerBound"] = input.MetricIntervalLowerBound;
@@ -6931,10 +6297,7 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   return entries;
 };
 
-const serializeAws_queryTargetGroupARNs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTargetGroupARNs = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -6987,16 +6350,12 @@ const serializeAws_queryTerminateInstanceInAutoScalingGroupType = (
     entries["InstanceId"] = input.InstanceId;
   }
   if (input.ShouldDecrementDesiredCapacity !== undefined) {
-    entries["ShouldDecrementDesiredCapacity"] =
-      input.ShouldDecrementDesiredCapacity;
+    entries["ShouldDecrementDesiredCapacity"] = input.ShouldDecrementDesiredCapacity;
   }
   return entries;
 };
 
-const serializeAws_queryTerminationPolicies = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTerminationPolicies = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -7015,10 +6374,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
   if (input.AvailabilityZones !== undefined) {
-    const memberEntries = serializeAws_queryAvailabilityZones(
-      input.AvailabilityZones,
-      context
-    );
+    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -7069,8 +6425,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
     });
   }
   if (input.NewInstancesProtectedFromScaleIn !== undefined) {
-    entries["NewInstancesProtectedFromScaleIn"] =
-      input.NewInstancesProtectedFromScaleIn;
+    entries["NewInstancesProtectedFromScaleIn"] = input.NewInstancesProtectedFromScaleIn;
   }
   if (input.PlacementGroup !== undefined) {
     entries["PlacementGroup"] = input.PlacementGroup;
@@ -7079,10 +6434,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
     entries["ServiceLinkedRoleARN"] = input.ServiceLinkedRoleARN;
   }
   if (input.TerminationPolicies !== undefined) {
-    const memberEntries = serializeAws_queryTerminationPolicies(
-      input.TerminationPolicies,
-      context
-    );
+    const memberEntries = serializeAws_queryTerminationPolicies(input.TerminationPolicies, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TerminationPolicies.${key}`;
       entries[loc] = value;
@@ -7094,10 +6446,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
   return entries;
 };
 
-const serializeAws_queryValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryValues = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -7107,13 +6456,8 @@ const serializeAws_queryValues = (
   return entries;
 };
 
-const deserializeAws_queryActivities = (
-  output: any,
-  context: __SerdeContext
-): Activity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryActivity(entry, context)
-  );
+const deserializeAws_queryActivities = (output: any, context: __SerdeContext): Activity[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryActivity(entry, context));
 };
 
 const deserializeAws_queryActivitiesType = (
@@ -7128,10 +6472,7 @@ const deserializeAws_queryActivitiesType = (
   if (output.Activities === "") {
     contents.Activities = [];
   }
-  if (
-    output["Activities"] !== undefined &&
-    output["Activities"]["member"] !== undefined
-  ) {
+  if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
     contents.Activities = deserializeAws_queryActivities(
       __getArrayIfSingleItem(output["Activities"]["member"]),
       context
@@ -7143,10 +6484,7 @@ const deserializeAws_queryActivitiesType = (
   return contents;
 };
 
-const deserializeAws_queryActivity = (
-  output: any,
-  context: __SerdeContext
-): Activity => {
+const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Activity => {
   let contents: any = {
     __type: "Activity",
     ActivityId: undefined,
@@ -7193,19 +6531,13 @@ const deserializeAws_queryActivity = (
   return contents;
 };
 
-const deserializeAws_queryActivityType = (
-  output: any,
-  context: __SerdeContext
-): ActivityType => {
+const deserializeAws_queryActivityType = (output: any, context: __SerdeContext): ActivityType => {
   let contents: any = {
     __type: "ActivityType",
     Activity: undefined
   };
   if (output["Activity"] !== undefined) {
-    contents.Activity = deserializeAws_queryActivity(
-      output["Activity"],
-      context
-    );
+    contents.Activity = deserializeAws_queryActivity(output["Activity"], context);
   }
   return contents;
 };
@@ -7228,15 +6560,10 @@ const deserializeAws_queryAdjustmentTypes = (
   output: any,
   context: __SerdeContext
 ): AdjustmentType[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAdjustmentType(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryAdjustmentType(entry, context));
 };
 
-const deserializeAws_queryAlarm = (
-  output: any,
-  context: __SerdeContext
-): Alarm => {
+const deserializeAws_queryAlarm = (output: any, context: __SerdeContext): Alarm => {
   let contents: any = {
     __type: "Alarm",
     AlarmARN: undefined,
@@ -7251,13 +6578,8 @@ const deserializeAws_queryAlarm = (
   return contents;
 };
 
-const deserializeAws_queryAlarms = (
-  output: any,
-  context: __SerdeContext
-): Alarm[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAlarm(entry, context)
-  );
+const deserializeAws_queryAlarms = (output: any, context: __SerdeContext): Alarm[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryAlarm(entry, context));
 };
 
 const deserializeAws_queryAlreadyExistsFault = (
@@ -7357,19 +6679,14 @@ const deserializeAws_queryAutoScalingGroup = (
   if (output.EnabledMetrics === "") {
     contents.EnabledMetrics = [];
   }
-  if (
-    output["EnabledMetrics"] !== undefined &&
-    output["EnabledMetrics"]["member"] !== undefined
-  ) {
+  if (output["EnabledMetrics"] !== undefined && output["EnabledMetrics"]["member"] !== undefined) {
     contents.EnabledMetrics = deserializeAws_queryEnabledMetrics(
       __getArrayIfSingleItem(output["EnabledMetrics"]["member"]),
       context
     );
   }
   if (output["HealthCheckGracePeriod"] !== undefined) {
-    contents.HealthCheckGracePeriod = parseInt(
-      output["HealthCheckGracePeriod"]
-    );
+    contents.HealthCheckGracePeriod = parseInt(output["HealthCheckGracePeriod"]);
   }
   if (output["HealthCheckType"] !== undefined) {
     contents.HealthCheckType = output["HealthCheckType"];
@@ -7377,10 +6694,7 @@ const deserializeAws_queryAutoScalingGroup = (
   if (output.Instances === "") {
     contents.Instances = [];
   }
-  if (
-    output["Instances"] !== undefined &&
-    output["Instances"]["member"] !== undefined
-  ) {
+  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
     contents.Instances = deserializeAws_queryInstances(
       __getArrayIfSingleItem(output["Instances"]["member"]),
       context
@@ -7490,9 +6804,7 @@ const deserializeAws_queryAutoScalingGroups = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryAutoScalingGroup(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryAutoScalingGroup(entry, context));
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (
@@ -7618,10 +6930,7 @@ const deserializeAws_queryAutoScalingNotificationTypes = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_queryAvailabilityZones = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7664,9 +6973,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
     output["FailedScheduledUpdateGroupActions"]["member"] !== undefined
   ) {
     contents.FailedScheduledUpdateGroupActions = deserializeAws_queryFailedScheduledUpdateGroupActionRequests(
-      __getArrayIfSingleItem(
-        output["FailedScheduledUpdateGroupActions"]["member"]
-      ),
+      __getArrayIfSingleItem(output["FailedScheduledUpdateGroupActions"]["member"]),
       context
     );
   }
@@ -7703,9 +7010,7 @@ const deserializeAws_queryBlockDeviceMappings = (
   output: any,
   context: __SerdeContext
 ): BlockDeviceMapping[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryBlockDeviceMapping(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryBlockDeviceMapping(entry, context));
 };
 
 const deserializeAws_queryClassicLinkVPCSecurityGroups = (
@@ -7740,10 +7045,7 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   if (output.Dimensions === "") {
     contents.Dimensions = [];
   }
-  if (
-    output["Dimensions"] !== undefined &&
-    output["Dimensions"]["member"] !== undefined
-  ) {
+  if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
     contents.Dimensions = deserializeAws_queryMetricDimensions(
       __getArrayIfSingleItem(output["Dimensions"]["member"]),
       context
@@ -7786,24 +7088,16 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
     NumberOfLaunchConfigurations: undefined
   };
   if (output["MaxNumberOfAutoScalingGroups"] !== undefined) {
-    contents.MaxNumberOfAutoScalingGroups = parseInt(
-      output["MaxNumberOfAutoScalingGroups"]
-    );
+    contents.MaxNumberOfAutoScalingGroups = parseInt(output["MaxNumberOfAutoScalingGroups"]);
   }
   if (output["MaxNumberOfLaunchConfigurations"] !== undefined) {
-    contents.MaxNumberOfLaunchConfigurations = parseInt(
-      output["MaxNumberOfLaunchConfigurations"]
-    );
+    contents.MaxNumberOfLaunchConfigurations = parseInt(output["MaxNumberOfLaunchConfigurations"]);
   }
   if (output["NumberOfAutoScalingGroups"] !== undefined) {
-    contents.NumberOfAutoScalingGroups = parseInt(
-      output["NumberOfAutoScalingGroups"]
-    );
+    contents.NumberOfAutoScalingGroups = parseInt(output["NumberOfAutoScalingGroups"]);
   }
   if (output["NumberOfLaunchConfigurations"] !== undefined) {
-    contents.NumberOfLaunchConfigurations = parseInt(
-      output["NumberOfLaunchConfigurations"]
-    );
+    contents.NumberOfLaunchConfigurations = parseInt(output["NumberOfLaunchConfigurations"]);
   }
   return contents;
 };
@@ -7888,10 +7182,7 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   if (output.LifecycleHooks === "") {
     contents.LifecycleHooks = [];
   }
-  if (
-    output["LifecycleHooks"] !== undefined &&
-    output["LifecycleHooks"]["member"] !== undefined
-  ) {
+  if (output["LifecycleHooks"] !== undefined && output["LifecycleHooks"]["member"] !== undefined) {
     contents.LifecycleHooks = deserializeAws_queryLifecycleHooks(
       __getArrayIfSingleItem(output["LifecycleHooks"]["member"]),
       context
@@ -7939,10 +7230,7 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
   if (output.LoadBalancers === "") {
     contents.LoadBalancers = [];
   }
-  if (
-    output["LoadBalancers"] !== undefined &&
-    output["LoadBalancers"]["member"] !== undefined
-  ) {
+  if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
     contents.LoadBalancers = deserializeAws_queryLoadBalancerStates(
       __getArrayIfSingleItem(output["LoadBalancers"]["member"]),
       context
@@ -7966,10 +7254,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
   if (output.Granularities === "") {
     contents.Granularities = [];
   }
-  if (
-    output["Granularities"] !== undefined &&
-    output["Granularities"]["member"] !== undefined
-  ) {
+  if (output["Granularities"] !== undefined && output["Granularities"]["member"] !== undefined) {
     contents.Granularities = deserializeAws_queryMetricGranularityTypes(
       __getArrayIfSingleItem(output["Granularities"]["member"]),
       context
@@ -7978,10 +7263,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
   if (output.Metrics === "") {
     contents.Metrics = [];
   }
-  if (
-    output["Metrics"] !== undefined &&
-    output["Metrics"]["member"] !== undefined
-  ) {
+  if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
     contents.Metrics = deserializeAws_queryMetricCollectionTypes(
       __getArrayIfSingleItem(output["Metrics"]["member"]),
       context
@@ -8051,10 +7333,7 @@ const deserializeAws_queryDetachInstancesAnswer = (
   if (output.Activities === "") {
     contents.Activities = [];
   }
-  if (
-    output["Activities"] !== undefined &&
-    output["Activities"]["member"] !== undefined
-  ) {
+  if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
     contents.Activities = deserializeAws_queryActivities(
       __getArrayIfSingleItem(output["Activities"]["member"]),
       context
@@ -8114,10 +7393,7 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
   return contents;
 };
 
-const deserializeAws_queryEnabledMetric = (
-  output: any,
-  context: __SerdeContext
-): EnabledMetric => {
+const deserializeAws_queryEnabledMetric = (output: any, context: __SerdeContext): EnabledMetric => {
   let contents: any = {
     __type: "EnabledMetric",
     Granularity: undefined,
@@ -8136,9 +7412,7 @@ const deserializeAws_queryEnabledMetrics = (
   output: any,
   context: __SerdeContext
 ): EnabledMetric[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryEnabledMetric(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryEnabledMetric(entry, context));
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (
@@ -8152,10 +7426,7 @@ const deserializeAws_queryEnterStandbyAnswer = (
   if (output.Activities === "") {
     contents.Activities = [];
   }
-  if (
-    output["Activities"] !== undefined &&
-    output["Activities"]["member"] !== undefined
-  ) {
+  if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
     contents.Activities = deserializeAws_queryActivities(
       __getArrayIfSingleItem(output["Activities"]["member"]),
       context
@@ -8175,10 +7446,7 @@ const deserializeAws_queryExitStandbyAnswer = (
   if (output.Activities === "") {
     contents.Activities = [];
   }
-  if (
-    output["Activities"] !== undefined &&
-    output["Activities"]["member"] !== undefined
-  ) {
+  if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
     contents.Activities = deserializeAws_queryActivities(
       __getArrayIfSingleItem(output["Activities"]["member"]),
       context
@@ -8218,10 +7486,7 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
   );
 };
 
-const deserializeAws_queryInstance = (
-  output: any,
-  context: __SerdeContext
-): Instance => {
+const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
   let contents: any = {
     __type: "Instance",
     AvailabilityZone: undefined,
@@ -8281,13 +7546,8 @@ const deserializeAws_queryInstanceMonitoring = (
   return contents;
 };
 
-const deserializeAws_queryInstances = (
-  output: any,
-  context: __SerdeContext
-): Instance[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryInstance(entry, context)
-  );
+const deserializeAws_queryInstances = (output: any, context: __SerdeContext): Instance[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryInstance(entry, context));
 };
 
 const deserializeAws_queryInstancesDistribution = (
@@ -8367,8 +7627,7 @@ const deserializeAws_queryLaunchConfiguration = (
     UserData: undefined
   };
   if (output["AssociatePublicIpAddress"] !== undefined) {
-    contents.AssociatePublicIpAddress =
-      output["AssociatePublicIpAddress"] == "true";
+    contents.AssociatePublicIpAddress = output["AssociatePublicIpAddress"] == "true";
   }
   if (output.BlockDeviceMappings === "") {
     contents.BlockDeviceMappings = [];
@@ -8439,10 +7698,7 @@ const deserializeAws_queryLaunchConfiguration = (
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
   }
-  if (
-    output["SecurityGroups"] !== undefined &&
-    output["SecurityGroups"]["member"] !== undefined
-  ) {
+  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
     contents.SecurityGroups = deserializeAws_querySecurityGroups(
       __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
       context
@@ -8511,10 +7767,7 @@ const deserializeAws_queryLaunchTemplate = (
   if (output.Overrides === "") {
     contents.Overrides = [];
   }
-  if (
-    output["Overrides"] !== undefined &&
-    output["Overrides"]["member"] !== undefined
-  ) {
+  if (output["Overrides"] !== undefined && output["Overrides"]["member"] !== undefined) {
     contents.Overrides = deserializeAws_queryOverrides(
       __getArrayIfSingleItem(output["Overrides"]["member"]),
       context
@@ -8563,10 +7816,7 @@ const deserializeAws_queryLaunchTemplateSpecification = (
   return contents;
 };
 
-const deserializeAws_queryLifecycleHook = (
-  output: any,
-  context: __SerdeContext
-): LifecycleHook => {
+const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext): LifecycleHook => {
   let contents: any = {
     __type: "LifecycleHook",
     AutoScalingGroupName: undefined,
@@ -8613,9 +7863,7 @@ const deserializeAws_queryLifecycleHooks = (
   output: any,
   context: __SerdeContext
 ): LifecycleHook[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLifecycleHook(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryLifecycleHook(entry, context));
 };
 
 const deserializeAws_queryLimitExceededFault = (
@@ -8632,10 +7880,7 @@ const deserializeAws_queryLimitExceededFault = (
   return contents;
 };
 
-const deserializeAws_queryLoadBalancerNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryLoadBalancerNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8661,9 +7906,7 @@ const deserializeAws_queryLoadBalancerStates = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerState[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryLoadBalancerState(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryLoadBalancerState(entry, context));
 };
 
 const deserializeAws_queryLoadBalancerTargetGroupState = (
@@ -8738,9 +7981,7 @@ const deserializeAws_queryMetricDimensions = (
   output: any,
   context: __SerdeContext
 ): MetricDimension[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMetricDimension(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryMetricDimension(entry, context));
 };
 
 const deserializeAws_queryMetricGranularityType = (
@@ -8782,10 +8023,7 @@ const deserializeAws_queryMixedInstancesPolicy = (
     );
   }
   if (output["LaunchTemplate"] !== undefined) {
-    contents.LaunchTemplate = deserializeAws_queryLaunchTemplate(
-      output["LaunchTemplate"],
-      context
-    );
+    contents.LaunchTemplate = deserializeAws_queryLaunchTemplate(output["LaunchTemplate"], context);
   }
   return contents;
 };
@@ -8830,10 +8068,7 @@ const deserializeAws_queryOverrides = (
   );
 };
 
-const deserializeAws_queryPoliciesType = (
-  output: any,
-  context: __SerdeContext
-): PoliciesType => {
+const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
   let contents: any = {
     __type: "PoliciesType",
     NextToken: undefined,
@@ -8857,10 +8092,7 @@ const deserializeAws_queryPoliciesType = (
   return contents;
 };
 
-const deserializeAws_queryPolicyARNType = (
-  output: any,
-  context: __SerdeContext
-): PolicyARNType => {
+const deserializeAws_queryPolicyARNType = (output: any, context: __SerdeContext): PolicyARNType => {
   let contents: any = {
     __type: "PolicyARNType",
     Alarms: undefined,
@@ -8869,10 +8101,7 @@ const deserializeAws_queryPolicyARNType = (
   if (output.Alarms === "") {
     contents.Alarms = [];
   }
-  if (
-    output["Alarms"] !== undefined &&
-    output["Alarms"]["member"] !== undefined
-  ) {
+  if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
     contents.Alarms = deserializeAws_queryAlarms(
       __getArrayIfSingleItem(output["Alarms"]["member"]),
       context
@@ -8902,10 +8131,7 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   return contents;
 };
 
-const deserializeAws_queryProcessType = (
-  output: any,
-  context: __SerdeContext
-): ProcessType => {
+const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): ProcessType => {
   let contents: any = {
     __type: "ProcessType",
     ProcessName: undefined
@@ -8916,19 +8142,11 @@ const deserializeAws_queryProcessType = (
   return contents;
 };
 
-const deserializeAws_queryProcesses = (
-  output: any,
-  context: __SerdeContext
-): ProcessType[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryProcessType(entry, context)
-  );
+const deserializeAws_queryProcesses = (output: any, context: __SerdeContext): ProcessType[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryProcessType(entry, context));
 };
 
-const deserializeAws_queryProcessesType = (
-  output: any,
-  context: __SerdeContext
-): ProcessesType => {
+const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
   let contents: any = {
     __type: "ProcessesType",
     Processes: undefined
@@ -8936,10 +8154,7 @@ const deserializeAws_queryProcessesType = (
   if (output.Processes === "") {
     contents.Processes = [];
   }
-  if (
-    output["Processes"] !== undefined &&
-    output["Processes"]["member"] !== undefined
-  ) {
+  if (output["Processes"] !== undefined && output["Processes"]["member"] !== undefined) {
     contents.Processes = deserializeAws_queryProcesses(
       __getArrayIfSingleItem(output["Processes"]["member"]),
       context
@@ -9014,15 +8229,10 @@ const deserializeAws_queryScalingPolicies = (
   output: any,
   context: __SerdeContext
 ): ScalingPolicy[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryScalingPolicy(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryScalingPolicy(entry, context));
 };
 
-const deserializeAws_queryScalingPolicy = (
-  output: any,
-  context: __SerdeContext
-): ScalingPolicy => {
+const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   let contents: any = {
     __type: "ScalingPolicy",
     AdjustmentType: undefined,
@@ -9046,10 +8256,7 @@ const deserializeAws_queryScalingPolicy = (
   if (output.Alarms === "") {
     contents.Alarms = [];
   }
-  if (
-    output["Alarms"] !== undefined &&
-    output["Alarms"]["member"] !== undefined
-  ) {
+  if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
     contents.Alarms = deserializeAws_queryAlarms(
       __getArrayIfSingleItem(output["Alarms"]["member"]),
       context
@@ -9062,17 +8269,13 @@ const deserializeAws_queryScalingPolicy = (
     contents.Cooldown = parseInt(output["Cooldown"]);
   }
   if (output["EstimatedInstanceWarmup"] !== undefined) {
-    contents.EstimatedInstanceWarmup = parseInt(
-      output["EstimatedInstanceWarmup"]
-    );
+    contents.EstimatedInstanceWarmup = parseInt(output["EstimatedInstanceWarmup"]);
   }
   if (output["MetricAggregationType"] !== undefined) {
     contents.MetricAggregationType = output["MetricAggregationType"];
   }
   if (output["MinAdjustmentMagnitude"] !== undefined) {
-    contents.MinAdjustmentMagnitude = parseInt(
-      output["MinAdjustmentMagnitude"]
-    );
+    contents.MinAdjustmentMagnitude = parseInt(output["MinAdjustmentMagnitude"]);
   }
   if (output["MinAdjustmentStep"] !== undefined) {
     contents.MinAdjustmentStep = parseInt(output["MinAdjustmentStep"]);
@@ -9196,10 +8399,7 @@ const deserializeAws_queryScheduledUpdateGroupActions = (
   );
 };
 
-const deserializeAws_querySecurityGroups = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9238,14 +8438,10 @@ const deserializeAws_queryStepAdjustment = (
     ScalingAdjustment: undefined
   };
   if (output["MetricIntervalLowerBound"] !== undefined) {
-    contents.MetricIntervalLowerBound = parseFloat(
-      output["MetricIntervalLowerBound"]
-    );
+    contents.MetricIntervalLowerBound = parseFloat(output["MetricIntervalLowerBound"]);
   }
   if (output["MetricIntervalUpperBound"] !== undefined) {
-    contents.MetricIntervalUpperBound = parseFloat(
-      output["MetricIntervalUpperBound"]
-    );
+    contents.MetricIntervalUpperBound = parseFloat(output["MetricIntervalUpperBound"]);
   }
   if (output["ScalingAdjustment"] !== undefined) {
     contents.ScalingAdjustment = parseInt(output["ScalingAdjustment"]);
@@ -9257,9 +8453,7 @@ const deserializeAws_queryStepAdjustments = (
   output: any,
   context: __SerdeContext
 ): StepAdjustment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryStepAdjustment(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryStepAdjustment(entry, context));
 };
 
 const deserializeAws_querySuspendedProcess = (
@@ -9284,9 +8478,7 @@ const deserializeAws_querySuspendedProcesses = (
   output: any,
   context: __SerdeContext
 ): SuspendedProcess[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_querySuspendedProcess(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_querySuspendedProcess(entry, context));
 };
 
 const deserializeAws_queryTagDescription = (
@@ -9323,15 +8515,10 @@ const deserializeAws_queryTagDescriptionList = (
   output: any,
   context: __SerdeContext
 ): TagDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryTagDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_queryTagDescription(entry, context));
 };
 
-const deserializeAws_queryTagsType = (
-  output: any,
-  context: __SerdeContext
-): TagsType => {
+const deserializeAws_queryTagsType = (output: any, context: __SerdeContext): TagsType => {
   let contents: any = {
     __type: "TagsType",
     NextToken: undefined,
@@ -9352,10 +8539,7 @@ const deserializeAws_queryTagsType = (
   return contents;
 };
 
-const deserializeAws_queryTargetGroupARNs = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryTargetGroupARNs = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9412,16 +8596,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
@@ -9478,15 +8657,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
     .map(
       ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
+        __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value)
     )
     .join("&");
 

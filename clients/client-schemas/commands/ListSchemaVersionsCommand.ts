@@ -1,7 +1,4 @@
-import {
-  ListSchemaVersionsRequest,
-  ListSchemaVersionsResponse
-} from "../models/index";
+import { ListSchemaVersionsRequest, ListSchemaVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSchemaVersionsCommand,
   serializeAws_restJson1_1ListSchemaVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSchemaVersionsCommandInput = ListSchemaVersionsRequest;
-export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse &
-  __MetadataBearer;
+export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse & __MetadataBearer;
 
 export class ListSchemaVersionsCommand extends $Command<
   ListSchemaVersionsCommandInput,
@@ -50,9 +46,7 @@ export class ListSchemaVersionsCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

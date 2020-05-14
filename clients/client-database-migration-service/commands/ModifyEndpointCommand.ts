@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyEndpointCommandInput = ModifyEndpointMessage;
-export type ModifyEndpointCommandOutput = ModifyEndpointResponse &
-  __MetadataBearer;
+export type ModifyEndpointCommandOutput = ModifyEndpointResponse & __MetadataBearer;
 
 export class ModifyEndpointCommand extends $Command<
   ModifyEndpointCommandInput,
@@ -47,9 +46,7 @@ export class ModifyEndpointCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyEndpointCommandInput, ModifyEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

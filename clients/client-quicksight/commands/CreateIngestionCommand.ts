@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  CreateIngestionRequest,
-  CreateIngestionResponse
-} from "../models/index";
+import { CreateIngestionRequest, CreateIngestionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateIngestionCommand,
   serializeAws_restJson1_1CreateIngestionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateIngestionCommandInput = CreateIngestionRequest;
-export type CreateIngestionCommandOutput = CreateIngestionResponse &
-  __MetadataBearer;
+export type CreateIngestionCommandOutput = CreateIngestionResponse & __MetadataBearer;
 
 export class CreateIngestionCommand extends $Command<
   CreateIngestionCommandInput,
@@ -50,9 +46,7 @@ export class CreateIngestionCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateIngestionCommandInput, CreateIngestionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

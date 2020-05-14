@@ -49,13 +49,8 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDirectConnectGatewayCommandInput,
-    DeleteDirectConnectGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDirectConnectGatewayCommandInput, DeleteDirectConnectGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     input: DeleteDirectConnectGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDirectConnectGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteDirectConnectGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1DeleteDirectConnectGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

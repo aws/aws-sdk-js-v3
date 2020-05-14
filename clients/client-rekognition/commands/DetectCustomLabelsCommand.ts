@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DetectCustomLabelsRequest,
-  DetectCustomLabelsResponse
-} from "../models/index";
+import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectCustomLabelsCommand,
   serializeAws_json1_1DetectCustomLabelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectCustomLabelsCommandInput = DetectCustomLabelsRequest;
-export type DetectCustomLabelsCommandOutput = DetectCustomLabelsResponse &
-  __MetadataBearer;
+export type DetectCustomLabelsCommandOutput = DetectCustomLabelsResponse & __MetadataBearer;
 
 export class DetectCustomLabelsCommand extends $Command<
   DetectCustomLabelsCommandInput,
@@ -50,9 +46,7 @@ export class DetectCustomLabelsCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

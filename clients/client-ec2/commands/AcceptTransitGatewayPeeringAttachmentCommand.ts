@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AcceptTransitGatewayPeeringAttachmentRequest,
   AcceptTransitGatewayPeeringAttachmentResult
@@ -39,9 +35,7 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AcceptTransitGatewayPeeringAttachmentCommandInput
-  ) {
+  constructor(readonly input: AcceptTransitGatewayPeeringAttachmentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     AcceptTransitGatewayPeeringAttachmentCommandInput,
     AcceptTransitGatewayPeeringAttachmentCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command<
     input: AcceptTransitGatewayPeeringAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> {
-    return deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

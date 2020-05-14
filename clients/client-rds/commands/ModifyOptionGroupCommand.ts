@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyOptionGroupMessage,
-  ModifyOptionGroupResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyOptionGroupMessage, ModifyOptionGroupResult } from "../models/index";
 import {
   deserializeAws_queryModifyOptionGroupCommand,
   serializeAws_queryModifyOptionGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyOptionGroupCommandInput = ModifyOptionGroupMessage;
-export type ModifyOptionGroupCommandOutput = ModifyOptionGroupResult &
-  __MetadataBearer;
+export type ModifyOptionGroupCommandOutput = ModifyOptionGroupResult & __MetadataBearer;
 
 export class ModifyOptionGroupCommand extends $Command<
   ModifyOptionGroupCommandInput,
@@ -50,9 +42,7 @@ export class ModifyOptionGroupCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

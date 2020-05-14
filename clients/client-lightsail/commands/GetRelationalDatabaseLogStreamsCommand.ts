@@ -53,9 +53,7 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     GetRelationalDatabaseLogStreamsCommandInput,
     GetRelationalDatabaseLogStreamsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     input: GetRelationalDatabaseLogStreamsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

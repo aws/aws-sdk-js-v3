@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  StopReplicationTaskMessage,
-  StopReplicationTaskResponse
-} from "../models/index";
+import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopReplicationTaskCommand,
   serializeAws_json1_1StopReplicationTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopReplicationTaskCommandInput = StopReplicationTaskMessage;
-export type StopReplicationTaskCommandOutput = StopReplicationTaskResponse &
-  __MetadataBearer;
+export type StopReplicationTaskCommandOutput = StopReplicationTaskResponse & __MetadataBearer;
 
 export class StopReplicationTaskCommand extends $Command<
   StopReplicationTaskCommandInput,
@@ -49,13 +45,8 @@ export class StopReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopReplicationTaskCommandInput,
-    StopReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopReplicationTaskCommandInput, StopReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

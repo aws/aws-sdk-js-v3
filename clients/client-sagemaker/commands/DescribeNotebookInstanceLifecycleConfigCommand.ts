@@ -39,9 +39,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeNotebookInstanceLifecycleConfigCommandInput
-  ) {
+  constructor(readonly input: DescribeNotebookInstanceLifecycleConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     DescribeNotebookInstanceLifecycleConfigCommandInput,
     DescribeNotebookInstanceLifecycleConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
     input: DescribeNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

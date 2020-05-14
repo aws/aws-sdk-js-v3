@@ -42,10 +42,7 @@ import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput
 } from "../commands/CancelCertificateTransferCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "../commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import {
   CancelJobExecutionCommandInput,
   CancelJobExecutionCommandOutput
@@ -78,10 +75,7 @@ import {
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput
 } from "../commands/CreateDynamicThingGroupCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "../commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import {
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput
@@ -130,10 +124,7 @@ import {
   CreateStreamCommandInput,
   CreateStreamCommandOutput
 } from "../commands/CreateStreamCommand";
-import {
-  CreateThingCommandInput,
-  CreateThingCommandOutput
-} from "../commands/CreateThingCommand";
+import { CreateThingCommandInput, CreateThingCommandOutput } from "../commands/CreateThingCommand";
 import {
   CreateThingGroupCommandInput,
   CreateThingGroupCommandOutput
@@ -178,10 +169,7 @@ import {
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput
 } from "../commands/DeleteDynamicThingGroupCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "../commands/DeleteJobCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import {
   DeleteJobExecutionCommandInput,
   DeleteJobExecutionCommandOutput
@@ -230,10 +218,7 @@ import {
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput
 } from "../commands/DeleteStreamCommand";
-import {
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput
-} from "../commands/DeleteThingCommand";
+import { DeleteThingCommandInput, DeleteThingCommandOutput } from "../commands/DeleteThingCommand";
 import {
   DeleteThingGroupCommandInput,
   DeleteThingGroupCommandOutput
@@ -310,10 +295,7 @@ import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput
 } from "../commands/DescribeIndexCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "../commands/DescribeJobCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/DescribeJobCommand";
 import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput
@@ -414,10 +396,7 @@ import {
   GetPercentilesCommandInput,
   GetPercentilesCommandOutput
 } from "../commands/GetPercentilesCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "../commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "../commands/GetPolicyCommand";
 import {
   GetPolicyVersionCommandInput,
   GetPolicyVersionCommandOutput
@@ -490,10 +469,7 @@ import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput
 } from "../commands/ListDomainConfigurationsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "../commands/ListIndicesCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommandInput,
   ListJobExecutionsForJobCommandOutput
@@ -502,10 +478,7 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput
 } from "../commands/ListJobExecutionsForThingCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "../commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput
@@ -562,10 +535,7 @@ import {
   ListSecurityProfilesForTargetCommandInput,
   ListSecurityProfilesForTargetCommandOutput
 } from "../commands/ListSecurityProfilesForTargetCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "../commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -602,10 +572,7 @@ import {
   ListThingTypesCommandInput,
   ListThingTypesCommandOutput
 } from "../commands/ListThingTypesCommand";
-import {
-  ListThingsCommandInput,
-  ListThingsCommandOutput
-} from "../commands/ListThingsCommand";
+import { ListThingsCommandInput, ListThingsCommandOutput } from "../commands/ListThingsCommand";
 import {
   ListThingsInBillingGroupCommandInput,
   ListThingsInBillingGroupCommandOutput
@@ -658,10 +625,7 @@ import {
   ReplaceTopicRuleCommandInput,
   ReplaceTopicRuleCommandOutput
 } from "../commands/ReplaceTopicRuleCommand";
-import {
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput
-} from "../commands/SearchIndexCommand";
+import { SearchIndexCommandInput, SearchIndexCommandOutput } from "../commands/SearchIndexCommand";
 import {
   SetDefaultAuthorizerCommandInput,
   SetDefaultAuthorizerCommandOutput
@@ -698,10 +662,7 @@ import {
   StopThingRegistrationTaskCommandInput,
   StopThingRegistrationTaskCommandOutput
 } from "../commands/StopThingRegistrationTaskCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestAuthorizationCommandInput,
   TestAuthorizationCommandOutput
@@ -754,10 +715,7 @@ import {
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput
 } from "../commands/UpdateIndexingConfigurationCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "../commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import {
   UpdateMitigationActionCommandInput,
   UpdateMitigationActionCommandOutput
@@ -782,10 +740,7 @@ import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput
 } from "../commands/UpdateStreamCommand";
-import {
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput
-} from "../commands/UpdateThingCommand";
+import { UpdateThingCommandInput, UpdateThingCommandOutput } from "../commands/UpdateThingCommand";
 import {
   UpdateThingGroupCommandInput,
   UpdateThingGroupCommandOutput
@@ -1022,9 +977,7 @@ export const serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand = async 
   if (input.confirmationToken !== undefined) {
     const labelValue: string = input.confirmationToken;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: confirmationToken."
-      );
+      throw new Error("Empty value provided for input HTTP label: confirmationToken.");
     }
     resolvedPath = resolvedPath.replace(
       "{confirmationToken+}",
@@ -1034,9 +987,7 @@ export const serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand = async 
         .join("/")
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: confirmationToken."
-    );
+    throw new Error("No value provided for input HTTP label: confirmationToken.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1067,19 +1018,13 @@ export const serializeAws_restJson1_1CreateTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
   let body: any;
   if (input.topicRulePayload !== undefined) {
-    body = serializeAws_restJson1_1TopicRulePayload(
-      input.topicRulePayload,
-      context
-    );
+    body = serializeAws_restJson1_1TopicRulePayload(input.topicRulePayload, context);
   }
   if (body === undefined) {
     body = {};
@@ -1139,10 +1084,7 @@ export const serializeAws_restJson1_1DeleteTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -1234,10 +1176,7 @@ export const serializeAws_restJson1_1DisableTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -1267,10 +1206,7 @@ export const serializeAws_restJson1_1EnableTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -1322,10 +1258,7 @@ export const serializeAws_restJson1_1GetTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -1502,19 +1435,13 @@ export const serializeAws_restJson1_1ReplaceTopicRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
   let body: any;
   if (input.topicRulePayload !== undefined) {
-    body = serializeAws_restJson1_1TopicRulePayload(
-      input.topicRulePayload,
-      context
-    );
+    body = serializeAws_restJson1_1TopicRulePayload(input.topicRulePayload, context);
   }
   if (body === undefined) {
     body = {};
@@ -1542,10 +1469,7 @@ export const serializeAws_restJson1_1SetLoggingOptionsCommand = async (
   let resolvedPath = "/loggingOptions";
   let body: any;
   if (input.loggingOptionsPayload !== undefined) {
-    body = serializeAws_restJson1_1LoggingOptionsPayload(
-      input.loggingOptionsPayload,
-      context
-    );
+    body = serializeAws_restJson1_1LoggingOptionsPayload(input.loggingOptionsPayload, context);
   }
   if (body === undefined) {
     body = {};
@@ -1656,9 +1580,7 @@ export const serializeAws_restJson1_1AcceptCertificateTransferCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -1699,10 +1621,7 @@ export const serializeAws_restJson1_1AttachPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -1738,10 +1657,7 @@ export const serializeAws_restJson1_1AttachPrincipalPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -1769,9 +1685,7 @@ export const serializeAws_restJson1_1CancelCertificateTransferCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -1826,9 +1740,7 @@ export const serializeAws_restJson1_1CreateAuthorizerCommand = async (
   if (input.authorizerName !== undefined) {
     const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: authorizerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: authorizerName.");
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
@@ -1911,26 +1823,19 @@ export const serializeAws_restJson1_1CreateDomainConfigurationCommand = async (
   if (input.domainConfigurationName !== undefined) {
     const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: domainConfigurationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: domainConfigurationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: domainConfigurationName."
-    );
+    throw new Error("No value provided for input HTTP label: domainConfigurationName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.authorizerConfig !== undefined && {
-      authorizerConfig: serializeAws_restJson1_1AuthorizerConfig(
-        input.authorizerConfig,
-        context
-      )
+      authorizerConfig: serializeAws_restJson1_1AuthorizerConfig(input.authorizerConfig, context)
     }),
     ...(input.domainName !== undefined && { domainName: input.domainName }),
     ...(input.serverCertificateArns !== undefined && {
@@ -1996,10 +1901,7 @@ export const serializeAws_restJson1_1CreatePolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -2034,10 +1936,7 @@ export const serializeAws_restJson1_1CreatePolicyVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -2072,19 +1971,13 @@ export const serializeAws_restJson1_1CreateProvisioningClaimCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/provisioning-templates/{templateName}/provisioning-claim";
+  let resolvedPath = "/provisioning-templates/{templateName}/provisioning-claim";
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2149,14 +2042,9 @@ export const serializeAws_restJson1_1CreateProvisioningTemplateVersionCommand = 
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2197,10 +2085,7 @@ export const serializeAws_restJson1_1CreateRoleAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{roleAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{roleAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
@@ -2234,9 +2119,7 @@ export const serializeAws_restJson1_1DeleteAuthorizerCommand = async (
   if (input.authorizerName !== undefined) {
     const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: authorizerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: authorizerName.");
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
@@ -2269,9 +2152,7 @@ export const serializeAws_restJson1_1DeleteCACertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -2304,9 +2185,7 @@ export const serializeAws_restJson1_1DeleteCertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -2345,18 +2224,14 @@ export const serializeAws_restJson1_1DeleteDomainConfigurationCommand = async (
   if (input.domainConfigurationName !== undefined) {
     const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: domainConfigurationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: domainConfigurationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: domainConfigurationName."
-    );
+    throw new Error("No value provided for input HTTP label: domainConfigurationName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2384,10 +2259,7 @@ export const serializeAws_restJson1_1DeletePolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -2417,19 +2289,14 @@ export const serializeAws_restJson1_1DeletePolicyVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: policyVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
@@ -2462,14 +2329,9 @@ export const serializeAws_restJson1_1DeleteProvisioningTemplateCommand = async (
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2493,19 +2355,13 @@ export const serializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand = 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/provisioning-templates/{templateName}/versions/{versionId}";
+  let resolvedPath = "/provisioning-templates/{templateName}/versions/{versionId}";
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2514,10 +2370,7 @@ export const serializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand = 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: versionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{versionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{versionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: versionId.");
   }
@@ -2569,10 +2422,7 @@ export const serializeAws_restJson1_1DeleteRoleAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{roleAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{roleAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
@@ -2600,9 +2450,7 @@ export const serializeAws_restJson1_1DescribeAuthorizerCommand = async (
   if (input.authorizerName !== undefined) {
     const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: authorizerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: authorizerName.");
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
@@ -2635,9 +2483,7 @@ export const serializeAws_restJson1_1DescribeCACertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -2670,9 +2516,7 @@ export const serializeAws_restJson1_1DescribeCertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -2727,18 +2571,14 @@ export const serializeAws_restJson1_1DescribeDomainConfigurationCommand = async 
   if (input.domainConfigurationName !== undefined) {
     const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: domainConfigurationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: domainConfigurationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: domainConfigurationName."
-    );
+    throw new Error("No value provided for input HTTP label: domainConfigurationName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2791,14 +2631,9 @@ export const serializeAws_restJson1_1DescribeProvisioningTemplateCommand = async
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2822,19 +2657,13 @@ export const serializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/provisioning-templates/{templateName}/versions/{versionId}";
+  let resolvedPath = "/provisioning-templates/{templateName}/versions/{versionId}";
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -2843,10 +2672,7 @@ export const serializeAws_restJson1_1DescribeProvisioningTemplateVersionCommand 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: versionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{versionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{versionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: versionId.");
   }
@@ -2876,10 +2702,7 @@ export const serializeAws_restJson1_1DescribeRoleAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{roleAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{roleAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
@@ -2909,10 +2732,7 @@ export const serializeAws_restJson1_1DetachPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -2948,10 +2768,7 @@ export const serializeAws_restJson1_1DetachPrincipalPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -3012,10 +2829,7 @@ export const serializeAws_restJson1_1GetPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -3045,19 +2859,14 @@ export const serializeAws_restJson1_1GetPolicyVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: policyVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
@@ -3114,10 +2923,7 @@ export const serializeAws_restJson1_1ListAttachedPoliciesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: target.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{target}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{target}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: target.");
   }
@@ -3245,9 +3051,7 @@ export const serializeAws_restJson1_1ListCertificatesByCACommand = async (
   if (input.caCertificateId !== undefined) {
     const labelValue: string = input.caCertificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: caCertificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: caCertificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{caCertificateId}",
@@ -3409,10 +3213,7 @@ export const serializeAws_restJson1_1ListPolicyVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -3472,14 +3273,9 @@ export const serializeAws_restJson1_1ListProvisioningTemplateVersionsCommand = a
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -3573,10 +3369,7 @@ export const serializeAws_restJson1_1ListTargetsForPolicyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
@@ -3718,9 +3511,7 @@ export const serializeAws_restJson1_1RejectCertificateTransferCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -3786,19 +3577,14 @@ export const serializeAws_restJson1_1SetDefaultPolicyVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: policyName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{policyName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   if (input.policyVersionId !== undefined) {
     const labelValue: string = input.policyVersionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: policyVersionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{policyVersionId}",
@@ -3840,16 +3626,10 @@ export const serializeAws_restJson1_1TestAuthorizationCommand = async (
       cognitoIdentityPoolId: input.cognitoIdentityPoolId
     }),
     ...(input.policyNamesToAdd !== undefined && {
-      policyNamesToAdd: serializeAws_restJson1_1PolicyNames(
-        input.policyNamesToAdd,
-        context
-      )
+      policyNamesToAdd: serializeAws_restJson1_1PolicyNames(input.policyNamesToAdd, context)
     }),
     ...(input.policyNamesToSkip !== undefined && {
-      policyNamesToSkip: serializeAws_restJson1_1PolicyNames(
-        input.policyNamesToSkip,
-        context
-      )
+      policyNamesToSkip: serializeAws_restJson1_1PolicyNames(input.policyNamesToSkip, context)
     }),
     ...(input.principal !== undefined && { principal: input.principal })
   });
@@ -3877,9 +3657,7 @@ export const serializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
   if (input.authorizerName !== undefined) {
     const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: authorizerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: authorizerName.");
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
@@ -3891,16 +3669,10 @@ export const serializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.httpContext !== undefined && {
-      httpContext: serializeAws_restJson1_1HttpContext(
-        input.httpContext,
-        context
-      )
+      httpContext: serializeAws_restJson1_1HttpContext(input.httpContext, context)
     }),
     ...(input.mqttContext !== undefined && {
-      mqttContext: serializeAws_restJson1_1MqttContext(
-        input.mqttContext,
-        context
-      )
+      mqttContext: serializeAws_restJson1_1MqttContext(input.mqttContext, context)
     }),
     ...(input.tlsContext !== undefined && {
       tlsContext: serializeAws_restJson1_1TlsContext(input.tlsContext, context)
@@ -3933,9 +3705,7 @@ export const serializeAws_restJson1_1TransferCertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -3979,9 +3749,7 @@ export const serializeAws_restJson1_1UpdateAuthorizerCommand = async (
   if (input.authorizerName !== undefined) {
     const labelValue: string = input.authorizerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: authorizerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: authorizerName.");
     }
     resolvedPath = resolvedPath.replace(
       "{authorizerName}",
@@ -4029,9 +3797,7 @@ export const serializeAws_restJson1_1UpdateCACertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -4082,9 +3848,7 @@ export const serializeAws_restJson1_1UpdateCertificateCommand = async (
   if (input.certificateId !== undefined) {
     const labelValue: string = input.certificateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: certificateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: certificateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{certificateId}",
@@ -4121,26 +3885,19 @@ export const serializeAws_restJson1_1UpdateDomainConfigurationCommand = async (
   if (input.domainConfigurationName !== undefined) {
     const labelValue: string = input.domainConfigurationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: domainConfigurationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: domainConfigurationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{domainConfigurationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: domainConfigurationName."
-    );
+    throw new Error("No value provided for input HTTP label: domainConfigurationName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.authorizerConfig !== undefined && {
-      authorizerConfig: serializeAws_restJson1_1AuthorizerConfig(
-        input.authorizerConfig,
-        context
-      )
+      authorizerConfig: serializeAws_restJson1_1AuthorizerConfig(input.authorizerConfig, context)
     }),
     ...(input.domainConfigurationStatus !== undefined && {
       domainConfigurationStatus: input.domainConfigurationStatus
@@ -4172,14 +3929,9 @@ export const serializeAws_restJson1_1UpdateProvisioningTemplateCommand = async (
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: templateName."
-      );
+      throw new Error("Empty value provided for input HTTP label: templateName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{templateName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
   }
@@ -4219,10 +3971,7 @@ export const serializeAws_restJson1_1UpdateRoleAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: roleAlias.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{roleAlias}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{roleAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: roleAlias.");
   }
@@ -4258,10 +4007,7 @@ export const serializeAws_restJson1_1DescribeIndexCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: indexName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{indexName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{indexName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: indexName.");
   }
@@ -4502,10 +4248,7 @@ export const serializeAws_restJson1_1AssociateTargetsWithJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4541,10 +4284,7 @@ export const serializeAws_restJson1_1CancelJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4582,10 +4322,7 @@ export const serializeAws_restJson1_1CancelJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4594,10 +4331,7 @@ export const serializeAws_restJson1_1CancelJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -4610,10 +4344,7 @@ export const serializeAws_restJson1_1CancelJobExecutionCommand = async (
       expectedVersion: input.expectedVersion
     }),
     ...(input.statusDetails !== undefined && {
-      statusDetails: serializeAws_restJson1_1DetailsMap(
-        input.statusDetails,
-        context
-      )
+      statusDetails: serializeAws_restJson1_1DetailsMap(input.statusDetails, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4642,20 +4373,14 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.abortConfig !== undefined && {
-      abortConfig: serializeAws_restJson1_1AbortConfig(
-        input.abortConfig,
-        context
-      )
+      abortConfig: serializeAws_restJson1_1AbortConfig(input.abortConfig, context)
     }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.document !== undefined && { document: input.document }),
@@ -4684,10 +4409,7 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
       targets: serializeAws_restJson1_1JobTargets(input.targets, context)
     }),
     ...(input.timeoutConfig !== undefined && {
-      timeoutConfig: serializeAws_restJson1_1TimeoutConfig(
-        input.timeoutConfig,
-        context
-      )
+      timeoutConfig: serializeAws_restJson1_1TimeoutConfig(input.timeoutConfig, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4715,10 +4437,7 @@ export const serializeAws_restJson1_1DeleteJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4746,14 +4465,11 @@ export const serializeAws_restJson1_1DeleteJobExecutionCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}";
+  let resolvedPath = "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}";
   if (input.executionNumber !== undefined) {
     const labelValue: string = input.executionNumber.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: executionNumber."
-      );
+      throw new Error("Empty value provided for input HTTP label: executionNumber.");
     }
     resolvedPath = resolvedPath.replace(
       "{executionNumber}",
@@ -4767,10 +4483,7 @@ export const serializeAws_restJson1_1DeleteJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4779,10 +4492,7 @@ export const serializeAws_restJson1_1DeleteJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -4816,10 +4526,7 @@ export const serializeAws_restJson1_1DescribeJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4849,10 +4556,7 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4861,10 +4565,7 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -4900,10 +4601,7 @@ export const serializeAws_restJson1_1GetJobDocumentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4933,10 +4631,7 @@ export const serializeAws_restJson1_1ListJobExecutionsForJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -4974,10 +4669,7 @@ export const serializeAws_restJson1_1ListJobExecutionsForThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -5053,20 +4745,14 @@ export const serializeAws_restJson1_1UpdateJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.abortConfig !== undefined && {
-      abortConfig: serializeAws_restJson1_1AbortConfig(
-        input.abortConfig,
-        context
-      )
+      abortConfig: serializeAws_restJson1_1AbortConfig(input.abortConfig, context)
     }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.jobExecutionsRolloutConfig !== undefined && {
@@ -5082,10 +4768,7 @@ export const serializeAws_restJson1_1UpdateJobCommand = async (
       )
     }),
     ...(input.timeoutConfig !== undefined && {
-      timeoutConfig: serializeAws_restJson1_1TimeoutConfig(
-        input.timeoutConfig,
-        context
-      )
+      timeoutConfig: serializeAws_restJson1_1TimeoutConfig(input.timeoutConfig, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5111,14 +4794,9 @@ export const serializeAws_restJson1_1CreateOTAUpdateCommand = async (
   if (input.otaUpdateId !== undefined) {
     const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: otaUpdateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: otaUpdateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{otaUpdateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{otaUpdateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
@@ -5183,14 +4861,9 @@ export const serializeAws_restJson1_1DeleteOTAUpdateCommand = async (
   if (input.otaUpdateId !== undefined) {
     const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: otaUpdateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: otaUpdateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{otaUpdateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{otaUpdateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
@@ -5227,14 +4900,9 @@ export const serializeAws_restJson1_1GetOTAUpdateCommand = async (
   if (input.otaUpdateId !== undefined) {
     const labelValue: string = input.otaUpdateId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: otaUpdateId."
-      );
+      throw new Error("Empty value provided for input HTTP label: otaUpdateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{otaUpdateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{otaUpdateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
@@ -5363,10 +5031,7 @@ export const serializeAws_restJson1_1AttachThingPrincipalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -5394,18 +5059,14 @@ export const serializeAws_restJson1_1CreateBillingGroupCommand = async (
   if (input.billingGroupName !== undefined) {
     const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: billingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: billingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: billingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: billingGroupName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -5442,9 +5103,7 @@ export const serializeAws_restJson1_1CreateDynamicThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -5495,20 +5154,14 @@ export const serializeAws_restJson1_1CreateThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.attributePayload !== undefined && {
-      attributePayload: serializeAws_restJson1_1AttributePayload(
-        input.attributePayload,
-        context
-      )
+      attributePayload: serializeAws_restJson1_1AttributePayload(input.attributePayload, context)
     }),
     ...(input.billingGroupName !== undefined && {
       billingGroupName: input.billingGroupName
@@ -5540,9 +5193,7 @@ export const serializeAws_restJson1_1CreateThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -5589,9 +5240,7 @@ export const serializeAws_restJson1_1CreateThingTypeCommand = async (
   if (input.thingTypeName !== undefined) {
     const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingTypeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingTypeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
@@ -5635,18 +5284,14 @@ export const serializeAws_restJson1_1DeleteBillingGroupCommand = async (
   if (input.billingGroupName !== undefined) {
     const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: billingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: billingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: billingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: billingGroupName.");
   }
   const query: any = {
     ...(input.expectedVersion !== undefined && {
@@ -5678,9 +5323,7 @@ export const serializeAws_restJson1_1DeleteDynamicThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -5721,10 +5364,7 @@ export const serializeAws_restJson1_1DeleteThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -5758,9 +5398,7 @@ export const serializeAws_restJson1_1DeleteThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -5799,9 +5437,7 @@ export const serializeAws_restJson1_1DeleteThingTypeCommand = async (
   if (input.thingTypeName !== undefined) {
     const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingTypeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingTypeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
@@ -5834,9 +5470,7 @@ export const serializeAws_restJson1_1DeprecateThingTypeCommand = async (
   if (input.thingTypeName !== undefined) {
     const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingTypeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingTypeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
@@ -5874,18 +5508,14 @@ export const serializeAws_restJson1_1DescribeBillingGroupCommand = async (
   if (input.billingGroupName !== undefined) {
     const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: billingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: billingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: billingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: billingGroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5935,10 +5565,7 @@ export const serializeAws_restJson1_1DescribeThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -5966,9 +5593,7 @@ export const serializeAws_restJson1_1DescribeThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -6003,10 +5628,7 @@ export const serializeAws_restJson1_1DescribeThingRegistrationTaskCommand = asyn
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -6034,9 +5656,7 @@ export const serializeAws_restJson1_1DescribeThingTypeCommand = async (
   if (input.thingTypeName !== undefined) {
     const labelValue: string = input.thingTypeName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingTypeName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingTypeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingTypeName}",
@@ -6074,10 +5694,7 @@ export const serializeAws_restJson1_1DetachThingPrincipalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -6230,10 +5847,7 @@ export const serializeAws_restJson1_1ListThingGroupsForThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -6270,10 +5884,7 @@ export const serializeAws_restJson1_1ListThingPrincipalsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -6303,10 +5914,7 @@ export const serializeAws_restJson1_1ListThingRegistrationTaskReportsCommand = a
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -6439,18 +6047,14 @@ export const serializeAws_restJson1_1ListThingsInBillingGroupCommand = async (
   if (input.billingGroupName !== undefined) {
     const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: billingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: billingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: billingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: billingGroupName.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -6483,9 +6087,7 @@ export const serializeAws_restJson1_1ListThingsInThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -6625,10 +6227,7 @@ export const serializeAws_restJson1_1StopThingRegistrationTaskCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -6710,18 +6309,14 @@ export const serializeAws_restJson1_1UpdateBillingGroupCommand = async (
   if (input.billingGroupName !== undefined) {
     const labelValue: string = input.billingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: billingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: billingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{billingGroupName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: billingGroupName."
-    );
+    throw new Error("No value provided for input HTTP label: billingGroupName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -6758,9 +6353,7 @@ export const serializeAws_restJson1_1UpdateDynamicThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -6840,20 +6433,14 @@ export const serializeAws_restJson1_1UpdateThingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.attributePayload !== undefined && {
-      attributePayload: serializeAws_restJson1_1AttributePayload(
-        input.attributePayload,
-        context
-      )
+      attributePayload: serializeAws_restJson1_1AttributePayload(input.attributePayload, context)
     }),
     ...(input.expectedVersion !== undefined && {
       expectedVersion: input.expectedVersion
@@ -6888,9 +6475,7 @@ export const serializeAws_restJson1_1UpdateThingGroupCommand = async (
   if (input.thingGroupName !== undefined) {
     const labelValue: string = input.thingGroupName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: thingGroupName."
-      );
+      throw new Error("Empty value provided for input HTTP label: thingGroupName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingGroupName}",
@@ -6937,10 +6522,7 @@ export const serializeAws_restJson1_1UpdateThingGroupsForThingCommand = async (
       overrideDynamicGroups: input.overrideDynamicGroups
     }),
     ...(input.thingGroupsToAdd !== undefined && {
-      thingGroupsToAdd: serializeAws_restJson1_1ThingGroupList(
-        input.thingGroupsToAdd,
-        context
-      )
+      thingGroupsToAdd: serializeAws_restJson1_1ThingGroupList(input.thingGroupsToAdd, context)
     }),
     ...(input.thingGroupsToRemove !== undefined && {
       thingGroupsToRemove: serializeAws_restJson1_1ThingGroupList(
@@ -6973,18 +6555,14 @@ export const serializeAws_restJson1_1AttachSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
     ...(input.securityProfileTargetArn !== undefined && {
@@ -7018,10 +6596,7 @@ export const serializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand = a
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -7051,10 +6626,7 @@ export const serializeAws_restJson1_1CancelAuditTaskCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -7084,20 +6656,14 @@ export const serializeAws_restJson1_1CreateMitigationActionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.actionParams !== undefined && {
-      actionParams: serializeAws_restJson1_1MitigationActionParams(
-        input.actionParams,
-        context
-      )
+      actionParams: serializeAws_restJson1_1MitigationActionParams(input.actionParams, context)
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.tags !== undefined && {
@@ -7127,18 +6693,14 @@ export const serializeAws_restJson1_1CreateScheduledAuditCommand = async (
   if (input.scheduledAuditName !== undefined) {
     const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: scheduledAuditName."
-      );
+      throw new Error("Empty value provided for input HTTP label: scheduledAuditName.");
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: scheduledAuditName."
-    );
+    throw new Error("No value provided for input HTTP label: scheduledAuditName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -7178,18 +6740,14 @@ export const serializeAws_restJson1_1CreateSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -7200,10 +6758,7 @@ export const serializeAws_restJson1_1CreateSecurityProfileCommand = async (
       )
     }),
     ...(input.alertTargets !== undefined && {
-      alertTargets: serializeAws_restJson1_1AlertTargets(
-        input.alertTargets,
-        context
-      )
+      alertTargets: serializeAws_restJson1_1AlertTargets(input.alertTargets, context)
     }),
     ...(input.behaviors !== undefined && {
       behaviors: serializeAws_restJson1_1Behaviors(input.behaviors, context)
@@ -7267,10 +6822,7 @@ export const serializeAws_restJson1_1DeleteMitigationActionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
@@ -7298,18 +6850,14 @@ export const serializeAws_restJson1_1DeleteScheduledAuditCommand = async (
   if (input.scheduledAuditName !== undefined) {
     const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: scheduledAuditName."
-      );
+      throw new Error("Empty value provided for input HTTP label: scheduledAuditName.");
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: scheduledAuditName."
-    );
+    throw new Error("No value provided for input HTTP label: scheduledAuditName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -7335,18 +6883,14 @@ export const serializeAws_restJson1_1DeleteSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
     ...(input.expectedVersion !== undefined && {
@@ -7402,10 +6946,7 @@ export const serializeAws_restJson1_1DescribeAuditFindingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: findingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{findingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{findingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: findingId.");
   }
@@ -7435,10 +6976,7 @@ export const serializeAws_restJson1_1DescribeAuditMitigationActionsTaskCommand =
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -7468,10 +7006,7 @@ export const serializeAws_restJson1_1DescribeAuditTaskCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -7501,10 +7036,7 @@ export const serializeAws_restJson1_1DescribeMitigationActionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
@@ -7532,18 +7064,14 @@ export const serializeAws_restJson1_1DescribeScheduledAuditCommand = async (
   if (input.scheduledAuditName !== undefined) {
     const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: scheduledAuditName."
-      );
+      throw new Error("Empty value provided for input HTTP label: scheduledAuditName.");
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: scheduledAuditName."
-    );
+    throw new Error("No value provided for input HTTP label: scheduledAuditName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -7569,18 +7097,14 @@ export const serializeAws_restJson1_1DescribeSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -7606,18 +7130,14 @@ export const serializeAws_restJson1_1DetachSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
     ...(input.securityProfileTargetArn !== undefined && {
@@ -7945,18 +7465,14 @@ export const serializeAws_restJson1_1ListTargetsForSecurityProfileCommand = asyn
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -8029,10 +7545,7 @@ export const serializeAws_restJson1_1StartAuditMitigationActionsTaskCommand = as
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: taskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{taskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: taskId.");
   }
@@ -8046,10 +7559,7 @@ export const serializeAws_restJson1_1StartAuditMitigationActionsTaskCommand = as
     }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.target !== undefined && {
-      target: serializeAws_restJson1_1AuditMitigationActionsTaskTarget(
-        input.target,
-        context
-      )
+      target: serializeAws_restJson1_1AuditMitigationActionsTaskTarget(input.target, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -8142,20 +7652,14 @@ export const serializeAws_restJson1_1UpdateMitigationActionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: actionName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{actionName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{actionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: actionName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.actionParams !== undefined && {
-      actionParams: serializeAws_restJson1_1MitigationActionParams(
-        input.actionParams,
-        context
-      )
+      actionParams: serializeAws_restJson1_1MitigationActionParams(input.actionParams, context)
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn })
   });
@@ -8182,18 +7686,14 @@ export const serializeAws_restJson1_1UpdateScheduledAuditCommand = async (
   if (input.scheduledAuditName !== undefined) {
     const labelValue: string = input.scheduledAuditName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: scheduledAuditName."
-      );
+      throw new Error("Empty value provided for input HTTP label: scheduledAuditName.");
     }
     resolvedPath = resolvedPath.replace(
       "{scheduledAuditName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: scheduledAuditName."
-    );
+    throw new Error("No value provided for input HTTP label: scheduledAuditName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -8230,18 +7730,14 @@ export const serializeAws_restJson1_1UpdateSecurityProfileCommand = async (
   if (input.securityProfileName !== undefined) {
     const labelValue: string = input.securityProfileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: securityProfileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: securityProfileName.");
     }
     resolvedPath = resolvedPath.replace(
       "{securityProfileName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: securityProfileName."
-    );
+    throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
     ...(input.expectedVersion !== undefined && {
@@ -8257,10 +7753,7 @@ export const serializeAws_restJson1_1UpdateSecurityProfileCommand = async (
       )
     }),
     ...(input.alertTargets !== undefined && {
-      alertTargets: serializeAws_restJson1_1AlertTargets(
-        input.alertTargets,
-        context
-      )
+      alertTargets: serializeAws_restJson1_1AlertTargets(input.alertTargets, context)
     }),
     ...(input.behaviors !== undefined && {
       behaviors: serializeAws_restJson1_1Behaviors(input.behaviors, context)
@@ -8330,10 +7823,7 @@ export const serializeAws_restJson1_1CreateStreamCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{streamId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{streamId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
@@ -8373,10 +7863,7 @@ export const serializeAws_restJson1_1DeleteStreamCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{streamId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{streamId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
@@ -8406,10 +7893,7 @@ export const serializeAws_restJson1_1DescribeStreamCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{streamId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{streamId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
@@ -8470,10 +7954,7 @@ export const serializeAws_restJson1_1UpdateStreamCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: streamId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{streamId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{streamId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: streamId.");
   }
@@ -8502,10 +7983,7 @@ export const deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand = asyn
   context: __SerdeContext
 ): Promise<ConfirmTopicRuleDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError(output, context);
   }
   const contents: ConfirmTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8541,10 +8019,7 @@ const deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError = async 
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8552,10 +8027,7 @@ const deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError = async 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8574,10 +8046,7 @@ const deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError = async 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8604,10 +8073,7 @@ export const deserializeAws_restJson1_1CreateTopicRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateTopicRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateTopicRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTopicRuleCommandError(output, context);
   }
   const contents: CreateTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -8642,10 +8108,7 @@ const deserializeAws_restJson1_1CreateTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8653,10 +8116,7 @@ const deserializeAws_restJson1_1CreateTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8686,10 +8146,7 @@ const deserializeAws_restJson1_1CreateTopicRuleCommandError = async (
     case "SqlParseException":
     case "com.amazonaws.iot.common.types#SqlParseException":
       response = {
-        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8716,10 +8173,7 @@ export const deserializeAws_restJson1_1CreateTopicRuleDestinationCommand = async
   context: __SerdeContext
 ): Promise<CreateTopicRuleDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(output, context);
   }
   const contents: CreateTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8727,10 +8181,7 @@ export const deserializeAws_restJson1_1CreateTopicRuleDestinationCommand = async
     topicRuleDestination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.topicRuleDestination !== undefined &&
-    data.topicRuleDestination !== null
-  ) {
+  if (data.topicRuleDestination !== undefined && data.topicRuleDestination !== null) {
     contents.topicRuleDestination = deserializeAws_restJson1_1TopicRuleDestination(
       data.topicRuleDestination,
       context
@@ -8765,10 +8216,7 @@ const deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8776,10 +8224,7 @@ const deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8828,10 +8273,7 @@ export const deserializeAws_restJson1_1DeleteTopicRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTopicRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteTopicRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTopicRuleCommandError(output, context);
   }
   const contents: DeleteTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -8866,10 +8308,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8877,10 +8316,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8899,10 +8335,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8929,10 +8362,7 @@ export const deserializeAws_restJson1_1DeleteTopicRuleDestinationCommand = async
   context: __SerdeContext
 ): Promise<DeleteTopicRuleDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(output, context);
   }
   const contents: DeleteTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8968,10 +8398,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8979,10 +8406,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9001,10 +8425,7 @@ const deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9031,10 +8452,7 @@ export const deserializeAws_restJson1_1DeleteV2LoggingLevelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteV2LoggingLevelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(output, context);
   }
   const contents: DeleteV2LoggingLevelCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -9058,10 +8476,7 @@ const deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9069,10 +8484,7 @@ const deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9110,10 +8522,7 @@ export const deserializeAws_restJson1_1DisableTopicRuleCommand = async (
   context: __SerdeContext
 ): Promise<DisableTopicRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DisableTopicRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisableTopicRuleCommandError(output, context);
   }
   const contents: DisableTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -9148,10 +8557,7 @@ const deserializeAws_restJson1_1DisableTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9159,10 +8565,7 @@ const deserializeAws_restJson1_1DisableTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9181,10 +8584,7 @@ const deserializeAws_restJson1_1DisableTopicRuleCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9211,10 +8611,7 @@ export const deserializeAws_restJson1_1EnableTopicRuleCommand = async (
   context: __SerdeContext
 ): Promise<EnableTopicRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1EnableTopicRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1EnableTopicRuleCommandError(output, context);
   }
   const contents: EnableTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -9249,10 +8646,7 @@ const deserializeAws_restJson1_1EnableTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9260,10 +8654,7 @@ const deserializeAws_restJson1_1EnableTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9282,10 +8673,7 @@ const deserializeAws_restJson1_1EnableTopicRuleCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9312,10 +8700,7 @@ export const deserializeAws_restJson1_1GetLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLoggingOptionsCommandError(output, context);
   }
   const contents: GetLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9348,10 +8733,7 @@ const deserializeAws_restJson1_1GetLoggingOptionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9359,10 +8741,7 @@ const deserializeAws_restJson1_1GetLoggingOptionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9433,10 +8812,7 @@ const deserializeAws_restJson1_1GetTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9444,10 +8820,7 @@ const deserializeAws_restJson1_1GetTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9466,10 +8839,7 @@ const deserializeAws_restJson1_1GetTopicRuleCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9496,10 +8866,7 @@ export const deserializeAws_restJson1_1GetTopicRuleDestinationCommand = async (
   context: __SerdeContext
 ): Promise<GetTopicRuleDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(output, context);
   }
   const contents: GetTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9507,10 +8874,7 @@ export const deserializeAws_restJson1_1GetTopicRuleDestinationCommand = async (
     topicRuleDestination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.topicRuleDestination !== undefined &&
-    data.topicRuleDestination !== null
-  ) {
+  if (data.topicRuleDestination !== undefined && data.topicRuleDestination !== null) {
     contents.topicRuleDestination = deserializeAws_restJson1_1TopicRuleDestination(
       data.topicRuleDestination,
       context
@@ -9534,10 +8898,7 @@ const deserializeAws_restJson1_1GetTopicRuleDestinationCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9545,10 +8906,7 @@ const deserializeAws_restJson1_1GetTopicRuleDestinationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9567,10 +8925,7 @@ const deserializeAws_restJson1_1GetTopicRuleDestinationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9597,10 +8952,7 @@ export const deserializeAws_restJson1_1GetV2LoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetV2LoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(output, context);
   }
   const contents: GetV2LoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9637,10 +8989,7 @@ const deserializeAws_restJson1_1GetV2LoggingOptionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9648,10 +8997,7 @@ const deserializeAws_restJson1_1GetV2LoggingOptionsCommandError = async (
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
-        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9689,10 +9035,7 @@ export const deserializeAws_restJson1_1ListTopicRuleDestinationsCommand = async 
   context: __SerdeContext
 ): Promise<ListTopicRuleDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(output, context);
   }
   const contents: ListTopicRuleDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9701,10 +9044,7 @@ export const deserializeAws_restJson1_1ListTopicRuleDestinationsCommand = async 
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.destinationSummaries !== undefined &&
-    data.destinationSummaries !== null
-  ) {
+  if (data.destinationSummaries !== undefined && data.destinationSummaries !== null) {
     contents.destinationSummaries = deserializeAws_restJson1_1TopicRuleDestinationSummaries(
       data.destinationSummaries,
       context
@@ -9731,10 +9071,7 @@ const deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9742,10 +9079,7 @@ const deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9764,10 +9098,7 @@ const deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9794,10 +9125,7 @@ export const deserializeAws_restJson1_1ListTopicRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListTopicRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTopicRulesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTopicRulesCommandError(output, context);
   }
   const contents: ListTopicRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9810,10 +9138,7 @@ export const deserializeAws_restJson1_1ListTopicRulesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.rules !== undefined && data.rules !== null) {
-    contents.rules = deserializeAws_restJson1_1TopicRuleList(
-      data.rules,
-      context
-    );
+    contents.rules = deserializeAws_restJson1_1TopicRuleList(data.rules, context);
   }
   return Promise.resolve(contents);
 };
@@ -9833,10 +9158,7 @@ const deserializeAws_restJson1_1ListTopicRulesCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9844,10 +9166,7 @@ const deserializeAws_restJson1_1ListTopicRulesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9885,10 +9204,7 @@ export const deserializeAws_restJson1_1ListV2LoggingLevelsCommand = async (
   context: __SerdeContext
 ): Promise<ListV2LoggingLevelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(output, context);
   }
   const contents: ListV2LoggingLevelsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9897,10 +9213,7 @@ export const deserializeAws_restJson1_1ListV2LoggingLevelsCommand = async (
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.logTargetConfigurations !== undefined &&
-    data.logTargetConfigurations !== null
-  ) {
+  if (data.logTargetConfigurations !== undefined && data.logTargetConfigurations !== null) {
     contents.logTargetConfigurations = deserializeAws_restJson1_1LogTargetConfigurations(
       data.logTargetConfigurations,
       context
@@ -9927,10 +9240,7 @@ const deserializeAws_restJson1_1ListV2LoggingLevelsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9938,10 +9248,7 @@ const deserializeAws_restJson1_1ListV2LoggingLevelsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9949,10 +9256,7 @@ const deserializeAws_restJson1_1ListV2LoggingLevelsCommandError = async (
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
-        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9990,10 +9294,7 @@ export const deserializeAws_restJson1_1ReplaceTopicRuleCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceTopicRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ReplaceTopicRuleCommandError(output, context);
   }
   const contents: ReplaceTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10028,10 +9329,7 @@ const deserializeAws_restJson1_1ReplaceTopicRuleCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10039,10 +9337,7 @@ const deserializeAws_restJson1_1ReplaceTopicRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10061,10 +9356,7 @@ const deserializeAws_restJson1_1ReplaceTopicRuleCommandError = async (
     case "SqlParseException":
     case "com.amazonaws.iot.common.types#SqlParseException":
       response = {
-        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10072,10 +9364,7 @@ const deserializeAws_restJson1_1ReplaceTopicRuleCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10102,10 +9391,7 @@ export const deserializeAws_restJson1_1SetLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<SetLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetLoggingOptionsCommandError(output, context);
   }
   const contents: SetLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10129,10 +9415,7 @@ const deserializeAws_restJson1_1SetLoggingOptionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10140,10 +9423,7 @@ const deserializeAws_restJson1_1SetLoggingOptionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10181,10 +9461,7 @@ export const deserializeAws_restJson1_1SetV2LoggingLevelCommand = async (
   context: __SerdeContext
 ): Promise<SetV2LoggingLevelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetV2LoggingLevelCommandError(output, context);
   }
   const contents: SetV2LoggingLevelCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10208,10 +9485,7 @@ const deserializeAws_restJson1_1SetV2LoggingLevelCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10219,10 +9493,7 @@ const deserializeAws_restJson1_1SetV2LoggingLevelCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10230,10 +9501,7 @@ const deserializeAws_restJson1_1SetV2LoggingLevelCommandError = async (
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
       response = {
-        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10271,10 +9539,7 @@ export const deserializeAws_restJson1_1SetV2LoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<SetV2LoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(output, context);
   }
   const contents: SetV2LoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10298,10 +9563,7 @@ const deserializeAws_restJson1_1SetV2LoggingOptionsCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10309,10 +9571,7 @@ const deserializeAws_restJson1_1SetV2LoggingOptionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10350,10 +9609,7 @@ export const deserializeAws_restJson1_1UpdateTopicRuleDestinationCommand = async
   context: __SerdeContext
 ): Promise<UpdateTopicRuleDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(output, context);
   }
   const contents: UpdateTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10389,10 +9645,7 @@ const deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError = async (
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10400,10 +9653,7 @@ const deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10422,10 +9672,7 @@ const deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10452,10 +9699,7 @@ export const deserializeAws_restJson1_1AcceptCertificateTransferCommand = async 
   context: __SerdeContext
 ): Promise<AcceptCertificateTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AcceptCertificateTransferCommandError(output, context);
   }
   const contents: AcceptCertificateTransferCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10490,10 +9734,7 @@ const deserializeAws_restJson1_1AcceptCertificateTransferCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10523,10 +9764,7 @@ const deserializeAws_restJson1_1AcceptCertificateTransferCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10545,10 +9783,7 @@ const deserializeAws_restJson1_1AcceptCertificateTransferCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10610,10 +9845,7 @@ const deserializeAws_restJson1_1AttachPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10621,10 +9853,7 @@ const deserializeAws_restJson1_1AttachPolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10654,10 +9883,7 @@ const deserializeAws_restJson1_1AttachPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10665,10 +9891,7 @@ const deserializeAws_restJson1_1AttachPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10695,10 +9918,7 @@ export const deserializeAws_restJson1_1AttachPrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachPrincipalPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(output, context);
   }
   const contents: AttachPrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10733,10 +9953,7 @@ const deserializeAws_restJson1_1AttachPrincipalPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10744,10 +9961,7 @@ const deserializeAws_restJson1_1AttachPrincipalPolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10777,10 +9991,7 @@ const deserializeAws_restJson1_1AttachPrincipalPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10788,10 +9999,7 @@ const deserializeAws_restJson1_1AttachPrincipalPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10818,10 +10026,7 @@ export const deserializeAws_restJson1_1CancelCertificateTransferCommand = async 
   context: __SerdeContext
 ): Promise<CancelCertificateTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelCertificateTransferCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelCertificateTransferCommandError(output, context);
   }
   const contents: CancelCertificateTransferCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -10856,10 +10061,7 @@ const deserializeAws_restJson1_1CancelCertificateTransferCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10889,10 +10091,7 @@ const deserializeAws_restJson1_1CancelCertificateTransferCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10911,10 +10110,7 @@ const deserializeAws_restJson1_1CancelCertificateTransferCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10941,10 +10137,7 @@ export const deserializeAws_restJson1_1ClearDefaultAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<ClearDefaultAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(output, context);
   }
   const contents: ClearDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10980,10 +10173,7 @@ const deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11013,10 +10203,7 @@ const deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11024,10 +10211,7 @@ const deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11054,10 +10238,7 @@ export const deserializeAws_restJson1_1CreateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateAuthorizerCommandError(output, context);
   }
   const contents: CreateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11101,10 +10282,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11112,10 +10290,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11145,10 +10320,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11156,10 +10328,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11186,10 +10355,7 @@ export const deserializeAws_restJson1_1CreateCertificateFromCsrCommand = async (
   context: __SerdeContext
 ): Promise<CreateCertificateFromCsrCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(output, context);
   }
   const contents: CreateCertificateFromCsrCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11237,10 +10403,7 @@ const deserializeAws_restJson1_1CreateCertificateFromCsrCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11259,10 +10422,7 @@ const deserializeAws_restJson1_1CreateCertificateFromCsrCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11270,10 +10430,7 @@ const deserializeAws_restJson1_1CreateCertificateFromCsrCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11300,10 +10457,7 @@ export const deserializeAws_restJson1_1CreateDomainConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<CreateDomainConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDomainConfigurationCommandError(output, context);
   }
   const contents: CreateDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11312,16 +10466,10 @@ export const deserializeAws_restJson1_1CreateDomainConfigurationCommand = async 
     domainConfigurationName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.domainConfigurationArn !== undefined &&
-    data.domainConfigurationArn !== null
-  ) {
+  if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
     contents.domainConfigurationArn = data.domainConfigurationArn;
   }
-  if (
-    data.domainConfigurationName !== undefined &&
-    data.domainConfigurationName !== null
-  ) {
+  if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
     contents.domainConfigurationName = data.domainConfigurationName;
   }
   return Promise.resolve(contents);
@@ -11364,10 +10512,7 @@ const deserializeAws_restJson1_1CreateDomainConfigurationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11375,10 +10520,7 @@ const deserializeAws_restJson1_1CreateDomainConfigurationCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11408,10 +10550,7 @@ const deserializeAws_restJson1_1CreateDomainConfigurationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11419,10 +10558,7 @@ const deserializeAws_restJson1_1CreateDomainConfigurationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11449,10 +10585,7 @@ export const deserializeAws_restJson1_1CreateKeysAndCertificateCommand = async (
   context: __SerdeContext
 ): Promise<CreateKeysAndCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(output, context);
   }
   const contents: CreateKeysAndCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11504,10 +10637,7 @@ const deserializeAws_restJson1_1CreateKeysAndCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11526,10 +10656,7 @@ const deserializeAws_restJson1_1CreateKeysAndCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11537,10 +10664,7 @@ const deserializeAws_restJson1_1CreateKeysAndCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11619,10 +10743,7 @@ const deserializeAws_restJson1_1CreatePolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11663,10 +10784,7 @@ const deserializeAws_restJson1_1CreatePolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11674,10 +10792,7 @@ const deserializeAws_restJson1_1CreatePolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11704,10 +10819,7 @@ export const deserializeAws_restJson1_1CreatePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreatePolicyVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreatePolicyVersionCommandError(output, context);
   }
   const contents: CreatePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11759,10 +10871,7 @@ const deserializeAws_restJson1_1CreatePolicyVersionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11803,10 +10912,7 @@ const deserializeAws_restJson1_1CreatePolicyVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11814,10 +10920,7 @@ const deserializeAws_restJson1_1CreatePolicyVersionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11855,10 +10958,7 @@ export const deserializeAws_restJson1_1CreateProvisioningClaimCommand = async (
   context: __SerdeContext
 ): Promise<CreateProvisioningClaimCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProvisioningClaimCommandError(output, context);
   }
   const contents: CreateProvisioningClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11910,10 +11010,7 @@ const deserializeAws_restJson1_1CreateProvisioningClaimCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11943,10 +11040,7 @@ const deserializeAws_restJson1_1CreateProvisioningClaimCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11954,10 +11048,7 @@ const deserializeAws_restJson1_1CreateProvisioningClaimCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11984,10 +11075,7 @@ export const deserializeAws_restJson1_1CreateProvisioningTemplateCommand = async
   context: __SerdeContext
 ): Promise<CreateProvisioningTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(output, context);
   }
   const contents: CreateProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12035,10 +11123,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12046,10 +11131,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12068,10 +11150,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12079,10 +11158,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12109,10 +11185,7 @@ export const deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommand 
   context: __SerdeContext
 ): Promise<CreateProvisioningTemplateVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommandError(output, context);
   }
   const contents: CreateProvisioningTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12175,10 +11248,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12197,10 +11267,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommandError = 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12208,10 +11275,7 @@ const deserializeAws_restJson1_1CreateProvisioningTemplateVersionCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12249,10 +11313,7 @@ export const deserializeAws_restJson1_1CreateRoleAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateRoleAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateRoleAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRoleAliasCommandError(output, context);
   }
   const contents: CreateRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12296,10 +11357,7 @@ const deserializeAws_restJson1_1CreateRoleAliasCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12307,10 +11365,7 @@ const deserializeAws_restJson1_1CreateRoleAliasCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12340,10 +11395,7 @@ const deserializeAws_restJson1_1CreateRoleAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12351,10 +11403,7 @@ const deserializeAws_restJson1_1CreateRoleAliasCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12381,10 +11430,7 @@ export const deserializeAws_restJson1_1DeleteAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAuthorizerCommandError(output, context);
   }
   const contents: DeleteAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12409,10 +11455,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12431,10 +11474,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12464,10 +11504,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12475,10 +11512,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12505,10 +11539,7 @@ export const deserializeAws_restJson1_1DeleteCACertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCACertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteCACertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCACertificateCommandError(output, context);
   }
   const contents: DeleteCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12555,10 +11586,7 @@ const deserializeAws_restJson1_1DeleteCACertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12588,10 +11616,7 @@ const deserializeAws_restJson1_1DeleteCACertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12599,10 +11624,7 @@ const deserializeAws_restJson1_1DeleteCACertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12629,10 +11651,7 @@ export const deserializeAws_restJson1_1DeleteCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCertificateCommandError(output, context);
   }
   const contents: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -12667,10 +11686,7 @@ const deserializeAws_restJson1_1DeleteCertificateCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12689,10 +11705,7 @@ const deserializeAws_restJson1_1DeleteCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12722,10 +11735,7 @@ const deserializeAws_restJson1_1DeleteCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12733,10 +11743,7 @@ const deserializeAws_restJson1_1DeleteCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12763,10 +11770,7 @@ export const deserializeAws_restJson1_1DeleteDomainConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<DeleteDomainConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(output, context);
   }
   const contents: DeleteDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12802,10 +11806,7 @@ const deserializeAws_restJson1_1DeleteDomainConfigurationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12835,10 +11836,7 @@ const deserializeAws_restJson1_1DeleteDomainConfigurationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12846,10 +11844,7 @@ const deserializeAws_restJson1_1DeleteDomainConfigurationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12900,10 +11895,7 @@ const deserializeAws_restJson1_1DeletePolicyCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12922,10 +11914,7 @@ const deserializeAws_restJson1_1DeletePolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12955,10 +11944,7 @@ const deserializeAws_restJson1_1DeletePolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12966,10 +11952,7 @@ const deserializeAws_restJson1_1DeletePolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12996,10 +11979,7 @@ export const deserializeAws_restJson1_1DeletePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeletePolicyVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeletePolicyVersionCommandError(output, context);
   }
   const contents: DeletePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -13023,10 +12003,7 @@ const deserializeAws_restJson1_1DeletePolicyVersionCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13045,10 +12022,7 @@ const deserializeAws_restJson1_1DeletePolicyVersionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13078,10 +12052,7 @@ const deserializeAws_restJson1_1DeletePolicyVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13089,10 +12060,7 @@ const deserializeAws_restJson1_1DeletePolicyVersionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13119,10 +12087,7 @@ export const deserializeAws_restJson1_1DeleteProvisioningTemplateCommand = async
   context: __SerdeContext
 ): Promise<DeleteProvisioningTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(output, context);
   }
   const contents: DeleteProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13147,10 +12112,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13169,10 +12131,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13191,10 +12150,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13202,10 +12158,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13232,10 +12185,7 @@ export const deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommand 
   context: __SerdeContext
 ): Promise<DeleteProvisioningTemplateVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError(output, context);
   }
   const contents: DeleteProvisioningTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13260,10 +12210,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError = 
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13282,10 +12229,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13304,10 +12248,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError = 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13315,10 +12256,7 @@ const deserializeAws_restJson1_1DeleteProvisioningTemplateVersionCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13345,10 +12283,7 @@ export const deserializeAws_restJson1_1DeleteRegistrationCodeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistrationCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(output, context);
   }
   const contents: DeleteRegistrationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13406,10 +12341,7 @@ const deserializeAws_restJson1_1DeleteRegistrationCodeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13417,10 +12349,7 @@ const deserializeAws_restJson1_1DeleteRegistrationCodeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13447,10 +12376,7 @@ export const deserializeAws_restJson1_1DeleteRoleAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoleAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteRoleAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRoleAliasCommandError(output, context);
   }
   const contents: DeleteRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13475,10 +12401,7 @@ const deserializeAws_restJson1_1DeleteRoleAliasCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13497,10 +12420,7 @@ const deserializeAws_restJson1_1DeleteRoleAliasCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13530,10 +12450,7 @@ const deserializeAws_restJson1_1DeleteRoleAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13541,10 +12458,7 @@ const deserializeAws_restJson1_1DeleteRoleAliasCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13571,10 +12485,7 @@ export const deserializeAws_restJson1_1DescribeAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAuthorizerCommandError(output, context);
   }
   const contents: DescribeAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13582,10 +12493,7 @@ export const deserializeAws_restJson1_1DescribeAuthorizerCommand = async (
     authorizerDescription: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizerDescription !== undefined &&
-    data.authorizerDescription !== null
-  ) {
+  if (data.authorizerDescription !== undefined && data.authorizerDescription !== null) {
     contents.authorizerDescription = deserializeAws_restJson1_1AuthorizerDescription(
       data.authorizerDescription,
       context
@@ -13620,10 +12528,7 @@ const deserializeAws_restJson1_1DescribeAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13653,10 +12558,7 @@ const deserializeAws_restJson1_1DescribeAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13664,10 +12566,7 @@ const deserializeAws_restJson1_1DescribeAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13694,10 +12593,7 @@ export const deserializeAws_restJson1_1DescribeCACertificateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCACertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeCACertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCACertificateCommandError(output, context);
   }
   const contents: DescribeCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13706,19 +12602,13 @@ export const deserializeAws_restJson1_1DescribeCACertificateCommand = async (
     registrationConfig: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.certificateDescription !== undefined &&
-    data.certificateDescription !== null
-  ) {
+  if (data.certificateDescription !== undefined && data.certificateDescription !== null) {
     contents.certificateDescription = deserializeAws_restJson1_1CACertificateDescription(
       data.certificateDescription,
       context
     );
   }
-  if (
-    data.registrationConfig !== undefined &&
-    data.registrationConfig !== null
-  ) {
+  if (data.registrationConfig !== undefined && data.registrationConfig !== null) {
     contents.registrationConfig = deserializeAws_restJson1_1RegistrationConfig(
       data.registrationConfig,
       context
@@ -13753,10 +12643,7 @@ const deserializeAws_restJson1_1DescribeCACertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13786,10 +12673,7 @@ const deserializeAws_restJson1_1DescribeCACertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13797,10 +12681,7 @@ const deserializeAws_restJson1_1DescribeCACertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13827,10 +12708,7 @@ export const deserializeAws_restJson1_1DescribeCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCertificateCommandError(output, context);
   }
   const contents: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13838,10 +12716,7 @@ export const deserializeAws_restJson1_1DescribeCertificateCommand = async (
     certificateDescription: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.certificateDescription !== undefined &&
-    data.certificateDescription !== null
-  ) {
+  if (data.certificateDescription !== undefined && data.certificateDescription !== null) {
     contents.certificateDescription = deserializeAws_restJson1_1CertificateDescription(
       data.certificateDescription,
       context
@@ -13876,10 +12751,7 @@ const deserializeAws_restJson1_1DescribeCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13909,10 +12781,7 @@ const deserializeAws_restJson1_1DescribeCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13920,10 +12789,7 @@ const deserializeAws_restJson1_1DescribeCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13950,10 +12816,7 @@ export const deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand = async 
   context: __SerdeContext
 ): Promise<DescribeDefaultAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(output, context);
   }
   const contents: DescribeDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -13961,10 +12824,7 @@ export const deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand = async 
     authorizerDescription: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizerDescription !== undefined &&
-    data.authorizerDescription !== null
-  ) {
+  if (data.authorizerDescription !== undefined && data.authorizerDescription !== null) {
     contents.authorizerDescription = deserializeAws_restJson1_1AuthorizerDescription(
       data.authorizerDescription,
       context
@@ -13999,10 +12859,7 @@ const deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14032,10 +12889,7 @@ const deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14043,10 +12897,7 @@ const deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14073,10 +12924,7 @@ export const deserializeAws_restJson1_1DescribeDomainConfigurationCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeDomainConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDomainConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDomainConfigurationCommandError(output, context);
   }
   const contents: DescribeDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -14097,22 +12945,13 @@ export const deserializeAws_restJson1_1DescribeDomainConfigurationCommand = asyn
       context
     );
   }
-  if (
-    data.domainConfigurationArn !== undefined &&
-    data.domainConfigurationArn !== null
-  ) {
+  if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
     contents.domainConfigurationArn = data.domainConfigurationArn;
   }
-  if (
-    data.domainConfigurationName !== undefined &&
-    data.domainConfigurationName !== null
-  ) {
+  if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
     contents.domainConfigurationName = data.domainConfigurationName;
   }
-  if (
-    data.domainConfigurationStatus !== undefined &&
-    data.domainConfigurationStatus !== null
-  ) {
+  if (data.domainConfigurationStatus !== undefined && data.domainConfigurationStatus !== null) {
     contents.domainConfigurationStatus = data.domainConfigurationStatus;
   }
   if (data.domainName !== undefined && data.domainName !== null) {
@@ -14121,10 +12960,7 @@ export const deserializeAws_restJson1_1DescribeDomainConfigurationCommand = asyn
   if (data.domainType !== undefined && data.domainType !== null) {
     contents.domainType = data.domainType;
   }
-  if (
-    data.serverCertificates !== undefined &&
-    data.serverCertificates !== null
-  ) {
+  if (data.serverCertificates !== undefined && data.serverCertificates !== null) {
     contents.serverCertificates = deserializeAws_restJson1_1ServerCertificates(
       data.serverCertificates,
       context
@@ -14184,10 +13020,7 @@ const deserializeAws_restJson1_1DescribeDomainConfigurationCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14195,10 +13028,7 @@ const deserializeAws_restJson1_1DescribeDomainConfigurationCommandError = async 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14225,10 +13055,7 @@ export const deserializeAws_restJson1_1DescribeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeEndpointCommandError(output, context);
   }
   const contents: DescribeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -14268,10 +13095,7 @@ const deserializeAws_restJson1_1DescribeEndpointCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14279,10 +13103,7 @@ const deserializeAws_restJson1_1DescribeEndpointCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14290,10 +13111,7 @@ const deserializeAws_restJson1_1DescribeEndpointCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14320,10 +13138,7 @@ export const deserializeAws_restJson1_1DescribeProvisioningTemplateCommand = asy
   context: __SerdeContext
 ): Promise<DescribeProvisioningTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeProvisioningTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeProvisioningTemplateCommandError(output, context);
   }
   const contents: DescribeProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -14352,14 +13167,9 @@ export const deserializeAws_restJson1_1DescribeProvisioningTemplateCommand = asy
     contents.enabled = data.enabled;
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
-  if (
-    data.provisioningRoleArn !== undefined &&
-    data.provisioningRoleArn !== null
-  ) {
+  if (data.provisioningRoleArn !== undefined && data.provisioningRoleArn !== null) {
     contents.provisioningRoleArn = data.provisioningRoleArn;
   }
   if (data.templateArn !== undefined && data.templateArn !== null) {
@@ -14400,10 +13210,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateCommandError = async
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14422,10 +13229,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateCommandError = async
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14433,10 +13237,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateCommandError = async
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14518,10 +13319,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateVersionCommandError 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14540,10 +13338,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateVersionCommandError 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14551,10 +13346,7 @@ const deserializeAws_restJson1_1DescribeProvisioningTemplateVersionCommandError 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14581,10 +13373,7 @@ export const deserializeAws_restJson1_1DescribeRoleAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRoleAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeRoleAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRoleAliasCommandError(output, context);
   }
   const contents: DescribeRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -14592,10 +13381,7 @@ export const deserializeAws_restJson1_1DescribeRoleAliasCommand = async (
     roleAliasDescription: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.roleAliasDescription !== undefined &&
-    data.roleAliasDescription !== null
-  ) {
+  if (data.roleAliasDescription !== undefined && data.roleAliasDescription !== null) {
     contents.roleAliasDescription = deserializeAws_restJson1_1RoleAliasDescription(
       data.roleAliasDescription,
       context
@@ -14630,10 +13416,7 @@ const deserializeAws_restJson1_1DescribeRoleAliasCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14663,10 +13446,7 @@ const deserializeAws_restJson1_1DescribeRoleAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14674,10 +13454,7 @@ const deserializeAws_restJson1_1DescribeRoleAliasCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14739,10 +13516,7 @@ const deserializeAws_restJson1_1DetachPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14750,10 +13524,7 @@ const deserializeAws_restJson1_1DetachPolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14772,10 +13543,7 @@ const deserializeAws_restJson1_1DetachPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14783,10 +13551,7 @@ const deserializeAws_restJson1_1DetachPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14813,10 +13578,7 @@ export const deserializeAws_restJson1_1DetachPrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DetachPrincipalPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(output, context);
   }
   const contents: DetachPrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -14851,10 +13613,7 @@ const deserializeAws_restJson1_1DetachPrincipalPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14884,10 +13643,7 @@ const deserializeAws_restJson1_1DetachPrincipalPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14895,10 +13651,7 @@ const deserializeAws_restJson1_1DetachPrincipalPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14925,10 +13678,7 @@ export const deserializeAws_restJson1_1GetEffectivePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetEffectivePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEffectivePoliciesCommandError(output, context);
   }
   const contents: GetEffectivePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -14971,10 +13721,7 @@ const deserializeAws_restJson1_1GetEffectivePoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14982,10 +13729,7 @@ const deserializeAws_restJson1_1GetEffectivePoliciesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15015,10 +13759,7 @@ const deserializeAws_restJson1_1GetEffectivePoliciesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15026,10 +13767,7 @@ const deserializeAws_restJson1_1GetEffectivePoliciesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15080,9 +13818,7 @@ export const deserializeAws_restJson1_1GetPolicyCommand = async (
     contents.generationId = data.generationId;
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
     contents.policyArn = data.policyArn;
@@ -15122,10 +13858,7 @@ const deserializeAws_restJson1_1GetPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15155,10 +13888,7 @@ const deserializeAws_restJson1_1GetPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15166,10 +13896,7 @@ const deserializeAws_restJson1_1GetPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15196,10 +13923,7 @@ export const deserializeAws_restJson1_1GetPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetPolicyVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPolicyVersionCommandError(output, context);
   }
   const contents: GetPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15224,9 +13948,7 @@ export const deserializeAws_restJson1_1GetPolicyVersionCommand = async (
     contents.isDefaultVersion = data.isDefaultVersion;
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.policyArn !== undefined && data.policyArn !== null) {
     contents.policyArn = data.policyArn;
@@ -15269,10 +13991,7 @@ const deserializeAws_restJson1_1GetPolicyVersionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15302,10 +14021,7 @@ const deserializeAws_restJson1_1GetPolicyVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15313,10 +14029,7 @@ const deserializeAws_restJson1_1GetPolicyVersionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15343,10 +14056,7 @@ export const deserializeAws_restJson1_1GetRegistrationCodeCommand = async (
   context: __SerdeContext
 ): Promise<GetRegistrationCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRegistrationCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRegistrationCodeCommandError(output, context);
   }
   const contents: GetRegistrationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15386,10 +14096,7 @@ const deserializeAws_restJson1_1GetRegistrationCodeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15408,10 +14115,7 @@ const deserializeAws_restJson1_1GetRegistrationCodeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15419,10 +14123,7 @@ const deserializeAws_restJson1_1GetRegistrationCodeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15449,10 +14150,7 @@ export const deserializeAws_restJson1_1ListAttachedPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttachedPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAttachedPoliciesCommandError(output, context);
   }
   const contents: ListAttachedPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15465,10 +14163,7 @@ export const deserializeAws_restJson1_1ListAttachedPoliciesCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.policies !== undefined && data.policies !== null) {
-    contents.policies = deserializeAws_restJson1_1Policies(
-      data.policies,
-      context
-    );
+    contents.policies = deserializeAws_restJson1_1Policies(data.policies, context);
   }
   return Promise.resolve(contents);
 };
@@ -15499,10 +14194,7 @@ const deserializeAws_restJson1_1ListAttachedPoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15510,10 +14202,7 @@ const deserializeAws_restJson1_1ListAttachedPoliciesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15543,10 +14232,7 @@ const deserializeAws_restJson1_1ListAttachedPoliciesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15554,10 +14240,7 @@ const deserializeAws_restJson1_1ListAttachedPoliciesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15584,10 +14267,7 @@ export const deserializeAws_restJson1_1ListAuthorizersCommand = async (
   context: __SerdeContext
 ): Promise<ListAuthorizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAuthorizersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAuthorizersCommandError(output, context);
   }
   const contents: ListAuthorizersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15597,10 +14277,7 @@ export const deserializeAws_restJson1_1ListAuthorizersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizers !== undefined && data.authorizers !== null) {
-    contents.authorizers = deserializeAws_restJson1_1Authorizers(
-      data.authorizers,
-      context
-    );
+    contents.authorizers = deserializeAws_restJson1_1Authorizers(data.authorizers, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
     contents.nextMarker = data.nextMarker;
@@ -15634,10 +14311,7 @@ const deserializeAws_restJson1_1ListAuthorizersCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15656,10 +14330,7 @@ const deserializeAws_restJson1_1ListAuthorizersCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15667,10 +14338,7 @@ const deserializeAws_restJson1_1ListAuthorizersCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15697,10 +14365,7 @@ export const deserializeAws_restJson1_1ListCACertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCACertificatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListCACertificatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListCACertificatesCommandError(output, context);
   }
   const contents: ListCACertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15710,10 +14375,7 @@ export const deserializeAws_restJson1_1ListCACertificatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificates !== undefined && data.certificates !== null) {
-    contents.certificates = deserializeAws_restJson1_1CACertificates(
-      data.certificates,
-      context
-    );
+    contents.certificates = deserializeAws_restJson1_1CACertificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
     contents.nextMarker = data.nextMarker;
@@ -15747,10 +14409,7 @@ const deserializeAws_restJson1_1ListCACertificatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15769,10 +14428,7 @@ const deserializeAws_restJson1_1ListCACertificatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15780,10 +14436,7 @@ const deserializeAws_restJson1_1ListCACertificatesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15810,10 +14463,7 @@ export const deserializeAws_restJson1_1ListCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListCertificatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListCertificatesCommandError(output, context);
   }
   const contents: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15823,10 +14473,7 @@ export const deserializeAws_restJson1_1ListCertificatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificates !== undefined && data.certificates !== null) {
-    contents.certificates = deserializeAws_restJson1_1Certificates(
-      data.certificates,
-      context
-    );
+    contents.certificates = deserializeAws_restJson1_1Certificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
     contents.nextMarker = data.nextMarker;
@@ -15860,10 +14507,7 @@ const deserializeAws_restJson1_1ListCertificatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15882,10 +14526,7 @@ const deserializeAws_restJson1_1ListCertificatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15893,10 +14534,7 @@ const deserializeAws_restJson1_1ListCertificatesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15923,10 +14561,7 @@ export const deserializeAws_restJson1_1ListCertificatesByCACommand = async (
   context: __SerdeContext
 ): Promise<ListCertificatesByCACommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListCertificatesByCACommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListCertificatesByCACommandError(output, context);
   }
   const contents: ListCertificatesByCACommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -15936,10 +14571,7 @@ export const deserializeAws_restJson1_1ListCertificatesByCACommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.certificates !== undefined && data.certificates !== null) {
-    contents.certificates = deserializeAws_restJson1_1Certificates(
-      data.certificates,
-      context
-    );
+    contents.certificates = deserializeAws_restJson1_1Certificates(data.certificates, context);
   }
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
     contents.nextMarker = data.nextMarker;
@@ -15973,10 +14605,7 @@ const deserializeAws_restJson1_1ListCertificatesByCACommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -15995,10 +14624,7 @@ const deserializeAws_restJson1_1ListCertificatesByCACommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16006,10 +14632,7 @@ const deserializeAws_restJson1_1ListCertificatesByCACommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16036,10 +14659,7 @@ export const deserializeAws_restJson1_1ListDomainConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDomainConfigurationsCommandError(output, context);
   }
   const contents: ListDomainConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16048,10 +14668,7 @@ export const deserializeAws_restJson1_1ListDomainConfigurationsCommand = async (
     nextMarker: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.domainConfigurations !== undefined &&
-    data.domainConfigurations !== null
-  ) {
+  if (data.domainConfigurations !== undefined && data.domainConfigurations !== null) {
     contents.domainConfigurations = deserializeAws_restJson1_1DomainConfigurations(
       data.domainConfigurations,
       context
@@ -16089,10 +14706,7 @@ const deserializeAws_restJson1_1ListDomainConfigurationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16111,10 +14725,7 @@ const deserializeAws_restJson1_1ListDomainConfigurationsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16122,10 +14733,7 @@ const deserializeAws_restJson1_1ListDomainConfigurationsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16152,10 +14760,7 @@ export const deserializeAws_restJson1_1ListOutgoingCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListOutgoingCertificatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(output, context);
   }
   const contents: ListOutgoingCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16167,10 +14772,7 @@ export const deserializeAws_restJson1_1ListOutgoingCertificatesCommand = async (
   if (data.nextMarker !== undefined && data.nextMarker !== null) {
     contents.nextMarker = data.nextMarker;
   }
-  if (
-    data.outgoingCertificates !== undefined &&
-    data.outgoingCertificates !== null
-  ) {
+  if (data.outgoingCertificates !== undefined && data.outgoingCertificates !== null) {
     contents.outgoingCertificates = deserializeAws_restJson1_1OutgoingCertificates(
       data.outgoingCertificates,
       context
@@ -16205,10 +14807,7 @@ const deserializeAws_restJson1_1ListOutgoingCertificatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16227,10 +14826,7 @@ const deserializeAws_restJson1_1ListOutgoingCertificatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16238,10 +14834,7 @@ const deserializeAws_restJson1_1ListOutgoingCertificatesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16281,10 +14874,7 @@ export const deserializeAws_restJson1_1ListPoliciesCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.policies !== undefined && data.policies !== null) {
-    contents.policies = deserializeAws_restJson1_1Policies(
-      data.policies,
-      context
-    );
+    contents.policies = deserializeAws_restJson1_1Policies(data.policies, context);
   }
   return Promise.resolve(contents);
 };
@@ -16315,10 +14905,7 @@ const deserializeAws_restJson1_1ListPoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16337,10 +14924,7 @@ const deserializeAws_restJson1_1ListPoliciesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16348,10 +14932,7 @@ const deserializeAws_restJson1_1ListPoliciesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16378,10 +14959,7 @@ export const deserializeAws_restJson1_1ListPolicyPrincipalsCommand = async (
   context: __SerdeContext
 ): Promise<ListPolicyPrincipalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(output, context);
   }
   const contents: ListPolicyPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16394,10 +14972,7 @@ export const deserializeAws_restJson1_1ListPolicyPrincipalsCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.principals !== undefined && data.principals !== null) {
-    contents.principals = deserializeAws_restJson1_1Principals(
-      data.principals,
-      context
-    );
+    contents.principals = deserializeAws_restJson1_1Principals(data.principals, context);
   }
   return Promise.resolve(contents);
 };
@@ -16428,10 +15003,7 @@ const deserializeAws_restJson1_1ListPolicyPrincipalsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16461,10 +15033,7 @@ const deserializeAws_restJson1_1ListPolicyPrincipalsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16472,10 +15041,7 @@ const deserializeAws_restJson1_1ListPolicyPrincipalsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16502,10 +15068,7 @@ export const deserializeAws_restJson1_1ListPolicyVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListPolicyVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPolicyVersionsCommandError(output, context);
   }
   const contents: ListPolicyVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16548,10 +15111,7 @@ const deserializeAws_restJson1_1ListPolicyVersionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16581,10 +15141,7 @@ const deserializeAws_restJson1_1ListPolicyVersionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16592,10 +15149,7 @@ const deserializeAws_restJson1_1ListPolicyVersionsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16622,10 +15176,7 @@ export const deserializeAws_restJson1_1ListPrincipalPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListPrincipalPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(output, context);
   }
   const contents: ListPrincipalPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16638,10 +15189,7 @@ export const deserializeAws_restJson1_1ListPrincipalPoliciesCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.policies !== undefined && data.policies !== null) {
-    contents.policies = deserializeAws_restJson1_1Policies(
-      data.policies,
-      context
-    );
+    contents.policies = deserializeAws_restJson1_1Policies(data.policies, context);
   }
   return Promise.resolve(contents);
 };
@@ -16672,10 +15220,7 @@ const deserializeAws_restJson1_1ListPrincipalPoliciesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16705,10 +15250,7 @@ const deserializeAws_restJson1_1ListPrincipalPoliciesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16716,10 +15258,7 @@ const deserializeAws_restJson1_1ListPrincipalPoliciesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16746,10 +15285,7 @@ export const deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand =
   context: __SerdeContext
 ): Promise<ListProvisioningTemplateVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommandError(output, context);
   }
   const contents: ListProvisioningTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16796,10 +15332,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16818,10 +15351,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommandError = a
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16829,10 +15359,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommandError = a
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16859,10 +15386,7 @@ export const deserializeAws_restJson1_1ListProvisioningTemplatesCommand = async 
   context: __SerdeContext
 ): Promise<ListProvisioningTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(output, context);
   }
   const contents: ListProvisioningTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16909,10 +15433,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16920,10 +15441,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16931,10 +15449,7 @@ const deserializeAws_restJson1_1ListProvisioningTemplatesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -16961,10 +15476,7 @@ export const deserializeAws_restJson1_1ListRoleAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListRoleAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListRoleAliasesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRoleAliasesCommandError(output, context);
   }
   const contents: ListRoleAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -16977,10 +15489,7 @@ export const deserializeAws_restJson1_1ListRoleAliasesCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.roleAliases !== undefined && data.roleAliases !== null) {
-    contents.roleAliases = deserializeAws_restJson1_1RoleAliases(
-      data.roleAliases,
-      context
-    );
+    contents.roleAliases = deserializeAws_restJson1_1RoleAliases(data.roleAliases, context);
   }
   return Promise.resolve(contents);
 };
@@ -17011,10 +15520,7 @@ const deserializeAws_restJson1_1ListRoleAliasesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17033,10 +15539,7 @@ const deserializeAws_restJson1_1ListRoleAliasesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17044,10 +15547,7 @@ const deserializeAws_restJson1_1ListRoleAliasesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17074,10 +15574,7 @@ export const deserializeAws_restJson1_1ListTargetsForPolicyCommand = async (
   context: __SerdeContext
 ): Promise<ListTargetsForPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTargetsForPolicyCommandError(output, context);
   }
   const contents: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -17090,10 +15587,7 @@ export const deserializeAws_restJson1_1ListTargetsForPolicyCommand = async (
     contents.nextMarker = data.nextMarker;
   }
   if (data.targets !== undefined && data.targets !== null) {
-    contents.targets = deserializeAws_restJson1_1PolicyTargets(
-      data.targets,
-      context
-    );
+    contents.targets = deserializeAws_restJson1_1PolicyTargets(data.targets, context);
   }
   return Promise.resolve(contents);
 };
@@ -17124,10 +15618,7 @@ const deserializeAws_restJson1_1ListTargetsForPolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17135,10 +15626,7 @@ const deserializeAws_restJson1_1ListTargetsForPolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17168,10 +15656,7 @@ const deserializeAws_restJson1_1ListTargetsForPolicyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17179,10 +15664,7 @@ const deserializeAws_restJson1_1ListTargetsForPolicyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17209,10 +15691,7 @@ export const deserializeAws_restJson1_1RegisterCACertificateCommand = async (
   context: __SerdeContext
 ): Promise<RegisterCACertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RegisterCACertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterCACertificateCommandError(output, context);
   }
   const contents: RegisterCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -17267,10 +15746,7 @@ const deserializeAws_restJson1_1RegisterCACertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17278,10 +15754,7 @@ const deserializeAws_restJson1_1RegisterCACertificateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17322,10 +15795,7 @@ const deserializeAws_restJson1_1RegisterCACertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17333,10 +15803,7 @@ const deserializeAws_restJson1_1RegisterCACertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17363,10 +15830,7 @@ export const deserializeAws_restJson1_1RegisterCertificateCommand = async (
   context: __SerdeContext
 ): Promise<RegisterCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RegisterCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterCertificateCommandError(output, context);
   }
   const contents: RegisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -17443,10 +15907,7 @@ const deserializeAws_restJson1_1RegisterCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17476,10 +15937,7 @@ const deserializeAws_restJson1_1RegisterCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17487,10 +15945,7 @@ const deserializeAws_restJson1_1RegisterCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17530,10 +15985,7 @@ export const deserializeAws_restJson1_1RegisterThingCommand = async (
     contents.certificatePem = data.certificatePem;
   }
   if (data.resourceArns !== undefined && data.resourceArns !== null) {
-    contents.resourceArns = deserializeAws_restJson1_1ResourceArns(
-      data.resourceArns,
-      context
-    );
+    contents.resourceArns = deserializeAws_restJson1_1ResourceArns(data.resourceArns, context);
   }
   return Promise.resolve(contents);
 };
@@ -17575,10 +16027,7 @@ const deserializeAws_restJson1_1RegisterThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17608,10 +16057,7 @@ const deserializeAws_restJson1_1RegisterThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17619,10 +16065,7 @@ const deserializeAws_restJson1_1RegisterThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17649,10 +16092,7 @@ export const deserializeAws_restJson1_1RejectCertificateTransferCommand = async 
   context: __SerdeContext
 ): Promise<RejectCertificateTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RejectCertificateTransferCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RejectCertificateTransferCommandError(output, context);
   }
   const contents: RejectCertificateTransferCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -17687,10 +16127,7 @@ const deserializeAws_restJson1_1RejectCertificateTransferCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17720,10 +16157,7 @@ const deserializeAws_restJson1_1RejectCertificateTransferCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17742,10 +16176,7 @@ const deserializeAws_restJson1_1RejectCertificateTransferCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17772,10 +16203,7 @@ export const deserializeAws_restJson1_1SetDefaultAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<SetDefaultAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(output, context);
   }
   const contents: SetDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -17819,10 +16247,7 @@ const deserializeAws_restJson1_1SetDefaultAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17863,10 +16288,7 @@ const deserializeAws_restJson1_1SetDefaultAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17874,10 +16296,7 @@ const deserializeAws_restJson1_1SetDefaultAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17904,10 +16323,7 @@ export const deserializeAws_restJson1_1SetDefaultPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(output, context);
   }
   const contents: SetDefaultPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -17942,10 +16358,7 @@ const deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17975,10 +16388,7 @@ const deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -17986,10 +16396,7 @@ const deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18016,10 +16423,7 @@ export const deserializeAws_restJson1_1TestAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<TestAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1TestAuthorizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1TestAuthorizationCommandError(output, context);
   }
   const contents: TestAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18028,10 +16432,7 @@ export const deserializeAws_restJson1_1TestAuthorizationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authResults !== undefined && data.authResults !== null) {
-    contents.authResults = deserializeAws_restJson1_1AuthResults(
-      data.authResults,
-      context
-    );
+    contents.authResults = deserializeAws_restJson1_1AuthResults(data.authResults, context);
   }
   return Promise.resolve(contents);
 };
@@ -18062,10 +16463,7 @@ const deserializeAws_restJson1_1TestAuthorizationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18073,10 +16471,7 @@ const deserializeAws_restJson1_1TestAuthorizationCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18106,10 +16501,7 @@ const deserializeAws_restJson1_1TestAuthorizationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18117,10 +16509,7 @@ const deserializeAws_restJson1_1TestAuthorizationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18147,10 +16536,7 @@ export const deserializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<TestInvokeAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(output, context);
   }
   const contents: TestInvokeAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18162,10 +16548,7 @@ export const deserializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
     refreshAfterInSeconds: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.disconnectAfterInSeconds !== undefined &&
-    data.disconnectAfterInSeconds !== null
-  ) {
+  if (data.disconnectAfterInSeconds !== undefined && data.disconnectAfterInSeconds !== null) {
     contents.disconnectAfterInSeconds = data.disconnectAfterInSeconds;
   }
   if (data.isAuthenticated !== undefined && data.isAuthenticated !== null) {
@@ -18180,10 +16563,7 @@ export const deserializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
   if (data.principalId !== undefined && data.principalId !== null) {
     contents.principalId = data.principalId;
   }
-  if (
-    data.refreshAfterInSeconds !== undefined &&
-    data.refreshAfterInSeconds !== null
-  ) {
+  if (data.refreshAfterInSeconds !== undefined && data.refreshAfterInSeconds !== null) {
     contents.refreshAfterInSeconds = data.refreshAfterInSeconds;
   }
   return Promise.resolve(contents);
@@ -18215,10 +16595,7 @@ const deserializeAws_restJson1_1TestInvokeAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18259,10 +16636,7 @@ const deserializeAws_restJson1_1TestInvokeAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18270,10 +16644,7 @@ const deserializeAws_restJson1_1TestInvokeAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18300,10 +16671,7 @@ export const deserializeAws_restJson1_1TransferCertificateCommand = async (
   context: __SerdeContext
 ): Promise<TransferCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1TransferCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1TransferCertificateCommandError(output, context);
   }
   const contents: TransferCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18311,10 +16679,7 @@ export const deserializeAws_restJson1_1TransferCertificateCommand = async (
     transferredCertificateArn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.transferredCertificateArn !== undefined &&
-    data.transferredCertificateArn !== null
-  ) {
+  if (data.transferredCertificateArn !== undefined && data.transferredCertificateArn !== null) {
     contents.transferredCertificateArn = data.transferredCertificateArn;
   }
   return Promise.resolve(contents);
@@ -18357,10 +16722,7 @@ const deserializeAws_restJson1_1TransferCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18390,10 +16752,7 @@ const deserializeAws_restJson1_1TransferCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18412,10 +16771,7 @@ const deserializeAws_restJson1_1TransferCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18442,10 +16798,7 @@ export const deserializeAws_restJson1_1UpdateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateAuthorizerCommandError(output, context);
   }
   const contents: UpdateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18489,10 +16842,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18500,10 +16850,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18533,10 +16880,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18544,10 +16888,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18574,10 +16915,7 @@ export const deserializeAws_restJson1_1UpdateCACertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCACertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateCACertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateCACertificateCommandError(output, context);
   }
   const contents: UpdateCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -18612,10 +16950,7 @@ const deserializeAws_restJson1_1UpdateCACertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18645,10 +16980,7 @@ const deserializeAws_restJson1_1UpdateCACertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18656,10 +16988,7 @@ const deserializeAws_restJson1_1UpdateCACertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18686,10 +17015,7 @@ export const deserializeAws_restJson1_1UpdateCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateCertificateCommandError(output, context);
   }
   const contents: UpdateCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -18735,10 +17061,7 @@ const deserializeAws_restJson1_1UpdateCertificateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18768,10 +17091,7 @@ const deserializeAws_restJson1_1UpdateCertificateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18779,10 +17099,7 @@ const deserializeAws_restJson1_1UpdateCertificateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18809,10 +17126,7 @@ export const deserializeAws_restJson1_1UpdateDomainConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<UpdateDomainConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(output, context);
   }
   const contents: UpdateDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18821,16 +17135,10 @@ export const deserializeAws_restJson1_1UpdateDomainConfigurationCommand = async 
     domainConfigurationName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.domainConfigurationArn !== undefined &&
-    data.domainConfigurationArn !== null
-  ) {
+  if (data.domainConfigurationArn !== undefined && data.domainConfigurationArn !== null) {
     contents.domainConfigurationArn = data.domainConfigurationArn;
   }
-  if (
-    data.domainConfigurationName !== undefined &&
-    data.domainConfigurationName !== null
-  ) {
+  if (data.domainConfigurationName !== undefined && data.domainConfigurationName !== null) {
     contents.domainConfigurationName = data.domainConfigurationName;
   }
   return Promise.resolve(contents);
@@ -18873,10 +17181,7 @@ const deserializeAws_restJson1_1UpdateDomainConfigurationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18906,10 +17211,7 @@ const deserializeAws_restJson1_1UpdateDomainConfigurationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18917,10 +17219,7 @@ const deserializeAws_restJson1_1UpdateDomainConfigurationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -18947,10 +17246,7 @@ export const deserializeAws_restJson1_1UpdateProvisioningTemplateCommand = async
   context: __SerdeContext
 ): Promise<UpdateProvisioningTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(output, context);
   }
   const contents: UpdateProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -18997,10 +17293,7 @@ const deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19019,10 +17312,7 @@ const deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19049,10 +17339,7 @@ export const deserializeAws_restJson1_1UpdateRoleAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoleAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateRoleAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateRoleAliasCommandError(output, context);
   }
   const contents: UpdateRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -19096,10 +17383,7 @@ const deserializeAws_restJson1_1UpdateRoleAliasCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19129,10 +17413,7 @@ const deserializeAws_restJson1_1UpdateRoleAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19140,10 +17421,7 @@ const deserializeAws_restJson1_1UpdateRoleAliasCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19218,10 +17496,7 @@ const deserializeAws_restJson1_1DescribeIndexCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19251,10 +17526,7 @@ const deserializeAws_restJson1_1DescribeIndexCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19262,10 +17534,7 @@ const deserializeAws_restJson1_1DescribeIndexCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19292,10 +17561,7 @@ export const deserializeAws_restJson1_1GetCardinalityCommand = async (
   context: __SerdeContext
 ): Promise<GetCardinalityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetCardinalityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCardinalityCommandError(output, context);
   }
   const contents: GetCardinalityCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -19346,10 +17612,7 @@ const deserializeAws_restJson1_1GetCardinalityCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19357,10 +17620,7 @@ const deserializeAws_restJson1_1GetCardinalityCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19390,10 +17650,7 @@ const deserializeAws_restJson1_1GetCardinalityCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19401,10 +17658,7 @@ const deserializeAws_restJson1_1GetCardinalityCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19412,10 +17666,7 @@ const deserializeAws_restJson1_1GetCardinalityCommandError = async (
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19442,10 +17693,7 @@ export const deserializeAws_restJson1_1GetIndexingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetIndexingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIndexingConfigurationCommandError(output, context);
   }
   const contents: GetIndexingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -19463,10 +17711,7 @@ export const deserializeAws_restJson1_1GetIndexingConfigurationCommand = async (
       context
     );
   }
-  if (
-    data.thingIndexingConfiguration !== undefined &&
-    data.thingIndexingConfiguration !== null
-  ) {
+  if (data.thingIndexingConfiguration !== undefined && data.thingIndexingConfiguration !== null) {
     contents.thingIndexingConfiguration = deserializeAws_restJson1_1ThingIndexingConfiguration(
       data.thingIndexingConfiguration,
       context
@@ -19501,10 +17746,7 @@ const deserializeAws_restJson1_1GetIndexingConfigurationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19523,10 +17765,7 @@ const deserializeAws_restJson1_1GetIndexingConfigurationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19534,10 +17773,7 @@ const deserializeAws_restJson1_1GetIndexingConfigurationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19564,10 +17800,7 @@ export const deserializeAws_restJson1_1GetPercentilesCommand = async (
   context: __SerdeContext
 ): Promise<GetPercentilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetPercentilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPercentilesCommandError(output, context);
   }
   const contents: GetPercentilesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -19576,10 +17809,7 @@ export const deserializeAws_restJson1_1GetPercentilesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.percentiles !== undefined && data.percentiles !== null) {
-    contents.percentiles = deserializeAws_restJson1_1Percentiles(
-      data.percentiles,
-      context
-    );
+    contents.percentiles = deserializeAws_restJson1_1Percentiles(data.percentiles, context);
   }
   return Promise.resolve(contents);
 };
@@ -19621,10 +17851,7 @@ const deserializeAws_restJson1_1GetPercentilesCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19632,10 +17859,7 @@ const deserializeAws_restJson1_1GetPercentilesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19665,10 +17889,7 @@ const deserializeAws_restJson1_1GetPercentilesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19676,10 +17897,7 @@ const deserializeAws_restJson1_1GetPercentilesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19687,10 +17905,7 @@ const deserializeAws_restJson1_1GetPercentilesCommandError = async (
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19726,10 +17941,7 @@ export const deserializeAws_restJson1_1GetStatisticsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.statistics !== undefined && data.statistics !== null) {
-    contents.statistics = deserializeAws_restJson1_1Statistics(
-      data.statistics,
-      context
-    );
+    contents.statistics = deserializeAws_restJson1_1Statistics(data.statistics, context);
   }
   return Promise.resolve(contents);
 };
@@ -19771,10 +17983,7 @@ const deserializeAws_restJson1_1GetStatisticsCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19782,10 +17991,7 @@ const deserializeAws_restJson1_1GetStatisticsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19815,10 +18021,7 @@ const deserializeAws_restJson1_1GetStatisticsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19826,10 +18029,7 @@ const deserializeAws_restJson1_1GetStatisticsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19837,10 +18037,7 @@ const deserializeAws_restJson1_1GetStatisticsCommandError = async (
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19877,10 +18074,7 @@ export const deserializeAws_restJson1_1ListIndicesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.indexNames !== undefined && data.indexNames !== null) {
-    contents.indexNames = deserializeAws_restJson1_1IndexNamesList(
-      data.indexNames,
-      context
-    );
+    contents.indexNames = deserializeAws_restJson1_1IndexNamesList(data.indexNames, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -19914,10 +18108,7 @@ const deserializeAws_restJson1_1ListIndicesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19936,10 +18127,7 @@ const deserializeAws_restJson1_1ListIndicesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19947,10 +18135,7 @@ const deserializeAws_restJson1_1ListIndicesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -19997,10 +18182,7 @@ export const deserializeAws_restJson1_1SearchIndexCommand = async (
     );
   }
   if (data.things !== undefined && data.things !== null) {
-    contents.things = deserializeAws_restJson1_1ThingDocumentList(
-      data.things,
-      context
-    );
+    contents.things = deserializeAws_restJson1_1ThingDocumentList(data.things, context);
   }
   return Promise.resolve(contents);
 };
@@ -20031,10 +18213,7 @@ const deserializeAws_restJson1_1SearchIndexCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20042,10 +18221,7 @@ const deserializeAws_restJson1_1SearchIndexCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20075,10 +18251,7 @@ const deserializeAws_restJson1_1SearchIndexCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20086,10 +18259,7 @@ const deserializeAws_restJson1_1SearchIndexCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20097,10 +18267,7 @@ const deserializeAws_restJson1_1SearchIndexCommandError = async (
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20127,10 +18294,7 @@ export const deserializeAws_restJson1_1UpdateIndexingConfigurationCommand = asyn
   context: __SerdeContext
 ): Promise<UpdateIndexingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError(output, context);
   }
   const contents: UpdateIndexingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -20166,10 +18330,7 @@ const deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError = async 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20188,10 +18349,7 @@ const deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20199,10 +18357,7 @@ const deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError = async 
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20229,10 +18384,7 @@ export const deserializeAws_restJson1_1AssociateTargetsWithJobCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTargetsWithJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(output, context);
   }
   const contents: AssociateTargetsWithJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -20269,10 +18421,7 @@ const deserializeAws_restJson1_1AssociateTargetsWithJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20280,10 +18429,7 @@ const deserializeAws_restJson1_1AssociateTargetsWithJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20313,10 +18459,7 @@ const deserializeAws_restJson1_1AssociateTargetsWithJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20380,10 +18523,7 @@ const deserializeAws_restJson1_1CancelJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20413,10 +18553,7 @@ const deserializeAws_restJson1_1CancelJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20443,10 +18580,7 @@ export const deserializeAws_restJson1_1CancelJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<CancelJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelJobExecutionCommandError(output, context);
   }
   const contents: CancelJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -20470,10 +18604,7 @@ const deserializeAws_restJson1_1CancelJobExecutionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20514,10 +18645,7 @@ const deserializeAws_restJson1_1CancelJobExecutionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20592,10 +18720,7 @@ const deserializeAws_restJson1_1CreateJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20603,10 +18728,7 @@ const deserializeAws_restJson1_1CreateJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20647,10 +18769,7 @@ const deserializeAws_restJson1_1CreateJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20701,10 +18820,7 @@ const deserializeAws_restJson1_1DeleteJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20723,10 +18839,7 @@ const deserializeAws_restJson1_1DeleteJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20756,10 +18869,7 @@ const deserializeAws_restJson1_1DeleteJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20786,10 +18896,7 @@ export const deserializeAws_restJson1_1DeleteJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteJobExecutionCommandError(output, context);
   }
   const contents: DeleteJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -20813,10 +18920,7 @@ const deserializeAws_restJson1_1DeleteJobExecutionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20857,10 +18961,7 @@ const deserializeAws_restJson1_1DeleteJobExecutionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20920,10 +19021,7 @@ const deserializeAws_restJson1_1DescribeJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20953,10 +19051,7 @@ const deserializeAws_restJson1_1DescribeJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -20983,10 +19078,7 @@ export const deserializeAws_restJson1_1DescribeJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobExecutionCommandError(output, context);
   }
   const contents: DescribeJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -20995,10 +19087,7 @@ export const deserializeAws_restJson1_1DescribeJobExecutionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.execution !== undefined && data.execution !== null) {
-    contents.execution = deserializeAws_restJson1_1JobExecution(
-      data.execution,
-      context
-    );
+    contents.execution = deserializeAws_restJson1_1JobExecution(data.execution, context);
   }
   return Promise.resolve(contents);
 };
@@ -21018,10 +19107,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21051,10 +19137,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21081,10 +19164,7 @@ export const deserializeAws_restJson1_1GetJobDocumentCommand = async (
   context: __SerdeContext
 ): Promise<GetJobDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetJobDocumentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetJobDocumentCommandError(output, context);
   }
   const contents: GetJobDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21113,10 +19193,7 @@ const deserializeAws_restJson1_1GetJobDocumentCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21146,10 +19223,7 @@ const deserializeAws_restJson1_1GetJobDocumentCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21176,10 +19250,7 @@ export const deserializeAws_restJson1_1ListJobExecutionsForJobCommand = async (
   context: __SerdeContext
 ): Promise<ListJobExecutionsForJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(output, context);
   }
   const contents: ListJobExecutionsForJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21188,10 +19259,7 @@ export const deserializeAws_restJson1_1ListJobExecutionsForJobCommand = async (
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.executionSummaries !== undefined &&
-    data.executionSummaries !== null
-  ) {
+  if (data.executionSummaries !== undefined && data.executionSummaries !== null) {
     contents.executionSummaries = deserializeAws_restJson1_1JobExecutionSummaryForJobList(
       data.executionSummaries,
       context
@@ -21218,10 +19286,7 @@ const deserializeAws_restJson1_1ListJobExecutionsForJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21251,10 +19316,7 @@ const deserializeAws_restJson1_1ListJobExecutionsForJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21281,10 +19343,7 @@ export const deserializeAws_restJson1_1ListJobExecutionsForThingCommand = async 
   context: __SerdeContext
 ): Promise<ListJobExecutionsForThingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(output, context);
   }
   const contents: ListJobExecutionsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21293,10 +19352,7 @@ export const deserializeAws_restJson1_1ListJobExecutionsForThingCommand = async 
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.executionSummaries !== undefined &&
-    data.executionSummaries !== null
-  ) {
+  if (data.executionSummaries !== undefined && data.executionSummaries !== null) {
     contents.executionSummaries = deserializeAws_restJson1_1JobExecutionSummaryForThingList(
       data.executionSummaries,
       context
@@ -21323,10 +19379,7 @@ const deserializeAws_restJson1_1ListJobExecutionsForThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21356,10 +19409,7 @@ const deserializeAws_restJson1_1ListJobExecutionsForThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21396,10 +19446,7 @@ export const deserializeAws_restJson1_1ListJobsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobs !== undefined && data.jobs !== null) {
-    contents.jobs = deserializeAws_restJson1_1JobSummaryList(
-      data.jobs,
-      context
-    );
+    contents.jobs = deserializeAws_restJson1_1JobSummaryList(data.jobs, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -21422,10 +19469,7 @@ const deserializeAws_restJson1_1ListJobsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21455,10 +19499,7 @@ const deserializeAws_restJson1_1ListJobsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21509,10 +19550,7 @@ const deserializeAws_restJson1_1UpdateJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21542,10 +19580,7 @@ const deserializeAws_restJson1_1UpdateJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21572,10 +19607,7 @@ export const deserializeAws_restJson1_1CreateOTAUpdateCommand = async (
   context: __SerdeContext
 ): Promise<CreateOTAUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateOTAUpdateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateOTAUpdateCommandError(output, context);
   }
   const contents: CreateOTAUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21631,10 +19663,7 @@ const deserializeAws_restJson1_1CreateOTAUpdateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21642,10 +19671,7 @@ const deserializeAws_restJson1_1CreateOTAUpdateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21686,10 +19712,7 @@ const deserializeAws_restJson1_1CreateOTAUpdateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21697,10 +19720,7 @@ const deserializeAws_restJson1_1CreateOTAUpdateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21727,10 +19747,7 @@ export const deserializeAws_restJson1_1DeleteOTAUpdateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOTAUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteOTAUpdateCommandError(output, context);
   }
   const contents: DeleteOTAUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21766,10 +19783,7 @@ const deserializeAws_restJson1_1DeleteOTAUpdateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21799,10 +19813,7 @@ const deserializeAws_restJson1_1DeleteOTAUpdateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21810,10 +19821,7 @@ const deserializeAws_restJson1_1DeleteOTAUpdateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21860,10 +19868,7 @@ export const deserializeAws_restJson1_1GetOTAUpdateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.otaUpdateInfo !== undefined && data.otaUpdateInfo !== null) {
-    contents.otaUpdateInfo = deserializeAws_restJson1_1OTAUpdateInfo(
-      data.otaUpdateInfo,
-      context
-    );
+    contents.otaUpdateInfo = deserializeAws_restJson1_1OTAUpdateInfo(data.otaUpdateInfo, context);
   }
   return Promise.resolve(contents);
 };
@@ -21894,10 +19899,7 @@ const deserializeAws_restJson1_1GetOTAUpdateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21927,10 +19929,7 @@ const deserializeAws_restJson1_1GetOTAUpdateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21938,10 +19937,7 @@ const deserializeAws_restJson1_1GetOTAUpdateCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -21968,10 +19964,7 @@ export const deserializeAws_restJson1_1ListOTAUpdatesCommand = async (
   context: __SerdeContext
 ): Promise<ListOTAUpdatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListOTAUpdatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListOTAUpdatesCommandError(output, context);
   }
   const contents: ListOTAUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -21984,10 +19977,7 @@ export const deserializeAws_restJson1_1ListOTAUpdatesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.otaUpdates !== undefined && data.otaUpdates !== null) {
-    contents.otaUpdates = deserializeAws_restJson1_1OTAUpdatesSummary(
-      data.otaUpdates,
-      context
-    );
+    contents.otaUpdates = deserializeAws_restJson1_1OTAUpdatesSummary(data.otaUpdates, context);
   }
   return Promise.resolve(contents);
 };
@@ -22018,10 +20008,7 @@ const deserializeAws_restJson1_1ListOTAUpdatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22040,10 +20027,7 @@ const deserializeAws_restJson1_1ListOTAUpdatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22051,10 +20035,7 @@ const deserializeAws_restJson1_1ListOTAUpdatesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22081,10 +20062,7 @@ export const deserializeAws_restJson1_1AddThingToBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<AddThingToBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AddThingToBillingGroupCommandError(output, context);
   }
   const contents: AddThingToBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22120,10 +20098,7 @@ const deserializeAws_restJson1_1AddThingToBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22142,10 +20117,7 @@ const deserializeAws_restJson1_1AddThingToBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22172,10 +20144,7 @@ export const deserializeAws_restJson1_1AddThingToThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<AddThingToThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AddThingToThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AddThingToThingGroupCommandError(output, context);
   }
   const contents: AddThingToThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22211,10 +20180,7 @@ const deserializeAws_restJson1_1AddThingToThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22233,10 +20199,7 @@ const deserializeAws_restJson1_1AddThingToThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22263,10 +20226,7 @@ export const deserializeAws_restJson1_1AttachThingPrincipalCommand = async (
   context: __SerdeContext
 ): Promise<AttachThingPrincipalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AttachThingPrincipalCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AttachThingPrincipalCommandError(output, context);
   }
   const contents: AttachThingPrincipalCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22302,10 +20262,7 @@ const deserializeAws_restJson1_1AttachThingPrincipalCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22335,10 +20292,7 @@ const deserializeAws_restJson1_1AttachThingPrincipalCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22346,10 +20300,7 @@ const deserializeAws_restJson1_1AttachThingPrincipalCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22376,10 +20327,7 @@ export const deserializeAws_restJson1_1CreateBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBillingGroupCommandError(output, context);
   }
   const contents: CreateBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22427,10 +20375,7 @@ const deserializeAws_restJson1_1CreateBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22449,10 +20394,7 @@ const deserializeAws_restJson1_1CreateBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22479,10 +20421,7 @@ export const deserializeAws_restJson1_1CreateDynamicThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateDynamicThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(output, context);
   }
   const contents: CreateDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22542,10 +20481,7 @@ const deserializeAws_restJson1_1CreateDynamicThingGroupCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22553,10 +20489,7 @@ const deserializeAws_restJson1_1CreateDynamicThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22564,10 +20497,7 @@ const deserializeAws_restJson1_1CreateDynamicThingGroupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22597,10 +20527,7 @@ const deserializeAws_restJson1_1CreateDynamicThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22675,10 +20602,7 @@ const deserializeAws_restJson1_1CreateThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22719,10 +20643,7 @@ const deserializeAws_restJson1_1CreateThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22730,10 +20651,7 @@ const deserializeAws_restJson1_1CreateThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22760,10 +20678,7 @@ export const deserializeAws_restJson1_1CreateThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateThingGroupCommandError(output, context);
   }
   const contents: CreateThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22811,10 +20726,7 @@ const deserializeAws_restJson1_1CreateThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22833,10 +20745,7 @@ const deserializeAws_restJson1_1CreateThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22863,10 +20772,7 @@ export const deserializeAws_restJson1_1CreateThingTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateThingTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateThingTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateThingTypeCommandError(output, context);
   }
   const contents: CreateThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -22914,10 +20820,7 @@ const deserializeAws_restJson1_1CreateThingTypeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22947,10 +20850,7 @@ const deserializeAws_restJson1_1CreateThingTypeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22958,10 +20858,7 @@ const deserializeAws_restJson1_1CreateThingTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -22988,10 +20885,7 @@ export const deserializeAws_restJson1_1DeleteBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBillingGroupCommandError(output, context);
   }
   const contents: DeleteBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23027,10 +20921,7 @@ const deserializeAws_restJson1_1DeleteBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23038,10 +20929,7 @@ const deserializeAws_restJson1_1DeleteBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23079,10 +20967,7 @@ export const deserializeAws_restJson1_1DeleteDynamicThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDynamicThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(output, context);
   }
   const contents: DeleteDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23118,10 +21003,7 @@ const deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23129,10 +21011,7 @@ const deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23206,10 +21085,7 @@ const deserializeAws_restJson1_1DeleteThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23239,10 +21115,7 @@ const deserializeAws_restJson1_1DeleteThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23250,10 +21123,7 @@ const deserializeAws_restJson1_1DeleteThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23291,10 +21161,7 @@ export const deserializeAws_restJson1_1DeleteThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteThingGroupCommandError(output, context);
   }
   const contents: DeleteThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23330,10 +21197,7 @@ const deserializeAws_restJson1_1DeleteThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23341,10 +21205,7 @@ const deserializeAws_restJson1_1DeleteThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23382,10 +21243,7 @@ export const deserializeAws_restJson1_1DeleteThingTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThingTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteThingTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteThingTypeCommandError(output, context);
   }
   const contents: DeleteThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23421,10 +21279,7 @@ const deserializeAws_restJson1_1DeleteThingTypeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23454,10 +21309,7 @@ const deserializeAws_restJson1_1DeleteThingTypeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23465,10 +21317,7 @@ const deserializeAws_restJson1_1DeleteThingTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23495,10 +21344,7 @@ export const deserializeAws_restJson1_1DeprecateThingTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateThingTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeprecateThingTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeprecateThingTypeCommandError(output, context);
   }
   const contents: DeprecateThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23534,10 +21380,7 @@ const deserializeAws_restJson1_1DeprecateThingTypeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23567,10 +21410,7 @@ const deserializeAws_restJson1_1DeprecateThingTypeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23578,10 +21418,7 @@ const deserializeAws_restJson1_1DeprecateThingTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23608,10 +21445,7 @@ export const deserializeAws_restJson1_1DescribeBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBillingGroupCommandError(output, context);
   }
   const contents: DescribeBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23630,10 +21464,7 @@ export const deserializeAws_restJson1_1DescribeBillingGroupCommand = async (
   if (data.billingGroupId !== undefined && data.billingGroupId !== null) {
     contents.billingGroupId = data.billingGroupId;
   }
-  if (
-    data.billingGroupMetadata !== undefined &&
-    data.billingGroupMetadata !== null
-  ) {
+  if (data.billingGroupMetadata !== undefined && data.billingGroupMetadata !== null) {
     contents.billingGroupMetadata = deserializeAws_restJson1_1BillingGroupMetadata(
       data.billingGroupMetadata,
       context
@@ -23642,10 +21473,7 @@ export const deserializeAws_restJson1_1DescribeBillingGroupCommand = async (
   if (data.billingGroupName !== undefined && data.billingGroupName !== null) {
     contents.billingGroupName = data.billingGroupName;
   }
-  if (
-    data.billingGroupProperties !== undefined &&
-    data.billingGroupProperties !== null
-  ) {
+  if (data.billingGroupProperties !== undefined && data.billingGroupProperties !== null) {
     contents.billingGroupProperties = deserializeAws_restJson1_1BillingGroupProperties(
       data.billingGroupProperties,
       context
@@ -23683,10 +21511,7 @@ const deserializeAws_restJson1_1DescribeBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23705,10 +21530,7 @@ const deserializeAws_restJson1_1DescribeBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23735,10 +21557,7 @@ export const deserializeAws_restJson1_1DescribeEventConfigurationsCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeEventConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeEventConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeEventConfigurationsCommandError(output, context);
   }
   const contents: DescribeEventConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -23751,19 +21570,14 @@ export const deserializeAws_restJson1_1DescribeEventConfigurationsCommand = asyn
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
-  if (
-    data.eventConfigurations !== undefined &&
-    data.eventConfigurations !== null
-  ) {
+  if (data.eventConfigurations !== undefined && data.eventConfigurations !== null) {
     contents.eventConfigurations = deserializeAws_restJson1_1EventConfigurations(
       data.eventConfigurations,
       context
     );
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   return Promise.resolve(contents);
 };
@@ -23794,10 +21608,7 @@ const deserializeAws_restJson1_1DescribeEventConfigurationsCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23840,10 +21651,7 @@ export const deserializeAws_restJson1_1DescribeThingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.attributes !== undefined && data.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1Attributes(
-      data.attributes,
-      context
-    );
+    contents.attributes = deserializeAws_restJson1_1Attributes(data.attributes, context);
   }
   if (data.billingGroupName !== undefined && data.billingGroupName !== null) {
     contents.billingGroupName = data.billingGroupName;
@@ -23895,10 +21703,7 @@ const deserializeAws_restJson1_1DescribeThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23928,10 +21733,7 @@ const deserializeAws_restJson1_1DescribeThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23939,10 +21741,7 @@ const deserializeAws_restJson1_1DescribeThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -23969,10 +21768,7 @@ export const deserializeAws_restJson1_1DescribeThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeThingGroupCommandError(output, context);
   }
   const contents: DescribeThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24007,10 +21803,7 @@ export const deserializeAws_restJson1_1DescribeThingGroupCommand = async (
   if (data.thingGroupId !== undefined && data.thingGroupId !== null) {
     contents.thingGroupId = data.thingGroupId;
   }
-  if (
-    data.thingGroupMetadata !== undefined &&
-    data.thingGroupMetadata !== null
-  ) {
+  if (data.thingGroupMetadata !== undefined && data.thingGroupMetadata !== null) {
     contents.thingGroupMetadata = deserializeAws_restJson1_1ThingGroupMetadata(
       data.thingGroupMetadata,
       context
@@ -24019,10 +21812,7 @@ export const deserializeAws_restJson1_1DescribeThingGroupCommand = async (
   if (data.thingGroupName !== undefined && data.thingGroupName !== null) {
     contents.thingGroupName = data.thingGroupName;
   }
-  if (
-    data.thingGroupProperties !== undefined &&
-    data.thingGroupProperties !== null
-  ) {
+  if (data.thingGroupProperties !== undefined && data.thingGroupProperties !== null) {
     contents.thingGroupProperties = deserializeAws_restJson1_1ThingGroupProperties(
       data.thingGroupProperties,
       context
@@ -24060,10 +21850,7 @@ const deserializeAws_restJson1_1DescribeThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24082,10 +21869,7 @@ const deserializeAws_restJson1_1DescribeThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24112,10 +21896,7 @@ export const deserializeAws_restJson1_1DescribeThingRegistrationTaskCommand = as
   context: __SerdeContext
 ): Promise<DescribeThingRegistrationTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandError(output, context);
   }
   const contents: DescribeThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24147,17 +21928,12 @@ export const deserializeAws_restJson1_1DescribeThingRegistrationTaskCommand = as
     contents.inputFileKey = data.inputFileKey;
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
   }
-  if (
-    data.percentageProgress !== undefined &&
-    data.percentageProgress !== null
-  ) {
+  if (data.percentageProgress !== undefined && data.percentageProgress !== null) {
     contents.percentageProgress = data.percentageProgress;
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
@@ -24204,10 +21980,7 @@ const deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandError = asyn
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24226,10 +21999,7 @@ const deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandError = asyn
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24237,10 +22007,7 @@ const deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandError = asyn
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24267,10 +22034,7 @@ export const deserializeAws_restJson1_1DescribeThingTypeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThingTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeThingTypeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeThingTypeCommandError(output, context);
   }
   const contents: DescribeThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24297,10 +22061,7 @@ export const deserializeAws_restJson1_1DescribeThingTypeCommand = async (
   if (data.thingTypeName !== undefined && data.thingTypeName !== null) {
     contents.thingTypeName = data.thingTypeName;
   }
-  if (
-    data.thingTypeProperties !== undefined &&
-    data.thingTypeProperties !== null
-  ) {
+  if (data.thingTypeProperties !== undefined && data.thingTypeProperties !== null) {
     contents.thingTypeProperties = deserializeAws_restJson1_1ThingTypeProperties(
       data.thingTypeProperties,
       context
@@ -24335,10 +22096,7 @@ const deserializeAws_restJson1_1DescribeThingTypeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24368,10 +22126,7 @@ const deserializeAws_restJson1_1DescribeThingTypeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24379,10 +22134,7 @@ const deserializeAws_restJson1_1DescribeThingTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24409,10 +22161,7 @@ export const deserializeAws_restJson1_1DetachThingPrincipalCommand = async (
   context: __SerdeContext
 ): Promise<DetachThingPrincipalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DetachThingPrincipalCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DetachThingPrincipalCommandError(output, context);
   }
   const contents: DetachThingPrincipalCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24448,10 +22197,7 @@ const deserializeAws_restJson1_1DetachThingPrincipalCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24481,10 +22227,7 @@ const deserializeAws_restJson1_1DetachThingPrincipalCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24492,10 +22235,7 @@ const deserializeAws_restJson1_1DetachThingPrincipalCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24522,10 +22262,7 @@ export const deserializeAws_restJson1_1ListBillingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListBillingGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListBillingGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBillingGroupsCommandError(output, context);
   }
   const contents: ListBillingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24572,10 +22309,7 @@ const deserializeAws_restJson1_1ListBillingGroupsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24594,10 +22328,7 @@ const deserializeAws_restJson1_1ListBillingGroupsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24624,10 +22355,7 @@ export const deserializeAws_restJson1_1ListPrincipalThingsCommand = async (
   context: __SerdeContext
 ): Promise<ListPrincipalThingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListPrincipalThingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPrincipalThingsCommandError(output, context);
   }
   const contents: ListPrincipalThingsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24640,10 +22368,7 @@ export const deserializeAws_restJson1_1ListPrincipalThingsCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.things !== undefined && data.things !== null) {
-    contents.things = deserializeAws_restJson1_1ThingNameList(
-      data.things,
-      context
-    );
+    contents.things = deserializeAws_restJson1_1ThingNameList(data.things, context);
   }
   return Promise.resolve(contents);
 };
@@ -24674,10 +22399,7 @@ const deserializeAws_restJson1_1ListPrincipalThingsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24707,10 +22429,7 @@ const deserializeAws_restJson1_1ListPrincipalThingsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24718,10 +22437,7 @@ const deserializeAws_restJson1_1ListPrincipalThingsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24748,10 +22464,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24795,10 +22508,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24817,10 +22527,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24847,10 +22554,7 @@ export const deserializeAws_restJson1_1ListThingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListThingGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingGroupsCommandError(output, context);
   }
   const contents: ListThingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24897,10 +22601,7 @@ const deserializeAws_restJson1_1ListThingGroupsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -24938,10 +22639,7 @@ export const deserializeAws_restJson1_1ListThingGroupsForThingCommand = async (
   context: __SerdeContext
 ): Promise<ListThingGroupsForThingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingGroupsForThingCommandError(output, context);
   }
   const contents: ListThingGroupsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -24988,10 +22686,7 @@ const deserializeAws_restJson1_1ListThingGroupsForThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25029,10 +22724,7 @@ export const deserializeAws_restJson1_1ListThingPrincipalsCommand = async (
   context: __SerdeContext
 ): Promise<ListThingPrincipalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingPrincipalsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingPrincipalsCommandError(output, context);
   }
   const contents: ListThingPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25041,10 +22733,7 @@ export const deserializeAws_restJson1_1ListThingPrincipalsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.principals !== undefined && data.principals !== null) {
-    contents.principals = deserializeAws_restJson1_1Principals(
-      data.principals,
-      context
-    );
+    contents.principals = deserializeAws_restJson1_1Principals(data.principals, context);
   }
   return Promise.resolve(contents);
 };
@@ -25075,10 +22764,7 @@ const deserializeAws_restJson1_1ListThingPrincipalsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25108,10 +22794,7 @@ const deserializeAws_restJson1_1ListThingPrincipalsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25119,10 +22802,7 @@ const deserializeAws_restJson1_1ListThingPrincipalsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25149,10 +22829,7 @@ export const deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand =
   context: __SerdeContext
 ): Promise<ListThingRegistrationTaskReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommandError(output, context);
   }
   const contents: ListThingRegistrationTaskReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25169,10 +22846,7 @@ export const deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand =
     contents.reportType = data.reportType;
   }
   if (data.resourceLinks !== undefined && data.resourceLinks !== null) {
-    contents.resourceLinks = deserializeAws_restJson1_1S3FileUrlList(
-      data.resourceLinks,
-      context
-    );
+    contents.resourceLinks = deserializeAws_restJson1_1S3FileUrlList(data.resourceLinks, context);
   }
   return Promise.resolve(contents);
 };
@@ -25203,10 +22877,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25214,10 +22885,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommandError = a
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25225,10 +22893,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommandError = a
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25255,10 +22920,7 @@ export const deserializeAws_restJson1_1ListThingRegistrationTasksCommand = async
   context: __SerdeContext
 ): Promise<ListThingRegistrationTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(output, context);
   }
   const contents: ListThingRegistrationTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25271,10 +22933,7 @@ export const deserializeAws_restJson1_1ListThingRegistrationTasksCommand = async
     contents.nextToken = data.nextToken;
   }
   if (data.taskIds !== undefined && data.taskIds !== null) {
-    contents.taskIds = deserializeAws_restJson1_1TaskIdList(
-      data.taskIds,
-      context
-    );
+    contents.taskIds = deserializeAws_restJson1_1TaskIdList(data.taskIds, context);
   }
   return Promise.resolve(contents);
 };
@@ -25305,10 +22964,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTasksCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25316,10 +22972,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTasksCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25327,10 +22980,7 @@ const deserializeAws_restJson1_1ListThingRegistrationTasksCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25357,10 +23007,7 @@ export const deserializeAws_restJson1_1ListThingTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListThingTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingTypesCommandError(output, context);
   }
   const contents: ListThingTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25373,10 +23020,7 @@ export const deserializeAws_restJson1_1ListThingTypesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.thingTypes !== undefined && data.thingTypes !== null) {
-    contents.thingTypes = deserializeAws_restJson1_1ThingTypeList(
-      data.thingTypes,
-      context
-    );
+    contents.thingTypes = deserializeAws_restJson1_1ThingTypeList(data.thingTypes, context);
   }
   return Promise.resolve(contents);
 };
@@ -25407,10 +23051,7 @@ const deserializeAws_restJson1_1ListThingTypesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25429,10 +23070,7 @@ const deserializeAws_restJson1_1ListThingTypesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25440,10 +23078,7 @@ const deserializeAws_restJson1_1ListThingTypesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25483,10 +23118,7 @@ export const deserializeAws_restJson1_1ListThingsCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.things !== undefined && data.things !== null) {
-    contents.things = deserializeAws_restJson1_1ThingAttributeList(
-      data.things,
-      context
-    );
+    contents.things = deserializeAws_restJson1_1ThingAttributeList(data.things, context);
   }
   return Promise.resolve(contents);
 };
@@ -25517,10 +23149,7 @@ const deserializeAws_restJson1_1ListThingsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25539,10 +23168,7 @@ const deserializeAws_restJson1_1ListThingsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25550,10 +23176,7 @@ const deserializeAws_restJson1_1ListThingsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25580,10 +23203,7 @@ export const deserializeAws_restJson1_1ListThingsInBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<ListThingsInBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(output, context);
   }
   const contents: ListThingsInBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25596,10 +23216,7 @@ export const deserializeAws_restJson1_1ListThingsInBillingGroupCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.things !== undefined && data.things !== null) {
-    contents.things = deserializeAws_restJson1_1ThingNameList(
-      data.things,
-      context
-    );
+    contents.things = deserializeAws_restJson1_1ThingNameList(data.things, context);
   }
   return Promise.resolve(contents);
 };
@@ -25630,10 +23247,7 @@ const deserializeAws_restJson1_1ListThingsInBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25652,10 +23266,7 @@ const deserializeAws_restJson1_1ListThingsInBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25682,10 +23293,7 @@ export const deserializeAws_restJson1_1ListThingsInThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<ListThingsInThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThingsInThingGroupCommandError(output, context);
   }
   const contents: ListThingsInThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25698,10 +23306,7 @@ export const deserializeAws_restJson1_1ListThingsInThingGroupCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.things !== undefined && data.things !== null) {
-    contents.things = deserializeAws_restJson1_1ThingNameList(
-      data.things,
-      context
-    );
+    contents.things = deserializeAws_restJson1_1ThingNameList(data.things, context);
   }
   return Promise.resolve(contents);
 };
@@ -25732,10 +23337,7 @@ const deserializeAws_restJson1_1ListThingsInThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25773,10 +23375,7 @@ export const deserializeAws_restJson1_1RemoveThingFromBillingGroupCommand = asyn
   context: __SerdeContext
 ): Promise<RemoveThingFromBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError(output, context);
   }
   const contents: RemoveThingFromBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25812,10 +23411,7 @@ const deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError = async 
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25834,10 +23430,7 @@ const deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25864,10 +23457,7 @@ export const deserializeAws_restJson1_1RemoveThingFromThingGroupCommand = async 
   context: __SerdeContext
 ): Promise<RemoveThingFromThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(output, context);
   }
   const contents: RemoveThingFromThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25903,10 +23493,7 @@ const deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25925,10 +23512,7 @@ const deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -25955,10 +23539,7 @@ export const deserializeAws_restJson1_1StartThingRegistrationTaskCommand = async
   context: __SerdeContext
 ): Promise<StartThingRegistrationTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(output, context);
   }
   const contents: StartThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -25998,10 +23579,7 @@ const deserializeAws_restJson1_1StartThingRegistrationTaskCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26009,10 +23587,7 @@ const deserializeAws_restJson1_1StartThingRegistrationTaskCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26020,10 +23595,7 @@ const deserializeAws_restJson1_1StartThingRegistrationTaskCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26050,10 +23622,7 @@ export const deserializeAws_restJson1_1StopThingRegistrationTaskCommand = async 
   context: __SerdeContext
 ): Promise<StopThingRegistrationTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(output, context);
   }
   const contents: StopThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26089,10 +23658,7 @@ const deserializeAws_restJson1_1StopThingRegistrationTaskCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26111,10 +23677,7 @@ const deserializeAws_restJson1_1StopThingRegistrationTaskCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26122,10 +23685,7 @@ const deserializeAws_restJson1_1StopThingRegistrationTaskCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26188,10 +23748,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26199,10 +23756,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26221,10 +23775,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26287,10 +23838,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26309,10 +23857,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26339,10 +23884,7 @@ export const deserializeAws_restJson1_1UpdateBillingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBillingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateBillingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateBillingGroupCommandError(output, context);
   }
   const contents: UpdateBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26382,10 +23924,7 @@ const deserializeAws_restJson1_1UpdateBillingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26404,10 +23943,7 @@ const deserializeAws_restJson1_1UpdateBillingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26445,10 +23981,7 @@ export const deserializeAws_restJson1_1UpdateDynamicThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDynamicThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(output, context);
   }
   const contents: UpdateDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26488,10 +24021,7 @@ const deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError = async (
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26499,10 +24029,7 @@ const deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26521,10 +24048,7 @@ const deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26562,10 +24086,7 @@ export const deserializeAws_restJson1_1UpdateEventConfigurationsCommand = async 
   context: __SerdeContext
 ): Promise<UpdateEventConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(output, context);
   }
   const contents: UpdateEventConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26601,10 +24122,7 @@ const deserializeAws_restJson1_1UpdateEventConfigurationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26612,10 +24130,7 @@ const deserializeAws_restJson1_1UpdateEventConfigurationsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26678,10 +24193,7 @@ const deserializeAws_restJson1_1UpdateThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26711,10 +24223,7 @@ const deserializeAws_restJson1_1UpdateThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26722,10 +24231,7 @@ const deserializeAws_restJson1_1UpdateThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26763,10 +24269,7 @@ export const deserializeAws_restJson1_1UpdateThingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThingGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateThingGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateThingGroupCommandError(output, context);
   }
   const contents: UpdateThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26806,10 +24309,7 @@ const deserializeAws_restJson1_1UpdateThingGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26828,10 +24328,7 @@ const deserializeAws_restJson1_1UpdateThingGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26869,10 +24366,7 @@ export const deserializeAws_restJson1_1UpdateThingGroupsForThingCommand = async 
   context: __SerdeContext
 ): Promise<UpdateThingGroupsForThingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(output, context);
   }
   const contents: UpdateThingGroupsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26908,10 +24402,7 @@ const deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26930,10 +24421,7 @@ const deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -26960,10 +24448,7 @@ export const deserializeAws_restJson1_1AttachSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<AttachSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AttachSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AttachSecurityProfileCommandError(output, context);
   }
   const contents: AttachSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -26999,10 +24484,7 @@ const deserializeAws_restJson1_1AttachSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27010,10 +24492,7 @@ const deserializeAws_restJson1_1AttachSecurityProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27032,10 +24511,7 @@ const deserializeAws_restJson1_1AttachSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27073,10 +24549,7 @@ export const deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand =
   context: __SerdeContext
 ): Promise<CancelAuditMitigationActionsTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommandError(output, context);
   }
   const contents: CancelAuditMitigationActionsTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27112,10 +24585,7 @@ const deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27134,10 +24604,7 @@ const deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommandError = a
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27164,10 +24631,7 @@ export const deserializeAws_restJson1_1CancelAuditTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelAuditTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelAuditTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelAuditTaskCommandError(output, context);
   }
   const contents: CancelAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27203,10 +24667,7 @@ const deserializeAws_restJson1_1CancelAuditTaskCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27225,10 +24686,7 @@ const deserializeAws_restJson1_1CancelAuditTaskCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27255,10 +24713,7 @@ export const deserializeAws_restJson1_1CreateMitigationActionCommand = async (
   context: __SerdeContext
 ): Promise<CreateMitigationActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateMitigationActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateMitigationActionCommandError(output, context);
   }
   const contents: CreateMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27302,10 +24757,7 @@ const deserializeAws_restJson1_1CreateMitigationActionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27313,10 +24765,7 @@ const deserializeAws_restJson1_1CreateMitigationActionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27335,10 +24784,7 @@ const deserializeAws_restJson1_1CreateMitigationActionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27365,10 +24811,7 @@ export const deserializeAws_restJson1_1CreateScheduledAuditCommand = async (
   context: __SerdeContext
 ): Promise<CreateScheduledAuditCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateScheduledAuditCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateScheduledAuditCommandError(output, context);
   }
   const contents: CreateScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27408,10 +24851,7 @@ const deserializeAws_restJson1_1CreateScheduledAuditCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27419,10 +24859,7 @@ const deserializeAws_restJson1_1CreateScheduledAuditCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27441,10 +24878,7 @@ const deserializeAws_restJson1_1CreateScheduledAuditCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27471,10 +24905,7 @@ export const deserializeAws_restJson1_1CreateSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSecurityProfileCommandError(output, context);
   }
   const contents: CreateSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27483,16 +24914,10 @@ export const deserializeAws_restJson1_1CreateSecurityProfileCommand = async (
     securityProfileName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.securityProfileArn !== undefined &&
-    data.securityProfileArn !== null
-  ) {
+  if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
     contents.securityProfileArn = data.securityProfileArn;
   }
-  if (
-    data.securityProfileName !== undefined &&
-    data.securityProfileName !== null
-  ) {
+  if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
     contents.securityProfileName = data.securityProfileName;
   }
   return Promise.resolve(contents);
@@ -27524,10 +24949,7 @@ const deserializeAws_restJson1_1CreateSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27546,10 +24968,7 @@ const deserializeAws_restJson1_1CreateSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27576,10 +24995,7 @@ export const deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand = 
   context: __SerdeContext
 ): Promise<DeleteAccountAuditConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandError(output, context);
   }
   const contents: DeleteAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27615,10 +25031,7 @@ const deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandError = as
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27637,10 +25050,7 @@ const deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27667,10 +25077,7 @@ export const deserializeAws_restJson1_1DeleteMitigationActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMitigationActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteMitigationActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMitigationActionCommandError(output, context);
   }
   const contents: DeleteMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27706,10 +25113,7 @@ const deserializeAws_restJson1_1DeleteMitigationActionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27717,10 +25121,7 @@ const deserializeAws_restJson1_1DeleteMitigationActionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27747,10 +25148,7 @@ export const deserializeAws_restJson1_1DeleteScheduledAuditCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduledAuditCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteScheduledAuditCommandError(output, context);
   }
   const contents: DeleteScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27786,10 +25184,7 @@ const deserializeAws_restJson1_1DeleteScheduledAuditCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27808,10 +25203,7 @@ const deserializeAws_restJson1_1DeleteScheduledAuditCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27838,10 +25230,7 @@ export const deserializeAws_restJson1_1DeleteSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSecurityProfileCommandError(output, context);
   }
   const contents: DeleteSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27877,10 +25266,7 @@ const deserializeAws_restJson1_1DeleteSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27888,10 +25274,7 @@ const deserializeAws_restJson1_1DeleteSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -27929,10 +25312,7 @@ export const deserializeAws_restJson1_1DescribeAccountAuditConfigurationCommand 
   context: __SerdeContext
 ): Promise<DescribeAccountAuditConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAccountAuditConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAccountAuditConfigurationCommandError(output, context);
   }
   const contents: DescribeAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -27942,10 +25322,7 @@ export const deserializeAws_restJson1_1DescribeAccountAuditConfigurationCommand 
     roleArn: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.auditCheckConfigurations !== undefined &&
-    data.auditCheckConfigurations !== null
-  ) {
+  if (data.auditCheckConfigurations !== undefined && data.auditCheckConfigurations !== null) {
     contents.auditCheckConfigurations = deserializeAws_restJson1_1AuditCheckConfigurations(
       data.auditCheckConfigurations,
       context
@@ -27992,10 +25369,7 @@ const deserializeAws_restJson1_1DescribeAccountAuditConfigurationCommandError = 
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28022,10 +25396,7 @@ export const deserializeAws_restJson1_1DescribeAuditFindingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAuditFindingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAuditFindingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAuditFindingCommandError(output, context);
   }
   const contents: DescribeAuditFindingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28034,10 +25405,7 @@ export const deserializeAws_restJson1_1DescribeAuditFindingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.finding !== undefined && data.finding !== null) {
-    contents.finding = deserializeAws_restJson1_1AuditFinding(
-      data.finding,
-      context
-    );
+    contents.finding = deserializeAws_restJson1_1AuditFinding(data.finding, context);
   }
   return Promise.resolve(contents);
 };
@@ -28068,10 +25436,7 @@ const deserializeAws_restJson1_1DescribeAuditFindingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28090,10 +25455,7 @@ const deserializeAws_restJson1_1DescribeAuditFindingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28143,10 +25505,7 @@ export const deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskCommand
       context
     );
   }
-  if (
-    data.auditCheckToActionsMapping !== undefined &&
-    data.auditCheckToActionsMapping !== null
-  ) {
+  if (data.auditCheckToActionsMapping !== undefined && data.auditCheckToActionsMapping !== null) {
     contents.auditCheckToActionsMapping = deserializeAws_restJson1_1AuditCheckToActionsMapping(
       data.auditCheckToActionsMapping,
       context
@@ -28202,10 +25561,7 @@ const deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskCommandError =
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28224,10 +25580,7 @@ const deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskCommandError =
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28254,10 +25607,7 @@ export const deserializeAws_restJson1_1DescribeAuditTaskCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAuditTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAuditTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAuditTaskCommandError(output, context);
   }
   const contents: DescribeAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28271,15 +25621,9 @@ export const deserializeAws_restJson1_1DescribeAuditTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.auditDetails !== undefined && data.auditDetails !== null) {
-    contents.auditDetails = deserializeAws_restJson1_1AuditDetails(
-      data.auditDetails,
-      context
-    );
+    contents.auditDetails = deserializeAws_restJson1_1AuditDetails(data.auditDetails, context);
   }
-  if (
-    data.scheduledAuditName !== undefined &&
-    data.scheduledAuditName !== null
-  ) {
+  if (data.scheduledAuditName !== undefined && data.scheduledAuditName !== null) {
     contents.scheduledAuditName = data.scheduledAuditName;
   }
   if (data.taskStartTime !== undefined && data.taskStartTime !== null) {
@@ -28326,10 +25670,7 @@ const deserializeAws_restJson1_1DescribeAuditTaskCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28348,10 +25689,7 @@ const deserializeAws_restJson1_1DescribeAuditTaskCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28378,10 +25716,7 @@ export const deserializeAws_restJson1_1DescribeMitigationActionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMitigationActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeMitigationActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMitigationActionCommandError(output, context);
   }
   const contents: DescribeMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28418,9 +25753,7 @@ export const deserializeAws_restJson1_1DescribeMitigationActionCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
     contents.roleArn = data.roleArn;
@@ -28454,10 +25787,7 @@ const deserializeAws_restJson1_1DescribeMitigationActionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28476,10 +25806,7 @@ const deserializeAws_restJson1_1DescribeMitigationActionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28506,10 +25833,7 @@ export const deserializeAws_restJson1_1DescribeScheduledAuditCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledAuditCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeScheduledAuditCommandError(output, context);
   }
   const contents: DescribeScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28534,10 +25858,7 @@ export const deserializeAws_restJson1_1DescribeScheduledAuditCommand = async (
   if (data.scheduledAuditArn !== undefined && data.scheduledAuditArn !== null) {
     contents.scheduledAuditArn = data.scheduledAuditArn;
   }
-  if (
-    data.scheduledAuditName !== undefined &&
-    data.scheduledAuditName !== null
-  ) {
+  if (data.scheduledAuditName !== undefined && data.scheduledAuditName !== null) {
     contents.scheduledAuditName = data.scheduledAuditName;
   }
   if (data.targetCheckNames !== undefined && data.targetCheckNames !== null) {
@@ -28575,10 +25896,7 @@ const deserializeAws_restJson1_1DescribeScheduledAuditCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28597,10 +25915,7 @@ const deserializeAws_restJson1_1DescribeScheduledAuditCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28627,10 +25942,7 @@ export const deserializeAws_restJson1_1DescribeSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSecurityProfileCommandError(output, context);
   }
   const contents: DescribeSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28646,51 +25958,31 @@ export const deserializeAws_restJson1_1DescribeSecurityProfileCommand = async (
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.additionalMetricsToRetain !== undefined &&
-    data.additionalMetricsToRetain !== null
-  ) {
+  if (data.additionalMetricsToRetain !== undefined && data.additionalMetricsToRetain !== null) {
     contents.additionalMetricsToRetain = deserializeAws_restJson1_1AdditionalMetricsToRetainList(
       data.additionalMetricsToRetain,
       context
     );
   }
   if (data.alertTargets !== undefined && data.alertTargets !== null) {
-    contents.alertTargets = deserializeAws_restJson1_1AlertTargets(
-      data.alertTargets,
-      context
-    );
+    contents.alertTargets = deserializeAws_restJson1_1AlertTargets(data.alertTargets, context);
   }
   if (data.behaviors !== undefined && data.behaviors !== null) {
-    contents.behaviors = deserializeAws_restJson1_1Behaviors(
-      data.behaviors,
-      context
-    );
+    contents.behaviors = deserializeAws_restJson1_1Behaviors(data.behaviors, context);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
-  if (
-    data.securityProfileArn !== undefined &&
-    data.securityProfileArn !== null
-  ) {
+  if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
     contents.securityProfileArn = data.securityProfileArn;
   }
-  if (
-    data.securityProfileDescription !== undefined &&
-    data.securityProfileDescription !== null
-  ) {
+  if (data.securityProfileDescription !== undefined && data.securityProfileDescription !== null) {
     contents.securityProfileDescription = data.securityProfileDescription;
   }
-  if (
-    data.securityProfileName !== undefined &&
-    data.securityProfileName !== null
-  ) {
+  if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
     contents.securityProfileName = data.securityProfileName;
   }
   if (data.version !== undefined && data.version !== null) {
@@ -28725,10 +26017,7 @@ const deserializeAws_restJson1_1DescribeSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28747,10 +26036,7 @@ const deserializeAws_restJson1_1DescribeSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28777,10 +26063,7 @@ export const deserializeAws_restJson1_1DetachSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<DetachSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DetachSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DetachSecurityProfileCommandError(output, context);
   }
   const contents: DetachSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28816,10 +26099,7 @@ const deserializeAws_restJson1_1DetachSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28838,10 +26118,7 @@ const deserializeAws_restJson1_1DetachSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28868,10 +26145,7 @@ export const deserializeAws_restJson1_1ListActiveViolationsCommand = async (
   context: __SerdeContext
 ): Promise<ListActiveViolationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListActiveViolationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListActiveViolationsCommandError(output, context);
   }
   const contents: ListActiveViolationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28918,10 +26192,7 @@ const deserializeAws_restJson1_1ListActiveViolationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28940,10 +26211,7 @@ const deserializeAws_restJson1_1ListActiveViolationsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -28970,10 +26238,7 @@ export const deserializeAws_restJson1_1ListAuditFindingsCommand = async (
   context: __SerdeContext
 ): Promise<ListAuditFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAuditFindingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAuditFindingsCommandError(output, context);
   }
   const contents: ListAuditFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -28983,10 +26248,7 @@ export const deserializeAws_restJson1_1ListAuditFindingsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.findings !== undefined && data.findings !== null) {
-    contents.findings = deserializeAws_restJson1_1AuditFindings(
-      data.findings,
-      context
-    );
+    contents.findings = deserializeAws_restJson1_1AuditFindings(data.findings, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -29020,10 +26282,7 @@ const deserializeAws_restJson1_1ListAuditFindingsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29031,10 +26290,7 @@ const deserializeAws_restJson1_1ListAuditFindingsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29111,10 +26367,7 @@ const deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommandError
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29122,10 +26375,7 @@ const deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCommandError
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29152,10 +26402,7 @@ export const deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommand = 
   context: __SerdeContext
 ): Promise<ListAuditMitigationActionsTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandError(output, context);
   }
   const contents: ListAuditMitigationActionsTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29202,10 +26449,7 @@ const deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandError = as
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29213,10 +26457,7 @@ const deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29243,10 +26484,7 @@ export const deserializeAws_restJson1_1ListAuditTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListAuditTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAuditTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAuditTasksCommandError(output, context);
   }
   const contents: ListAuditTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29259,10 +26497,7 @@ export const deserializeAws_restJson1_1ListAuditTasksCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.tasks !== undefined && data.tasks !== null) {
-    contents.tasks = deserializeAws_restJson1_1AuditTaskMetadataList(
-      data.tasks,
-      context
-    );
+    contents.tasks = deserializeAws_restJson1_1AuditTaskMetadataList(data.tasks, context);
   }
   return Promise.resolve(contents);
 };
@@ -29293,10 +26528,7 @@ const deserializeAws_restJson1_1ListAuditTasksCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29304,10 +26536,7 @@ const deserializeAws_restJson1_1ListAuditTasksCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29334,10 +26563,7 @@ export const deserializeAws_restJson1_1ListMitigationActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListMitigationActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListMitigationActionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMitigationActionsCommandError(output, context);
   }
   const contents: ListMitigationActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29384,10 +26610,7 @@ const deserializeAws_restJson1_1ListMitigationActionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29395,10 +26618,7 @@ const deserializeAws_restJson1_1ListMitigationActionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29425,10 +26645,7 @@ export const deserializeAws_restJson1_1ListScheduledAuditsCommand = async (
   context: __SerdeContext
 ): Promise<ListScheduledAuditsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListScheduledAuditsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListScheduledAuditsCommandError(output, context);
   }
   const contents: ListScheduledAuditsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29475,10 +26692,7 @@ const deserializeAws_restJson1_1ListScheduledAuditsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29486,10 +26700,7 @@ const deserializeAws_restJson1_1ListScheduledAuditsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29516,10 +26727,7 @@ export const deserializeAws_restJson1_1ListSecurityProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSecurityProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSecurityProfilesCommandError(output, context);
   }
   const contents: ListSecurityProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29531,10 +26739,7 @@ export const deserializeAws_restJson1_1ListSecurityProfilesCommand = async (
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (
-    data.securityProfileIdentifiers !== undefined &&
-    data.securityProfileIdentifiers !== null
-  ) {
+  if (data.securityProfileIdentifiers !== undefined && data.securityProfileIdentifiers !== null) {
     contents.securityProfileIdentifiers = deserializeAws_restJson1_1SecurityProfileIdentifiers(
       data.securityProfileIdentifiers,
       context
@@ -29569,10 +26774,7 @@ const deserializeAws_restJson1_1ListSecurityProfilesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29580,10 +26782,7 @@ const deserializeAws_restJson1_1ListSecurityProfilesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29610,10 +26809,7 @@ export const deserializeAws_restJson1_1ListSecurityProfilesForTargetCommand = as
   context: __SerdeContext
 ): Promise<ListSecurityProfilesForTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandError(output, context);
   }
   const contents: ListSecurityProfilesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29663,10 +26859,7 @@ const deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandError = asyn
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29685,10 +26878,7 @@ const deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandError = asyn
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29715,10 +26905,7 @@ export const deserializeAws_restJson1_1ListTargetsForSecurityProfileCommand = as
   context: __SerdeContext
 ): Promise<ListTargetsForSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandError(output, context);
   }
   const contents: ListTargetsForSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29730,10 +26917,7 @@ export const deserializeAws_restJson1_1ListTargetsForSecurityProfileCommand = as
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
   }
-  if (
-    data.securityProfileTargets !== undefined &&
-    data.securityProfileTargets !== null
-  ) {
+  if (data.securityProfileTargets !== undefined && data.securityProfileTargets !== null) {
     contents.securityProfileTargets = deserializeAws_restJson1_1SecurityProfileTargets(
       data.securityProfileTargets,
       context
@@ -29768,10 +26952,7 @@ const deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandError = asyn
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29790,10 +26971,7 @@ const deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandError = asyn
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29820,10 +26998,7 @@ export const deserializeAws_restJson1_1ListViolationEventsCommand = async (
   context: __SerdeContext
 ): Promise<ListViolationEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListViolationEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListViolationEventsCommandError(output, context);
   }
   const contents: ListViolationEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29870,10 +27045,7 @@ const deserializeAws_restJson1_1ListViolationEventsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29881,10 +27053,7 @@ const deserializeAws_restJson1_1ListViolationEventsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29911,10 +27080,7 @@ export const deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommand = 
   context: __SerdeContext
 ): Promise<StartAuditMitigationActionsTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandError(output, context);
   }
   const contents: StartAuditMitigationActionsTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -29954,10 +27120,7 @@ const deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandError = as
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29965,10 +27128,7 @@ const deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandError = as
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -29976,10 +27136,7 @@ const deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30017,10 +27174,7 @@ export const deserializeAws_restJson1_1StartOnDemandAuditTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartOnDemandAuditTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(output, context);
   }
   const contents: StartOnDemandAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30060,10 +27214,7 @@ const deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30071,10 +27222,7 @@ const deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30082,10 +27230,7 @@ const deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30112,10 +27257,7 @@ export const deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommand = 
   context: __SerdeContext
 ): Promise<UpdateAccountAuditConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandError(output, context);
   }
   const contents: UpdateAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30151,10 +27293,7 @@ const deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandError = as
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30162,10 +27301,7 @@ const deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30192,10 +27328,7 @@ export const deserializeAws_restJson1_1UpdateMitigationActionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMitigationActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateMitigationActionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMitigationActionCommandError(output, context);
   }
   const contents: UpdateMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30239,10 +27372,7 @@ const deserializeAws_restJson1_1UpdateMitigationActionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30261,10 +27391,7 @@ const deserializeAws_restJson1_1UpdateMitigationActionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30291,10 +27418,7 @@ export const deserializeAws_restJson1_1UpdateScheduledAuditCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScheduledAuditCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateScheduledAuditCommandError(output, context);
   }
   const contents: UpdateScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30334,10 +27458,7 @@ const deserializeAws_restJson1_1UpdateScheduledAuditCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30356,10 +27477,7 @@ const deserializeAws_restJson1_1UpdateScheduledAuditCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30386,10 +27504,7 @@ export const deserializeAws_restJson1_1UpdateSecurityProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateSecurityProfileCommandError(output, context);
   }
   const contents: UpdateSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30405,51 +27520,31 @@ export const deserializeAws_restJson1_1UpdateSecurityProfileCommand = async (
     version: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.additionalMetricsToRetain !== undefined &&
-    data.additionalMetricsToRetain !== null
-  ) {
+  if (data.additionalMetricsToRetain !== undefined && data.additionalMetricsToRetain !== null) {
     contents.additionalMetricsToRetain = deserializeAws_restJson1_1AdditionalMetricsToRetainList(
       data.additionalMetricsToRetain,
       context
     );
   }
   if (data.alertTargets !== undefined && data.alertTargets !== null) {
-    contents.alertTargets = deserializeAws_restJson1_1AlertTargets(
-      data.alertTargets,
-      context
-    );
+    contents.alertTargets = deserializeAws_restJson1_1AlertTargets(data.alertTargets, context);
   }
   if (data.behaviors !== undefined && data.behaviors !== null) {
-    contents.behaviors = deserializeAws_restJson1_1Behaviors(
-      data.behaviors,
-      context
-    );
+    contents.behaviors = deserializeAws_restJson1_1Behaviors(data.behaviors, context);
   }
   if (data.creationDate !== undefined && data.creationDate !== null) {
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
-    contents.lastModifiedDate = new Date(
-      Math.round(data.lastModifiedDate * 1000)
-    );
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
   }
-  if (
-    data.securityProfileArn !== undefined &&
-    data.securityProfileArn !== null
-  ) {
+  if (data.securityProfileArn !== undefined && data.securityProfileArn !== null) {
     contents.securityProfileArn = data.securityProfileArn;
   }
-  if (
-    data.securityProfileDescription !== undefined &&
-    data.securityProfileDescription !== null
-  ) {
+  if (data.securityProfileDescription !== undefined && data.securityProfileDescription !== null) {
     contents.securityProfileDescription = data.securityProfileDescription;
   }
-  if (
-    data.securityProfileName !== undefined &&
-    data.securityProfileName !== null
-  ) {
+  if (data.securityProfileName !== undefined && data.securityProfileName !== null) {
     contents.securityProfileName = data.securityProfileName;
   }
   if (data.version !== undefined && data.version !== null) {
@@ -30484,10 +27579,7 @@ const deserializeAws_restJson1_1UpdateSecurityProfileCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30506,10 +27598,7 @@ const deserializeAws_restJson1_1UpdateSecurityProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30547,10 +27636,7 @@ export const deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand =
   context: __SerdeContext
 ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommandError(output, context);
   }
   const contents: ValidateSecurityProfileBehaviorsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30597,10 +27683,7 @@ const deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30608,10 +27691,7 @@ const deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommandError = a
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30690,10 +27770,7 @@ const deserializeAws_restJson1_1CreateStreamCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30701,10 +27778,7 @@ const deserializeAws_restJson1_1CreateStreamCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30745,10 +27819,7 @@ const deserializeAws_restJson1_1CreateStreamCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30756,10 +27827,7 @@ const deserializeAws_restJson1_1CreateStreamCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30811,10 +27879,7 @@ const deserializeAws_restJson1_1DeleteStreamCommandError = async (
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30833,10 +27898,7 @@ const deserializeAws_restJson1_1DeleteStreamCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30866,10 +27928,7 @@ const deserializeAws_restJson1_1DeleteStreamCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30877,10 +27936,7 @@ const deserializeAws_restJson1_1DeleteStreamCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30907,10 +27963,7 @@ export const deserializeAws_restJson1_1DescribeStreamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeStreamCommandError(output, context);
   }
   const contents: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -30919,10 +27972,7 @@ export const deserializeAws_restJson1_1DescribeStreamCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.streamInfo !== undefined && data.streamInfo !== null) {
-    contents.streamInfo = deserializeAws_restJson1_1StreamInfo(
-      data.streamInfo,
-      context
-    );
+    contents.streamInfo = deserializeAws_restJson1_1StreamInfo(data.streamInfo, context);
   }
   return Promise.resolve(contents);
 };
@@ -30953,10 +28003,7 @@ const deserializeAws_restJson1_1DescribeStreamCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30986,10 +28033,7 @@ const deserializeAws_restJson1_1DescribeStreamCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -30997,10 +28041,7 @@ const deserializeAws_restJson1_1DescribeStreamCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31040,10 +28081,7 @@ export const deserializeAws_restJson1_1ListStreamsCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.streams !== undefined && data.streams !== null) {
-    contents.streams = deserializeAws_restJson1_1StreamsSummary(
-      data.streams,
-      context
-    );
+    contents.streams = deserializeAws_restJson1_1StreamsSummary(data.streams, context);
   }
   return Promise.resolve(contents);
 };
@@ -31074,10 +28112,7 @@ const deserializeAws_restJson1_1ListStreamsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31096,10 +28131,7 @@ const deserializeAws_restJson1_1ListStreamsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31107,10 +28139,7 @@ const deserializeAws_restJson1_1ListStreamsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31189,10 +28218,7 @@ const deserializeAws_restJson1_1UpdateStreamCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31222,10 +28248,7 @@ const deserializeAws_restJson1_1UpdateStreamCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31233,10 +28256,7 @@ const deserializeAws_restJson1_1UpdateStreamCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -31773,10 +28793,7 @@ const serializeAws_restJson1_1EventConfigurations = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: Configuration },
-      [key, value]: [EventType | string, any]
-    ) => ({
+    (acc: { [key: string]: Configuration }, [key, value]: [EventType | string, any]) => ({
       ...acc,
       [key]: serializeAws_restJson1_1Configuration(value, context)
     }),
@@ -31784,47 +28801,29 @@ const serializeAws_restJson1_1EventConfigurations = (
   );
 };
 
-const serializeAws_restJson1_1PolicyNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PolicyNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1Action = (
-  input: Action,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Action = (input: Action, context: __SerdeContext): any => {
   return {
     ...(input.cloudwatchAlarm !== undefined && {
-      cloudwatchAlarm: serializeAws_restJson1_1CloudwatchAlarmAction(
-        input.cloudwatchAlarm,
-        context
-      )
+      cloudwatchAlarm: serializeAws_restJson1_1CloudwatchAlarmAction(input.cloudwatchAlarm, context)
     }),
     ...(input.cloudwatchMetric !== undefined && {
       cloudwatchMetric: serializeAws_restJson1_1CloudwatchMetricAction(
@@ -31836,16 +28835,10 @@ const serializeAws_restJson1_1Action = (
       dynamoDB: serializeAws_restJson1_1DynamoDBAction(input.dynamoDB, context)
     }),
     ...(input.dynamoDBv2 !== undefined && {
-      dynamoDBv2: serializeAws_restJson1_1DynamoDBv2Action(
-        input.dynamoDBv2,
-        context
-      )
+      dynamoDBv2: serializeAws_restJson1_1DynamoDBv2Action(input.dynamoDBv2, context)
     }),
     ...(input.elasticsearch !== undefined && {
-      elasticsearch: serializeAws_restJson1_1ElasticsearchAction(
-        input.elasticsearch,
-        context
-      )
+      elasticsearch: serializeAws_restJson1_1ElasticsearchAction(input.elasticsearch, context)
     }),
     ...(input.firehose !== undefined && {
       firehose: serializeAws_restJson1_1FirehoseAction(input.firehose, context)
@@ -31854,22 +28847,13 @@ const serializeAws_restJson1_1Action = (
       http: serializeAws_restJson1_1HttpAction(input.http, context)
     }),
     ...(input.iotAnalytics !== undefined && {
-      iotAnalytics: serializeAws_restJson1_1IotAnalyticsAction(
-        input.iotAnalytics,
-        context
-      )
+      iotAnalytics: serializeAws_restJson1_1IotAnalyticsAction(input.iotAnalytics, context)
     }),
     ...(input.iotEvents !== undefined && {
-      iotEvents: serializeAws_restJson1_1IotEventsAction(
-        input.iotEvents,
-        context
-      )
+      iotEvents: serializeAws_restJson1_1IotEventsAction(input.iotEvents, context)
     }),
     ...(input.iotSiteWise !== undefined && {
-      iotSiteWise: serializeAws_restJson1_1IotSiteWiseAction(
-        input.iotSiteWise,
-        context
-      )
+      iotSiteWise: serializeAws_restJson1_1IotSiteWiseAction(input.iotSiteWise, context)
     }),
     ...(input.kinesis !== undefined && {
       kinesis: serializeAws_restJson1_1KinesisAction(input.kinesis, context)
@@ -31878,19 +28862,13 @@ const serializeAws_restJson1_1Action = (
       lambda: serializeAws_restJson1_1LambdaAction(input.lambda, context)
     }),
     ...(input.republish !== undefined && {
-      republish: serializeAws_restJson1_1RepublishAction(
-        input.republish,
-        context
-      )
+      republish: serializeAws_restJson1_1RepublishAction(input.republish, context)
     }),
     ...(input.s3 !== undefined && {
       s3: serializeAws_restJson1_1S3Action(input.s3, context)
     }),
     ...(input.salesforce !== undefined && {
-      salesforce: serializeAws_restJson1_1SalesforceAction(
-        input.salesforce,
-        context
-      )
+      salesforce: serializeAws_restJson1_1SalesforceAction(input.salesforce, context)
     }),
     ...(input.sns !== undefined && {
       sns: serializeAws_restJson1_1SnsAction(input.sns, context)
@@ -31899,18 +28877,12 @@ const serializeAws_restJson1_1Action = (
       sqs: serializeAws_restJson1_1SqsAction(input.sqs, context)
     }),
     ...(input.stepFunctions !== undefined && {
-      stepFunctions: serializeAws_restJson1_1StepFunctionsAction(
-        input.stepFunctions,
-        context
-      )
+      stepFunctions: serializeAws_restJson1_1StepFunctionsAction(input.stepFunctions, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ActionList = (
-  input: Action[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ActionList = (input: Action[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Action(entry, context));
 };
 
@@ -31935,10 +28907,7 @@ const serializeAws_restJson1_1AssetPropertyValue = (
   return {
     ...(input.quality !== undefined && { quality: input.quality }),
     ...(input.timestamp !== undefined && {
-      timestamp: serializeAws_restJson1_1AssetPropertyTimestamp(
-        input.timestamp,
-        context
-      )
+      timestamp: serializeAws_restJson1_1AssetPropertyTimestamp(input.timestamp, context)
     }),
     ...(input.value !== undefined && {
       value: serializeAws_restJson1_1AssetPropertyVariant(input.value, context)
@@ -31950,9 +28919,7 @@ const serializeAws_restJson1_1AssetPropertyValueList = (
   input: AssetPropertyValue[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AssetPropertyValue(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AssetPropertyValue(entry, context));
 };
 
 const serializeAws_restJson1_1AssetPropertyVariant = (
@@ -32073,15 +29040,10 @@ const serializeAws_restJson1_1HeaderList = (
   input: HttpActionHeader[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1HttpActionHeader(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1HttpActionHeader(entry, context));
 };
 
-const serializeAws_restJson1_1HttpAction = (
-  input: HttpAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1HttpAction = (input: HttpAction, context: __SerdeContext): any => {
   return {
     ...(input.auth !== undefined && {
       auth: serializeAws_restJson1_1HttpAuthorization(input.auth, context)
@@ -32187,10 +29149,7 @@ const serializeAws_restJson1_1LambdaAction = (
   };
 };
 
-const serializeAws_restJson1_1LogTarget = (
-  input: LogTarget,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LogTarget = (input: LogTarget, context: __SerdeContext): any => {
   return {
     ...(input.targetName !== undefined && { targetName: input.targetName }),
     ...(input.targetType !== undefined && { targetType: input.targetType })
@@ -32219,10 +29178,7 @@ const serializeAws_restJson1_1PutAssetPropertyValueEntry = (
     }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
     ...(input.propertyValues !== undefined && {
-      propertyValues: serializeAws_restJson1_1AssetPropertyValueList(
-        input.propertyValues,
-        context
-      )
+      propertyValues: serializeAws_restJson1_1AssetPropertyValueList(input.propertyValues, context)
     })
   };
 };
@@ -32231,9 +29187,7 @@ const serializeAws_restJson1_1PutAssetPropertyValueEntryList = (
   input: PutAssetPropertyValueEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context));
 };
 
 const serializeAws_restJson1_1PutItemInput = (
@@ -32256,10 +29210,7 @@ const serializeAws_restJson1_1RepublishAction = (
   };
 };
 
-const serializeAws_restJson1_1S3Action = (
-  input: S3Action,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Action = (input: S3Action, context: __SerdeContext): any => {
   return {
     ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
     ...(input.cannedAcl !== undefined && { cannedAcl: input.cannedAcl }),
@@ -32291,10 +29242,7 @@ const serializeAws_restJson1_1SigV4Authorization = (
   };
 };
 
-const serializeAws_restJson1_1SnsAction = (
-  input: SnsAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SnsAction = (input: SnsAction, context: __SerdeContext): any => {
   return {
     ...(input.messageFormat !== undefined && {
       messageFormat: input.messageFormat
@@ -32304,10 +29252,7 @@ const serializeAws_restJson1_1SnsAction = (
   };
 };
 
-const serializeAws_restJson1_1SqsAction = (
-  input: SqsAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SqsAction = (input: SqsAction, context: __SerdeContext): any => {
   return {
     ...(input.queueUrl !== undefined && { queueUrl: input.queueUrl }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
@@ -32366,10 +29311,7 @@ const serializeAws_restJson1_1TopicRulePayload = (
   };
 };
 
-const serializeAws_restJson1_1AuthInfo = (
-  input: AuthInfo,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AuthInfo = (input: AuthInfo, context: __SerdeContext): any => {
   return {
     ...(input.actionType !== undefined && { actionType: input.actionType }),
     ...(input.resources !== undefined && {
@@ -32378,10 +29320,7 @@ const serializeAws_restJson1_1AuthInfo = (
   };
 };
 
-const serializeAws_restJson1_1AuthInfos = (
-  input: AuthInfo[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AuthInfos = (input: AuthInfo[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1AuthInfo(entry, context));
 };
 
@@ -32399,10 +29338,7 @@ const serializeAws_restJson1_1AuthorizerConfig = (
   };
 };
 
-const serializeAws_restJson1_1HttpContext = (
-  input: HttpContext,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1HttpContext = (input: HttpContext, context: __SerdeContext): any => {
   return {
     ...(input.headers !== undefined && {
       headers: serializeAws_restJson1_1HttpHeaders(input.headers, context)
@@ -32424,10 +29360,7 @@ const serializeAws_restJson1_1HttpHeaders = (
   );
 };
 
-const serializeAws_restJson1_1MqttContext = (
-  input: MqttContext,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MqttContext = (input: MqttContext, context: __SerdeContext): any => {
   return {
     ...(input.clientId !== undefined && { clientId: input.clientId }),
     ...(input.password !== undefined && {
@@ -32475,10 +29408,7 @@ const serializeAws_restJson1_1RegistrationConfig = (
   };
 };
 
-const serializeAws_restJson1_1Resources = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Resources = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -32489,36 +29419,24 @@ const serializeAws_restJson1_1ServerCertificateArns = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TlsContext = (
-  input: TlsContext,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TlsContext = (input: TlsContext, context: __SerdeContext): any => {
   return {
     ...(input.serverName !== undefined && { serverName: input.serverName })
   };
 };
 
-const serializeAws_restJson1_1Field = (
-  input: Field,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Field = (input: Field, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.type !== undefined && { type: input.type })
   };
 };
 
-const serializeAws_restJson1_1Fields = (
-  input: Field[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Fields = (input: Field[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Field(entry, context));
 };
 
-const serializeAws_restJson1_1PercentList = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PercentList = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -32531,10 +29449,7 @@ const serializeAws_restJson1_1ThingGroupIndexingConfiguration = (
       customFields: serializeAws_restJson1_1Fields(input.customFields, context)
     }),
     ...(input.managedFields !== undefined && {
-      managedFields: serializeAws_restJson1_1Fields(
-        input.managedFields,
-        context
-      )
+      managedFields: serializeAws_restJson1_1Fields(input.managedFields, context)
     }),
     ...(input.thingGroupIndexingMode !== undefined && {
       thingGroupIndexingMode: input.thingGroupIndexingMode
@@ -32551,10 +29466,7 @@ const serializeAws_restJson1_1ThingIndexingConfiguration = (
       customFields: serializeAws_restJson1_1Fields(input.customFields, context)
     }),
     ...(input.managedFields !== undefined && {
-      managedFields: serializeAws_restJson1_1Fields(
-        input.managedFields,
-        context
-      )
+      managedFields: serializeAws_restJson1_1Fields(input.managedFields, context)
     }),
     ...(input.thingConnectivityIndexingMode !== undefined && {
       thingConnectivityIndexingMode: input.thingConnectivityIndexingMode
@@ -32565,16 +29477,10 @@ const serializeAws_restJson1_1ThingIndexingConfiguration = (
   };
 };
 
-const serializeAws_restJson1_1AbortConfig = (
-  input: AbortConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AbortConfig = (input: AbortConfig, context: __SerdeContext): any => {
   return {
     ...(input.criteriaList !== undefined && {
-      criteriaList: serializeAws_restJson1_1AbortCriteriaList(
-        input.criteriaList,
-        context
-      )
+      criteriaList: serializeAws_restJson1_1AbortCriteriaList(input.criteriaList, context)
     })
   };
 };
@@ -32599,9 +29505,7 @@ const serializeAws_restJson1_1AbortCriteriaList = (
   input: AbortCriteria[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AbortCriteria(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AbortCriteria(entry, context));
 };
 
 const serializeAws_restJson1_1ExponentialRolloutRate = (
@@ -32641,10 +29545,7 @@ const serializeAws_restJson1_1JobExecutionsRolloutConfig = (
   };
 };
 
-const serializeAws_restJson1_1JobTargets = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JobTargets = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -32746,19 +29647,13 @@ const serializeAws_restJson1_1AwsJobPresignedUrlConfig = (
   };
 };
 
-const serializeAws_restJson1_1CodeSigning = (
-  input: CodeSigning,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CodeSigning = (input: CodeSigning, context: __SerdeContext): any => {
   return {
     ...(input.awsSignerJobId !== undefined && {
       awsSignerJobId: input.awsSignerJobId
     }),
     ...(input.customCodeSigning !== undefined && {
-      customCodeSigning: serializeAws_restJson1_1CustomCodeSigning(
-        input.customCodeSigning,
-        context
-      )
+      customCodeSigning: serializeAws_restJson1_1CustomCodeSigning(input.customCodeSigning, context)
     }),
     ...(input.startSigningJobParameter !== undefined && {
       startSigningJobParameter: serializeAws_restJson1_1StartSigningJobParameter(
@@ -32809,10 +29704,7 @@ const serializeAws_restJson1_1CustomCodeSigning = (
       hashAlgorithm: input.hashAlgorithm
     }),
     ...(input.signature !== undefined && {
-      signature: serializeAws_restJson1_1CodeSigningSignature(
-        input.signature,
-        context
-      )
+      signature: serializeAws_restJson1_1CodeSigningSignature(input.signature, context)
     }),
     ...(input.signatureAlgorithm !== undefined && {
       signatureAlgorithm: input.signatureAlgorithm
@@ -32820,16 +29712,10 @@ const serializeAws_restJson1_1CustomCodeSigning = (
   };
 };
 
-const serializeAws_restJson1_1Destination = (
-  input: Destination,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
     ...(input.s3Destination !== undefined && {
-      s3Destination: serializeAws_restJson1_1S3Destination(
-        input.s3Destination,
-        context
-      )
+      s3Destination: serializeAws_restJson1_1S3Destination(input.s3Destination, context)
     })
   };
 };
@@ -32854,22 +29740,13 @@ const serializeAws_restJson1_1OTAUpdateFile = (
 ): any => {
   return {
     ...(input.attributes !== undefined && {
-      attributes: serializeAws_restJson1_1AttributesMap(
-        input.attributes,
-        context
-      )
+      attributes: serializeAws_restJson1_1AttributesMap(input.attributes, context)
     }),
     ...(input.codeSigning !== undefined && {
-      codeSigning: serializeAws_restJson1_1CodeSigning(
-        input.codeSigning,
-        context
-      )
+      codeSigning: serializeAws_restJson1_1CodeSigning(input.codeSigning, context)
     }),
     ...(input.fileLocation !== undefined && {
-      fileLocation: serializeAws_restJson1_1FileLocation(
-        input.fileLocation,
-        context
-      )
+      fileLocation: serializeAws_restJson1_1FileLocation(input.fileLocation, context)
     }),
     ...(input.fileName !== undefined && { fileName: input.fileName }),
     ...(input.fileVersion !== undefined && { fileVersion: input.fileVersion })
@@ -32880,9 +29757,7 @@ const serializeAws_restJson1_1OTAUpdateFiles = (
   input: OTAUpdateFile[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1OTAUpdateFile(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1OTAUpdateFile(entry, context));
 };
 
 const serializeAws_restJson1_1Protocols = (
@@ -32923,10 +29798,7 @@ const serializeAws_restJson1_1StartSigningJobParameter = (
 ): any => {
   return {
     ...(input.destination !== undefined && {
-      destination: serializeAws_restJson1_1Destination(
-        input.destination,
-        context
-      )
+      destination: serializeAws_restJson1_1Destination(input.destination, context)
     }),
     ...(input.signingProfileName !== undefined && {
       signingProfileName: input.signingProfileName
@@ -32940,20 +29812,14 @@ const serializeAws_restJson1_1StartSigningJobParameter = (
   };
 };
 
-const serializeAws_restJson1_1_Stream = (
-  input: _Stream,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1_Stream = (input: _Stream, context: __SerdeContext): any => {
   return {
     ...(input.fileId !== undefined && { fileId: input.fileId }),
     ...(input.streamId !== undefined && { streamId: input.streamId })
   };
 };
 
-const serializeAws_restJson1_1Targets = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Targets = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -33000,10 +29866,7 @@ const serializeAws_restJson1_1SearchableAttributes = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1ThingGroupList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ThingGroupList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -33013,10 +29876,7 @@ const serializeAws_restJson1_1ThingGroupProperties = (
 ): any => {
   return {
     ...(input.attributePayload !== undefined && {
-      attributePayload: serializeAws_restJson1_1AttributePayload(
-        input.attributePayload,
-        context
-      )
+      attributePayload: serializeAws_restJson1_1AttributePayload(input.attributePayload, context)
     }),
     ...(input.thingGroupDescription !== undefined && {
       thingGroupDescription: input.thingGroupDescription
@@ -33050,10 +29910,7 @@ const serializeAws_restJson1_1AddThingsToThingGroupParams = (
       overrideDynamicGroups: input.overrideDynamicGroups
     }),
     ...(input.thingGroupNames !== undefined && {
-      thingGroupNames: serializeAws_restJson1_1ThingGroupNames(
-        input.thingGroupNames,
-        context
-      )
+      thingGroupNames: serializeAws_restJson1_1ThingGroupNames(input.thingGroupNames, context)
     })
   };
 };
@@ -33134,10 +29991,7 @@ const serializeAws_restJson1_1ReplaceDefaultPolicyVersionParams = (
   };
 };
 
-const serializeAws_restJson1_1ThingGroupNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ThingGroupNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -33173,10 +30027,7 @@ const serializeAws_restJson1_1AuditCheckConfigurations = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: AuditCheckConfiguration },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: AuditCheckConfiguration }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_restJson1_1AuditCheckConfiguration(value, context)
     }),
@@ -33255,10 +30106,7 @@ const serializeAws_restJson1_1AuditNotificationTargetConfigurations = (
   );
 };
 
-const serializeAws_restJson1_1FindingIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1FindingIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -33331,10 +30179,7 @@ const serializeAws_restJson1_1AdditionalMetricsToRetainList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1AlertTarget = (
-  input: AlertTarget,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AlertTarget = (input: AlertTarget, context: __SerdeContext): any => {
   return {
     ...(input.alertTargetArn !== undefined && {
       alertTargetArn: input.alertTargetArn
@@ -33348,10 +30193,7 @@ const serializeAws_restJson1_1AlertTargets = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: AlertTarget },
-      [key, value]: [AlertTargetType | string, any]
-    ) => ({
+    (acc: { [key: string]: AlertTarget }, [key, value]: [AlertTargetType | string, any]) => ({
       ...acc,
       [key]: serializeAws_restJson1_1AlertTarget(value, context)
     }),
@@ -33359,16 +30201,10 @@ const serializeAws_restJson1_1AlertTargets = (
   );
 };
 
-const serializeAws_restJson1_1Behavior = (
-  input: Behavior,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Behavior = (input: Behavior, context: __SerdeContext): any => {
   return {
     ...(input.criteria !== undefined && {
-      criteria: serializeAws_restJson1_1BehaviorCriteria(
-        input.criteria,
-        context
-      )
+      criteria: serializeAws_restJson1_1BehaviorCriteria(input.criteria, context)
     }),
     ...(input.metric !== undefined && { metric: input.metric }),
     ...(input.name !== undefined && { name: input.name })
@@ -33404,24 +30240,15 @@ const serializeAws_restJson1_1BehaviorCriteria = (
   };
 };
 
-const serializeAws_restJson1_1Behaviors = (
-  input: Behavior[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Behaviors = (input: Behavior[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Behavior(entry, context));
 };
 
-const serializeAws_restJson1_1Cidrs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Cidrs = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1MetricValue = (
-  input: MetricValue,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MetricValue = (input: MetricValue, context: __SerdeContext): any => {
   return {
     ...(input.cidrs !== undefined && {
       cidrs: serializeAws_restJson1_1Cidrs(input.cidrs, context)
@@ -33433,10 +30260,7 @@ const serializeAws_restJson1_1MetricValue = (
   };
 };
 
-const serializeAws_restJson1_1Ports = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Ports = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -33449,10 +30273,7 @@ const serializeAws_restJson1_1StatisticalThreshold = (
   };
 };
 
-const serializeAws_restJson1_1StreamFile = (
-  input: StreamFile,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StreamFile = (input: StreamFile, context: __SerdeContext): any => {
   return {
     ...(input.fileId !== undefined && { fileId: input.fileId }),
     ...(input.s3Location !== undefined && {
@@ -33461,17 +30282,11 @@ const serializeAws_restJson1_1StreamFile = (
   };
 };
 
-const serializeAws_restJson1_1StreamFiles = (
-  input: StreamFile[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StreamFiles = (input: StreamFile[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1StreamFile(entry, context));
 };
 
-const serializeAws_restJson1_1S3Location = (
-  input: S3Location,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucket !== undefined && { bucket: input.bucket }),
     ...(input.key !== undefined && { key: input.key }),
@@ -33485,10 +30300,7 @@ const deserializeAws_restJson1_1Configuration = (
 ): Configuration => {
   return {
     __type: "Configuration",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined
   } as any;
 };
 
@@ -33497,10 +30309,7 @@ const deserializeAws_restJson1_1EventConfigurations = (
   context: __SerdeContext
 ): { [key: string]: Configuration } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: Configuration },
-      [key, value]: [EventType | string, any]
-    ) => ({
+    (acc: { [key: string]: Configuration }, [key, value]: [EventType | string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1Configuration(value, context)
     }),
@@ -33515,56 +30324,32 @@ const deserializeAws_restJson1_1PolicyTargets = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Principals = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Principals = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
-const deserializeAws_restJson1_1Action = (
-  output: any,
-  context: __SerdeContext
-): Action => {
+const deserializeAws_restJson1_1Action = (output: any, context: __SerdeContext): Action => {
   return {
     __type: "Action",
     cloudwatchAlarm:
       output.cloudwatchAlarm !== undefined && output.cloudwatchAlarm !== null
-        ? deserializeAws_restJson1_1CloudwatchAlarmAction(
-            output.cloudwatchAlarm,
-            context
-          )
+        ? deserializeAws_restJson1_1CloudwatchAlarmAction(output.cloudwatchAlarm, context)
         : undefined,
     cloudwatchMetric:
       output.cloudwatchMetric !== undefined && output.cloudwatchMetric !== null
-        ? deserializeAws_restJson1_1CloudwatchMetricAction(
-            output.cloudwatchMetric,
-            context
-          )
+        ? deserializeAws_restJson1_1CloudwatchMetricAction(output.cloudwatchMetric, context)
         : undefined,
     dynamoDB:
       output.dynamoDB !== undefined && output.dynamoDB !== null
@@ -33576,10 +30361,7 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     elasticsearch:
       output.elasticsearch !== undefined && output.elasticsearch !== null
-        ? deserializeAws_restJson1_1ElasticsearchAction(
-            output.elasticsearch,
-            context
-          )
+        ? deserializeAws_restJson1_1ElasticsearchAction(output.elasticsearch, context)
         : undefined,
     firehose:
       output.firehose !== undefined && output.firehose !== null
@@ -33591,10 +30373,7 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     iotAnalytics:
       output.iotAnalytics !== undefined && output.iotAnalytics !== null
-        ? deserializeAws_restJson1_1IotAnalyticsAction(
-            output.iotAnalytics,
-            context
-          )
+        ? deserializeAws_restJson1_1IotAnalyticsAction(output.iotAnalytics, context)
         : undefined,
     iotEvents:
       output.iotEvents !== undefined && output.iotEvents !== null
@@ -33602,10 +30381,7 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     iotSiteWise:
       output.iotSiteWise !== undefined && output.iotSiteWise !== null
-        ? deserializeAws_restJson1_1IotSiteWiseAction(
-            output.iotSiteWise,
-            context
-          )
+        ? deserializeAws_restJson1_1IotSiteWiseAction(output.iotSiteWise, context)
         : undefined,
     kinesis:
       output.kinesis !== undefined && output.kinesis !== null
@@ -33637,21 +30413,13 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     stepFunctions:
       output.stepFunctions !== undefined && output.stepFunctions !== null
-        ? deserializeAws_restJson1_1StepFunctionsAction(
-            output.stepFunctions,
-            context
-          )
+        ? deserializeAws_restJson1_1StepFunctionsAction(output.stepFunctions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ActionList = (
-  output: any,
-  context: __SerdeContext
-): Action[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Action(entry, context)
-  );
+const deserializeAws_restJson1_1ActionList = (output: any, context: __SerdeContext): Action[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Action(entry, context));
 };
 
 const deserializeAws_restJson1_1AssetPropertyTimestamp = (
@@ -33677,16 +30445,10 @@ const deserializeAws_restJson1_1AssetPropertyValue = (
 ): AssetPropertyValue => {
   return {
     __type: "AssetPropertyValue",
-    quality:
-      output.quality !== undefined && output.quality !== null
-        ? output.quality
-        : undefined,
+    quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
-        ? deserializeAws_restJson1_1AssetPropertyTimestamp(
-            output.timestamp,
-            context
-          )
+        ? deserializeAws_restJson1_1AssetPropertyTimestamp(output.timestamp, context)
         : undefined,
     value:
       output.value !== undefined && output.value !== null
@@ -33736,21 +30498,14 @@ const deserializeAws_restJson1_1CloudwatchAlarmAction = (
   return {
     __type: "CloudwatchAlarmAction",
     alarmName:
-      output.alarmName !== undefined && output.alarmName !== null
-        ? output.alarmName
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+      output.alarmName !== undefined && output.alarmName !== null ? output.alarmName : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateReason:
       output.stateReason !== undefined && output.stateReason !== null
         ? output.stateReason
         : undefined,
     stateValue:
-      output.stateValue !== undefined && output.stateValue !== null
-        ? output.stateValue
-        : undefined
+      output.stateValue !== undefined && output.stateValue !== null ? output.stateValue : undefined
   } as any;
 };
 
@@ -33761,9 +30516,7 @@ const deserializeAws_restJson1_1CloudwatchMetricAction = (
   return {
     __type: "CloudwatchMetricAction",
     metricName:
-      output.metricName !== undefined && output.metricName !== null
-        ? output.metricName
-        : undefined,
+      output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricNamespace:
       output.metricNamespace !== undefined && output.metricNamespace !== null
         ? output.metricNamespace
@@ -33773,17 +30526,12 @@ const deserializeAws_restJson1_1CloudwatchMetricAction = (
         ? output.metricTimestamp
         : undefined,
     metricUnit:
-      output.metricUnit !== undefined && output.metricUnit !== null
-        ? output.metricUnit
-        : undefined,
+      output.metricUnit !== undefined && output.metricUnit !== null ? output.metricUnit : undefined,
     metricValue:
       output.metricValue !== undefined && output.metricValue !== null
         ? output.metricValue
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -33806,9 +30554,7 @@ const deserializeAws_restJson1_1DynamoDBAction = (
         ? output.hashKeyValue
         : undefined,
     operation:
-      output.operation !== undefined && output.operation !== null
-        ? output.operation
-        : undefined,
+      output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     payloadField:
       output.payloadField !== undefined && output.payloadField !== null
         ? output.payloadField
@@ -33825,14 +30571,9 @@ const deserializeAws_restJson1_1DynamoDBAction = (
       output.rangeKeyValue !== undefined && output.rangeKeyValue !== null
         ? output.rangeKeyValue
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     tableName:
-      output.tableName !== undefined && output.tableName !== null
-        ? output.tableName
-        : undefined
+      output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined
   } as any;
 };
 
@@ -33846,10 +30587,7 @@ const deserializeAws_restJson1_1DynamoDBv2Action = (
       output.putItem !== undefined && output.putItem !== null
         ? deserializeAws_restJson1_1PutItemInput(output.putItem, context)
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -33860,22 +30598,11 @@ const deserializeAws_restJson1_1ElasticsearchAction = (
   return {
     __type: "ElasticsearchAction",
     endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? output.endpoint
-        : undefined,
+      output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    index:
-      output.index !== undefined && output.index !== null
-        ? output.index
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    index: output.index !== undefined && output.index !== null ? output.index : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -33886,18 +30613,12 @@ const deserializeAws_restJson1_1FirehoseAction = (
   return {
     __type: "FirehoseAction",
     deliveryStreamName:
-      output.deliveryStreamName !== undefined &&
-      output.deliveryStreamName !== null
+      output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     separator:
-      output.separator !== undefined && output.separator !== null
-        ? output.separator
-        : undefined
+      output.separator !== undefined && output.separator !== null ? output.separator : undefined
   } as any;
 };
 
@@ -33910,10 +30631,7 @@ const deserializeAws_restJson1_1HeaderList = (
   );
 };
 
-const deserializeAws_restJson1_1HttpAction = (
-  output: any,
-  context: __SerdeContext
-): HttpAction => {
+const deserializeAws_restJson1_1HttpAction = (output: any, context: __SerdeContext): HttpAction => {
   return {
     __type: "HttpAction",
     auth:
@@ -33928,8 +30646,7 @@ const deserializeAws_restJson1_1HttpAction = (
       output.headers !== undefined && output.headers !== null
         ? deserializeAws_restJson1_1HeaderList(output.headers, context)
         : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
@@ -33939,12 +30656,8 @@ const deserializeAws_restJson1_1HttpActionHeader = (
 ): HttpActionHeader => {
   return {
     __type: "HttpActionHeader",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -33994,17 +30707,12 @@ const deserializeAws_restJson1_1IotAnalyticsAction = (
   return {
     __type: "IotAnalyticsAction",
     channelArn:
-      output.channelArn !== undefined && output.channelArn !== null
-        ? output.channelArn
-        : undefined,
+      output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     channelName:
       output.channelName !== undefined && output.channelName !== null
         ? output.channelName
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -34015,17 +30723,10 @@ const deserializeAws_restJson1_1IotEventsAction = (
   return {
     __type: "IotEventsAction",
     inputName:
-      output.inputName !== undefined && output.inputName !== null
-        ? output.inputName
-        : undefined,
+      output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+      output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -34043,10 +30744,7 @@ const deserializeAws_restJson1_1IotSiteWiseAction = (
             context
           )
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -34060,14 +30758,9 @@ const deserializeAws_restJson1_1KinesisAction = (
       output.partitionKey !== undefined && output.partitionKey !== null
         ? output.partitionKey
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     streamName:
-      output.streamName !== undefined && output.streamName !== null
-        ? output.streamName
-        : undefined
+      output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined
   } as any;
 };
 
@@ -34084,20 +30777,13 @@ const deserializeAws_restJson1_1LambdaAction = (
   } as any;
 };
 
-const deserializeAws_restJson1_1LogTarget = (
-  output: any,
-  context: __SerdeContext
-): LogTarget => {
+const deserializeAws_restJson1_1LogTarget = (output: any, context: __SerdeContext): LogTarget => {
   return {
     __type: "LogTarget",
     targetName:
-      output.targetName !== undefined && output.targetName !== null
-        ? output.targetName
-        : undefined,
+      output.targetName !== undefined && output.targetName !== null ? output.targetName : undefined,
     targetType:
-      output.targetType !== undefined && output.targetType !== null
-        ? output.targetType
-        : undefined
+      output.targetType !== undefined && output.targetType !== null ? output.targetType : undefined
   } as any;
 };
 
@@ -34108,9 +30794,7 @@ const deserializeAws_restJson1_1LogTargetConfiguration = (
   return {
     __type: "LogTargetConfiguration",
     logLevel:
-      output.logLevel !== undefined && output.logLevel !== null
-        ? output.logLevel
-        : undefined,
+      output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
     logTarget:
       output.logTarget !== undefined && output.logTarget !== null
         ? deserializeAws_restJson1_1LogTarget(output.logTarget, context)
@@ -34133,28 +30817,17 @@ const deserializeAws_restJson1_1PutAssetPropertyValueEntry = (
 ): PutAssetPropertyValueEntry => {
   return {
     __type: "PutAssetPropertyValueEntry",
-    assetId:
-      output.assetId !== undefined && output.assetId !== null
-        ? output.assetId
-        : undefined,
-    entryId:
-      output.entryId !== undefined && output.entryId !== null
-        ? output.entryId
-        : undefined,
+    assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
+    entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
     propertyAlias:
       output.propertyAlias !== undefined && output.propertyAlias !== null
         ? output.propertyAlias
         : undefined,
     propertyId:
-      output.propertyId !== undefined && output.propertyId !== null
-        ? output.propertyId
-        : undefined,
+      output.propertyId !== undefined && output.propertyId !== null ? output.propertyId : undefined,
     propertyValues:
       output.propertyValues !== undefined && output.propertyValues !== null
-        ? deserializeAws_restJson1_1AssetPropertyValueList(
-            output.propertyValues,
-            context
-          )
+        ? deserializeAws_restJson1_1AssetPropertyValueList(output.propertyValues, context)
         : undefined
   } as any;
 };
@@ -34175,9 +30848,7 @@ const deserializeAws_restJson1_1PutItemInput = (
   return {
     __type: "PutItemInput",
     tableName:
-      output.tableName !== undefined && output.tableName !== null
-        ? output.tableName
-        : undefined
+      output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined
   } as any;
 };
 
@@ -34187,39 +30858,21 @@ const deserializeAws_restJson1_1RepublishAction = (
 ): RepublishAction => {
   return {
     __type: "RepublishAction",
-    qos:
-      output.qos !== undefined && output.qos !== null ? output.qos : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    topic:
-      output.topic !== undefined && output.topic !== null
-        ? output.topic
-        : undefined
+    qos: output.qos !== undefined && output.qos !== null ? output.qos : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1S3Action = (
-  output: any,
-  context: __SerdeContext
-): S3Action => {
+const deserializeAws_restJson1_1S3Action = (output: any, context: __SerdeContext): S3Action => {
   return {
     __type: "S3Action",
     bucketName:
-      output.bucketName !== undefined && output.bucketName !== null
-        ? output.bucketName
-        : undefined,
+      output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     cannedAcl:
-      output.cannedAcl !== undefined && output.cannedAcl !== null
-        ? output.cannedAcl
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+      output.cannedAcl !== undefined && output.cannedAcl !== null ? output.cannedAcl : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -34229,12 +30882,8 @@ const deserializeAws_restJson1_1SalesforceAction = (
 ): SalesforceAction => {
   return {
     __type: "SalesforceAction",
-    token:
-      output.token !== undefined && output.token !== null
-        ? output.token
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+    token: output.token !== undefined && output.token !== null ? output.token : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
@@ -34244,10 +30893,7 @@ const deserializeAws_restJson1_1SigV4Authorization = (
 ): SigV4Authorization => {
   return {
     __type: "SigV4Authorization",
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     serviceName:
       output.serviceName !== undefined && output.serviceName !== null
         ? output.serviceName
@@ -34259,45 +30905,27 @@ const deserializeAws_restJson1_1SigV4Authorization = (
   } as any;
 };
 
-const deserializeAws_restJson1_1SnsAction = (
-  output: any,
-  context: __SerdeContext
-): SnsAction => {
+const deserializeAws_restJson1_1SnsAction = (output: any, context: __SerdeContext): SnsAction => {
   return {
     __type: "SnsAction",
     messageFormat:
       output.messageFormat !== undefined && output.messageFormat !== null
         ? output.messageFormat
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     targetArn:
-      output.targetArn !== undefined && output.targetArn !== null
-        ? output.targetArn
-        : undefined
+      output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SqsAction = (
-  output: any,
-  context: __SerdeContext
-): SqsAction => {
+const deserializeAws_restJson1_1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
     __type: "SqsAction",
     queueUrl:
-      output.queueUrl !== undefined && output.queueUrl !== null
-        ? output.queueUrl
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+      output.queueUrl !== undefined && output.queueUrl !== null ? output.queueUrl : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     useBase64:
-      output.useBase64 !== undefined && output.useBase64 !== null
-        ? output.useBase64
-        : undefined
+      output.useBase64 !== undefined && output.useBase64 !== null ? output.useBase64 : undefined
   } as any;
 };
 
@@ -34308,14 +30936,10 @@ const deserializeAws_restJson1_1StepFunctionsAction = (
   return {
     __type: "StepFunctionsAction",
     executionNamePrefix:
-      output.executionNamePrefix !== undefined &&
-      output.executionNamePrefix !== null
+      output.executionNamePrefix !== undefined && output.executionNamePrefix !== null
         ? output.executionNamePrefix
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineName:
       output.stateMachineName !== undefined && output.stateMachineName !== null
         ? output.stateMachineName
@@ -34323,10 +30947,7 @@ const deserializeAws_restJson1_1StepFunctionsAction = (
   } as any;
 };
 
-const deserializeAws_restJson1_1TopicRule = (
-  output: any,
-  context: __SerdeContext
-): TopicRule => {
+const deserializeAws_restJson1_1TopicRule = (output: any, context: __SerdeContext): TopicRule => {
   return {
     __type: "TopicRule",
     actions:
@@ -34354,11 +30975,8 @@ const deserializeAws_restJson1_1TopicRule = (
         ? output.ruleDisabled
         : undefined,
     ruleName:
-      output.ruleName !== undefined && output.ruleName !== null
-        ? output.ruleName
-        : undefined,
-    sql:
-      output.sql !== undefined && output.sql !== null ? output.sql : undefined
+      output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
+    sql: output.sql !== undefined && output.sql !== null ? output.sql : undefined
   } as any;
 };
 
@@ -34368,20 +30986,12 @@ const deserializeAws_restJson1_1TopicRuleDestination = (
 ): TopicRuleDestination => {
   return {
     __type: "TopicRuleDestination",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     httpUrlProperties:
-      output.httpUrlProperties !== undefined &&
-      output.httpUrlProperties !== null
-        ? deserializeAws_restJson1_1HttpUrlDestinationProperties(
-            output.httpUrlProperties,
-            context
-          )
+      output.httpUrlProperties !== undefined && output.httpUrlProperties !== null
+        ? deserializeAws_restJson1_1HttpUrlDestinationProperties(output.httpUrlProperties, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusReason:
       output.statusReason !== undefined && output.statusReason !== null
         ? output.statusReason
@@ -34404,19 +31014,12 @@ const deserializeAws_restJson1_1TopicRuleDestinationSummary = (
 ): TopicRuleDestinationSummary => {
   return {
     __type: "TopicRuleDestinationSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     httpUrlSummary:
       output.httpUrlSummary !== undefined && output.httpUrlSummary !== null
-        ? deserializeAws_restJson1_1HttpUrlDestinationSummary(
-            output.httpUrlSummary,
-            context
-          )
+        ? deserializeAws_restJson1_1HttpUrlDestinationSummary(output.httpUrlSummary, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusReason:
       output.statusReason !== undefined && output.statusReason !== null
         ? output.statusReason
@@ -34443,18 +31046,13 @@ const deserializeAws_restJson1_1TopicRuleListItem = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    ruleArn:
-      output.ruleArn !== undefined && output.ruleArn !== null
-        ? output.ruleArn
-        : undefined,
+    ruleArn: output.ruleArn !== undefined && output.ruleArn !== null ? output.ruleArn : undefined,
     ruleDisabled:
       output.ruleDisabled !== undefined && output.ruleDisabled !== null
         ? output.ruleDisabled
         : undefined,
     ruleName:
-      output.ruleName !== undefined && output.ruleName !== null
-        ? output.ruleName
-        : undefined,
+      output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
     topicPattern:
       output.topicPattern !== undefined && output.topicPattern !== null
         ? output.topicPattern
@@ -34462,10 +31060,7 @@ const deserializeAws_restJson1_1TopicRuleListItem = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Allowed = (
-  output: any,
-  context: __SerdeContext
-): Allowed => {
+const deserializeAws_restJson1_1Allowed = (output: any, context: __SerdeContext): Allowed => {
   return {
     __type: "Allowed",
     policies:
@@ -34475,16 +31070,11 @@ const deserializeAws_restJson1_1Allowed = (
   } as any;
 };
 
-const deserializeAws_restJson1_1AuthInfo = (
-  output: any,
-  context: __SerdeContext
-): AuthInfo => {
+const deserializeAws_restJson1_1AuthInfo = (output: any, context: __SerdeContext): AuthInfo => {
   return {
     __type: "AuthInfo",
     actionType:
-      output.actionType !== undefined && output.actionType !== null
-        ? output.actionType
-        : undefined,
+      output.actionType !== undefined && output.actionType !== null ? output.actionType : undefined,
     resources:
       output.resources !== undefined && output.resources !== null
         ? deserializeAws_restJson1_1Resources(output.resources, context)
@@ -34492,10 +31082,7 @@ const deserializeAws_restJson1_1AuthInfo = (
   } as any;
 };
 
-const deserializeAws_restJson1_1AuthResult = (
-  output: any,
-  context: __SerdeContext
-): AuthResult => {
+const deserializeAws_restJson1_1AuthResult = (output: any, context: __SerdeContext): AuthResult => {
   return {
     __type: "AuthResult",
     allowed:
@@ -34515,12 +31102,8 @@ const deserializeAws_restJson1_1AuthResult = (
         ? deserializeAws_restJson1_1Denied(output.denied, context)
         : undefined,
     missingContextValues:
-      output.missingContextValues !== undefined &&
-      output.missingContextValues !== null
-        ? deserializeAws_restJson1_1MissingContextValues(
-            output.missingContextValues,
-            context
-          )
+      output.missingContextValues !== undefined && output.missingContextValues !== null
+        ? deserializeAws_restJson1_1MissingContextValues(output.missingContextValues, context)
         : undefined
   } as any;
 };
@@ -34529,9 +31112,7 @@ const deserializeAws_restJson1_1AuthResults = (
   output: any,
   context: __SerdeContext
 ): AuthResult[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AuthResult(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AuthResult(entry, context));
 };
 
 const deserializeAws_restJson1_1AuthorizerConfig = (
@@ -34541,13 +31122,11 @@ const deserializeAws_restJson1_1AuthorizerConfig = (
   return {
     __type: "AuthorizerConfig",
     allowAuthorizerOverride:
-      output.allowAuthorizerOverride !== undefined &&
-      output.allowAuthorizerOverride !== null
+      output.allowAuthorizerOverride !== undefined && output.allowAuthorizerOverride !== null
         ? output.allowAuthorizerOverride
         : undefined,
     defaultAuthorizerName:
-      output.defaultAuthorizerName !== undefined &&
-      output.defaultAuthorizerName !== null
+      output.defaultAuthorizerName !== undefined && output.defaultAuthorizerName !== null
         ? output.defaultAuthorizerName
         : undefined
   } as any;
@@ -34564,8 +31143,7 @@ const deserializeAws_restJson1_1AuthorizerDescription = (
         ? output.authorizerArn
         : undefined,
     authorizerFunctionArn:
-      output.authorizerFunctionArn !== undefined &&
-      output.authorizerFunctionArn !== null
+      output.authorizerFunctionArn !== undefined && output.authorizerFunctionArn !== null
         ? output.authorizerFunctionArn
         : undefined,
     authorizerName:
@@ -34584,21 +31162,14 @@ const deserializeAws_restJson1_1AuthorizerDescription = (
       output.signingDisabled !== undefined && output.signingDisabled !== null
         ? output.signingDisabled
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tokenKeyName:
       output.tokenKeyName !== undefined && output.tokenKeyName !== null
         ? output.tokenKeyName
         : undefined,
     tokenSigningPublicKeys:
-      output.tokenSigningPublicKeys !== undefined &&
-      output.tokenSigningPublicKeys !== null
-        ? deserializeAws_restJson1_1PublicKeyMap(
-            output.tokenSigningPublicKeys,
-            context
-          )
+      output.tokenSigningPublicKeys !== undefined && output.tokenSigningPublicKeys !== null
+        ? deserializeAws_restJson1_1PublicKeyMap(output.tokenSigningPublicKeys, context)
         : undefined
   } as any;
 };
@@ -34647,10 +31218,7 @@ const deserializeAws_restJson1_1CACertificate = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -34661,8 +31229,7 @@ const deserializeAws_restJson1_1CACertificateDescription = (
   return {
     __type: "CACertificateDescription",
     autoRegistrationStatus:
-      output.autoRegistrationStatus !== undefined &&
-      output.autoRegistrationStatus !== null
+      output.autoRegistrationStatus !== undefined && output.autoRegistrationStatus !== null
         ? output.autoRegistrationStatus
         : undefined,
     certificateArn:
@@ -34693,20 +31260,11 @@ const deserializeAws_restJson1_1CACertificateDescription = (
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    ownedBy:
-      output.ownedBy !== undefined && output.ownedBy !== null
-        ? output.ownedBy
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    ownedBy: output.ownedBy !== undefined && output.ownedBy !== null ? output.ownedBy : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     validity:
       output.validity !== undefined && output.validity !== null
-        ? deserializeAws_restJson1_1CertificateValidity(
-            output.validity,
-            context
-          )
+        ? deserializeAws_restJson1_1CertificateValidity(output.validity, context)
         : undefined
   } as any;
 };
@@ -34738,10 +31296,7 @@ const deserializeAws_restJson1_1Certificate = (
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -34783,28 +31338,19 @@ const deserializeAws_restJson1_1CertificateDescription = (
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    ownedBy:
-      output.ownedBy !== undefined && output.ownedBy !== null
-        ? output.ownedBy
-        : undefined,
+    ownedBy: output.ownedBy !== undefined && output.ownedBy !== null ? output.ownedBy : undefined,
     previousOwnedBy:
       output.previousOwnedBy !== undefined && output.previousOwnedBy !== null
         ? output.previousOwnedBy
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     transferData:
       output.transferData !== undefined && output.transferData !== null
         ? deserializeAws_restJson1_1TransferData(output.transferData, context)
         : undefined,
     validity:
       output.validity !== undefined && output.validity !== null
-        ? deserializeAws_restJson1_1CertificateValidity(
-            output.validity,
-            context
-          )
+        ? deserializeAws_restJson1_1CertificateValidity(output.validity, context)
         : undefined
   } as any;
 };
@@ -34830,15 +31376,10 @@ const deserializeAws_restJson1_1Certificates = (
   output: any,
   context: __SerdeContext
 ): Certificate[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Certificate(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Certificate(entry, context));
 };
 
-const deserializeAws_restJson1_1Denied = (
-  output: any,
-  context: __SerdeContext
-): Denied => {
+const deserializeAws_restJson1_1Denied = (output: any, context: __SerdeContext): Denied => {
   return {
     __type: "Denied",
     explicitDeny:
@@ -34859,13 +31400,11 @@ const deserializeAws_restJson1_1DomainConfigurationSummary = (
   return {
     __type: "DomainConfigurationSummary",
     domainConfigurationArn:
-      output.domainConfigurationArn !== undefined &&
-      output.domainConfigurationArn !== null
+      output.domainConfigurationArn !== undefined && output.domainConfigurationArn !== null
         ? output.domainConfigurationArn
         : undefined,
     domainConfigurationName:
-      output.domainConfigurationName !== undefined &&
-      output.domainConfigurationName !== null
+      output.domainConfigurationName !== undefined && output.domainConfigurationName !== null
         ? output.domainConfigurationName
         : undefined,
     serviceType:
@@ -34900,17 +31439,13 @@ const deserializeAws_restJson1_1EffectivePolicy = (
   return {
     __type: "EffectivePolicy",
     policyArn:
-      output.policyArn !== undefined && output.policyArn !== null
-        ? output.policyArn
-        : undefined,
+      output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
     policyDocument:
       output.policyDocument !== undefined && output.policyDocument !== null
         ? output.policyDocument
         : undefined,
     policyName:
-      output.policyName !== undefined && output.policyName !== null
-        ? output.policyName
-        : undefined
+      output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined
   } as any;
 };
 
@@ -34940,20 +31475,13 @@ const deserializeAws_restJson1_1ImplicitDeny = (
   } as any;
 };
 
-const deserializeAws_restJson1_1KeyPair = (
-  output: any,
-  context: __SerdeContext
-): KeyPair => {
+const deserializeAws_restJson1_1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
     __type: "KeyPair",
     PrivateKey:
-      output.PrivateKey !== undefined && output.PrivateKey !== null
-        ? output.PrivateKey
-        : undefined,
+      output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
     PublicKey:
-      output.PublicKey !== undefined && output.PublicKey !== null
-        ? output.PublicKey
-        : undefined
+      output.PublicKey !== undefined && output.PublicKey !== null ? output.PublicKey : undefined
   } as any;
 };
 
@@ -35006,29 +31534,17 @@ const deserializeAws_restJson1_1OutgoingCertificates = (
   );
 };
 
-const deserializeAws_restJson1_1Policies = (
-  output: any,
-  context: __SerdeContext
-): Policy[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Policy(entry, context)
-  );
+const deserializeAws_restJson1_1Policies = (output: any, context: __SerdeContext): Policy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Policy(entry, context));
 };
 
-const deserializeAws_restJson1_1Policy = (
-  output: any,
-  context: __SerdeContext
-): Policy => {
+const deserializeAws_restJson1_1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
     __type: "Policy",
     policyArn:
-      output.policyArn !== undefined && output.policyArn !== null
-        ? output.policyArn
-        : undefined,
+      output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
     policyName:
-      output.policyName !== undefined && output.policyName !== null
-        ? output.policyName
-        : undefined
+      output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined
   } as any;
 };
 
@@ -35054,9 +31570,7 @@ const deserializeAws_restJson1_1PolicyVersion = (
         ? output.isDefaultVersion
         : undefined,
     versionId:
-      output.versionId !== undefined && output.versionId !== null
-        ? output.versionId
-        : undefined
+      output.versionId !== undefined && output.versionId !== null ? output.versionId : undefined
   } as any;
 };
 
@@ -35092,10 +31606,7 @@ const deserializeAws_restJson1_1ProvisioningTemplateSummary = (
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
-    enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined,
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
@@ -35135,9 +31646,7 @@ const deserializeAws_restJson1_1ProvisioningTemplateVersionSummary = (
         ? output.isDefaultVersion
         : undefined,
     versionId:
-      output.versionId !== undefined && output.versionId !== null
-        ? output.versionId
-        : undefined
+      output.versionId !== undefined && output.versionId !== null ? output.versionId : undefined
   } as any;
 };
 
@@ -35160,10 +31669,7 @@ const deserializeAws_restJson1_1RegistrationConfig = (
 ): RegistrationConfig => {
   return {
     __type: "RegistrationConfig",
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     templateBody:
       output.templateBody !== undefined && output.templateBody !== null
         ? output.templateBody
@@ -35184,10 +31690,7 @@ const deserializeAws_restJson1_1ResourceArns = (
   );
 };
 
-const deserializeAws_restJson1_1Resources = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Resources = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -35202,37 +31705,25 @@ const deserializeAws_restJson1_1RoleAliasDescription = (
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
     credentialDurationSeconds:
-      output.credentialDurationSeconds !== undefined &&
-      output.credentialDurationSeconds !== null
+      output.credentialDurationSeconds !== undefined && output.credentialDurationSeconds !== null
         ? output.credentialDurationSeconds
         : undefined,
     lastModifiedDate:
       output.lastModifiedDate !== undefined && output.lastModifiedDate !== null
         ? new Date(Math.round(output.lastModifiedDate * 1000))
         : undefined,
-    owner:
-      output.owner !== undefined && output.owner !== null
-        ? output.owner
-        : undefined,
+    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     roleAlias:
-      output.roleAlias !== undefined && output.roleAlias !== null
-        ? output.roleAlias
-        : undefined,
+      output.roleAlias !== undefined && output.roleAlias !== null ? output.roleAlias : undefined,
     roleAliasArn:
       output.roleAliasArn !== undefined && output.roleAliasArn !== null
         ? output.roleAliasArn
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RoleAliases = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1RoleAliases = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -35243,13 +31734,11 @@ const deserializeAws_restJson1_1ServerCertificateSummary = (
   return {
     __type: "ServerCertificateSummary",
     serverCertificateArn:
-      output.serverCertificateArn !== undefined &&
-      output.serverCertificateArn !== null
+      output.serverCertificateArn !== undefined && output.serverCertificateArn !== null
         ? output.serverCertificateArn
         : undefined,
     serverCertificateStatus:
-      output.serverCertificateStatus !== undefined &&
-      output.serverCertificateStatus !== null
+      output.serverCertificateStatus !== undefined && output.serverCertificateStatus !== null
         ? output.serverCertificateStatus
         : undefined,
     serverCertificateStatusDetail:
@@ -35298,30 +31787,16 @@ const deserializeAws_restJson1_1TransferData = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Field = (
-  output: any,
-  context: __SerdeContext
-): Field => {
+const deserializeAws_restJson1_1Field = (output: any, context: __SerdeContext): Field => {
   return {
     __type: "Field",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Fields = (
-  output: any,
-  context: __SerdeContext
-): Field[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Field(entry, context)
-  );
+const deserializeAws_restJson1_1Fields = (output: any, context: __SerdeContext): Field[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Field(entry, context));
 };
 
 const deserializeAws_restJson1_1IndexNamesList = (
@@ -35337,14 +31812,8 @@ const deserializeAws_restJson1_1PercentPair = (
 ): PercentPair => {
   return {
     __type: "PercentPair",
-    percent:
-      output.percent !== undefined && output.percent !== null
-        ? output.percent
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    percent: output.percent !== undefined && output.percent !== null ? output.percent : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -35352,47 +31821,27 @@ const deserializeAws_restJson1_1Percentiles = (
   output: any,
   context: __SerdeContext
 ): PercentPair[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1PercentPair(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1PercentPair(entry, context));
 };
 
-const deserializeAws_restJson1_1Statistics = (
-  output: any,
-  context: __SerdeContext
-): Statistics => {
+const deserializeAws_restJson1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
     __type: "Statistics",
-    average:
-      output.average !== undefined && output.average !== null
-        ? output.average
-        : undefined,
-    count:
-      output.count !== undefined && output.count !== null
-        ? output.count
-        : undefined,
-    maximum:
-      output.maximum !== undefined && output.maximum !== null
-        ? output.maximum
-        : undefined,
-    minimum:
-      output.minimum !== undefined && output.minimum !== null
-        ? output.minimum
-        : undefined,
+    average: output.average !== undefined && output.average !== null ? output.average : undefined,
+    count: output.count !== undefined && output.count !== null ? output.count : undefined,
+    maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
+    minimum: output.minimum !== undefined && output.minimum !== null ? output.minimum : undefined,
     stdDeviation:
       output.stdDeviation !== undefined && output.stdDeviation !== null
         ? output.stdDeviation
         : undefined,
-    sum:
-      output.sum !== undefined && output.sum !== null ? output.sum : undefined,
+    sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
     sumOfSquares:
       output.sumOfSquares !== undefined && output.sumOfSquares !== null
         ? output.sumOfSquares
         : undefined,
     variance:
-      output.variance !== undefined && output.variance !== null
-        ? output.variance
-        : undefined
+      output.variance !== undefined && output.variance !== null ? output.variance : undefined
   } as any;
 };
 
@@ -35403,13 +31852,9 @@ const deserializeAws_restJson1_1ThingConnectivity = (
   return {
     __type: "ThingConnectivity",
     connected:
-      output.connected !== undefined && output.connected !== null
-        ? output.connected
-        : undefined,
+      output.connected !== undefined && output.connected !== null ? output.connected : undefined,
     timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? output.timestamp
-        : undefined
+      output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined
   } as any;
 };
 
@@ -35425,30 +31870,16 @@ const deserializeAws_restJson1_1ThingDocument = (
         : undefined,
     connectivity:
       output.connectivity !== undefined && output.connectivity !== null
-        ? deserializeAws_restJson1_1ThingConnectivity(
-            output.connectivity,
-            context
-          )
+        ? deserializeAws_restJson1_1ThingConnectivity(output.connectivity, context)
         : undefined,
-    shadow:
-      output.shadow !== undefined && output.shadow !== null
-        ? output.shadow
-        : undefined,
+    shadow: output.shadow !== undefined && output.shadow !== null ? output.shadow : undefined,
     thingGroupNames:
       output.thingGroupNames !== undefined && output.thingGroupNames !== null
-        ? deserializeAws_restJson1_1ThingGroupNameList(
-            output.thingGroupNames,
-            context
-          )
+        ? deserializeAws_restJson1_1ThingGroupNameList(output.thingGroupNames, context)
         : undefined,
-    thingId:
-      output.thingId !== undefined && output.thingId !== null
-        ? output.thingId
-        : undefined,
+    thingId: output.thingId !== undefined && output.thingId !== null ? output.thingId : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined,
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
     thingTypeName:
       output.thingTypeName !== undefined && output.thingTypeName !== null
         ? output.thingTypeName
@@ -35477,14 +31908,10 @@ const deserializeAws_restJson1_1ThingGroupDocument = (
         : undefined,
     parentGroupNames:
       output.parentGroupNames !== undefined && output.parentGroupNames !== null
-        ? deserializeAws_restJson1_1ThingGroupNameList(
-            output.parentGroupNames,
-            context
-          )
+        ? deserializeAws_restJson1_1ThingGroupNameList(output.parentGroupNames, context)
         : undefined,
     thingGroupDescription:
-      output.thingGroupDescription !== undefined &&
-      output.thingGroupDescription !== null
+      output.thingGroupDescription !== undefined && output.thingGroupDescription !== null
         ? output.thingGroupDescription
         : undefined,
     thingGroupId:
@@ -35522,8 +31949,7 @@ const deserializeAws_restJson1_1ThingGroupIndexingConfiguration = (
         ? deserializeAws_restJson1_1Fields(output.managedFields, context)
         : undefined,
     thingGroupIndexingMode:
-      output.thingGroupIndexingMode !== undefined &&
-      output.thingGroupIndexingMode !== null
+      output.thingGroupIndexingMode !== undefined && output.thingGroupIndexingMode !== null
         ? output.thingGroupIndexingMode
         : undefined
   } as any;
@@ -35556,8 +31982,7 @@ const deserializeAws_restJson1_1ThingIndexingConfiguration = (
         ? output.thingConnectivityIndexingMode
         : undefined,
     thingIndexingMode:
-      output.thingIndexingMode !== undefined &&
-      output.thingIndexingMode !== null
+      output.thingIndexingMode !== undefined && output.thingIndexingMode !== null
         ? output.thingIndexingMode
         : undefined
   } as any;
@@ -35571,10 +31996,7 @@ const deserializeAws_restJson1_1AbortConfig = (
     __type: "AbortConfig",
     criteriaList:
       output.criteriaList !== undefined && output.criteriaList !== null
-        ? deserializeAws_restJson1_1AbortCriteriaList(
-            output.criteriaList,
-            context
-          )
+        ? deserializeAws_restJson1_1AbortCriteriaList(output.criteriaList, context)
         : undefined
   } as any;
 };
@@ -35585,22 +32007,17 @@ const deserializeAws_restJson1_1AbortCriteria = (
 ): AbortCriteria => {
   return {
     __type: "AbortCriteria",
-    action:
-      output.action !== undefined && output.action !== null
-        ? output.action
-        : undefined,
+    action: output.action !== undefined && output.action !== null ? output.action : undefined,
     failureType:
       output.failureType !== undefined && output.failureType !== null
         ? output.failureType
         : undefined,
     minNumberOfExecutedThings:
-      output.minNumberOfExecutedThings !== undefined &&
-      output.minNumberOfExecutedThings !== null
+      output.minNumberOfExecutedThings !== undefined && output.minNumberOfExecutedThings !== null
         ? output.minNumberOfExecutedThings
         : undefined,
     thresholdPercentage:
-      output.thresholdPercentage !== undefined &&
-      output.thresholdPercentage !== null
+      output.thresholdPercentage !== undefined && output.thresholdPercentage !== null
         ? output.thresholdPercentage
         : undefined
   } as any;
@@ -35622,8 +32039,7 @@ const deserializeAws_restJson1_1ExponentialRolloutRate = (
   return {
     __type: "ExponentialRolloutRate",
     baseRatePerMinute:
-      output.baseRatePerMinute !== undefined &&
-      output.baseRatePerMinute !== null
+      output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
         ? output.baseRatePerMinute
         : undefined,
     incrementFactor:
@@ -35631,30 +32047,20 @@ const deserializeAws_restJson1_1ExponentialRolloutRate = (
         ? output.incrementFactor
         : undefined,
     rateIncreaseCriteria:
-      output.rateIncreaseCriteria !== undefined &&
-      output.rateIncreaseCriteria !== null
-        ? deserializeAws_restJson1_1RateIncreaseCriteria(
-            output.rateIncreaseCriteria,
-            context
-          )
+      output.rateIncreaseCriteria !== undefined && output.rateIncreaseCriteria !== null
+        ? deserializeAws_restJson1_1RateIncreaseCriteria(output.rateIncreaseCriteria, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Job = (
-  output: any,
-  context: __SerdeContext
-): Job => {
+const deserializeAws_restJson1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     __type: "Job",
     abortConfig:
       output.abortConfig !== undefined && output.abortConfig !== null
         ? deserializeAws_restJson1_1AbortConfig(output.abortConfig, context)
         : undefined,
-    comment:
-      output.comment !== undefined && output.comment !== null
-        ? output.comment
-        : undefined,
+    comment: output.comment !== undefined && output.comment !== null ? output.comment : undefined,
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
         ? new Date(Math.round(output.completedAt * 1000))
@@ -35671,50 +32077,30 @@ const deserializeAws_restJson1_1Job = (
       output.forceCanceled !== undefined && output.forceCanceled !== null
         ? output.forceCanceled
         : undefined,
-    jobArn:
-      output.jobArn !== undefined && output.jobArn !== null
-        ? output.jobArn
-        : undefined,
+    jobArn: output.jobArn !== undefined && output.jobArn !== null ? output.jobArn : undefined,
     jobExecutionsRolloutConfig:
-      output.jobExecutionsRolloutConfig !== undefined &&
-      output.jobExecutionsRolloutConfig !== null
+      output.jobExecutionsRolloutConfig !== undefined && output.jobExecutionsRolloutConfig !== null
         ? deserializeAws_restJson1_1JobExecutionsRolloutConfig(
             output.jobExecutionsRolloutConfig,
             context
           )
         : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     jobProcessDetails:
-      output.jobProcessDetails !== undefined &&
-      output.jobProcessDetails !== null
-        ? deserializeAws_restJson1_1JobProcessDetails(
-            output.jobProcessDetails,
-            context
-          )
+      output.jobProcessDetails !== undefined && output.jobProcessDetails !== null
+        ? deserializeAws_restJson1_1JobProcessDetails(output.jobProcessDetails, context)
         : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
     presignedUrlConfig:
-      output.presignedUrlConfig !== undefined &&
-      output.presignedUrlConfig !== null
-        ? deserializeAws_restJson1_1PresignedUrlConfig(
-            output.presignedUrlConfig,
-            context
-          )
+      output.presignedUrlConfig !== undefined && output.presignedUrlConfig !== null
+        ? deserializeAws_restJson1_1PresignedUrlConfig(output.presignedUrlConfig, context)
         : undefined,
     reasonCode:
-      output.reasonCode !== undefined && output.reasonCode !== null
-        ? output.reasonCode
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.reasonCode !== undefined && output.reasonCode !== null ? output.reasonCode : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     targetSelection:
       output.targetSelection !== undefined && output.targetSelection !== null
         ? output.targetSelection
@@ -35749,10 +32135,7 @@ const deserializeAws_restJson1_1JobExecution = (
       output.forceCanceled !== undefined && output.forceCanceled !== null
         ? output.forceCanceled
         : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -35765,21 +32148,13 @@ const deserializeAws_restJson1_1JobExecution = (
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
-        ? deserializeAws_restJson1_1JobExecutionStatusDetails(
-            output.statusDetails,
-            context
-          )
+        ? deserializeAws_restJson1_1JobExecutionStatusDetails(output.statusDetails, context)
         : undefined,
     thingArn:
-      output.thingArn !== undefined && output.thingArn !== null
-        ? output.thingArn
-        : undefined,
+      output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
     versionNumber:
       output.versionNumber !== undefined && output.versionNumber !== null
         ? output.versionNumber
@@ -35822,10 +32197,7 @@ const deserializeAws_restJson1_1JobExecutionSummary = (
       output.startedAt !== undefined && output.startedAt !== null
         ? new Date(Math.round(output.startedAt * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -35836,17 +32208,11 @@ const deserializeAws_restJson1_1JobExecutionSummaryForJob = (
   return {
     __type: "JobExecutionSummaryForJob",
     jobExecutionSummary:
-      output.jobExecutionSummary !== undefined &&
-      output.jobExecutionSummary !== null
-        ? deserializeAws_restJson1_1JobExecutionSummary(
-            output.jobExecutionSummary,
-            context
-          )
+      output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
+        ? deserializeAws_restJson1_1JobExecutionSummary(output.jobExecutionSummary, context)
         : undefined,
     thingArn:
-      output.thingArn !== undefined && output.thingArn !== null
-        ? output.thingArn
-        : undefined
+      output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined
   } as any;
 };
 
@@ -35866,17 +32232,10 @@ const deserializeAws_restJson1_1JobExecutionSummaryForThing = (
   return {
     __type: "JobExecutionSummaryForThing",
     jobExecutionSummary:
-      output.jobExecutionSummary !== undefined &&
-      output.jobExecutionSummary !== null
-        ? deserializeAws_restJson1_1JobExecutionSummary(
-            output.jobExecutionSummary,
-            context
-          )
+      output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
+        ? deserializeAws_restJson1_1JobExecutionSummary(output.jobExecutionSummary, context)
         : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined
   } as any;
 };
 
@@ -35897,10 +32256,7 @@ const deserializeAws_restJson1_1JobExecutionsRolloutConfig = (
     __type: "JobExecutionsRolloutConfig",
     exponentialRate:
       output.exponentialRate !== undefined && output.exponentialRate !== null
-        ? deserializeAws_restJson1_1ExponentialRolloutRate(
-            output.exponentialRate,
-            context
-          )
+        ? deserializeAws_restJson1_1ExponentialRolloutRate(output.exponentialRate, context)
         : undefined,
     maximumPerMinute:
       output.maximumPerMinute !== undefined && output.maximumPerMinute !== null
@@ -35916,60 +32272,45 @@ const deserializeAws_restJson1_1JobProcessDetails = (
   return {
     __type: "JobProcessDetails",
     numberOfCanceledThings:
-      output.numberOfCanceledThings !== undefined &&
-      output.numberOfCanceledThings !== null
+      output.numberOfCanceledThings !== undefined && output.numberOfCanceledThings !== null
         ? output.numberOfCanceledThings
         : undefined,
     numberOfFailedThings:
-      output.numberOfFailedThings !== undefined &&
-      output.numberOfFailedThings !== null
+      output.numberOfFailedThings !== undefined && output.numberOfFailedThings !== null
         ? output.numberOfFailedThings
         : undefined,
     numberOfInProgressThings:
-      output.numberOfInProgressThings !== undefined &&
-      output.numberOfInProgressThings !== null
+      output.numberOfInProgressThings !== undefined && output.numberOfInProgressThings !== null
         ? output.numberOfInProgressThings
         : undefined,
     numberOfQueuedThings:
-      output.numberOfQueuedThings !== undefined &&
-      output.numberOfQueuedThings !== null
+      output.numberOfQueuedThings !== undefined && output.numberOfQueuedThings !== null
         ? output.numberOfQueuedThings
         : undefined,
     numberOfRejectedThings:
-      output.numberOfRejectedThings !== undefined &&
-      output.numberOfRejectedThings !== null
+      output.numberOfRejectedThings !== undefined && output.numberOfRejectedThings !== null
         ? output.numberOfRejectedThings
         : undefined,
     numberOfRemovedThings:
-      output.numberOfRemovedThings !== undefined &&
-      output.numberOfRemovedThings !== null
+      output.numberOfRemovedThings !== undefined && output.numberOfRemovedThings !== null
         ? output.numberOfRemovedThings
         : undefined,
     numberOfSucceededThings:
-      output.numberOfSucceededThings !== undefined &&
-      output.numberOfSucceededThings !== null
+      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
         ? output.numberOfSucceededThings
         : undefined,
     numberOfTimedOutThings:
-      output.numberOfTimedOutThings !== undefined &&
-      output.numberOfTimedOutThings !== null
+      output.numberOfTimedOutThings !== undefined && output.numberOfTimedOutThings !== null
         ? output.numberOfTimedOutThings
         : undefined,
     processingTargets:
-      output.processingTargets !== undefined &&
-      output.processingTargets !== null
-        ? deserializeAws_restJson1_1ProcessingTargetNameList(
-            output.processingTargets,
-            context
-          )
+      output.processingTargets !== undefined && output.processingTargets !== null
+        ? deserializeAws_restJson1_1ProcessingTargetNameList(output.processingTargets, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobSummary = (
-  output: any,
-  context: __SerdeContext
-): JobSummary => {
+const deserializeAws_restJson1_1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
     __type: "JobSummary",
     completedAt:
@@ -35980,22 +32321,13 @@ const deserializeAws_restJson1_1JobSummary = (
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    jobArn:
-      output.jobArn !== undefined && output.jobArn !== null
-        ? output.jobArn
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+    jobArn: output.jobArn !== undefined && output.jobArn !== null ? output.jobArn : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     targetSelection:
       output.targetSelection !== undefined && output.targetSelection !== null
         ? output.targetSelection
@@ -36011,15 +32343,10 @@ const deserializeAws_restJson1_1JobSummaryList = (
   output: any,
   context: __SerdeContext
 ): JobSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1JobTargets = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1JobTargets = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -36033,10 +32360,7 @@ const deserializeAws_restJson1_1PresignedUrlConfig = (
       output.expiresInSec !== undefined && output.expiresInSec !== null
         ? output.expiresInSec
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -36054,13 +32378,11 @@ const deserializeAws_restJson1_1RateIncreaseCriteria = (
   return {
     __type: "RateIncreaseCriteria",
     numberOfNotifiedThings:
-      output.numberOfNotifiedThings !== undefined &&
-      output.numberOfNotifiedThings !== null
+      output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
         ? output.numberOfNotifiedThings
         : undefined,
     numberOfSucceededThings:
-      output.numberOfSucceededThings !== undefined &&
-      output.numberOfSucceededThings !== null
+      output.numberOfSucceededThings !== undefined && output.numberOfSucceededThings !== null
         ? output.numberOfSucceededThings
         : undefined
   } as any;
@@ -36073,8 +32395,7 @@ const deserializeAws_restJson1_1TimeoutConfig = (
   return {
     __type: "TimeoutConfig",
     inProgressTimeoutInMinutes:
-      output.inProgressTimeoutInMinutes !== undefined &&
-      output.inProgressTimeoutInMinutes !== null
+      output.inProgressTimeoutInMinutes !== undefined && output.inProgressTimeoutInMinutes !== null
         ? output.inProgressTimeoutInMinutes
         : undefined
   } as any;
@@ -36156,16 +32477,11 @@ const deserializeAws_restJson1_1CodeSigning = (
         ? output.awsSignerJobId
         : undefined,
     customCodeSigning:
-      output.customCodeSigning !== undefined &&
-      output.customCodeSigning !== null
-        ? deserializeAws_restJson1_1CustomCodeSigning(
-            output.customCodeSigning,
-            context
-          )
+      output.customCodeSigning !== undefined && output.customCodeSigning !== null
+        ? deserializeAws_restJson1_1CustomCodeSigning(output.customCodeSigning, context)
         : undefined,
     startSigningJobParameter:
-      output.startSigningJobParameter !== undefined &&
-      output.startSigningJobParameter !== null
+      output.startSigningJobParameter !== undefined && output.startSigningJobParameter !== null
         ? deserializeAws_restJson1_1StartSigningJobParameter(
             output.startSigningJobParameter,
             context
@@ -36212,10 +32528,7 @@ const deserializeAws_restJson1_1CustomCodeSigning = (
     __type: "CustomCodeSigning",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null
-        ? deserializeAws_restJson1_1CodeSigningCertificateChain(
-            output.certificateChain,
-            context
-          )
+        ? deserializeAws_restJson1_1CodeSigningCertificateChain(output.certificateChain, context)
         : undefined,
     hashAlgorithm:
       output.hashAlgorithm !== undefined && output.hashAlgorithm !== null
@@ -36223,14 +32536,10 @@ const deserializeAws_restJson1_1CustomCodeSigning = (
         : undefined,
     signature:
       output.signature !== undefined && output.signature !== null
-        ? deserializeAws_restJson1_1CodeSigningSignature(
-            output.signature,
-            context
-          )
+        ? deserializeAws_restJson1_1CodeSigningSignature(output.signature, context)
         : undefined,
     signatureAlgorithm:
-      output.signatureAlgorithm !== undefined &&
-      output.signatureAlgorithm !== null
+      output.signatureAlgorithm !== undefined && output.signatureAlgorithm !== null
         ? output.signatureAlgorithm
         : undefined
   } as any;
@@ -36249,20 +32558,11 @@ const deserializeAws_restJson1_1Destination = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ErrorInfo = (
-  output: any,
-  context: __SerdeContext
-): ErrorInfo => {
+const deserializeAws_restJson1_1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
     __type: "ErrorInfo",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -36302,9 +32602,7 @@ const deserializeAws_restJson1_1OTAUpdateFile = (
         ? deserializeAws_restJson1_1FileLocation(output.fileLocation, context)
         : undefined,
     fileName:
-      output.fileName !== undefined && output.fileName !== null
-        ? output.fileName
-        : undefined,
+      output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined,
     fileVersion:
       output.fileVersion !== undefined && output.fileVersion !== null
         ? output.fileVersion
@@ -36328,12 +32626,8 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
   return {
     __type: "OTAUpdateInfo",
     additionalParameters:
-      output.additionalParameters !== undefined &&
-      output.additionalParameters !== null
-        ? deserializeAws_restJson1_1AdditionalParameterMap(
-            output.additionalParameters,
-            context
-          )
+      output.additionalParameters !== undefined && output.additionalParameters !== null
+        ? deserializeAws_restJson1_1AdditionalParameterMap(output.additionalParameters, context)
         : undefined,
     awsIotJobArn:
       output.awsIotJobArn !== undefined && output.awsIotJobArn !== null
@@ -36352,8 +32646,7 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
           )
         : undefined,
     awsJobPresignedUrlConfig:
-      output.awsJobPresignedUrlConfig !== undefined &&
-      output.awsJobPresignedUrlConfig !== null
+      output.awsJobPresignedUrlConfig !== undefined && output.awsJobPresignedUrlConfig !== null
         ? deserializeAws_restJson1_1AwsJobPresignedUrlConfig(
             output.awsJobPresignedUrlConfig,
             context
@@ -36381,10 +32674,7 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
         : undefined,
     otaUpdateFiles:
       output.otaUpdateFiles !== undefined && output.otaUpdateFiles !== null
-        ? deserializeAws_restJson1_1OTAUpdateFiles(
-            output.otaUpdateFiles,
-            context
-          )
+        ? deserializeAws_restJson1_1OTAUpdateFiles(output.otaUpdateFiles, context)
         : undefined,
     otaUpdateId:
       output.otaUpdateId !== undefined && output.otaUpdateId !== null
@@ -36452,14 +32742,8 @@ const deserializeAws_restJson1_1S3Destination = (
 ): S3Destination => {
   return {
     __type: "S3Destination",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    prefix:
-      output.prefix !== undefined && output.prefix !== null
-        ? output.prefix
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined
   } as any;
 };
 
@@ -36474,14 +32758,11 @@ const deserializeAws_restJson1_1SigningProfileParameter = (
         ? output.certificateArn
         : undefined,
     certificatePathOnDevice:
-      output.certificatePathOnDevice !== undefined &&
-      output.certificatePathOnDevice !== null
+      output.certificatePathOnDevice !== undefined && output.certificatePathOnDevice !== null
         ? output.certificatePathOnDevice
         : undefined,
     platform:
-      output.platform !== undefined && output.platform !== null
-        ? output.platform
-        : undefined
+      output.platform !== undefined && output.platform !== null ? output.platform : undefined
   } as any;
 };
 
@@ -36496,42 +32777,26 @@ const deserializeAws_restJson1_1StartSigningJobParameter = (
         ? deserializeAws_restJson1_1Destination(output.destination, context)
         : undefined,
     signingProfileName:
-      output.signingProfileName !== undefined &&
-      output.signingProfileName !== null
+      output.signingProfileName !== undefined && output.signingProfileName !== null
         ? output.signingProfileName
         : undefined,
     signingProfileParameter:
-      output.signingProfileParameter !== undefined &&
-      output.signingProfileParameter !== null
-        ? deserializeAws_restJson1_1SigningProfileParameter(
-            output.signingProfileParameter,
-            context
-          )
+      output.signingProfileParameter !== undefined && output.signingProfileParameter !== null
+        ? deserializeAws_restJson1_1SigningProfileParameter(output.signingProfileParameter, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1_Stream = (
-  output: any,
-  context: __SerdeContext
-): _Stream => {
+const deserializeAws_restJson1_1_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
     __type: "Stream",
-    fileId:
-      output.fileId !== undefined && output.fileId !== null
-        ? output.fileId
-        : undefined,
+    fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
     streamId:
-      output.streamId !== undefined && output.streamId !== null
-        ? output.streamId
-        : undefined
+      output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Targets = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Targets = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -36545,10 +32810,7 @@ const deserializeAws_restJson1_1AttributePayload = (
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1_1Attributes(output.attributes, context)
         : undefined,
-    merge:
-      output.merge !== undefined && output.merge !== null
-        ? output.merge
-        : undefined
+    merge: output.merge !== undefined && output.merge !== null ? output.merge : undefined
   } as any;
 };
 
@@ -36594,8 +32856,7 @@ const deserializeAws_restJson1_1BillingGroupProperties = (
   return {
     __type: "BillingGroupProperties",
     billingGroupDescription:
-      output.billingGroupDescription !== undefined &&
-      output.billingGroupDescription !== null
+      output.billingGroupDescription !== undefined && output.billingGroupDescription !== null
         ? output.billingGroupDescription
         : undefined
   } as any;
@@ -36608,13 +32869,9 @@ const deserializeAws_restJson1_1GroupNameAndArn = (
   return {
     __type: "GroupNameAndArn",
     groupArn:
-      output.groupArn !== undefined && output.groupArn !== null
-        ? output.groupArn
-        : undefined,
+      output.groupArn !== undefined && output.groupArn !== null ? output.groupArn : undefined,
     groupName:
-      output.groupName !== undefined && output.groupName !== null
-        ? output.groupName
-        : undefined
+      output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined
   } as any;
 };
 
@@ -36632,10 +32889,7 @@ const deserializeAws_restJson1_1SearchableAttributes = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1TaskIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1TaskIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -36650,21 +32904,14 @@ const deserializeAws_restJson1_1ThingAttribute = (
         ? deserializeAws_restJson1_1Attributes(output.attributes, context)
         : undefined,
     thingArn:
-      output.thingArn !== undefined && output.thingArn !== null
-        ? output.thingArn
-        : undefined,
+      output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined,
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
     thingTypeName:
       output.thingTypeName !== undefined && output.thingTypeName !== null
         ? output.thingTypeName
         : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -36692,8 +32939,7 @@ const deserializeAws_restJson1_1ThingGroupMetadata = (
         ? output.parentGroupName
         : undefined,
     rootToParentThingGroups:
-      output.rootToParentThingGroups !== undefined &&
-      output.rootToParentThingGroups !== null
+      output.rootToParentThingGroups !== undefined && output.rootToParentThingGroups !== null
         ? deserializeAws_restJson1_1ThingGroupNameAndArnList(
             output.rootToParentThingGroups,
             context
@@ -36719,14 +32965,10 @@ const deserializeAws_restJson1_1ThingGroupProperties = (
     __type: "ThingGroupProperties",
     attributePayload:
       output.attributePayload !== undefined && output.attributePayload !== null
-        ? deserializeAws_restJson1_1AttributePayload(
-            output.attributePayload,
-            context
-          )
+        ? deserializeAws_restJson1_1AttributePayload(output.attributePayload, context)
         : undefined,
     thingGroupDescription:
-      output.thingGroupDescription !== undefined &&
-      output.thingGroupDescription !== null
+      output.thingGroupDescription !== undefined && output.thingGroupDescription !== null
         ? output.thingGroupDescription
         : undefined
   } as any;
@@ -36750,24 +32992,16 @@ const deserializeAws_restJson1_1ThingTypeDefinition = (
         ? output.thingTypeArn
         : undefined,
     thingTypeMetadata:
-      output.thingTypeMetadata !== undefined &&
-      output.thingTypeMetadata !== null
-        ? deserializeAws_restJson1_1ThingTypeMetadata(
-            output.thingTypeMetadata,
-            context
-          )
+      output.thingTypeMetadata !== undefined && output.thingTypeMetadata !== null
+        ? deserializeAws_restJson1_1ThingTypeMetadata(output.thingTypeMetadata, context)
         : undefined,
     thingTypeName:
       output.thingTypeName !== undefined && output.thingTypeName !== null
         ? output.thingTypeName
         : undefined,
     thingTypeProperties:
-      output.thingTypeProperties !== undefined &&
-      output.thingTypeProperties !== null
-        ? deserializeAws_restJson1_1ThingTypeProperties(
-            output.thingTypeProperties,
-            context
-          )
+      output.thingTypeProperties !== undefined && output.thingTypeProperties !== null
+        ? deserializeAws_restJson1_1ThingTypeProperties(output.thingTypeProperties, context)
         : undefined
   } as any;
 };
@@ -36792,9 +33026,7 @@ const deserializeAws_restJson1_1ThingTypeMetadata = (
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
     deprecated:
-      output.deprecated !== undefined && output.deprecated !== null
-        ? output.deprecated
-        : undefined,
+      output.deprecated !== undefined && output.deprecated !== null ? output.deprecated : undefined,
     deprecationDate:
       output.deprecationDate !== undefined && output.deprecationDate !== null
         ? new Date(Math.round(output.deprecationDate * 1000))
@@ -36809,16 +33041,11 @@ const deserializeAws_restJson1_1ThingTypeProperties = (
   return {
     __type: "ThingTypeProperties",
     searchableAttributes:
-      output.searchableAttributes !== undefined &&
-      output.searchableAttributes !== null
-        ? deserializeAws_restJson1_1SearchableAttributes(
-            output.searchableAttributes,
-            context
-          )
+      output.searchableAttributes !== undefined && output.searchableAttributes !== null
+        ? deserializeAws_restJson1_1SearchableAttributes(output.searchableAttributes, context)
         : undefined,
     thingTypeDescription:
-      output.thingTypeDescription !== undefined &&
-      output.thingTypeDescription !== null
+      output.thingTypeDescription !== undefined && output.thingTypeDescription !== null
         ? output.thingTypeDescription
         : undefined
   } as any;
@@ -36831,16 +33058,12 @@ const deserializeAws_restJson1_1AddThingsToThingGroupParams = (
   return {
     __type: "AddThingsToThingGroupParams",
     overrideDynamicGroups:
-      output.overrideDynamicGroups !== undefined &&
-      output.overrideDynamicGroups !== null
+      output.overrideDynamicGroups !== undefined && output.overrideDynamicGroups !== null
         ? output.overrideDynamicGroups
         : undefined,
     thingGroupNames:
       output.thingGroupNames !== undefined && output.thingGroupNames !== null
-        ? deserializeAws_restJson1_1ThingGroupNames(
-            output.thingGroupNames,
-            context
-          )
+        ? deserializeAws_restJson1_1ThingGroupNames(output.thingGroupNames, context)
         : undefined
   } as any;
 };
@@ -36852,12 +33075,9 @@ const deserializeAws_restJson1_1EnableIoTLoggingParams = (
   return {
     __type: "EnableIoTLoggingParams",
     logLevel:
-      output.logLevel !== undefined && output.logLevel !== null
-        ? output.logLevel
-        : undefined,
+      output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
     roleArnForLogging:
-      output.roleArnForLogging !== undefined &&
-      output.roleArnForLogging !== null
+      output.roleArnForLogging !== undefined && output.roleArnForLogging !== null
         ? output.roleArnForLogging
         : undefined
   } as any;
@@ -36871,20 +33091,11 @@ const deserializeAws_restJson1_1MitigationAction = (
     __type: "MitigationAction",
     actionParams:
       output.actionParams !== undefined && output.actionParams !== null
-        ? deserializeAws_restJson1_1MitigationActionParams(
-            output.actionParams,
-            context
-          )
+        ? deserializeAws_restJson1_1MitigationActionParams(output.actionParams, context)
         : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -36895,13 +33106,9 @@ const deserializeAws_restJson1_1MitigationActionIdentifier = (
   return {
     __type: "MitigationActionIdentifier",
     actionArn:
-      output.actionArn !== undefined && output.actionArn !== null
-        ? output.actionArn
-        : undefined,
+      output.actionArn !== undefined && output.actionArn !== null ? output.actionArn : undefined,
     actionName:
-      output.actionName !== undefined && output.actionName !== null
-        ? output.actionName
-        : undefined,
+      output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -36942,16 +33149,11 @@ const deserializeAws_restJson1_1MitigationActionParams = (
           )
         : undefined,
     enableIoTLoggingParams:
-      output.enableIoTLoggingParams !== undefined &&
-      output.enableIoTLoggingParams !== null
-        ? deserializeAws_restJson1_1EnableIoTLoggingParams(
-            output.enableIoTLoggingParams,
-            context
-          )
+      output.enableIoTLoggingParams !== undefined && output.enableIoTLoggingParams !== null
+        ? deserializeAws_restJson1_1EnableIoTLoggingParams(output.enableIoTLoggingParams, context)
         : undefined,
     publishFindingToSnsParams:
-      output.publishFindingToSnsParams !== undefined &&
-      output.publishFindingToSnsParams !== null
+      output.publishFindingToSnsParams !== undefined && output.publishFindingToSnsParams !== null
         ? deserializeAws_restJson1_1PublishFindingToSnsParams(
             output.publishFindingToSnsParams,
             context
@@ -36966,8 +33168,7 @@ const deserializeAws_restJson1_1MitigationActionParams = (
           )
         : undefined,
     updateCACertificateParams:
-      output.updateCACertificateParams !== undefined &&
-      output.updateCACertificateParams !== null
+      output.updateCACertificateParams !== undefined && output.updateCACertificateParams !== null
         ? deserializeAws_restJson1_1UpdateCACertificateParams(
             output.updateCACertificateParams,
             context
@@ -36991,9 +33192,7 @@ const deserializeAws_restJson1_1PublishFindingToSnsParams = (
   return {
     __type: "PublishFindingToSnsParams",
     topicArn:
-      output.topicArn !== undefined && output.topicArn !== null
-        ? output.topicArn
-        : undefined
+      output.topicArn !== undefined && output.topicArn !== null ? output.topicArn : undefined
   } as any;
 };
 
@@ -37023,10 +33222,7 @@ const deserializeAws_restJson1_1UpdateCACertificateParams = (
 ): UpdateCACertificateParams => {
   return {
     __type: "UpdateCACertificateParams",
-    action:
-      output.action !== undefined && output.action !== null
-        ? output.action
-        : undefined
+    action: output.action !== undefined && output.action !== null ? output.action : undefined
   } as any;
 };
 
@@ -37036,10 +33232,7 @@ const deserializeAws_restJson1_1UpdateDeviceCertificateParams = (
 ): UpdateDeviceCertificateParams => {
   return {
     __type: "UpdateDeviceCertificateParams",
-    action:
-      output.action !== undefined && output.action !== null
-        ? output.action
-        : undefined
+    action: output.action !== undefined && output.action !== null ? output.action : undefined
   } as any;
 };
 
@@ -37049,10 +33242,7 @@ const deserializeAws_restJson1_1AuditCheckConfiguration = (
 ): AuditCheckConfiguration => {
   return {
     __type: "AuditCheckConfiguration",
-    enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined
   } as any;
 };
 
@@ -37061,10 +33251,7 @@ const deserializeAws_restJson1_1AuditCheckConfigurations = (
   context: __SerdeContext
 ): { [key: string]: AuditCheckConfiguration } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: AuditCheckConfiguration },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: AuditCheckConfiguration }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1AuditCheckConfiguration(value, context)
     }),
@@ -37087,21 +33274,14 @@ const deserializeAws_restJson1_1AuditCheckDetails = (
         ? output.checkRunStatus
         : undefined,
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     nonCompliantResourcesCount:
-      output.nonCompliantResourcesCount !== undefined &&
-      output.nonCompliantResourcesCount !== null
+      output.nonCompliantResourcesCount !== undefined && output.nonCompliantResourcesCount !== null
         ? output.nonCompliantResourcesCount
         : undefined,
     totalResourcesCount:
-      output.totalResourcesCount !== undefined &&
-      output.totalResourcesCount !== null
+      output.totalResourcesCount !== undefined && output.totalResourcesCount !== null
         ? output.totalResourcesCount
         : undefined
   } as any;
@@ -37127,10 +33307,7 @@ const deserializeAws_restJson1_1AuditCheckToReasonCodeFilter = (
   return Object.entries(output).reduce(
     (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: deserializeAws_restJson1_1ReasonForNonComplianceCodes(
-        value,
-        context
-      )
+      [key]: deserializeAws_restJson1_1ReasonForNonComplianceCodes(value, context)
     }),
     {}
   );
@@ -37141,10 +33318,7 @@ const deserializeAws_restJson1_1AuditDetails = (
   context: __SerdeContext
 ): { [key: string]: AuditCheckDetails } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: AuditCheckDetails },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: AuditCheckDetails }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1AuditCheckDetails(value, context)
     }),
@@ -37159,50 +33333,32 @@ const deserializeAws_restJson1_1AuditFinding = (
   return {
     __type: "AuditFinding",
     checkName:
-      output.checkName !== undefined && output.checkName !== null
-        ? output.checkName
-        : undefined,
+      output.checkName !== undefined && output.checkName !== null ? output.checkName : undefined,
     findingId:
-      output.findingId !== undefined && output.findingId !== null
-        ? output.findingId
-        : undefined,
+      output.findingId !== undefined && output.findingId !== null ? output.findingId : undefined,
     findingTime:
       output.findingTime !== undefined && output.findingTime !== null
         ? new Date(Math.round(output.findingTime * 1000))
         : undefined,
     nonCompliantResource:
-      output.nonCompliantResource !== undefined &&
-      output.nonCompliantResource !== null
-        ? deserializeAws_restJson1_1NonCompliantResource(
-            output.nonCompliantResource,
-            context
-          )
+      output.nonCompliantResource !== undefined && output.nonCompliantResource !== null
+        ? deserializeAws_restJson1_1NonCompliantResource(output.nonCompliantResource, context)
         : undefined,
     reasonForNonCompliance:
-      output.reasonForNonCompliance !== undefined &&
-      output.reasonForNonCompliance !== null
+      output.reasonForNonCompliance !== undefined && output.reasonForNonCompliance !== null
         ? output.reasonForNonCompliance
         : undefined,
     reasonForNonComplianceCode:
-      output.reasonForNonComplianceCode !== undefined &&
-      output.reasonForNonComplianceCode !== null
+      output.reasonForNonComplianceCode !== undefined && output.reasonForNonComplianceCode !== null
         ? output.reasonForNonComplianceCode
         : undefined,
     relatedResources:
       output.relatedResources !== undefined && output.relatedResources !== null
-        ? deserializeAws_restJson1_1RelatedResources(
-            output.relatedResources,
-            context
-          )
+        ? deserializeAws_restJson1_1RelatedResources(output.relatedResources, context)
         : undefined,
     severity:
-      output.severity !== undefined && output.severity !== null
-        ? output.severity
-        : undefined,
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined,
+      output.severity !== undefined && output.severity !== null ? output.severity : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
     taskStartTime:
       output.taskStartTime !== undefined && output.taskStartTime !== null
         ? new Date(Math.round(output.taskStartTime * 1000))
@@ -37214,9 +33370,7 @@ const deserializeAws_restJson1_1AuditFindings = (
   output: any,
   context: __SerdeContext
 ): AuditFinding[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AuditFinding(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AuditFinding(entry, context));
 };
 
 const deserializeAws_restJson1_1AuditMitigationActionExecutionMetadata = (
@@ -37226,41 +33380,24 @@ const deserializeAws_restJson1_1AuditMitigationActionExecutionMetadata = (
   return {
     __type: "AuditMitigationActionExecutionMetadata",
     actionId:
-      output.actionId !== undefined && output.actionId !== null
-        ? output.actionId
-        : undefined,
+      output.actionId !== undefined && output.actionId !== null ? output.actionId : undefined,
     actionName:
-      output.actionName !== undefined && output.actionName !== null
-        ? output.actionName
-        : undefined,
+      output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null
         ? new Date(Math.round(output.endTime * 1000))
         : undefined,
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     findingId:
-      output.findingId !== undefined && output.findingId !== null
-        ? output.findingId
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+      output.findingId !== undefined && output.findingId !== null ? output.findingId : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined
   } as any;
 };
 
@@ -37269,10 +33406,7 @@ const deserializeAws_restJson1_1AuditMitigationActionExecutionMetadataList = (
   context: __SerdeContext
 ): AuditMitigationActionExecutionMetadata[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AuditMitigationActionExecutionMetadata(
-      entry,
-      context
-    )
+    deserializeAws_restJson1_1AuditMitigationActionExecutionMetadata(entry, context)
   );
 };
 
@@ -37286,14 +33420,9 @@ const deserializeAws_restJson1_1AuditMitigationActionsTaskMetadata = (
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
     taskStatus:
-      output.taskStatus !== undefined && output.taskStatus !== null
-        ? output.taskStatus
-        : undefined
+      output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined
   } as any;
 };
 
@@ -37311,15 +33440,9 @@ const deserializeAws_restJson1_1AuditMitigationActionsTaskStatistics = (
   context: __SerdeContext
 ): { [key: string]: TaskStatisticsForAuditCheck } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: TaskStatisticsForAuditCheck },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: TaskStatisticsForAuditCheck }, [key, value]: [string, any]) => ({
       ...acc,
-      [key]: deserializeAws_restJson1_1TaskStatisticsForAuditCheck(
-        value,
-        context
-      )
+      [key]: deserializeAws_restJson1_1TaskStatisticsForAuditCheck(value, context)
     }),
     {}
   );
@@ -37356,18 +33479,10 @@ const deserializeAws_restJson1_1AuditNotificationTarget = (
 ): AuditNotificationTarget => {
   return {
     __type: "AuditNotificationTarget",
-    enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     targetArn:
-      output.targetArn !== undefined && output.targetArn !== null
-        ? output.targetArn
-        : undefined
+      output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined
   } as any;
 };
 
@@ -37393,18 +33508,11 @@ const deserializeAws_restJson1_1AuditTaskMetadata = (
 ): AuditTaskMetadata => {
   return {
     __type: "AuditTaskMetadata",
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
     taskStatus:
-      output.taskStatus !== undefined && output.taskStatus !== null
-        ? output.taskStatus
-        : undefined,
+      output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
     taskType:
-      output.taskType !== undefined && output.taskType !== null
-        ? output.taskType
-        : undefined
+      output.taskType !== undefined && output.taskType !== null ? output.taskType : undefined
   } as any;
 };
 
@@ -37417,10 +33525,7 @@ const deserializeAws_restJson1_1AuditTaskMetadataList = (
   );
 };
 
-const deserializeAws_restJson1_1FindingIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1FindingIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -37442,12 +33547,8 @@ const deserializeAws_restJson1_1NonCompliantResource = (
         ? deserializeAws_restJson1_1StringMap(output.additionalInfo, context)
         : undefined,
     resourceIdentifier:
-      output.resourceIdentifier !== undefined &&
-      output.resourceIdentifier !== null
-        ? deserializeAws_restJson1_1ResourceIdentifier(
-            output.resourceIdentifier,
-            context
-          )
+      output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
+        ? deserializeAws_restJson1_1ResourceIdentifier(output.resourceIdentifier, context)
         : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
@@ -37463,9 +33564,7 @@ const deserializeAws_restJson1_1PolicyVersionIdentifier = (
   return {
     __type: "PolicyVersionIdentifier",
     policyName:
-      output.policyName !== undefined && output.policyName !== null
-        ? output.policyName
-        : undefined,
+      output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
     policyVersionId:
       output.policyVersionId !== undefined && output.policyVersionId !== null
         ? output.policyVersionId
@@ -37491,12 +33590,8 @@ const deserializeAws_restJson1_1RelatedResource = (
         ? deserializeAws_restJson1_1StringMap(output.additionalInfo, context)
         : undefined,
     resourceIdentifier:
-      output.resourceIdentifier !== undefined &&
-      output.resourceIdentifier !== null
-        ? deserializeAws_restJson1_1ResourceIdentifier(
-            output.resourceIdentifier,
-            context
-          )
+      output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
+        ? deserializeAws_restJson1_1ResourceIdentifier(output.resourceIdentifier, context)
         : undefined,
     resourceType:
       output.resourceType !== undefined && output.resourceType !== null
@@ -37520,39 +33615,26 @@ const deserializeAws_restJson1_1ResourceIdentifier = (
 ): ResourceIdentifier => {
   return {
     __type: "ResourceIdentifier",
-    account:
-      output.account !== undefined && output.account !== null
-        ? output.account
-        : undefined,
+    account: output.account !== undefined && output.account !== null ? output.account : undefined,
     caCertificateId:
       output.caCertificateId !== undefined && output.caCertificateId !== null
         ? output.caCertificateId
         : undefined,
     clientId:
-      output.clientId !== undefined && output.clientId !== null
-        ? output.clientId
-        : undefined,
+      output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
     cognitoIdentityPoolId:
-      output.cognitoIdentityPoolId !== undefined &&
-      output.cognitoIdentityPoolId !== null
+      output.cognitoIdentityPoolId !== undefined && output.cognitoIdentityPoolId !== null
         ? output.cognitoIdentityPoolId
         : undefined,
     deviceCertificateId:
-      output.deviceCertificateId !== undefined &&
-      output.deviceCertificateId !== null
+      output.deviceCertificateId !== undefined && output.deviceCertificateId !== null
         ? output.deviceCertificateId
         : undefined,
     iamRoleArn:
-      output.iamRoleArn !== undefined && output.iamRoleArn !== null
-        ? output.iamRoleArn
-        : undefined,
+      output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
     policyVersionIdentifier:
-      output.policyVersionIdentifier !== undefined &&
-      output.policyVersionIdentifier !== null
-        ? deserializeAws_restJson1_1PolicyVersionIdentifier(
-            output.policyVersionIdentifier,
-            context
-          )
+      output.policyVersionIdentifier !== undefined && output.policyVersionIdentifier !== null
+        ? deserializeAws_restJson1_1PolicyVersionIdentifier(output.policyVersionIdentifier, context)
         : undefined,
     roleAliasArn:
       output.roleAliasArn !== undefined && output.roleAliasArn !== null
@@ -37568,25 +33650,17 @@ const deserializeAws_restJson1_1ScheduledAuditMetadata = (
   return {
     __type: "ScheduledAuditMetadata",
     dayOfMonth:
-      output.dayOfMonth !== undefined && output.dayOfMonth !== null
-        ? output.dayOfMonth
-        : undefined,
+      output.dayOfMonth !== undefined && output.dayOfMonth !== null ? output.dayOfMonth : undefined,
     dayOfWeek:
-      output.dayOfWeek !== undefined && output.dayOfWeek !== null
-        ? output.dayOfWeek
-        : undefined,
+      output.dayOfWeek !== undefined && output.dayOfWeek !== null ? output.dayOfWeek : undefined,
     frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined,
+      output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
     scheduledAuditArn:
-      output.scheduledAuditArn !== undefined &&
-      output.scheduledAuditArn !== null
+      output.scheduledAuditArn !== undefined && output.scheduledAuditArn !== null
         ? output.scheduledAuditArn
         : undefined,
     scheduledAuditName:
-      output.scheduledAuditName !== undefined &&
-      output.scheduledAuditName !== null
+      output.scheduledAuditName !== undefined && output.scheduledAuditName !== null
         ? output.scheduledAuditName
         : undefined
   } as any;
@@ -37644,8 +33718,7 @@ const deserializeAws_restJson1_1TaskStatistics = (
         ? output.inProgressChecks
         : undefined,
     nonCompliantChecks:
-      output.nonCompliantChecks !== undefined &&
-      output.nonCompliantChecks !== null
+      output.nonCompliantChecks !== undefined && output.nonCompliantChecks !== null
         ? output.nonCompliantChecks
         : undefined,
     totalChecks:
@@ -37667,28 +33740,23 @@ const deserializeAws_restJson1_1TaskStatisticsForAuditCheck = (
   return {
     __type: "TaskStatisticsForAuditCheck",
     canceledFindingsCount:
-      output.canceledFindingsCount !== undefined &&
-      output.canceledFindingsCount !== null
+      output.canceledFindingsCount !== undefined && output.canceledFindingsCount !== null
         ? output.canceledFindingsCount
         : undefined,
     failedFindingsCount:
-      output.failedFindingsCount !== undefined &&
-      output.failedFindingsCount !== null
+      output.failedFindingsCount !== undefined && output.failedFindingsCount !== null
         ? output.failedFindingsCount
         : undefined,
     skippedFindingsCount:
-      output.skippedFindingsCount !== undefined &&
-      output.skippedFindingsCount !== null
+      output.skippedFindingsCount !== undefined && output.skippedFindingsCount !== null
         ? output.skippedFindingsCount
         : undefined,
     succeededFindingsCount:
-      output.succeededFindingsCount !== undefined &&
-      output.succeededFindingsCount !== null
+      output.succeededFindingsCount !== undefined && output.succeededFindingsCount !== null
         ? output.succeededFindingsCount
         : undefined,
     totalFindingsCount:
-      output.totalFindingsCount !== undefined &&
-      output.totalFindingsCount !== null
+      output.totalFindingsCount !== undefined && output.totalFindingsCount !== null
         ? output.totalFindingsCount
         : undefined
   } as any;
@@ -37705,34 +33773,25 @@ const deserializeAws_restJson1_1ActiveViolation = (
         ? deserializeAws_restJson1_1Behavior(output.behavior, context)
         : undefined,
     lastViolationTime:
-      output.lastViolationTime !== undefined &&
-      output.lastViolationTime !== null
+      output.lastViolationTime !== undefined && output.lastViolationTime !== null
         ? new Date(Math.round(output.lastViolationTime * 1000))
         : undefined,
     lastViolationValue:
-      output.lastViolationValue !== undefined &&
-      output.lastViolationValue !== null
-        ? deserializeAws_restJson1_1MetricValue(
-            output.lastViolationValue,
-            context
-          )
+      output.lastViolationValue !== undefined && output.lastViolationValue !== null
+        ? deserializeAws_restJson1_1MetricValue(output.lastViolationValue, context)
         : undefined,
     securityProfileName:
-      output.securityProfileName !== undefined &&
-      output.securityProfileName !== null
+      output.securityProfileName !== undefined && output.securityProfileName !== null
         ? output.securityProfileName
         : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined,
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
     violationId:
       output.violationId !== undefined && output.violationId !== null
         ? output.violationId
         : undefined,
     violationStartTime:
-      output.violationStartTime !== undefined &&
-      output.violationStartTime !== null
+      output.violationStartTime !== undefined && output.violationStartTime !== null
         ? new Date(Math.round(output.violationStartTime * 1000))
         : undefined
   } as any;
@@ -37764,10 +33823,7 @@ const deserializeAws_restJson1_1AlertTarget = (
       output.alertTargetArn !== undefined && output.alertTargetArn !== null
         ? output.alertTargetArn
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -37776,10 +33832,7 @@ const deserializeAws_restJson1_1AlertTargets = (
   context: __SerdeContext
 ): { [key: string]: AlertTarget } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: AlertTarget },
-      [key, value]: [AlertTargetType | string, any]
-    ) => ({
+    (acc: { [key: string]: AlertTarget }, [key, value]: [AlertTargetType | string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1AlertTarget(value, context)
     }),
@@ -37787,24 +33840,15 @@ const deserializeAws_restJson1_1AlertTargets = (
   );
 };
 
-const deserializeAws_restJson1_1Behavior = (
-  output: any,
-  context: __SerdeContext
-): Behavior => {
+const deserializeAws_restJson1_1Behavior = (output: any, context: __SerdeContext): Behavior => {
   return {
     __type: "Behavior",
     criteria:
       output.criteria !== undefined && output.criteria !== null
         ? deserializeAws_restJson1_1BehaviorCriteria(output.criteria, context)
         : undefined,
-    metric:
-      output.metric !== undefined && output.metric !== null
-        ? output.metric
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -37815,8 +33859,7 @@ const deserializeAws_restJson1_1BehaviorCriteria = (
   return {
     __type: "BehaviorCriteria",
     comparisonOperator:
-      output.comparisonOperator !== undefined &&
-      output.comparisonOperator !== null
+      output.comparisonOperator !== undefined && output.comparisonOperator !== null
         ? output.comparisonOperator
         : undefined,
     consecutiveDatapointsToAlarm:
@@ -37834,12 +33877,8 @@ const deserializeAws_restJson1_1BehaviorCriteria = (
         ? output.durationSeconds
         : undefined,
     statisticalThreshold:
-      output.statisticalThreshold !== undefined &&
-      output.statisticalThreshold !== null
-        ? deserializeAws_restJson1_1StatisticalThreshold(
-            output.statisticalThreshold,
-            context
-          )
+      output.statisticalThreshold !== undefined && output.statisticalThreshold !== null
+        ? deserializeAws_restJson1_1StatisticalThreshold(output.statisticalThreshold, context)
         : undefined,
     value:
       output.value !== undefined && output.value !== null
@@ -37848,19 +33887,11 @@ const deserializeAws_restJson1_1BehaviorCriteria = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Behaviors = (
-  output: any,
-  context: __SerdeContext
-): Behavior[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Behavior(entry, context)
-  );
+const deserializeAws_restJson1_1Behaviors = (output: any, context: __SerdeContext): Behavior[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Behavior(entry, context));
 };
 
-const deserializeAws_restJson1_1Cidrs = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Cidrs = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -37874,10 +33905,7 @@ const deserializeAws_restJson1_1MetricValue = (
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_restJson1_1Cidrs(output.cidrs, context)
         : undefined,
-    count:
-      output.count !== undefined && output.count !== null
-        ? output.count
-        : undefined,
+    count: output.count !== undefined && output.count !== null ? output.count : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
         ? deserializeAws_restJson1_1Ports(output.ports, context)
@@ -37885,10 +33913,7 @@ const deserializeAws_restJson1_1MetricValue = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Ports = (
-  output: any,
-  context: __SerdeContext
-): number[] => {
+const deserializeAws_restJson1_1Ports = (output: any, context: __SerdeContext): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -37898,12 +33923,8 @@ const deserializeAws_restJson1_1SecurityProfileIdentifier = (
 ): SecurityProfileIdentifier => {
   return {
     __type: "SecurityProfileIdentifier",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -37922,8 +33943,7 @@ const deserializeAws_restJson1_1SecurityProfileTarget = (
 ): SecurityProfileTarget => {
   return {
     __type: "SecurityProfileTarget",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined
   } as any;
 };
 
@@ -37934,8 +33954,7 @@ const deserializeAws_restJson1_1SecurityProfileTargetMapping = (
   return {
     __type: "SecurityProfileTargetMapping",
     securityProfileIdentifier:
-      output.securityProfileIdentifier !== undefined &&
-      output.securityProfileIdentifier !== null
+      output.securityProfileIdentifier !== undefined && output.securityProfileIdentifier !== null
         ? deserializeAws_restJson1_1SecurityProfileIdentifier(
             output.securityProfileIdentifier,
             context
@@ -37943,10 +33962,7 @@ const deserializeAws_restJson1_1SecurityProfileTargetMapping = (
         : undefined,
     target:
       output.target !== undefined && output.target !== null
-        ? deserializeAws_restJson1_1SecurityProfileTarget(
-            output.target,
-            context
-          )
+        ? deserializeAws_restJson1_1SecurityProfileTarget(output.target, context)
         : undefined
   } as any;
 };
@@ -37976,9 +33992,7 @@ const deserializeAws_restJson1_1StatisticalThreshold = (
   return {
     __type: "StatisticalThreshold",
     statistic:
-      output.statistic !== undefined && output.statistic !== null
-        ? output.statistic
-        : undefined
+      output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined
   } as any;
 };
 
@@ -38019,22 +34033,17 @@ const deserializeAws_restJson1_1ViolationEvent = (
         ? deserializeAws_restJson1_1MetricValue(output.metricValue, context)
         : undefined,
     securityProfileName:
-      output.securityProfileName !== undefined &&
-      output.securityProfileName !== null
+      output.securityProfileName !== undefined && output.securityProfileName !== null
         ? output.securityProfileName
         : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined,
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
     violationEventTime:
-      output.violationEventTime !== undefined &&
-      output.violationEventTime !== null
+      output.violationEventTime !== undefined && output.violationEventTime !== null
         ? new Date(Math.round(output.violationEventTime * 1000))
         : undefined,
     violationEventType:
-      output.violationEventType !== undefined &&
-      output.violationEventType !== null
+      output.violationEventType !== undefined && output.violationEventType !== null
         ? output.violationEventType
         : undefined,
     violationId:
@@ -38053,16 +34062,10 @@ const deserializeAws_restJson1_1ViolationEvents = (
   );
 };
 
-const deserializeAws_restJson1_1StreamFile = (
-  output: any,
-  context: __SerdeContext
-): StreamFile => {
+const deserializeAws_restJson1_1StreamFile = (output: any, context: __SerdeContext): StreamFile => {
   return {
     __type: "StreamFile",
-    fileId:
-      output.fileId !== undefined && output.fileId !== null
-        ? output.fileId
-        : undefined,
+    fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_restJson1_1S3Location(output.s3Location, context)
@@ -38074,15 +34077,10 @@ const deserializeAws_restJson1_1StreamFiles = (
   output: any,
   context: __SerdeContext
 ): StreamFile[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1StreamFile(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1StreamFile(entry, context));
 };
 
-const deserializeAws_restJson1_1StreamInfo = (
-  output: any,
-  context: __SerdeContext
-): StreamInfo => {
+const deserializeAws_restJson1_1StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
   return {
     __type: "StreamInfo",
     createdAt:
@@ -38101,18 +34099,11 @@ const deserializeAws_restJson1_1StreamInfo = (
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     streamArn:
-      output.streamArn !== undefined && output.streamArn !== null
-        ? output.streamArn
-        : undefined,
+      output.streamArn !== undefined && output.streamArn !== null ? output.streamArn : undefined,
     streamId:
-      output.streamId !== undefined && output.streamId !== null
-        ? output.streamId
-        : undefined,
+      output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
     streamVersion:
       output.streamVersion !== undefined && output.streamVersion !== null
         ? output.streamVersion
@@ -38131,13 +34122,9 @@ const deserializeAws_restJson1_1StreamSummary = (
         ? output.description
         : undefined,
     streamArn:
-      output.streamArn !== undefined && output.streamArn !== null
-        ? output.streamArn
-        : undefined,
+      output.streamArn !== undefined && output.streamArn !== null ? output.streamArn : undefined,
     streamId:
-      output.streamId !== undefined && output.streamId !== null
-        ? output.streamId
-        : undefined,
+      output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
     streamVersion:
       output.streamVersion !== undefined && output.streamVersion !== null
         ? output.streamVersion
@@ -38154,22 +34141,12 @@ const deserializeAws_restJson1_1StreamsSummary = (
   );
 };
 
-const deserializeAws_restJson1_1S3Location = (
-  output: any,
-  context: __SerdeContext
-): S3Location => {
+const deserializeAws_restJson1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     __type: "S3Location",
-    bucket:
-      output.bucket !== undefined && output.bucket !== null
-        ? output.bucket
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -38187,23 +34164,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  AssociateCustomerGatewayRequest,
-  AssociateCustomerGatewayResponse
-} from "../models/index";
+import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateCustomerGatewayCommand,
   serializeAws_restJson1_1AssociateCustomerGatewayCommand
@@ -49,13 +46,8 @@ export class AssociateCustomerGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateCustomerGatewayCommandInput,
-    AssociateCustomerGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateCustomerGatewayCommandInput, AssociateCustomerGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class AssociateCustomerGatewayCommand extends $Command<
     input: AssociateCustomerGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateCustomerGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateCustomerGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1_1AssociateCustomerGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

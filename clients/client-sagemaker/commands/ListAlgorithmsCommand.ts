@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAlgorithmsCommandInput = ListAlgorithmsInput;
-export type ListAlgorithmsCommandOutput = ListAlgorithmsOutput &
-  __MetadataBearer;
+export type ListAlgorithmsCommandOutput = ListAlgorithmsOutput & __MetadataBearer;
 
 export class ListAlgorithmsCommand extends $Command<
   ListAlgorithmsCommandInput,
@@ -47,9 +46,7 @@ export class ListAlgorithmsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

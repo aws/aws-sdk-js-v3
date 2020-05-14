@@ -308,9 +308,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public attachInstances(
     args: AttachInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachInstancesCommandOutput) => void),
     cb?: (err: any, data?: AttachInstancesCommandOutput) => void
   ): Promise<AttachInstancesCommandOutput> | void {
     const command = new AttachInstancesCommand(args);
@@ -352,10 +350,7 @@ export class AutoScaling extends AutoScalingClient {
     args: AttachLoadBalancerTargetGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AttachLoadBalancerTargetGroupsCommandOutput
-        ) => void),
+      | ((err: any, data?: AttachLoadBalancerTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: AttachLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new AttachLoadBalancerTargetGroupsCommand(args);
@@ -457,31 +452,19 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput>;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
-    cb: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): void;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): void;
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchPutScheduledUpdateGroupActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchPutScheduledUpdateGroupActionCommandOutput
-    ) => void
+      | ((err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void),
+    cb?: (err: any, data?: BatchPutScheduledUpdateGroupActionCommandOutput) => void
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> | void {
     const command = new BatchPutScheduledUpdateGroupActionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -820,10 +803,7 @@ export class AutoScaling extends AutoScalingClient {
     args: DeleteNotificationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNotificationConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteNotificationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationConfigurationCommandOutput) => void
   ): Promise<DeleteNotificationConfigurationCommandOutput> | void {
     const command = new DeleteNotificationConfigurationCommand(args);
@@ -861,9 +841,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
@@ -931,9 +909,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -1099,31 +1075,19 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput>;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): void;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): void;
   public describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAutoScalingNotificationTypesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAutoScalingNotificationTypesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutoScalingNotificationTypesCommandOutput) => void
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> | void {
     const command = new DescribeAutoScalingNotificationTypesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1271,14 +1235,8 @@ export class AutoScaling extends AutoScalingClient {
     args: DescribeLoadBalancerTargetGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerTargetGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeLoadBalancerTargetGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeLoadBalancerTargetGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new DescribeLoadBalancerTargetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1375,31 +1333,19 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<DescribeNotificationConfigurationsCommandOutput>;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): void;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): void;
   public describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNotificationConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotificationConfigurationsCommandOutput) => void
   ): Promise<DescribeNotificationConfigurationsCommandOutput> | void {
     const command = new DescribeNotificationConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1431,9 +1377,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describePolicies(
     args: DescribePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePoliciesCommandOutput) => void),
     cb?: (err: any, data?: DescribePoliciesCommandOutput) => void
   ): Promise<DescribePoliciesCommandOutput> | void {
     const command = new DescribePoliciesCommand(args);
@@ -1579,9 +1523,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -1619,10 +1561,7 @@ export class AutoScaling extends AutoScalingClient {
     args: DescribeTerminationPolicyTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTerminationPolicyTypesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeTerminationPolicyTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTerminationPolicyTypesCommandOutput) => void
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> | void {
     const command = new DescribeTerminationPolicyTypesCommand(args);
@@ -1664,9 +1603,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public detachInstances(
     args: DetachInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachInstancesCommandOutput) => void),
     cb?: (err: any, data?: DetachInstancesCommandOutput) => void
   ): Promise<DetachInstancesCommandOutput> | void {
     const command = new DetachInstancesCommand(args);
@@ -1701,10 +1638,7 @@ export class AutoScaling extends AutoScalingClient {
     args: DetachLoadBalancerTargetGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DetachLoadBalancerTargetGroupsCommandOutput
-        ) => void),
+      | ((err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DetachLoadBalancerTargetGroupsCommandOutput) => void
   ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> | void {
     const command = new DetachLoadBalancerTargetGroupsCommand(args);
@@ -1858,9 +1792,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public enterStandby(
     args: EnterStandbyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnterStandbyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnterStandbyCommandOutput) => void),
     cb?: (err: any, data?: EnterStandbyCommandOutput) => void
   ): Promise<EnterStandbyCommandOutput> | void {
     const command = new EnterStandbyCommand(args);
@@ -1893,9 +1825,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public executePolicy(
     args: ExecutePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecutePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecutePolicyCommandOutput) => void),
     cb?: (err: any, data?: ExecutePolicyCommandOutput) => void
   ): Promise<ExecutePolicyCommandOutput> | void {
     const command = new ExecutePolicyCommand(args);
@@ -1933,9 +1863,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public exitStandby(
     args: ExitStandbyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExitStandbyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExitStandbyCommandOutput) => void),
     cb?: (err: any, data?: ExitStandbyCommandOutput) => void
   ): Promise<ExitStandbyCommandOutput> | void {
     const command = new ExitStandbyCommand(args);
@@ -2006,9 +1934,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putLifecycleHook(
     args: PutLifecycleHookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecycleHookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecycleHookCommandOutput) => void),
     cb?: (err: any, data?: PutLifecycleHookCommandOutput) => void
   ): Promise<PutLifecycleHookCommandOutput> | void {
     const command = new PutLifecycleHookCommand(args);
@@ -2088,9 +2014,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
@@ -2196,10 +2120,7 @@ export class AutoScaling extends AutoScalingClient {
     args: RecordLifecycleActionHeartbeatCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RecordLifecycleActionHeartbeatCommandOutput
-        ) => void),
+      | ((err: any, data?: RecordLifecycleActionHeartbeatCommandOutput) => void),
     cb?: (err: any, data?: RecordLifecycleActionHeartbeatCommandOutput) => void
   ): Promise<RecordLifecycleActionHeartbeatCommandOutput> | void {
     const command = new RecordLifecycleActionHeartbeatCommand(args);
@@ -2235,9 +2156,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public resumeProcesses(
     args: ResumeProcessesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResumeProcessesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeProcessesCommandOutput) => void),
     cb?: (err: any, data?: ResumeProcessesCommandOutput) => void
   ): Promise<ResumeProcessesCommandOutput> | void {
     const command = new ResumeProcessesCommand(args);
@@ -2387,9 +2306,7 @@ export class AutoScaling extends AutoScalingClient {
   ): void;
   public suspendProcesses(
     args: SuspendProcessesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SuspendProcessesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuspendProcessesCommandOutput) => void),
     cb?: (err: any, data?: SuspendProcessesCommandOutput) => void
   ): Promise<SuspendProcessesCommandOutput> | void {
     const command = new SuspendProcessesCommand(args);
@@ -2416,31 +2333,19 @@ export class AutoScaling extends AutoScalingClient {
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput>;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
-    cb: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): void;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): void;
   public terminateInstanceInAutoScalingGroup(
     args: TerminateInstanceInAutoScalingGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: TerminateInstanceInAutoScalingGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: TerminateInstanceInAutoScalingGroupCommandOutput
-    ) => void
+      | ((err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void),
+    cb?: (err: any, data?: TerminateInstanceInAutoScalingGroupCommandOutput) => void
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> | void {
     const command = new TerminateInstanceInAutoScalingGroupCommand(args);
     if (typeof optionsOrCb === "function") {

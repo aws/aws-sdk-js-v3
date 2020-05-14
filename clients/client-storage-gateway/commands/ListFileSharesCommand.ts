@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFileSharesCommandInput = ListFileSharesInput;
-export type ListFileSharesCommandOutput = ListFileSharesOutput &
-  __MetadataBearer;
+export type ListFileSharesCommandOutput = ListFileSharesOutput & __MetadataBearer;
 
 export class ListFileSharesCommand extends $Command<
   ListFileSharesCommandInput,
@@ -47,9 +46,7 @@ export class ListFileSharesCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFileSharesCommandInput, ListFileSharesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

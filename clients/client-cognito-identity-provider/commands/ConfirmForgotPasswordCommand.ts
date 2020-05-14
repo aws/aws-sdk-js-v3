@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  ConfirmForgotPasswordRequest,
-  ConfirmForgotPasswordResponse
-} from "../models/index";
+import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/index";
 import {
   deserializeAws_json1_1ConfirmForgotPasswordCommand,
   serializeAws_json1_1ConfirmForgotPasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmForgotPasswordCommandInput = ConfirmForgotPasswordRequest;
-export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse &
-  __MetadataBearer;
+export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse & __MetadataBearer;
 
 export class ConfirmForgotPasswordCommand extends $Command<
   ConfirmForgotPasswordCommandInput,
@@ -49,13 +45,8 @@ export class ConfirmForgotPasswordCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfirmForgotPasswordCommandInput,
-    ConfirmForgotPasswordCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfirmForgotPasswordCommandInput, ConfirmForgotPasswordCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

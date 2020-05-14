@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CancelCertificateTransferRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelCertificateTransferCommand,
@@ -45,13 +41,8 @@ export class CancelCertificateTransferCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelCertificateTransferCommandInput,
-    CancelCertificateTransferCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelCertificateTransferCommandInput, CancelCertificateTransferCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class CancelCertificateTransferCommand extends $Command<
     input: CancelCertificateTransferCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelCertificateTransferCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CancelCertificateTransferCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1_1CancelCertificateTransferCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

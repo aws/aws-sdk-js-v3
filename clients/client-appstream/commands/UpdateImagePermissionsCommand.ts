@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  UpdateImagePermissionsRequest,
-  UpdateImagePermissionsResult
-} from "../models/index";
+import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateImagePermissionsCommand,
   serializeAws_json1_1UpdateImagePermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateImagePermissionsCommandInput = UpdateImagePermissionsRequest;
-export type UpdateImagePermissionsCommandOutput = UpdateImagePermissionsResult &
-  __MetadataBearer;
+export type UpdateImagePermissionsCommandOutput = UpdateImagePermissionsResult & __MetadataBearer;
 
 export class UpdateImagePermissionsCommand extends $Command<
   UpdateImagePermissionsCommandInput,
@@ -49,13 +45,8 @@ export class UpdateImagePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateImagePermissionsCommandInput,
-    UpdateImagePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateImagePermissionsCommandInput, UpdateImagePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

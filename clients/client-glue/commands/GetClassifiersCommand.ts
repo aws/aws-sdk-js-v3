@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetClassifiersRequest, GetClassifiersResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetClassifiersCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetClassifiersCommandInput = GetClassifiersRequest;
-export type GetClassifiersCommandOutput = GetClassifiersResponse &
-  __MetadataBearer;
+export type GetClassifiersCommandOutput = GetClassifiersResponse & __MetadataBearer;
 
 export class GetClassifiersCommand extends $Command<
   GetClassifiersCommandInput,
@@ -47,9 +42,7 @@ export class GetClassifiersCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetClassifiersCommandInput, GetClassifiersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

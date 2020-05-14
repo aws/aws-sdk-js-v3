@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  UpdateRuleGroupRequest,
-  UpdateRuleGroupResponse
-} from "../models/index";
+import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRuleGroupCommand,
   serializeAws_json1_1UpdateRuleGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRuleGroupCommandInput = UpdateRuleGroupRequest;
-export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse &
-  __MetadataBearer;
+export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse & __MetadataBearer;
 
 export class UpdateRuleGroupCommand extends $Command<
   UpdateRuleGroupCommandInput,
@@ -50,9 +46,7 @@ export class UpdateRuleGroupCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type HttpPayloadTraitsCommandInput = HttpPayloadTraitsInputOutput;
-export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput &
-  __MetadataBearer;
+export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput & __MetadataBearer;
 
 export class HttpPayloadTraitsCommand extends $Command<
   HttpPayloadTraitsCommandInput,
@@ -47,9 +46,7 @@ export class HttpPayloadTraitsCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

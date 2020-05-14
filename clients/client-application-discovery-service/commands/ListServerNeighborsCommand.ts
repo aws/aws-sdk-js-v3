@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  ListServerNeighborsRequest,
-  ListServerNeighborsResponse
-} from "../models/index";
+import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListServerNeighborsCommand,
   serializeAws_json1_1ListServerNeighborsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListServerNeighborsCommandInput = ListServerNeighborsRequest;
-export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse &
-  __MetadataBearer;
+export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse & __MetadataBearer;
 
 export class ListServerNeighborsCommand extends $Command<
   ListServerNeighborsCommandInput,
@@ -49,13 +45,8 @@ export class ListServerNeighborsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListServerNeighborsCommandInput,
-    ListServerNeighborsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListServerNeighborsCommandInput, ListServerNeighborsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

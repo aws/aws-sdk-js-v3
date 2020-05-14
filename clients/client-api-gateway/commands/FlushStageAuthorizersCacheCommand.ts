@@ -45,13 +45,8 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    FlushStageAuthorizersCacheCommandInput,
-    FlushStageAuthorizersCacheCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<FlushStageAuthorizersCacheCommandInput, FlushStageAuthorizersCacheCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     input: FlushStageAuthorizersCacheCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1FlushStageAuthorizersCacheCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1FlushStageAuthorizersCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlushStageAuthorizersCacheCommandOutput> {
-    return deserializeAws_restJson1_1FlushStageAuthorizersCacheCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1FlushStageAuthorizersCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

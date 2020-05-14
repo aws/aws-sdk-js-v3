@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  ListSmartHomeAppliancesRequest,
-  ListSmartHomeAppliancesResponse
-} from "../models/index";
+import { ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSmartHomeAppliancesCommand,
   serializeAws_json1_1ListSmartHomeAppliancesCommand
@@ -49,13 +46,8 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSmartHomeAppliancesCommandInput,
-    ListSmartHomeAppliancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSmartHomeAppliancesCommandInput, ListSmartHomeAppliancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ListSmartHomeAppliancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

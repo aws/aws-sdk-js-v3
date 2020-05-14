@@ -1,12 +1,5 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient";
-import {
-  DescribeJobQueuesRequest,
-  DescribeJobQueuesResponse
-} from "../models/index";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
+import { DescribeJobQueuesRequest, DescribeJobQueuesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeJobQueuesCommand,
   serializeAws_restJson1_1DescribeJobQueuesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeJobQueuesCommandInput = DescribeJobQueuesRequest;
-export type DescribeJobQueuesCommandOutput = DescribeJobQueuesResponse &
-  __MetadataBearer;
+export type DescribeJobQueuesCommandOutput = DescribeJobQueuesResponse & __MetadataBearer;
 
 export class DescribeJobQueuesCommand extends $Command<
   DescribeJobQueuesCommandInput,
@@ -50,9 +42,7 @@ export class DescribeJobQueuesCommand extends $Command<
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

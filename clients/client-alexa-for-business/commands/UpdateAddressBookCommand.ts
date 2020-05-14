@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  UpdateAddressBookRequest,
-  UpdateAddressBookResponse
-} from "../models/index";
+import { UpdateAddressBookRequest, UpdateAddressBookResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateAddressBookCommand,
   serializeAws_json1_1UpdateAddressBookCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAddressBookCommandInput = UpdateAddressBookRequest;
-export type UpdateAddressBookCommandOutput = UpdateAddressBookResponse &
-  __MetadataBearer;
+export type UpdateAddressBookCommandOutput = UpdateAddressBookResponse & __MetadataBearer;
 
 export class UpdateAddressBookCommand extends $Command<
   UpdateAddressBookCommandInput,
@@ -50,9 +46,7 @@ export class UpdateAddressBookCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAddressBookCommandInput, UpdateAddressBookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

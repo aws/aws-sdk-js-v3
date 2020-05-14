@@ -1,12 +1,5 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
-import {
-  DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesResponse
-} from "../models/index";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEntityAggregatesCommand,
   serializeAws_json1_1DescribeEntityAggregatesCommand
@@ -49,13 +42,8 @@ export class DescribeEntityAggregatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEntityAggregatesCommandInput,
-    DescribeEntityAggregatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEntityAggregatesCommandInput, DescribeEntityAggregatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeEntityAggregatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEntityAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntityAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface ActorDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActorDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ActorDoesNotExistException";
   $fault: "client";
   /**
@@ -96,9 +91,7 @@ export namespace ApprovalRule {
 /**
  * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  */
-export interface ApprovalRuleContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleContentRequiredException";
   $fault: "client";
   /**
@@ -115,9 +108,7 @@ export namespace ApprovalRuleContentRequiredException {
 /**
  * <p>The specified approval rule does not exist.</p>
  */
-export interface ApprovalRuleDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleDoesNotExistException";
   $fault: "client";
   /**
@@ -161,9 +152,7 @@ export namespace ApprovalRuleEventMetadata {
  * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
  */
-export interface ApprovalRuleNameAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleNameAlreadyExistsException";
   $fault: "client";
   /**
@@ -180,9 +169,7 @@ export namespace ApprovalRuleNameAlreadyExistsException {
 /**
  * <p>An approval rule name is required, but was not specified.</p>
  */
-export interface ApprovalRuleNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleNameRequiredException";
   $fault: "client";
   /**
@@ -264,8 +251,7 @@ export interface ApprovalRuleTemplate {
 }
 
 export namespace ApprovalRuleTemplate {
-  export const isa = (o: any): o is ApprovalRuleTemplate =>
-    __isa(o, "ApprovalRuleTemplate");
+  export const isa = (o: any): o is ApprovalRuleTemplate => __isa(o, "ApprovalRuleTemplate");
 }
 
 /**
@@ -283,9 +269,7 @@ export interface ApprovalRuleTemplateContentRequiredException
 }
 
 export namespace ApprovalRuleTemplateContentRequiredException {
-  export const isa = (
-    o: any
-  ): o is ApprovalRuleTemplateContentRequiredException =>
+  export const isa = (o: any): o is ApprovalRuleTemplateContentRequiredException =>
     __isa(o, "ApprovalRuleTemplateContentRequiredException");
 }
 
@@ -313,9 +297,7 @@ export namespace ApprovalRuleTemplateDoesNotExistException {
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
  */
-export interface ApprovalRuleTemplateInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateInUseException extends __SmithyException, $MetadataBearer {
   name: "ApprovalRuleTemplateInUseException";
   $fault: "client";
   /**
@@ -346,9 +328,7 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException
 }
 
 export namespace ApprovalRuleTemplateNameAlreadyExistsException {
-  export const isa = (
-    o: any
-  ): o is ApprovalRuleTemplateNameAlreadyExistsException =>
+  export const isa = (o: any): o is ApprovalRuleTemplateNameAlreadyExistsException =>
     __isa(o, "ApprovalRuleTemplateNameAlreadyExistsException");
 }
 
@@ -400,9 +380,7 @@ export namespace ApprovalStateChangedEventMetadata {
 /**
  * <p>An approval state is required, but was not specified.</p>
  */
-export interface ApprovalStateRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApprovalStateRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApprovalStateRequiredException";
   $fault: "client";
   /**
@@ -430,18 +408,14 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
-  export const isa = (
-    o: any
-  ): o is AssociateApprovalRuleTemplateWithRepositoryInput =>
+  export const isa = (o: any): o is AssociateApprovalRuleTemplateWithRepositoryInput =>
     __isa(o, "AssociateApprovalRuleTemplateWithRepositoryInput");
 }
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface AuthorDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "AuthorDoesNotExistException";
   $fault: "client";
   /**
@@ -477,9 +451,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesError");
 }
 
@@ -500,9 +472,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesInput");
 }
 
@@ -520,9 +490,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-  export const isa = (
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput =>
+  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput =>
     __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput");
 }
 
@@ -679,9 +647,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesError");
 }
 
@@ -703,9 +669,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput");
 }
 
@@ -720,15 +684,11 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   /**
    * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    */
-  errors:
-    | BatchDisassociateApprovalRuleTemplateFromRepositoriesError[]
-    | undefined;
+  errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] | undefined;
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-  export const isa = (
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput =>
+  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput =>
     __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput");
 }
 
@@ -754,8 +714,7 @@ export interface BatchGetCommitsError {
 }
 
 export namespace BatchGetCommitsError {
-  export const isa = (o: any): o is BatchGetCommitsError =>
-    __isa(o, "BatchGetCommitsError");
+  export const isa = (o: any): o is BatchGetCommitsError => __isa(o, "BatchGetCommitsError");
 }
 
 export interface BatchGetCommitsInput {
@@ -776,8 +735,7 @@ export interface BatchGetCommitsInput {
 }
 
 export namespace BatchGetCommitsInput {
-  export const isa = (o: any): o is BatchGetCommitsInput =>
-    __isa(o, "BatchGetCommitsInput");
+  export const isa = (o: any): o is BatchGetCommitsInput => __isa(o, "BatchGetCommitsInput");
 }
 
 export interface BatchGetCommitsOutput {
@@ -796,8 +754,7 @@ export interface BatchGetCommitsOutput {
 }
 
 export namespace BatchGetCommitsOutput {
-  export const isa = (o: any): o is BatchGetCommitsOutput =>
-    __isa(o, "BatchGetCommitsOutput");
+  export const isa = (o: any): o is BatchGetCommitsOutput => __isa(o, "BatchGetCommitsOutput");
 }
 
 /**
@@ -855,18 +812,14 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException
 }
 
 export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
-  export const isa = (
-    o: any
-  ): o is BeforeCommitIdAndAfterCommitIdAreSameException =>
+  export const isa = (o: any): o is BeforeCommitIdAndAfterCommitIdAreSameException =>
     __isa(o, "BeforeCommitIdAndAfterCommitIdAreSameException");
 }
 
 /**
  * <p>The specified blob does not exist.</p>
  */
-export interface BlobIdDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BlobIdDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "BlobIdDoesNotExistException";
   $fault: "client";
   /**
@@ -883,9 +836,7 @@ export namespace BlobIdDoesNotExistException {
 /**
  * <p>A blob ID is required, but was not specified.</p>
  */
-export interface BlobIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BlobIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "BlobIdRequiredException";
   $fault: "client";
   /**
@@ -895,8 +846,7 @@ export interface BlobIdRequiredException
 }
 
 export namespace BlobIdRequiredException {
-  export const isa = (o: any): o is BlobIdRequiredException =>
-    __isa(o, "BlobIdRequiredException");
+  export const isa = (o: any): o is BlobIdRequiredException => __isa(o, "BlobIdRequiredException");
 }
 
 /**
@@ -945,9 +895,7 @@ export namespace BlobMetadata {
 /**
  * <p>The specified branch does not exist.</p>
  */
-export interface BranchDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "BranchDoesNotExistException";
   $fault: "client";
   /**
@@ -984,9 +932,7 @@ export namespace BranchInfo {
 /**
  * <p>The specified branch name already exists.</p>
  */
-export interface BranchNameExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameExistsException extends __SmithyException, $MetadataBearer {
   name: "BranchNameExistsException";
   $fault: "client";
   /**
@@ -1004,9 +950,7 @@ export namespace BranchNameExistsException {
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
  */
-export interface BranchNameIsTagNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameIsTagNameException extends __SmithyException, $MetadataBearer {
   name: "BranchNameIsTagNameException";
   $fault: "client";
   /**
@@ -1023,9 +967,7 @@ export namespace BranchNameIsTagNameException {
 /**
  * <p>A branch name is required, but was not specified.</p>
  */
-export interface BranchNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BranchNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "BranchNameRequiredException";
   $fault: "client";
   /**
@@ -1055,9 +997,7 @@ export interface CannotDeleteApprovalRuleFromTemplateException
 }
 
 export namespace CannotDeleteApprovalRuleFromTemplateException {
-  export const isa = (
-    o: any
-  ): o is CannotDeleteApprovalRuleFromTemplateException =>
+  export const isa = (o: any): o is CannotDeleteApprovalRuleFromTemplateException =>
     __isa(o, "CannotDeleteApprovalRuleFromTemplateException");
 }
 
@@ -1077,9 +1017,7 @@ export interface CannotModifyApprovalRuleFromTemplateException
 }
 
 export namespace CannotModifyApprovalRuleFromTemplateException {
-  export const isa = (
-    o: any
-  ): o is CannotModifyApprovalRuleFromTemplateException =>
+  export const isa = (o: any): o is CannotModifyApprovalRuleFromTemplateException =>
     __isa(o, "CannotModifyApprovalRuleFromTemplateException");
 }
 
@@ -1096,9 +1034,7 @@ export enum ChangeTypeEnum {
  *             parameters and a token is included, the request returns information about the initial
  *             request that used that token.</p>
  */
-export interface ClientRequestTokenRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientRequestTokenRequiredException extends __SmithyException, $MetadataBearer {
   name: "ClientRequestTokenRequiredException";
   $fault: "client";
   /**
@@ -1168,9 +1104,7 @@ export namespace Comment {
 /**
  * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
-export interface CommentContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommentContentRequiredException";
   $fault: "client";
   /**
@@ -1206,9 +1140,7 @@ export namespace CommentContentSizeLimitExceededException {
 /**
  * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  */
-export interface CommentDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentDeletedException extends __SmithyException, $MetadataBearer {
   name: "CommentDeletedException";
   $fault: "client";
   /**
@@ -1218,17 +1150,14 @@ export interface CommentDeletedException
 }
 
 export namespace CommentDeletedException {
-  export const isa = (o: any): o is CommentDeletedException =>
-    __isa(o, "CommentDeletedException");
+  export const isa = (o: any): o is CommentDeletedException => __isa(o, "CommentDeletedException");
 }
 
 /**
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
  */
-export interface CommentDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommentDoesNotExistException";
   $fault: "client";
   /**
@@ -1245,9 +1174,7 @@ export namespace CommentDoesNotExistException {
 /**
  * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
-export interface CommentIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommentIdRequiredException";
   $fault: "client";
   /**
@@ -1264,9 +1191,7 @@ export namespace CommentIdRequiredException {
 /**
  * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  */
-export interface CommentNotCreatedByCallerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommentNotCreatedByCallerException extends __SmithyException, $MetadataBearer {
   name: "CommentNotCreatedByCallerException";
   $fault: "client";
   /**
@@ -1382,8 +1307,7 @@ export interface CommentsForPullRequest {
 }
 
 export namespace CommentsForPullRequest {
-  export const isa = (o: any): o is CommentsForPullRequest =>
-    __isa(o, "CommentsForPullRequest");
+  export const isa = (o: any): o is CommentsForPullRequest => __isa(o, "CommentsForPullRequest");
 }
 
 /**
@@ -1441,9 +1365,7 @@ export namespace Commit {
 /**
  * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  */
-export interface CommitDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommitDoesNotExistException";
   $fault: "client";
   /**
@@ -1460,9 +1382,7 @@ export namespace CommitDoesNotExistException {
 /**
  * <p>The specified commit ID does not exist.</p>
  */
-export interface CommitIdDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "CommitIdDoesNotExistException";
   $fault: "client";
   /**
@@ -1479,9 +1399,7 @@ export namespace CommitIdDoesNotExistException {
 /**
  * <p>A commit ID was not specified.</p>
  */
-export interface CommitIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitIdRequiredException";
   $fault: "client";
   /**
@@ -1498,9 +1416,7 @@ export namespace CommitIdRequiredException {
 /**
  * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  */
-export interface CommitIdsLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdsLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CommitIdsLimitExceededException";
   $fault: "client";
   /**
@@ -1517,9 +1433,7 @@ export namespace CommitIdsLimitExceededException {
 /**
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
-export interface CommitIdsListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitIdsListRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitIdsListRequiredException";
   $fault: "client";
   /**
@@ -1536,9 +1450,7 @@ export namespace CommitIdsListRequiredException {
 /**
  * <p>The commit message is too long. Provide a shorter string. </p>
  */
-export interface CommitMessageLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitMessageLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "CommitMessageLengthExceededException";
   $fault: "client";
   /**
@@ -1555,9 +1467,7 @@ export namespace CommitMessageLengthExceededException {
 /**
  * <p>A commit was not specified.</p>
  */
-export interface CommitRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CommitRequiredException extends __SmithyException, $MetadataBearer {
   name: "CommitRequiredException";
   $fault: "client";
   /**
@@ -1567,16 +1477,13 @@ export interface CommitRequiredException
 }
 
 export namespace CommitRequiredException {
-  export const isa = (o: any): o is CommitRequiredException =>
-    __isa(o, "CommitRequiredException");
+  export const isa = (o: any): o is CommitRequiredException => __isa(o, "CommitRequiredException");
 }
 
 /**
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
-export interface ConcurrentReferenceUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentReferenceUpdateException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentReferenceUpdateException";
   $fault: "client";
   /**
@@ -1672,8 +1579,7 @@ export interface ConflictMetadata {
 }
 
 export namespace ConflictMetadata {
-  export const isa = (o: any): o is ConflictMetadata =>
-    __isa(o, "ConflictMetadata");
+  export const isa = (o: any): o is ConflictMetadata => __isa(o, "ConflictMetadata");
 }
 
 /**
@@ -1699,8 +1605,7 @@ export interface ConflictResolution {
 }
 
 export namespace ConflictResolution {
-  export const isa = (o: any): o is ConflictResolution =>
-    __isa(o, "ConflictResolution");
+  export const isa = (o: any): o is ConflictResolution => __isa(o, "ConflictResolution");
 }
 
 export enum ConflictResolutionStrategyTypeEnum {
@@ -1815,8 +1720,7 @@ export interface CreateBranchInput {
 }
 
 export namespace CreateBranchInput {
-  export const isa = (o: any): o is CreateBranchInput =>
-    __isa(o, "CreateBranchInput");
+  export const isa = (o: any): o is CreateBranchInput => __isa(o, "CreateBranchInput");
 }
 
 export interface CreateCommitInput {
@@ -1878,8 +1782,7 @@ export interface CreateCommitInput {
 }
 
 export namespace CreateCommitInput {
-  export const isa = (o: any): o is CreateCommitInput =>
-    __isa(o, "CreateCommitInput");
+  export const isa = (o: any): o is CreateCommitInput => __isa(o, "CreateCommitInput");
 }
 
 export interface CreateCommitOutput {
@@ -1911,8 +1814,7 @@ export interface CreateCommitOutput {
 }
 
 export namespace CreateCommitOutput {
-  export const isa = (o: any): o is CreateCommitOutput =>
-    __isa(o, "CreateCommitOutput");
+  export const isa = (o: any): o is CreateCommitOutput => __isa(o, "CreateCommitOutput");
 }
 
 export interface CreatePullRequestApprovalRuleInput {
@@ -2027,8 +1929,7 @@ export interface CreatePullRequestInput {
 }
 
 export namespace CreatePullRequestInput {
-  export const isa = (o: any): o is CreatePullRequestInput =>
-    __isa(o, "CreatePullRequestInput");
+  export const isa = (o: any): o is CreatePullRequestInput => __isa(o, "CreatePullRequestInput");
 }
 
 export interface CreatePullRequestOutput {
@@ -2040,8 +1941,7 @@ export interface CreatePullRequestOutput {
 }
 
 export namespace CreatePullRequestOutput {
-  export const isa = (o: any): o is CreatePullRequestOutput =>
-    __isa(o, "CreatePullRequestOutput");
+  export const isa = (o: any): o is CreatePullRequestOutput => __isa(o, "CreatePullRequestOutput");
 }
 
 /**
@@ -2080,8 +1980,7 @@ export interface CreateRepositoryInput {
 }
 
 export namespace CreateRepositoryInput {
-  export const isa = (o: any): o is CreateRepositoryInput =>
-    __isa(o, "CreateRepositoryInput");
+  export const isa = (o: any): o is CreateRepositoryInput => __isa(o, "CreateRepositoryInput");
 }
 
 /**
@@ -2096,8 +1995,7 @@ export interface CreateRepositoryOutput {
 }
 
 export namespace CreateRepositoryOutput {
-  export const isa = (o: any): o is CreateRepositoryOutput =>
-    __isa(o, "CreateRepositoryOutput");
+  export const isa = (o: any): o is CreateRepositoryOutput => __isa(o, "CreateRepositoryOutput");
 }
 
 export interface CreateUnreferencedMergeCommitInput {
@@ -2195,9 +2093,7 @@ export namespace CreateUnreferencedMergeCommitOutput {
 /**
  * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  */
-export interface DefaultBranchCannotBeDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DefaultBranchCannotBeDeletedException extends __SmithyException, $MetadataBearer {
   name: "DefaultBranchCannotBeDeletedException";
   $fault: "client";
   /**
@@ -2255,8 +2151,7 @@ export interface DeleteBranchInput {
 }
 
 export namespace DeleteBranchInput {
-  export const isa = (o: any): o is DeleteBranchInput =>
-    __isa(o, "DeleteBranchInput");
+  export const isa = (o: any): o is DeleteBranchInput => __isa(o, "DeleteBranchInput");
 }
 
 /**
@@ -2271,8 +2166,7 @@ export interface DeleteBranchOutput {
 }
 
 export namespace DeleteBranchOutput {
-  export const isa = (o: any): o is DeleteBranchOutput =>
-    __isa(o, "DeleteBranchOutput");
+  export const isa = (o: any): o is DeleteBranchOutput => __isa(o, "DeleteBranchOutput");
 }
 
 export interface DeleteCommentContentInput {
@@ -2314,8 +2208,7 @@ export interface DeleteFileEntry {
 }
 
 export namespace DeleteFileEntry {
-  export const isa = (o: any): o is DeleteFileEntry =>
-    __isa(o, "DeleteFileEntry");
+  export const isa = (o: any): o is DeleteFileEntry => __isa(o, "DeleteFileEntry");
 }
 
 export interface DeleteFileInput {
@@ -2373,8 +2266,7 @@ export interface DeleteFileInput {
 }
 
 export namespace DeleteFileInput {
-  export const isa = (o: any): o is DeleteFileInput =>
-    __isa(o, "DeleteFileInput");
+  export const isa = (o: any): o is DeleteFileInput => __isa(o, "DeleteFileInput");
 }
 
 export interface DeleteFileOutput {
@@ -2402,8 +2294,7 @@ export interface DeleteFileOutput {
 }
 
 export namespace DeleteFileOutput {
-  export const isa = (o: any): o is DeleteFileOutput =>
-    __isa(o, "DeleteFileOutput");
+  export const isa = (o: any): o is DeleteFileOutput => __isa(o, "DeleteFileOutput");
 }
 
 export interface DeletePullRequestApprovalRuleInput {
@@ -2453,8 +2344,7 @@ export interface DeleteRepositoryInput {
 }
 
 export namespace DeleteRepositoryInput {
-  export const isa = (o: any): o is DeleteRepositoryInput =>
-    __isa(o, "DeleteRepositoryInput");
+  export const isa = (o: any): o is DeleteRepositoryInput => __isa(o, "DeleteRepositoryInput");
 }
 
 /**
@@ -2469,8 +2359,7 @@ export interface DeleteRepositoryOutput {
 }
 
 export namespace DeleteRepositoryOutput {
-  export const isa = (o: any): o is DeleteRepositoryOutput =>
-    __isa(o, "DeleteRepositoryOutput");
+  export const isa = (o: any): o is DeleteRepositoryOutput => __isa(o, "DeleteRepositoryOutput");
 }
 
 export interface DescribeMergeConflictsInput {
@@ -2670,9 +2559,7 @@ export interface DirectoryNameConflictsWithFileNameException
 }
 
 export namespace DirectoryNameConflictsWithFileNameException {
-  export const isa = (
-    o: any
-  ): o is DirectoryNameConflictsWithFileNameException =>
+  export const isa = (o: any): o is DirectoryNameConflictsWithFileNameException =>
     __isa(o, "DirectoryNameConflictsWithFileNameException");
 }
 
@@ -2690,9 +2577,7 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
 }
 
 export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
-  export const isa = (
-    o: any
-  ): o is DisassociateApprovalRuleTemplateFromRepositoryInput =>
+  export const isa = (o: any): o is DisassociateApprovalRuleTemplateFromRepositoryInput =>
     __isa(o, "DisassociateApprovalRuleTemplateFromRepositoryInput");
 }
 
@@ -2718,9 +2603,7 @@ export namespace EncryptionIntegrityChecksFailedException {
 /**
  * <p>An encryption key could not be accessed.</p>
  */
-export interface EncryptionKeyAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyAccessDeniedException";
   $fault: "client";
   /**
@@ -2737,9 +2620,7 @@ export namespace EncryptionKeyAccessDeniedException {
 /**
  * <p>The encryption key is disabled.</p>
  */
-export interface EncryptionKeyDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyDisabledException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyDisabledException";
   $fault: "client";
   /**
@@ -2756,9 +2637,7 @@ export namespace EncryptionKeyDisabledException {
 /**
  * <p>No encryption key was found.</p>
  */
-export interface EncryptionKeyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyNotFoundException";
   $fault: "client";
   /**
@@ -2775,9 +2654,7 @@ export namespace EncryptionKeyNotFoundException {
 /**
  * <p>The encryption key is not available.</p>
  */
-export interface EncryptionKeyUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "EncryptionKeyUnavailableException";
   $fault: "client";
   /**
@@ -2902,18 +2779,14 @@ export interface FileContentAndSourceFileSpecifiedException
 }
 
 export namespace FileContentAndSourceFileSpecifiedException {
-  export const isa = (
-    o: any
-  ): o is FileContentAndSourceFileSpecifiedException =>
+  export const isa = (o: any): o is FileContentAndSourceFileSpecifiedException =>
     __isa(o, "FileContentAndSourceFileSpecifiedException");
 }
 
 /**
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
-export interface FileContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileContentRequiredException";
   $fault: "client";
   /**
@@ -2932,9 +2805,7 @@ export namespace FileContentRequiredException {
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
  */
-export interface FileContentSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FileContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -2952,9 +2823,7 @@ export namespace FileContentSizeLimitExceededException {
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
  */
-export interface FileDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "FileDoesNotExistException";
   $fault: "client";
   /**
@@ -2971,9 +2840,7 @@ export namespace FileDoesNotExistException {
 /**
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
-export interface FileEntryRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileEntryRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileEntryRequiredException";
   $fault: "client";
   /**
@@ -3017,9 +2884,7 @@ export namespace FileMetadata {
  * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
  */
-export interface FileModeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileModeRequiredException extends __SmithyException, $MetadataBearer {
   name: "FileModeRequiredException";
   $fault: "client";
   /**
@@ -3080,9 +2945,7 @@ export interface FileNameConflictsWithDirectoryNameException
 }
 
 export namespace FileNameConflictsWithDirectoryNameException {
-  export const isa = (
-    o: any
-  ): o is FileNameConflictsWithDirectoryNameException =>
+  export const isa = (o: any): o is FileNameConflictsWithDirectoryNameException =>
     __isa(o, "FileNameConflictsWithDirectoryNameException");
 }
 
@@ -3102,9 +2965,7 @@ export interface FilePathConflictsWithSubmodulePathException
 }
 
 export namespace FilePathConflictsWithSubmodulePathException {
-  export const isa = (
-    o: any
-  ): o is FilePathConflictsWithSubmodulePathException =>
+  export const isa = (o: any): o is FilePathConflictsWithSubmodulePathException =>
     __isa(o, "FilePathConflictsWithSubmodulePathException");
 }
 
@@ -3137,9 +2998,7 @@ export namespace FileSizes {
  * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
  */
-export interface FileTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FileTooLargeException extends __SmithyException, $MetadataBearer {
   name: "FileTooLargeException";
   $fault: "client";
   /**
@@ -3149,8 +3008,7 @@ export interface FileTooLargeException
 }
 
 export namespace FileTooLargeException {
-  export const isa = (o: any): o is FileTooLargeException =>
-    __isa(o, "FileTooLargeException");
+  export const isa = (o: any): o is FileTooLargeException => __isa(o, "FileTooLargeException");
 }
 
 /**
@@ -3203,9 +3061,7 @@ export namespace FolderContentSizeLimitExceededException {
  * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
  */
-export interface FolderDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FolderDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "FolderDoesNotExistException";
   $fault: "client";
   /**
@@ -3297,8 +3153,7 @@ export interface GetBranchInput {
 }
 
 export namespace GetBranchInput {
-  export const isa = (o: any): o is GetBranchInput =>
-    __isa(o, "GetBranchInput");
+  export const isa = (o: any): o is GetBranchInput => __isa(o, "GetBranchInput");
 }
 
 /**
@@ -3313,8 +3168,7 @@ export interface GetBranchOutput {
 }
 
 export namespace GetBranchOutput {
-  export const isa = (o: any): o is GetBranchOutput =>
-    __isa(o, "GetBranchOutput");
+  export const isa = (o: any): o is GetBranchOutput => __isa(o, "GetBranchOutput");
 }
 
 export interface GetCommentInput {
@@ -3327,8 +3181,7 @@ export interface GetCommentInput {
 }
 
 export namespace GetCommentInput {
-  export const isa = (o: any): o is GetCommentInput =>
-    __isa(o, "GetCommentInput");
+  export const isa = (o: any): o is GetCommentInput => __isa(o, "GetCommentInput");
 }
 
 export interface GetCommentOutput {
@@ -3340,8 +3193,7 @@ export interface GetCommentOutput {
 }
 
 export namespace GetCommentOutput {
-  export const isa = (o: any): o is GetCommentOutput =>
-    __isa(o, "GetCommentOutput");
+  export const isa = (o: any): o is GetCommentOutput => __isa(o, "GetCommentOutput");
 }
 
 export interface GetCommentsForComparedCommitInput {
@@ -3473,8 +3325,7 @@ export interface GetCommitInput {
 }
 
 export namespace GetCommitInput {
-  export const isa = (o: any): o is GetCommitInput =>
-    __isa(o, "GetCommitInput");
+  export const isa = (o: any): o is GetCommitInput => __isa(o, "GetCommitInput");
 }
 
 /**
@@ -3489,8 +3340,7 @@ export interface GetCommitOutput {
 }
 
 export namespace GetCommitOutput {
-  export const isa = (o: any): o is GetCommitOutput =>
-    __isa(o, "GetCommitOutput");
+  export const isa = (o: any): o is GetCommitOutput => __isa(o, "GetCommitOutput");
 }
 
 export interface GetDifferencesInput {
@@ -3542,8 +3392,7 @@ export interface GetDifferencesInput {
 }
 
 export namespace GetDifferencesInput {
-  export const isa = (o: any): o is GetDifferencesInput =>
-    __isa(o, "GetDifferencesInput");
+  export const isa = (o: any): o is GetDifferencesInput => __isa(o, "GetDifferencesInput");
 }
 
 export interface GetDifferencesOutput {
@@ -3561,8 +3410,7 @@ export interface GetDifferencesOutput {
 }
 
 export namespace GetDifferencesOutput {
-  export const isa = (o: any): o is GetDifferencesOutput =>
-    __isa(o, "GetDifferencesOutput");
+  export const isa = (o: any): o is GetDifferencesOutput => __isa(o, "GetDifferencesOutput");
 }
 
 export interface GetFileInput {
@@ -3658,8 +3506,7 @@ export interface GetFolderInput {
 }
 
 export namespace GetFolderInput {
-  export const isa = (o: any): o is GetFolderInput =>
-    __isa(o, "GetFolderInput");
+  export const isa = (o: any): o is GetFolderInput => __isa(o, "GetFolderInput");
 }
 
 export interface GetFolderOutput {
@@ -3703,8 +3550,7 @@ export interface GetFolderOutput {
 }
 
 export namespace GetFolderOutput {
-  export const isa = (o: any): o is GetFolderOutput =>
-    __isa(o, "GetFolderOutput");
+  export const isa = (o: any): o is GetFolderOutput => __isa(o, "GetFolderOutput");
 }
 
 export interface GetMergeCommitInput {
@@ -3743,8 +3589,7 @@ export interface GetMergeCommitInput {
 }
 
 export namespace GetMergeCommitInput {
-  export const isa = (o: any): o is GetMergeCommitInput =>
-    __isa(o, "GetMergeCommitInput");
+  export const isa = (o: any): o is GetMergeCommitInput => __isa(o, "GetMergeCommitInput");
 }
 
 export interface GetMergeCommitOutput {
@@ -3773,8 +3618,7 @@ export interface GetMergeCommitOutput {
 }
 
 export namespace GetMergeCommitOutput {
-  export const isa = (o: any): o is GetMergeCommitOutput =>
-    __isa(o, "GetMergeCommitOutput");
+  export const isa = (o: any): o is GetMergeCommitOutput => __isa(o, "GetMergeCommitOutput");
 }
 
 export interface GetMergeConflictsInput {
@@ -3829,8 +3673,7 @@ export interface GetMergeConflictsInput {
 }
 
 export namespace GetMergeConflictsInput {
-  export const isa = (o: any): o is GetMergeConflictsInput =>
-    __isa(o, "GetMergeConflictsInput");
+  export const isa = (o: any): o is GetMergeConflictsInput => __isa(o, "GetMergeConflictsInput");
 }
 
 export interface GetMergeConflictsOutput {
@@ -3868,8 +3711,7 @@ export interface GetMergeConflictsOutput {
 }
 
 export namespace GetMergeConflictsOutput {
-  export const isa = (o: any): o is GetMergeConflictsOutput =>
-    __isa(o, "GetMergeConflictsOutput");
+  export const isa = (o: any): o is GetMergeConflictsOutput => __isa(o, "GetMergeConflictsOutput");
 }
 
 export interface GetMergeOptionsInput {
@@ -3908,8 +3750,7 @@ export interface GetMergeOptionsInput {
 }
 
 export namespace GetMergeOptionsInput {
-  export const isa = (o: any): o is GetMergeOptionsInput =>
-    __isa(o, "GetMergeOptionsInput");
+  export const isa = (o: any): o is GetMergeOptionsInput => __isa(o, "GetMergeOptionsInput");
 }
 
 export interface GetMergeOptionsOutput {
@@ -3936,8 +3777,7 @@ export interface GetMergeOptionsOutput {
 }
 
 export namespace GetMergeOptionsOutput {
-  export const isa = (o: any): o is GetMergeOptionsOutput =>
-    __isa(o, "GetMergeOptionsOutput");
+  export const isa = (o: any): o is GetMergeOptionsOutput => __isa(o, "GetMergeOptionsOutput");
 }
 
 export interface GetPullRequestApprovalStatesInput {
@@ -3980,8 +3820,7 @@ export interface GetPullRequestInput {
 }
 
 export namespace GetPullRequestInput {
-  export const isa = (o: any): o is GetPullRequestInput =>
-    __isa(o, "GetPullRequestInput");
+  export const isa = (o: any): o is GetPullRequestInput => __isa(o, "GetPullRequestInput");
 }
 
 export interface GetPullRequestOutput {
@@ -3993,8 +3832,7 @@ export interface GetPullRequestOutput {
 }
 
 export namespace GetPullRequestOutput {
-  export const isa = (o: any): o is GetPullRequestOutput =>
-    __isa(o, "GetPullRequestOutput");
+  export const isa = (o: any): o is GetPullRequestOutput => __isa(o, "GetPullRequestOutput");
 }
 
 export interface GetPullRequestOverrideStateInput {
@@ -4047,8 +3885,7 @@ export interface GetRepositoryInput {
 }
 
 export namespace GetRepositoryInput {
-  export const isa = (o: any): o is GetRepositoryInput =>
-    __isa(o, "GetRepositoryInput");
+  export const isa = (o: any): o is GetRepositoryInput => __isa(o, "GetRepositoryInput");
 }
 
 /**
@@ -4063,8 +3900,7 @@ export interface GetRepositoryOutput {
 }
 
 export namespace GetRepositoryOutput {
-  export const isa = (o: any): o is GetRepositoryOutput =>
-    __isa(o, "GetRepositoryOutput");
+  export const isa = (o: any): o is GetRepositoryOutput => __isa(o, "GetRepositoryOutput");
 }
 
 /**
@@ -4108,9 +3944,7 @@ export namespace GetRepositoryTriggersOutput {
  * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
  */
-export interface IdempotencyParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotencyParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotencyParameterMismatchException";
   $fault: "client";
   /**
@@ -4128,9 +3962,7 @@ export namespace IdempotencyParameterMismatchException {
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
  */
-export interface InvalidActorArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidActorArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidActorArnException";
   $fault: "client";
   /**
@@ -4147,9 +3979,7 @@ export namespace InvalidActorArnException {
 /**
  * <p>The content for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleContentException";
   $fault: "client";
   /**
@@ -4166,9 +3996,7 @@ export namespace InvalidApprovalRuleContentException {
 /**
  * <p>The name for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalRuleNameException";
   $fault: "client";
   /**
@@ -4197,9 +4025,7 @@ export interface InvalidApprovalRuleTemplateContentException
 }
 
 export namespace InvalidApprovalRuleTemplateContentException {
-  export const isa = (
-    o: any
-  ): o is InvalidApprovalRuleTemplateContentException =>
+  export const isa = (o: any): o is InvalidApprovalRuleTemplateContentException =>
     __isa(o, "InvalidApprovalRuleTemplateContentException");
 }
 
@@ -4221,9 +4047,7 @@ export interface InvalidApprovalRuleTemplateDescriptionException
 }
 
 export namespace InvalidApprovalRuleTemplateDescriptionException {
-  export const isa = (
-    o: any
-  ): o is InvalidApprovalRuleTemplateDescriptionException =>
+  export const isa = (o: any): o is InvalidApprovalRuleTemplateDescriptionException =>
     __isa(o, "InvalidApprovalRuleTemplateDescriptionException");
 }
 
@@ -4252,9 +4076,7 @@ export namespace InvalidApprovalRuleTemplateNameException {
 /**
  * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  */
-export interface InvalidApprovalStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidApprovalStateException";
   $fault: "client";
   /**
@@ -4271,9 +4093,7 @@ export namespace InvalidApprovalStateException {
 /**
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
-export interface InvalidAuthorArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthorArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidAuthorArnException";
   $fault: "client";
   /**
@@ -4290,9 +4110,7 @@ export namespace InvalidAuthorArnException {
 /**
  * <p>The specified blob is not valid.</p>
  */
-export interface InvalidBlobIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBlobIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidBlobIdException";
   $fault: "client";
   /**
@@ -4302,16 +4120,13 @@ export interface InvalidBlobIdException
 }
 
 export namespace InvalidBlobIdException {
-  export const isa = (o: any): o is InvalidBlobIdException =>
-    __isa(o, "InvalidBlobIdException");
+  export const isa = (o: any): o is InvalidBlobIdException => __isa(o, "InvalidBlobIdException");
 }
 
 /**
  * <p>The specified reference name is not valid.</p>
  */
-export interface InvalidBranchNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBranchNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidBranchNameException";
   $fault: "client";
   /**
@@ -4328,9 +4143,7 @@ export namespace InvalidBranchNameException {
 /**
  * <p>The client request token is not valid.</p>
  */
-export interface InvalidClientRequestTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientRequestTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientRequestTokenException";
   $fault: "client";
   /**
@@ -4347,9 +4160,7 @@ export namespace InvalidClientRequestTokenException {
 /**
  * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  */
-export interface InvalidCommentIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommentIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommentIdException";
   $fault: "client";
   /**
@@ -4366,9 +4177,7 @@ export namespace InvalidCommentIdException {
 /**
  * <p>The specified commit is not valid.</p>
  */
-export interface InvalidCommitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommitException";
   $fault: "client";
   /**
@@ -4378,16 +4187,13 @@ export interface InvalidCommitException
 }
 
 export namespace InvalidCommitException {
-  export const isa = (o: any): o is InvalidCommitException =>
-    __isa(o, "InvalidCommitException");
+  export const isa = (o: any): o is InvalidCommitException => __isa(o, "InvalidCommitException");
 }
 
 /**
  * <p>The specified commit ID is not valid.</p>
  */
-export interface InvalidCommitIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommitIdException";
   $fault: "client";
   /**
@@ -4404,9 +4210,7 @@ export namespace InvalidCommitIdException {
 /**
  * <p>The specified conflict detail level is not valid.</p>
  */
-export interface InvalidConflictDetailLevelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictDetailLevelException extends __SmithyException, $MetadataBearer {
   name: "InvalidConflictDetailLevelException";
   $fault: "client";
   /**
@@ -4423,9 +4227,7 @@ export namespace InvalidConflictDetailLevelException {
 /**
  * <p>The specified conflict resolution list is not valid.</p>
  */
-export interface InvalidConflictResolutionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictResolutionException extends __SmithyException, $MetadataBearer {
   name: "InvalidConflictResolutionException";
   $fault: "client";
   /**
@@ -4454,18 +4256,14 @@ export interface InvalidConflictResolutionStrategyException
 }
 
 export namespace InvalidConflictResolutionStrategyException {
-  export const isa = (
-    o: any
-  ): o is InvalidConflictResolutionStrategyException =>
+  export const isa = (o: any): o is InvalidConflictResolutionStrategyException =>
     __isa(o, "InvalidConflictResolutionStrategyException");
 }
 
 /**
  * <p>The specified continuation token is not valid.</p>
  */
-export interface InvalidContinuationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidContinuationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidContinuationTokenException";
   $fault: "client";
   /**
@@ -4482,9 +4280,7 @@ export namespace InvalidContinuationTokenException {
 /**
  * <p>The specified deletion parameter is not valid.</p>
  */
-export interface InvalidDeletionParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeletionParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeletionParameterException";
   $fault: "client";
   /**
@@ -4502,9 +4298,7 @@ export namespace InvalidDeletionParameterException {
  * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
  */
-export interface InvalidDescriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDescriptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidDescriptionException";
   $fault: "client";
   /**
@@ -4533,9 +4327,7 @@ export interface InvalidDestinationCommitSpecifierException
 }
 
 export namespace InvalidDestinationCommitSpecifierException {
-  export const isa = (
-    o: any
-  ): o is InvalidDestinationCommitSpecifierException =>
+  export const isa = (o: any): o is InvalidDestinationCommitSpecifierException =>
     __isa(o, "InvalidDestinationCommitSpecifierException");
 }
 
@@ -4543,9 +4335,7 @@ export namespace InvalidDestinationCommitSpecifierException {
  * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
  */
-export interface InvalidEmailException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEmailException extends __SmithyException, $MetadataBearer {
   name: "InvalidEmailException";
   $fault: "client";
   /**
@@ -4555,17 +4345,14 @@ export interface InvalidEmailException
 }
 
 export namespace InvalidEmailException {
-  export const isa = (o: any): o is InvalidEmailException =>
-    __isa(o, "InvalidEmailException");
+  export const isa = (o: any): o is InvalidEmailException => __isa(o, "InvalidEmailException");
 }
 
 /**
  * <p>The location of the file is not valid. Make sure that you include the file name and
  *             extension.</p>
  */
-export interface InvalidFileLocationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFileLocationException extends __SmithyException, $MetadataBearer {
   name: "InvalidFileLocationException";
   $fault: "client";
   /**
@@ -4582,9 +4369,7 @@ export namespace InvalidFileLocationException {
 /**
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
-export interface InvalidFileModeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFileModeException extends __SmithyException, $MetadataBearer {
   name: "InvalidFileModeException";
   $fault: "client";
   /**
@@ -4601,9 +4386,7 @@ export namespace InvalidFileModeException {
 /**
  * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
-export interface InvalidFilePositionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilePositionException extends __SmithyException, $MetadataBearer {
   name: "InvalidFilePositionException";
   $fault: "client";
   /**
@@ -4620,9 +4403,7 @@ export namespace InvalidFilePositionException {
 /**
  * <p>The specified value for the number of conflict files to return is not valid.</p>
  */
-export interface InvalidMaxConflictFilesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxConflictFilesException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxConflictFilesException";
   $fault: "client";
   /**
@@ -4639,9 +4420,7 @@ export namespace InvalidMaxConflictFilesException {
 /**
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
-export interface InvalidMaxMergeHunksException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxMergeHunksException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxMergeHunksException";
   $fault: "client";
   /**
@@ -4658,9 +4437,7 @@ export namespace InvalidMaxMergeHunksException {
 /**
  * <p>The specified number of maximum results is not valid.</p>
  */
-export interface InvalidMaxResultsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
   /**
@@ -4677,9 +4454,7 @@ export namespace InvalidMaxResultsException {
 /**
  * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  */
-export interface InvalidMergeOptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMergeOptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidMergeOptionException";
   $fault: "client";
   /**
@@ -4696,9 +4471,7 @@ export namespace InvalidMergeOptionException {
 /**
  * <p>The specified sort order is not valid.</p>
  */
-export interface InvalidOrderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOrderException extends __SmithyException, $MetadataBearer {
   name: "InvalidOrderException";
   $fault: "client";
   /**
@@ -4708,16 +4481,13 @@ export interface InvalidOrderException
 }
 
 export namespace InvalidOrderException {
-  export const isa = (o: any): o is InvalidOrderException =>
-    __isa(o, "InvalidOrderException");
+  export const isa = (o: any): o is InvalidOrderException => __isa(o, "InvalidOrderException");
 }
 
 /**
  * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  */
-export interface InvalidOverrideStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOverrideStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidOverrideStatusException";
   $fault: "client";
   /**
@@ -4735,9 +4505,7 @@ export namespace InvalidOverrideStatusException {
  * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
  */
-export interface InvalidParentCommitIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParentCommitIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidParentCommitIdException";
   $fault: "client";
   /**
@@ -4754,9 +4522,7 @@ export namespace InvalidParentCommitIdException {
 /**
  * <p>The specified path is not valid.</p>
  */
-export interface InvalidPathException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPathException extends __SmithyException, $MetadataBearer {
   name: "InvalidPathException";
   $fault: "client";
   /**
@@ -4766,16 +4532,13 @@ export interface InvalidPathException
 }
 
 export namespace InvalidPathException {
-  export const isa = (o: any): o is InvalidPathException =>
-    __isa(o, "InvalidPathException");
+  export const isa = (o: any): o is InvalidPathException => __isa(o, "InvalidPathException");
 }
 
 /**
  * <p>The pull request event type is not valid. </p>
  */
-export interface InvalidPullRequestEventTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestEventTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestEventTypeException";
   $fault: "client";
   /**
@@ -4792,9 +4555,7 @@ export namespace InvalidPullRequestEventTypeException {
 /**
  * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  */
-export interface InvalidPullRequestIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestIdException";
   $fault: "client";
   /**
@@ -4811,9 +4572,7 @@ export namespace InvalidPullRequestIdException {
 /**
  * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
-export interface InvalidPullRequestStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidPullRequestStatusException";
   $fault: "client";
   /**
@@ -4851,9 +4610,7 @@ export namespace InvalidPullRequestStatusUpdateException {
  *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
  */
-export interface InvalidReferenceNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReferenceNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidReferenceNameException";
   $fault: "client";
   /**
@@ -4889,9 +4646,7 @@ export namespace InvalidRelativeFileVersionEnumException {
 /**
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
-export interface InvalidReplacementContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidReplacementContentException";
   $fault: "client";
   /**
@@ -4908,9 +4663,7 @@ export namespace InvalidReplacementContentException {
 /**
  * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
  */
-export interface InvalidReplacementTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidReplacementTypeException";
   $fault: "client";
   /**
@@ -4927,9 +4680,7 @@ export namespace InvalidReplacementTypeException {
 /**
  * <p>The specified repository description is not valid.</p>
  */
-export interface InvalidRepositoryDescriptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryDescriptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryDescriptionException";
   $fault: "client";
   /**
@@ -4952,9 +4703,7 @@ export namespace InvalidRepositoryDescriptionException {
  *                 specified repository does not exist.</p>
  *          </note>
  */
-export interface InvalidRepositoryNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryNameException";
   $fault: "client";
   /**
@@ -4983,9 +4732,7 @@ export interface InvalidRepositoryTriggerBranchNameException
 }
 
 export namespace InvalidRepositoryTriggerBranchNameException {
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerBranchNameException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerBranchNameException =>
     __isa(o, "InvalidRepositoryTriggerBranchNameException");
 }
 
@@ -5004,9 +4751,7 @@ export interface InvalidRepositoryTriggerCustomDataException
 }
 
 export namespace InvalidRepositoryTriggerCustomDataException {
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerCustomDataException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerCustomDataException =>
     __isa(o, "InvalidRepositoryTriggerCustomDataException");
 }
 
@@ -5025,9 +4770,7 @@ export interface InvalidRepositoryTriggerDestinationArnException
 }
 
 export namespace InvalidRepositoryTriggerDestinationArnException {
-  export const isa = (
-    o: any
-  ): o is InvalidRepositoryTriggerDestinationArnException =>
+  export const isa = (o: any): o is InvalidRepositoryTriggerDestinationArnException =>
     __isa(o, "InvalidRepositoryTriggerDestinationArnException");
 }
 
@@ -5053,9 +4796,7 @@ export namespace InvalidRepositoryTriggerEventsException {
 /**
  * <p>The name of the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidRepositoryTriggerNameException";
   $fault: "client";
   /**
@@ -5095,9 +4836,7 @@ export namespace InvalidRepositoryTriggerRegionException {
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface InvalidResourceArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceArnException";
   $fault: "client";
   /**
@@ -5114,9 +4853,7 @@ export namespace InvalidResourceArnException {
 /**
  * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  */
-export interface InvalidRevisionIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRevisionIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidRevisionIdException";
   $fault: "client";
   /**
@@ -5133,9 +4870,7 @@ export namespace InvalidRevisionIdException {
 /**
  * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
-export interface InvalidRuleContentSha256Exception
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRuleContentSha256Exception extends __SmithyException, $MetadataBearer {
   name: "InvalidRuleContentSha256Exception";
   $fault: "client";
   /**
@@ -5152,9 +4887,7 @@ export namespace InvalidRuleContentSha256Exception {
 /**
  * <p>The specified sort by value is not valid.</p>
  */
-export interface InvalidSortByException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSortByException extends __SmithyException, $MetadataBearer {
   name: "InvalidSortByException";
   $fault: "client";
   /**
@@ -5164,16 +4897,13 @@ export interface InvalidSortByException
 }
 
 export namespace InvalidSortByException {
-  export const isa = (o: any): o is InvalidSortByException =>
-    __isa(o, "InvalidSortByException");
+  export const isa = (o: any): o is InvalidSortByException => __isa(o, "InvalidSortByException");
 }
 
 /**
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
-export interface InvalidSourceCommitSpecifierException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSourceCommitSpecifierException extends __SmithyException, $MetadataBearer {
   name: "InvalidSourceCommitSpecifierException";
   $fault: "client";
   /**
@@ -5190,9 +4920,7 @@ export namespace InvalidSourceCommitSpecifierException {
 /**
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
-export interface InvalidSystemTagUsageException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSystemTagUsageException extends __SmithyException, $MetadataBearer {
   name: "InvalidSystemTagUsageException";
   $fault: "client";
   /**
@@ -5209,9 +4937,7 @@ export namespace InvalidSystemTagUsageException {
 /**
  * <p>The list of tags is not valid.</p>
  */
-export interface InvalidTagKeysListException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagKeysListException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagKeysListException";
   $fault: "client";
   /**
@@ -5228,9 +4954,7 @@ export namespace InvalidTagKeysListException {
 /**
  * <p>The map of tags is not valid.</p>
  */
-export interface InvalidTagsMapException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagsMapException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagsMapException";
   $fault: "client";
   /**
@@ -5240,16 +4964,13 @@ export interface InvalidTagsMapException
 }
 
 export namespace InvalidTagsMapException {
-  export const isa = (o: any): o is InvalidTagsMapException =>
-    __isa(o, "InvalidTagsMapException");
+  export const isa = (o: any): o is InvalidTagsMapException => __isa(o, "InvalidTagsMapException");
 }
 
 /**
  * <p>The specified target branch is not valid.</p>
  */
-export interface InvalidTargetBranchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetBranchException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetBranchException";
   $fault: "client";
   /**
@@ -5266,9 +4987,7 @@ export namespace InvalidTargetBranchException {
 /**
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface InvalidTargetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetException";
   $fault: "client";
   /**
@@ -5278,17 +4997,14 @@ export interface InvalidTargetException
 }
 
 export namespace InvalidTargetException {
-  export const isa = (o: any): o is InvalidTargetException =>
-    __isa(o, "InvalidTargetException");
+  export const isa = (o: any): o is InvalidTargetException => __isa(o, "InvalidTargetException");
 }
 
 /**
  * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
  */
-export interface InvalidTargetsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetsException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetsException";
   $fault: "client";
   /**
@@ -5298,16 +5014,13 @@ export interface InvalidTargetsException
 }
 
 export namespace InvalidTargetsException {
-  export const isa = (o: any): o is InvalidTargetsException =>
-    __isa(o, "InvalidTargetsException");
+  export const isa = (o: any): o is InvalidTargetsException => __isa(o, "InvalidTargetsException");
 }
 
 /**
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
-export interface InvalidTitleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTitleException extends __SmithyException, $MetadataBearer {
   name: "InvalidTitleException";
   $fault: "client";
   /**
@@ -5317,8 +5030,7 @@ export interface InvalidTitleException
 }
 
 export namespace InvalidTitleException {
-  export const isa = (o: any): o is InvalidTitleException =>
-    __isa(o, "InvalidTitleException");
+  export const isa = (o: any): o is InvalidTitleException => __isa(o, "InvalidTitleException");
 }
 
 /**
@@ -5403,9 +5115,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-  export const isa = (
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput =>
+  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput =>
     __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryInput");
 }
 
@@ -5423,9 +5133,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-  export const isa = (
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput =>
+  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput =>
     __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryOutput");
 }
 
@@ -5446,8 +5154,7 @@ export interface ListBranchesInput {
 }
 
 export namespace ListBranchesInput {
-  export const isa = (o: any): o is ListBranchesInput =>
-    __isa(o, "ListBranchesInput");
+  export const isa = (o: any): o is ListBranchesInput => __isa(o, "ListBranchesInput");
 }
 
 /**
@@ -5467,8 +5174,7 @@ export interface ListBranchesOutput {
 }
 
 export namespace ListBranchesOutput {
-  export const isa = (o: any): o is ListBranchesOutput =>
-    __isa(o, "ListBranchesOutput");
+  export const isa = (o: any): o is ListBranchesOutput => __isa(o, "ListBranchesOutput");
 }
 
 export interface ListPullRequestsInput {
@@ -5502,8 +5208,7 @@ export interface ListPullRequestsInput {
 }
 
 export namespace ListPullRequestsInput {
-  export const isa = (o: any): o is ListPullRequestsInput =>
-    __isa(o, "ListPullRequestsInput");
+  export const isa = (o: any): o is ListPullRequestsInput => __isa(o, "ListPullRequestsInput");
 }
 
 export interface ListPullRequestsOutput {
@@ -5520,8 +5225,7 @@ export interface ListPullRequestsOutput {
 }
 
 export namespace ListPullRequestsOutput {
-  export const isa = (o: any): o is ListPullRequestsOutput =>
-    __isa(o, "ListPullRequestsOutput");
+  export const isa = (o: any): o is ListPullRequestsOutput => __isa(o, "ListPullRequestsOutput");
 }
 
 export interface ListRepositoriesForApprovalRuleTemplateInput {
@@ -5544,9 +5248,7 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  export const isa = (
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateInput =>
+  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateInput =>
     __isa(o, "ListRepositoriesForApprovalRuleTemplateInput");
 }
 
@@ -5564,9 +5266,7 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  export const isa = (
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateOutput =>
+  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateOutput =>
     __isa(o, "ListRepositoriesForApprovalRuleTemplateOutput");
 }
 
@@ -5594,8 +5294,7 @@ export interface ListRepositoriesInput {
 }
 
 export namespace ListRepositoriesInput {
-  export const isa = (o: any): o is ListRepositoriesInput =>
-    __isa(o, "ListRepositoriesInput");
+  export const isa = (o: any): o is ListRepositoriesInput => __isa(o, "ListRepositoriesInput");
 }
 
 /**
@@ -5617,8 +5316,7 @@ export interface ListRepositoriesOutput {
 }
 
 export namespace ListRepositoriesOutput {
-  export const isa = (o: any): o is ListRepositoriesOutput =>
-    __isa(o, "ListRepositoriesOutput");
+  export const isa = (o: any): o is ListRepositoriesOutput => __isa(o, "ListRepositoriesOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -5688,9 +5386,7 @@ export namespace Location {
 /**
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
-export interface ManualMergeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ManualMergeRequiredException extends __SmithyException, $MetadataBearer {
   name: "ManualMergeRequiredException";
   $fault: "client";
   /**
@@ -5707,9 +5403,7 @@ export namespace ManualMergeRequiredException {
 /**
  * <p>The number of branches for the trigger was exceeded.</p>
  */
-export interface MaximumBranchesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumBranchesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumBranchesExceededException";
   $fault: "client";
   /**
@@ -5738,9 +5432,7 @@ export interface MaximumConflictResolutionEntriesExceededException
 }
 
 export namespace MaximumConflictResolutionEntriesExceededException {
-  export const isa = (
-    o: any
-  ): o is MaximumConflictResolutionEntriesExceededException =>
+  export const isa = (o: any): o is MaximumConflictResolutionEntriesExceededException =>
     __isa(o, "MaximumConflictResolutionEntriesExceededException");
 }
 
@@ -5767,9 +5459,7 @@ export namespace MaximumFileContentToLoadExceededException {
  * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
  */
-export interface MaximumFileEntriesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumFileEntriesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumFileEntriesExceededException";
   $fault: "client";
   /**
@@ -5786,9 +5476,7 @@ export namespace MaximumFileEntriesExceededException {
 /**
  * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  */
-export interface MaximumItemsToCompareExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaximumItemsToCompareExceededException extends __SmithyException, $MetadataBearer {
   name: "MaximumItemsToCompareExceededException";
   $fault: "client";
   /**
@@ -5875,9 +5563,7 @@ export interface MaximumRepositoryTriggersExceededException
 }
 
 export namespace MaximumRepositoryTriggersExceededException {
-  export const isa = (
-    o: any
-  ): o is MaximumRepositoryTriggersExceededException =>
+  export const isa = (o: any): o is MaximumRepositoryTriggersExceededException =>
     __isa(o, "MaximumRepositoryTriggersExceededException");
 }
 
@@ -5897,9 +5583,7 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException
 }
 
 export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
-  export const isa = (
-    o: any
-  ): o is MaximumRuleTemplatesAssociatedWithRepositoryException =>
+  export const isa = (o: any): o is MaximumRuleTemplatesAssociatedWithRepositoryException =>
     __isa(o, "MaximumRuleTemplatesAssociatedWithRepositoryException");
 }
 
@@ -6194,8 +5878,7 @@ export interface MergeHunkDetail {
 }
 
 export namespace MergeHunkDetail {
-  export const isa = (o: any): o is MergeHunkDetail =>
-    __isa(o, "MergeHunkDetail");
+  export const isa = (o: any): o is MergeHunkDetail => __isa(o, "MergeHunkDetail");
 }
 
 /**
@@ -6246,16 +5929,13 @@ export interface MergeOperations {
 }
 
 export namespace MergeOperations {
-  export const isa = (o: any): o is MergeOperations =>
-    __isa(o, "MergeOperations");
+  export const isa = (o: any): o is MergeOperations => __isa(o, "MergeOperations");
 }
 
 /**
  * <p>A merge option or stategy is required, and none was provided.</p>
  */
-export interface MergeOptionRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MergeOptionRequiredException extends __SmithyException, $MetadataBearer {
   name: "MergeOptionRequiredException";
   $fault: "client";
   /**
@@ -6491,9 +6171,7 @@ export interface MultipleConflictResolutionEntriesException
 }
 
 export namespace MultipleConflictResolutionEntriesException {
-  export const isa = (
-    o: any
-  ): o is MultipleConflictResolutionEntriesException =>
+  export const isa = (o: any): o is MultipleConflictResolutionEntriesException =>
     __isa(o, "MultipleConflictResolutionEntriesException");
 }
 
@@ -6512,18 +6190,14 @@ export interface MultipleRepositoriesInPullRequestException
 }
 
 export namespace MultipleRepositoriesInPullRequestException {
-  export const isa = (
-    o: any
-  ): o is MultipleRepositoriesInPullRequestException =>
+  export const isa = (o: any): o is MultipleRepositoriesInPullRequestException =>
     __isa(o, "MultipleRepositoriesInPullRequestException");
 }
 
 /**
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
-export interface NameLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NameLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "NameLengthExceededException";
   $fault: "client";
   /**
@@ -6550,16 +6224,13 @@ export interface NoChangeException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoChangeException {
-  export const isa = (o: any): o is NoChangeException =>
-    __isa(o, "NoChangeException");
+  export const isa = (o: any): o is NoChangeException => __isa(o, "NoChangeException");
 }
 
 /**
  * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
-export interface NumberOfRuleTemplatesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfRuleTemplatesExceededException extends __SmithyException, $MetadataBearer {
   name: "NumberOfRuleTemplatesExceededException";
   $fault: "client";
   /**
@@ -6576,9 +6247,7 @@ export namespace NumberOfRuleTemplatesExceededException {
 /**
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
-export interface NumberOfRulesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NumberOfRulesExceededException extends __SmithyException, $MetadataBearer {
   name: "NumberOfRulesExceededException";
   $fault: "client";
   /**
@@ -6653,9 +6322,7 @@ export namespace OriginApprovalRuleTemplate {
 /**
  * <p>The pull request has already had its approval rules set to override.</p>
  */
-export interface OverrideAlreadySetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OverrideAlreadySetException extends __SmithyException, $MetadataBearer {
   name: "OverrideAlreadySetException";
   $fault: "client";
   /**
@@ -6704,9 +6371,7 @@ export enum OverrideStatus {
 /**
  * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  */
-export interface OverrideStatusRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OverrideStatusRequiredException extends __SmithyException, $MetadataBearer {
   name: "OverrideStatusRequiredException";
   $fault: "client";
   /**
@@ -6723,9 +6388,7 @@ export namespace OverrideStatusRequiredException {
 /**
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
-export interface ParentCommitDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitDoesNotExistException";
   $fault: "client";
   /**
@@ -6743,9 +6406,7 @@ export namespace ParentCommitDoesNotExistException {
  * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
  */
-export interface ParentCommitIdOutdatedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdOutdatedException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitIdOutdatedException";
   $fault: "client";
   /**
@@ -6763,9 +6424,7 @@ export namespace ParentCommitIdOutdatedException {
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
  */
-export interface ParentCommitIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "ParentCommitIdRequiredException";
   $fault: "client";
   /**
@@ -6782,9 +6441,7 @@ export namespace ParentCommitIdRequiredException {
 /**
  * <p>The specified path does not exist.</p>
  */
-export interface PathDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PathDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "PathDoesNotExistException";
   $fault: "client";
   /**
@@ -6801,9 +6458,7 @@ export namespace PathDoesNotExistException {
 /**
  * <p>The folderPath for a location cannot be null.</p>
  */
-export interface PathRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PathRequiredException extends __SmithyException, $MetadataBearer {
   name: "PathRequiredException";
   $fault: "client";
   /**
@@ -6813,8 +6468,7 @@ export interface PathRequiredException
 }
 
 export namespace PathRequiredException {
-  export const isa = (o: any): o is PathRequiredException =>
-    __isa(o, "PathRequiredException");
+  export const isa = (o: any): o is PathRequiredException => __isa(o, "PathRequiredException");
 }
 
 export interface PostCommentForComparedCommitInput {
@@ -7025,8 +6679,7 @@ export interface PostCommentReplyInput {
 }
 
 export namespace PostCommentReplyInput {
-  export const isa = (o: any): o is PostCommentReplyInput =>
-    __isa(o, "PostCommentReplyInput");
+  export const isa = (o: any): o is PostCommentReplyInput => __isa(o, "PostCommentReplyInput");
 }
 
 export interface PostCommentReplyOutput {
@@ -7038,8 +6691,7 @@ export interface PostCommentReplyOutput {
 }
 
 export namespace PostCommentReplyOutput {
-  export const isa = (o: any): o is PostCommentReplyOutput =>
-    __isa(o, "PostCommentReplyOutput");
+  export const isa = (o: any): o is PostCommentReplyOutput => __isa(o, "PostCommentReplyOutput");
 }
 
 /**
@@ -7114,9 +6766,7 @@ export namespace PullRequest {
 /**
  * <p>The pull request status cannot be updated because it is already closed.</p>
  */
-export interface PullRequestAlreadyClosedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestAlreadyClosedException extends __SmithyException, $MetadataBearer {
   name: "PullRequestAlreadyClosedException";
   $fault: "client";
   /**
@@ -7145,9 +6795,7 @@ export interface PullRequestApprovalRulesNotSatisfiedException
 }
 
 export namespace PullRequestApprovalRulesNotSatisfiedException {
-  export const isa = (
-    o: any
-  ): o is PullRequestApprovalRulesNotSatisfiedException =>
+  export const isa = (o: any): o is PullRequestApprovalRulesNotSatisfiedException =>
     __isa(o, "PullRequestApprovalRulesNotSatisfiedException");
 }
 
@@ -7167,9 +6815,7 @@ export interface PullRequestCannotBeApprovedByAuthorException
 }
 
 export namespace PullRequestCannotBeApprovedByAuthorException {
-  export const isa = (
-    o: any
-  ): o is PullRequestCannotBeApprovedByAuthorException =>
+  export const isa = (o: any): o is PullRequestCannotBeApprovedByAuthorException =>
     __isa(o, "PullRequestCannotBeApprovedByAuthorException");
 }
 
@@ -7207,9 +6853,7 @@ export namespace PullRequestCreatedEventMetadata {
 /**
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
-export interface PullRequestDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "PullRequestDoesNotExistException";
   $fault: "client";
   /**
@@ -7289,8 +6933,7 @@ export interface PullRequestEvent {
 }
 
 export namespace PullRequestEvent {
-  export const isa = (o: any): o is PullRequestEvent =>
-    __isa(o, "PullRequestEvent");
+  export const isa = (o: any): o is PullRequestEvent => __isa(o, "PullRequestEvent");
 }
 
 export enum PullRequestEventType {
@@ -7308,9 +6951,7 @@ export enum PullRequestEventType {
 /**
  * <p>A pull request ID is required, but none was provided.</p>
  */
-export interface PullRequestIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "PullRequestIdRequiredException";
   $fault: "client";
   /**
@@ -7346,9 +6987,7 @@ export interface PullRequestMergedStateChangedEventMetadata {
 }
 
 export namespace PullRequestMergedStateChangedEventMetadata {
-  export const isa = (
-    o: any
-  ): o is PullRequestMergedStateChangedEventMetadata =>
+  export const isa = (o: any): o is PullRequestMergedStateChangedEventMetadata =>
     __isa(o, "PullRequestMergedStateChangedEventMetadata");
 }
 
@@ -7379,9 +7018,7 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 export namespace PullRequestSourceReferenceUpdatedEventMetadata {
-  export const isa = (
-    o: any
-  ): o is PullRequestSourceReferenceUpdatedEventMetadata =>
+  export const isa = (o: any): o is PullRequestSourceReferenceUpdatedEventMetadata =>
     __isa(o, "PullRequestSourceReferenceUpdatedEventMetadata");
 }
 
@@ -7409,9 +7046,7 @@ export enum PullRequestStatusEnum {
 /**
  * <p>A pull request status is required, but none was provided.</p>
  */
-export interface PullRequestStatusRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PullRequestStatusRequiredException extends __SmithyException, $MetadataBearer {
   name: "PullRequestStatusRequiredException";
   $fault: "client";
   /**
@@ -7470,8 +7105,7 @@ export interface PullRequestTarget {
 }
 
 export namespace PullRequestTarget {
-  export const isa = (o: any): o is PullRequestTarget =>
-    __isa(o, "PullRequestTarget");
+  export const isa = (o: any): o is PullRequestTarget => __isa(o, "PullRequestTarget");
 }
 
 /**
@@ -7508,9 +7142,7 @@ export namespace PutFileEntry {
 /**
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
-export interface PutFileEntryConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PutFileEntryConflictException extends __SmithyException, $MetadataBearer {
   name: "PutFileEntryConflictException";
   $fault: "client";
   /**
@@ -7649,9 +7281,7 @@ export namespace PutRepositoryTriggersOutput {
 /**
  * <p>The specified reference does not exist. You must provide a full commit ID.</p>
  */
-export interface ReferenceDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ReferenceDoesNotExistException";
   $fault: "client";
   /**
@@ -7668,9 +7298,7 @@ export namespace ReferenceDoesNotExistException {
 /**
  * <p>A reference name is required, but none was provided.</p>
  */
-export interface ReferenceNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReferenceNameRequiredException";
   $fault: "client";
   /**
@@ -7687,9 +7315,7 @@ export namespace ReferenceNameRequiredException {
 /**
  * <p>The specified reference is not a supported type. </p>
  */
-export interface ReferenceTypeNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReferenceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ReferenceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -7735,16 +7361,13 @@ export interface ReplaceContentEntry {
 }
 
 export namespace ReplaceContentEntry {
-  export const isa = (o: any): o is ReplaceContentEntry =>
-    __isa(o, "ReplaceContentEntry");
+  export const isa = (o: any): o is ReplaceContentEntry => __isa(o, "ReplaceContentEntry");
 }
 
 /**
  * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  */
-export interface ReplacementContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplacementContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReplacementContentRequiredException";
   $fault: "client";
   /**
@@ -7768,9 +7391,7 @@ export enum ReplacementTypeEnum {
 /**
  * <p>A replacement type is required.</p>
  */
-export interface ReplacementTypeRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplacementTypeRequiredException extends __SmithyException, $MetadataBearer {
   name: "ReplacementTypeRequiredException";
   $fault: "client";
   /**
@@ -7787,9 +7408,7 @@ export namespace ReplacementTypeRequiredException {
 /**
  * <p>The specified repository does not exist.</p>
  */
-export interface RepositoryDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RepositoryDoesNotExistException";
   $fault: "client";
   /**
@@ -7806,9 +7425,7 @@ export namespace RepositoryDoesNotExistException {
 /**
  * <p>A repository resource limit was exceeded.</p>
  */
-export interface RepositoryLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RepositoryLimitExceededException";
   $fault: "client";
   /**
@@ -7879,16 +7496,13 @@ export interface RepositoryMetadata {
 }
 
 export namespace RepositoryMetadata {
-  export const isa = (o: any): o is RepositoryMetadata =>
-    __isa(o, "RepositoryMetadata");
+  export const isa = (o: any): o is RepositoryMetadata => __isa(o, "RepositoryMetadata");
 }
 
 /**
  * <p>The specified repository name already exists.</p>
  */
-export interface RepositoryNameExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameExistsException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNameExistsException";
   $fault: "client";
   /**
@@ -7919,16 +7533,13 @@ export interface RepositoryNameIdPair {
 }
 
 export namespace RepositoryNameIdPair {
-  export const isa = (o: any): o is RepositoryNameIdPair =>
-    __isa(o, "RepositoryNameIdPair");
+  export const isa = (o: any): o is RepositoryNameIdPair => __isa(o, "RepositoryNameIdPair");
 }
 
 /**
  * <p>A repository name is required, but was not specified.</p>
  */
-export interface RepositoryNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNameRequiredException";
   $fault: "client";
   /**
@@ -7945,9 +7556,7 @@ export namespace RepositoryNameRequiredException {
 /**
  * <p>At least one repository name object is required, but was not specified.</p>
  */
-export interface RepositoryNamesRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNamesRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNamesRequiredException";
   $fault: "client";
   /**
@@ -7976,9 +7585,7 @@ export interface RepositoryNotAssociatedWithPullRequestException
 }
 
 export namespace RepositoryNotAssociatedWithPullRequestException {
-  export const isa = (
-    o: any
-  ): o is RepositoryNotAssociatedWithPullRequestException =>
+  export const isa = (o: any): o is RepositoryNotAssociatedWithPullRequestException =>
     __isa(o, "RepositoryNotAssociatedWithPullRequestException");
 }
 
@@ -8026,8 +7633,7 @@ export interface RepositoryTrigger {
 }
 
 export namespace RepositoryTrigger {
-  export const isa = (o: any): o is RepositoryTrigger =>
-    __isa(o, "RepositoryTrigger");
+  export const isa = (o: any): o is RepositoryTrigger => __isa(o, "RepositoryTrigger");
 }
 
 /**
@@ -8046,9 +7652,7 @@ export interface RepositoryTriggerBranchNameListRequiredException
 }
 
 export namespace RepositoryTriggerBranchNameListRequiredException {
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerBranchNameListRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerBranchNameListRequiredException =>
     __isa(o, "RepositoryTriggerBranchNameListRequiredException");
 }
 
@@ -8068,9 +7672,7 @@ export interface RepositoryTriggerDestinationArnRequiredException
 }
 
 export namespace RepositoryTriggerDestinationArnRequiredException {
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerDestinationArnRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerDestinationArnRequiredException =>
     __isa(o, "RepositoryTriggerDestinationArnRequiredException");
 }
 
@@ -8096,9 +7698,7 @@ export interface RepositoryTriggerEventsListRequiredException
 }
 
 export namespace RepositoryTriggerEventsListRequiredException {
-  export const isa = (
-    o: any
-  ): o is RepositoryTriggerEventsListRequiredException =>
+  export const isa = (o: any): o is RepositoryTriggerEventsListRequiredException =>
     __isa(o, "RepositoryTriggerEventsListRequiredException");
 }
 
@@ -8126,9 +7726,7 @@ export namespace RepositoryTriggerExecutionFailure {
 /**
  * <p>A name for the trigger is required, but was not specified.</p>
  */
-export interface RepositoryTriggerNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "RepositoryTriggerNameRequiredException";
   $fault: "client";
   /**
@@ -8166,9 +7764,7 @@ export namespace RepositoryTriggersListRequiredException {
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface ResourceArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnRequiredException";
   $fault: "client";
   /**
@@ -8185,9 +7781,7 @@ export namespace ResourceArnRequiredException {
 /**
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
-export interface RestrictedSourceFileException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RestrictedSourceFileException extends __SmithyException, $MetadataBearer {
   name: "RestrictedSourceFileException";
   $fault: "client";
   /**
@@ -8204,9 +7798,7 @@ export namespace RestrictedSourceFileException {
 /**
  * <p>A revision ID is required, but was not provided.</p>
  */
-export interface RevisionIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "RevisionIdRequiredException";
   $fault: "client";
   /**
@@ -8223,9 +7815,7 @@ export namespace RevisionIdRequiredException {
 /**
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
-export interface RevisionNotCurrentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionNotCurrentException extends __SmithyException, $MetadataBearer {
   name: "RevisionNotCurrentException";
   $fault: "client";
   /**
@@ -8243,9 +7833,7 @@ export namespace RevisionNotCurrentException {
  * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  */
-export interface SameFileContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SameFileContentException extends __SmithyException, $MetadataBearer {
   name: "SameFileContentException";
   $fault: "client";
   /**
@@ -8264,9 +7852,7 @@ export namespace SameFileContentException {
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
  */
-export interface SamePathRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SamePathRequestException extends __SmithyException, $MetadataBearer {
   name: "SamePathRequestException";
   $fault: "client";
   /**
@@ -8297,8 +7883,7 @@ export interface SetFileModeEntry {
 }
 
 export namespace SetFileModeEntry {
-  export const isa = (o: any): o is SetFileModeEntry =>
-    __isa(o, "SetFileModeEntry");
+  export const isa = (o: any): o is SetFileModeEntry => __isa(o, "SetFileModeEntry");
 }
 
 export enum SortByEnum {
@@ -8310,9 +7895,7 @@ export enum SortByEnum {
  * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
  */
-export interface SourceAndDestinationAreSameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceAndDestinationAreSameException extends __SmithyException, $MetadataBearer {
   name: "SourceAndDestinationAreSameException";
   $fault: "client";
   /**
@@ -8329,9 +7912,7 @@ export namespace SourceAndDestinationAreSameException {
 /**
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
-export interface SourceFileOrContentRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceFileOrContentRequiredException extends __SmithyException, $MetadataBearer {
   name: "SourceFileOrContentRequiredException";
   $fault: "client";
   /**
@@ -8362,8 +7943,7 @@ export interface SourceFileSpecifier {
 }
 
 export namespace SourceFileSpecifier {
-  export const isa = (o: any): o is SourceFileSpecifier =>
-    __isa(o, "SourceFileSpecifier");
+  export const isa = (o: any): o is SourceFileSpecifier => __isa(o, "SourceFileSpecifier");
 }
 
 /**
@@ -8424,9 +8004,7 @@ export namespace SymbolicLink {
 /**
  * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
-export interface TagKeysListRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagKeysListRequiredException extends __SmithyException, $MetadataBearer {
   name: "TagKeysListRequiredException";
   $fault: "client";
   /**
@@ -8453,8 +8031,7 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagPolicyException {
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceInput {
@@ -8471,16 +8048,13 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
  * <p>A map of tags is required.</p>
  */
-export interface TagsMapRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagsMapRequiredException extends __SmithyException, $MetadataBearer {
   name: "TagsMapRequiredException";
   $fault: "client";
   /**
@@ -8523,9 +8097,7 @@ export namespace Target {
 /**
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface TargetRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetRequiredException extends __SmithyException, $MetadataBearer {
   name: "TargetRequiredException";
   $fault: "client";
   /**
@@ -8535,16 +8107,13 @@ export interface TargetRequiredException
 }
 
 export namespace TargetRequiredException {
-  export const isa = (o: any): o is TargetRequiredException =>
-    __isa(o, "TargetRequiredException");
+  export const isa = (o: any): o is TargetRequiredException => __isa(o, "TargetRequiredException");
 }
 
 /**
  * <p>An array of target objects is required. It cannot be empty or null.</p>
  */
-export interface TargetsRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetsRequiredException extends __SmithyException, $MetadataBearer {
   name: "TargetsRequiredException";
   $fault: "client";
   /**
@@ -8625,9 +8194,7 @@ export namespace TipOfSourceReferenceIsDifferentException {
  * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  */
-export interface TipsDivergenceExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TipsDivergenceExceededException extends __SmithyException, $MetadataBearer {
   name: "TipsDivergenceExceededException";
   $fault: "client";
   /**
@@ -8644,9 +8211,7 @@ export namespace TipsDivergenceExceededException {
 /**
  * <p>A pull request title is required. It cannot be empty or null.</p>
  */
-export interface TitleRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TitleRequiredException extends __SmithyException, $MetadataBearer {
   name: "TitleRequiredException";
   $fault: "client";
   /**
@@ -8656,16 +8221,13 @@ export interface TitleRequiredException
 }
 
 export namespace TitleRequiredException {
-  export const isa = (o: any): o is TitleRequiredException =>
-    __isa(o, "TitleRequiredException");
+  export const isa = (o: any): o is TitleRequiredException => __isa(o, "TitleRequiredException");
 }
 
 /**
  * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   /**
@@ -8675,8 +8237,7 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceInput {
@@ -8693,8 +8254,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateApprovalRuleTemplateContentInput {
@@ -8750,9 +8310,7 @@ export interface UpdateApprovalRuleTemplateDescriptionInput {
 }
 
 export namespace UpdateApprovalRuleTemplateDescriptionInput {
-  export const isa = (
-    o: any
-  ): o is UpdateApprovalRuleTemplateDescriptionInput =>
+  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionInput =>
     __isa(o, "UpdateApprovalRuleTemplateDescriptionInput");
 }
 
@@ -8765,9 +8323,7 @@ export interface UpdateApprovalRuleTemplateDescriptionOutput {
 }
 
 export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  export const isa = (
-    o: any
-  ): o is UpdateApprovalRuleTemplateDescriptionOutput =>
+  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionOutput =>
     __isa(o, "UpdateApprovalRuleTemplateDescriptionOutput");
 }
 
@@ -8817,8 +8373,7 @@ export interface UpdateCommentInput {
 }
 
 export namespace UpdateCommentInput {
-  export const isa = (o: any): o is UpdateCommentInput =>
-    __isa(o, "UpdateCommentInput");
+  export const isa = (o: any): o is UpdateCommentInput => __isa(o, "UpdateCommentInput");
 }
 
 export interface UpdateCommentOutput {
@@ -8830,8 +8385,7 @@ export interface UpdateCommentOutput {
 }
 
 export namespace UpdateCommentOutput {
-  export const isa = (o: any): o is UpdateCommentOutput =>
-    __isa(o, "UpdateCommentOutput");
+  export const isa = (o: any): o is UpdateCommentOutput => __isa(o, "UpdateCommentOutput");
 }
 
 /**
@@ -8934,9 +8488,7 @@ export interface UpdatePullRequestApprovalRuleContentOutput {
 }
 
 export namespace UpdatePullRequestApprovalRuleContentOutput {
-  export const isa = (
-    o: any
-  ): o is UpdatePullRequestApprovalRuleContentOutput =>
+  export const isa = (o: any): o is UpdatePullRequestApprovalRuleContentOutput =>
     __isa(o, "UpdatePullRequestApprovalRuleContentOutput");
 }
 

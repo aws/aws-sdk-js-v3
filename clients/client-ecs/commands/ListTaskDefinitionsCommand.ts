@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  ListTaskDefinitionsRequest,
-  ListTaskDefinitionsResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { ListTaskDefinitionsRequest, ListTaskDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTaskDefinitionsCommand,
   serializeAws_json1_1ListTaskDefinitionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTaskDefinitionsCommandInput = ListTaskDefinitionsRequest;
-export type ListTaskDefinitionsCommandOutput = ListTaskDefinitionsResponse &
-  __MetadataBearer;
+export type ListTaskDefinitionsCommandOutput = ListTaskDefinitionsResponse & __MetadataBearer;
 
 export class ListTaskDefinitionsCommand extends $Command<
   ListTaskDefinitionsCommandInput,
@@ -49,13 +41,8 @@ export class ListTaskDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTaskDefinitionsCommandInput,
-    ListTaskDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTaskDefinitionsCommandInput, ListTaskDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  SendUsersMessagesRequest,
-  SendUsersMessagesResponse
-} from "../models/index";
+import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendUsersMessagesCommand,
   serializeAws_restJson1_1SendUsersMessagesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendUsersMessagesCommandInput = SendUsersMessagesRequest;
-export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse &
-  __MetadataBearer;
+export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse & __MetadataBearer;
 
 export class SendUsersMessagesCommand extends $Command<
   SendUsersMessagesCommandInput,
@@ -50,9 +46,7 @@ export class SendUsersMessagesCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendUsersMessagesCommandInput, SendUsersMessagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

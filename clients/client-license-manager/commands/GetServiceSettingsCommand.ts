@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LicenseManagerClient";
-import {
-  GetServiceSettingsRequest,
-  GetServiceSettingsResponse
-} from "../models/index";
+import { GetServiceSettingsRequest, GetServiceSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetServiceSettingsCommand,
   serializeAws_json1_1GetServiceSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetServiceSettingsCommandInput = GetServiceSettingsRequest;
-export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse &
-  __MetadataBearer;
+export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse & __MetadataBearer;
 
 export class GetServiceSettingsCommand extends $Command<
   GetServiceSettingsCommandInput,
@@ -50,9 +46,7 @@ export class GetServiceSettingsCommand extends $Command<
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

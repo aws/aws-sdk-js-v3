@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/index";
 import {
   deserializeAws_restXmlUploadPartCopyCommand,
@@ -27,8 +23,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UploadPartCopyCommandInput = UploadPartCopyRequest;
-export type UploadPartCopyCommandOutput = UploadPartCopyOutput &
-  __MetadataBearer;
+export type UploadPartCopyCommandOutput = UploadPartCopyOutput & __MetadataBearer;
 
 export class UploadPartCopyCommand extends $Command<
   UploadPartCopyCommandInput,
@@ -49,9 +44,7 @@ export class UploadPartCopyCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCopyCommandInput, UploadPartCopyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 

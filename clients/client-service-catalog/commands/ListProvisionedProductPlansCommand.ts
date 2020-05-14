@@ -49,13 +49,8 @@ export class ListProvisionedProductPlansCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProvisionedProductPlansCommandInput,
-    ListProvisionedProductPlansCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProvisionedProductPlansCommandInput, ListProvisionedProductPlansCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListProvisionedProductPlansCommand extends $Command<
     input: ListProvisionedProductPlansCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisionedProductPlansCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListProvisionedProductPlansCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedProductPlansCommandOutput> {
-    return deserializeAws_json1_1ListProvisionedProductPlansCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListProvisionedProductPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

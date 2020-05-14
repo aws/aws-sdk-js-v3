@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import {
   PutImageScanningConfigurationRequest,
   PutImageScanningConfigurationResponse
@@ -53,9 +49,7 @@ export class PutImageScanningConfigurationCommand extends $Command<
     PutImageScanningConfigurationCommandInput,
     PutImageScanningConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutImageScanningConfigurationCommand extends $Command<
     input: PutImageScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageScanningConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutImageScanningConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutImageScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutImageScanningConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutImageScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

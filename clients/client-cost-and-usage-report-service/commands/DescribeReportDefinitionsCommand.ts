@@ -49,13 +49,8 @@ export class DescribeReportDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReportDefinitionsCommandInput,
-    DescribeReportDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeReportDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReportDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReportDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

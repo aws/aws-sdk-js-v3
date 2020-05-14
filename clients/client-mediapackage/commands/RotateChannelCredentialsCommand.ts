@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  RotateChannelCredentialsRequest,
-  RotateChannelCredentialsResponse
-} from "../models/index";
+import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RotateChannelCredentialsCommand,
   serializeAws_restJson1_1RotateChannelCredentialsCommand
@@ -49,13 +46,8 @@ export class RotateChannelCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RotateChannelCredentialsCommandInput,
-    RotateChannelCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RotateChannelCredentialsCommandInput, RotateChannelCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class RotateChannelCredentialsCommand extends $Command<
     input: RotateChannelCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RotateChannelCredentialsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RotateChannelCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RotateChannelCredentialsCommandOutput> {
-    return deserializeAws_restJson1_1RotateChannelCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RotateChannelCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ListAssignmentsForHITRequest,
-  ListAssignmentsForHITResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ListAssignmentsForHITRequest, ListAssignmentsForHITResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAssignmentsForHITCommand,
   serializeAws_json1_1ListAssignmentsForHITCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAssignmentsForHITCommandInput = ListAssignmentsForHITRequest;
-export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse &
-  __MetadataBearer;
+export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse & __MetadataBearer;
 
 export class ListAssignmentsForHITCommand extends $Command<
   ListAssignmentsForHITCommandInput,
@@ -49,13 +41,8 @@ export class ListAssignmentsForHITCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssignmentsForHITCommandInput,
-    ListAssignmentsForHITCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssignmentsForHITCommandInput, ListAssignmentsForHITCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

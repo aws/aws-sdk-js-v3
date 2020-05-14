@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  DeleteTypedLinkFacetRequest,
-  DeleteTypedLinkFacetResponse
-} from "../models/index";
+import { DeleteTypedLinkFacetRequest, DeleteTypedLinkFacetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteTypedLinkFacetCommand,
   serializeAws_restJson1_1DeleteTypedLinkFacetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTypedLinkFacetCommandInput = DeleteTypedLinkFacetRequest;
-export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse &
-  __MetadataBearer;
+export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse & __MetadataBearer;
 
 export class DeleteTypedLinkFacetCommand extends $Command<
   DeleteTypedLinkFacetCommandInput,
@@ -49,13 +45,8 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTypedLinkFacetCommandInput,
-    DeleteTypedLinkFacetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTypedLinkFacetCommandInput, DeleteTypedLinkFacetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteTypedLinkFacetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTypedLinkFacetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

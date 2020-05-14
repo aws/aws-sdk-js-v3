@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCommentCommandInput = CreateCommentRequest;
-export type CreateCommentCommandOutput = CreateCommentResponse &
-  __MetadataBearer;
+export type CreateCommentCommandOutput = CreateCommentResponse & __MetadataBearer;
 
 export class CreateCommentCommand extends $Command<
   CreateCommentCommandInput,
@@ -47,9 +46,7 @@ export class CreateCommentCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCommentCommandInput, CreateCommentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

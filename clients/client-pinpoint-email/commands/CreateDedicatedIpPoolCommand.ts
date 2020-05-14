@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointEmailClient";
-import {
-  CreateDedicatedIpPoolRequest,
-  CreateDedicatedIpPoolResponse
-} from "../models/index";
+import { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDedicatedIpPoolCommand,
   serializeAws_restJson1_1CreateDedicatedIpPoolCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDedicatedIpPoolCommandInput = CreateDedicatedIpPoolRequest;
-export type CreateDedicatedIpPoolCommandOutput = CreateDedicatedIpPoolResponse &
-  __MetadataBearer;
+export type CreateDedicatedIpPoolCommandOutput = CreateDedicatedIpPoolResponse & __MetadataBearer;
 
 export class CreateDedicatedIpPoolCommand extends $Command<
   CreateDedicatedIpPoolCommandInput,
@@ -49,13 +45,8 @@ export class CreateDedicatedIpPoolCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDedicatedIpPoolCommandInput,
-    CreateDedicatedIpPoolCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDedicatedIpPoolCommandInput, CreateDedicatedIpPoolCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateDedicatedIpPoolCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1_1CreateDedicatedIpPoolCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

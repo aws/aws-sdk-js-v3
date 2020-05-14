@@ -10,14 +10,8 @@ import {
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput
 } from "./commands/GetTranscriptCommand";
-import {
-  SendEventCommandInput,
-  SendEventCommandOutput
-} from "./commands/SendEventCommand";
-import {
-  SendMessageCommandInput,
-  SendMessageCommandOutput
-} from "./commands/SendMessageCommand";
+import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -169,9 +163,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConnectParticipantClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConnectParticipantClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

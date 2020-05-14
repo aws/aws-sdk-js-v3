@@ -45,13 +45,8 @@ export class UpdateUserHierarchyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserHierarchyCommandInput,
-    UpdateUserHierarchyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserHierarchyCommandInput, UpdateUserHierarchyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class UpdateUserHierarchyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserHierarchyCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserHierarchyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserHierarchyCommand(output, context);
   }
 
   // Start section: command_body_extra

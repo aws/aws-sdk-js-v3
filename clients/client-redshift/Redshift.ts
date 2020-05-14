@@ -517,31 +517,19 @@ export class Redshift extends RedshiftClient {
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput>;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AuthorizeClusterSecurityGroupIngressCommandOutput
-    ) => void
+      | ((err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeClusterSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -683,9 +671,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public cancelResize(
     args: CancelResizeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelResizeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelResizeCommandOutput) => void),
     cb?: (err: any, data?: CancelResizeCommandOutput) => void
   ): Promise<CancelResizeCommandOutput> | void {
     const command = new CancelResizeCommand(args);
@@ -770,9 +756,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -1222,9 +1206,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -1272,9 +1254,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
@@ -1677,9 +1657,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -1800,10 +1778,7 @@ export class Redshift extends RedshiftClient {
     args: DescribeClusterParameterGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeClusterParameterGroupsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeClusterParameterGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeClusterParameterGroupsCommand(args);
@@ -2110,9 +2085,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
@@ -2152,14 +2125,8 @@ export class Redshift extends RedshiftClient {
     args: DescribeDefaultClusterParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDefaultClusterParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2276,9 +2243,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -2440,14 +2405,8 @@ export class Redshift extends RedshiftClient {
     args: DescribeNodeConfigurationOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNodeConfigurationOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNodeConfigurationOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNodeConfigurationOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNodeConfigurationOptionsCommandOutput) => void
   ): Promise<DescribeNodeConfigurationOptionsCommandOutput> | void {
     const command = new DescribeNodeConfigurationOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2489,10 +2448,7 @@ export class Redshift extends RedshiftClient {
     args: DescribeOrderableClusterOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableClusterOptionsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> | void {
     const command = new DescribeOrderableClusterOptionsCommand(args);
@@ -2609,9 +2565,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeResize(
     args: DescribeResizeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResizeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResizeCommandOutput) => void),
     cb?: (err: any, data?: DescribeResizeCommandOutput) => void
   ): Promise<DescribeResizeCommandOutput> | void {
     const command = new DescribeResizeCommand(args);
@@ -2756,9 +2710,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeStorage(
     args: DescribeStorageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStorageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorageCommandOutput) => void),
     cb?: (err: any, data?: DescribeStorageCommandOutput) => void
   ): Promise<DescribeStorageCommandOutput> | void {
     const command = new DescribeStorageCommand(args);
@@ -2855,9 +2807,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -2891,9 +2841,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public disableLogging(
     args: DisableLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableLoggingCommandOutput) => void),
     cb?: (err: any, data?: DisableLoggingCommandOutput) => void
   ): Promise<DisableLoggingCommandOutput> | void {
     const command = new DisableLoggingCommand(args);
@@ -2966,9 +2914,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public enableLogging(
     args: EnableLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableLoggingCommandOutput) => void),
     cb?: (err: any, data?: EnableLoggingCommandOutput) => void
   ): Promise<EnableLoggingCommandOutput> | void {
     const command = new EnableLoggingCommand(args);
@@ -3095,14 +3041,8 @@ export class Redshift extends RedshiftClient {
     args: GetReservedNodeExchangeOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservedNodeExchangeOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservedNodeExchangeOfferingsCommandOutput
-    ) => void
+      | ((err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> | void {
     const command = new GetReservedNodeExchangeOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3142,9 +3082,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public modifyCluster(
     args: ModifyClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterCommandOutput) => void
   ): Promise<ModifyClusterCommandOutput> | void {
     const command = new ModifyClusterCommand(args);
@@ -3499,31 +3437,19 @@ export class Redshift extends RedshiftClient {
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput>;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
-    cb: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): void;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): void;
   public modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifySnapshotCopyRetentionPeriodCommandOutput
-    ) => void
+      | ((err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void),
+    cb?: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> | void {
     const command = new ModifySnapshotCopyRetentionPeriodCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3641,9 +3567,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public rebootCluster(
     args: RebootClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootClusterCommandOutput) => void),
     cb?: (err: any, data?: RebootClusterCommandOutput) => void
   ): Promise<RebootClusterCommandOutput> | void {
     const command = new RebootClusterCommand(args);
@@ -3744,9 +3668,7 @@ export class Redshift extends RedshiftClient {
   ): void;
   public resizeCluster(
     args: ResizeClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResizeClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResizeClusterCommandOutput) => void),
     cb?: (err: any, data?: ResizeClusterCommandOutput) => void
   ): Promise<ResizeClusterCommandOutput> | void {
     const command = new ResizeClusterCommand(args);
@@ -3838,10 +3760,7 @@ export class Redshift extends RedshiftClient {
     args: RestoreTableFromClusterSnapshotCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreTableFromClusterSnapshotCommandOutput
-        ) => void),
+      | ((err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> | void {
     const command = new RestoreTableFromClusterSnapshotCommand(args);
@@ -3869,31 +3788,19 @@ export class Redshift extends RedshiftClient {
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput>;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
-    cb: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+    cb: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
   public revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RevokeClusterSecurityGroupIngressCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RevokeClusterSecurityGroupIngressCommandOutput
-    ) => void
+      | ((err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void),
+    cb?: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeClusterSecurityGroupIngressCommand(args);
     if (typeof optionsOrCb === "function") {

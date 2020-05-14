@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { GetSupportedResourceTypesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSupportedResourceTypesCommand,
@@ -46,13 +42,8 @@ export class GetSupportedResourceTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSupportedResourceTypesCommandInput,
-    GetSupportedResourceTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSupportedResourceTypesCommandInput, GetSupportedResourceTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +62,14 @@ export class GetSupportedResourceTypesCommand extends $Command<
     input: GetSupportedResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSupportedResourceTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetSupportedResourceTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSupportedResourceTypesCommandOutput> {
-    return deserializeAws_restJson1_1GetSupportedResourceTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSupportedResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

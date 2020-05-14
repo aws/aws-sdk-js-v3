@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import {
   ListBucketAnalyticsConfigurationsOutput,
   ListBucketAnalyticsConfigurationsRequest
@@ -54,9 +50,7 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     ListBucketAnalyticsConfigurationsCommandInput,
     ListBucketAnalyticsConfigurationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +70,14 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command<
     input: ListBucketAnalyticsConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListBucketAnalyticsConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> {
-    return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

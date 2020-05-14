@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  ListEventSubscriptionsRequest,
-  ListEventSubscriptionsResponse
-} from "../models/index";
+import { ListEventSubscriptionsRequest, ListEventSubscriptionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListEventSubscriptionsCommand,
   serializeAws_json1_1ListEventSubscriptionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEventSubscriptionsCommandInput = ListEventSubscriptionsRequest;
-export type ListEventSubscriptionsCommandOutput = ListEventSubscriptionsResponse &
-  __MetadataBearer;
+export type ListEventSubscriptionsCommandOutput = ListEventSubscriptionsResponse & __MetadataBearer;
 
 export class ListEventSubscriptionsCommand extends $Command<
   ListEventSubscriptionsCommandInput,
@@ -49,13 +45,8 @@ export class ListEventSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEventSubscriptionsCommandInput,
-    ListEventSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEventSubscriptionsCommandInput, ListEventSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

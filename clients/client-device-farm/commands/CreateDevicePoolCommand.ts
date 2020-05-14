@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  CreateDevicePoolRequest,
-  CreateDevicePoolResult
-} from "../models/index";
+import { CreateDevicePoolRequest, CreateDevicePoolResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDevicePoolCommand,
   serializeAws_json1_1CreateDevicePoolCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDevicePoolCommandInput = CreateDevicePoolRequest;
-export type CreateDevicePoolCommandOutput = CreateDevicePoolResult &
-  __MetadataBearer;
+export type CreateDevicePoolCommandOutput = CreateDevicePoolResult & __MetadataBearer;
 
 export class CreateDevicePoolCommand extends $Command<
   CreateDevicePoolCommandInput,
@@ -50,9 +46,7 @@ export class CreateDevicePoolCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

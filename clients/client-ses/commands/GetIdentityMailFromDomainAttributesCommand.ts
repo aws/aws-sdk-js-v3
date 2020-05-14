@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse
@@ -53,9 +49,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     GetIdentityMailFromDomainAttributesCommandInput,
     GetIdentityMailFromDomainAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     input: GetIdentityMailFromDomainAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

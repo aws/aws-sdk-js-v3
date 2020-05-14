@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePublicKeyCommandInput = CreatePublicKeyRequest;
-export type CreatePublicKeyCommandOutput = CreatePublicKeyResult &
-  __MetadataBearer;
+export type CreatePublicKeyCommandOutput = CreatePublicKeyResult & __MetadataBearer;
 
 export class CreatePublicKeyCommand extends $Command<
   CreatePublicKeyCommandInput,
@@ -47,9 +46,7 @@ export class CreatePublicKeyCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  DescribeEnvironmentsRequest,
-  DescribeEnvironmentsResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEnvironmentsCommand,
   serializeAws_json1_1DescribeEnvironmentsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsRequest;
-export type DescribeEnvironmentsCommandOutput = DescribeEnvironmentsResult &
-  __MetadataBearer;
+export type DescribeEnvironmentsCommandOutput = DescribeEnvironmentsResult & __MetadataBearer;
 
 export class DescribeEnvironmentsCommand extends $Command<
   DescribeEnvironmentsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentsCommandInput,
-    DescribeEnvironmentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentsCommandInput, DescribeEnvironmentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

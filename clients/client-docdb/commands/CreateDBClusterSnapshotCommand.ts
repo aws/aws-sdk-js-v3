@@ -1,12 +1,5 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
-import {
-  CreateDBClusterSnapshotMessage,
-  CreateDBClusterSnapshotResult
-} from "../models/index";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBClusterSnapshotCommand,
   serializeAws_queryCreateDBClusterSnapshotCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBClusterSnapshotCommandInput = CreateDBClusterSnapshotMessage;
-export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult &
-  __MetadataBearer;
+export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult & __MetadataBearer;
 
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,
@@ -49,13 +41,8 @@ export class CreateDBClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBClusterSnapshotCommandInput,
-    CreateDBClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBClusterSnapshotCommandInput, CreateDBClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

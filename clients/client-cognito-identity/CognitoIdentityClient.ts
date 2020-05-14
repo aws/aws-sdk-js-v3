@@ -59,10 +59,7 @@ import {
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput
 } from "./commands/SetIdentityPoolRolesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnlinkDeveloperIdentityCommandInput,
   UnlinkDeveloperIdentityCommandOutput
@@ -261,9 +258,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoIdentityClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoIdentityClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

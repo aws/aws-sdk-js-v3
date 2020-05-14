@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { UpdateTaskSetRequest, UpdateTaskSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateTaskSetCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTaskSetCommandInput = UpdateTaskSetRequest;
-export type UpdateTaskSetCommandOutput = UpdateTaskSetResponse &
-  __MetadataBearer;
+export type UpdateTaskSetCommandOutput = UpdateTaskSetResponse & __MetadataBearer;
 
 export class UpdateTaskSetCommand extends $Command<
   UpdateTaskSetCommandInput,
@@ -47,9 +42,7 @@ export class UpdateTaskSetCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

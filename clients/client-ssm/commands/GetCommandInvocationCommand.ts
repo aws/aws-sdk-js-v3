@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetCommandInvocationRequest,
-  GetCommandInvocationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/index";
 import {
   deserializeAws_json1_1GetCommandInvocationCommand,
   serializeAws_json1_1GetCommandInvocationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
-export type GetCommandInvocationCommandOutput = GetCommandInvocationResult &
-  __MetadataBearer;
+export type GetCommandInvocationCommandOutput = GetCommandInvocationResult & __MetadataBearer;
 
 export class GetCommandInvocationCommand extends $Command<
   GetCommandInvocationCommandInput,
@@ -49,13 +41,8 @@ export class GetCommandInvocationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCommandInvocationCommandInput,
-    GetCommandInvocationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCommandInvocationCommandInput, GetCommandInvocationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

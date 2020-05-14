@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchDevicesCommandInput = SearchDevicesRequest;
-export type SearchDevicesCommandOutput = SearchDevicesResponse &
-  __MetadataBearer;
+export type SearchDevicesCommandOutput = SearchDevicesResponse & __MetadataBearer;
 
 export class SearchDevicesCommand extends $Command<
   SearchDevicesCommandInput,
@@ -47,9 +46,7 @@ export class SearchDevicesCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchDevicesCommandInput, SearchDevicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

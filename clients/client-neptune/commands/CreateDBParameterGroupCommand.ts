@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  CreateDBParameterGroupMessage,
-  CreateDBParameterGroupResult
-} from "../models/index";
+import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBParameterGroupCommand,
   serializeAws_queryCreateDBParameterGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBParameterGroupCommandInput = CreateDBParameterGroupMessage;
-export type CreateDBParameterGroupCommandOutput = CreateDBParameterGroupResult &
-  __MetadataBearer;
+export type CreateDBParameterGroupCommandOutput = CreateDBParameterGroupResult & __MetadataBearer;
 
 export class CreateDBParameterGroupCommand extends $Command<
   CreateDBParameterGroupCommandInput,
@@ -49,13 +45,8 @@ export class CreateDBParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBParameterGroupCommandInput,
-    CreateDBParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBParameterGroupCommandInput, CreateDBParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

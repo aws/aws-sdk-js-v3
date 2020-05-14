@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetAccountLimitRequest,
-  GetAccountLimitResponse
-} from "../models/index";
+import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetAccountLimitCommand,
   serializeAws_restXmlGetAccountLimitCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountLimitCommandInput = GetAccountLimitRequest;
-export type GetAccountLimitCommandOutput = GetAccountLimitResponse &
-  __MetadataBearer;
+export type GetAccountLimitCommandOutput = GetAccountLimitResponse & __MetadataBearer;
 
 export class GetAccountLimitCommand extends $Command<
   GetAccountLimitCommandInput,
@@ -50,9 +46,7 @@ export class GetAccountLimitCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountLimitCommandInput, GetAccountLimitCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

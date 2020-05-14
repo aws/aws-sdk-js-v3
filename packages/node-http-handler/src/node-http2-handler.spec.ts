@@ -91,10 +91,7 @@ describe("NodeHttp2Handler", () => {
       const mockH2Server2 = createMockHttp2Server().listen(port2);
       mockH2Server2.on("request", createResponseFunction(mockResponse));
 
-      await nodeH2Handler.handle(
-        new HttpRequest({ ...getMockReqOptions(), port: port2 }),
-        {}
-      );
+      await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(2);
       expect(
@@ -112,9 +109,7 @@ describe("NodeHttp2Handler", () => {
 
       const authority = `${protocol}//${hostname}:${port}`;
       // @ts-ignore: access private property
-      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
-        authority
-      );
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(authority);
       expect(session.closed).toBe(false);
       setTimeout(() => {
         expect(session.closed).toBe(true);

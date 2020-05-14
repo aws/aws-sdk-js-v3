@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  GetFieldLevelEncryptionRequest,
-  GetFieldLevelEncryptionResult
-} from "../models/index";
+import { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/index";
 import {
   deserializeAws_restXmlGetFieldLevelEncryptionCommand,
   serializeAws_restXmlGetFieldLevelEncryptionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFieldLevelEncryptionCommandInput = GetFieldLevelEncryptionRequest;
-export type GetFieldLevelEncryptionCommandOutput = GetFieldLevelEncryptionResult &
-  __MetadataBearer;
+export type GetFieldLevelEncryptionCommandOutput = GetFieldLevelEncryptionResult & __MetadataBearer;
 
 export class GetFieldLevelEncryptionCommand extends $Command<
   GetFieldLevelEncryptionCommandInput,
@@ -49,13 +45,8 @@ export class GetFieldLevelEncryptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFieldLevelEncryptionCommandInput,
-    GetFieldLevelEncryptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFieldLevelEncryptionCommandInput, GetFieldLevelEncryptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetFieldLevelEncryptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetFieldLevelEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

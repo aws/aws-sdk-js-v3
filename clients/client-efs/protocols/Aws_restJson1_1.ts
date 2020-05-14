@@ -10,10 +10,7 @@ import {
   CreateMountTargetCommandInput,
   CreateMountTargetCommandOutput
 } from "../commands/CreateMountTargetCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "../commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
   DeleteAccessPointCommandInput,
   DeleteAccessPointCommandOutput
@@ -30,10 +27,7 @@ import {
   DeleteMountTargetCommandInput,
   DeleteMountTargetCommandOutput
 } from "../commands/DeleteMountTargetCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeAccessPointsCommandInput,
   DescribeAccessPointsCommandOutput
@@ -78,10 +72,7 @@ import {
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput
 } from "../commands/PutLifecycleConfigurationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -161,10 +152,7 @@ export const serializeAws_restJson1_1CreateAccessPointCommand = async (
       PosixUser: serializeAws_restJson1_1PosixUser(input.PosixUser, context)
     }),
     ...(input.RootDirectory !== undefined && {
-      RootDirectory: serializeAws_restJson1_1RootDirectory(
-        input.RootDirectory,
-        context
-      )
+      RootDirectory: serializeAws_restJson1_1RootDirectory(input.RootDirectory, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_restJson1_1Tags(input.Tags, context)
@@ -235,10 +223,7 @@ export const serializeAws_restJson1_1CreateMountTargetCommand = async (
     }),
     ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
     ...(input.SecurityGroups !== undefined && {
-      SecurityGroups: serializeAws_restJson1_1SecurityGroups(
-        input.SecurityGroups,
-        context
-      )
+      SecurityGroups: serializeAws_restJson1_1SecurityGroups(input.SecurityGroups, context)
     }),
     ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId })
   });
@@ -265,14 +250,9 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -305,9 +285,7 @@ export const serializeAws_restJson1_1DeleteAccessPointCommand = async (
   if (input.AccessPointId !== undefined) {
     const labelValue: string = input.AccessPointId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AccessPointId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AccessPointId.");
     }
     resolvedPath = resolvedPath.replace(
       "{AccessPointId}",
@@ -340,14 +318,9 @@ export const serializeAws_restJson1_1DeleteFileSystemCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -375,14 +348,9 @@ export const serializeAws_restJson1_1DeleteFileSystemPolicyCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -410,9 +378,7 @@ export const serializeAws_restJson1_1DeleteMountTargetCommand = async (
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MountTargetId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MountTargetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
@@ -445,14 +411,9 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -519,14 +480,9 @@ export const serializeAws_restJson1_1DescribeFileSystemPolicyCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -582,19 +538,13 @@ export const serializeAws_restJson1_1DescribeLifecycleConfigurationCommand = asy
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -618,14 +568,11 @@ export const serializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand = 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MountTargetId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MountTargetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
@@ -695,14 +642,9 @@ export const serializeAws_restJson1_1DescribeTagsCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -737,10 +679,7 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -771,14 +710,11 @@ export const serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand = as
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: MountTargetId."
-      );
+      throw new Error("Empty value provided for input HTTP label: MountTargetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
@@ -790,10 +726,7 @@ export const serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand = as
   let body: any;
   body = JSON.stringify({
     ...(input.SecurityGroups !== undefined && {
-      SecurityGroups: serializeAws_restJson1_1SecurityGroups(
-        input.SecurityGroups,
-        context
-      )
+      SecurityGroups: serializeAws_restJson1_1SecurityGroups(input.SecurityGroups, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -819,14 +752,9 @@ export const serializeAws_restJson1_1PutFileSystemPolicyCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -856,29 +784,20 @@ export const serializeAws_restJson1_1PutLifecycleConfigurationCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.LifecyclePolicies !== undefined && {
-      LifecyclePolicies: serializeAws_restJson1_1LifecyclePolicies(
-        input.LifecyclePolicies,
-        context
-      )
+      LifecyclePolicies: serializeAws_restJson1_1LifecyclePolicies(input.LifecyclePolicies, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -906,10 +825,7 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -944,10 +860,7 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -980,14 +893,9 @@ export const serializeAws_restJson1_1UpdateFileSystemCommand = async (
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: FileSystemId."
-      );
+      throw new Error("Empty value provided for input HTTP label: FileSystemId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FileSystemId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FileSystemId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
@@ -1017,10 +925,7 @@ export const deserializeAws_restJson1_1CreateAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateAccessPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateAccessPointCommandError(output, context);
   }
   const contents: CreateAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1059,16 +964,10 @@ export const deserializeAws_restJson1_1CreateAccessPointCommand = async (
     contents.OwnerId = data.OwnerId;
   }
   if (data.PosixUser !== undefined && data.PosixUser !== null) {
-    contents.PosixUser = deserializeAws_restJson1_1PosixUser(
-      data.PosixUser,
-      context
-    );
+    contents.PosixUser = deserializeAws_restJson1_1PosixUser(data.PosixUser, context);
   }
   if (data.RootDirectory !== undefined && data.RootDirectory !== null) {
-    contents.RootDirectory = deserializeAws_restJson1_1RootDirectory(
-      data.RootDirectory,
-      context
-    );
+    contents.RootDirectory = deserializeAws_restJson1_1RootDirectory(data.RootDirectory, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
@@ -1113,10 +1012,7 @@ const deserializeAws_restJson1_1CreateAccessPointCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1124,10 +1020,7 @@ const deserializeAws_restJson1_1CreateAccessPointCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1135,10 +1028,7 @@ const deserializeAws_restJson1_1CreateAccessPointCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1165,10 +1055,7 @@ export const deserializeAws_restJson1_1CreateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<CreateFileSystemCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateFileSystemCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateFileSystemCommandError(output, context);
   }
   const contents: CreateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1210,10 +1097,7 @@ export const deserializeAws_restJson1_1CreateFileSystemCommand = async (
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
   }
-  if (
-    data.NumberOfMountTargets !== undefined &&
-    data.NumberOfMountTargets !== null
-  ) {
+  if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
     contents.NumberOfMountTargets = data.NumberOfMountTargets;
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
@@ -1229,10 +1113,7 @@ export const deserializeAws_restJson1_1CreateFileSystemCommand = async (
     contents.ProvisionedThroughputInMibps = data.ProvisionedThroughputInMibps;
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
-    contents.SizeInBytes = deserializeAws_restJson1_1FileSystemSize(
-      data.SizeInBytes,
-      context
-    );
+    contents.SizeInBytes = deserializeAws_restJson1_1FileSystemSize(data.SizeInBytes, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
@@ -1258,10 +1139,7 @@ const deserializeAws_restJson1_1CreateFileSystemCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1269,10 +1147,7 @@ const deserializeAws_restJson1_1CreateFileSystemCommandError = async (
     case "FileSystemAlreadyExists":
     case "com.amazon.magnolio.api#FileSystemAlreadyExists":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemAlreadyExistsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemAlreadyExistsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1280,10 +1155,7 @@ const deserializeAws_restJson1_1CreateFileSystemCommandError = async (
     case "FileSystemLimitExceeded":
     case "com.amazon.magnolio.api#FileSystemLimitExceeded":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1302,10 +1174,7 @@ const deserializeAws_restJson1_1CreateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1313,10 +1182,7 @@ const deserializeAws_restJson1_1CreateFileSystemCommandError = async (
     case "ThroughputLimitExceeded":
     case "com.amazon.magnolio.api#ThroughputLimitExceeded":
       response = {
-        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1343,10 +1209,7 @@ export const deserializeAws_restJson1_1CreateMountTargetCommand = async (
   context: __SerdeContext
 ): Promise<CreateMountTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateMountTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateMountTargetCommandError(output, context);
   }
   const contents: CreateMountTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1362,16 +1225,10 @@ export const deserializeAws_restJson1_1CreateMountTargetCommand = async (
     SubnetId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.AvailabilityZoneId !== undefined &&
-    data.AvailabilityZoneId !== null
-  ) {
+  if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
     contents.AvailabilityZoneId = data.AvailabilityZoneId;
   }
-  if (
-    data.AvailabilityZoneName !== undefined &&
-    data.AvailabilityZoneName !== null
-  ) {
+  if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
     contents.AvailabilityZoneName = data.AvailabilityZoneName;
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
@@ -1386,10 +1243,7 @@ export const deserializeAws_restJson1_1CreateMountTargetCommand = async (
   if (data.MountTargetId !== undefined && data.MountTargetId !== null) {
     contents.MountTargetId = data.MountTargetId;
   }
-  if (
-    data.NetworkInterfaceId !== undefined &&
-    data.NetworkInterfaceId !== null
-  ) {
+  if (data.NetworkInterfaceId !== undefined && data.NetworkInterfaceId !== null) {
     contents.NetworkInterfaceId = data.NetworkInterfaceId;
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
@@ -1416,10 +1270,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1427,10 +1278,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1449,10 +1297,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1460,10 +1305,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "IpAddressInUse":
     case "com.amazon.magnolio.api#IpAddressInUse":
       response = {
-        ...(await deserializeAws_restJson1_1IpAddressInUseResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IpAddressInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1471,10 +1313,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "MountTargetConflict":
     case "com.amazon.magnolio.api#MountTargetConflict":
       response = {
-        ...(await deserializeAws_restJson1_1MountTargetConflictResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MountTargetConflictResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1493,10 +1332,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "NoFreeAddressesInSubnet":
     case "com.amazon.magnolio.api#NoFreeAddressesInSubnet":
       response = {
-        ...(await deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1515,10 +1351,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "SecurityGroupNotFound":
     case "com.amazon.magnolio.api#SecurityGroupNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1526,10 +1359,7 @@ const deserializeAws_restJson1_1CreateMountTargetCommandError = async (
     case "SubnetNotFound":
     case "com.amazon.magnolio.api#SubnetNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1SubnetNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SubnetNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1591,10 +1421,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1602,10 +1429,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1613,10 +1437,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1643,10 +1464,7 @@ export const deserializeAws_restJson1_1DeleteAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessPointCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteAccessPointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAccessPointCommandError(output, context);
   }
   const contents: DeleteAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1670,10 +1488,7 @@ const deserializeAws_restJson1_1DeleteAccessPointCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1681,10 +1496,7 @@ const deserializeAws_restJson1_1DeleteAccessPointCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1692,10 +1504,7 @@ const deserializeAws_restJson1_1DeleteAccessPointCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1722,10 +1531,7 @@ export const deserializeAws_restJson1_1DeleteFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFileSystemCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteFileSystemCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFileSystemCommandError(output, context);
   }
   const contents: DeleteFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1749,10 +1555,7 @@ const deserializeAws_restJson1_1DeleteFileSystemCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1760,10 +1563,7 @@ const deserializeAws_restJson1_1DeleteFileSystemCommandError = async (
     case "FileSystemInUse":
     case "com.amazon.magnolio.api#FileSystemInUse":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemInUseResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1771,10 +1571,7 @@ const deserializeAws_restJson1_1DeleteFileSystemCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1782,10 +1579,7 @@ const deserializeAws_restJson1_1DeleteFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1812,10 +1606,7 @@ export const deserializeAws_restJson1_1DeleteFileSystemPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError(output, context);
   }
   const contents: DeleteFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1839,10 +1630,7 @@ const deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1861,10 +1649,7 @@ const deserializeAws_restJson1_1DeleteFileSystemPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1891,10 +1676,7 @@ export const deserializeAws_restJson1_1DeleteMountTargetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMountTargetCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteMountTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMountTargetCommandError(output, context);
   }
   const contents: DeleteMountTargetCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1918,10 +1700,7 @@ const deserializeAws_restJson1_1DeleteMountTargetCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1929,10 +1708,7 @@ const deserializeAws_restJson1_1DeleteMountTargetCommandError = async (
     case "DependencyTimeout":
     case "com.amazon.magnolio.api#DependencyTimeout":
       response = {
-        ...(await deserializeAws_restJson1_1DependencyTimeoutResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DependencyTimeoutResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1940,10 +1716,7 @@ const deserializeAws_restJson1_1DeleteMountTargetCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1951,10 +1724,7 @@ const deserializeAws_restJson1_1DeleteMountTargetCommandError = async (
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2005,10 +1775,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2016,10 +1783,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2027,10 +1791,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2057,10 +1818,7 @@ export const deserializeAws_restJson1_1DescribeAccessPointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccessPointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAccessPointsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAccessPointsCommandError(output, context);
   }
   const contents: DescribeAccessPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2096,10 +1854,7 @@ const deserializeAws_restJson1_1DescribeAccessPointsCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2107,10 +1862,7 @@ const deserializeAws_restJson1_1DescribeAccessPointsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2118,10 +1870,7 @@ const deserializeAws_restJson1_1DescribeAccessPointsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2129,10 +1878,7 @@ const deserializeAws_restJson1_1DescribeAccessPointsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2159,10 +1905,7 @@ export const deserializeAws_restJson1_1DescribeFileSystemPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError(output, context);
   }
   const contents: DescribeFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2195,10 +1938,7 @@ const deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2206,10 +1946,7 @@ const deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2217,10 +1954,7 @@ const deserializeAws_restJson1_1DescribeFileSystemPolicyCommandError = async (
     case "PolicyNotFound":
     case "com.amazon.magnolio.api#PolicyNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1PolicyNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PolicyNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2247,10 +1981,7 @@ export const deserializeAws_restJson1_1DescribeFileSystemsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeFileSystemsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFileSystemsCommandError(output, context);
   }
   const contents: DescribeFileSystemsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2290,10 +2021,7 @@ const deserializeAws_restJson1_1DescribeFileSystemsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2301,10 +2029,7 @@ const deserializeAws_restJson1_1DescribeFileSystemsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2312,10 +2037,7 @@ const deserializeAws_restJson1_1DescribeFileSystemsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2342,10 +2064,7 @@ export const deserializeAws_restJson1_1DescribeLifecycleConfigurationCommand = a
   context: __SerdeContext
 ): Promise<DescribeLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError(output, context);
   }
   const contents: DescribeLifecycleConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2377,10 +2096,7 @@ const deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError = asy
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2388,10 +2104,7 @@ const deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError = asy
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2399,10 +2112,7 @@ const deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError = asy
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2429,10 +2139,7 @@ export const deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommand 
   context: __SerdeContext
 ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError(output, context);
   }
   const contents: DescribeMountTargetSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2464,10 +2171,7 @@ const deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError = 
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2486,10 +2190,7 @@ const deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError = 
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2497,10 +2198,7 @@ const deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError = 
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2527,10 +2225,7 @@ export const deserializeAws_restJson1_1DescribeMountTargetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMountTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeMountTargetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeMountTargetsCommandError(output, context);
   }
   const contents: DescribeMountTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2570,10 +2265,7 @@ const deserializeAws_restJson1_1DescribeMountTargetsCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2581,10 +2273,7 @@ const deserializeAws_restJson1_1DescribeMountTargetsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2592,10 +2281,7 @@ const deserializeAws_restJson1_1DescribeMountTargetsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2603,10 +2289,7 @@ const deserializeAws_restJson1_1DescribeMountTargetsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2614,10 +2297,7 @@ const deserializeAws_restJson1_1DescribeMountTargetsCommandError = async (
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2681,10 +2361,7 @@ const deserializeAws_restJson1_1DescribeTagsCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2692,10 +2369,7 @@ const deserializeAws_restJson1_1DescribeTagsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2703,10 +2377,7 @@ const deserializeAws_restJson1_1DescribeTagsCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2733,10 +2404,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2769,10 +2437,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2780,10 +2445,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2791,10 +2453,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2802,10 +2461,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2832,10 +2488,7 @@ export const deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand = 
   context: __SerdeContext
 ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError(output, context);
   }
   const contents: ModifyMountTargetSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2859,10 +2512,7 @@ const deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError = as
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2881,10 +2531,7 @@ const deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError = as
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2892,10 +2539,7 @@ const deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError = as
     case "MountTargetNotFound":
     case "com.amazon.magnolio.api#MountTargetNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MountTargetNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2914,10 +2558,7 @@ const deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError = as
     case "SecurityGroupNotFound":
     case "com.amazon.magnolio.api#SecurityGroupNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SecurityGroupNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2944,10 +2585,7 @@ export const deserializeAws_restJson1_1PutFileSystemPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutFileSystemPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutFileSystemPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutFileSystemPolicyCommandError(output, context);
   }
   const contents: PutFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2980,10 +2618,7 @@ const deserializeAws_restJson1_1PutFileSystemPolicyCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3002,10 +2637,7 @@ const deserializeAws_restJson1_1PutFileSystemPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3013,10 +2645,7 @@ const deserializeAws_restJson1_1PutFileSystemPolicyCommandError = async (
     case "InvalidPolicyException":
     case "com.amazon.magnolio.api#InvalidPolicyException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3043,10 +2672,7 @@ export const deserializeAws_restJson1_1PutLifecycleConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<PutLifecycleConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(output, context);
   }
   const contents: PutLifecycleConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3078,10 +2704,7 @@ const deserializeAws_restJson1_1PutLifecycleConfigurationCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3089,10 +2712,7 @@ const deserializeAws_restJson1_1PutLifecycleConfigurationCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3111,10 +2731,7 @@ const deserializeAws_restJson1_1PutLifecycleConfigurationCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3165,10 +2782,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3176,10 +2790,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3187,10 +2798,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3198,10 +2806,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3252,10 +2857,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "AccessPointNotFound":
     case "com.amazon.magnolio.api#AccessPointNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessPointNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3263,10 +2865,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3274,10 +2873,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3285,10 +2881,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3315,10 +2908,7 @@ export const deserializeAws_restJson1_1UpdateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFileSystemCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFileSystemCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFileSystemCommandError(output, context);
   }
   const contents: UpdateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3360,10 +2950,7 @@ export const deserializeAws_restJson1_1UpdateFileSystemCommand = async (
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
   }
-  if (
-    data.NumberOfMountTargets !== undefined &&
-    data.NumberOfMountTargets !== null
-  ) {
+  if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
     contents.NumberOfMountTargets = data.NumberOfMountTargets;
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
@@ -3379,10 +2966,7 @@ export const deserializeAws_restJson1_1UpdateFileSystemCommand = async (
     contents.ProvisionedThroughputInMibps = data.ProvisionedThroughputInMibps;
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
-    contents.SizeInBytes = deserializeAws_restJson1_1FileSystemSize(
-      data.SizeInBytes,
-      context
-    );
+    contents.SizeInBytes = deserializeAws_restJson1_1FileSystemSize(data.SizeInBytes, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.Tags, context);
@@ -3408,10 +2992,7 @@ const deserializeAws_restJson1_1UpdateFileSystemCommandError = async (
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3419,10 +3000,7 @@ const deserializeAws_restJson1_1UpdateFileSystemCommandError = async (
     case "FileSystemNotFound":
     case "com.amazon.magnolio.api#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3452,10 +3030,7 @@ const deserializeAws_restJson1_1UpdateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazon.magnolio.api#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3463,10 +3038,7 @@ const deserializeAws_restJson1_1UpdateFileSystemCommandError = async (
     case "ThroughputLimitExceeded":
     case "com.amazon.magnolio.api#ThroughputLimitExceeded":
       response = {
-        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThroughputLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3474,10 +3046,7 @@ const deserializeAws_restJson1_1UpdateFileSystemCommandError = async (
     case "TooManyRequests":
     case "com.amazon.magnolio.api#TooManyRequests":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4068,9 +3637,7 @@ const serializeAws_restJson1_1LifecyclePolicies = (
   input: LifecyclePolicy[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1LifecyclePolicy(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1LifecyclePolicy(entry, context));
 };
 
 const serializeAws_restJson1_1LifecyclePolicy = (
@@ -4084,17 +3651,11 @@ const serializeAws_restJson1_1LifecyclePolicy = (
   };
 };
 
-const serializeAws_restJson1_1PosixUser = (
-  input: PosixUser,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PosixUser = (input: PosixUser, context: __SerdeContext): any => {
   return {
     ...(input.Gid !== undefined && { Gid: input.Gid }),
     ...(input.SecondaryGids !== undefined && {
-      SecondaryGids: serializeAws_restJson1_1SecondaryGids(
-        input.SecondaryGids,
-        context
-      )
+      SecondaryGids: serializeAws_restJson1_1SecondaryGids(input.SecondaryGids, context)
     }),
     ...(input.Uid !== undefined && { Uid: input.Uid })
   };
@@ -4106,50 +3667,32 @@ const serializeAws_restJson1_1RootDirectory = (
 ): any => {
   return {
     ...(input.CreationInfo !== undefined && {
-      CreationInfo: serializeAws_restJson1_1CreationInfo(
-        input.CreationInfo,
-        context
-      )
+      CreationInfo: serializeAws_restJson1_1CreationInfo(input.CreationInfo, context)
     }),
     ...(input.Path !== undefined && { Path: input.Path })
   };
 };
 
-const serializeAws_restJson1_1SecondaryGids = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SecondaryGids = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1SecurityGroups = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SecurityGroups = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
@@ -4179,14 +3722,8 @@ const deserializeAws_restJson1_1AccessPointDescription = (
       output.LifeCycleState !== undefined && output.LifeCycleState !== null
         ? output.LifeCycleState
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     PosixUser:
       output.PosixUser !== undefined && output.PosixUser !== null
         ? deserializeAws_restJson1_1PosixUser(output.PosixUser, context)
@@ -4218,13 +3755,9 @@ const deserializeAws_restJson1_1CreationInfo = (
   return {
     __type: "CreationInfo",
     OwnerGid:
-      output.OwnerGid !== undefined && output.OwnerGid !== null
-        ? output.OwnerGid
-        : undefined,
+      output.OwnerGid !== undefined && output.OwnerGid !== null ? output.OwnerGid : undefined,
     OwnerUid:
-      output.OwnerUid !== undefined && output.OwnerUid !== null
-        ? output.OwnerUid
-        : undefined,
+      output.OwnerUid !== undefined && output.OwnerUid !== null ? output.OwnerUid : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? output.Permissions
@@ -4247,34 +3780,23 @@ const deserializeAws_restJson1_1FileSystemDescription = (
         ? output.CreationToken
         : undefined,
     Encrypted:
-      output.Encrypted !== undefined && output.Encrypted !== null
-        ? output.Encrypted
-        : undefined,
+      output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
     FileSystemId:
       output.FileSystemId !== undefined && output.FileSystemId !== null
         ? output.FileSystemId
         : undefined,
     KmsKeyId:
-      output.KmsKeyId !== undefined && output.KmsKeyId !== null
-        ? output.KmsKeyId
-        : undefined,
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     LifeCycleState:
       output.LifeCycleState !== undefined && output.LifeCycleState !== null
         ? output.LifeCycleState
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfMountTargets:
-      output.NumberOfMountTargets !== undefined &&
-      output.NumberOfMountTargets !== null
+      output.NumberOfMountTargets !== undefined && output.NumberOfMountTargets !== null
         ? output.NumberOfMountTargets
         : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     PerformanceMode:
       output.PerformanceMode !== undefined && output.PerformanceMode !== null
         ? output.PerformanceMode
@@ -4318,14 +3840,9 @@ const deserializeAws_restJson1_1FileSystemSize = (
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
     ValueInIA:
-      output.ValueInIA !== undefined && output.ValueInIA !== null
-        ? output.ValueInIA
-        : undefined,
+      output.ValueInIA !== undefined && output.ValueInIA !== null ? output.ValueInIA : undefined,
     ValueInStandard:
       output.ValueInStandard !== undefined && output.ValueInStandard !== null
         ? output.ValueInStandard
@@ -4362,13 +3879,11 @@ const deserializeAws_restJson1_1MountTargetDescription = (
   return {
     __type: "MountTargetDescription",
     AvailabilityZoneId:
-      output.AvailabilityZoneId !== undefined &&
-      output.AvailabilityZoneId !== null
+      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
         ? output.AvailabilityZoneId
         : undefined,
     AvailabilityZoneName:
-      output.AvailabilityZoneName !== undefined &&
-      output.AvailabilityZoneName !== null
+      output.AvailabilityZoneName !== undefined && output.AvailabilityZoneName !== null
         ? output.AvailabilityZoneName
         : undefined,
     FileSystemId:
@@ -4376,9 +3891,7 @@ const deserializeAws_restJson1_1MountTargetDescription = (
         ? output.FileSystemId
         : undefined,
     IpAddress:
-      output.IpAddress !== undefined && output.IpAddress !== null
-        ? output.IpAddress
-        : undefined,
+      output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
     LifeCycleState:
       output.LifeCycleState !== undefined && output.LifeCycleState !== null
         ? output.LifeCycleState
@@ -4388,18 +3901,12 @@ const deserializeAws_restJson1_1MountTargetDescription = (
         ? output.MountTargetId
         : undefined,
     NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined &&
-      output.NetworkInterfaceId !== null
+      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
         ? output.NetworkInterfaceId
         : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined
   } as any;
 };
 
@@ -4412,20 +3919,15 @@ const deserializeAws_restJson1_1MountTargetDescriptions = (
   );
 };
 
-const deserializeAws_restJson1_1PosixUser = (
-  output: any,
-  context: __SerdeContext
-): PosixUser => {
+const deserializeAws_restJson1_1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
   return {
     __type: "PosixUser",
-    Gid:
-      output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
     SecondaryGids:
       output.SecondaryGids !== undefined && output.SecondaryGids !== null
         ? deserializeAws_restJson1_1SecondaryGids(output.SecondaryGids, context)
         : undefined,
-    Uid:
-      output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined
+    Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined
   } as any;
 };
 
@@ -4439,10 +3941,7 @@ const deserializeAws_restJson1_1RootDirectory = (
       output.CreationInfo !== undefined && output.CreationInfo !== null
         ? deserializeAws_restJson1_1CreationInfo(output.CreationInfo, context)
         : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined
   } as any;
 };
 
@@ -4460,28 +3959,16 @@ const deserializeAws_restJson1_1SecurityGroups = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -4498,23 +3985,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

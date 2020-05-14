@@ -102,9 +102,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public batchMeterUsage(
     args: BatchMeterUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchMeterUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchMeterUsageCommandOutput) => void),
     cb?: (err: any, data?: BatchMeterUsageCommandOutput) => void
   ): Promise<BatchMeterUsageCommandOutput> | void {
     const command = new BatchMeterUsageCommand(args);
@@ -140,9 +138,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public meterUsage(
     args: MeterUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MeterUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MeterUsageCommandOutput) => void),
     cb?: (err: any, data?: MeterUsageCommandOutput) => void
   ): Promise<MeterUsageCommandOutput> | void {
     const command = new MeterUsageCommand(args);
@@ -213,9 +209,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public registerUsage(
     args: RegisterUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterUsageCommandOutput) => void),
     cb?: (err: any, data?: RegisterUsageCommandOutput) => void
   ): Promise<RegisterUsageCommandOutput> | void {
     const command = new RegisterUsageCommand(args);
@@ -251,9 +245,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public resolveCustomer(
     args: ResolveCustomerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveCustomerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveCustomerCommandOutput) => void),
     cb?: (err: any, data?: ResolveCustomerCommandOutput) => void
   ): Promise<ResolveCustomerCommandOutput> | void {
     const command = new ResolveCustomerCommand(args);

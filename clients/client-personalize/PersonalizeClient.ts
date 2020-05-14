@@ -134,14 +134,8 @@ import {
   ListEventTrackersCommandInput,
   ListEventTrackersCommandOutput
 } from "./commands/ListEventTrackersCommand";
-import {
-  ListRecipesCommandInput,
-  ListRecipesCommandOutput
-} from "./commands/ListRecipesCommand";
-import {
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput
-} from "./commands/ListSchemasCommand";
+import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListSolutionVersionsCommandInput,
   ListSolutionVersionsCommandOutput
@@ -373,9 +367,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PersonalizeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PersonalizeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -384,9 +376,7 @@ export type PersonalizeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

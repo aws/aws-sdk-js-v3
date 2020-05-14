@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { DeleteActivityInput, DeleteActivityOutput } from "../models/index";
 import {
   deserializeAws_json1_0DeleteActivityCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteActivityCommandInput = DeleteActivityInput;
-export type DeleteActivityCommandOutput = DeleteActivityOutput &
-  __MetadataBearer;
+export type DeleteActivityCommandOutput = DeleteActivityOutput & __MetadataBearer;
 
 export class DeleteActivityCommand extends $Command<
   DeleteActivityCommandInput,
@@ -47,9 +42,7 @@ export class DeleteActivityCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteActivityCommandInput, DeleteActivityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

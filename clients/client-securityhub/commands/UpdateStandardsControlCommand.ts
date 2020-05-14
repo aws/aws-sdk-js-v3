@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  UpdateStandardsControlRequest,
-  UpdateStandardsControlResponse
-} from "../models/index";
+import { UpdateStandardsControlRequest, UpdateStandardsControlResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateStandardsControlCommand,
   serializeAws_restJson1_1UpdateStandardsControlCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateStandardsControlCommandInput = UpdateStandardsControlRequest;
-export type UpdateStandardsControlCommandOutput = UpdateStandardsControlResponse &
-  __MetadataBearer;
+export type UpdateStandardsControlCommandOutput = UpdateStandardsControlResponse & __MetadataBearer;
 
 export class UpdateStandardsControlCommand extends $Command<
   UpdateStandardsControlCommandInput,
@@ -49,13 +45,8 @@ export class UpdateStandardsControlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateStandardsControlCommandInput,
-    UpdateStandardsControlCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateStandardsControlCommandInput, UpdateStandardsControlCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateStandardsControlCommand extends $Command<
     input: UpdateStandardsControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateStandardsControlCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateStandardsControlCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStandardsControlCommandOutput> {
-    return deserializeAws_restJson1_1UpdateStandardsControlCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateStandardsControlCommand(output, context);
   }
 
   // Start section: command_body_extra

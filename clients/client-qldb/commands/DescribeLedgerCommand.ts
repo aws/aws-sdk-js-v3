@@ -1,8 +1,4 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeLedgerCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLedgerCommandInput = DescribeLedgerRequest;
-export type DescribeLedgerCommandOutput = DescribeLedgerResponse &
-  __MetadataBearer;
+export type DescribeLedgerCommandOutput = DescribeLedgerResponse & __MetadataBearer;
 
 export class DescribeLedgerCommand extends $Command<
   DescribeLedgerCommandInput,
@@ -47,9 +42,7 @@ export class DescribeLedgerCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLedgerCommandInput, DescribeLedgerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

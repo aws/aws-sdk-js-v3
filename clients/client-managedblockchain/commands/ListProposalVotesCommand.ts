@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ManagedBlockchainClient";
-import {
-  ListProposalVotesInput,
-  ListProposalVotesOutput
-} from "../models/index";
+import { ListProposalVotesInput, ListProposalVotesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListProposalVotesCommand,
   serializeAws_restJson1_1ListProposalVotesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProposalVotesCommandInput = ListProposalVotesInput;
-export type ListProposalVotesCommandOutput = ListProposalVotesOutput &
-  __MetadataBearer;
+export type ListProposalVotesCommandOutput = ListProposalVotesOutput & __MetadataBearer;
 
 export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandInput,
@@ -50,9 +46,7 @@ export class ListProposalVotesCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProposalVotesCommandInput, ListProposalVotesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  RestoreFromSnapshotRequest,
-  RestoreFromSnapshotResult
-} from "../models/index";
+import { RestoreFromSnapshotRequest, RestoreFromSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1RestoreFromSnapshotCommand,
   serializeAws_json1_1RestoreFromSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreFromSnapshotCommandInput = RestoreFromSnapshotRequest;
-export type RestoreFromSnapshotCommandOutput = RestoreFromSnapshotResult &
-  __MetadataBearer;
+export type RestoreFromSnapshotCommandOutput = RestoreFromSnapshotResult & __MetadataBearer;
 
 export class RestoreFromSnapshotCommand extends $Command<
   RestoreFromSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class RestoreFromSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreFromSnapshotCommandInput,
-    RestoreFromSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreFromSnapshotCommandInput, RestoreFromSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

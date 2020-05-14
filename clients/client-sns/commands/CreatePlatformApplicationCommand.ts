@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  CreatePlatformApplicationInput,
-  CreatePlatformApplicationResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/index";
 import {
   deserializeAws_queryCreatePlatformApplicationCommand,
   serializeAws_queryCreatePlatformApplicationCommand
@@ -49,13 +42,8 @@ export class CreatePlatformApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePlatformApplicationCommandInput,
-    CreatePlatformApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePlatformApplicationCommandInput, CreatePlatformApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class CreatePlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePlatformApplicationCommandOutput> {
-    return deserializeAws_queryCreatePlatformApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreatePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

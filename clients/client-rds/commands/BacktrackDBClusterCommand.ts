@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/index";
 import {
   deserializeAws_queryBacktrackDBClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
-export type BacktrackDBClusterCommandOutput = DBClusterBacktrack &
-  __MetadataBearer;
+export type BacktrackDBClusterCommandOutput = DBClusterBacktrack & __MetadataBearer;
 
 export class BacktrackDBClusterCommand extends $Command<
   BacktrackDBClusterCommandInput,
@@ -47,9 +42,7 @@ export class BacktrackDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

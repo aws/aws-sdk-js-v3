@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  SearchLocalGatewayRoutesRequest,
-  SearchLocalGatewayRoutesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/index";
 import {
   deserializeAws_ec2SearchLocalGatewayRoutesCommand,
   serializeAws_ec2SearchLocalGatewayRoutesCommand
@@ -49,13 +42,8 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchLocalGatewayRoutesCommandInput,
-    SearchLocalGatewayRoutesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchLocalGatewayRoutesCommandInput, SearchLocalGatewayRoutesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

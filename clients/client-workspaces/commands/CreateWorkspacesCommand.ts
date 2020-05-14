@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  CreateWorkspacesRequest,
-  CreateWorkspacesResult
-} from "../models/index";
+import { CreateWorkspacesRequest, CreateWorkspacesResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateWorkspacesCommand,
   serializeAws_json1_1CreateWorkspacesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateWorkspacesCommandInput = CreateWorkspacesRequest;
-export type CreateWorkspacesCommandOutput = CreateWorkspacesResult &
-  __MetadataBearer;
+export type CreateWorkspacesCommandOutput = CreateWorkspacesResult & __MetadataBearer;
 
 export class CreateWorkspacesCommand extends $Command<
   CreateWorkspacesCommandInput,
@@ -50,9 +46,7 @@ export class CreateWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

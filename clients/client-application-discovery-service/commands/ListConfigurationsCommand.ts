@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  ListConfigurationsRequest,
-  ListConfigurationsResponse
-} from "../models/index";
+import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListConfigurationsCommand,
   serializeAws_json1_1ListConfigurationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListConfigurationsCommandInput = ListConfigurationsRequest;
-export type ListConfigurationsCommandOutput = ListConfigurationsResponse &
-  __MetadataBearer;
+export type ListConfigurationsCommandOutput = ListConfigurationsResponse & __MetadataBearer;
 
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,
@@ -50,9 +46,7 @@ export class ListConfigurationsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConfigurationsCommandInput, ListConfigurationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -2,10 +2,7 @@ import {
   CancelClusterCommandInput,
   CancelClusterCommandOutput
 } from "./commands/CancelClusterCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CreateAddressCommandInput,
   CreateAddressCommandOutput
@@ -14,10 +11,7 @@ import {
   CreateClusterCommandInput,
   CreateClusterCommandOutput
 } from "./commands/CreateClusterCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   DescribeAddressCommandInput,
   DescribeAddressCommandOutput
@@ -30,10 +24,7 @@ import {
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput
 } from "./commands/DescribeClusterCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   GetJobManifestCommandInput,
   GetJobManifestCommandOutput
@@ -62,18 +53,12 @@ import {
   ListCompatibleImagesCommandInput,
   ListCompatibleImagesCommandOutput
 } from "./commands/ListCompatibleImagesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput
 } from "./commands/UpdateClusterCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -253,9 +238,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SnowballClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SnowballClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +247,7 @@ export type SnowballClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

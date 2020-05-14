@@ -50,9 +50,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     DescribeMetricCollectionTypesCommandInput,
     DescribeMetricCollectionTypesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +69,14 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     input: DescribeMetricCollectionTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeMetricCollectionTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeMetricCollectionTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMetricCollectionTypesCommandOutput> {
-    return deserializeAws_queryDescribeMetricCollectionTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeMetricCollectionTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

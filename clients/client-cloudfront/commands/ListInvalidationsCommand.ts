@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  ListInvalidationsRequest,
-  ListInvalidationsResult
-} from "../models/index";
+import { ListInvalidationsRequest, ListInvalidationsResult } from "../models/index";
 import {
   deserializeAws_restXmlListInvalidationsCommand,
   serializeAws_restXmlListInvalidationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListInvalidationsCommandInput = ListInvalidationsRequest;
-export type ListInvalidationsCommandOutput = ListInvalidationsResult &
-  __MetadataBearer;
+export type ListInvalidationsCommandOutput = ListInvalidationsResult & __MetadataBearer;
 
 export class ListInvalidationsCommand extends $Command<
   ListInvalidationsCommandInput,
@@ -50,9 +46,7 @@ export class ListInvalidationsCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInvalidationsCommandInput, ListInvalidationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyResult
-} from "../models/index";
+import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/index";
 import {
   deserializeAws_queryEnableSnapshotCopyCommand,
   serializeAws_queryEnableSnapshotCopyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableSnapshotCopyCommandInput = EnableSnapshotCopyMessage;
-export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult &
-  __MetadataBearer;
+export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult & __MetadataBearer;
 
 export class EnableSnapshotCopyCommand extends $Command<
   EnableSnapshotCopyCommandInput,
@@ -50,9 +46,7 @@ export class EnableSnapshotCopyCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

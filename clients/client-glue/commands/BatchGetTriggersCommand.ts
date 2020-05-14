@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchGetTriggersRequest,
-  BatchGetTriggersResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchGetTriggersRequest, BatchGetTriggersResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetTriggersCommand,
   serializeAws_json1_1BatchGetTriggersCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetTriggersCommandInput = BatchGetTriggersRequest;
-export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse &
-  __MetadataBearer;
+export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse & __MetadataBearer;
 
 export class BatchGetTriggersCommand extends $Command<
   BatchGetTriggersCommandInput,
@@ -50,9 +42,7 @@ export class BatchGetTriggersCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailMessageFlowClientResolvedConfig
 } from "../WorkMailMessageFlowClient";
-import {
-  GetRawMessageContentRequest,
-  GetRawMessageContentResponse
-} from "../models/index";
+import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRawMessageContentCommand,
   serializeAws_restJson1_1GetRawMessageContentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
-export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse &
-  __MetadataBearer;
+export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
 
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,
@@ -49,13 +45,8 @@ export class GetRawMessageContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailMessageFlowClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRawMessageContentCommandInput,
-    GetRawMessageContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetRawMessageContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1_1GetRawMessageContentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

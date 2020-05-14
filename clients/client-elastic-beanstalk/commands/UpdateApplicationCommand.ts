@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionMessage,
-  UpdateApplicationMessage
-} from "../models/index";
+import { ApplicationDescriptionMessage, UpdateApplicationMessage } from "../models/index";
 import {
   deserializeAws_queryUpdateApplicationCommand,
   serializeAws_queryUpdateApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApplicationCommandInput = UpdateApplicationMessage;
-export type UpdateApplicationCommandOutput = ApplicationDescriptionMessage &
-  __MetadataBearer;
+export type UpdateApplicationCommandOutput = ApplicationDescriptionMessage & __MetadataBearer;
 
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,
@@ -50,9 +46,7 @@ export class UpdateApplicationCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

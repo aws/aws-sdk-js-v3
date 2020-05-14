@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,8 +14,7 @@ export interface AntennaDownlinkConfig {
 }
 
 export namespace AntennaDownlinkConfig {
-  export const isa = (o: any): o is AntennaDownlinkConfig =>
-    __isa(o, "AntennaDownlinkConfig");
+  export const isa = (o: any): o is AntennaDownlinkConfig => __isa(o, "AntennaDownlinkConfig");
 }
 
 /**
@@ -64,8 +60,7 @@ export interface AntennaUplinkConfig {
 }
 
 export namespace AntennaUplinkConfig {
-  export const isa = (o: any): o is AntennaUplinkConfig =>
-    __isa(o, "AntennaUplinkConfig");
+  export const isa = (o: any): o is AntennaUplinkConfig => __isa(o, "AntennaUplinkConfig");
 }
 
 /**
@@ -80,8 +75,7 @@ export interface CancelContactRequest {
 }
 
 export namespace CancelContactRequest {
-  export const isa = (o: any): o is CancelContactRequest =>
-    __isa(o, "CancelContactRequest");
+  export const isa = (o: any): o is CancelContactRequest => __isa(o, "CancelContactRequest");
 }
 
 /**
@@ -106,8 +100,7 @@ export interface ConfigIdResponse {
 }
 
 export namespace ConfigIdResponse {
-  export const isa = (o: any): o is ConfigIdResponse =>
-    __isa(o, "ConfigIdResponse");
+  export const isa = (o: any): o is ConfigIdResponse => __isa(o, "ConfigIdResponse");
 }
 
 /**
@@ -137,8 +130,7 @@ export interface ConfigListItem {
 }
 
 export namespace ConfigListItem {
-  export const isa = (o: any): o is ConfigListItem =>
-    __isa(o, "ConfigListItem");
+  export const isa = (o: any): o is ConfigListItem => __isa(o, "ConfigListItem");
 }
 
 /**
@@ -242,9 +234,7 @@ export namespace ConfigTypeData {
   }
   export interface Visitor<T> {
     antennaDownlinkConfig: (value: AntennaDownlinkConfig) => T;
-    antennaDownlinkDemodDecodeConfig: (
-      value: AntennaDownlinkDemodDecodeConfig
-    ) => T;
+    antennaDownlinkDemodDecodeConfig: (value: AntennaDownlinkDemodDecodeConfig) => T;
     antennaUplinkConfig: (value: AntennaUplinkConfig) => T;
     dataflowEndpointConfig: (value: DataflowEndpointConfig) => T;
     trackingConfig: (value: TrackingConfig) => T;
@@ -255,15 +245,12 @@ export namespace ConfigTypeData {
     if (value.antennaDownlinkConfig !== undefined)
       return visitor.antennaDownlinkConfig(value.antennaDownlinkConfig);
     if (value.antennaDownlinkDemodDecodeConfig !== undefined)
-      return visitor.antennaDownlinkDemodDecodeConfig(
-        value.antennaDownlinkDemodDecodeConfig
-      );
+      return visitor.antennaDownlinkDemodDecodeConfig(value.antennaDownlinkDemodDecodeConfig);
     if (value.antennaUplinkConfig !== undefined)
       return visitor.antennaUplinkConfig(value.antennaUplinkConfig);
     if (value.dataflowEndpointConfig !== undefined)
       return visitor.dataflowEndpointConfig(value.dataflowEndpointConfig);
-    if (value.trackingConfig !== undefined)
-      return visitor.trackingConfig(value.trackingConfig);
+    if (value.trackingConfig !== undefined) return visitor.trackingConfig(value.trackingConfig);
     if (value.uplinkEchoConfig !== undefined)
       return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -352,8 +339,7 @@ export interface ContactIdResponse {
 }
 
 export namespace ContactIdResponse {
-  export const isa = (o: any): o is ContactIdResponse =>
-    __isa(o, "ContactIdResponse");
+  export const isa = (o: any): o is ContactIdResponse => __isa(o, "ContactIdResponse");
 }
 
 /**
@@ -378,8 +364,7 @@ export interface CreateConfigRequest {
 }
 
 export namespace CreateConfigRequest {
-  export const isa = (o: any): o is CreateConfigRequest =>
-    __isa(o, "CreateConfigRequest");
+  export const isa = (o: any): o is CreateConfigRequest => __isa(o, "CreateConfigRequest");
 }
 
 /**
@@ -472,8 +457,7 @@ export interface DataflowEndpoint {
 }
 
 export namespace DataflowEndpoint {
-  export const isa = (o: any): o is DataflowEndpoint =>
-    __isa(o, "DataflowEndpoint");
+  export const isa = (o: any): o is DataflowEndpoint => __isa(o, "DataflowEndpoint");
 }
 
 /**
@@ -488,8 +472,7 @@ export interface DataflowEndpointConfig {
 }
 
 export namespace DataflowEndpointConfig {
-  export const isa = (o: any): o is DataflowEndpointConfig =>
-    __isa(o, "DataflowEndpointConfig");
+  export const isa = (o: any): o is DataflowEndpointConfig => __isa(o, "DataflowEndpointConfig");
 }
 
 /**
@@ -561,8 +544,7 @@ export interface DeleteConfigRequest {
 }
 
 export namespace DeleteConfigRequest {
-  export const isa = (o: any): o is DeleteConfigRequest =>
-    __isa(o, "DeleteConfigRequest");
+  export const isa = (o: any): o is DeleteConfigRequest => __isa(o, "DeleteConfigRequest");
 }
 
 /**
@@ -609,8 +591,7 @@ export interface DemodulationConfig {
 }
 
 export namespace DemodulationConfig {
-  export const isa = (o: any): o is DemodulationConfig =>
-    __isa(o, "DemodulationConfig");
+  export const isa = (o: any): o is DemodulationConfig => __isa(o, "DemodulationConfig");
 }
 
 /**
@@ -625,8 +606,7 @@ export interface DescribeContactRequest {
 }
 
 export namespace DescribeContactRequest {
-  export const isa = (o: any): o is DescribeContactRequest =>
-    __isa(o, "DescribeContactRequest");
+  export const isa = (o: any): o is DescribeContactRequest => __isa(o, "DescribeContactRequest");
 }
 
 /**
@@ -696,8 +676,7 @@ export interface DescribeContactResponse {
 }
 
 export namespace DescribeContactResponse {
-  export const isa = (o: any): o is DescribeContactResponse =>
-    __isa(o, "DescribeContactResponse");
+  export const isa = (o: any): o is DescribeContactResponse => __isa(o, "DescribeContactResponse");
 }
 
 /**
@@ -717,8 +696,7 @@ export interface EndpointDetails {
 }
 
 export namespace EndpointDetails {
-  export const isa = (o: any): o is EndpointDetails =>
-    __isa(o, "EndpointDetails");
+  export const isa = (o: any): o is EndpointDetails => __isa(o, "EndpointDetails");
 }
 
 export enum EndpointStatus {
@@ -746,8 +724,7 @@ export interface GetConfigRequest {
 }
 
 export namespace GetConfigRequest {
-  export const isa = (o: any): o is GetConfigRequest =>
-    __isa(o, "GetConfigRequest");
+  export const isa = (o: any): o is GetConfigRequest => __isa(o, "GetConfigRequest");
 }
 
 /**
@@ -788,8 +765,7 @@ export interface GetConfigResponse {
 }
 
 export namespace GetConfigResponse {
-  export const isa = (o: any): o is GetConfigResponse =>
-    __isa(o, "GetConfigResponse");
+  export const isa = (o: any): o is GetConfigResponse => __isa(o, "GetConfigResponse");
 }
 
 /**
@@ -934,8 +910,7 @@ export interface ListConfigsRequest {
 }
 
 export namespace ListConfigsRequest {
-  export const isa = (o: any): o is ListConfigsRequest =>
-    __isa(o, "ListConfigsRequest");
+  export const isa = (o: any): o is ListConfigsRequest => __isa(o, "ListConfigsRequest");
 }
 
 /**
@@ -955,8 +930,7 @@ export interface ListConfigsResponse {
 }
 
 export namespace ListConfigsResponse {
-  export const isa = (o: any): o is ListConfigsResponse =>
-    __isa(o, "ListConfigsResponse");
+  export const isa = (o: any): o is ListConfigsResponse => __isa(o, "ListConfigsResponse");
 }
 
 /**
@@ -1006,8 +980,7 @@ export interface ListContactsRequest {
 }
 
 export namespace ListContactsRequest {
-  export const isa = (o: any): o is ListContactsRequest =>
-    __isa(o, "ListContactsRequest");
+  export const isa = (o: any): o is ListContactsRequest => __isa(o, "ListContactsRequest");
 }
 
 /**
@@ -1027,8 +1000,7 @@ export interface ListContactsResponse {
 }
 
 export namespace ListContactsResponse {
-  export const isa = (o: any): o is ListContactsResponse =>
-    __isa(o, "ListContactsResponse");
+  export const isa = (o: any): o is ListContactsResponse => __isa(o, "ListContactsResponse");
 }
 
 /**
@@ -1158,8 +1130,7 @@ export interface MissionProfileListItem {
 }
 
 export namespace MissionProfileListItem {
-  export const isa = (o: any): o is MissionProfileListItem =>
-    __isa(o, "MissionProfileListItem");
+  export const isa = (o: any): o is MissionProfileListItem => __isa(o, "MissionProfileListItem");
 }
 
 /**
@@ -1199,8 +1170,7 @@ export interface ReserveContactRequest {
 }
 
 export namespace ReserveContactRequest {
-  export const isa = (o: any): o is ReserveContactRequest =>
-    __isa(o, "ReserveContactRequest");
+  export const isa = (o: any): o is ReserveContactRequest => __isa(o, "ReserveContactRequest");
 }
 
 /**
@@ -1216,8 +1186,7 @@ export interface TrackingConfig {
 }
 
 export namespace TrackingConfig {
-  export const isa = (o: any): o is TrackingConfig =>
-    __isa(o, "TrackingConfig");
+  export const isa = (o: any): o is TrackingConfig => __isa(o, "TrackingConfig");
 }
 
 /**
@@ -1247,8 +1216,7 @@ export interface UpdateConfigRequest {
 }
 
 export namespace UpdateConfigRequest {
-  export const isa = (o: any): o is UpdateConfigRequest =>
-    __isa(o, "UpdateConfigRequest");
+  export const isa = (o: any): o is UpdateConfigRequest => __isa(o, "UpdateConfigRequest");
 }
 
 /**
@@ -1318,8 +1286,7 @@ export interface UplinkEchoConfig {
 }
 
 export namespace UplinkEchoConfig {
-  export const isa = (o: any): o is UplinkEchoConfig =>
-    __isa(o, "UplinkEchoConfig");
+  export const isa = (o: any): o is UplinkEchoConfig => __isa(o, "UplinkEchoConfig");
 }
 
 export enum AngleUnits {
@@ -1365,9 +1332,7 @@ export enum Criticality {
 /**
  * <p>Dependency encountered an error.</p>
  */
-export interface DependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyException extends __SmithyException, $MetadataBearer {
   name: "DependencyException";
   $fault: "server";
   message?: string;
@@ -1378,8 +1343,7 @@ export interface DependencyException
 }
 
 export namespace DependencyException {
-  export const isa = (o: any): o is DependencyException =>
-    __isa(o, "DependencyException");
+  export const isa = (o: any): o is DependencyException => __isa(o, "DependencyException");
 }
 
 /**
@@ -1463,8 +1427,7 @@ export interface FrequencyBandwidth {
 }
 
 export namespace FrequencyBandwidth {
-  export const isa = (o: any): o is FrequencyBandwidth =>
-    __isa(o, "FrequencyBandwidth");
+  export const isa = (o: any): o is FrequencyBandwidth => __isa(o, "FrequencyBandwidth");
 }
 
 export enum FrequencyUnits {
@@ -1490,8 +1453,7 @@ export interface GetMinuteUsageRequest {
 }
 
 export namespace GetMinuteUsageRequest {
-  export const isa = (o: any): o is GetMinuteUsageRequest =>
-    __isa(o, "GetMinuteUsageRequest");
+  export const isa = (o: any): o is GetMinuteUsageRequest => __isa(o, "GetMinuteUsageRequest");
 }
 
 /**
@@ -1526,8 +1488,7 @@ export interface GetMinuteUsageResponse {
 }
 
 export namespace GetMinuteUsageResponse {
-  export const isa = (o: any): o is GetMinuteUsageResponse =>
-    __isa(o, "GetMinuteUsageResponse");
+  export const isa = (o: any): o is GetMinuteUsageResponse => __isa(o, "GetMinuteUsageResponse");
 }
 
 /**
@@ -1542,8 +1503,7 @@ export interface GetSatelliteRequest {
 }
 
 export namespace GetSatelliteRequest {
-  export const isa = (o: any): o is GetSatelliteRequest =>
-    __isa(o, "GetSatelliteRequest");
+  export const isa = (o: any): o is GetSatelliteRequest => __isa(o, "GetSatelliteRequest");
 }
 
 /**
@@ -1583,8 +1543,7 @@ export interface GetSatelliteResponse {
 }
 
 export namespace GetSatelliteResponse {
-  export const isa = (o: any): o is GetSatelliteResponse =>
-    __isa(o, "GetSatelliteResponse");
+  export const isa = (o: any): o is GetSatelliteResponse => __isa(o, "GetSatelliteResponse");
 }
 
 /**
@@ -1609,16 +1568,13 @@ export interface GroundStationData {
 }
 
 export namespace GroundStationData {
-  export const isa = (o: any): o is GroundStationData =>
-    __isa(o, "GroundStationData");
+  export const isa = (o: any): o is GroundStationData => __isa(o, "GroundStationData");
 }
 
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1692,8 +1648,7 @@ export interface ListSatellitesRequest {
 }
 
 export namespace ListSatellitesRequest {
-  export const isa = (o: any): o is ListSatellitesRequest =>
-    __isa(o, "ListSatellitesRequest");
+  export const isa = (o: any): o is ListSatellitesRequest => __isa(o, "ListSatellitesRequest");
 }
 
 /**
@@ -1713,8 +1668,7 @@ export interface ListSatellitesResponse {
 }
 
 export namespace ListSatellitesResponse {
-  export const isa = (o: any): o is ListSatellitesResponse =>
-    __isa(o, "ListSatellitesResponse");
+  export const isa = (o: any): o is ListSatellitesResponse => __isa(o, "ListSatellitesResponse");
 }
 
 /**
@@ -1758,9 +1712,7 @@ export enum Polarization {
 /**
  * <p>Resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1793,8 +1745,7 @@ export interface SatelliteListItem {
 }
 
 export namespace SatelliteListItem {
-  export const isa = (o: any): o is SatelliteListItem =>
-    __isa(o, "SatelliteListItem");
+  export const isa = (o: any): o is SatelliteListItem => __isa(o, "SatelliteListItem");
 }
 
 /**
@@ -1819,8 +1770,7 @@ export interface SecurityDetails {
 }
 
 export namespace SecurityDetails {
-  export const isa = (o: any): o is SecurityDetails =>
-    __isa(o, "SecurityDetails");
+  export const isa = (o: any): o is SecurityDetails => __isa(o, "SecurityDetails");
 }
 
 /**
@@ -1865,8 +1815,7 @@ export interface SpectrumConfig {
 }
 
 export namespace SpectrumConfig {
-  export const isa = (o: any): o is SpectrumConfig =>
-    __isa(o, "SpectrumConfig");
+  export const isa = (o: any): o is SpectrumConfig => __isa(o, "SpectrumConfig");
 }
 
 /**
@@ -1886,8 +1835,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1898,8 +1846,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1919,8 +1866,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1931,8 +1877,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1952,6 +1897,5 @@ export interface UplinkSpectrumConfig {
 }
 
 export namespace UplinkSpectrumConfig {
-  export const isa = (o: any): o is UplinkSpectrumConfig =>
-    __isa(o, "UplinkSpectrumConfig");
+  export const isa = (o: any): o is UplinkSpectrumConfig => __isa(o, "UplinkSpectrumConfig");
 }

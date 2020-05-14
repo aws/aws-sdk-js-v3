@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeAutoMLJobRequest,
-  DescribeAutoMLJobResponse
-} from "../models/index";
+import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAutoMLJobCommand,
   serializeAws_json1_1DescribeAutoMLJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAutoMLJobCommandInput = DescribeAutoMLJobRequest;
-export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse &
-  __MetadataBearer;
+export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse & __MetadataBearer;
 
 export class DescribeAutoMLJobCommand extends $Command<
   DescribeAutoMLJobCommandInput,
@@ -50,9 +46,7 @@ export class DescribeAutoMLJobCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

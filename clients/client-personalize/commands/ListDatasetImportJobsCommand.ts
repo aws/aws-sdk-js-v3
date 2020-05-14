@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  ListDatasetImportJobsRequest,
-  ListDatasetImportJobsResponse
-} from "../models/index";
+import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDatasetImportJobsCommand,
   serializeAws_json1_1ListDatasetImportJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDatasetImportJobsCommandInput = ListDatasetImportJobsRequest;
-export type ListDatasetImportJobsCommandOutput = ListDatasetImportJobsResponse &
-  __MetadataBearer;
+export type ListDatasetImportJobsCommandOutput = ListDatasetImportJobsResponse & __MetadataBearer;
 
 export class ListDatasetImportJobsCommand extends $Command<
   ListDatasetImportJobsCommandInput,
@@ -49,13 +45,8 @@ export class ListDatasetImportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDatasetImportJobsCommandInput,
-    ListDatasetImportJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDatasetImportJobsCommandInput, ListDatasetImportJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

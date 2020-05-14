@@ -79,11 +79,7 @@ import {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput
 } from "./commands/GetBotChannelAssociationsCommand";
-import {
-  GetBotCommand,
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
+import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
 import {
   GetBotVersionsCommand,
   GetBotVersionsCommandInput,
@@ -159,11 +155,7 @@ import {
   PutBotAliasCommandInput,
   PutBotAliasCommandOutput
 } from "./commands/PutBotAliasCommand";
-import {
-  PutBotCommand,
-  PutBotCommandInput,
-  PutBotCommandOutput
-} from "./commands/PutBotCommand";
+import { PutBotCommand, PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
 import {
   PutIntentCommand,
   PutIntentCommandInput,
@@ -217,9 +209,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public createBotVersion(
     args: CreateBotVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBotVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBotVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateBotVersionCommandOutput) => void
   ): Promise<CreateBotVersionCommandOutput> | void {
     const command = new CreateBotVersionCommand(args);
@@ -362,9 +352,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBot(
     args: DeleteBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotCommandOutput) => void
   ): Promise<DeleteBotCommandOutput> | void {
     const command = new DeleteBotCommand(args);
@@ -403,9 +391,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBotAlias(
     args: DeleteBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotAliasCommandOutput) => void
   ): Promise<DeleteBotAliasCommandOutput> | void {
     const command = new DeleteBotAliasCommand(args);
@@ -477,9 +463,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteBotVersion(
     args: DeleteBotVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBotVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBotVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteBotVersionCommandOutput) => void
   ): Promise<DeleteBotVersionCommandOutput> | void {
     const command = new DeleteBotVersionCommand(args);
@@ -527,9 +511,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteIntent(
     args: DeleteIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntentCommandOutput) => void),
     cb?: (err: any, data?: DeleteIntentCommandOutput) => void
   ): Promise<DeleteIntentCommandOutput> | void {
     const command = new DeleteIntentCommand(args);
@@ -613,9 +595,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteSlotType(
     args: DeleteSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteSlotTypeCommandOutput) => void
   ): Promise<DeleteSlotTypeCommandOutput> | void {
     const command = new DeleteSlotTypeCommand(args);
@@ -696,9 +676,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public deleteUtterances(
     args: DeleteUtterancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUtterancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUtterancesCommandOutput) => void),
     cb?: (err: any, data?: DeleteUtterancesCommandOutput) => void
   ): Promise<DeleteUtterancesCommandOutput> | void {
     const command = new DeleteUtterancesCommand(args);
@@ -722,10 +700,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     args: GetBotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBotCommandOutput>;
-  public getBot(
-    args: GetBotCommandInput,
-    cb: (err: any, data?: GetBotCommandOutput) => void
-  ): void;
+  public getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
   public getBot(
     args: GetBotCommandInput,
     options: __HttpHandlerOptions,
@@ -733,9 +708,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBot(
     args: GetBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotCommandOutput) => void),
     cb?: (err: any, data?: GetBotCommandOutput) => void
   ): Promise<GetBotCommandOutput> | void {
     const command = new GetBotCommand(args);
@@ -771,9 +744,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotAlias(
     args: GetBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotAliasCommandOutput) => void),
     cb?: (err: any, data?: GetBotAliasCommandOutput) => void
   ): Promise<GetBotAliasCommandOutput> | void {
     const command = new GetBotAliasCommand(args);
@@ -808,9 +779,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotAliases(
     args: GetBotAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotAliasesCommandOutput) => void),
     cb?: (err: any, data?: GetBotAliasesCommandOutput) => void
   ): Promise<GetBotAliasesCommandOutput> | void {
     const command = new GetBotAliasesCommand(args);
@@ -926,9 +895,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBotVersions(
     args: GetBotVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetBotVersionsCommandOutput) => void
   ): Promise<GetBotVersionsCommandOutput> | void {
     const command = new GetBotVersionsCommand(args);
@@ -973,9 +940,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBots(
     args: GetBotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotsCommandOutput) => void),
     cb?: (err: any, data?: GetBotsCommandOutput) => void
   ): Promise<GetBotsCommandOutput> | void {
     const command = new GetBotsCommand(args);
@@ -1010,9 +975,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getBuiltinIntent(
     args: GetBuiltinIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBuiltinIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBuiltinIntentCommandOutput) => void),
     cb?: (err: any, data?: GetBuiltinIntentCommandOutput) => void
   ): Promise<GetBuiltinIntentCommandOutput> | void {
     const command = new GetBuiltinIntentCommand(args);
@@ -1121,9 +1084,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getExport(
     args: GetExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportCommandOutput) => void),
     cb?: (err: any, data?: GetExportCommandOutput) => void
   ): Promise<GetExportCommandOutput> | void {
     const command = new GetExportCommand(args);
@@ -1157,9 +1118,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getImport(
     args: GetImportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportCommandOutput) => void),
     cb?: (err: any, data?: GetImportCommandOutput) => void
   ): Promise<GetImportCommandOutput> | void {
     const command = new GetImportCommand(args);
@@ -1195,9 +1154,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getIntent(
     args: GetIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntentCommandOutput) => void),
     cb?: (err: any, data?: GetIntentCommandOutput) => void
   ): Promise<GetIntentCommandOutput> | void {
     const command = new GetIntentCommand(args);
@@ -1285,9 +1242,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getIntents(
     args: GetIntentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntentsCommandOutput) => void),
     cb?: (err: any, data?: GetIntentsCommandOutput) => void
   ): Promise<GetIntentsCommandOutput> | void {
     const command = new GetIntentsCommand(args);
@@ -1323,9 +1278,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getSlotType(
     args: GetSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: GetSlotTypeCommandOutput) => void
   ): Promise<GetSlotTypeCommandOutput> | void {
     const command = new GetSlotTypeCommand(args);
@@ -1415,9 +1368,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public getSlotTypes(
     args: GetSlotTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSlotTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSlotTypesCommandOutput) => void),
     cb?: (err: any, data?: GetSlotTypesCommandOutput) => void
   ): Promise<GetSlotTypesCommandOutput> | void {
     const command = new GetSlotTypesCommand(args);
@@ -1504,10 +1455,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
     args: PutBotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutBotCommandOutput>;
-  public putBot(
-    args: PutBotCommandInput,
-    cb: (err: any, data?: PutBotCommandOutput) => void
-  ): void;
+  public putBot(args: PutBotCommandInput, cb: (err: any, data?: PutBotCommandOutput) => void): void;
   public putBot(
     args: PutBotCommandInput,
     options: __HttpHandlerOptions,
@@ -1515,9 +1463,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putBot(
     args: PutBotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBotCommandOutput) => void),
     cb?: (err: any, data?: PutBotCommandOutput) => void
   ): Promise<PutBotCommandOutput> | void {
     const command = new PutBotCommand(args);
@@ -1554,9 +1500,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putBotAlias(
     args: PutBotAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBotAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBotAliasCommandOutput) => void),
     cb?: (err: any, data?: PutBotAliasCommandOutput) => void
   ): Promise<PutBotAliasCommandOutput> | void {
     const command = new PutBotAliasCommand(args);
@@ -1639,9 +1583,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putIntent(
     args: PutIntentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutIntentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutIntentCommandOutput) => void),
     cb?: (err: any, data?: PutIntentCommandOutput) => void
   ): Promise<PutIntentCommandOutput> | void {
     const command = new PutIntentCommand(args);
@@ -1686,9 +1628,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public putSlotType(
     args: PutSlotTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSlotTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSlotTypeCommandOutput) => void),
     cb?: (err: any, data?: PutSlotTypeCommandOutput) => void
   ): Promise<PutSlotTypeCommandOutput> | void {
     const command = new PutSlotTypeCommand(args);
@@ -1721,9 +1661,7 @@ export class LexModelBuildingService extends LexModelBuildingServiceClient {
   ): void;
   public startImport(
     args: StartImportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
     cb?: (err: any, data?: StartImportCommandOutput) => void
   ): Promise<StartImportCommandOutput> | void {
     const command = new StartImportCommand(args);

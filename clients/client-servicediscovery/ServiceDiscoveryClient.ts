@@ -30,10 +30,7 @@ import {
   DiscoverInstancesCommandInput,
   DiscoverInstancesCommandOutput
 } from "./commands/DiscoverInstancesCommand";
-import {
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput
-} from "./commands/GetInstanceCommand";
+import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommandInput,
   GetInstancesHealthStatusCommandOutput
@@ -46,10 +43,7 @@ import {
   GetOperationCommandInput,
   GetOperationCommandOutput
 } from "./commands/GetOperationCommand";
-import {
-  GetServiceCommandInput,
-  GetServiceCommandOutput
-} from "./commands/GetServiceCommand";
+import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   ListInstancesCommandInput,
   ListInstancesCommandOutput
@@ -259,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServiceDiscoveryClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServiceDiscoveryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  DeleteLifecycleHookAnswer,
-  DeleteLifecycleHookType
-} from "../models/index";
+import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/index";
 import {
   deserializeAws_queryDeleteLifecycleHookCommand,
   serializeAws_queryDeleteLifecycleHookCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLifecycleHookCommandInput = DeleteLifecycleHookType;
-export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer &
-  __MetadataBearer;
+export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer & __MetadataBearer;
 
 export class DeleteLifecycleHookCommand extends $Command<
   DeleteLifecycleHookCommandInput,
@@ -49,13 +45,8 @@ export class DeleteLifecycleHookCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLifecycleHookCommandInput,
-    DeleteLifecycleHookCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLifecycleHookCommandInput, DeleteLifecycleHookCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

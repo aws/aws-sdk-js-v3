@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult &
-  __MetadataBearer;
+export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
@@ -50,9 +42,7 @@ export class ModifyDBInstanceCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

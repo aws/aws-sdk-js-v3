@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult
@@ -39,9 +35,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: RegisterTransitGatewayMulticastGroupMembersCommandInput
-  ) {
+  constructor(readonly input: RegisterTransitGatewayMulticastGroupMembersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
     RegisterTransitGatewayMulticastGroupMembersCommandInput,
     RegisterTransitGatewayMulticastGroupMembersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
     input: RegisterTransitGatewayMulticastGroupMembersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> {
-    return deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

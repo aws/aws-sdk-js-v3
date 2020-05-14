@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  BatchGetReportGroupsInput,
-  BatchGetReportGroupsOutput
-} from "../models/index";
+import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetReportGroupsCommand,
   serializeAws_json1_1BatchGetReportGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetReportGroupsCommandInput = BatchGetReportGroupsInput;
-export type BatchGetReportGroupsCommandOutput = BatchGetReportGroupsOutput &
-  __MetadataBearer;
+export type BatchGetReportGroupsCommandOutput = BatchGetReportGroupsOutput & __MetadataBearer;
 
 export class BatchGetReportGroupsCommand extends $Command<
   BatchGetReportGroupsCommandInput,
@@ -49,13 +45,8 @@ export class BatchGetReportGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetReportGroupsCommandInput,
-    BatchGetReportGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetReportGroupsCommandInput, BatchGetReportGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

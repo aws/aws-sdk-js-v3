@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEntitlementsCommandInput = GetEntitlementsRequest;
-export type GetEntitlementsCommandOutput = GetEntitlementsResult &
-  __MetadataBearer;
+export type GetEntitlementsCommandOutput = GetEntitlementsResult & __MetadataBearer;
 
 export class GetEntitlementsCommand extends $Command<
   GetEntitlementsCommandInput,
@@ -47,9 +46,7 @@ export class GetEntitlementsCommand extends $Command<
     configuration: MarketplaceEntitlementServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEntitlementsCommandInput, GetEntitlementsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

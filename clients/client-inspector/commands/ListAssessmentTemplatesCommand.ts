@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  ListAssessmentTemplatesRequest,
-  ListAssessmentTemplatesResponse
-} from "../models/index";
+import { ListAssessmentTemplatesRequest, ListAssessmentTemplatesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAssessmentTemplatesCommand,
   serializeAws_json1_1ListAssessmentTemplatesCommand
@@ -49,13 +46,8 @@ export class ListAssessmentTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssessmentTemplatesCommandInput,
-    ListAssessmentTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssessmentTemplatesCommandInput, ListAssessmentTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListAssessmentTemplatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssessmentTemplatesCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentTemplatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

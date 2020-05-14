@@ -10,18 +10,12 @@ import {
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput
 } from "./commands/CreateApplicationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteApplicationsCommandInput,
   DeleteApplicationsCommandOutput
 } from "./commands/DeleteApplicationsCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAgentsCommandInput,
   DescribeAgentsCommandOutput

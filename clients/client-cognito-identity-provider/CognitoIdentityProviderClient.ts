@@ -126,10 +126,7 @@ import {
   ConfirmSignUpCommandInput,
   ConfirmSignUpCommandOutput
 } from "./commands/ConfirmSignUpCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput
@@ -154,10 +151,7 @@ import {
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput
 } from "./commands/CreateUserPoolDomainCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput
@@ -170,10 +164,7 @@ import {
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput
 } from "./commands/DeleteUserAttributesCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserPoolClientCommandInput,
   DeleteUserPoolClientCommandOutput
@@ -226,14 +217,8 @@ import {
   GetCSVHeaderCommandInput,
   GetCSVHeaderCommandOutput
 } from "./commands/GetCSVHeaderCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetIdentityProviderByIdentifierCommandInput,
   GetIdentityProviderByIdentifierCommandOutput
@@ -250,10 +235,7 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput
 } from "./commands/GetUserAttributeVerificationCodeCommand";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
   GetUserPoolMfaConfigCommandOutput
@@ -266,14 +248,8 @@ import {
   InitiateAuthCommandInput,
   InitiateAuthCommandOutput
 } from "./commands/InitiateAuthCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput
@@ -298,10 +274,7 @@ import {
   ListUserPoolsCommandInput,
   ListUserPoolsCommandOutput
 } from "./commands/ListUserPoolsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListUsersInGroupCommandInput,
   ListUsersInGroupCommandOutput
@@ -334,10 +307,7 @@ import {
   SetUserSettingsCommandInput,
   SetUserSettingsCommandOutput
 } from "./commands/SetUserSettingsCommand";
-import {
-  SignUpCommandInput,
-  SignUpCommandOutput
-} from "./commands/SignUpCommand";
+import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
 import {
   StartUserImportJobCommandInput,
   StartUserImportJobCommandOutput
@@ -346,10 +316,7 @@ import {
   StopUserImportJobCommandInput,
   StopUserImportJobCommandOutput
 } from "./commands/StopUserImportJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -362,10 +329,7 @@ import {
   UpdateDeviceStatusCommandInput,
   UpdateDeviceStatusCommandOutput
 } from "./commands/UpdateDeviceStatusCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput

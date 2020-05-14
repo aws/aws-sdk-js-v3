@@ -49,9 +49,7 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     DeleteOrganizationConformancePackCommandInput,
     DeleteOrganizationConformancePackCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class DeleteOrganizationConformancePackCommand extends $Command<
     input: DeleteOrganizationConformancePackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationConformancePackCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteOrganizationConformancePackCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationConformancePackCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationConformancePackCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteOrganizationConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

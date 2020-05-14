@@ -53,9 +53,7 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     CreateConnectorDefinitionVersionCommandInput,
     CreateConnectorDefinitionVersionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
     input: CreateConnectorDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConnectorDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

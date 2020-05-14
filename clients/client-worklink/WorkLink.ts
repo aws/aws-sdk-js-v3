@@ -179,9 +179,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public associateDomain(
     args: AssociateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDomainCommandOutput) => void),
     cb?: (err: any, data?: AssociateDomainCommandOutput) => void
   ): Promise<AssociateDomainCommandOutput> | void {
     const command = new AssociateDomainCommand(args);
@@ -205,31 +203,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput>;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public associateWebsiteAuthorizationProvider(
     args: AssociateWebsiteAuthorizationProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateWebsiteAuthorizationProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWebsiteAuthorizationProviderCommandOutput) => void
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> | void {
     const command = new AssociateWebsiteAuthorizationProviderCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -253,31 +239,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput>;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public associateWebsiteCertificateAuthority(
     args: AssociateWebsiteCertificateAuthorityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new AssociateWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -310,9 +284,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
@@ -345,9 +317,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
@@ -382,14 +352,8 @@ export class WorkLink extends WorkLinkClient {
     args: DescribeAuditStreamConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAuditStreamConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAuditStreamConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAuditStreamConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditStreamConfigurationCommandOutput) => void
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> | void {
     const command = new DescribeAuditStreamConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -413,31 +377,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput>;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public describeCompanyNetworkConfiguration(
     args: DescribeCompanyNetworkConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCompanyNetworkConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeCompanyNetworkConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCompanyNetworkConfigurationCommandOutput) => void
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> | void {
     const command = new DescribeCompanyNetworkConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -469,9 +421,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeDevice(
     args: DescribeDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): Promise<DescribeDeviceCommandOutput> | void {
     const command = new DescribeDeviceCommand(args);
@@ -495,31 +445,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput>;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): void;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): void;
   public describeDevicePolicyConfiguration(
     args: DescribeDevicePolicyConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDevicePolicyConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDevicePolicyConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDevicePolicyConfigurationCommandOutput) => void
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput> | void {
     const command = new DescribeDevicePolicyConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -551,9 +489,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
@@ -613,31 +549,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput>;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public describeIdentityProviderConfiguration(
     args: DescribeIdentityProviderConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeIdentityProviderConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeIdentityProviderConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): Promise<DescribeIdentityProviderConfigurationCommandOutput> | void {
     const command = new DescribeIdentityProviderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -660,31 +584,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput>;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public describeWebsiteCertificateAuthority(
     args: DescribeWebsiteCertificateAuthorityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeWebsiteCertificateAuthorityCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new DescribeWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -744,31 +656,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput>;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): void;
   public disassociateWebsiteAuthorizationProvider(
     args: DisassociateWebsiteAuthorizationProviderCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateWebsiteAuthorizationProviderCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWebsiteAuthorizationProviderCommandOutput) => void
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> | void {
     const command = new DisassociateWebsiteAuthorizationProviderCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -791,31 +691,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput>;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): void;
   public disassociateWebsiteCertificateAuthority(
     args: DisassociateWebsiteCertificateAuthorityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateWebsiteCertificateAuthorityCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWebsiteCertificateAuthorityCommandOutput) => void
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> | void {
     const command = new DisassociateWebsiteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -847,9 +735,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
@@ -882,9 +768,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
@@ -917,9 +801,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
@@ -943,31 +825,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput>;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
-    cb: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): void;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): void;
   public listWebsiteAuthorizationProviders(
     args: ListWebsiteAuthorizationProvidersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWebsiteAuthorizationProvidersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWebsiteAuthorizationProvidersCommandOutput
-    ) => void
+      | ((err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void),
+    cb?: (err: any, data?: ListWebsiteAuthorizationProvidersCommandOutput) => void
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> | void {
     const command = new ListWebsiteAuthorizationProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -991,31 +861,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput>;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
-    cb: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): void;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): void;
   public listWebsiteCertificateAuthorities(
     args: ListWebsiteCertificateAuthoritiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWebsiteCertificateAuthoritiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWebsiteCertificateAuthoritiesCommandOutput
-    ) => void
+      | ((err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void),
+    cb?: (err: any, data?: ListWebsiteCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> | void {
     const command = new ListWebsiteCertificateAuthoritiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1118,9 +976,7 @@ export class WorkLink extends WorkLinkClient {
   ): void;
   public signOutUser(
     args: SignOutUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignOutUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignOutUserCommandOutput) => void),
     cb?: (err: any, data?: SignOutUserCommandOutput) => void
   ): Promise<SignOutUserCommandOutput> | void {
     const command = new SignOutUserCommand(args);
@@ -1155,10 +1011,7 @@ export class WorkLink extends WorkLinkClient {
     args: UpdateAuditStreamConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateAuditStreamConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateAuditStreamConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuditStreamConfigurationCommandOutput) => void
   ): Promise<UpdateAuditStreamConfigurationCommandOutput> | void {
     const command = new UpdateAuditStreamConfigurationCommand(args);
@@ -1182,31 +1035,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput>;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): void;
   public updateCompanyNetworkConfiguration(
     args: UpdateCompanyNetworkConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateCompanyNetworkConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateCompanyNetworkConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCompanyNetworkConfigurationCommandOutput) => void
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> | void {
     const command = new UpdateCompanyNetworkConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1240,10 +1081,7 @@ export class WorkLink extends WorkLinkClient {
     args: UpdateDevicePolicyConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDevicePolicyConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateDevicePolicyConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateDevicePolicyConfigurationCommandOutput) => void
   ): Promise<UpdateDevicePolicyConfigurationCommandOutput> | void {
     const command = new UpdateDevicePolicyConfigurationCommand(args);
@@ -1337,31 +1175,19 @@ export class WorkLink extends WorkLinkClient {
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput>;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): void;
   public updateIdentityProviderConfiguration(
     args: UpdateIdentityProviderConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateIdentityProviderConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateIdentityProviderConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIdentityProviderConfigurationCommandOutput) => void
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> | void {
     const command = new UpdateIdentityProviderConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult
@@ -39,9 +35,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetTransitGatewayRouteTableAssociationsCommandInput
-  ) {
+  constructor(readonly input: GetTransitGatewayRouteTableAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     GetTransitGatewayRouteTableAssociationsCommandInput,
     GetTransitGatewayRouteTableAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     input: GetTransitGatewayRouteTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

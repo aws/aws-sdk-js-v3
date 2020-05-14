@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddApplicationCloudWatchLoggingOptionRequest {
@@ -23,9 +20,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionRequest {
-  export const isa = (
-    o: any
-  ): o is AddApplicationCloudWatchLoggingOptionRequest =>
+  export const isa = (o: any): o is AddApplicationCloudWatchLoggingOptionRequest =>
     __isa(o, "AddApplicationCloudWatchLoggingOptionRequest");
 }
 
@@ -50,9 +45,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionResponse {
-  export const isa = (
-    o: any
-  ): o is AddApplicationCloudWatchLoggingOptionResponse =>
+  export const isa = (o: any): o is AddApplicationCloudWatchLoggingOptionResponse =>
     __isa(o, "AddApplicationCloudWatchLoggingOptionResponse");
 }
 
@@ -85,9 +78,7 @@ export interface AddApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace AddApplicationInputProcessingConfigurationRequest {
-  export const isa = (
-    o: any
-  ): o is AddApplicationInputProcessingConfigurationRequest =>
+  export const isa = (o: any): o is AddApplicationInputProcessingConfigurationRequest =>
     __isa(o, "AddApplicationInputProcessingConfigurationRequest");
 }
 
@@ -117,9 +108,7 @@ export interface AddApplicationInputProcessingConfigurationResponse {
 }
 
 export namespace AddApplicationInputProcessingConfigurationResponse {
-  export const isa = (
-    o: any
-  ): o is AddApplicationInputProcessingConfigurationResponse =>
+  export const isa = (o: any): o is AddApplicationInputProcessingConfigurationResponse =>
     __isa(o, "AddApplicationInputProcessingConfigurationResponse");
 }
 
@@ -602,8 +591,7 @@ export interface ApplicationDetail {
 }
 
 export namespace ApplicationDetail {
-  export const isa = (o: any): o is ApplicationDetail =>
-    __isa(o, "ApplicationDetail");
+  export const isa = (o: any): o is ApplicationDetail => __isa(o, "ApplicationDetail");
 }
 
 /**
@@ -662,9 +650,7 @@ export interface ApplicationSnapshotConfigurationDescription {
 }
 
 export namespace ApplicationSnapshotConfigurationDescription {
-  export const isa = (
-    o: any
-  ): o is ApplicationSnapshotConfigurationDescription =>
+  export const isa = (o: any): o is ApplicationSnapshotConfigurationDescription =>
     __isa(o, "ApplicationSnapshotConfigurationDescription");
 }
 
@@ -725,8 +711,7 @@ export interface ApplicationSummary {
 }
 
 export namespace ApplicationSummary {
-  export const isa = (o: any): o is ApplicationSummary =>
-    __isa(o, "ApplicationSummary");
+  export const isa = (o: any): o is ApplicationSummary => __isa(o, "ApplicationSummary");
 }
 
 /**
@@ -758,8 +743,7 @@ export interface CSVMappingParameters {
 }
 
 export namespace CSVMappingParameters {
-  export const isa = (o: any): o is CSVMappingParameters =>
-    __isa(o, "CSVMappingParameters");
+  export const isa = (o: any): o is CSVMappingParameters => __isa(o, "CSVMappingParameters");
 }
 
 /**
@@ -830,8 +814,7 @@ export interface CheckpointConfiguration {
 }
 
 export namespace CheckpointConfiguration {
-  export const isa = (o: any): o is CheckpointConfiguration =>
-    __isa(o, "CheckpointConfiguration");
+  export const isa = (o: any): o is CheckpointConfiguration => __isa(o, "CheckpointConfiguration");
 }
 
 /**
@@ -977,8 +960,7 @@ export interface CloudWatchLoggingOption {
 }
 
 export namespace CloudWatchLoggingOption {
-  export const isa = (o: any): o is CloudWatchLoggingOption =>
-    __isa(o, "CloudWatchLoggingOption");
+  export const isa = (o: any): o is CloudWatchLoggingOption => __isa(o, "CloudWatchLoggingOption");
 }
 
 /**
@@ -1089,8 +1071,7 @@ export interface CodeContentDescription {
 }
 
 export namespace CodeContentDescription {
-  export const isa = (o: any): o is CodeContentDescription =>
-    __isa(o, "CodeContentDescription");
+  export const isa = (o: any): o is CodeContentDescription => __isa(o, "CodeContentDescription");
 }
 
 export enum CodeContentType {
@@ -1121,25 +1102,21 @@ export interface CodeContentUpdate {
 }
 
 export namespace CodeContentUpdate {
-  export const isa = (o: any): o is CodeContentUpdate =>
-    __isa(o, "CodeContentUpdate");
+  export const isa = (o: any): o is CodeContentUpdate => __isa(o, "CodeContentUpdate");
 }
 
 /**
  * <p>The user-provided application code (query) is not valid. This can be a simple syntax
  *       error.</p>
  */
-export interface CodeValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CodeValidationException extends __SmithyException, $MetadataBearer {
   name: "CodeValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CodeValidationException {
-  export const isa = (o: any): o is CodeValidationException =>
-    __isa(o, "CodeValidationException");
+  export const isa = (o: any): o is CodeValidationException => __isa(o, "CodeValidationException");
 }
 
 /**
@@ -1147,9 +1124,7 @@ export namespace CodeValidationException {
  *       be the result of attempting to modify an application without using the current application
  *       ID.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -1274,9 +1249,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationCloudWatchLoggingOptionRequest =>
+  export const isa = (o: any): o is DeleteApplicationCloudWatchLoggingOptionRequest =>
     __isa(o, "DeleteApplicationCloudWatchLoggingOptionRequest");
 }
 
@@ -1301,9 +1274,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationCloudWatchLoggingOptionResponse =>
+  export const isa = (o: any): o is DeleteApplicationCloudWatchLoggingOptionResponse =>
     __isa(o, "DeleteApplicationCloudWatchLoggingOptionResponse");
 }
 
@@ -1331,9 +1302,7 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationInputProcessingConfigurationRequest =>
+  export const isa = (o: any): o is DeleteApplicationInputProcessingConfigurationRequest =>
     __isa(o, "DeleteApplicationInputProcessingConfigurationRequest");
 }
 
@@ -1351,9 +1320,7 @@ export interface DeleteApplicationInputProcessingConfigurationResponse {
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationInputProcessingConfigurationResponse =>
+  export const isa = (o: any): o is DeleteApplicationInputProcessingConfigurationResponse =>
     __isa(o, "DeleteApplicationInputProcessingConfigurationResponse");
 }
 
@@ -1431,9 +1398,7 @@ export interface DeleteApplicationReferenceDataSourceRequest {
 }
 
 export namespace DeleteApplicationReferenceDataSourceRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationReferenceDataSourceRequest =>
+  export const isa = (o: any): o is DeleteApplicationReferenceDataSourceRequest =>
     __isa(o, "DeleteApplicationReferenceDataSourceRequest");
 }
 
@@ -1451,9 +1416,7 @@ export interface DeleteApplicationReferenceDataSourceResponse {
 }
 
 export namespace DeleteApplicationReferenceDataSourceResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteApplicationReferenceDataSourceResponse =>
+  export const isa = (o: any): o is DeleteApplicationReferenceDataSourceResponse =>
     __isa(o, "DeleteApplicationReferenceDataSourceResponse");
 }
 
@@ -1634,8 +1597,7 @@ export interface DestinationSchema {
 }
 
 export namespace DestinationSchema {
-  export const isa = (o: any): o is DestinationSchema =>
-    __isa(o, "DestinationSchema");
+  export const isa = (o: any): o is DestinationSchema => __isa(o, "DestinationSchema");
 }
 
 export interface DiscoverInputSchemaRequest {
@@ -1717,8 +1679,7 @@ export interface EnvironmentProperties {
 }
 
 export namespace EnvironmentProperties {
-  export const isa = (o: any): o is EnvironmentProperties =>
-    __isa(o, "EnvironmentProperties");
+  export const isa = (o: any): o is EnvironmentProperties => __isa(o, "EnvironmentProperties");
 }
 
 /**
@@ -1867,8 +1828,7 @@ export interface FlinkRunConfiguration {
 }
 
 export namespace FlinkRunConfiguration {
-  export const isa = (o: any): o is FlinkRunConfiguration =>
-    __isa(o, "FlinkRunConfiguration");
+  export const isa = (o: any): o is FlinkRunConfiguration => __isa(o, "FlinkRunConfiguration");
 }
 
 /**
@@ -1976,8 +1936,7 @@ export interface InputDescription {
 }
 
 export namespace InputDescription {
-  export const isa = (o: any): o is InputDescription =>
-    __isa(o, "InputDescription");
+  export const isa = (o: any): o is InputDescription => __isa(o, "InputDescription");
 }
 
 /**
@@ -1998,8 +1957,7 @@ export interface InputLambdaProcessor {
 }
 
 export namespace InputLambdaProcessor {
-  export const isa = (o: any): o is InputLambdaProcessor =>
-    __isa(o, "InputLambdaProcessor");
+  export const isa = (o: any): o is InputLambdaProcessor => __isa(o, "InputLambdaProcessor");
 }
 
 /**
@@ -2071,8 +2029,7 @@ export interface InputParallelism {
 }
 
 export namespace InputParallelism {
-  export const isa = (o: any): o is InputParallelism =>
-    __isa(o, "InputParallelism");
+  export const isa = (o: any): o is InputParallelism => __isa(o, "InputParallelism");
 }
 
 /**
@@ -2088,8 +2045,7 @@ export interface InputParallelismUpdate {
 }
 
 export namespace InputParallelismUpdate {
-  export const isa = (o: any): o is InputParallelismUpdate =>
-    __isa(o, "InputParallelismUpdate");
+  export const isa = (o: any): o is InputParallelismUpdate => __isa(o, "InputParallelismUpdate");
 }
 
 /**
@@ -2169,8 +2125,7 @@ export interface InputSchemaUpdate {
 }
 
 export namespace InputSchemaUpdate {
-  export const isa = (o: any): o is InputSchemaUpdate =>
-    __isa(o, "InputSchemaUpdate");
+  export const isa = (o: any): o is InputSchemaUpdate => __isa(o, "InputSchemaUpdate");
 }
 
 export enum InputStartingPosition {
@@ -2285,9 +2240,7 @@ export namespace InvalidApplicationConfigurationException {
 /**
  * <p>The specified input parameter value is not valid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -2301,17 +2254,14 @@ export namespace InvalidArgumentException {
 /**
  * <p>The request JSON is not valid for the operation.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2327,8 +2277,7 @@ export interface JSONMappingParameters {
 }
 
 export namespace JSONMappingParameters {
-  export const isa = (o: any): o is JSONMappingParameters =>
-    __isa(o, "JSONMappingParameters");
+  export const isa = (o: any): o is JSONMappingParameters => __isa(o, "JSONMappingParameters");
 }
 
 /**
@@ -2345,8 +2294,7 @@ export interface KinesisFirehoseInput {
 }
 
 export namespace KinesisFirehoseInput {
-  export const isa = (o: any): o is KinesisFirehoseInput =>
-    __isa(o, "KinesisFirehoseInput");
+  export const isa = (o: any): o is KinesisFirehoseInput => __isa(o, "KinesisFirehoseInput");
 }
 
 /**
@@ -2408,8 +2356,7 @@ export interface KinesisFirehoseOutput {
 }
 
 export namespace KinesisFirehoseOutput {
-  export const isa = (o: any): o is KinesisFirehoseOutput =>
-    __isa(o, "KinesisFirehoseOutput");
+  export const isa = (o: any): o is KinesisFirehoseOutput => __isa(o, "KinesisFirehoseOutput");
 }
 
 /**
@@ -2471,8 +2418,7 @@ export interface KinesisStreamsInput {
 }
 
 export namespace KinesisStreamsInput {
-  export const isa = (o: any): o is KinesisStreamsInput =>
-    __isa(o, "KinesisStreamsInput");
+  export const isa = (o: any): o is KinesisStreamsInput => __isa(o, "KinesisStreamsInput");
 }
 
 /**
@@ -2535,8 +2481,7 @@ export interface KinesisStreamsOutput {
 }
 
 export namespace KinesisStreamsOutput {
-  export const isa = (o: any): o is KinesisStreamsOutput =>
-    __isa(o, "KinesisStreamsOutput");
+  export const isa = (o: any): o is KinesisStreamsOutput => __isa(o, "KinesisStreamsOutput");
 }
 
 /**
@@ -2631,8 +2576,7 @@ export interface LambdaOutputDescription {
 }
 
 export namespace LambdaOutputDescription {
-  export const isa = (o: any): o is LambdaOutputDescription =>
-    __isa(o, "LambdaOutputDescription");
+  export const isa = (o: any): o is LambdaOutputDescription => __isa(o, "LambdaOutputDescription");
 }
 
 /**
@@ -2653,24 +2597,20 @@ export interface LambdaOutputUpdate {
 }
 
 export namespace LambdaOutputUpdate {
-  export const isa = (o: any): o is LambdaOutputUpdate =>
-    __isa(o, "LambdaOutputUpdate");
+  export const isa = (o: any): o is LambdaOutputUpdate => __isa(o, "LambdaOutputUpdate");
 }
 
 /**
  * <p>The number of allowed resources has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListApplicationSnapshotsRequest {
@@ -2732,8 +2672,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListApplicationsResponse {
@@ -2811,8 +2750,7 @@ export interface MappingParameters {
 }
 
 export namespace MappingParameters {
-  export const isa = (o: any): o is MappingParameters =>
-    __isa(o, "MappingParameters");
+  export const isa = (o: any): o is MappingParameters => __isa(o, "MappingParameters");
 }
 
 export enum MetricsLevel {
@@ -2847,8 +2785,7 @@ export interface MonitoringConfiguration {
 }
 
 export namespace MonitoringConfiguration {
-  export const isa = (o: any): o is MonitoringConfiguration =>
-    __isa(o, "MonitoringConfiguration");
+  export const isa = (o: any): o is MonitoringConfiguration => __isa(o, "MonitoringConfiguration");
 }
 
 /**
@@ -2991,8 +2928,7 @@ export interface OutputDescription {
 }
 
 export namespace OutputDescription {
-  export const isa = (o: any): o is OutputDescription =>
-    __isa(o, "OutputDescription");
+  export const isa = (o: any): o is OutputDescription => __isa(o, "OutputDescription");
 }
 
 /**
@@ -3273,8 +3209,7 @@ export interface ReferenceDataSource {
 }
 
 export namespace ReferenceDataSource {
-  export const isa = (o: any): o is ReferenceDataSource =>
-    __isa(o, "ReferenceDataSource");
+  export const isa = (o: any): o is ReferenceDataSource => __isa(o, "ReferenceDataSource");
 }
 
 /**
@@ -3297,9 +3232,7 @@ export interface ReferenceDataSourceDescription {
   /**
    * <p>Provides the Amazon S3 bucket name, the object key name that contains the reference data. </p>
    */
-  S3ReferenceDataSourceDescription:
-    | S3ReferenceDataSourceDescription
-    | undefined;
+  S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
 
   /**
    * <p>The in-application table name created by the specific reference data source configuration.</p>
@@ -3350,25 +3283,20 @@ export namespace ReferenceDataSourceUpdate {
 /**
  * <p>The application is not available for this operation.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>Specified application can't be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3392,9 +3320,7 @@ export interface ResourceProvisionedThroughputExceededException
 }
 
 export namespace ResourceProvisionedThroughputExceededException {
-  export const isa = (
-    o: any
-  ): o is ResourceProvisionedThroughputExceededException =>
+  export const isa = (o: any): o is ResourceProvisionedThroughputExceededException =>
     __isa(o, "ResourceProvisionedThroughputExceededException");
 }
 
@@ -3421,8 +3347,7 @@ export interface RunConfiguration {
 }
 
 export namespace RunConfiguration {
-  export const isa = (o: any): o is RunConfiguration =>
-    __isa(o, "RunConfiguration");
+  export const isa = (o: any): o is RunConfiguration => __isa(o, "RunConfiguration");
 }
 
 /**
@@ -3459,8 +3384,7 @@ export interface RunConfigurationUpdate {
 }
 
 export namespace RunConfigurationUpdate {
-  export const isa = (o: any): o is RunConfigurationUpdate =>
-    __isa(o, "RunConfigurationUpdate");
+  export const isa = (o: any): o is RunConfigurationUpdate => __isa(o, "RunConfigurationUpdate");
 }
 
 export enum RuntimeEnvironment {
@@ -3515,8 +3439,7 @@ export interface S3Configuration {
 }
 
 export namespace S3Configuration {
-  export const isa = (o: any): o is S3Configuration =>
-    __isa(o, "S3Configuration");
+  export const isa = (o: any): o is S3Configuration => __isa(o, "S3Configuration");
 }
 
 /**
@@ -3544,8 +3467,7 @@ export interface S3ContentLocation {
 }
 
 export namespace S3ContentLocation {
-  export const isa = (o: any): o is S3ContentLocation =>
-    __isa(o, "S3ContentLocation");
+  export const isa = (o: any): o is S3ContentLocation => __isa(o, "S3ContentLocation");
 }
 
 /**
@@ -3571,8 +3493,7 @@ export interface S3ContentLocationUpdate {
 }
 
 export namespace S3ContentLocationUpdate {
-  export const isa = (o: any): o is S3ContentLocationUpdate =>
-    __isa(o, "S3ContentLocationUpdate");
+  export const isa = (o: any): o is S3ContentLocationUpdate => __isa(o, "S3ContentLocationUpdate");
 }
 
 /**
@@ -3595,8 +3516,7 @@ export interface S3ReferenceDataSource {
 }
 
 export namespace S3ReferenceDataSource {
-  export const isa = (o: any): o is S3ReferenceDataSource =>
-    __isa(o, "S3ReferenceDataSource");
+  export const isa = (o: any): o is S3ReferenceDataSource => __isa(o, "S3ReferenceDataSource");
 }
 
 /**
@@ -3657,9 +3577,7 @@ export namespace S3ReferenceDataSourceUpdate {
 /**
  * <p>The service cannot complete the request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -3697,8 +3615,7 @@ export interface SnapshotDetails {
 }
 
 export namespace SnapshotDetails {
-  export const isa = (o: any): o is SnapshotDetails =>
-    __isa(o, "SnapshotDetails");
+  export const isa = (o: any): o is SnapshotDetails => __isa(o, "SnapshotDetails");
 }
 
 export enum SnapshotStatus {
@@ -3840,14 +3757,11 @@ export interface SqlRunConfiguration {
    * <p>The point at which you want the application to start processing records from the streaming
    *       source. </p>
    */
-  InputStartingPositionConfiguration:
-    | InputStartingPositionConfiguration
-    | undefined;
+  InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
 }
 
 export namespace SqlRunConfiguration {
-  export const isa = (o: any): o is SqlRunConfiguration =>
-    __isa(o, "SqlRunConfiguration");
+  export const isa = (o: any): o is SqlRunConfiguration => __isa(o, "SqlRunConfiguration");
 }
 
 export interface StartApplicationRequest {
@@ -3864,8 +3778,7 @@ export interface StartApplicationRequest {
 }
 
 export namespace StartApplicationRequest {
-  export const isa = (o: any): o is StartApplicationRequest =>
-    __isa(o, "StartApplicationRequest");
+  export const isa = (o: any): o is StartApplicationRequest => __isa(o, "StartApplicationRequest");
 }
 
 export interface StartApplicationResponse {
@@ -3886,8 +3799,7 @@ export interface StopApplicationRequest {
 }
 
 export namespace StopApplicationRequest {
-  export const isa = (o: any): o is StopApplicationRequest =>
-    __isa(o, "StopApplicationRequest");
+  export const isa = (o: any): o is StopApplicationRequest => __isa(o, "StopApplicationRequest");
 }
 
 export interface StopApplicationResponse {
@@ -3895,8 +3807,7 @@ export interface StopApplicationResponse {
 }
 
 export namespace StopApplicationResponse {
-  export const isa = (o: any): o is StopApplicationResponse =>
-    __isa(o, "StopApplicationResponse");
+  export const isa = (o: any): o is StopApplicationResponse => __isa(o, "StopApplicationResponse");
 }
 
 /**
@@ -3935,8 +3846,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3944,33 +3854,27 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
  * <p>The data format is not valid. Amazon Kinesis Data Analytics cannot detect the schema for
  *       the given streaming source.</p>
  */
-export interface UnableToDetectSchemaException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnableToDetectSchemaException extends __SmithyException, $MetadataBearer {
   name: "UnableToDetectSchemaException";
   $fault: "client";
   Message?: string;
@@ -3993,9 +3897,7 @@ export namespace UnableToDetectSchemaException {
 /**
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  */
-export interface UnsupportedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;
@@ -4020,8 +3922,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -4029,8 +3930,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateApplicationRequest {
@@ -4103,8 +4003,7 @@ export interface VpcConfiguration {
 }
 
 export namespace VpcConfiguration {
-  export const isa = (o: any): o is VpcConfiguration =>
-    __isa(o, "VpcConfiguration");
+  export const isa = (o: any): o is VpcConfiguration => __isa(o, "VpcConfiguration");
 }
 
 /**
@@ -4161,6 +4060,5 @@ export interface VpcConfigurationUpdate {
 }
 
 export namespace VpcConfigurationUpdate {
-  export const isa = (o: any): o is VpcConfigurationUpdate =>
-    __isa(o, "VpcConfigurationUpdate");
+  export const isa = (o: any): o is VpcConfigurationUpdate => __isa(o, "VpcConfigurationUpdate");
 }

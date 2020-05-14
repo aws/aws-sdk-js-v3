@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetOrganizationsAccessReportRequest,
   GetOrganizationsAccessReportResponse
@@ -49,13 +45,8 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOrganizationsAccessReportCommandInput,
-    GetOrganizationsAccessReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOrganizationsAccessReportCommandInput, GetOrganizationsAccessReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     input: GetOrganizationsAccessReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetOrganizationsAccessReportCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetOrganizationsAccessReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGetOrganizationsAccessReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

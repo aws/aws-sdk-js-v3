@@ -90,10 +90,7 @@ import {
   StopApplicationCommandInput,
   StopApplicationCommandOutput
 } from "../commands/StopApplicationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -283,15 +280,11 @@ export const serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption"
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -305,9 +298,7 @@ export const serializeAws_json1_1AddApplicationInputCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationInput"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddApplicationInputRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddApplicationInputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -317,15 +308,11 @@ export const serializeAws_json1_1AddApplicationInputProcessingConfigurationComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration"
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -339,9 +326,7 @@ export const serializeAws_json1_1AddApplicationOutputCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationOutput"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddApplicationOutputRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddApplicationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,8 +336,7 @@ export const serializeAws_json1_1AddApplicationReferenceDataSourceCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.AddApplicationReferenceDataSource"
+    "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationReferenceDataSource"
   };
   let body: any;
   body = JSON.stringify(
@@ -370,9 +354,7 @@ export const serializeAws_json1_1AddApplicationVpcConfigurationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.AddApplicationVpcConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddApplicationVpcConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddApplicationVpcConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -385,9 +367,7 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.CreateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -400,9 +380,7 @@ export const serializeAws_json1_1CreateApplicationSnapshotCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.CreateApplicationSnapshot"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateApplicationSnapshotRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -415,9 +393,7 @@ export const serializeAws_json1_1DeleteApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -427,15 +403,11 @@ export const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption"
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -446,15 +418,11 @@ export const serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration"
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -468,9 +436,7 @@ export const serializeAws_json1_1DeleteApplicationOutputCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationOutput"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationOutputRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationOutputRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -480,15 +446,11 @@ export const serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource"
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -502,9 +464,7 @@ export const serializeAws_json1_1DeleteApplicationSnapshotCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationSnapshot"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationSnapshotRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -514,8 +474,7 @@ export const serializeAws_json1_1DeleteApplicationVpcConfigurationCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration"
+    "X-Amz-Target": "KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration"
   };
   let body: any;
   body = JSON.stringify(
@@ -533,9 +492,7 @@ export const serializeAws_json1_1DescribeApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DescribeApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -548,9 +505,7 @@ export const serializeAws_json1_1DescribeApplicationSnapshotCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DescribeApplicationSnapshot"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeApplicationSnapshotRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeApplicationSnapshotRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -563,9 +518,7 @@ export const serializeAws_json1_1DiscoverInputSchemaCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.DiscoverInputSchema"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DiscoverInputSchemaRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DiscoverInputSchemaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -578,9 +531,7 @@ export const serializeAws_json1_1ListApplicationSnapshotsCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.ListApplicationSnapshots"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListApplicationSnapshotsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListApplicationSnapshotsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -593,9 +544,7 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.ListApplications"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListApplicationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -608,9 +557,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -623,9 +570,7 @@ export const serializeAws_json1_1StartApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.StartApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -638,9 +583,7 @@ export const serializeAws_json1_1StopApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.StopApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -666,9 +609,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -681,9 +622,7 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
     "X-Amz-Target": "KinesisAnalytics_20180523.UpdateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -692,17 +631,11 @@ export const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand 
   context: __SerdeContext
 ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse(data, context);
   const response: AddApplicationCloudWatchLoggingOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddApplicationCloudWatchLoggingOptionResponse",
@@ -722,8 +655,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -750,10 +682,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -761,10 +690,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -772,10 +698,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -783,10 +706,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError = 
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -813,10 +733,7 @@ export const deserializeAws_json1_1AddApplicationInputCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationInputCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddApplicationInputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationInputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -840,16 +757,12 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
     case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
       response = {
-        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -868,10 +781,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -879,10 +789,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -890,10 +797,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -901,10 +805,7 @@ const deserializeAws_json1_1AddApplicationInputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -961,8 +862,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -978,10 +878,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -989,10 +886,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1000,10 +894,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1011,10 +902,7 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandErr
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1041,10 +929,7 @@ export const deserializeAws_json1_1AddApplicationOutputCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationOutputCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddApplicationOutputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1068,8 +953,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1085,10 +969,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1096,10 +977,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1107,10 +985,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1118,10 +993,7 @@ const deserializeAws_json1_1AddApplicationOutputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1148,17 +1020,11 @@ export const deserializeAws_json1_1AddApplicationReferenceDataSourceCommand = as
   context: __SerdeContext
 ): Promise<AddApplicationReferenceDataSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddApplicationReferenceDataSourceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AddApplicationReferenceDataSourceResponse(data, context);
   const response: AddApplicationReferenceDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddApplicationReferenceDataSourceResponse",
@@ -1178,8 +1044,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1195,10 +1060,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1206,10 +1068,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1217,10 +1076,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1228,10 +1084,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError = asyn
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1258,17 +1111,11 @@ export const deserializeAws_json1_1AddApplicationVpcConfigurationCommand = async
   context: __SerdeContext
 ): Promise<AddApplicationVpcConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddApplicationVpcConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddApplicationVpcConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddApplicationVpcConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AddApplicationVpcConfigurationResponse(data, context);
   const response: AddApplicationVpcConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddApplicationVpcConfigurationResponse",
@@ -1288,8 +1135,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1305,10 +1151,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1316,10 +1159,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1327,10 +1167,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1381,16 +1218,12 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
     case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
       response = {
-        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1409,10 +1242,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1420,10 +1250,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1431,10 +1258,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.kinesis.analytics.v20180523#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1442,10 +1266,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1453,10 +1274,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1483,17 +1301,11 @@ export const deserializeAws_json1_1CreateApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateApplicationSnapshotCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationSnapshotResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationSnapshotResponse(data, context);
   const response: CreateApplicationSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationSnapshotResponse",
@@ -1513,16 +1325,12 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1530,10 +1338,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1541,10 +1346,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.kinesis.analytics.v20180523#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1552,10 +1354,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1563,10 +1362,7 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1628,8 +1424,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1656,10 +1451,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,10 +1459,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1678,10 +1467,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1689,10 +1475,7 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1726,10 +1509,7 @@ export const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionComma
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse(data, context);
   const response: DeleteApplicationCloudWatchLoggingOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationCloudWatchLoggingOptionResponse",
@@ -1749,8 +1529,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1777,10 +1556,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1788,10 +1564,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1799,10 +1572,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1810,10 +1580,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1870,8 +1637,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1887,10 +1653,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1898,10 +1661,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1909,10 +1669,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1920,10 +1677,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1950,17 +1704,11 @@ export const deserializeAws_json1_1DeleteApplicationOutputCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationOutputCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteApplicationOutputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationOutputResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationOutputResponse(data, context);
   const response: DeleteApplicationOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationOutputResponse",
@@ -1980,8 +1728,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -1997,10 +1744,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2008,10 +1752,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2019,10 +1760,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2030,10 +1768,7 @@ const deserializeAws_json1_1DeleteApplicationOutputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2060,17 +1795,11 @@ export const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand =
   context: __SerdeContext
 ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse(data, context);
   const response: DeleteApplicationReferenceDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationReferenceDataSourceResponse",
@@ -2090,8 +1819,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -2107,10 +1835,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2118,10 +1843,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2129,10 +1851,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2140,10 +1859,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError = a
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2170,17 +1886,11 @@ export const deserializeAws_json1_1DeleteApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteApplicationSnapshotCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationSnapshotResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationSnapshotResponse(data, context);
   const response: DeleteApplicationSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationSnapshotResponse",
@@ -2200,16 +1910,12 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2217,10 +1923,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2228,10 +1931,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2239,10 +1939,7 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2280,17 +1977,11 @@ export const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand = as
   context: __SerdeContext
 ): Promise<DeleteApplicationVpcConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationVpcConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationVpcConfigurationResponse(data, context);
   const response: DeleteApplicationVpcConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationVpcConfigurationResponse",
@@ -2310,8 +2001,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -2327,10 +2017,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2338,10 +2025,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2349,10 +2033,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2379,10 +2060,7 @@ export const deserializeAws_json1_1DescribeApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2406,16 +2084,12 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2423,10 +2097,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2434,10 +2105,7 @@ const deserializeAws_json1_1DescribeApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2464,17 +2132,11 @@ export const deserializeAws_json1_1DescribeApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeApplicationSnapshotCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationSnapshotResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeApplicationSnapshotResponse(data, context);
   const response: DescribeApplicationSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeApplicationSnapshotResponse",
@@ -2494,16 +2156,12 @@ const deserializeAws_json1_1DescribeApplicationSnapshotCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2511,10 +2169,7 @@ const deserializeAws_json1_1DescribeApplicationSnapshotCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2552,10 +2207,7 @@ export const deserializeAws_json1_1DiscoverInputSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DiscoverInputSchemaCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DiscoverInputSchemaCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DiscoverInputSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2579,16 +2231,12 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2596,10 +2244,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2618,10 +2263,7 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.kinesis.analytics.v20180523#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2659,17 +2301,11 @@ export const deserializeAws_json1_1ListApplicationSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationSnapshotsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListApplicationSnapshotsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListApplicationSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationSnapshotsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListApplicationSnapshotsResponse(data, context);
   const response: ListApplicationSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationSnapshotsResponse",
@@ -2689,16 +2325,12 @@ const deserializeAws_json1_1ListApplicationSnapshotsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2760,16 +2392,12 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2796,10 +2424,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2823,8 +2448,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -2840,10 +2464,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2851,10 +2472,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2905,8 +2523,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidApplicationConfigurationException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
@@ -2922,10 +2539,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2933,10 +2547,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2944,10 +2555,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2955,10 +2563,7 @@ const deserializeAws_json1_1StartApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3009,8 +2614,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidApplicationConfigurationException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidApplicationConfigurationException":
@@ -3026,10 +2630,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3037,10 +2638,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3048,10 +2646,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3059,10 +2654,7 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3113,8 +2705,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -3130,10 +2721,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3141,10 +2729,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3152,10 +2737,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3163,10 +2745,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3217,8 +2796,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesis.analytics.v20180523#ConcurrentModificationException":
@@ -3234,10 +2812,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3245,10 +2820,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3256,10 +2828,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3267,10 +2836,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.kinesis.analytics.v20180523#TooManyTagsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3321,16 +2887,12 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeValidationException":
     case "com.amazonaws.kinesis.analytics.v20180523#CodeValidationException":
       response = {
-        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CodeValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3360,10 +2922,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3371,10 +2930,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.kinesis.analytics.v20180523#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3382,10 +2938,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3393,10 +2946,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.analytics.v20180523#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3423,10 +2973,7 @@ const deserializeAws_json1_1CodeValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CodeValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CodeValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CodeValidationException(body, context);
   const contents: CodeValidationException = {
     name: "CodeValidationException",
     $fault: "client",
@@ -3441,10 +2988,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "client",
@@ -3477,10 +3021,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(body, context);
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
     $fault: "client",
@@ -3495,10 +3036,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
@@ -3513,10 +3051,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -3531,10 +3066,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -3549,10 +3081,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -3585,10 +3114,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
@@ -3603,10 +3129,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
     $fault: "client",
@@ -3621,10 +3144,7 @@ const deserializeAws_json1_1UnableToDetectSchemaExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnableToDetectSchemaException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnableToDetectSchemaException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnableToDetectSchemaException(body, context);
   const contents: UnableToDetectSchemaException = {
     name: "UnableToDetectSchemaException",
     $fault: "client",
@@ -3639,10 +3159,7 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
   const contents: UnsupportedOperationException = {
     name: "UnsupportedOperationException",
     $fault: "client",
@@ -3759,10 +3276,7 @@ const serializeAws_json1_1AddApplicationVpcConfigurationRequest = (
       CurrentApplicationVersionId: input.CurrentApplicationVersionId
     }),
     ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_1VpcConfiguration(
-        input.VpcConfiguration,
-        context
-      )
+      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context)
     })
   };
 };
@@ -3790,10 +3304,7 @@ const serializeAws_json1_1ApplicationCodeConfigurationUpdate = (
       CodeContentTypeUpdate: input.CodeContentTypeUpdate
     }),
     ...(input.CodeContentUpdate !== undefined && {
-      CodeContentUpdate: serializeAws_json1_1CodeContentUpdate(
-        input.CodeContentUpdate,
-        context
-      )
+      CodeContentUpdate: serializeAws_json1_1CodeContentUpdate(input.CodeContentUpdate, context)
     })
   };
 };
@@ -3834,10 +3345,7 @@ const serializeAws_json1_1ApplicationConfiguration = (
       )
     }),
     ...(input.VpcConfigurations !== undefined && {
-      VpcConfigurations: serializeAws_json1_1VpcConfigurations(
-        input.VpcConfigurations,
-        context
-      )
+      VpcConfigurations: serializeAws_json1_1VpcConfigurations(input.VpcConfigurations, context)
     })
   };
 };
@@ -4005,30 +3513,20 @@ const serializeAws_json1_1CloudWatchLoggingOptionUpdates = (
   input: CloudWatchLoggingOptionUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context));
 };
 
 const serializeAws_json1_1CloudWatchLoggingOptions = (
   input: CloudWatchLoggingOption[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1CloudWatchLoggingOption(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1CloudWatchLoggingOption(entry, context));
 };
 
-const serializeAws_json1_1CodeContent = (
-  input: CodeContent,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CodeContent = (input: CodeContent, context: __SerdeContext): any => {
   return {
     ...(input.S3ContentLocation !== undefined && {
-      S3ContentLocation: serializeAws_json1_1S3ContentLocation(
-        input.S3ContentLocation,
-        context
-      )
+      S3ContentLocation: serializeAws_json1_1S3ContentLocation(input.S3ContentLocation, context)
     }),
     ...(input.TextContent !== undefined && { TextContent: input.TextContent }),
     ...(input.ZipFileContent !== undefined && {
@@ -4191,9 +3689,7 @@ const serializeAws_json1_1DeleteApplicationSnapshotRequest = (
       ApplicationName: input.ApplicationName
     }),
     ...(input.SnapshotCreationTimestamp !== undefined && {
-      SnapshotCreationTimestamp: Math.round(
-        input.SnapshotCreationTimestamp.getTime() / 1000
-      )
+      SnapshotCreationTimestamp: Math.round(input.SnapshotCreationTimestamp.getTime() / 1000)
     }),
     ...(input.SnapshotName !== undefined && {
       SnapshotName: input.SnapshotName
@@ -4276,10 +3772,7 @@ const serializeAws_json1_1DiscoverInputSchemaRequest = (
     }),
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.S3Configuration !== undefined && {
-      S3Configuration: serializeAws_json1_1S3Configuration(
-        input.S3Configuration,
-        context
-      )
+      S3Configuration: serializeAws_json1_1S3Configuration(input.S3Configuration, context)
     }),
     ...(input.ServiceExecutionRole !== undefined && {
       ServiceExecutionRole: input.ServiceExecutionRole
@@ -4293,10 +3786,7 @@ const serializeAws_json1_1EnvironmentProperties = (
 ): any => {
   return {
     ...(input.PropertyGroups !== undefined && {
-      PropertyGroups: serializeAws_json1_1PropertyGroups(
-        input.PropertyGroups,
-        context
-      )
+      PropertyGroups: serializeAws_json1_1PropertyGroups(input.PropertyGroups, context)
     })
   };
 };
@@ -4307,10 +3797,7 @@ const serializeAws_json1_1EnvironmentPropertyUpdates = (
 ): any => {
   return {
     ...(input.PropertyGroups !== undefined && {
-      PropertyGroups: serializeAws_json1_1PropertyGroups(
-        input.PropertyGroups,
-        context
-      )
+      PropertyGroups: serializeAws_json1_1PropertyGroups(input.PropertyGroups, context)
     })
   };
 };
@@ -4378,16 +3865,10 @@ const serializeAws_json1_1FlinkRunConfiguration = (
   };
 };
 
-const serializeAws_json1_1Input = (
-  input: Input,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Input = (input: Input, context: __SerdeContext): any => {
   return {
     ...(input.InputParallelism !== undefined && {
-      InputParallelism: serializeAws_json1_1InputParallelism(
-        input.InputParallelism,
-        context
-      )
+      InputParallelism: serializeAws_json1_1InputParallelism(input.InputParallelism, context)
     }),
     ...(input.InputProcessingConfiguration !== undefined && {
       InputProcessingConfiguration: serializeAws_json1_1InputProcessingConfiguration(
@@ -4486,19 +3967,13 @@ const serializeAws_json1_1InputSchemaUpdate = (
 ): any => {
   return {
     ...(input.RecordColumnUpdates !== undefined && {
-      RecordColumnUpdates: serializeAws_json1_1RecordColumns(
-        input.RecordColumnUpdates,
-        context
-      )
+      RecordColumnUpdates: serializeAws_json1_1RecordColumns(input.RecordColumnUpdates, context)
     }),
     ...(input.RecordEncodingUpdate !== undefined && {
       RecordEncodingUpdate: input.RecordEncodingUpdate
     }),
     ...(input.RecordFormatUpdate !== undefined && {
-      RecordFormatUpdate: serializeAws_json1_1RecordFormat(
-        input.RecordFormatUpdate,
-        context
-      )
+      RecordFormatUpdate: serializeAws_json1_1RecordFormat(input.RecordFormatUpdate, context)
     })
   };
 };
@@ -4514,10 +3989,7 @@ const serializeAws_json1_1InputStartingPositionConfiguration = (
   };
 };
 
-const serializeAws_json1_1InputUpdate = (
-  input: InputUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InputUpdate = (input: InputUpdate, context: __SerdeContext): any => {
   return {
     ...(input.InputId !== undefined && { InputId: input.InputId }),
     ...(input.InputParallelismUpdate !== undefined && {
@@ -4533,10 +4005,7 @@ const serializeAws_json1_1InputUpdate = (
       )
     }),
     ...(input.InputSchemaUpdate !== undefined && {
-      InputSchemaUpdate: serializeAws_json1_1InputSchemaUpdate(
-        input.InputSchemaUpdate,
-        context
-      )
+      InputSchemaUpdate: serializeAws_json1_1InputSchemaUpdate(input.InputSchemaUpdate, context)
     }),
     ...(input.KinesisFirehoseInputUpdate !== undefined && {
       KinesisFirehoseInputUpdate: serializeAws_json1_1KinesisFirehoseInputUpdate(
@@ -4556,17 +4025,11 @@ const serializeAws_json1_1InputUpdate = (
   };
 };
 
-const serializeAws_json1_1InputUpdates = (
-  input: InputUpdate[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InputUpdates = (input: InputUpdate[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1InputUpdate(entry, context));
 };
 
-const serializeAws_json1_1Inputs = (
-  input: Input[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Inputs = (input: Input[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Input(entry, context));
 };
 
@@ -4661,10 +4124,7 @@ const serializeAws_json1_1KinesisStreamsOutputUpdate = (
   };
 };
 
-const serializeAws_json1_1LambdaOutput = (
-  input: LambdaOutput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1LambdaOutput = (input: LambdaOutput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN })
   };
@@ -4765,16 +4225,10 @@ const serializeAws_json1_1MonitoringConfigurationUpdate = (
   };
 };
 
-const serializeAws_json1_1Output = (
-  input: Output,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Output = (input: Output, context: __SerdeContext): any => {
   return {
     ...(input.DestinationSchema !== undefined && {
-      DestinationSchema: serializeAws_json1_1DestinationSchema(
-        input.DestinationSchema,
-        context
-      )
+      DestinationSchema: serializeAws_json1_1DestinationSchema(input.DestinationSchema, context)
     }),
     ...(input.KinesisFirehoseOutput !== undefined && {
       KinesisFirehoseOutput: serializeAws_json1_1KinesisFirehoseOutput(
@@ -4789,19 +4243,13 @@ const serializeAws_json1_1Output = (
       )
     }),
     ...(input.LambdaOutput !== undefined && {
-      LambdaOutput: serializeAws_json1_1LambdaOutput(
-        input.LambdaOutput,
-        context
-      )
+      LambdaOutput: serializeAws_json1_1LambdaOutput(input.LambdaOutput, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name })
   };
 };
 
-const serializeAws_json1_1OutputUpdate = (
-  input: OutputUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1OutputUpdate = (input: OutputUpdate, context: __SerdeContext): any => {
   return {
     ...(input.DestinationSchemaUpdate !== undefined && {
       DestinationSchemaUpdate: serializeAws_json1_1DestinationSchema(
@@ -4822,27 +4270,18 @@ const serializeAws_json1_1OutputUpdate = (
       )
     }),
     ...(input.LambdaOutputUpdate !== undefined && {
-      LambdaOutputUpdate: serializeAws_json1_1LambdaOutputUpdate(
-        input.LambdaOutputUpdate,
-        context
-      )
+      LambdaOutputUpdate: serializeAws_json1_1LambdaOutputUpdate(input.LambdaOutputUpdate, context)
     }),
     ...(input.NameUpdate !== undefined && { NameUpdate: input.NameUpdate }),
     ...(input.OutputId !== undefined && { OutputId: input.OutputId })
   };
 };
 
-const serializeAws_json1_1OutputUpdates = (
-  input: OutputUpdate[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1OutputUpdates = (input: OutputUpdate[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1OutputUpdate(entry, context));
 };
 
-const serializeAws_json1_1Outputs = (
-  input: Output[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Outputs = (input: Output[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Output(entry, context));
 };
 
@@ -4884,10 +4323,7 @@ const serializeAws_json1_1ParallelismConfigurationUpdate = (
   };
 };
 
-const serializeAws_json1_1PropertyGroup = (
-  input: PropertyGroup,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PropertyGroup = (input: PropertyGroup, context: __SerdeContext): any => {
   return {
     ...(input.PropertyGroupId !== undefined && {
       PropertyGroupId: input.PropertyGroupId
@@ -4918,10 +4354,7 @@ const serializeAws_json1_1PropertyMap = (
   );
 };
 
-const serializeAws_json1_1RecordColumn = (
-  input: RecordColumn,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RecordColumn = (input: RecordColumn, context: __SerdeContext): any => {
   return {
     ...(input.Mapping !== undefined && { Mapping: input.Mapping }),
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -4929,23 +4362,14 @@ const serializeAws_json1_1RecordColumn = (
   };
 };
 
-const serializeAws_json1_1RecordColumns = (
-  input: RecordColumn[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RecordColumns = (input: RecordColumn[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1RecordColumn(entry, context));
 };
 
-const serializeAws_json1_1RecordFormat = (
-  input: RecordFormat,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RecordFormat = (input: RecordFormat, context: __SerdeContext): any => {
   return {
     ...(input.MappingParameters !== undefined && {
-      MappingParameters: serializeAws_json1_1MappingParameters(
-        input.MappingParameters,
-        context
-      )
+      MappingParameters: serializeAws_json1_1MappingParameters(input.MappingParameters, context)
     }),
     ...(input.RecordFormatType !== undefined && {
       RecordFormatType: input.RecordFormatType
@@ -4959,10 +4383,7 @@ const serializeAws_json1_1ReferenceDataSource = (
 ): any => {
   return {
     ...(input.ReferenceSchema !== undefined && {
-      ReferenceSchema: serializeAws_json1_1SourceSchema(
-        input.ReferenceSchema,
-        context
-      )
+      ReferenceSchema: serializeAws_json1_1SourceSchema(input.ReferenceSchema, context)
     }),
     ...(input.S3ReferenceDataSource !== undefined && {
       S3ReferenceDataSource: serializeAws_json1_1S3ReferenceDataSource(
@@ -4981,10 +4402,7 @@ const serializeAws_json1_1ReferenceDataSourceUpdate = (
   return {
     ...(input.ReferenceId !== undefined && { ReferenceId: input.ReferenceId }),
     ...(input.ReferenceSchemaUpdate !== undefined && {
-      ReferenceSchemaUpdate: serializeAws_json1_1SourceSchema(
-        input.ReferenceSchemaUpdate,
-        context
-      )
+      ReferenceSchemaUpdate: serializeAws_json1_1SourceSchema(input.ReferenceSchemaUpdate, context)
     }),
     ...(input.S3ReferenceDataSourceUpdate !== undefined && {
       S3ReferenceDataSourceUpdate: serializeAws_json1_1S3ReferenceDataSourceUpdate(
@@ -5002,18 +4420,14 @@ const serializeAws_json1_1ReferenceDataSourceUpdates = (
   input: ReferenceDataSourceUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ReferenceDataSourceUpdate(entry, context));
 };
 
 const serializeAws_json1_1ReferenceDataSources = (
   input: ReferenceDataSource[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ReferenceDataSource(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ReferenceDataSource(entry, context));
 };
 
 const serializeAws_json1_1RunConfiguration = (
@@ -5126,32 +4540,20 @@ const serializeAws_json1_1S3ReferenceDataSourceUpdate = (
   };
 };
 
-const serializeAws_json1_1SecurityGroupIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1SourceSchema = (
-  input: SourceSchema,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SourceSchema = (input: SourceSchema, context: __SerdeContext): any => {
   return {
     ...(input.RecordColumns !== undefined && {
-      RecordColumns: serializeAws_json1_1RecordColumns(
-        input.RecordColumns,
-        context
-      )
+      RecordColumns: serializeAws_json1_1RecordColumns(input.RecordColumns, context)
     }),
     ...(input.RecordEncoding !== undefined && {
       RecordEncoding: input.RecordEncoding
     }),
     ...(input.RecordFormat !== undefined && {
-      RecordFormat: serializeAws_json1_1RecordFormat(
-        input.RecordFormat,
-        context
-      )
+      RecordFormat: serializeAws_json1_1RecordFormat(input.RecordFormat, context)
     })
   };
 };
@@ -5182,16 +4584,10 @@ const serializeAws_json1_1SqlApplicationConfigurationUpdate = (
 ): any => {
   return {
     ...(input.InputUpdates !== undefined && {
-      InputUpdates: serializeAws_json1_1InputUpdates(
-        input.InputUpdates,
-        context
-      )
+      InputUpdates: serializeAws_json1_1InputUpdates(input.InputUpdates, context)
     }),
     ...(input.OutputUpdates !== undefined && {
-      OutputUpdates: serializeAws_json1_1OutputUpdates(
-        input.OutputUpdates,
-        context
-      )
+      OutputUpdates: serializeAws_json1_1OutputUpdates(input.OutputUpdates, context)
     }),
     ...(input.ReferenceDataSourceUpdates !== undefined && {
       ReferenceDataSourceUpdates: serializeAws_json1_1ReferenceDataSourceUpdates(
@@ -5221,9 +4617,7 @@ const serializeAws_json1_1SqlRunConfigurations = (
   input: SqlRunConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SqlRunConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1SqlRunConfiguration(entry, context));
 };
 
 const serializeAws_json1_1StartApplicationRequest = (
@@ -5235,10 +4629,7 @@ const serializeAws_json1_1StartApplicationRequest = (
       ApplicationName: input.ApplicationName
     }),
     ...(input.RunConfiguration !== undefined && {
-      RunConfiguration: serializeAws_json1_1RunConfiguration(
-        input.RunConfiguration,
-        context
-      )
+      RunConfiguration: serializeAws_json1_1RunConfiguration(input.RunConfiguration, context)
     })
   };
 };
@@ -5254,10 +4645,7 @@ const serializeAws_json1_1StopApplicationRequest = (
   };
 };
 
-const serializeAws_json1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5268,10 +4656,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5287,10 +4672,7 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -5347,10 +4729,7 @@ const serializeAws_json1_1VpcConfiguration = (
 ): any => {
   return {
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
@@ -5370,10 +4749,7 @@ const serializeAws_json1_1VpcConfigurationUpdate = (
       )
     }),
     ...(input.SubnetIdUpdates !== undefined && {
-      SubnetIdUpdates: serializeAws_json1_1SubnetIds(
-        input.SubnetIdUpdates,
-        context
-      )
+      SubnetIdUpdates: serializeAws_json1_1SubnetIds(input.SubnetIdUpdates, context)
     }),
     ...(input.VpcConfigurationId !== undefined && {
       VpcConfigurationId: input.VpcConfigurationId
@@ -5385,18 +4761,14 @@ const serializeAws_json1_1VpcConfigurationUpdates = (
   input: VpcConfigurationUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1VpcConfigurationUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1VpcConfigurationUpdate(entry, context));
 };
 
 const serializeAws_json1_1VpcConfigurations = (
   input: VpcConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1VpcConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1VpcConfiguration(entry, context));
 };
 
 const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (
@@ -5410,8 +4782,7 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     CloudWatchLoggingOptionDescriptions:
@@ -5436,14 +4807,10 @@ const deserializeAws_json1_1AddApplicationInputProcessingConfigurationResponse =
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
-    InputId:
-      output.InputId !== undefined && output.InputId !== null
-        ? output.InputId
-        : undefined,
+    InputId: output.InputId !== undefined && output.InputId !== null ? output.InputId : undefined,
     InputProcessingConfigurationDescription:
       output.InputProcessingConfigurationDescription !== undefined &&
       output.InputProcessingConfigurationDescription !== null
@@ -5466,17 +4833,12 @@ const deserializeAws_json1_1AddApplicationInputResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     InputDescriptions:
-      output.InputDescriptions !== undefined &&
-      output.InputDescriptions !== null
-        ? deserializeAws_json1_1InputDescriptions(
-            output.InputDescriptions,
-            context
-          )
+      output.InputDescriptions !== undefined && output.InputDescriptions !== null
+        ? deserializeAws_json1_1InputDescriptions(output.InputDescriptions, context)
         : undefined
   } as any;
 };
@@ -5492,17 +4854,12 @@ const deserializeAws_json1_1AddApplicationOutputResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     OutputDescriptions:
-      output.OutputDescriptions !== undefined &&
-      output.OutputDescriptions !== null
-        ? deserializeAws_json1_1OutputDescriptions(
-            output.OutputDescriptions,
-            context
-          )
+      output.OutputDescriptions !== undefined && output.OutputDescriptions !== null
+        ? deserializeAws_json1_1OutputDescriptions(output.OutputDescriptions, context)
         : undefined
   } as any;
 };
@@ -5518,8 +4875,7 @@ const deserializeAws_json1_1AddApplicationReferenceDataSourceResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     ReferenceDataSourceDescriptions:
@@ -5544,8 +4900,7 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     VpcConfigurationDescription:
@@ -5566,12 +4921,8 @@ const deserializeAws_json1_1ApplicationCodeConfigurationDescription = (
   return {
     __type: "ApplicationCodeConfigurationDescription",
     CodeContentDescription:
-      output.CodeContentDescription !== undefined &&
-      output.CodeContentDescription !== null
-        ? deserializeAws_json1_1CodeContentDescription(
-            output.CodeContentDescription,
-            context
-          )
+      output.CodeContentDescription !== undefined && output.CodeContentDescription !== null
+        ? deserializeAws_json1_1CodeContentDescription(output.CodeContentDescription, context)
         : undefined,
     CodeContentType:
       output.CodeContentType !== undefined && output.CodeContentType !== null
@@ -5664,8 +5015,7 @@ const deserializeAws_json1_1ApplicationDetail = (
           )
         : undefined,
     ApplicationDescription:
-      output.ApplicationDescription !== undefined &&
-      output.ApplicationDescription !== null
+      output.ApplicationDescription !== undefined && output.ApplicationDescription !== null
         ? output.ApplicationDescription
         : undefined,
     ApplicationName:
@@ -5673,13 +5023,11 @@ const deserializeAws_json1_1ApplicationDetail = (
         ? output.ApplicationName
         : undefined,
     ApplicationStatus:
-      output.ApplicationStatus !== undefined &&
-      output.ApplicationStatus !== null
+      output.ApplicationStatus !== undefined && output.ApplicationStatus !== null
         ? output.ApplicationStatus
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     CloudWatchLoggingOptionDescriptions:
@@ -5695,18 +5043,15 @@ const deserializeAws_json1_1ApplicationDetail = (
         ? new Date(Math.round(output.CreateTimestamp * 1000))
         : undefined,
     LastUpdateTimestamp:
-      output.LastUpdateTimestamp !== undefined &&
-      output.LastUpdateTimestamp !== null
+      output.LastUpdateTimestamp !== undefined && output.LastUpdateTimestamp !== null
         ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
         : undefined,
     RuntimeEnvironment:
-      output.RuntimeEnvironment !== undefined &&
-      output.RuntimeEnvironment !== null
+      output.RuntimeEnvironment !== undefined && output.RuntimeEnvironment !== null
         ? output.RuntimeEnvironment
         : undefined,
     ServiceExecutionRole:
-      output.ServiceExecutionRole !== undefined &&
-      output.ServiceExecutionRole !== null
+      output.ServiceExecutionRole !== undefined && output.ServiceExecutionRole !== null
         ? output.ServiceExecutionRole
         : undefined
   } as any;
@@ -5719,8 +5064,7 @@ const deserializeAws_json1_1ApplicationRestoreConfiguration = (
   return {
     __type: "ApplicationRestoreConfiguration",
     ApplicationRestoreType:
-      output.ApplicationRestoreType !== undefined &&
-      output.ApplicationRestoreType !== null
+      output.ApplicationRestoreType !== undefined && output.ApplicationRestoreType !== null
         ? output.ApplicationRestoreType
         : undefined,
     SnapshotName:
@@ -5767,18 +5111,15 @@ const deserializeAws_json1_1ApplicationSummary = (
         ? output.ApplicationName
         : undefined,
     ApplicationStatus:
-      output.ApplicationStatus !== undefined &&
-      output.ApplicationStatus !== null
+      output.ApplicationStatus !== undefined && output.ApplicationStatus !== null
         ? output.ApplicationStatus
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     RuntimeEnvironment:
-      output.RuntimeEnvironment !== undefined &&
-      output.RuntimeEnvironment !== null
+      output.RuntimeEnvironment !== undefined && output.RuntimeEnvironment !== null
         ? output.RuntimeEnvironment
         : undefined
   } as any;
@@ -5791,13 +5132,11 @@ const deserializeAws_json1_1CSVMappingParameters = (
   return {
     __type: "CSVMappingParameters",
     RecordColumnDelimiter:
-      output.RecordColumnDelimiter !== undefined &&
-      output.RecordColumnDelimiter !== null
+      output.RecordColumnDelimiter !== undefined && output.RecordColumnDelimiter !== null
         ? output.RecordColumnDelimiter
         : undefined,
     RecordRowDelimiter:
-      output.RecordRowDelimiter !== undefined &&
-      output.RecordRowDelimiter !== null
+      output.RecordRowDelimiter !== undefined && output.RecordRowDelimiter !== null
         ? output.RecordRowDelimiter
         : undefined
   } as any;
@@ -5810,23 +5149,19 @@ const deserializeAws_json1_1CheckpointConfigurationDescription = (
   return {
     __type: "CheckpointConfigurationDescription",
     CheckpointInterval:
-      output.CheckpointInterval !== undefined &&
-      output.CheckpointInterval !== null
+      output.CheckpointInterval !== undefined && output.CheckpointInterval !== null
         ? output.CheckpointInterval
         : undefined,
     CheckpointingEnabled:
-      output.CheckpointingEnabled !== undefined &&
-      output.CheckpointingEnabled !== null
+      output.CheckpointingEnabled !== undefined && output.CheckpointingEnabled !== null
         ? output.CheckpointingEnabled
         : undefined,
     ConfigurationType:
-      output.ConfigurationType !== undefined &&
-      output.ConfigurationType !== null
+      output.ConfigurationType !== undefined && output.ConfigurationType !== null
         ? output.ConfigurationType
         : undefined,
     MinPauseBetweenCheckpoints:
-      output.MinPauseBetweenCheckpoints !== undefined &&
-      output.MinPauseBetweenCheckpoints !== null
+      output.MinPauseBetweenCheckpoints !== undefined && output.MinPauseBetweenCheckpoints !== null
         ? output.MinPauseBetweenCheckpoints
         : undefined
   } as any;
@@ -5839,18 +5174,14 @@ const deserializeAws_json1_1CloudWatchLoggingOptionDescription = (
   return {
     __type: "CloudWatchLoggingOptionDescription",
     CloudWatchLoggingOptionId:
-      output.CloudWatchLoggingOptionId !== undefined &&
-      output.CloudWatchLoggingOptionId !== null
+      output.CloudWatchLoggingOptionId !== undefined && output.CloudWatchLoggingOptionId !== null
         ? output.CloudWatchLoggingOptionId
         : undefined,
     LogStreamARN:
       output.LogStreamARN !== undefined && output.LogStreamARN !== null
         ? output.LogStreamARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -5869,14 +5200,9 @@ const deserializeAws_json1_1CodeContentDescription = (
 ): CodeContentDescription => {
   return {
     __type: "CodeContentDescription",
-    CodeMD5:
-      output.CodeMD5 !== undefined && output.CodeMD5 !== null
-        ? output.CodeMD5
-        : undefined,
+    CodeMD5: output.CodeMD5 !== undefined && output.CodeMD5 !== null ? output.CodeMD5 : undefined,
     CodeSize:
-      output.CodeSize !== undefined && output.CodeSize !== null
-        ? output.CodeSize
-        : undefined,
+      output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
     S3ApplicationCodeLocationDescription:
       output.S3ApplicationCodeLocationDescription !== undefined &&
       output.S3ApplicationCodeLocationDescription !== null
@@ -5898,10 +5224,7 @@ const deserializeAws_json1_1CodeValidationException = (
 ): CodeValidationException => {
   return {
     __type: "CodeValidationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5911,10 +5234,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5925,12 +5245,8 @@ const deserializeAws_json1_1CreateApplicationResponse = (
   return {
     __type: "CreateApplicationResponse",
     ApplicationDetail:
-      output.ApplicationDetail !== undefined &&
-      output.ApplicationDetail !== null
-        ? deserializeAws_json1_1ApplicationDetail(
-            output.ApplicationDetail,
-            context
-          )
+      output.ApplicationDetail !== undefined && output.ApplicationDetail !== null
+        ? deserializeAws_json1_1ApplicationDetail(output.ApplicationDetail, context)
         : undefined
   } as any;
 };
@@ -5955,8 +5271,7 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     CloudWatchLoggingOptionDescriptions:
@@ -5981,8 +5296,7 @@ const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationRespons
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined
   } as any;
@@ -5999,8 +5313,7 @@ const deserializeAws_json1_1DeleteApplicationOutputResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined
   } as any;
@@ -6017,8 +5330,7 @@ const deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined
   } as any;
@@ -6053,8 +5365,7 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationResponse = (
         ? output.ApplicationARN
         : undefined,
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined
   } as any;
@@ -6067,12 +5378,8 @@ const deserializeAws_json1_1DescribeApplicationResponse = (
   return {
     __type: "DescribeApplicationResponse",
     ApplicationDetail:
-      output.ApplicationDetail !== undefined &&
-      output.ApplicationDetail !== null
-        ? deserializeAws_json1_1ApplicationDetail(
-            output.ApplicationDetail,
-            context
-          )
+      output.ApplicationDetail !== undefined && output.ApplicationDetail !== null
+        ? deserializeAws_json1_1ApplicationDetail(output.ApplicationDetail, context)
         : undefined
   } as any;
 };
@@ -6114,20 +5421,12 @@ const deserializeAws_json1_1DiscoverInputSchemaResponse = (
         ? deserializeAws_json1_1SourceSchema(output.InputSchema, context)
         : undefined,
     ParsedInputRecords:
-      output.ParsedInputRecords !== undefined &&
-      output.ParsedInputRecords !== null
-        ? deserializeAws_json1_1ParsedInputRecords(
-            output.ParsedInputRecords,
-            context
-          )
+      output.ParsedInputRecords !== undefined && output.ParsedInputRecords !== null
+        ? deserializeAws_json1_1ParsedInputRecords(output.ParsedInputRecords, context)
         : undefined,
     ProcessedInputRecords:
-      output.ProcessedInputRecords !== undefined &&
-      output.ProcessedInputRecords !== null
-        ? deserializeAws_json1_1ProcessedInputRecords(
-            output.ProcessedInputRecords,
-            context
-          )
+      output.ProcessedInputRecords !== undefined && output.ProcessedInputRecords !== null
+        ? deserializeAws_json1_1ProcessedInputRecords(output.ProcessedInputRecords, context)
         : undefined,
     RawInputRecords:
       output.RawInputRecords !== undefined && output.RawInputRecords !== null
@@ -6143,12 +5442,8 @@ const deserializeAws_json1_1EnvironmentPropertyDescriptions = (
   return {
     __type: "EnvironmentPropertyDescriptions",
     PropertyGroupDescriptions:
-      output.PropertyGroupDescriptions !== undefined &&
-      output.PropertyGroupDescriptions !== null
-        ? deserializeAws_json1_1PropertyGroups(
-            output.PropertyGroupDescriptions,
-            context
-          )
+      output.PropertyGroupDescriptions !== undefined && output.PropertyGroupDescriptions !== null
+        ? deserializeAws_json1_1PropertyGroups(output.PropertyGroupDescriptions, context)
         : undefined
   } as any;
 };
@@ -6168,8 +5463,7 @@ const deserializeAws_json1_1FlinkApplicationConfigurationDescription = (
           )
         : undefined,
     JobPlanDescription:
-      output.JobPlanDescription !== undefined &&
-      output.JobPlanDescription !== null
+      output.JobPlanDescription !== undefined && output.JobPlanDescription !== null
         ? output.JobPlanDescription
         : undefined,
     MonitoringConfigurationDescription:
@@ -6191,10 +5485,7 @@ const deserializeAws_json1_1FlinkApplicationConfigurationDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1InAppStreamNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1InAppStreamNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6206,21 +5497,12 @@ const deserializeAws_json1_1InputDescription = (
     __type: "InputDescription",
     InAppStreamNames:
       output.InAppStreamNames !== undefined && output.InAppStreamNames !== null
-        ? deserializeAws_json1_1InAppStreamNames(
-            output.InAppStreamNames,
-            context
-          )
+        ? deserializeAws_json1_1InAppStreamNames(output.InAppStreamNames, context)
         : undefined,
-    InputId:
-      output.InputId !== undefined && output.InputId !== null
-        ? output.InputId
-        : undefined,
+    InputId: output.InputId !== undefined && output.InputId !== null ? output.InputId : undefined,
     InputParallelism:
       output.InputParallelism !== undefined && output.InputParallelism !== null
-        ? deserializeAws_json1_1InputParallelism(
-            output.InputParallelism,
-            context
-          )
+        ? deserializeAws_json1_1InputParallelism(output.InputParallelism, context)
         : undefined,
     InputProcessingConfigurationDescription:
       output.InputProcessingConfigurationDescription !== undefined &&
@@ -6259,9 +5541,7 @@ const deserializeAws_json1_1InputDescription = (
           )
         : undefined,
     NamePrefix:
-      output.NamePrefix !== undefined && output.NamePrefix !== null
-        ? output.NamePrefix
-        : undefined
+      output.NamePrefix !== undefined && output.NamePrefix !== null ? output.NamePrefix : undefined
   } as any;
 };
 
@@ -6269,9 +5549,7 @@ const deserializeAws_json1_1InputDescriptions = (
   output: any,
   context: __SerdeContext
 ): InputDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1InputDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1InputDescription(entry, context));
 };
 
 const deserializeAws_json1_1InputLambdaProcessorDescription = (
@@ -6284,10 +5562,7 @@ const deserializeAws_json1_1InputLambdaProcessorDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6297,10 +5572,7 @@ const deserializeAws_json1_1InputParallelism = (
 ): InputParallelism => {
   return {
     __type: "InputParallelism",
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined
   } as any;
 };
 
@@ -6328,8 +5600,7 @@ const deserializeAws_json1_1InputStartingPositionConfiguration = (
   return {
     __type: "InputStartingPositionConfiguration",
     InputStartingPosition:
-      output.InputStartingPosition !== undefined &&
-      output.InputStartingPosition !== null
+      output.InputStartingPosition !== undefined && output.InputStartingPosition !== null
         ? output.InputStartingPosition
         : undefined
   } as any;
@@ -6341,10 +5612,7 @@ const deserializeAws_json1_1InvalidApplicationConfigurationException = (
 ): InvalidApplicationConfigurationException => {
   return {
     __type: "InvalidApplicationConfigurationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6354,10 +5622,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   return {
     __type: "InvalidArgumentException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6367,10 +5632,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   return {
     __type: "InvalidRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6397,10 +5659,7 @@ const deserializeAws_json1_1KinesisFirehoseInputDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6414,10 +5673,7 @@ const deserializeAws_json1_1KinesisFirehoseOutputDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6431,10 +5687,7 @@ const deserializeAws_json1_1KinesisStreamsInputDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6448,10 +5701,7 @@ const deserializeAws_json1_1KinesisStreamsOutputDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6465,10 +5715,7 @@ const deserializeAws_json1_1LambdaOutputDescription = (
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined
   } as any;
 };
 
@@ -6478,10 +5725,7 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6492,16 +5736,10 @@ const deserializeAws_json1_1ListApplicationSnapshotsResponse = (
   return {
     __type: "ListApplicationSnapshotsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SnapshotSummaries:
-      output.SnapshotSummaries !== undefined &&
-      output.SnapshotSummaries !== null
-        ? deserializeAws_json1_1SnapshotSummaries(
-            output.SnapshotSummaries,
-            context
-          )
+      output.SnapshotSummaries !== undefined && output.SnapshotSummaries !== null
+        ? deserializeAws_json1_1SnapshotSummaries(output.SnapshotSummaries, context)
         : undefined
   } as any;
 };
@@ -6513,17 +5751,11 @@ const deserializeAws_json1_1ListApplicationsResponse = (
   return {
     __type: "ListApplicationsResponse",
     ApplicationSummaries:
-      output.ApplicationSummaries !== undefined &&
-      output.ApplicationSummaries !== null
-        ? deserializeAws_json1_1ApplicationSummaries(
-            output.ApplicationSummaries,
-            context
-          )
+      output.ApplicationSummaries !== undefined && output.ApplicationSummaries !== null
+        ? deserializeAws_json1_1ApplicationSummaries(output.ApplicationSummaries, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -6547,20 +5779,12 @@ const deserializeAws_json1_1MappingParameters = (
   return {
     __type: "MappingParameters",
     CSVMappingParameters:
-      output.CSVMappingParameters !== undefined &&
-      output.CSVMappingParameters !== null
-        ? deserializeAws_json1_1CSVMappingParameters(
-            output.CSVMappingParameters,
-            context
-          )
+      output.CSVMappingParameters !== undefined && output.CSVMappingParameters !== null
+        ? deserializeAws_json1_1CSVMappingParameters(output.CSVMappingParameters, context)
         : undefined,
     JSONMappingParameters:
-      output.JSONMappingParameters !== undefined &&
-      output.JSONMappingParameters !== null
-        ? deserializeAws_json1_1JSONMappingParameters(
-            output.JSONMappingParameters,
-            context
-          )
+      output.JSONMappingParameters !== undefined && output.JSONMappingParameters !== null
+        ? deserializeAws_json1_1JSONMappingParameters(output.JSONMappingParameters, context)
         : undefined
   } as any;
 };
@@ -6572,14 +5796,11 @@ const deserializeAws_json1_1MonitoringConfigurationDescription = (
   return {
     __type: "MonitoringConfigurationDescription",
     ConfigurationType:
-      output.ConfigurationType !== undefined &&
-      output.ConfigurationType !== null
+      output.ConfigurationType !== undefined && output.ConfigurationType !== null
         ? output.ConfigurationType
         : undefined,
     LogLevel:
-      output.LogLevel !== undefined && output.LogLevel !== null
-        ? output.LogLevel
-        : undefined,
+      output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
     MetricsLevel:
       output.MetricsLevel !== undefined && output.MetricsLevel !== null
         ? output.MetricsLevel
@@ -6594,12 +5815,8 @@ const deserializeAws_json1_1OutputDescription = (
   return {
     __type: "OutputDescription",
     DestinationSchema:
-      output.DestinationSchema !== undefined &&
-      output.DestinationSchema !== null
-        ? deserializeAws_json1_1DestinationSchema(
-            output.DestinationSchema,
-            context
-          )
+      output.DestinationSchema !== undefined && output.DestinationSchema !== null
+        ? deserializeAws_json1_1DestinationSchema(output.DestinationSchema, context)
         : undefined,
     KinesisFirehoseOutputDescription:
       output.KinesisFirehoseOutputDescription !== undefined &&
@@ -6618,21 +5835,12 @@ const deserializeAws_json1_1OutputDescription = (
           )
         : undefined,
     LambdaOutputDescription:
-      output.LambdaOutputDescription !== undefined &&
-      output.LambdaOutputDescription !== null
-        ? deserializeAws_json1_1LambdaOutputDescription(
-            output.LambdaOutputDescription,
-            context
-          )
+      output.LambdaOutputDescription !== undefined && output.LambdaOutputDescription !== null
+        ? deserializeAws_json1_1LambdaOutputDescription(output.LambdaOutputDescription, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OutputId:
-      output.OutputId !== undefined && output.OutputId !== null
-        ? output.OutputId
-        : undefined
+      output.OutputId !== undefined && output.OutputId !== null ? output.OutputId : undefined
   } as any;
 };
 
@@ -6652,18 +5860,15 @@ const deserializeAws_json1_1ParallelismConfigurationDescription = (
   return {
     __type: "ParallelismConfigurationDescription",
     AutoScalingEnabled:
-      output.AutoScalingEnabled !== undefined &&
-      output.AutoScalingEnabled !== null
+      output.AutoScalingEnabled !== undefined && output.AutoScalingEnabled !== null
         ? output.AutoScalingEnabled
         : undefined,
     ConfigurationType:
-      output.ConfigurationType !== undefined &&
-      output.ConfigurationType !== null
+      output.ConfigurationType !== undefined && output.ConfigurationType !== null
         ? output.ConfigurationType
         : undefined,
     CurrentParallelism:
-      output.CurrentParallelism !== undefined &&
-      output.CurrentParallelism !== null
+      output.CurrentParallelism !== undefined && output.CurrentParallelism !== null
         ? output.CurrentParallelism
         : undefined,
     Parallelism:
@@ -6671,8 +5876,7 @@ const deserializeAws_json1_1ParallelismConfigurationDescription = (
         ? output.Parallelism
         : undefined,
     ParallelismPerKPU:
-      output.ParallelismPerKPU !== undefined &&
-      output.ParallelismPerKPU !== null
+      output.ParallelismPerKPU !== undefined && output.ParallelismPerKPU !== null
         ? output.ParallelismPerKPU
         : undefined
   } as any;
@@ -6722,9 +5926,7 @@ const deserializeAws_json1_1PropertyGroups = (
   output: any,
   context: __SerdeContext
 ): PropertyGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PropertyGroup(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1PropertyGroup(entry, context));
 };
 
 const deserializeAws_json1_1PropertyMap = (
@@ -6740,31 +5942,16 @@ const deserializeAws_json1_1PropertyMap = (
   );
 };
 
-const deserializeAws_json1_1RawInputRecords = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1RawInputRecords = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1RecordColumn = (
-  output: any,
-  context: __SerdeContext
-): RecordColumn => {
+const deserializeAws_json1_1RecordColumn = (output: any, context: __SerdeContext): RecordColumn => {
   return {
     __type: "RecordColumn",
-    Mapping:
-      output.Mapping !== undefined && output.Mapping !== null
-        ? output.Mapping
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    SqlType:
-      output.SqlType !== undefined && output.SqlType !== null
-        ? output.SqlType
-        : undefined
+    Mapping: output.Mapping !== undefined && output.Mapping !== null ? output.Mapping : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    SqlType: output.SqlType !== undefined && output.SqlType !== null ? output.SqlType : undefined
   } as any;
 };
 
@@ -6772,24 +5959,15 @@ const deserializeAws_json1_1RecordColumns = (
   output: any,
   context: __SerdeContext
 ): RecordColumn[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RecordColumn(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RecordColumn(entry, context));
 };
 
-const deserializeAws_json1_1RecordFormat = (
-  output: any,
-  context: __SerdeContext
-): RecordFormat => {
+const deserializeAws_json1_1RecordFormat = (output: any, context: __SerdeContext): RecordFormat => {
   return {
     __type: "RecordFormat",
     MappingParameters:
-      output.MappingParameters !== undefined &&
-      output.MappingParameters !== null
-        ? deserializeAws_json1_1MappingParameters(
-            output.MappingParameters,
-            context
-          )
+      output.MappingParameters !== undefined && output.MappingParameters !== null
+        ? deserializeAws_json1_1MappingParameters(output.MappingParameters, context)
         : undefined,
     RecordFormatType:
       output.RecordFormatType !== undefined && output.RecordFormatType !== null
@@ -6821,9 +5999,7 @@ const deserializeAws_json1_1ReferenceDataSourceDescription = (
           )
         : undefined,
     TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+      output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
@@ -6842,10 +6018,7 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6855,10 +6028,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6868,10 +6038,7 @@ const deserializeAws_json1_1ResourceProvisionedThroughputExceededException = (
 ): ResourceProvisionedThroughputExceededException => {
   return {
     __type: "ResourceProvisionedThroughputExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6899,13 +6066,8 @@ const deserializeAws_json1_1S3ApplicationCodeLocationDescription = (
   return {
     __type: "S3ApplicationCodeLocationDescription",
     BucketARN:
-      output.BucketARN !== undefined && output.BucketARN !== null
-        ? output.BucketARN
-        : undefined,
-    FileKey:
-      output.FileKey !== undefined && output.FileKey !== null
-        ? output.FileKey
-        : undefined,
+      output.BucketARN !== undefined && output.BucketARN !== null ? output.BucketARN : undefined,
+    FileKey: output.FileKey !== undefined && output.FileKey !== null ? output.FileKey : undefined,
     ObjectVersion:
       output.ObjectVersion !== undefined && output.ObjectVersion !== null
         ? output.ObjectVersion
@@ -6920,13 +6082,8 @@ const deserializeAws_json1_1S3ReferenceDataSourceDescription = (
   return {
     __type: "S3ReferenceDataSourceDescription",
     BucketARN:
-      output.BucketARN !== undefined && output.BucketARN !== null
-        ? output.BucketARN
-        : undefined,
-    FileKey:
-      output.FileKey !== undefined && output.FileKey !== null
-        ? output.FileKey
-        : undefined,
+      output.BucketARN !== undefined && output.BucketARN !== null ? output.BucketARN : undefined,
+    FileKey: output.FileKey !== undefined && output.FileKey !== null ? output.FileKey : undefined,
     ReferenceRoleARN:
       output.ReferenceRoleARN !== undefined && output.ReferenceRoleARN !== null
         ? output.ReferenceRoleARN
@@ -6934,10 +6091,7 @@ const deserializeAws_json1_1S3ReferenceDataSourceDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1SecurityGroupIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6947,10 +6101,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   return {
     __type: "ServiceUnavailableException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -6961,13 +6112,11 @@ const deserializeAws_json1_1SnapshotDetails = (
   return {
     __type: "SnapshotDetails",
     ApplicationVersionId:
-      output.ApplicationVersionId !== undefined &&
-      output.ApplicationVersionId !== null
+      output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
     SnapshotCreationTimestamp:
-      output.SnapshotCreationTimestamp !== undefined &&
-      output.SnapshotCreationTimestamp !== null
+      output.SnapshotCreationTimestamp !== undefined && output.SnapshotCreationTimestamp !== null
         ? new Date(Math.round(output.SnapshotCreationTimestamp * 1000))
         : undefined,
     SnapshotName:
@@ -6985,15 +6134,10 @@ const deserializeAws_json1_1SnapshotSummaries = (
   output: any,
   context: __SerdeContext
 ): SnapshotDetails[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SnapshotDetails(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1SnapshotDetails(entry, context));
 };
 
-const deserializeAws_json1_1SourceSchema = (
-  output: any,
-  context: __SerdeContext
-): SourceSchema => {
+const deserializeAws_json1_1SourceSchema = (output: any, context: __SerdeContext): SourceSchema => {
   return {
     __type: "SourceSchema",
     RecordColumns:
@@ -7018,20 +6162,12 @@ const deserializeAws_json1_1SqlApplicationConfigurationDescription = (
   return {
     __type: "SqlApplicationConfigurationDescription",
     InputDescriptions:
-      output.InputDescriptions !== undefined &&
-      output.InputDescriptions !== null
-        ? deserializeAws_json1_1InputDescriptions(
-            output.InputDescriptions,
-            context
-          )
+      output.InputDescriptions !== undefined && output.InputDescriptions !== null
+        ? deserializeAws_json1_1InputDescriptions(output.InputDescriptions, context)
         : undefined,
     OutputDescriptions:
-      output.OutputDescriptions !== undefined &&
-      output.OutputDescriptions !== null
-        ? deserializeAws_json1_1OutputDescriptions(
-            output.OutputDescriptions,
-            context
-          )
+      output.OutputDescriptions !== undefined && output.OutputDescriptions !== null
+        ? deserializeAws_json1_1OutputDescriptions(output.OutputDescriptions, context)
         : undefined,
     ReferenceDataSourceDescriptions:
       output.ReferenceDataSourceDescriptions !== undefined &&
@@ -7062,25 +6198,15 @@ const deserializeAws_json1_1StopApplicationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1SubnetIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -7093,13 +6219,8 @@ const deserializeAws_json1_1TagResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TooManyTagsException = (
@@ -7108,10 +6229,7 @@ const deserializeAws_json1_1TooManyTagsException = (
 ): TooManyTagsException => {
   return {
     __type: "TooManyTagsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -7121,17 +6239,10 @@ const deserializeAws_json1_1UnableToDetectSchemaException = (
 ): UnableToDetectSchemaException => {
   return {
     __type: "UnableToDetectSchemaException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ProcessedInputRecords:
-      output.ProcessedInputRecords !== undefined &&
-      output.ProcessedInputRecords !== null
-        ? deserializeAws_json1_1ProcessedInputRecords(
-            output.ProcessedInputRecords,
-            context
-          )
+      output.ProcessedInputRecords !== undefined && output.ProcessedInputRecords !== null
+        ? deserializeAws_json1_1ProcessedInputRecords(output.ProcessedInputRecords, context)
         : undefined,
     RawInputRecords:
       output.RawInputRecords !== undefined && output.RawInputRecords !== null
@@ -7146,10 +6257,7 @@ const deserializeAws_json1_1UnsupportedOperationException = (
 ): UnsupportedOperationException => {
   return {
     __type: "UnsupportedOperationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -7169,12 +6277,8 @@ const deserializeAws_json1_1UpdateApplicationResponse = (
   return {
     __type: "UpdateApplicationResponse",
     ApplicationDetail:
-      output.ApplicationDetail !== undefined &&
-      output.ApplicationDetail !== null
-        ? deserializeAws_json1_1ApplicationDetail(
-            output.ApplicationDetail,
-            context
-          )
+      output.ApplicationDetail !== undefined && output.ApplicationDetail !== null
+        ? deserializeAws_json1_1ApplicationDetail(output.ApplicationDetail, context)
         : undefined
   } as any;
 };
@@ -7187,24 +6291,17 @@ const deserializeAws_json1_1VpcConfigurationDescription = (
     __type: "VpcConfigurationDescription",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
-        ? deserializeAws_json1_1SecurityGroupIds(
-            output.SecurityGroupIds,
-            context
-          )
+        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
         : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
         : undefined,
     VpcConfigurationId:
-      output.VpcConfigurationId !== undefined &&
-      output.VpcConfigurationId !== null
+      output.VpcConfigurationId !== undefined && output.VpcConfigurationId !== null
         ? output.VpcConfigurationId
         : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined
   } as any;
 };
 
@@ -7231,16 +6328,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

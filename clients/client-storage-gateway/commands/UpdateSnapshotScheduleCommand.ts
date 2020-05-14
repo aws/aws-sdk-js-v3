@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateSnapshotScheduleInput,
-  UpdateSnapshotScheduleOutput
-} from "../models/index";
+import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSnapshotScheduleCommand,
   serializeAws_json1_1UpdateSnapshotScheduleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSnapshotScheduleCommandInput = UpdateSnapshotScheduleInput;
-export type UpdateSnapshotScheduleCommandOutput = UpdateSnapshotScheduleOutput &
-  __MetadataBearer;
+export type UpdateSnapshotScheduleCommandOutput = UpdateSnapshotScheduleOutput & __MetadataBearer;
 
 export class UpdateSnapshotScheduleCommand extends $Command<
   UpdateSnapshotScheduleCommandInput,
@@ -49,13 +45,8 @@ export class UpdateSnapshotScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSnapshotScheduleCommandInput,
-    UpdateSnapshotScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSnapshotScheduleCommandInput, UpdateSnapshotScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

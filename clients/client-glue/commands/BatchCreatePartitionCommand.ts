@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchCreatePartitionRequest,
-  BatchCreatePartitionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchCreatePartitionRequest, BatchCreatePartitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchCreatePartitionCommand,
   serializeAws_json1_1BatchCreatePartitionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchCreatePartitionCommandInput = BatchCreatePartitionRequest;
-export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse &
-  __MetadataBearer;
+export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse & __MetadataBearer;
 
 export class BatchCreatePartitionCommand extends $Command<
   BatchCreatePartitionCommandInput,
@@ -49,13 +41,8 @@ export class BatchCreatePartitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchCreatePartitionCommandInput,
-    BatchCreatePartitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchCreatePartitionCommandInput, BatchCreatePartitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

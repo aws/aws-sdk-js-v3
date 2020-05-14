@@ -283,9 +283,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public compareFaces(
     args: CompareFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CompareFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompareFacesCommandOutput) => void),
     cb?: (err: any, data?: CompareFacesCommandOutput) => void
   ): Promise<CompareFacesCommandOutput> | void {
     const command = new CompareFacesCommand(args);
@@ -330,9 +328,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createCollection(
     args: CreateCollectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCollectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCollectionCommandOutput) => void),
     cb?: (err: any, data?: CreateCollectionCommandOutput) => void
   ): Promise<CreateCollectionCommandOutput> | void {
     const command = new CreateCollectionCommand(args);
@@ -367,9 +363,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
@@ -495,9 +489,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public deleteCollection(
     args: DeleteCollectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCollectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCollectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteCollectionCommandOutput) => void
   ): Promise<DeleteCollectionCommandOutput> | void {
     const command = new DeleteCollectionCommand(args);
@@ -533,9 +525,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public deleteFaces(
     args: DeleteFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFacesCommandOutput) => void),
     cb?: (err: any, data?: DeleteFacesCommandOutput) => void
   ): Promise<DeleteFacesCommandOutput> | void {
     const command = new DeleteFacesCommand(args);
@@ -684,9 +674,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public describeProjects(
     args: DescribeProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectsCommandOutput) => void
   ): Promise<DescribeProjectsCommandOutput> | void {
     const command = new DescribeProjectsCommand(args);
@@ -837,9 +825,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectFaces(
     args: DetectFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectFacesCommandOutput) => void),
     cb?: (err: any, data?: DetectFacesCommandOutput) => void
   ): Promise<DetectFacesCommandOutput> | void {
     const command = new DetectFacesCommand(args);
@@ -945,9 +931,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectLabels(
     args: DetectLabelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectLabelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectLabelsCommandOutput) => void),
     cb?: (err: any, data?: DetectLabelsCommandOutput) => void
   ): Promise<DetectLabelsCommandOutput> | void {
     const command = new DetectLabelsCommand(args);
@@ -1049,9 +1033,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectText(
     args: DetectTextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectTextCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectTextCommandOutput) => void),
     cb?: (err: any, data?: DetectTextCommandOutput) => void
   ): Promise<DetectTextCommandOutput> | void {
     const command = new DetectTextCommand(args);
@@ -1091,9 +1073,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCelebrityInfoCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCelebrityInfoCommandOutput) => void),
     cb?: (err: any, data?: GetCelebrityInfoCommandOutput) => void
   ): Promise<GetCelebrityInfoCommandOutput> | void {
     const command = new GetCelebrityInfoCommand(args);
@@ -1272,9 +1252,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getFaceDetection(
     args: GetFaceDetectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFaceDetectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFaceDetectionCommandOutput) => void),
     cb?: (err: any, data?: GetFaceDetectionCommandOutput) => void
   ): Promise<GetFaceDetectionCommandOutput> | void {
     const command = new GetFaceDetectionCommand(args);
@@ -1338,9 +1316,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getFaceSearch(
     args: GetFaceSearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFaceSearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFaceSearchCommandOutput) => void),
     cb?: (err: any, data?: GetFaceSearchCommandOutput) => void
   ): Promise<GetFaceSearchCommandOutput> | void {
     const command = new GetFaceSearchCommand(args);
@@ -1591,9 +1567,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public indexFaces(
     args: IndexFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IndexFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IndexFacesCommandOutput) => void),
     cb?: (err: any, data?: IndexFacesCommandOutput) => void
   ): Promise<IndexFacesCommandOutput> | void {
     const command = new IndexFacesCommand(args);
@@ -1631,9 +1605,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public listCollections(
     args: ListCollectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCollectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCollectionsCommandOutput) => void),
     cb?: (err: any, data?: ListCollectionsCommandOutput) => void
   ): Promise<ListCollectionsCommandOutput> | void {
     const command = new ListCollectionsCommand(args);
@@ -1673,9 +1645,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public listFaces(
     args: ListFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFacesCommandOutput) => void),
     cb?: (err: any, data?: ListFacesCommandOutput) => void
   ): Promise<ListFacesCommandOutput> | void {
     const command = new ListFacesCommand(args);
@@ -1828,9 +1798,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public searchFaces(
     args: SearchFacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchFacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFacesCommandOutput) => void),
     cb?: (err: any, data?: SearchFacesCommandOutput) => void
   ): Promise<SearchFacesCommandOutput> | void {
     const command = new SearchFacesCommand(args);
@@ -2089,9 +2057,7 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartFaceSearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFaceSearchCommandOutput) => void),
     cb?: (err: any, data?: StartFaceSearchCommandOutput) => void
   ): Promise<StartFaceSearchCommandOutput> | void {
     const command = new StartFaceSearchCommand(args);

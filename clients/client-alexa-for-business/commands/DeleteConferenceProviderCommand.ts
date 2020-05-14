@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteConferenceProviderRequest,
-  DeleteConferenceProviderResponse
-} from "../models/index";
+import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteConferenceProviderCommand,
   serializeAws_json1_1DeleteConferenceProviderCommand
@@ -49,13 +46,8 @@ export class DeleteConferenceProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConferenceProviderCommandInput,
-    DeleteConferenceProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConferenceProviderCommandInput, DeleteConferenceProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteConferenceProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteConferenceProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

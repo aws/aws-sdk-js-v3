@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  CreateEntityRecognizerRequest,
-  CreateEntityRecognizerResponse
-} from "../models/index";
+import { CreateEntityRecognizerRequest, CreateEntityRecognizerResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateEntityRecognizerCommand,
   serializeAws_json1_1CreateEntityRecognizerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEntityRecognizerCommandInput = CreateEntityRecognizerRequest;
-export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse &
-  __MetadataBearer;
+export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse & __MetadataBearer;
 
 export class CreateEntityRecognizerCommand extends $Command<
   CreateEntityRecognizerCommandInput,
@@ -49,13 +45,8 @@ export class CreateEntityRecognizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEntityRecognizerCommandInput,
-    CreateEntityRecognizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEntityRecognizerCommandInput, CreateEntityRecognizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

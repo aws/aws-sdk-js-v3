@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult
@@ -49,13 +45,8 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CopyDBClusterParameterGroupCommandInput,
-    CopyDBClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CopyDBClusterParameterGroupCommandInput, CopyDBClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CopyDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCopyDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

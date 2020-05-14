@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  DescribeCommentsRequest,
-  DescribeCommentsResponse
-} from "../models/index";
+import { DescribeCommentsRequest, DescribeCommentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeCommentsCommand,
   serializeAws_restJson1_1DescribeCommentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCommentsCommandInput = DescribeCommentsRequest;
-export type DescribeCommentsCommandOutput = DescribeCommentsResponse &
-  __MetadataBearer;
+export type DescribeCommentsCommandOutput = DescribeCommentsResponse & __MetadataBearer;
 
 export class DescribeCommentsCommand extends $Command<
   DescribeCommentsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeCommentsCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommentsCommandInput, DescribeCommentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

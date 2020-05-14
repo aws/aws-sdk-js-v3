@@ -49,13 +49,8 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataSourceFromRedshiftCommandInput,
-    CreateDataSourceFromRedshiftCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataSourceFromRedshiftCommandInput, CreateDataSourceFromRedshiftCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     input: CreateDataSourceFromRedshiftCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateDataSourceFromRedshiftCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(output, context);
   }
 
   // Start section: command_body_extra

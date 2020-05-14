@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchEventsClient";
-import {
-  DescribeEventBusRequest,
-  DescribeEventBusResponse
-} from "../models/index";
+import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventBusCommand,
   serializeAws_json1_1DescribeEventBusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventBusCommandInput = DescribeEventBusRequest;
-export type DescribeEventBusCommandOutput = DescribeEventBusResponse &
-  __MetadataBearer;
+export type DescribeEventBusCommandOutput = DescribeEventBusResponse & __MetadataBearer;
 
 export class DescribeEventBusCommand extends $Command<
   DescribeEventBusCommandInput,
@@ -50,9 +46,7 @@ export class DescribeEventBusCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventBusCommandInput, DescribeEventBusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

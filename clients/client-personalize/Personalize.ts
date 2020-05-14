@@ -318,9 +318,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createCampaign(
     args: CreateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCampaignCommandOutput) => void),
     cb?: (err: any, data?: CreateCampaignCommandOutput) => void
   ): Promise<CreateCampaignCommandOutput> | void {
     const command = new CreateCampaignCommand(args);
@@ -404,9 +402,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
@@ -730,9 +726,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createSchema(
     args: CreateSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
     cb?: (err: any, data?: CreateSchemaCommandOutput) => void
   ): Promise<CreateSchemaCommandOutput> | void {
     const command = new CreateSchemaCommand(args);
@@ -833,9 +827,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createSolution(
     args: CreateSolutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSolutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSolutionCommandOutput) => void),
     cb?: (err: any, data?: CreateSolutionCommandOutput) => void
   ): Promise<CreateSolutionCommandOutput> | void {
     const command = new CreateSolutionCommand(args);
@@ -960,9 +952,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCampaignCommandOutput) => void),
     cb?: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): Promise<DeleteCampaignCommandOutput> | void {
     const command = new DeleteCampaignCommand(args);
@@ -998,9 +988,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
@@ -1119,9 +1107,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
     cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
   ): Promise<DeleteSchemaCommandOutput> | void {
     const command = new DeleteSchemaCommand(args);
@@ -1160,9 +1146,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteSolution(
     args: DeleteSolutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSolutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSolutionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSolutionCommandOutput) => void
   ): Promise<DeleteSolutionCommandOutput> | void {
     const command = new DeleteSolutionCommand(args);
@@ -1279,9 +1263,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeCampaign(
     args: DescribeCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCampaignCommandOutput) => void),
     cb?: (err: any, data?: DescribeCampaignCommandOutput) => void
   ): Promise<DescribeCampaignCommandOutput> | void {
     const command = new DescribeCampaignCommand(args);
@@ -1315,9 +1297,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
@@ -1512,9 +1492,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeRecipe(
     args: DescribeRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRecipeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecipeCommandOutput) => void),
     cb?: (err: any, data?: DescribeRecipeCommandOutput) => void
   ): Promise<DescribeRecipeCommandOutput> | void {
     const command = new DescribeRecipeCommand(args);
@@ -1548,9 +1526,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeSchema(
     args: DescribeSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSchemaCommandOutput) => void),
     cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
   ): Promise<DescribeSchemaCommandOutput> | void {
     const command = new DescribeSchemaCommand(args);
@@ -1584,9 +1560,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeSolution(
     args: DescribeSolutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSolutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSolutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeSolutionCommandOutput) => void
   ): Promise<DescribeSolutionCommandOutput> | void {
     const command = new DescribeSolutionCommand(args);
@@ -1728,9 +1702,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listCampaigns(
     args: ListCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCampaignsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCampaignsCommandOutput) => void),
     cb?: (err: any, data?: ListCampaignsCommandOutput) => void
   ): Promise<ListCampaignsCommandOutput> | void {
     const command = new ListCampaignsCommand(args);
@@ -1842,9 +1814,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
@@ -1916,9 +1886,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listRecipes(
     args: ListRecipesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecipesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecipesCommandOutput) => void),
     cb?: (err: any, data?: ListRecipesCommandOutput) => void
   ): Promise<ListRecipesCommandOutput> | void {
     const command = new ListRecipesCommand(args);
@@ -1953,9 +1921,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listSchemas(
     args: ListSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemasCommandOutput) => void),
     cb?: (err: any, data?: ListSchemasCommandOutput) => void
   ): Promise<ListSchemasCommandOutput> | void {
     const command = new ListSchemasCommand(args);
@@ -2029,9 +1995,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listSolutions(
     args: ListSolutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSolutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSolutionsCommandOutput) => void),
     cb?: (err: any, data?: ListSolutionsCommandOutput) => void
   ): Promise<ListSolutionsCommandOutput> | void {
     const command = new ListSolutionsCommand(args);
@@ -2072,9 +2036,7 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCampaignCommandOutput) => void),
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteWorkteamCommandInput = DeleteWorkteamRequest;
-export type DeleteWorkteamCommandOutput = DeleteWorkteamResponse &
-  __MetadataBearer;
+export type DeleteWorkteamCommandOutput = DeleteWorkteamResponse & __MetadataBearer;
 
 export class DeleteWorkteamCommand extends $Command<
   DeleteWorkteamCommandInput,
@@ -47,9 +46,7 @@ export class DeleteWorkteamCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

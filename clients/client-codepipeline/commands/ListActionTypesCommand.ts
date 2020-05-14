@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListActionTypesCommandInput = ListActionTypesInput;
-export type ListActionTypesCommandOutput = ListActionTypesOutput &
-  __MetadataBearer;
+export type ListActionTypesCommandOutput = ListActionTypesOutput & __MetadataBearer;
 
 export class ListActionTypesCommand extends $Command<
   ListActionTypesCommandInput,
@@ -47,9 +46,7 @@ export class ListActionTypesCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListActionTypesCommandInput, ListActionTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

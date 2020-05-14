@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  GenerateChangeSetRequest,
-  GenerateChangeSetResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GenerateChangeSetCommand,
   serializeAws_json1_1GenerateChangeSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateChangeSetCommandInput = GenerateChangeSetRequest;
-export type GenerateChangeSetCommandOutput = GenerateChangeSetResponse &
-  __MetadataBearer;
+export type GenerateChangeSetCommandOutput = GenerateChangeSetResponse & __MetadataBearer;
 
 export class GenerateChangeSetCommand extends $Command<
   GenerateChangeSetCommandInput,
@@ -50,9 +42,7 @@ export class GenerateChangeSetCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateChangeSetCommandInput, GenerateChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

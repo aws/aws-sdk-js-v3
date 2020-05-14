@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteThingTypeRequest,
-  DeleteThingTypeResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteThingTypeCommand,
   serializeAws_restJson1_1DeleteThingTypeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteThingTypeCommandInput = DeleteThingTypeRequest;
-export type DeleteThingTypeCommandOutput = DeleteThingTypeResponse &
-  __MetadataBearer;
+export type DeleteThingTypeCommandOutput = DeleteThingTypeResponse & __MetadataBearer;
 
 export class DeleteThingTypeCommand extends $Command<
   DeleteThingTypeCommandInput,
@@ -50,9 +42,7 @@ export class DeleteThingTypeCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteThingTypeCommandInput, DeleteThingTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

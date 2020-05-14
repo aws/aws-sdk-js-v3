@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import {
   EnableSharingWithAwsOrganizationRequest,
   EnableSharingWithAwsOrganizationResponse
@@ -53,9 +49,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     EnableSharingWithAwsOrganizationCommandInput,
     EnableSharingWithAwsOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     input: EnableSharingWithAwsOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-    return deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApiMappingsCommandInput = GetApiMappingsRequest;
-export type GetApiMappingsCommandOutput = GetApiMappingsResponse &
-  __MetadataBearer;
+export type GetApiMappingsCommandOutput = GetApiMappingsResponse & __MetadataBearer;
 
 export class GetApiMappingsCommand extends $Command<
   GetApiMappingsCommandInput,
@@ -47,9 +46,7 @@ export class GetApiMappingsCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApiMappingsCommandInput, GetApiMappingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

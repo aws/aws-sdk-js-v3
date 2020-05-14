@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  UpdateDevicePoolRequest,
-  UpdateDevicePoolResult
-} from "../models/index";
+import { UpdateDevicePoolRequest, UpdateDevicePoolResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDevicePoolCommand,
   serializeAws_json1_1UpdateDevicePoolCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDevicePoolCommandInput = UpdateDevicePoolRequest;
-export type UpdateDevicePoolCommandOutput = UpdateDevicePoolResult &
-  __MetadataBearer;
+export type UpdateDevicePoolCommandOutput = UpdateDevicePoolResult & __MetadataBearer;
 
 export class UpdateDevicePoolCommand extends $Command<
   UpdateDevicePoolCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDevicePoolCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

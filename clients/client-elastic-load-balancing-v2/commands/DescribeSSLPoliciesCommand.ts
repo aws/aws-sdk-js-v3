@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeSSLPoliciesInput,
-  DescribeSSLPoliciesOutput
-} from "../models/index";
+import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeSSLPoliciesCommand,
   serializeAws_queryDescribeSSLPoliciesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSSLPoliciesCommandInput = DescribeSSLPoliciesInput;
-export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput &
-  __MetadataBearer;
+export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput & __MetadataBearer;
 
 export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeSSLPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSSLPoliciesCommandInput,
-    DescribeSSLPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSSLPoliciesCommandInput, DescribeSSLPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  ValidateMatchmakingRuleSetInput,
-  ValidateMatchmakingRuleSetOutput
-} from "../models/index";
+import { ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput } from "../models/index";
 import {
   deserializeAws_json1_1ValidateMatchmakingRuleSetCommand,
   serializeAws_json1_1ValidateMatchmakingRuleSetCommand
@@ -49,13 +46,8 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ValidateMatchmakingRuleSetCommandInput,
-    ValidateMatchmakingRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ValidateMatchmakingRuleSetCommandInput, ValidateMatchmakingRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     input: ValidateMatchmakingRuleSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

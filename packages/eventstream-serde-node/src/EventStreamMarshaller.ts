@@ -51,10 +51,7 @@ export class EventStreamMarshaller {
     return readabletoIterable(eventDeserializerStream);
   }
 
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): Readable {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): Readable {
     //will use Readable.from(Iterable) in Node12
     const inputIterator = input[Symbol.asyncIterator]();
     const self = this;

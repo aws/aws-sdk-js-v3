@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteDBClusterParameterGroupMessage } from "../models/index";
 import {
   deserializeAws_queryDeleteDBClusterParameterGroupCommand,
@@ -49,9 +45,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     DeleteDBClusterParameterGroupCommandInput,
     DeleteDBClusterParameterGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     input: DeleteDBClusterParameterGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

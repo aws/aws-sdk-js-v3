@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  TagDeliveryStreamInput,
-  TagDeliveryStreamOutput
-} from "../models/index";
+import { TagDeliveryStreamInput, TagDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1TagDeliveryStreamCommand,
   serializeAws_json1_1TagDeliveryStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TagDeliveryStreamCommandInput = TagDeliveryStreamInput;
-export type TagDeliveryStreamCommandOutput = TagDeliveryStreamOutput &
-  __MetadataBearer;
+export type TagDeliveryStreamCommandOutput = TagDeliveryStreamOutput & __MetadataBearer;
 
 export class TagDeliveryStreamCommand extends $Command<
   TagDeliveryStreamCommandInput,
@@ -50,9 +46,7 @@ export class TagDeliveryStreamCommand extends $Command<
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagDeliveryStreamCommandInput, TagDeliveryStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

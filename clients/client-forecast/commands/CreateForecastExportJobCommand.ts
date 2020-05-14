@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  CreateForecastExportJobRequest,
-  CreateForecastExportJobResponse
-} from "../models/index";
+import { CreateForecastExportJobRequest, CreateForecastExportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateForecastExportJobCommand,
   serializeAws_json1_1CreateForecastExportJobCommand
@@ -49,13 +46,8 @@ export class CreateForecastExportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateForecastExportJobCommandInput,
-    CreateForecastExportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateForecastExportJobCommandInput, CreateForecastExportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateForecastExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateForecastExportJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

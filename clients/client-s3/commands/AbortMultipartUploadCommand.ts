@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  AbortMultipartUploadOutput,
-  AbortMultipartUploadRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/index";
 import {
   deserializeAws_restXmlAbortMultipartUploadCommand,
   serializeAws_restXmlAbortMultipartUploadCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AbortMultipartUploadCommandInput = AbortMultipartUploadRequest;
-export type AbortMultipartUploadCommandOutput = AbortMultipartUploadOutput &
-  __MetadataBearer;
+export type AbortMultipartUploadCommandOutput = AbortMultipartUploadOutput & __MetadataBearer;
 
 export class AbortMultipartUploadCommand extends $Command<
   AbortMultipartUploadCommandInput,
@@ -50,13 +42,8 @@ export class AbortMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AbortMultipartUploadCommandInput,
-    AbortMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AbortMultipartUploadCommandInput, AbortMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

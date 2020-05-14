@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetGroupVersionRequest,
-  GetGroupVersionResponse
-} from "../models/index";
+import { GetGroupVersionRequest, GetGroupVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetGroupVersionCommand,
   serializeAws_restJson1_1GetGroupVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGroupVersionCommandInput = GetGroupVersionRequest;
-export type GetGroupVersionCommandOutput = GetGroupVersionResponse &
-  __MetadataBearer;
+export type GetGroupVersionCommandOutput = GetGroupVersionResponse & __MetadataBearer;
 
 export class GetGroupVersionCommand extends $Command<
   GetGroupVersionCommandInput,
@@ -50,9 +46,7 @@ export class GetGroupVersionCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGroupVersionCommandInput, GetGroupVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

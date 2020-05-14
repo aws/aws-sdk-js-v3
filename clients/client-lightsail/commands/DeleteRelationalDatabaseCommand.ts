@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteRelationalDatabaseRequest,
-  DeleteRelationalDatabaseResult
-} from "../models/index";
+import { DeleteRelationalDatabaseRequest, DeleteRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRelationalDatabaseCommand,
   serializeAws_json1_1DeleteRelationalDatabaseCommand
@@ -49,13 +46,8 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRelationalDatabaseCommandInput,
-    DeleteRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRelationalDatabaseCommandInput, DeleteRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteRelationalDatabaseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1DeleteRelationalDatabaseCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

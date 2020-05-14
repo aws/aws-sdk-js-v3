@@ -202,10 +202,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     args: ConstantAndVariableQueryStringCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConstantAndVariableQueryStringCommandOutput
-        ) => void),
+      | ((err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void),
     cb?: (err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void
   ): Promise<ConstantAndVariableQueryStringCommandOutput> | void {
     const command = new ConstantAndVariableQueryStringCommand(args);
@@ -399,10 +396,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpPayloadTraitsWithMediaTypeCommandOutput
-        ) => void),
+      | ((err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void),
     cb?: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> | void {
     const command = new HttpPayloadTraitsWithMediaTypeCommand(args);
@@ -507,14 +501,8 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpRequestWithGreedyLabelInPathCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: HttpRequestWithGreedyLabelInPathCommandOutput
-    ) => void
+      | ((err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> | void {
     const command = new HttpRequestWithGreedyLabelInPathCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -574,31 +562,19 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput>;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    cb: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+    cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
   public httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput
-    ) => void
+      | ((err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> | void {
     const command = new HttpRequestWithLabelsAndTimestampFormatCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -703,9 +679,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonBlobs(
     args: JsonBlobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JsonBlobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonBlobsCommandOutput) => void),
     cb?: (err: any, data?: JsonBlobsCommandOutput) => void
   ): Promise<JsonBlobsCommandOutput> | void {
     const command = new JsonBlobsCommand(args);
@@ -738,9 +712,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonEnums(
     args: JsonEnumsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JsonEnumsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonEnumsCommandOutput) => void),
     cb?: (err: any, data?: JsonEnumsCommandOutput) => void
   ): Promise<JsonEnumsCommandOutput> | void {
     const command = new JsonEnumsCommand(args);
@@ -779,9 +751,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonLists(
     args: JsonListsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JsonListsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonListsCommandOutput) => void),
     cb?: (err: any, data?: JsonListsCommandOutput) => void
   ): Promise<JsonListsCommandOutput> | void {
     const command = new JsonListsCommand(args);
@@ -814,9 +784,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonMaps(
     args: JsonMapsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JsonMapsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonMapsCommandOutput) => void),
     cb?: (err: any, data?: JsonMapsCommandOutput) => void
   ): Promise<JsonMapsCommandOutput> | void {
     const command = new JsonMapsCommand(args);
@@ -851,9 +819,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public jsonTimestamps(
     args: JsonTimestampsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JsonTimestampsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JsonTimestampsCommandOutput) => void),
     cb?: (err: any, data?: JsonTimestampsCommandOutput) => void
   ): Promise<JsonTimestampsCommandOutput> | void {
     const command = new JsonTimestampsCommand(args);
@@ -926,9 +892,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NoInputAndOutputCommandOutput) => void),
     cb?: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): Promise<NoInputAndOutputCommandOutput> | void {
     const command = new NoInputAndOutputCommand(args);
@@ -1033,10 +997,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     args: OmitsNullSerializesEmptyStringCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: OmitsNullSerializesEmptyStringCommandOutput
-        ) => void),
+      | ((err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void),
     cb?: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> | void {
     const command = new OmitsNullSerializesEmptyStringCommand(args);
@@ -1104,9 +1065,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   ): void;
   public recursiveShapes(
     args: RecursiveShapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RecursiveShapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecursiveShapesCommandOutput) => void),
     cb?: (err: any, data?: RecursiveShapesCommandOutput) => void
   ): Promise<RecursiveShapesCommandOutput> | void {
     const command = new RecursiveShapesCommand(args);

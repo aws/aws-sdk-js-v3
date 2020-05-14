@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesResponse
@@ -39,9 +35,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutEmailIdentityDkimSigningAttributesCommandInput
-  ) {
+  constructor(readonly input: PutEmailIdentityDkimSigningAttributesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     PutEmailIdentityDkimSigningAttributesCommandInput,
     PutEmailIdentityDkimSigningAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
     input: PutEmailIdentityDkimSigningAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

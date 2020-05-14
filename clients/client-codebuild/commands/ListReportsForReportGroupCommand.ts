@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  ListReportsForReportGroupInput,
-  ListReportsForReportGroupOutput
-} from "../models/index";
+import { ListReportsForReportGroupInput, ListReportsForReportGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListReportsForReportGroupCommand,
   serializeAws_json1_1ListReportsForReportGroupCommand
@@ -49,13 +46,8 @@ export class ListReportsForReportGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListReportsForReportGroupCommandInput,
-    ListReportsForReportGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListReportsForReportGroupCommandInput, ListReportsForReportGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListReportsForReportGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReportsForReportGroupCommandOutput> {
-    return deserializeAws_json1_1ListReportsForReportGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListReportsForReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

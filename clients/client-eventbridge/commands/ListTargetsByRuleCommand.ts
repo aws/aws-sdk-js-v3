@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EventBridgeClient";
-import {
-  ListTargetsByRuleRequest,
-  ListTargetsByRuleResponse
-} from "../models/index";
+import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTargetsByRuleCommand,
   serializeAws_json1_1ListTargetsByRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTargetsByRuleCommandInput = ListTargetsByRuleRequest;
-export type ListTargetsByRuleCommandOutput = ListTargetsByRuleResponse &
-  __MetadataBearer;
+export type ListTargetsByRuleCommandOutput = ListTargetsByRuleResponse & __MetadataBearer;
 
 export class ListTargetsByRuleCommand extends $Command<
   ListTargetsByRuleCommandInput,
@@ -50,9 +46,7 @@ export class ListTargetsByRuleCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTargetsByRuleCommandInput, ListTargetsByRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

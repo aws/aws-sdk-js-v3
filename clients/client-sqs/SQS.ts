@@ -224,9 +224,7 @@ export class SQS extends SQSClient {
   ): void;
   public addPermission(
     args: AddPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPermissionCommandOutput) => void),
     cb?: (err: any, data?: AddPermissionCommandOutput) => void
   ): Promise<AddPermissionCommandOutput> | void {
     const command = new AddPermissionCommand(args);
@@ -421,9 +419,7 @@ export class SQS extends SQSClient {
   ): void;
   public createQueue(
     args: CreateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateQueueCommandOutput) => void
   ): Promise<CreateQueueCommandOutput> | void {
     const command = new CreateQueueCommand(args);
@@ -475,9 +471,7 @@ export class SQS extends SQSClient {
   ): void;
   public deleteMessage(
     args: DeleteMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMessageCommandOutput) => void),
     cb?: (err: any, data?: DeleteMessageCommandOutput) => void
   ): Promise<DeleteMessageCommandOutput> | void {
     const command = new DeleteMessageCommand(args);
@@ -568,9 +562,7 @@ export class SQS extends SQSClient {
   ): void;
   public deleteQueue(
     args: DeleteQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueueCommandOutput) => void
   ): Promise<DeleteQueueCommandOutput> | void {
     const command = new DeleteQueueCommand(args);
@@ -653,9 +645,7 @@ export class SQS extends SQSClient {
   ): void;
   public getQueueUrl(
     args: GetQueueUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueueUrlCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueueUrlCommandOutput) => void),
     cb?: (err: any, data?: GetQueueUrlCommandOutput) => void
   ): Promise<GetQueueUrlCommandOutput> | void {
     const command = new GetQueueUrlCommand(args);
@@ -730,9 +720,7 @@ export class SQS extends SQSClient {
   ): void;
   public listQueueTags(
     args: ListQueueTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueueTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueueTagsCommandOutput) => void),
     cb?: (err: any, data?: ListQueueTagsCommandOutput) => void
   ): Promise<ListQueueTagsCommandOutput> | void {
     const command = new ListQueueTagsCommand(args);
@@ -769,9 +757,7 @@ export class SQS extends SQSClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
@@ -817,9 +803,7 @@ export class SQS extends SQSClient {
   ): void;
   public purgeQueue(
     args: PurgeQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurgeQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurgeQueueCommandOutput) => void),
     cb?: (err: any, data?: PurgeQueueCommandOutput) => void
   ): Promise<PurgeQueueCommandOutput> | void {
     const command = new PurgeQueueCommand(args);
@@ -887,9 +871,7 @@ export class SQS extends SQSClient {
   ): void;
   public receiveMessage(
     args: ReceiveMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReceiveMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReceiveMessageCommandOutput) => void),
     cb?: (err: any, data?: ReceiveMessageCommandOutput) => void
   ): Promise<ReceiveMessageCommandOutput> | void {
     const command = new ReceiveMessageCommand(args);
@@ -935,9 +917,7 @@ export class SQS extends SQSClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
@@ -977,9 +957,7 @@ export class SQS extends SQSClient {
   ): void;
   public sendMessage(
     args: SendMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageCommandOutput) => void),
     cb?: (err: any, data?: SendMessageCommandOutput) => void
   ): Promise<SendMessageCommandOutput> | void {
     const command = new SendMessageCommand(args);
@@ -1030,9 +1008,7 @@ export class SQS extends SQSClient {
   ): void;
   public sendMessageBatch(
     args: SendMessageBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageBatchCommandOutput) => void),
     cb?: (err: any, data?: SendMessageBatchCommandOutput) => void
   ): Promise<SendMessageBatchCommandOutput> | void {
     const command = new SendMessageBatchCommand(args);
@@ -1134,9 +1110,7 @@ export class SQS extends SQSClient {
   ): void;
   public tagQueue(
     args: TagQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagQueueCommandOutput) => void),
     cb?: (err: any, data?: TagQueueCommandOutput) => void
   ): Promise<TagQueueCommandOutput> | void {
     const command = new TagQueueCommand(args);
@@ -1172,9 +1146,7 @@ export class SQS extends SQSClient {
   ): void;
   public untagQueue(
     args: UntagQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagQueueCommandOutput) => void),
     cb?: (err: any, data?: UntagQueueCommandOutput) => void
   ): Promise<UntagQueueCommandOutput> | void {
     const command = new UntagQueueCommand(args);

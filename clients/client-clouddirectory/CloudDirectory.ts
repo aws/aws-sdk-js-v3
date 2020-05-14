@@ -358,9 +358,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public addFacetToObject(
     args: AddFacetToObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddFacetToObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFacetToObjectCommandOutput) => void),
     cb?: (err: any, data?: AddFacetToObjectCommandOutput) => void
   ): Promise<AddFacetToObjectCommandOutput> | void {
     const command = new AddFacetToObjectCommand(args);
@@ -394,9 +392,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public applySchema(
     args: ApplySchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApplySchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplySchemaCommandOutput) => void),
     cb?: (err: any, data?: ApplySchemaCommandOutput) => void
   ): Promise<ApplySchemaCommandOutput> | void {
     const command = new ApplySchemaCommand(args);
@@ -439,9 +435,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachObject(
     args: AttachObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachObjectCommandOutput) => void),
     cb?: (err: any, data?: AttachObjectCommandOutput) => void
   ): Promise<AttachObjectCommandOutput> | void {
     const command = new AttachObjectCommand(args);
@@ -475,9 +469,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachPolicyCommandOutput) => void
   ): Promise<AttachPolicyCommandOutput> | void {
     const command = new AttachPolicyCommand(args);
@@ -510,9 +502,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachToIndex(
     args: AttachToIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachToIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachToIndexCommandOutput) => void),
     cb?: (err: any, data?: AttachToIndexCommandOutput) => void
   ): Promise<AttachToIndexCommandOutput> | void {
     const command = new AttachToIndexCommand(args);
@@ -545,9 +535,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachTypedLink(
     args: AttachTypedLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachTypedLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachTypedLinkCommandOutput) => void),
     cb?: (err: any, data?: AttachTypedLinkCommandOutput) => void
   ): Promise<AttachTypedLinkCommandOutput> | void {
     const command = new AttachTypedLinkCommand(args);
@@ -580,9 +568,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public batchRead(
     args: BatchReadCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchReadCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchReadCommandOutput) => void),
     cb?: (err: any, data?: BatchReadCommandOutput) => void
   ): Promise<BatchReadCommandOutput> | void {
     const command = new BatchReadCommand(args);
@@ -616,9 +602,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public batchWrite(
     args: BatchWriteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchWriteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchWriteCommandOutput) => void),
     cb?: (err: any, data?: BatchWriteCommandOutput) => void
   ): Promise<BatchWriteCommandOutput> | void {
     const command = new BatchWriteCommand(args);
@@ -654,9 +638,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createDirectory(
     args: CreateDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectoryCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectoryCommandOutput) => void
   ): Promise<CreateDirectoryCommandOutput> | void {
     const command = new CreateDirectoryCommand(args);
@@ -690,9 +672,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createFacet(
     args: CreateFacetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFacetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFacetCommandOutput) => void),
     cb?: (err: any, data?: CreateFacetCommandOutput) => void
   ): Promise<CreateFacetCommandOutput> | void {
     const command = new CreateFacetCommand(args);
@@ -725,9 +705,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createIndex(
     args: CreateIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIndexCommandOutput) => void),
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
@@ -763,9 +741,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createObject(
     args: CreateObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateObjectCommandOutput) => void),
     cb?: (err: any, data?: CreateObjectCommandOutput) => void
   ): Promise<CreateObjectCommandOutput> | void {
     const command = new CreateObjectCommand(args);
@@ -818,9 +794,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createSchema(
     args: CreateSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
     cb?: (err: any, data?: CreateSchemaCommandOutput) => void
   ): Promise<CreateSchemaCommandOutput> | void {
     const command = new CreateSchemaCommand(args);
@@ -890,9 +864,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectoryCommandOutput) => void
   ): Promise<DeleteDirectoryCommandOutput> | void {
     const command = new DeleteDirectoryCommand(args);
@@ -927,9 +899,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteFacet(
     args: DeleteFacetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFacetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFacetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFacetCommandOutput) => void
   ): Promise<DeleteFacetCommandOutput> | void {
     const command = new DeleteFacetCommand(args);
@@ -963,9 +933,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
@@ -998,9 +966,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
     cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
   ): Promise<DeleteSchemaCommandOutput> | void {
     const command = new DeleteSchemaCommand(args);
@@ -1068,9 +1034,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachFromIndex(
     args: DetachFromIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachFromIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachFromIndexCommandOutput) => void),
     cb?: (err: any, data?: DetachFromIndexCommandOutput) => void
   ): Promise<DetachFromIndexCommandOutput> | void {
     const command = new DetachFromIndexCommand(args);
@@ -1104,9 +1068,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachObject(
     args: DetachObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachObjectCommandOutput) => void),
     cb?: (err: any, data?: DetachObjectCommandOutput) => void
   ): Promise<DetachObjectCommandOutput> | void {
     const command = new DetachObjectCommand(args);
@@ -1139,9 +1101,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachPolicyCommandOutput) => void
   ): Promise<DetachPolicyCommandOutput> | void {
     const command = new DetachPolicyCommand(args);
@@ -1174,9 +1134,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachTypedLink(
     args: DetachTypedLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachTypedLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachTypedLinkCommandOutput) => void),
     cb?: (err: any, data?: DetachTypedLinkCommandOutput) => void
   ): Promise<DetachTypedLinkCommandOutput> | void {
     const command = new DetachTypedLinkCommand(args);
@@ -1210,9 +1168,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public disableDirectory(
     args: DisableDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DisableDirectoryCommandOutput) => void
   ): Promise<DisableDirectoryCommandOutput> | void {
     const command = new DisableDirectoryCommand(args);
@@ -1246,9 +1202,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public enableDirectory(
     args: EnableDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDirectoryCommandOutput) => void),
     cb?: (err: any, data?: EnableDirectoryCommandOutput) => void
   ): Promise<EnableDirectoryCommandOutput> | void {
     const command = new EnableDirectoryCommand(args);
@@ -1316,9 +1270,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getDirectory(
     args: GetDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDirectoryCommandOutput) => void),
     cb?: (err: any, data?: GetDirectoryCommandOutput) => void
   ): Promise<GetDirectoryCommandOutput> | void {
     const command = new GetDirectoryCommand(args);
@@ -1352,9 +1304,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getFacet(
     args: GetFacetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFacetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFacetCommandOutput) => void),
     cb?: (err: any, data?: GetFacetCommandOutput) => void
   ): Promise<GetFacetCommandOutput> | void {
     const command = new GetFacetCommand(args);
@@ -1492,9 +1442,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getSchemaAsJson(
     args: GetSchemaAsJsonCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSchemaAsJsonCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaAsJsonCommandOutput) => void),
     cb?: (err: any, data?: GetSchemaAsJsonCommandOutput) => void
   ): Promise<GetSchemaAsJsonCommandOutput> | void {
     const command = new GetSchemaAsJsonCommand(args);
@@ -1668,9 +1616,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listDirectories(
     args: ListDirectoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDirectoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDirectoriesCommandOutput) => void),
     cb?: (err: any, data?: ListDirectoriesCommandOutput) => void
   ): Promise<ListDirectoriesCommandOutput> | void {
     const command = new ListDirectoriesCommand(args);
@@ -1738,9 +1684,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listFacetNames(
     args: ListFacetNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFacetNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFacetNamesCommandOutput) => void),
     cb?: (err: any, data?: ListFacetNamesCommandOutput) => void
   ): Promise<ListFacetNamesCommandOutput> | void {
     const command = new ListFacetNamesCommand(args);
@@ -1810,9 +1754,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listIndex(
     args: ListIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIndexCommandOutput) => void),
     cb?: (err: any, data?: ListIndexCommandOutput) => void
   ): Promise<ListIndexCommandOutput> | void {
     const command = new ListIndexCommand(args);
@@ -2285,9 +2227,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public lookupPolicy(
     args: LookupPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LookupPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LookupPolicyCommandOutput) => void),
     cb?: (err: any, data?: LookupPolicyCommandOutput) => void
   ): Promise<LookupPolicyCommandOutput> | void {
     const command = new LookupPolicyCommand(args);
@@ -2320,9 +2260,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public publishSchema(
     args: PublishSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PublishSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishSchemaCommandOutput) => void),
     cb?: (err: any, data?: PublishSchemaCommandOutput) => void
   ): Promise<PublishSchemaCommandOutput> | void {
     const command = new PublishSchemaCommand(args);
@@ -2425,9 +2363,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2460,9 +2396,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2506,9 +2440,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateFacet(
     args: UpdateFacetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFacetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFacetCommandOutput) => void),
     cb?: (err: any, data?: UpdateFacetCommandOutput) => void
   ): Promise<UpdateFacetCommandOutput> | void {
     const command = new UpdateFacetCommand(args);
@@ -2612,9 +2544,7 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateSchema(
     args: UpdateSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSchemaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSchemaCommandOutput) => void),
     cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): Promise<UpdateSchemaCommandOutput> | void {
     const command = new UpdateSchemaCommand(args);

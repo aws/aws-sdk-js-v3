@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusResponse
-} from "../models/index";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUpgradeStatusCommand,
   serializeAws_restJson1_1GetUpgradeStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
-export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse &
-  __MetadataBearer;
+export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse & __MetadataBearer;
 
 export class GetUpgradeStatusCommand extends $Command<
   GetUpgradeStatusCommandInput,
@@ -50,9 +46,7 @@ export class GetUpgradeStatusCommand extends $Command<
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

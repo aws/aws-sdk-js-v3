@@ -12,10 +12,7 @@ module.exports = function load(pluginHost: PluginHost) {
   const application = pluginHost.owner;
 
   // Add renderer plugins
-  application.renderer.addComponent(
-    "SdkClientTocPlugin",
-    SdkClientTocPlugin as any
-  );
+  application.renderer.addComponent("SdkClientTocPlugin", SdkClientTocPlugin as any);
   application.renderer.addComponent(
     "SdkClientRenameGlobalPlugin",
     SdkClientRenameGlobalPlugin as any

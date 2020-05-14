@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  GetOfferingStatusRequest,
-  GetOfferingStatusResult
-} from "../models/index";
+import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/index";
 import {
   deserializeAws_json1_1GetOfferingStatusCommand,
   serializeAws_json1_1GetOfferingStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetOfferingStatusCommandInput = GetOfferingStatusRequest;
-export type GetOfferingStatusCommandOutput = GetOfferingStatusResult &
-  __MetadataBearer;
+export type GetOfferingStatusCommandOutput = GetOfferingStatusResult & __MetadataBearer;
 
 export class GetOfferingStatusCommand extends $Command<
   GetOfferingStatusCommandInput,
@@ -50,9 +46,7 @@ export class GetOfferingStatusCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

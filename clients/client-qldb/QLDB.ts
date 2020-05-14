@@ -98,9 +98,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public createLedger(
     args: CreateLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLedgerCommandOutput) => void),
     cb?: (err: any, data?: CreateLedgerCommandOutput) => void
   ): Promise<CreateLedgerCommandOutput> | void {
     const command = new CreateLedgerCommand(args);
@@ -137,9 +135,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public deleteLedger(
     args: DeleteLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLedgerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLedgerCommandOutput) => void
   ): Promise<DeleteLedgerCommandOutput> | void {
     const command = new DeleteLedgerCommand(args);
@@ -212,9 +208,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public describeLedger(
     args: DescribeLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLedgerCommandOutput) => void),
     cb?: (err: any, data?: DescribeLedgerCommandOutput) => void
   ): Promise<DescribeLedgerCommandOutput> | void {
     const command = new DescribeLedgerCommand(args);
@@ -297,9 +291,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public getBlock(
     args: GetBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlockCommandOutput) => void),
     cb?: (err: any, data?: GetBlockCommandOutput) => void
   ): Promise<GetBlockCommandOutput> | void {
     const command = new GetBlockCommand(args);
@@ -333,9 +325,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public getDigest(
     args: GetDigestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDigestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDigestCommandOutput) => void),
     cb?: (err: any, data?: GetDigestCommandOutput) => void
   ): Promise<GetDigestCommandOutput> | void {
     const command = new GetDigestCommand(args);
@@ -370,9 +360,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public getRevision(
     args: GetRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRevisionCommandOutput) => void),
     cb?: (err: any, data?: GetRevisionCommandOutput) => void
   ): Promise<GetRevisionCommandOutput> | void {
     const command = new GetRevisionCommand(args);
@@ -485,9 +473,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public listLedgers(
     args: ListLedgersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLedgersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLedgersCommandOutput) => void),
     cb?: (err: any, data?: ListLedgersCommandOutput) => void
   ): Promise<ListLedgersCommandOutput> | void {
     const command = new ListLedgersCommand(args);
@@ -557,9 +543,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -593,9 +577,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -628,9 +610,7 @@ export class QLDB extends QLDBClient {
   ): void;
   public updateLedger(
     args: UpdateLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLedgerCommandOutput) => void),
     cb?: (err: any, data?: UpdateLedgerCommandOutput) => void
   ): Promise<UpdateLedgerCommandOutput> | void {
     const command = new UpdateLedgerCommand(args);

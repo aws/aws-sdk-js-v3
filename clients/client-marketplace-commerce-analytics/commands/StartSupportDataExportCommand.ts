@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MarketplaceCommerceAnalyticsClient";
-import {
-  StartSupportDataExportRequest,
-  StartSupportDataExportResult
-} from "../models/index";
+import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/index";
 import {
   deserializeAws_json1_1StartSupportDataExportCommand,
   serializeAws_json1_1StartSupportDataExportCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartSupportDataExportCommandInput = StartSupportDataExportRequest;
-export type StartSupportDataExportCommandOutput = StartSupportDataExportResult &
-  __MetadataBearer;
+export type StartSupportDataExportCommandOutput = StartSupportDataExportResult & __MetadataBearer;
 
 export class StartSupportDataExportCommand extends $Command<
   StartSupportDataExportCommandInput,
@@ -49,13 +45,8 @@ export class StartSupportDataExportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCommerceAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartSupportDataExportCommandInput,
-    StartSupportDataExportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartSupportDataExportCommandInput, StartSupportDataExportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

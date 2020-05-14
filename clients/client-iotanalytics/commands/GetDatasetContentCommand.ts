@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  GetDatasetContentRequest,
-  GetDatasetContentResponse
-} from "../models/index";
+import { GetDatasetContentRequest, GetDatasetContentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDatasetContentCommand,
   serializeAws_restJson1_1GetDatasetContentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDatasetContentCommandInput = GetDatasetContentRequest;
-export type GetDatasetContentCommandOutput = GetDatasetContentResponse &
-  __MetadataBearer;
+export type GetDatasetContentCommandOutput = GetDatasetContentResponse & __MetadataBearer;
 
 export class GetDatasetContentCommand extends $Command<
   GetDatasetContentCommandInput,
@@ -50,9 +46,7 @@ export class GetDatasetContentCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDatasetContentCommandInput, GetDatasetContentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

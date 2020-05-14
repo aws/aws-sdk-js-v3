@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  DeleteHostedZoneRequest,
-  DeleteHostedZoneResponse
-} from "../models/index";
+import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/index";
 import {
   deserializeAws_restXmlDeleteHostedZoneCommand,
   serializeAws_restXmlDeleteHostedZoneCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteHostedZoneCommandInput = DeleteHostedZoneRequest;
-export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse &
-  __MetadataBearer;
+export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse & __MetadataBearer;
 
 export class DeleteHostedZoneCommand extends $Command<
   DeleteHostedZoneCommandInput,
@@ -51,9 +47,7 @@ export class DeleteHostedZoneCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

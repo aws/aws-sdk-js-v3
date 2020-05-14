@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetInstanceAccessDetailsRequest,
-  GetInstanceAccessDetailsResult
-} from "../models/index";
+import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceAccessDetailsCommand,
   serializeAws_json1_1GetInstanceAccessDetailsCommand
@@ -49,13 +46,8 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInstanceAccessDetailsCommandInput,
-    GetInstanceAccessDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInstanceAccessDetailsCommandInput, GetInstanceAccessDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstanceAccessDetailsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  PutComponentPolicyRequest,
-  PutComponentPolicyResponse
-} from "../models/index";
+import { PutComponentPolicyRequest, PutComponentPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutComponentPolicyCommand,
   serializeAws_restJson1_1PutComponentPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutComponentPolicyCommandInput = PutComponentPolicyRequest;
-export type PutComponentPolicyCommandOutput = PutComponentPolicyResponse &
-  __MetadataBearer;
+export type PutComponentPolicyCommandOutput = PutComponentPolicyResponse & __MetadataBearer;
 
 export class PutComponentPolicyCommand extends $Command<
   PutComponentPolicyCommandInput,
@@ -50,9 +46,7 @@ export class PutComponentPolicyCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

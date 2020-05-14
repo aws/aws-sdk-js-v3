@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  CompleteLayerUploadRequest,
-  CompleteLayerUploadResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/index";
 import {
   deserializeAws_json1_1CompleteLayerUploadCommand,
   serializeAws_json1_1CompleteLayerUploadCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CompleteLayerUploadCommandInput = CompleteLayerUploadRequest;
-export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse &
-  __MetadataBearer;
+export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse & __MetadataBearer;
 
 export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandInput,
@@ -49,13 +41,8 @@ export class CompleteLayerUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteLayerUploadCommandInput,
-    CompleteLayerUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteLayerUploadCommandInput, CompleteLayerUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -94,9 +94,7 @@ describe("fromCognitoIdentity", () => {
         customRoleArn: "myArn"
       })()
     ).rejects.toMatchObject(
-      new ProviderError(
-        "Response from Amazon Cognito contained no access key ID"
-      )
+      new ProviderError("Response from Amazon Cognito contained no access key ID")
     );
   });
 

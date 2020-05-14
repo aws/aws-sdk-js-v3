@@ -49,13 +49,8 @@ export class CreateConnectorDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConnectorDefinitionCommandInput,
-    CreateConnectorDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConnectorDefinitionCommandInput, CreateConnectorDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateConnectorDefinitionCommand extends $Command<
     input: CreateConnectorDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConnectorDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateConnectorDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateConnectorDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

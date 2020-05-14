@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartChangeSetCommandInput = StartChangeSetRequest;
-export type StartChangeSetCommandOutput = StartChangeSetResponse &
-  __MetadataBearer;
+export type StartChangeSetCommandOutput = StartChangeSetResponse & __MetadataBearer;
 
 export class StartChangeSetCommand extends $Command<
   StartChangeSetCommandInput,
@@ -47,9 +46,7 @@ export class StartChangeSetCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartChangeSetCommandInput, StartChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListUniqueProblemsRequest,
-  ListUniqueProblemsResult
-} from "../models/index";
+import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListUniqueProblemsCommand,
   serializeAws_json1_1ListUniqueProblemsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUniqueProblemsCommandInput = ListUniqueProblemsRequest;
-export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult &
-  __MetadataBearer;
+export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult & __MetadataBearer;
 
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,
@@ -50,9 +46,7 @@ export class ListUniqueProblemsCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

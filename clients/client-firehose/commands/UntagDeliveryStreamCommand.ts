@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  UntagDeliveryStreamInput,
-  UntagDeliveryStreamOutput
-} from "../models/index";
+import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1UntagDeliveryStreamCommand,
   serializeAws_json1_1UntagDeliveryStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UntagDeliveryStreamCommandInput = UntagDeliveryStreamInput;
-export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput &
-  __MetadataBearer;
+export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput & __MetadataBearer;
 
 export class UntagDeliveryStreamCommand extends $Command<
   UntagDeliveryStreamCommandInput,
@@ -49,13 +45,8 @@ export class UntagDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UntagDeliveryStreamCommandInput,
-    UntagDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UntagDeliveryStreamCommandInput, UntagDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

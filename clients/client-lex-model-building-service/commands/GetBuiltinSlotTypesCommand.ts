@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinSlotTypesRequest,
-  GetBuiltinSlotTypesResponse
-} from "../models/index";
+import { GetBuiltinSlotTypesRequest, GetBuiltinSlotTypesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBuiltinSlotTypesCommand,
   serializeAws_restJson1_1GetBuiltinSlotTypesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBuiltinSlotTypesCommandInput = GetBuiltinSlotTypesRequest;
-export type GetBuiltinSlotTypesCommandOutput = GetBuiltinSlotTypesResponse &
-  __MetadataBearer;
+export type GetBuiltinSlotTypesCommandOutput = GetBuiltinSlotTypesResponse & __MetadataBearer;
 
 export class GetBuiltinSlotTypesCommand extends $Command<
   GetBuiltinSlotTypesCommandInput,
@@ -49,13 +45,8 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBuiltinSlotTypesCommandInput,
-    GetBuiltinSlotTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBuiltinSlotTypesCommandInput, GetBuiltinSlotTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBuiltinSlotTypesCommandOutput> {
-    return deserializeAws_restJson1_1GetBuiltinSlotTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBuiltinSlotTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

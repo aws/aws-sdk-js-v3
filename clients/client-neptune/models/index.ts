@@ -1,16 +1,11 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
  *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
  */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   /**
@@ -28,9 +23,7 @@ export namespace AuthorizationNotFoundFault {
  * <p>
  *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
  */
-export interface CertificateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CertificateNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CertificateNotFoundFault";
   $fault: "client";
   /**
@@ -47,9 +40,7 @@ export namespace CertificateNotFoundFault {
 /**
  * <p>User already has a DB cluster with the given identifier.</p>
  */
-export interface DBClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterAlreadyExistsFault";
   $fault: "client";
   /**
@@ -67,9 +58,7 @@ export namespace DBClusterAlreadyExistsFault {
  * <p>
  *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
  */
-export interface DBClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterNotFoundFault";
   $fault: "client";
   /**
@@ -79,8 +68,7 @@ export interface DBClusterNotFoundFault
 }
 
 export namespace DBClusterNotFoundFault {
-  export const isa = (o: any): o is DBClusterNotFoundFault =>
-    __isa(o, "DBClusterNotFoundFault");
+  export const isa = (o: any): o is DBClusterNotFoundFault => __isa(o, "DBClusterNotFoundFault");
 }
 
 /**
@@ -88,9 +76,7 @@ export namespace DBClusterNotFoundFault {
  *             <i>DBClusterParameterGroupName</i> does not refer to an
  *       existing DB Cluster parameter group.</p>
  */
-export interface DBClusterParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
   /**
@@ -107,9 +93,7 @@ export namespace DBClusterParameterGroupNotFoundFault {
 /**
  * <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  */
-export interface DBClusterQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterQuotaExceededFault";
   $fault: "client";
   /**
@@ -126,9 +110,7 @@ export namespace DBClusterQuotaExceededFault {
 /**
  * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterRoleAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterRoleAlreadyExistsFault";
   $fault: "client";
   /**
@@ -145,9 +127,7 @@ export namespace DBClusterRoleAlreadyExistsFault {
 /**
  * <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterRoleNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterRoleNotFoundFault";
   $fault: "client";
   /**
@@ -164,9 +144,7 @@ export namespace DBClusterRoleNotFoundFault {
 /**
  * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterRoleQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterRoleQuotaExceededFault";
   $fault: "client";
   /**
@@ -183,9 +161,7 @@ export namespace DBClusterRoleQuotaExceededFault {
 /**
  * <p>User already has a DB cluster snapshot with the given identifier.</p>
  */
-export interface DBClusterSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterSnapshotAlreadyExistsFault";
   $fault: "client";
   /**
@@ -204,9 +180,7 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
  *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
  *       DB cluster snapshot.</p>
  */
-export interface DBClusterSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBClusterSnapshotNotFoundFault";
   $fault: "client";
   /**
@@ -223,9 +197,7 @@ export namespace DBClusterSnapshotNotFoundFault {
 /**
  * <p>User already has a DB instance with the given identifier.</p>
  */
-export interface DBInstanceAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBInstanceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBInstanceAlreadyExistsFault";
   $fault: "client";
   /**
@@ -243,9 +215,7 @@ export namespace DBInstanceAlreadyExistsFault {
  * <p>
  *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
  */
-export interface DBInstanceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBInstanceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBInstanceNotFoundFault";
   $fault: "client";
   /**
@@ -255,16 +225,13 @@ export interface DBInstanceNotFoundFault
 }
 
 export namespace DBInstanceNotFoundFault {
-  export const isa = (o: any): o is DBInstanceNotFoundFault =>
-    __isa(o, "DBInstanceNotFoundFault");
+  export const isa = (o: any): o is DBInstanceNotFoundFault => __isa(o, "DBInstanceNotFoundFault");
 }
 
 /**
  * <p>A DB parameter group with the same name exists.</p>
  */
-export interface DBParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupAlreadyExistsFault";
   $fault: "client";
   /**
@@ -283,9 +250,7 @@ export namespace DBParameterGroupAlreadyExistsFault {
  *             <i>DBParameterGroupName</i> does not refer to an
  *       existing DB parameter group.</p>
  */
-export interface DBParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupNotFoundFault";
   $fault: "client";
   /**
@@ -302,9 +267,7 @@ export namespace DBParameterGroupNotFoundFault {
 /**
  * <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  */
-export interface DBParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
   /**
@@ -323,9 +286,7 @@ export namespace DBParameterGroupQuotaExceededFault {
  *             <i>DBSecurityGroupName</i> does not refer
  *       to an existing DB security group.</p>
  */
-export interface DBSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSecurityGroupNotFoundFault";
   $fault: "client";
   /**
@@ -343,9 +304,7 @@ export namespace DBSecurityGroupNotFoundFault {
  * <p>
  *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
  */
-export interface DBSnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBSnapshotAlreadyExistsFault";
   $fault: "client";
   /**
@@ -363,9 +322,7 @@ export namespace DBSnapshotAlreadyExistsFault {
  * <p>
  *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
  */
-export interface DBSnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
   /**
@@ -375,17 +332,14 @@ export interface DBSnapshotNotFoundFault
 }
 
 export namespace DBSnapshotNotFoundFault {
-  export const isa = (o: any): o is DBSnapshotNotFoundFault =>
-    __isa(o, "DBSnapshotNotFoundFault");
+  export const isa = (o: any): o is DBSnapshotNotFoundFault => __isa(o, "DBSnapshotNotFoundFault");
 }
 
 /**
  * <p>
  *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
  */
-export interface DBSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupAlreadyExistsFault";
   $fault: "client";
   /**
@@ -403,9 +357,7 @@ export namespace DBSubnetGroupAlreadyExistsFault {
  * <p>Subnets in the DB subnet group should cover at least two Availability
  *       Zones unless there is only one Availability Zone.</p>
  */
-export interface DBSubnetGroupDoesNotCoverEnoughAZs
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   /**
@@ -424,9 +376,7 @@ export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
  *             <i>DBSubnetGroupName</i> does not refer to an
  *       existing DB subnet group.</p>
  */
-export interface DBSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupNotFoundFault";
   $fault: "client";
   /**
@@ -443,9 +393,7 @@ export namespace DBSubnetGroupNotFoundFault {
 /**
  * <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
  */
-export interface DBSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetGroupQuotaExceededFault";
   $fault: "client";
   /**
@@ -462,9 +410,7 @@ export namespace DBSubnetGroupQuotaExceededFault {
 /**
  * <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
  */
-export interface DBSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
   /**
@@ -481,9 +427,7 @@ export namespace DBSubnetQuotaExceededFault {
 /**
  * <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
  */
-export interface DBUpgradeDependencyFailureFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DBUpgradeDependencyFailureFault extends __SmithyException, $MetadataBearer {
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   /**
@@ -501,9 +445,7 @@ export namespace DBUpgradeDependencyFailureFault {
  * <p>
  *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
  */
-export interface DomainNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DomainNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DomainNotFoundFault";
   $fault: "client";
   /**
@@ -513,16 +455,13 @@ export interface DomainNotFoundFault
 }
 
 export namespace DomainNotFoundFault {
-  export const isa = (o: any): o is DomainNotFoundFault =>
-    __isa(o, "DomainNotFoundFault");
+  export const isa = (o: any): o is DomainNotFoundFault => __isa(o, "DomainNotFoundFault");
 }
 
 /**
  * <p>You have exceeded the number of events you can subscribe to.</p>
  */
-export interface EventSubscriptionQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "EventSubscriptionQuotaExceededFault";
   $fault: "client";
   /**
@@ -539,9 +478,7 @@ export namespace EventSubscriptionQuotaExceededFault {
 /**
  * <p>Request would result in user exceeding the allowed number of DB instances.</p>
  */
-export interface InstanceQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "InstanceQuotaExceededFault";
   $fault: "client";
   /**
@@ -558,9 +495,7 @@ export namespace InstanceQuotaExceededFault {
 /**
  * <p>The DB cluster does not have enough capacity for the current operation.</p>
  */
-export interface InsufficientDBClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDBClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientDBClusterCapacityFault";
   $fault: "client";
   /**
@@ -577,9 +512,7 @@ export namespace InsufficientDBClusterCapacityFault {
 /**
  * <p>Specified DB instance class is not available in the specified Availability Zone.</p>
  */
-export interface InsufficientDBInstanceCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDBInstanceCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientDBInstanceCapacityFault";
   $fault: "client";
   /**
@@ -617,9 +550,7 @@ export namespace InsufficientStorageClusterCapacityFault {
 /**
  * <p>The supplied value is not a valid DB cluster snapshot state.</p>
  */
-export interface InvalidDBClusterSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBClusterSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBClusterSnapshotStateFault";
   $fault: "client";
   /**
@@ -636,9 +567,7 @@ export namespace InvalidDBClusterSnapshotStateFault {
 /**
  * <p>The DB cluster is not in a valid state.</p>
  */
-export interface InvalidDBClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBClusterStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBClusterStateFault";
   $fault: "client";
   /**
@@ -655,9 +584,7 @@ export namespace InvalidDBClusterStateFault {
 /**
  * <p>The specified DB instance is not in the <i>available</i> state.</p>
  */
-export interface InvalidDBInstanceStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBInstanceStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBInstanceStateFault";
   $fault: "client";
   /**
@@ -675,9 +602,7 @@ export namespace InvalidDBInstanceStateFault {
  * <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  */
-export interface InvalidDBParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBParameterGroupStateFault";
   $fault: "client";
   /**
@@ -694,9 +619,7 @@ export namespace InvalidDBParameterGroupStateFault {
 /**
  * <p>The state of the DB security group does not allow deletion.</p>
  */
-export interface InvalidDBSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSecurityGroupStateFault";
   $fault: "client";
   /**
@@ -713,9 +636,7 @@ export namespace InvalidDBSecurityGroupStateFault {
 /**
  * <p>The state of the DB snapshot does not allow deletion.</p>
  */
-export interface InvalidDBSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
   /**
@@ -732,9 +653,7 @@ export namespace InvalidDBSnapshotStateFault {
 /**
  * <p>The DB subnet group cannot be deleted because it is in use.</p>
  */
-export interface InvalidDBSubnetGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSubnetGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSubnetGroupStateFault";
   $fault: "client";
   /**
@@ -751,9 +670,7 @@ export namespace InvalidDBSubnetGroupStateFault {
 /**
  * <p>The DB subnet is not in the <i>available</i> state.</p>
  */
-export interface InvalidDBSubnetStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidDBSubnetStateFault";
   $fault: "client";
   /**
@@ -770,9 +687,7 @@ export namespace InvalidDBSubnetStateFault {
 /**
  * <p>The event subscription is in an invalid state.</p>
  */
-export interface InvalidEventSubscriptionStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEventSubscriptionStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidEventSubscriptionStateFault";
   $fault: "client";
   /**
@@ -789,9 +704,7 @@ export namespace InvalidEventSubscriptionStateFault {
 /**
  * <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
  */
-export interface InvalidRestoreFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
   name: "InvalidRestoreFault";
   $fault: "client";
   /**
@@ -801,8 +714,7 @@ export interface InvalidRestoreFault
 }
 
 export namespace InvalidRestoreFault {
-  export const isa = (o: any): o is InvalidRestoreFault =>
-    __isa(o, "InvalidRestoreFault");
+  export const isa = (o: any): o is InvalidRestoreFault => __isa(o, "InvalidRestoreFault");
 }
 
 /**
@@ -826,9 +738,7 @@ export namespace InvalidSubnet {
  * <p>DB subnet group does not cover all Availability Zones after it is created
  *       because users' change.</p>
  */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   /**
@@ -845,9 +755,7 @@ export namespace InvalidVPCNetworkStateFault {
 /**
  * <p>Error accessing KMS key.</p>
  */
-export interface KMSKeyNotAccessibleFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   /**
@@ -864,9 +772,7 @@ export namespace KMSKeyNotAccessibleFault {
 /**
  * <p>The designated option group could not be found.</p>
  */
-export interface OptionGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OptionGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "OptionGroupNotFoundFault";
   $fault: "client";
   /**
@@ -883,9 +789,7 @@ export namespace OptionGroupNotFoundFault {
 /**
  * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  */
-export interface ProvisionedIopsNotAvailableInAZFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedIopsNotAvailableInAZFault extends __SmithyException, $MetadataBearer {
   name: "ProvisionedIopsNotAvailableInAZFault";
   $fault: "client";
   /**
@@ -902,9 +806,7 @@ export namespace ProvisionedIopsNotAvailableInAZFault {
 /**
  * <p>The specified resource ID was not found.</p>
  */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundFault";
   $fault: "client";
   /**
@@ -914,16 +816,13 @@ export interface ResourceNotFoundFault
 }
 
 export namespace ResourceNotFoundFault {
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
+  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
  * <p>The SNS topic is invalid.</p>
  */
-export interface SNSInvalidTopicFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
   name: "SNSInvalidTopicFault";
   $fault: "client";
   /**
@@ -933,16 +832,13 @@ export interface SNSInvalidTopicFault
 }
 
 export namespace SNSInvalidTopicFault {
-  export const isa = (o: any): o is SNSInvalidTopicFault =>
-    __isa(o, "SNSInvalidTopicFault");
+  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
  * <p>There is no SNS authorization.</p>
  */
-export interface SNSNoAuthorizationFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   /**
@@ -952,16 +848,13 @@ export interface SNSNoAuthorizationFault
 }
 
 export namespace SNSNoAuthorizationFault {
-  export const isa = (o: any): o is SNSNoAuthorizationFault =>
-    __isa(o, "SNSNoAuthorizationFault");
+  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
  * <p>The ARN of the SNS topic could not be found.</p>
  */
-export interface SNSTopicArnNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
   /**
@@ -978,9 +871,7 @@ export namespace SNSTopicArnNotFoundFault {
 /**
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  */
-export interface SharedSnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SharedSnapshotQuotaExceededFault";
   $fault: "client";
   /**
@@ -997,9 +888,7 @@ export namespace SharedSnapshotQuotaExceededFault {
 /**
  * <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
  */
-export interface SnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   /**
@@ -1016,9 +905,7 @@ export namespace SnapshotQuotaExceededFault {
 /**
  * <p>The source could not be found.</p>
  */
-export interface SourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SourceNotFoundFault";
   $fault: "client";
   /**
@@ -1028,16 +915,13 @@ export interface SourceNotFoundFault
 }
 
 export namespace SourceNotFoundFault {
-  export const isa = (o: any): o is SourceNotFoundFault =>
-    __isa(o, "SourceNotFoundFault");
+  export const isa = (o: any): o is SourceNotFoundFault => __isa(o, "SourceNotFoundFault");
 }
 
 /**
  * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
  */
-export interface StorageQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "StorageQuotaExceededFault";
   $fault: "client";
   /**
@@ -1055,9 +939,7 @@ export namespace StorageQuotaExceededFault {
  * <p>
  *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
  */
-export interface StorageTypeNotSupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageTypeNotSupportedFault extends __SmithyException, $MetadataBearer {
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
   /**
@@ -1084,16 +966,13 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetAlreadyInUse {
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
+  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
  * <p>This subscription already exists.</p>
  */
-export interface SubscriptionAlreadyExistFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionAlreadyExistFault";
   $fault: "client";
   /**
@@ -1110,9 +989,7 @@ export namespace SubscriptionAlreadyExistFault {
 /**
  * <p>The designated subscription category could not be found.</p>
  */
-export interface SubscriptionCategoryNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
   /**
@@ -1129,9 +1006,7 @@ export namespace SubscriptionCategoryNotFoundFault {
 /**
  * <p>The designated subscription could not be found.</p>
  */
-export interface SubscriptionNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   /**
@@ -1307,8 +1182,7 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -1845,8 +1719,7 @@ export interface CreateDBClusterMessage {
 }
 
 export namespace CreateDBClusterMessage {
-  export const isa = (o: any): o is CreateDBClusterMessage =>
-    __isa(o, "CreateDBClusterMessage");
+  export const isa = (o: any): o is CreateDBClusterMessage => __isa(o, "CreateDBClusterMessage");
 }
 
 export interface CreateDBClusterParameterGroupMessage {
@@ -1913,8 +1786,7 @@ export interface CreateDBClusterResult {
 }
 
 export namespace CreateDBClusterResult {
-  export const isa = (o: any): o is CreateDBClusterResult =>
-    __isa(o, "CreateDBClusterResult");
+  export const isa = (o: any): o is CreateDBClusterResult => __isa(o, "CreateDBClusterResult");
 }
 
 export interface CreateDBClusterSnapshotMessage {
@@ -2329,8 +2201,7 @@ export interface CreateDBInstanceMessage {
 }
 
 export namespace CreateDBInstanceMessage {
-  export const isa = (o: any): o is CreateDBInstanceMessage =>
-    __isa(o, "CreateDBInstanceMessage");
+  export const isa = (o: any): o is CreateDBInstanceMessage => __isa(o, "CreateDBInstanceMessage");
 }
 
 export interface CreateDBInstanceResult {
@@ -2343,8 +2214,7 @@ export interface CreateDBInstanceResult {
 }
 
 export namespace CreateDBInstanceResult {
-  export const isa = (o: any): o is CreateDBInstanceResult =>
-    __isa(o, "CreateDBInstanceResult");
+  export const isa = (o: any): o is CreateDBInstanceResult => __isa(o, "CreateDBInstanceResult");
 }
 
 export interface CreateDBParameterGroupMessage {
@@ -2802,8 +2672,7 @@ export interface DBClusterMember {
 }
 
 export namespace DBClusterMember {
-  export const isa = (o: any): o is DBClusterMember =>
-    __isa(o, "DBClusterMember");
+  export const isa = (o: any): o is DBClusterMember => __isa(o, "DBClusterMember");
 }
 
 export interface DBClusterMessage {
@@ -2820,8 +2689,7 @@ export interface DBClusterMessage {
 }
 
 export namespace DBClusterMessage {
-  export const isa = (o: any): o is DBClusterMessage =>
-    __isa(o, "DBClusterMessage");
+  export const isa = (o: any): o is DBClusterMessage => __isa(o, "DBClusterMessage");
 }
 
 /**
@@ -2874,8 +2742,7 @@ export interface DBClusterParameterGroup {
 }
 
 export namespace DBClusterParameterGroup {
-  export const isa = (o: any): o is DBClusterParameterGroup =>
-    __isa(o, "DBClusterParameterGroup");
+  export const isa = (o: any): o is DBClusterParameterGroup => __isa(o, "DBClusterParameterGroup");
 }
 
 export interface DBClusterParameterGroupDetails {
@@ -3103,8 +2970,7 @@ export interface DBClusterSnapshot {
 }
 
 export namespace DBClusterSnapshot {
-  export const isa = (o: any): o is DBClusterSnapshot =>
-    __isa(o, "DBClusterSnapshot");
+  export const isa = (o: any): o is DBClusterSnapshot => __isa(o, "DBClusterSnapshot");
 }
 
 /**
@@ -3254,8 +3120,7 @@ export interface DBEngineVersion {
 }
 
 export namespace DBEngineVersion {
-  export const isa = (o: any): o is DBEngineVersion =>
-    __isa(o, "DBEngineVersion");
+  export const isa = (o: any): o is DBEngineVersion => __isa(o, "DBEngineVersion");
 }
 
 export interface DBEngineVersionMessage {
@@ -3274,8 +3139,7 @@ export interface DBEngineVersionMessage {
 }
 
 export namespace DBEngineVersionMessage {
-  export const isa = (o: any): o is DBEngineVersionMessage =>
-    __isa(o, "DBEngineVersionMessage");
+  export const isa = (o: any): o is DBEngineVersionMessage => __isa(o, "DBEngineVersionMessage");
 }
 
 /**
@@ -3604,8 +3468,7 @@ export interface DBInstanceMessage {
 }
 
 export namespace DBInstanceMessage {
-  export const isa = (o: any): o is DBInstanceMessage =>
-    __isa(o, "DBInstanceMessage");
+  export const isa = (o: any): o is DBInstanceMessage => __isa(o, "DBInstanceMessage");
 }
 
 /**
@@ -3638,8 +3501,7 @@ export interface DBInstanceStatusInfo {
 }
 
 export namespace DBInstanceStatusInfo {
-  export const isa = (o: any): o is DBInstanceStatusInfo =>
-    __isa(o, "DBInstanceStatusInfo");
+  export const isa = (o: any): o is DBInstanceStatusInfo => __isa(o, "DBInstanceStatusInfo");
 }
 
 /**
@@ -3671,8 +3533,7 @@ export interface DBParameterGroup {
 }
 
 export namespace DBParameterGroup {
-  export const isa = (o: any): o is DBParameterGroup =>
-    __isa(o, "DBParameterGroup");
+  export const isa = (o: any): o is DBParameterGroup => __isa(o, "DBParameterGroup");
 }
 
 export interface DBParameterGroupDetails {
@@ -3691,8 +3552,7 @@ export interface DBParameterGroupDetails {
 }
 
 export namespace DBParameterGroupDetails {
-  export const isa = (o: any): o is DBParameterGroupDetails =>
-    __isa(o, "DBParameterGroupDetails");
+  export const isa = (o: any): o is DBParameterGroupDetails => __isa(o, "DBParameterGroupDetails");
 }
 
 export interface DBParameterGroupNameMessage {
@@ -3748,8 +3608,7 @@ export interface DBParameterGroupStatus {
 }
 
 export namespace DBParameterGroupStatus {
-  export const isa = (o: any): o is DBParameterGroupStatus =>
-    __isa(o, "DBParameterGroupStatus");
+  export const isa = (o: any): o is DBParameterGroupStatus => __isa(o, "DBParameterGroupStatus");
 }
 
 export interface DBParameterGroupsMessage {
@@ -3850,8 +3709,7 @@ export interface DBSubnetGroupMessage {
 }
 
 export namespace DBSubnetGroupMessage {
-  export const isa = (o: any): o is DBSubnetGroupMessage =>
-    __isa(o, "DBSubnetGroupMessage");
+  export const isa = (o: any): o is DBSubnetGroupMessage => __isa(o, "DBSubnetGroupMessage");
 }
 
 export interface DeleteDBClusterMessage {
@@ -3906,8 +3764,7 @@ export interface DeleteDBClusterMessage {
 }
 
 export namespace DeleteDBClusterMessage {
-  export const isa = (o: any): o is DeleteDBClusterMessage =>
-    __isa(o, "DeleteDBClusterMessage");
+  export const isa = (o: any): o is DeleteDBClusterMessage => __isa(o, "DeleteDBClusterMessage");
 }
 
 export interface DeleteDBClusterParameterGroupMessage {
@@ -3945,8 +3802,7 @@ export interface DeleteDBClusterResult {
 }
 
 export namespace DeleteDBClusterResult {
-  export const isa = (o: any): o is DeleteDBClusterResult =>
-    __isa(o, "DeleteDBClusterResult");
+  export const isa = (o: any): o is DeleteDBClusterResult => __isa(o, "DeleteDBClusterResult");
 }
 
 export interface DeleteDBClusterSnapshotMessage {
@@ -4036,8 +3892,7 @@ export interface DeleteDBInstanceMessage {
 }
 
 export namespace DeleteDBInstanceMessage {
-  export const isa = (o: any): o is DeleteDBInstanceMessage =>
-    __isa(o, "DeleteDBInstanceMessage");
+  export const isa = (o: any): o is DeleteDBInstanceMessage => __isa(o, "DeleteDBInstanceMessage");
 }
 
 export interface DeleteDBInstanceResult {
@@ -4050,8 +3905,7 @@ export interface DeleteDBInstanceResult {
 }
 
 export namespace DeleteDBInstanceResult {
-  export const isa = (o: any): o is DeleteDBInstanceResult =>
-    __isa(o, "DeleteDBInstanceResult");
+  export const isa = (o: any): o is DeleteDBInstanceResult => __isa(o, "DeleteDBInstanceResult");
 }
 
 export interface DeleteDBParameterGroupMessage {
@@ -4222,9 +4076,7 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 }
 
 export namespace DescribeDBClusterSnapshotAttributesMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeDBClusterSnapshotAttributesMessage =>
+  export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesMessage =>
     __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
 }
 
@@ -4691,9 +4543,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
 }
 
 export namespace DescribeEngineDefaultClusterParametersMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeEngineDefaultClusterParametersMessage =>
+  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersMessage =>
     __isa(o, "DescribeEngineDefaultClusterParametersMessage");
 }
 
@@ -4706,9 +4556,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
 }
 
 export namespace DescribeEngineDefaultClusterParametersResult {
-  export const isa = (
-    o: any
-  ): o is DescribeEngineDefaultClusterParametersResult =>
+  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersResult =>
     __isa(o, "DescribeEngineDefaultClusterParametersResult");
 }
 
@@ -4903,8 +4751,7 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -5025,9 +4872,7 @@ export interface DescribeValidDBInstanceModificationsMessage {
 }
 
 export namespace DescribeValidDBInstanceModificationsMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeValidDBInstanceModificationsMessage =>
+  export const isa = (o: any): o is DescribeValidDBInstanceModificationsMessage =>
     __isa(o, "DescribeValidDBInstanceModificationsMessage");
 }
 
@@ -5043,9 +4888,7 @@ export interface DescribeValidDBInstanceModificationsResult {
 }
 
 export namespace DescribeValidDBInstanceModificationsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeValidDBInstanceModificationsResult =>
+  export const isa = (o: any): o is DescribeValidDBInstanceModificationsResult =>
     __isa(o, "DescribeValidDBInstanceModificationsResult");
 }
 
@@ -5077,8 +4920,7 @@ export interface DomainMembership {
 }
 
 export namespace DomainMembership {
-  export const isa = (o: any): o is DomainMembership =>
-    __isa(o, "DomainMembership");
+  export const isa = (o: any): o is DomainMembership => __isa(o, "DomainMembership");
 }
 
 /**
@@ -5151,8 +4993,7 @@ export interface EngineDefaults {
 }
 
 export namespace EngineDefaults {
-  export const isa = (o: any): o is EngineDefaults =>
-    __isa(o, "EngineDefaults");
+  export const isa = (o: any): o is EngineDefaults => __isa(o, "EngineDefaults");
 }
 
 /**
@@ -5213,8 +5054,7 @@ export interface EventCategoriesMap {
 }
 
 export namespace EventCategoriesMap {
-  export const isa = (o: any): o is EventCategoriesMap =>
-    __isa(o, "EventCategoriesMap");
+  export const isa = (o: any): o is EventCategoriesMap => __isa(o, "EventCategoriesMap");
 }
 
 export interface EventCategoriesMessage {
@@ -5226,8 +5066,7 @@ export interface EventCategoriesMessage {
 }
 
 export namespace EventCategoriesMessage {
-  export const isa = (o: any): o is EventCategoriesMessage =>
-    __isa(o, "EventCategoriesMessage");
+  export const isa = (o: any): o is EventCategoriesMessage => __isa(o, "EventCategoriesMessage");
 }
 
 /**
@@ -5294,8 +5133,7 @@ export interface EventSubscription {
 }
 
 export namespace EventSubscription {
-  export const isa = (o: any): o is EventSubscription =>
-    __isa(o, "EventSubscription");
+  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 export interface EventSubscriptionsMessage {
@@ -5374,8 +5212,7 @@ export interface FailoverDBClusterResult {
 }
 
 export namespace FailoverDBClusterResult {
-  export const isa = (o: any): o is FailoverDBClusterResult =>
-    __isa(o, "FailoverDBClusterResult");
+  export const isa = (o: any): o is FailoverDBClusterResult => __isa(o, "FailoverDBClusterResult");
 }
 
 /**
@@ -5584,8 +5421,7 @@ export interface ModifyDBClusterMessage {
 }
 
 export namespace ModifyDBClusterMessage {
-  export const isa = (o: any): o is ModifyDBClusterMessage =>
-    __isa(o, "ModifyDBClusterMessage");
+  export const isa = (o: any): o is ModifyDBClusterMessage => __isa(o, "ModifyDBClusterMessage");
 }
 
 export interface ModifyDBClusterParameterGroupMessage {
@@ -5616,8 +5452,7 @@ export interface ModifyDBClusterResult {
 }
 
 export namespace ModifyDBClusterResult {
-  export const isa = (o: any): o is ModifyDBClusterResult =>
-    __isa(o, "ModifyDBClusterResult");
+  export const isa = (o: any): o is ModifyDBClusterResult => __isa(o, "ModifyDBClusterResult");
 }
 
 export interface ModifyDBClusterSnapshotAttributeMessage {
@@ -6015,8 +5850,7 @@ export interface ModifyDBInstanceMessage {
 }
 
 export namespace ModifyDBInstanceMessage {
-  export const isa = (o: any): o is ModifyDBInstanceMessage =>
-    __isa(o, "ModifyDBInstanceMessage");
+  export const isa = (o: any): o is ModifyDBInstanceMessage => __isa(o, "ModifyDBInstanceMessage");
 }
 
 export interface ModifyDBInstanceResult {
@@ -6029,8 +5863,7 @@ export interface ModifyDBInstanceResult {
 }
 
 export namespace ModifyDBInstanceResult {
-  export const isa = (o: any): o is ModifyDBInstanceResult =>
-    __isa(o, "ModifyDBInstanceResult");
+  export const isa = (o: any): o is ModifyDBInstanceResult => __isa(o, "ModifyDBInstanceResult");
 }
 
 export interface ModifyDBParameterGroupMessage {
@@ -6181,8 +6014,7 @@ export interface OptionGroupMembership {
 }
 
 export namespace OptionGroupMembership {
-  export const isa = (o: any): o is OptionGroupMembership =>
-    __isa(o, "OptionGroupMembership");
+  export const isa = (o: any): o is OptionGroupMembership => __isa(o, "OptionGroupMembership");
 }
 
 /**
@@ -6564,8 +6396,7 @@ export interface PendingModifiedValues {
 }
 
 export namespace PendingModifiedValues {
-  export const isa = (o: any): o is PendingModifiedValues =>
-    __isa(o, "PendingModifiedValues");
+  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 export interface PromoteReadReplicaDBClusterMessage {
@@ -6645,8 +6476,7 @@ export interface RebootDBInstanceMessage {
 }
 
 export namespace RebootDBInstanceMessage {
-  export const isa = (o: any): o is RebootDBInstanceMessage =>
-    __isa(o, "RebootDBInstanceMessage");
+  export const isa = (o: any): o is RebootDBInstanceMessage => __isa(o, "RebootDBInstanceMessage");
 }
 
 export interface RebootDBInstanceResult {
@@ -6659,8 +6489,7 @@ export interface RebootDBInstanceResult {
 }
 
 export namespace RebootDBInstanceResult {
-  export const isa = (o: any): o is RebootDBInstanceResult =>
-    __isa(o, "RebootDBInstanceResult");
+  export const isa = (o: any): o is RebootDBInstanceResult => __isa(o, "RebootDBInstanceResult");
 }
 
 export interface RemoveRoleFromDBClusterMessage {
@@ -6698,9 +6527,7 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
 }
 
 export namespace RemoveSourceIdentifierFromSubscriptionMessage {
-  export const isa = (
-    o: any
-  ): o is RemoveSourceIdentifierFromSubscriptionMessage =>
+  export const isa = (o: any): o is RemoveSourceIdentifierFromSubscriptionMessage =>
     __isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
 }
 
@@ -6713,9 +6540,7 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
 }
 
 export namespace RemoveSourceIdentifierFromSubscriptionResult {
-  export const isa = (
-    o: any
-  ): o is RemoveSourceIdentifierFromSubscriptionResult =>
+  export const isa = (o: any): o is RemoveSourceIdentifierFromSubscriptionResult =>
     __isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
 }
 
@@ -7258,8 +7083,7 @@ export interface TagListMessage {
 }
 
 export namespace TagListMessage {
-  export const isa = (o: any): o is TagListMessage =>
-    __isa(o, "TagListMessage");
+  export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
 }
 
 /**
@@ -7362,8 +7186,7 @@ export interface ValidStorageOptions {
 }
 
 export namespace ValidStorageOptions {
-  export const isa = (o: any): o is ValidStorageOptions =>
-    __isa(o, "ValidStorageOptions");
+  export const isa = (o: any): o is ValidStorageOptions => __isa(o, "ValidStorageOptions");
 }
 
 /**

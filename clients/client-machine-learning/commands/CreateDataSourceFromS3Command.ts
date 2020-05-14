@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromS3Input,
-  CreateDataSourceFromS3Output
-} from "../models/index";
+import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/index";
 import {
   deserializeAws_json1_1CreateDataSourceFromS3Command,
   serializeAws_json1_1CreateDataSourceFromS3Command
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataSourceFromS3CommandInput = CreateDataSourceFromS3Input;
-export type CreateDataSourceFromS3CommandOutput = CreateDataSourceFromS3Output &
-  __MetadataBearer;
+export type CreateDataSourceFromS3CommandOutput = CreateDataSourceFromS3Output & __MetadataBearer;
 
 export class CreateDataSourceFromS3Command extends $Command<
   CreateDataSourceFromS3CommandInput,
@@ -49,13 +45,8 @@ export class CreateDataSourceFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataSourceFromS3CommandInput,
-    CreateDataSourceFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataSourceFromS3CommandInput, CreateDataSourceFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

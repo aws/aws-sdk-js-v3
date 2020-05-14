@@ -49,13 +49,8 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServerEngineAttributesCommandInput,
-    UpdateServerEngineAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServerEngineAttributesCommandInput, UpdateServerEngineAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     input: UpdateServerEngineAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerEngineAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServerEngineAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAWSDefaultServiceQuotasCommandInput,
-    ListAWSDefaultServiceQuotasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAWSDefaultServiceQuotasCommandInput, ListAWSDefaultServiceQuotasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     input: ListAWSDefaultServiceQuotasCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAWSDefaultServiceQuotasCommandOutput> {
-    return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand(output, context);
   }
 
   // Start section: command_body_extra

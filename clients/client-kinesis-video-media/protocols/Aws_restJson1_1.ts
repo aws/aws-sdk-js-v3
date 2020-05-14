@@ -1,7 +1,4 @@
-import {
-  GetMediaCommandInput,
-  GetMediaCommandOutput
-} from "../commands/GetMediaCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
 import {
   ClientLimitExceededException,
   ConnectionLimitExceededException,
@@ -34,10 +31,7 @@ export const serializeAws_restJson1_1GetMediaCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined && {
-      StartSelector: serializeAws_restJson1_1StartSelector(
-        input.StartSelector,
-        context
-      )
+      StartSelector: serializeAws_restJson1_1StartSelector(input.StartSelector, context)
     }),
     ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName })
@@ -134,10 +128,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -306,23 +297,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

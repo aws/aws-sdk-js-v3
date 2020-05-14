@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  PutLoggingConfigurationRequest,
-  PutLoggingConfigurationResponse
-} from "../models/index";
+import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutLoggingConfigurationCommand,
   serializeAws_json1_1PutLoggingConfigurationCommand
@@ -49,13 +46,8 @@ export class PutLoggingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutLoggingConfigurationCommandInput,
-    PutLoggingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutLoggingConfigurationCommandInput, PutLoggingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class PutLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutLoggingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SetIdentityNotificationTopicRequest,
   SetIdentityNotificationTopicResponse
@@ -49,13 +45,8 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetIdentityNotificationTopicCommandInput,
-    SetIdentityNotificationTopicCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetIdentityNotificationTopicCommandInput, SetIdentityNotificationTopicCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     input: SetIdentityNotificationTopicCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityNotificationTopicCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetIdentityNotificationTopicCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityNotificationTopicCommandOutput> {
-    return deserializeAws_querySetIdentityNotificationTopicCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityNotificationTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

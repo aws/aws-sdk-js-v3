@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetUtterancesViewRequest,
-  GetUtterancesViewResponse
-} from "../models/index";
+import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUtterancesViewCommand,
   serializeAws_restJson1_1GetUtterancesViewCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUtterancesViewCommandInput = GetUtterancesViewRequest;
-export type GetUtterancesViewCommandOutput = GetUtterancesViewResponse &
-  __MetadataBearer;
+export type GetUtterancesViewCommandOutput = GetUtterancesViewResponse & __MetadataBearer;
 
 export class GetUtterancesViewCommand extends $Command<
   GetUtterancesViewCommandInput,
@@ -50,9 +46,7 @@ export class GetUtterancesViewCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

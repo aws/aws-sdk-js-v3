@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  ActivityType,
-  TerminateInstanceInAutoScalingGroupType
-} from "../models/index";
+import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/index";
 import {
   deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
   serializeAws_queryTerminateInstanceInAutoScalingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateInstanceInAutoScalingGroupCommandInput = TerminateInstanceInAutoScalingGroupType;
-export type TerminateInstanceInAutoScalingGroupCommandOutput = ActivityType &
-  __MetadataBearer;
+export type TerminateInstanceInAutoScalingGroupCommandOutput = ActivityType & __MetadataBearer;
 
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   TerminateInstanceInAutoScalingGroupCommandInput,
@@ -53,9 +49,7 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     TerminateInstanceInAutoScalingGroupCommandInput,
     TerminateInstanceInAutoScalingGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
     input: TerminateInstanceInAutoScalingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_queryTerminateInstanceInAutoScalingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

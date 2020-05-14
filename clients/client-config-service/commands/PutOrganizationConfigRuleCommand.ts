@@ -49,13 +49,8 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutOrganizationConfigRuleCommandInput,
-    PutOrganizationConfigRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutOrganizationConfigRuleCommandInput, PutOrganizationConfigRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutOrganizationConfigRuleCommandOutput> {
-    return deserializeAws_json1_1PutOrganizationConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutOrganizationConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  ModifyReplicationGroupMessage,
-  ModifyReplicationGroupResult
-} from "../models/index";
+import { ModifyReplicationGroupMessage, ModifyReplicationGroupResult } from "../models/index";
 import {
   deserializeAws_queryModifyReplicationGroupCommand,
   serializeAws_queryModifyReplicationGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyReplicationGroupCommandInput = ModifyReplicationGroupMessage;
-export type ModifyReplicationGroupCommandOutput = ModifyReplicationGroupResult &
-  __MetadataBearer;
+export type ModifyReplicationGroupCommandOutput = ModifyReplicationGroupResult & __MetadataBearer;
 
 export class ModifyReplicationGroupCommand extends $Command<
   ModifyReplicationGroupCommandInput,
@@ -49,13 +45,8 @@ export class ModifyReplicationGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReplicationGroupCommandInput,
-    ModifyReplicationGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyReplicationGroupCommandInput, ModifyReplicationGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

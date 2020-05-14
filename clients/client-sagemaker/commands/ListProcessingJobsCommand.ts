@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListProcessingJobsRequest,
-  ListProcessingJobsResponse
-} from "../models/index";
+import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListProcessingJobsCommand,
   serializeAws_json1_1ListProcessingJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProcessingJobsCommandInput = ListProcessingJobsRequest;
-export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse &
-  __MetadataBearer;
+export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse & __MetadataBearer;
 
 export class ListProcessingJobsCommand extends $Command<
   ListProcessingJobsCommandInput,
@@ -50,9 +46,7 @@ export class ListProcessingJobsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

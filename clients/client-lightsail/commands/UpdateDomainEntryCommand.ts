@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  UpdateDomainEntryRequest,
-  UpdateDomainEntryResult
-} from "../models/index";
+import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDomainEntryCommand,
   serializeAws_json1_1UpdateDomainEntryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainEntryCommandInput = UpdateDomainEntryRequest;
-export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult &
-  __MetadataBearer;
+export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult & __MetadataBearer;
 
 export class UpdateDomainEntryCommand extends $Command<
   UpdateDomainEntryCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDomainEntryCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

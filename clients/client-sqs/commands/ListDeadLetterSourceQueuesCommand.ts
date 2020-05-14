@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import {
   ListDeadLetterSourceQueuesRequest,
   ListDeadLetterSourceQueuesResult
@@ -49,13 +45,8 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeadLetterSourceQueuesCommandInput,
-    ListDeadLetterSourceQueuesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeadLetterSourceQueuesCommandInput, ListDeadLetterSourceQueuesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> {
-    return deserializeAws_queryListDeadLetterSourceQueuesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListDeadLetterSourceQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

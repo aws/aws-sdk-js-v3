@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DetectStackSetDriftInput,
-  DetectStackSetDriftOutput
-} from "../models/index";
+import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/index";
 import {
   deserializeAws_queryDetectStackSetDriftCommand,
   serializeAws_queryDetectStackSetDriftCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectStackSetDriftCommandInput = DetectStackSetDriftInput;
-export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput &
-  __MetadataBearer;
+export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput & __MetadataBearer;
 
 export class DetectStackSetDriftCommand extends $Command<
   DetectStackSetDriftCommandInput,
@@ -49,13 +45,8 @@ export class DetectStackSetDriftCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetectStackSetDriftCommandInput,
-    DetectStackSetDriftCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetectStackSetDriftCommandInput, DetectStackSetDriftCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

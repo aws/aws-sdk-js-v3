@@ -597,9 +597,7 @@ export class Route53 extends Route53Client {
   ): void;
   public createHostedZone(
     args: CreateHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: CreateHostedZoneCommandOutput) => void
   ): Promise<CreateHostedZoneCommandOutput> | void {
     const command = new CreateHostedZoneCommand(args);
@@ -978,31 +976,19 @@ export class Route53 extends Route53Client {
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput>;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateVPCAssociationAuthorizationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput> | void {
     const command = new CreateVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1115,9 +1101,7 @@ export class Route53 extends Route53Client {
   ): void;
   public deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: DeleteHostedZoneCommandOutput) => void
   ): Promise<DeleteHostedZoneCommandOutput> | void {
     const command = new DeleteHostedZoneCommand(args);
@@ -1302,31 +1286,19 @@ export class Route53 extends Route53Client {
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput>;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
   public deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteVPCAssociationAuthorizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteVPCAssociationAuthorizationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> | void {
     const command = new DeleteVPCAssociationAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1414,9 +1386,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getAccountLimit(
     args: GetAccountLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountLimitCommandOutput) => void),
     cb?: (err: any, data?: GetAccountLimitCommandOutput) => void
   ): Promise<GetAccountLimitCommandOutput> | void {
     const command = new GetAccountLimitCommand(args);
@@ -1461,9 +1431,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getChange(
     args: GetChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeCommandOutput) => void),
     cb?: (err: any, data?: GetChangeCommandOutput) => void
   ): Promise<GetChangeCommandOutput> | void {
     const command = new GetChangeCommand(args);
@@ -1556,9 +1524,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getGeoLocation(
     args: GetGeoLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoLocationCommandOutput) => void),
     cb?: (err: any, data?: GetGeoLocationCommandOutput) => void
   ): Promise<GetGeoLocationCommandOutput> | void {
     const command = new GetGeoLocationCommand(args);
@@ -1591,9 +1557,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getHealthCheck(
     args: GetHealthCheckCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHealthCheckCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHealthCheckCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckCommandOutput) => void
   ): Promise<GetHealthCheckCommandOutput> | void {
     const command = new GetHealthCheckCommand(args);
@@ -1663,10 +1627,7 @@ export class Route53 extends Route53Client {
     args: GetHealthCheckLastFailureReasonCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetHealthCheckLastFailureReasonCommandOutput
-        ) => void),
+      | ((err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void),
     cb?: (err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> | void {
     const command = new GetHealthCheckLastFailureReasonCommand(args);
@@ -1734,9 +1695,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getHostedZone(
     args: GetHostedZoneCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHostedZoneCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHostedZoneCommandOutput) => void),
     cb?: (err: any, data?: GetHostedZoneCommandOutput) => void
   ): Promise<GetHostedZoneCommandOutput> | void {
     const command = new GetHostedZoneCommand(args);
@@ -1957,9 +1916,7 @@ export class Route53 extends Route53Client {
   ): void;
   public getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTrafficPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetTrafficPolicyCommandOutput) => void
   ): Promise<GetTrafficPolicyCommandOutput> | void {
     const command = new GetTrafficPolicyCommand(args);
@@ -2072,9 +2029,7 @@ export class Route53 extends Route53Client {
   ): void;
   public listGeoLocations(
     args: ListGeoLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoLocationsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoLocationsCommandOutput) => void
   ): Promise<ListGeoLocationsCommandOutput> | void {
     const command = new ListGeoLocationsCommand(args);
@@ -2107,9 +2062,7 @@ export class Route53 extends Route53Client {
   ): void;
   public listHealthChecks(
     args: ListHealthChecksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHealthChecksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHealthChecksCommandOutput) => void),
     cb?: (err: any, data?: ListHealthChecksCommandOutput) => void
   ): Promise<ListHealthChecksCommandOutput> | void {
     const command = new ListHealthChecksCommand(args);
@@ -2145,9 +2098,7 @@ export class Route53 extends Route53Client {
   ): void;
   public listHostedZones(
     args: ListHostedZonesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHostedZonesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHostedZonesCommandOutput) => void),
     cb?: (err: any, data?: ListHostedZonesCommandOutput) => void
   ): Promise<ListHostedZonesCommandOutput> | void {
     const command = new ListHostedZonesCommand(args);
@@ -2585,31 +2536,19 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput>;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput
-    ) => void
+      | ((err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByHostedZoneCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2639,31 +2578,19 @@ export class Route53 extends Route53Client {
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput>;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
   public listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrafficPolicyInstancesByPolicyCommandOutput
-    ) => void
+      | ((err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> | void {
     const command = new ListTrafficPolicyInstancesByPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2736,14 +2663,8 @@ export class Route53 extends Route53Client {
     args: ListVPCAssociationAuthorizationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListVPCAssociationAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListVPCAssociationAuthorizationsCommandOutput
-    ) => void
+      | ((err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> | void {
     const command = new ListVPCAssociationAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2776,9 +2697,7 @@ export class Route53 extends Route53Client {
   ): void;
   public testDNSAnswer(
     args: TestDNSAnswerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestDNSAnswerCommandOutput) => void),
     cb?: (err: any, data?: TestDNSAnswerCommandOutput) => void
   ): Promise<TestDNSAnswerCommandOutput> | void {
     const command = new TestDNSAnswerCommand(args);

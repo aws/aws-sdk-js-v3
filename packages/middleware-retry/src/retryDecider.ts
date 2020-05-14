@@ -23,11 +23,7 @@ export const defaultRetryDecider = (error: SdkError) => {
     return true;
   }
 
-  return (
-    isStillProcessingError(error) ||
-    isThrottlingError(error) ||
-    isClockSkewError(error)
-  );
+  return isStillProcessingError(error) || isThrottlingError(error) || isClockSkewError(error);
 };
 
 function hasMetadata(error: any): error is MetadataBearer {

@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  GetAuthorizationTokenRequest,
-  GetAuthorizationTokenResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { GetAuthorizationTokenRequest, GetAuthorizationTokenResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAuthorizationTokenCommand,
   serializeAws_json1_1GetAuthorizationTokenCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAuthorizationTokenCommandInput = GetAuthorizationTokenRequest;
-export type GetAuthorizationTokenCommandOutput = GetAuthorizationTokenResponse &
-  __MetadataBearer;
+export type GetAuthorizationTokenCommandOutput = GetAuthorizationTokenResponse & __MetadataBearer;
 
 export class GetAuthorizationTokenCommand extends $Command<
   GetAuthorizationTokenCommandInput,
@@ -49,13 +41,8 @@ export class GetAuthorizationTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAuthorizationTokenCommandInput,
-    GetAuthorizationTokenCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAuthorizationTokenCommandInput, GetAuthorizationTokenCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

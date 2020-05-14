@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeOrganizationCommandInput = {};
-export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse &
-  __MetadataBearer;
+export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
 
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,
@@ -46,13 +45,8 @@ export class DescribeOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOrganizationCommandInput,
-    DescribeOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOrganizationCommandInput, DescribeOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

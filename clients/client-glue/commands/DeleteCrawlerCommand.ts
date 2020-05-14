@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCrawlerCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCrawlerCommandInput = DeleteCrawlerRequest;
-export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse &
-  __MetadataBearer;
+export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse & __MetadataBearer;
 
 export class DeleteCrawlerCommand extends $Command<
   DeleteCrawlerCommandInput,
@@ -47,9 +42,7 @@ export class DeleteCrawlerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

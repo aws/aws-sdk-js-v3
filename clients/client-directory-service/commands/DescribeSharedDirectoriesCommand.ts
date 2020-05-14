@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeSharedDirectoriesRequest,
-  DescribeSharedDirectoriesResult
-} from "../models/index";
+import { DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSharedDirectoriesCommand,
   serializeAws_json1_1DescribeSharedDirectoriesCommand
@@ -49,13 +46,8 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSharedDirectoriesCommandInput,
-    DescribeSharedDirectoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSharedDirectoriesCommandInput, DescribeSharedDirectoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

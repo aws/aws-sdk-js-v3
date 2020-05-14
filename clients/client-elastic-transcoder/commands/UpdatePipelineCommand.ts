@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePipelineCommandInput = UpdatePipelineRequest;
-export type UpdatePipelineCommandOutput = UpdatePipelineResponse &
-  __MetadataBearer;
+export type UpdatePipelineCommandOutput = UpdatePipelineResponse & __MetadataBearer;
 
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,
@@ -47,9 +46,7 @@ export class UpdatePipelineCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdatePipelineCommandInput, UpdatePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

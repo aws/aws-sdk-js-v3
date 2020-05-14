@@ -53,9 +53,7 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     GetHealthCheckLastFailureReasonCommandInput,
     GetHealthCheckLastFailureReasonCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     input: GetHealthCheckLastFailureReasonCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(output, context);
   }
 
   // Start section: command_body_extra

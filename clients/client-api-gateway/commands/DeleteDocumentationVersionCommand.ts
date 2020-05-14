@@ -45,13 +45,8 @@ export class DeleteDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDocumentationVersionCommandInput,
-    DeleteDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDocumentationVersionCommandInput, DeleteDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class DeleteDocumentationVersionCommand extends $Command<
     input: DeleteDocumentationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDocumentationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDocumentationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDocumentationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import {
   GetBucketAccelerateConfigurationOutput,
   GetBucketAccelerateConfigurationRequest
@@ -54,9 +50,7 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     GetBucketAccelerateConfigurationCommandInput,
     GetBucketAccelerateConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +70,14 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     input: GetBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DeleteTrialComponentRequest,
-  DeleteTrialComponentResponse
-} from "../models/index";
+import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTrialComponentCommand,
   serializeAws_json1_1DeleteTrialComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTrialComponentCommandInput = DeleteTrialComponentRequest;
-export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse &
-  __MetadataBearer;
+export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse & __MetadataBearer;
 
 export class DeleteTrialComponentCommand extends $Command<
   DeleteTrialComponentCommandInput,
@@ -49,13 +45,8 @@ export class DeleteTrialComponentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTrialComponentCommandInput,
-    DeleteTrialComponentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTrialComponentCommandInput, DeleteTrialComponentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

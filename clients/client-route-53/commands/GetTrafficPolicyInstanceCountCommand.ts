@@ -53,9 +53,7 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     GetTrafficPolicyInstanceCountCommandInput,
     GetTrafficPolicyInstanceCountCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     input: GetTrafficPolicyInstanceCountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetTrafficPolicyInstanceCountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetModelVersionCommandInput = GetModelVersionRequest;
-export type GetModelVersionCommandOutput = GetModelVersionResult &
-  __MetadataBearer;
+export type GetModelVersionCommandOutput = GetModelVersionResult & __MetadataBearer;
 
 export class GetModelVersionCommand extends $Command<
   GetModelVersionCommandInput,
@@ -47,9 +46,7 @@ export class GetModelVersionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetModelVersionCommandInput, GetModelVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

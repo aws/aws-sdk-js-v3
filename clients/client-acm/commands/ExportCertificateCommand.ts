@@ -1,12 +1,5 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient";
-import {
-  ExportCertificateRequest,
-  ExportCertificateResponse
-} from "../models/index";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
+import { ExportCertificateRequest, ExportCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1ExportCertificateCommand,
   serializeAws_json1_1ExportCertificateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportCertificateCommandInput = ExportCertificateRequest;
-export type ExportCertificateCommandOutput = ExportCertificateResponse &
-  __MetadataBearer;
+export type ExportCertificateCommandOutput = ExportCertificateResponse & __MetadataBearer;
 
 export class ExportCertificateCommand extends $Command<
   ExportCertificateCommandInput,
@@ -50,9 +42,7 @@ export class ExportCertificateCommand extends $Command<
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportCertificateCommandInput, ExportCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

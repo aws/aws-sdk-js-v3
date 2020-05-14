@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53ResolverClient";
-import {
-  DeleteResolverRuleRequest,
-  DeleteResolverRuleResponse
-} from "../models/index";
+import { DeleteResolverRuleRequest, DeleteResolverRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteResolverRuleCommand,
   serializeAws_json1_1DeleteResolverRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResolverRuleCommandInput = DeleteResolverRuleRequest;
-export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse &
-  __MetadataBearer;
+export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse & __MetadataBearer;
 
 export class DeleteResolverRuleCommand extends $Command<
   DeleteResolverRuleCommandInput,
@@ -50,9 +46,7 @@ export class DeleteResolverRuleCommand extends $Command<
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

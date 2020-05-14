@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListMFADevicesRequest, ListMFADevicesResponse } from "../models/index";
 import {
   deserializeAws_queryListMFADevicesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMFADevicesCommandInput = ListMFADevicesRequest;
-export type ListMFADevicesCommandOutput = ListMFADevicesResponse &
-  __MetadataBearer;
+export type ListMFADevicesCommandOutput = ListMFADevicesResponse & __MetadataBearer;
 
 export class ListMFADevicesCommand extends $Command<
   ListMFADevicesCommandInput,
@@ -47,9 +42,7 @@ export class ListMFADevicesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMFADevicesCommandInput, ListMFADevicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

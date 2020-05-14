@@ -1,8 +1,4 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListNodegroupsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListNodegroupsCommandInput = ListNodegroupsRequest;
-export type ListNodegroupsCommandOutput = ListNodegroupsResponse &
-  __MetadataBearer;
+export type ListNodegroupsCommandOutput = ListNodegroupsResponse & __MetadataBearer;
 
 export class ListNodegroupsCommand extends $Command<
   ListNodegroupsCommandInput,
@@ -47,9 +42,7 @@ export class ListNodegroupsCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListNodegroupsCommandInput, ListNodegroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

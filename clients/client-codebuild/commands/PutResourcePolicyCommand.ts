@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  PutResourcePolicyInput,
-  PutResourcePolicyOutput
-} from "../models/index";
+import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutResourcePolicyCommandInput = PutResourcePolicyInput;
-export type PutResourcePolicyCommandOutput = PutResourcePolicyOutput &
-  __MetadataBearer;
+export type PutResourcePolicyCommandOutput = PutResourcePolicyOutput & __MetadataBearer;
 
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,
@@ -50,9 +46,7 @@ export class PutResourcePolicyCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

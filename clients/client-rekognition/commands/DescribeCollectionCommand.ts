@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DescribeCollectionRequest,
-  DescribeCollectionResponse
-} from "../models/index";
+import { DescribeCollectionRequest, DescribeCollectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCollectionCommand,
   serializeAws_json1_1DescribeCollectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCollectionCommandInput = DescribeCollectionRequest;
-export type DescribeCollectionCommandOutput = DescribeCollectionResponse &
-  __MetadataBearer;
+export type DescribeCollectionCommandOutput = DescribeCollectionResponse & __MetadataBearer;
 
 export class DescribeCollectionCommand extends $Command<
   DescribeCollectionCommandInput,
@@ -50,9 +46,7 @@ export class DescribeCollectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCollectionCommandInput, DescribeCollectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

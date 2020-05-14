@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterVolumeCommandInput = RegisterVolumeRequest;
-export type RegisterVolumeCommandOutput = RegisterVolumeResult &
-  __MetadataBearer;
+export type RegisterVolumeCommandOutput = RegisterVolumeResult & __MetadataBearer;
 
 export class RegisterVolumeCommand extends $Command<
   RegisterVolumeCommandInput,
@@ -47,9 +46,7 @@ export class RegisterVolumeCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterVolumeCommandInput, RegisterVolumeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

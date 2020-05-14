@@ -53,9 +53,7 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     CreatePullRequestApprovalRuleCommandInput,
     CreatePullRequestApprovalRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreatePullRequestApprovalRuleCommand extends $Command<
     input: CreatePullRequestApprovalRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreatePullRequestApprovalRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

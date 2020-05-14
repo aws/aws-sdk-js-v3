@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTrialCommandInput = DescribeTrialRequest;
-export type DescribeTrialCommandOutput = DescribeTrialResponse &
-  __MetadataBearer;
+export type DescribeTrialCommandOutput = DescribeTrialResponse & __MetadataBearer;
 
 export class DescribeTrialCommand extends $Command<
   DescribeTrialCommandInput,
@@ -47,9 +46,7 @@ export class DescribeTrialCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTrialCommandInput, DescribeTrialCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

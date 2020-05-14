@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  EventSourceMappingConfiguration,
-  GetEventSourceMappingRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { EventSourceMappingConfiguration, GetEventSourceMappingRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEventSourceMappingCommand,
   serializeAws_restJson1_1GetEventSourceMappingCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEventSourceMappingCommandInput = GetEventSourceMappingRequest;
-export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration &
-  __MetadataBearer;
+export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
 export class GetEventSourceMappingCommand extends $Command<
   GetEventSourceMappingCommandInput,
@@ -49,13 +41,8 @@ export class GetEventSourceMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEventSourceMappingCommandInput,
-    GetEventSourceMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEventSourceMappingCommandInput, GetEventSourceMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class GetEventSourceMappingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1_1GetEventSourceMappingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

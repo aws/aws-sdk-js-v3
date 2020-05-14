@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  GetDistributionConfigRequest,
-  GetDistributionConfigResult
-} from "../models/index";
+import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/index";
 import {
   deserializeAws_restXmlGetDistributionConfigCommand,
   serializeAws_restXmlGetDistributionConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDistributionConfigCommandInput = GetDistributionConfigRequest;
-export type GetDistributionConfigCommandOutput = GetDistributionConfigResult &
-  __MetadataBearer;
+export type GetDistributionConfigCommandOutput = GetDistributionConfigResult & __MetadataBearer;
 
 export class GetDistributionConfigCommand extends $Command<
   GetDistributionConfigCommandInput,
@@ -49,13 +45,8 @@ export class GetDistributionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDistributionConfigCommandInput,
-    GetDistributionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDistributionConfigCommandInput, GetDistributionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListVoiceConnectorTerminationCredentialsRequest,
   ListVoiceConnectorTerminationCredentialsResponse
@@ -39,9 +35,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListVoiceConnectorTerminationCredentialsCommandInput
-  ) {
+  constructor(readonly input: ListVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     ListVoiceConnectorTerminationCredentialsCommandInput,
     ListVoiceConnectorTerminationCredentialsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +68,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: ListVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   private deserialize(

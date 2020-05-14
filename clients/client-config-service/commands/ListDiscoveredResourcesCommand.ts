@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResponse
-} from "../models/index";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand
@@ -49,13 +46,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDiscoveredResourcesCommandInput,
-    ListDiscoveredResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDiscoveredResourcesCommandInput, ListDiscoveredResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListDiscoveredResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

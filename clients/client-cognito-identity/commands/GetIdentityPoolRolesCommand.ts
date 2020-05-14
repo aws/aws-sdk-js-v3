@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityClient";
-import {
-  GetIdentityPoolRolesInput,
-  GetIdentityPoolRolesResponse
-} from "../models/index";
+import { GetIdentityPoolRolesInput, GetIdentityPoolRolesResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetIdentityPoolRolesCommand,
   serializeAws_json1_1GetIdentityPoolRolesCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIdentityPoolRolesCommandInput = GetIdentityPoolRolesInput;
-export type GetIdentityPoolRolesCommandOutput = GetIdentityPoolRolesResponse &
-  __MetadataBearer;
+export type GetIdentityPoolRolesCommandOutput = GetIdentityPoolRolesResponse & __MetadataBearer;
 
 export class GetIdentityPoolRolesCommand extends $Command<
   GetIdentityPoolRolesCommandInput,
@@ -50,13 +46,8 @@ export class GetIdentityPoolRolesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityPoolRolesCommandInput,
-    GetIdentityPoolRolesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityPoolRolesCommandInput, GetIdentityPoolRolesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

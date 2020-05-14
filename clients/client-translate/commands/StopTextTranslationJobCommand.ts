@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 } from "../TranslateClient";
-import {
-  StopTextTranslationJobRequest,
-  StopTextTranslationJobResponse
-} from "../models/index";
+import { StopTextTranslationJobRequest, StopTextTranslationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopTextTranslationJobCommand,
   serializeAws_json1_1StopTextTranslationJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopTextTranslationJobCommandInput = StopTextTranslationJobRequest;
-export type StopTextTranslationJobCommandOutput = StopTextTranslationJobResponse &
-  __MetadataBearer;
+export type StopTextTranslationJobCommandOutput = StopTextTranslationJobResponse & __MetadataBearer;
 
 export class StopTextTranslationJobCommand extends $Command<
   StopTextTranslationJobCommandInput,
@@ -49,13 +45,8 @@ export class StopTextTranslationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopTextTranslationJobCommandInput,
-    StopTextTranslationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopTextTranslationJobCommandInput, StopTextTranslationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

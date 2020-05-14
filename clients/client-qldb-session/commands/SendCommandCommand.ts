@@ -46,9 +46,7 @@ export class SendCommandCommand extends $Command<
     configuration: QLDBSessionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendCommandCommandInput, SendCommandCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

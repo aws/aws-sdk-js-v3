@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DeleteLogPatternRequest,
-  DeleteLogPatternResponse
-} from "../models/index";
+import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLogPatternCommand,
   serializeAws_json1_1DeleteLogPatternCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLogPatternCommandInput = DeleteLogPatternRequest;
-export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse &
-  __MetadataBearer;
+export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse & __MetadataBearer;
 
 export class DeleteLogPatternCommand extends $Command<
   DeleteLogPatternCommandInput,
@@ -50,9 +46,7 @@ export class DeleteLogPatternCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLogPatternCommandInput, DeleteLogPatternCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

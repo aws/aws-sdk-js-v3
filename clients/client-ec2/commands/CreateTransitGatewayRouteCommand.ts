@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateTransitGatewayRouteRequest,
-  CreateTransitGatewayRouteResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateTransitGatewayRouteRequest, CreateTransitGatewayRouteResult } from "../models/index";
 import {
   deserializeAws_ec2CreateTransitGatewayRouteCommand,
   serializeAws_ec2CreateTransitGatewayRouteCommand
@@ -49,13 +42,8 @@ export class CreateTransitGatewayRouteCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTransitGatewayRouteCommandInput,
-    CreateTransitGatewayRouteCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTransitGatewayRouteCommandInput, CreateTransitGatewayRouteCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

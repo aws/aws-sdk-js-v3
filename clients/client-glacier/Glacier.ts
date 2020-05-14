@@ -290,9 +290,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public abortVaultLock(
     args: AbortVaultLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AbortVaultLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortVaultLockCommandOutput) => void),
     cb?: (err: any, data?: AbortVaultLockCommandOutput) => void
   ): Promise<AbortVaultLockCommandOutput> | void {
     const command = new AbortVaultLockCommand(args);
@@ -330,9 +328,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public addTagsToVault(
     args: AddTagsToVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToVaultCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToVaultCommandOutput) => void
   ): Promise<AddTagsToVaultCommandOutput> | void {
     const command = new AddTagsToVaultCommand(args);
@@ -508,9 +504,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public createVault(
     args: CreateVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVaultCommandOutput) => void),
     cb?: (err: any, data?: CreateVaultCommandOutput) => void
   ): Promise<CreateVaultCommandOutput> | void {
     const command = new CreateVaultCommand(args);
@@ -569,9 +563,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteArchive(
     args: DeleteArchiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteArchiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteArchiveCommandOutput) => void),
     cb?: (err: any, data?: DeleteArchiveCommandOutput) => void
   ): Promise<DeleteArchiveCommandOutput> | void {
     const command = new DeleteArchiveCommand(args);
@@ -623,9 +615,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteVault(
     args: DeleteVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVaultCommandOutput) => void),
     cb?: (err: any, data?: DeleteVaultCommandOutput) => void
   ): Promise<DeleteVaultCommandOutput> | void {
     const command = new DeleteVaultCommand(args);
@@ -769,9 +759,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
@@ -821,9 +809,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public describeVault(
     args: DescribeVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVaultCommandOutput) => void),
     cb?: (err: any, data?: DescribeVaultCommandOutput) => void
   ): Promise<DescribeVaultCommandOutput> | void {
     const command = new DescribeVaultCommand(args);
@@ -929,9 +915,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public getJobOutput(
     args: GetJobOutputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobOutputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobOutputCommandOutput) => void),
     cb?: (err: any, data?: GetJobOutputCommandOutput) => void
   ): Promise<GetJobOutputCommandOutput> | void {
     const command = new GetJobOutputCommand(args);
@@ -1031,9 +1015,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public getVaultLock(
     args: GetVaultLockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVaultLockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVaultLockCommandOutput) => void),
     cb?: (err: any, data?: GetVaultLockCommandOutput) => void
   ): Promise<GetVaultLockCommandOutput> | void {
     const command = new GetVaultLockCommand(args);
@@ -1120,9 +1102,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public initiateJob(
     args: InitiateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateJobCommandOutput) => void),
     cb?: (err: any, data?: InitiateJobCommandOutput) => void
   ): Promise<InitiateJobCommandOutput> | void {
     const command = new InitiateJobCommand(args);
@@ -1327,9 +1307,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -1443,9 +1421,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public listParts(
     args: ListPartsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPartsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartsCommandOutput) => void),
     cb?: (err: any, data?: ListPartsCommandOutput) => void
   ): Promise<ListPartsCommandOutput> | void {
     const command = new ListPartsCommand(args);
@@ -1516,9 +1492,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public listTagsForVault(
     args: ListTagsForVaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForVaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForVaultCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForVaultCommandOutput) => void
   ): Promise<ListTagsForVaultCommandOutput> | void {
     const command = new ListTagsForVaultCommand(args);
@@ -1569,9 +1543,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public listVaults(
     args: ListVaultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVaultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVaultsCommandOutput) => void),
     cb?: (err: any, data?: ListVaultsCommandOutput) => void
   ): Promise<ListVaultsCommandOutput> | void {
     const command = new ListVaultsCommand(args);
@@ -1860,9 +1832,7 @@ export class Glacier extends GlacierClient {
   ): void;
   public uploadArchive(
     args: UploadArchiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadArchiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadArchiveCommandOutput) => void),
     cb?: (err: any, data?: UploadArchiveCommandOutput) => void
   ): Promise<UploadArchiveCommandOutput> | void {
     const command = new UploadArchiveCommand(args);

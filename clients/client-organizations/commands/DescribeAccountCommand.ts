@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  DescribeAccountRequest,
-  DescribeAccountResponse
-} from "../models/index";
+import { DescribeAccountRequest, DescribeAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAccountCommand,
   serializeAws_json1_1DescribeAccountCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountCommandInput = DescribeAccountRequest;
-export type DescribeAccountCommandOutput = DescribeAccountResponse &
-  __MetadataBearer;
+export type DescribeAccountCommandOutput = DescribeAccountResponse & __MetadataBearer;
 
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,
@@ -50,9 +46,7 @@ export class DescribeAccountCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountCommandInput, DescribeAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

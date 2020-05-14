@@ -34,10 +34,7 @@ import {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput
 } from "./commands/ListSignalingChannelsCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -46,22 +43,13 @@ import {
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput
 } from "./commands/ListTagsForStreamCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TagStreamCommandInput,
-  TagStreamCommandOutput
-} from "./commands/TagStreamCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UntagStreamCommandInput,
-  UntagStreamCommandOutput
-} from "./commands/UntagStreamCommand";
+import { UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand";
 import {
   UpdateDataRetentionCommandInput,
   UpdateDataRetentionCommandOutput
@@ -253,9 +241,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisVideoClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisVideoClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +250,7 @@ export type KinesisVideoClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

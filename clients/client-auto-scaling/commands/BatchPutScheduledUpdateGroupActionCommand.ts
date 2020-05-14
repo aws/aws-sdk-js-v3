@@ -53,9 +53,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     BatchPutScheduledUpdateGroupActionCommandInput,
     BatchPutScheduledUpdateGroupActionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     input: BatchPutScheduledUpdateGroupActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
-      input,
-      context
-    );
+    return serializeAws_queryBatchPutScheduledUpdateGroupActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

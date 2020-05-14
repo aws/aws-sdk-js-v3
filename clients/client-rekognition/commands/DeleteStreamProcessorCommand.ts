@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  DeleteStreamProcessorRequest,
-  DeleteStreamProcessorResponse
-} from "../models/index";
+import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteStreamProcessorCommand,
   serializeAws_json1_1DeleteStreamProcessorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStreamProcessorCommandInput = DeleteStreamProcessorRequest;
-export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse &
-  __MetadataBearer;
+export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse & __MetadataBearer;
 
 export class DeleteStreamProcessorCommand extends $Command<
   DeleteStreamProcessorCommandInput,
@@ -49,13 +45,8 @@ export class DeleteStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteStreamProcessorCommandInput,
-    DeleteStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteStreamProcessorCommandInput, DeleteStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

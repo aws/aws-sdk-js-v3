@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  DescribeAddressesRequest,
-  DescribeAddressesResult
-} from "../models/index";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAddressesCommand,
   serializeAws_json1_1DescribeAddressesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAddressesCommandInput = DescribeAddressesRequest;
-export type DescribeAddressesCommandOutput = DescribeAddressesResult &
-  __MetadataBearer;
+export type DescribeAddressesCommandOutput = DescribeAddressesResult & __MetadataBearer;
 
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,
@@ -50,9 +46,7 @@ export class DescribeAddressesCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAddressesCommandInput, DescribeAddressesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

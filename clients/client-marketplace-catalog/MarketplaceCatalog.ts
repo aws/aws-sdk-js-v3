@@ -62,9 +62,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public cancelChangeSet(
     args: CancelChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): Promise<CancelChangeSetCommandOutput> | void {
     const command = new CancelChangeSetCommand(args);
@@ -132,9 +130,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public describeEntity(
     args: DescribeEntityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntityCommandOutput) => void
   ): Promise<DescribeEntityCommandOutput> | void {
     const command = new DescribeEntityCommand(args);
@@ -173,9 +169,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listChangeSets(
     args: ListChangeSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangeSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangeSetsCommandOutput) => void),
     cb?: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): Promise<ListChangeSetsCommandOutput> | void {
     const command = new ListChangeSetsCommand(args);
@@ -208,9 +202,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public listEntities(
     args: ListEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesCommandOutput) => void),
     cb?: (err: any, data?: ListEntitiesCommandOutput) => void
   ): Promise<ListEntitiesCommandOutput> | void {
     const command = new ListEntitiesCommand(args);
@@ -243,9 +235,7 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
   ): void;
   public startChangeSet(
     args: StartChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChangeSetCommandOutput) => void),
     cb?: (err: any, data?: StartChangeSetCommandOutput) => void
   ): Promise<StartChangeSetCommandOutput> | void {
     const command = new StartChangeSetCommand(args);

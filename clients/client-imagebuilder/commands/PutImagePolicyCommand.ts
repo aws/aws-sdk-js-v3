@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutImagePolicyCommandInput = PutImagePolicyRequest;
-export type PutImagePolicyCommandOutput = PutImagePolicyResponse &
-  __MetadataBearer;
+export type PutImagePolicyCommandOutput = PutImagePolicyResponse & __MetadataBearer;
 
 export class PutImagePolicyCommand extends $Command<
   PutImagePolicyCommandInput,
@@ -47,9 +46,7 @@ export class PutImagePolicyCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutImagePolicyCommandInput, PutImagePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

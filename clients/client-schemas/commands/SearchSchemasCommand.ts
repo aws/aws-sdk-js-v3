@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchSchemasCommandInput = SearchSchemasRequest;
-export type SearchSchemasCommandOutput = SearchSchemasResponse &
-  __MetadataBearer;
+export type SearchSchemasCommandOutput = SearchSchemasResponse & __MetadataBearer;
 
 export class SearchSchemasCommand extends $Command<
   SearchSchemasCommandInput,
@@ -47,9 +46,7 @@ export class SearchSchemasCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchSchemasCommandInput, SearchSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -246,10 +246,7 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandInput,
   GetDeployablePatchSnapshotForInstanceCommandOutput
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
-import {
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput
-} from "./commands/GetDocumentCommand";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
 import {
   GetInventoryCommandInput,
   GetInventoryCommandOutput
@@ -278,10 +275,7 @@ import {
   GetMaintenanceWindowTaskCommandInput,
   GetMaintenanceWindowTaskCommandOutput
 } from "./commands/GetMaintenanceWindowTaskCommand";
-import {
-  GetOpsItemCommandInput,
-  GetOpsItemCommandOutput
-} from "./commands/GetOpsItemCommand";
+import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
 import {
   GetOpsSummaryCommandInput,
   GetOpsSummaryCommandOutput
@@ -414,10 +408,7 @@ import {
   SendAutomationSignalCommandInput,
   SendAutomationSignalCommandOutput
 } from "./commands/SendAutomationSignalCommand";
-import {
-  SendCommandCommandInput,
-  SendCommandCommandOutput
-} from "./commands/SendCommandCommand";
+import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput
@@ -871,9 +862,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -882,9 +871,7 @@ export type SSMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

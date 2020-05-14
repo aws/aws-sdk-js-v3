@@ -34,14 +34,8 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  QueryListsCommandInput,
-  QueryListsCommandOutput
-} from "./commands/QueryListsCommand";
-import {
-  QueryMapsCommandInput,
-  QueryMapsCommandOutput
-} from "./commands/QueryMapsCommand";
+import { QueryListsCommandInput, QueryListsCommandOutput } from "./commands/QueryListsCommand";
+import { QueryMapsCommandInput, QueryMapsCommandOutput } from "./commands/QueryMapsCommand";
 import {
   QueryTimestampsCommandInput,
   QueryTimestampsCommandOutput
@@ -58,22 +52,10 @@ import {
   SimpleScalarXmlPropertiesCommandInput,
   SimpleScalarXmlPropertiesCommandOutput
 } from "./commands/SimpleScalarXmlPropertiesCommand";
-import {
-  XmlBlobsCommandInput,
-  XmlBlobsCommandOutput
-} from "./commands/XmlBlobsCommand";
-import {
-  XmlEnumsCommandInput,
-  XmlEnumsCommandOutput
-} from "./commands/XmlEnumsCommand";
-import {
-  XmlListsCommandInput,
-  XmlListsCommandOutput
-} from "./commands/XmlListsCommand";
-import {
-  XmlMapsCommandInput,
-  XmlMapsCommandOutput
-} from "./commands/XmlMapsCommand";
+import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
+import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import {
   XmlMapsXmlNameCommandInput,
   XmlMapsXmlNameCommandOutput
@@ -271,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QueryProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QueryProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

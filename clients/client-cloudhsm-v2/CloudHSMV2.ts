@@ -124,9 +124,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -160,9 +158,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public createHsm(
     args: CreateHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmCommandOutput) => void
   ): Promise<CreateHsmCommandOutput> | void {
     const command = new CreateHsmCommand(args);
@@ -197,9 +193,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
@@ -233,9 +227,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
@@ -270,9 +262,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public deleteHsm(
     args: DeleteHsmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHsmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmCommandOutput) => void
   ): Promise<DeleteHsmCommandOutput> | void {
     const command = new DeleteHsmCommand(args);
@@ -310,9 +300,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBackupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
@@ -350,9 +338,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
@@ -428,9 +414,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -465,9 +449,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public restoreBackup(
     args: RestoreBackupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreBackupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreBackupCommandOutput) => void),
     cb?: (err: any, data?: RestoreBackupCommandOutput) => void
   ): Promise<RestoreBackupCommandOutput> | void {
     const command = new RestoreBackupCommand(args);
@@ -500,9 +482,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -535,9 +515,7 @@ export class CloudHSMV2 extends CloudHSMV2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

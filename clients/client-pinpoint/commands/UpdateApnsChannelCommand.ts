@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateApnsChannelRequest,
-  UpdateApnsChannelResponse
-} from "../models/index";
+import { UpdateApnsChannelRequest, UpdateApnsChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApnsChannelCommand,
   serializeAws_restJson1_1UpdateApnsChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApnsChannelCommandInput = UpdateApnsChannelRequest;
-export type UpdateApnsChannelCommandOutput = UpdateApnsChannelResponse &
-  __MetadataBearer;
+export type UpdateApnsChannelCommandOutput = UpdateApnsChannelResponse & __MetadataBearer;
 
 export class UpdateApnsChannelCommand extends $Command<
   UpdateApnsChannelCommandInput,
@@ -50,9 +46,7 @@ export class UpdateApnsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApnsChannelCommandInput, UpdateApnsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

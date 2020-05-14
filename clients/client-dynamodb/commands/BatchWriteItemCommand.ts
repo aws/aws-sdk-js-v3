@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchWriteItemCommandInput = BatchWriteItemInput;
-export type BatchWriteItemCommandOutput = BatchWriteItemOutput &
-  __MetadataBearer;
+export type BatchWriteItemCommandOutput = BatchWriteItemOutput & __MetadataBearer;
 
 export class BatchWriteItemCommand extends $Command<
   BatchWriteItemCommandInput,
@@ -47,9 +46,7 @@ export class BatchWriteItemCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchWriteItemCommandInput, BatchWriteItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient";
-import {
-  StartSpeechSynthesisTaskInput,
-  StartSpeechSynthesisTaskOutput
-} from "../models/index";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
+import { StartSpeechSynthesisTaskInput, StartSpeechSynthesisTaskOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand,
   serializeAws_restJson1_1StartSpeechSynthesisTaskCommand
@@ -49,13 +42,8 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartSpeechSynthesisTaskCommandInput,
-    StartSpeechSynthesisTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartSpeechSynthesisTaskCommandInput, StartSpeechSynthesisTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class StartSpeechSynthesisTaskCommand extends $Command<
     input: StartSpeechSynthesisTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartSpeechSynthesisTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSpeechSynthesisTaskCommandOutput> {
-    return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

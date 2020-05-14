@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   PutConfigurationSetDeliveryOptionsRequest,
   PutConfigurationSetDeliveryOptionsResponse
@@ -53,9 +49,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     PutConfigurationSetDeliveryOptionsCommandInput,
     PutConfigurationSetDeliveryOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     input: PutConfigurationSetDeliveryOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPutConfigurationSetDeliveryOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPutConfigurationSetDeliveryOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> {
-    return deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

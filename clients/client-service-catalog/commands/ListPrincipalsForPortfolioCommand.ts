@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListPrincipalsForPortfolioInput,
-  ListPrincipalsForPortfolioOutput
-} from "../models/index";
+import { ListPrincipalsForPortfolioInput, ListPrincipalsForPortfolioOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListPrincipalsForPortfolioCommand,
   serializeAws_json1_1ListPrincipalsForPortfolioCommand
@@ -49,13 +46,8 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPrincipalsForPortfolioCommandInput,
-    ListPrincipalsForPortfolioCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPrincipalsForPortfolioCommandInput, ListPrincipalsForPortfolioCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     input: ListPrincipalsForPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPrincipalsForPortfolioCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListPrincipalsForPortfolioCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPrincipalsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListPrincipalsForPortfolioCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPrincipalsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

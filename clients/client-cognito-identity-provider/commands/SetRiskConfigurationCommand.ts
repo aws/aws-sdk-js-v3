@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  SetRiskConfigurationRequest,
-  SetRiskConfigurationResponse
-} from "../models/index";
+import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/index";
 import {
   deserializeAws_json1_1SetRiskConfigurationCommand,
   serializeAws_json1_1SetRiskConfigurationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetRiskConfigurationCommandInput = SetRiskConfigurationRequest;
-export type SetRiskConfigurationCommandOutput = SetRiskConfigurationResponse &
-  __MetadataBearer;
+export type SetRiskConfigurationCommandOutput = SetRiskConfigurationResponse & __MetadataBearer;
 
 export class SetRiskConfigurationCommand extends $Command<
   SetRiskConfigurationCommandInput,
@@ -49,13 +45,8 @@ export class SetRiskConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetRiskConfigurationCommandInput,
-    SetRiskConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetRiskConfigurationCommandInput, SetRiskConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

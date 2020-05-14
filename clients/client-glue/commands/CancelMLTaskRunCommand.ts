@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  CancelMLTaskRunRequest,
-  CancelMLTaskRunResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelMLTaskRunCommand,
   serializeAws_json1_1CancelMLTaskRunCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelMLTaskRunCommandInput = CancelMLTaskRunRequest;
-export type CancelMLTaskRunCommandOutput = CancelMLTaskRunResponse &
-  __MetadataBearer;
+export type CancelMLTaskRunCommandOutput = CancelMLTaskRunResponse & __MetadataBearer;
 
 export class CancelMLTaskRunCommand extends $Command<
   CancelMLTaskRunCommandInput,
@@ -50,9 +42,7 @@ export class CancelMLTaskRunCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

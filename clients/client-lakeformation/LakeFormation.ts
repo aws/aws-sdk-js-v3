@@ -196,9 +196,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public describeResource(
     args: DescribeResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceCommandOutput) => void
   ): Promise<DescribeResourceCommandOutput> | void {
     const command = new DescribeResourceCommand(args);
@@ -268,10 +266,7 @@ export class LakeFormation extends LakeFormationClient {
     args: GetEffectivePermissionsForPathCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetEffectivePermissionsForPathCommandOutput
-        ) => void),
+      | ((err: any, data?: GetEffectivePermissionsForPathCommandOutput) => void),
     cb?: (err: any, data?: GetEffectivePermissionsForPathCommandOutput) => void
   ): Promise<GetEffectivePermissionsForPathCommandOutput> | void {
     const command = new GetEffectivePermissionsForPathCommand(args);
@@ -305,9 +300,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public grantPermissions(
     args: GrantPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GrantPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GrantPermissionsCommandOutput) => void),
     cb?: (err: any, data?: GrantPermissionsCommandOutput) => void
   ): Promise<GrantPermissionsCommandOutput> | void {
     const command = new GrantPermissionsCommand(args);
@@ -342,9 +335,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
@@ -377,9 +368,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
@@ -449,9 +438,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public registerResource(
     args: RegisterResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterResourceCommandOutput) => void),
     cb?: (err: any, data?: RegisterResourceCommandOutput) => void
   ): Promise<RegisterResourceCommandOutput> | void {
     const command = new RegisterResourceCommand(args);
@@ -519,9 +506,7 @@ export class LakeFormation extends LakeFormationClient {
   ): void;
   public updateResource(
     args: UpdateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);

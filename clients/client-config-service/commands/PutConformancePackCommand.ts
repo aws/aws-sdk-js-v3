@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  PutConformancePackRequest,
-  PutConformancePackResponse
-} from "../models/index";
+import { PutConformancePackRequest, PutConformancePackResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutConformancePackCommand,
   serializeAws_json1_1PutConformancePackCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutConformancePackCommandInput = PutConformancePackRequest;
-export type PutConformancePackCommandOutput = PutConformancePackResponse &
-  __MetadataBearer;
+export type PutConformancePackCommandOutput = PutConformancePackResponse & __MetadataBearer;
 
 export class PutConformancePackCommand extends $Command<
   PutConformancePackCommandInput,
@@ -50,9 +46,7 @@ export class PutConformancePackCommand extends $Command<
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutConformancePackCommandInput, PutConformancePackCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

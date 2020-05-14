@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDifferencesCommandInput = GetDifferencesInput;
-export type GetDifferencesCommandOutput = GetDifferencesOutput &
-  __MetadataBearer;
+export type GetDifferencesCommandOutput = GetDifferencesOutput & __MetadataBearer;
 
 export class GetDifferencesCommand extends $Command<
   GetDifferencesCommandInput,
@@ -47,9 +46,7 @@ export class GetDifferencesCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDifferencesCommandInput, GetDifferencesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

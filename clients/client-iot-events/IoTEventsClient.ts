@@ -2,18 +2,12 @@ import {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput
 } from "./commands/CreateDetectorModelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput
 } from "./commands/DeleteDetectorModelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput
@@ -34,10 +28,7 @@ import {
   ListDetectorModelsCommandInput,
   ListDetectorModelsCommandOutput
 } from "./commands/ListDetectorModelsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -46,10 +37,7 @@ import {
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput
 } from "./commands/PutLoggingOptionsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -58,10 +46,7 @@ import {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput
 } from "./commands/UpdateDetectorModelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -235,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTEventsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +229,7 @@ export type IoTEventsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

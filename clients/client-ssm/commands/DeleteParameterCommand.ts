@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { DeleteParameterRequest, DeleteParameterResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteParameterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteParameterCommandInput = DeleteParameterRequest;
-export type DeleteParameterCommandOutput = DeleteParameterResult &
-  __MetadataBearer;
+export type DeleteParameterCommandOutput = DeleteParameterResult & __MetadataBearer;
 
 export class DeleteParameterCommand extends $Command<
   DeleteParameterCommandInput,
@@ -47,9 +42,7 @@ export class DeleteParameterCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteParameterCommandInput, DeleteParameterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

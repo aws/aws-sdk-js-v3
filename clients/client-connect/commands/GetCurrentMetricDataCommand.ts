@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  GetCurrentMetricDataRequest,
-  GetCurrentMetricDataResponse
-} from "../models/index";
+import { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCurrentMetricDataCommand,
   serializeAws_restJson1_1GetCurrentMetricDataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCurrentMetricDataCommandInput = GetCurrentMetricDataRequest;
-export type GetCurrentMetricDataCommandOutput = GetCurrentMetricDataResponse &
-  __MetadataBearer;
+export type GetCurrentMetricDataCommandOutput = GetCurrentMetricDataResponse & __MetadataBearer;
 
 export class GetCurrentMetricDataCommand extends $Command<
   GetCurrentMetricDataCommandInput,
@@ -49,13 +45,8 @@ export class GetCurrentMetricDataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCurrentMetricDataCommandInput,
-    GetCurrentMetricDataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCurrentMetricDataCommandInput, GetCurrentMetricDataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetCurrentMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCurrentMetricDataCommandOutput> {
-    return deserializeAws_restJson1_1GetCurrentMetricDataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCurrentMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

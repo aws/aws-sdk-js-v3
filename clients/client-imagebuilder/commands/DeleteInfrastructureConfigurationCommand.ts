@@ -53,9 +53,7 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     DeleteInfrastructureConfigurationCommandInput,
     DeleteInfrastructureConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     input: DeleteInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

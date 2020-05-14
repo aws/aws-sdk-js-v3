@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBClusterEndpoint,
-  ModifyDBClusterEndpointMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBClusterEndpoint, ModifyDBClusterEndpointMessage } from "../models/index";
 import {
   deserializeAws_queryModifyDBClusterEndpointCommand,
   serializeAws_queryModifyDBClusterEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
-export type ModifyDBClusterEndpointCommandOutput = DBClusterEndpoint &
-  __MetadataBearer;
+export type ModifyDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
 
 export class ModifyDBClusterEndpointCommand extends $Command<
   ModifyDBClusterEndpointCommandInput,
@@ -49,13 +41,8 @@ export class ModifyDBClusterEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDBClusterEndpointCommandInput,
-    ModifyDBClusterEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDBClusterEndpointCommandInput, ModifyDBClusterEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

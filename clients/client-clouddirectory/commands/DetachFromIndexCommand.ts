@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  DetachFromIndexRequest,
-  DetachFromIndexResponse
-} from "../models/index";
+import { DetachFromIndexRequest, DetachFromIndexResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DetachFromIndexCommand,
   serializeAws_restJson1_1DetachFromIndexCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachFromIndexCommandInput = DetachFromIndexRequest;
-export type DetachFromIndexCommandOutput = DetachFromIndexResponse &
-  __MetadataBearer;
+export type DetachFromIndexCommandOutput = DetachFromIndexResponse & __MetadataBearer;
 
 export class DetachFromIndexCommand extends $Command<
   DetachFromIndexCommandInput,
@@ -50,9 +46,7 @@ export class DetachFromIndexCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachFromIndexCommandInput, DetachFromIndexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

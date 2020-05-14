@@ -27,8 +27,7 @@ import {
 export type UploadArchiveCommandInput = Omit<UploadArchiveInput, "body"> & {
   body?: UploadArchiveInput["body"] | string | Uint8Array | Buffer;
 };
-export type UploadArchiveCommandOutput = ArchiveCreationOutput &
-  __MetadataBearer;
+export type UploadArchiveCommandOutput = ArchiveCreationOutput & __MetadataBearer;
 
 export class UploadArchiveCommand extends $Command<
   UploadArchiveCommandInput,
@@ -49,9 +48,7 @@ export class UploadArchiveCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadArchiveCommandInput, UploadArchiveCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

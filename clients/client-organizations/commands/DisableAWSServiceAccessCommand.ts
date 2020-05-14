@@ -45,13 +45,8 @@ export class DisableAWSServiceAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableAWSServiceAccessCommandInput,
-    DisableAWSServiceAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableAWSServiceAccessCommandInput, DisableAWSServiceAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DisableAWSServiceAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAWSServiceAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSServiceAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisableAWSServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

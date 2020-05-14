@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  PutMailboxPermissionsRequest,
-  PutMailboxPermissionsResponse
-} from "../models/index";
+import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutMailboxPermissionsCommand,
   serializeAws_json1_1PutMailboxPermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutMailboxPermissionsCommandInput = PutMailboxPermissionsRequest;
-export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse &
-  __MetadataBearer;
+export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse & __MetadataBearer;
 
 export class PutMailboxPermissionsCommand extends $Command<
   PutMailboxPermissionsCommandInput,
@@ -49,13 +45,8 @@ export class PutMailboxPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutMailboxPermissionsCommandInput,
-    PutMailboxPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutMailboxPermissionsCommandInput, PutMailboxPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  GetSoftwareUpdatesRequest,
-  GetSoftwareUpdatesResult
-} from "../models/index";
+import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/index";
 import {
   deserializeAws_json1_1GetSoftwareUpdatesCommand,
   serializeAws_json1_1GetSoftwareUpdatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSoftwareUpdatesCommandInput = GetSoftwareUpdatesRequest;
-export type GetSoftwareUpdatesCommandOutput = GetSoftwareUpdatesResult &
-  __MetadataBearer;
+export type GetSoftwareUpdatesCommandOutput = GetSoftwareUpdatesResult & __MetadataBearer;
 
 export class GetSoftwareUpdatesCommand extends $Command<
   GetSoftwareUpdatesCommandInput,
@@ -50,9 +46,7 @@ export class GetSoftwareUpdatesCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSoftwareUpdatesCommandInput, GetSoftwareUpdatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

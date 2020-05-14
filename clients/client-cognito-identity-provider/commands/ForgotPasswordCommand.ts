@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ForgotPasswordCommandInput = ForgotPasswordRequest;
-export type ForgotPasswordCommandOutput = ForgotPasswordResponse &
-  __MetadataBearer;
+export type ForgotPasswordCommandOutput = ForgotPasswordResponse & __MetadataBearer;
 
 export class ForgotPasswordCommand extends $Command<
   ForgotPasswordCommandInput,
@@ -47,9 +46,7 @@ export class ForgotPasswordCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ForgotPasswordCommandInput, ForgotPasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

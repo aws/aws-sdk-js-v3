@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppConfigClient";
-import {
-  CreateDeploymentStrategyRequest,
-  DeploymentStrategy
-} from "../models/index";
+import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDeploymentStrategyCommand,
   serializeAws_restJson1_1CreateDeploymentStrategyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeploymentStrategyCommandInput = CreateDeploymentStrategyRequest;
-export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy &
-  __MetadataBearer;
+export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
 export class CreateDeploymentStrategyCommand extends $Command<
   CreateDeploymentStrategyCommandInput,
@@ -49,13 +45,8 @@ export class CreateDeploymentStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeploymentStrategyCommandInput,
-    CreateDeploymentStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeploymentStrategyCommandInput, CreateDeploymentStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateDeploymentStrategyCommand extends $Command<
     input: CreateDeploymentStrategyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeploymentStrategyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDeploymentStrategyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

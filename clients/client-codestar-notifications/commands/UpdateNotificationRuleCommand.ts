@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   codestarnotificationsClientResolvedConfig
 } from "../codestarnotificationsClient";
-import {
-  UpdateNotificationRuleRequest,
-  UpdateNotificationRuleResult
-} from "../models/index";
+import { UpdateNotificationRuleRequest, UpdateNotificationRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateNotificationRuleCommand,
   serializeAws_restJson1_1UpdateNotificationRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNotificationRuleCommandInput = UpdateNotificationRuleRequest;
-export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult &
-  __MetadataBearer;
+export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult & __MetadataBearer;
 
 export class UpdateNotificationRuleCommand extends $Command<
   UpdateNotificationRuleCommandInput,
@@ -49,13 +45,8 @@ export class UpdateNotificationRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNotificationRuleCommandInput,
-    UpdateNotificationRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNotificationRuleCommandInput, UpdateNotificationRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateNotificationRuleCommand extends $Command<
     input: UpdateNotificationRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateNotificationRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateNotificationRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1_1UpdateNotificationRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

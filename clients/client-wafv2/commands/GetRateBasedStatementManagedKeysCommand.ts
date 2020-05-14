@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import {
   GetRateBasedStatementManagedKeysRequest,
   GetRateBasedStatementManagedKeysResponse
@@ -53,9 +49,7 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     GetRateBasedStatementManagedKeysCommandInput,
     GetRateBasedStatementManagedKeysCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     input: GetRateBasedStatementManagedKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

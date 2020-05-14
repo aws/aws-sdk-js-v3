@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminInitiateAuthRequest,
-  AdminInitiateAuthResponse
-} from "../models/index";
+import { AdminInitiateAuthRequest, AdminInitiateAuthResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminInitiateAuthCommand,
   serializeAws_json1_1AdminInitiateAuthCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminInitiateAuthCommandInput = AdminInitiateAuthRequest;
-export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse &
-  __MetadataBearer;
+export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse & __MetadataBearer;
 
 export class AdminInitiateAuthCommand extends $Command<
   AdminInitiateAuthCommandInput,
@@ -50,9 +46,7 @@ export class AdminInitiateAuthCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminInitiateAuthCommandInput, AdminInitiateAuthCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

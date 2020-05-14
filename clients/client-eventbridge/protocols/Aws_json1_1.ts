@@ -22,10 +22,7 @@ import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput
 } from "../commands/DeletePartnerEventSourceCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "../commands/DeleteRuleCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import {
   DescribeEventBusCommandInput,
   DescribeEventBusCommandOutput
@@ -42,14 +39,8 @@ import {
   DescribeRuleCommandInput,
   DescribeRuleCommandOutput
 } from "../commands/DescribeRuleCommand";
-import {
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput
-} from "../commands/DisableRuleCommand";
-import {
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "../commands/EnableRuleCommand";
+import { DisableRuleCommandInput, DisableRuleCommandOutput } from "../commands/DisableRuleCommand";
+import { EnableRuleCommandInput, EnableRuleCommandOutput } from "../commands/EnableRuleCommand";
 import {
   ListEventBusesCommandInput,
   ListEventBusesCommandOutput
@@ -70,10 +61,7 @@ import {
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput
 } from "../commands/ListRuleNamesByTargetCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "../commands/ListRulesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -82,10 +70,7 @@ import {
   ListTargetsByRuleCommandInput,
   ListTargetsByRuleCommandOutput
 } from "../commands/ListTargetsByRuleCommand";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "../commands/PutEventsCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand";
 import {
   PutPartnerEventsCommandInput,
   PutPartnerEventsCommandOutput
@@ -94,14 +79,8 @@ import {
   PutPermissionCommandInput,
   PutPermissionCommandOutput
 } from "../commands/PutPermissionCommand";
-import {
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "../commands/PutRuleCommand";
-import {
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "../commands/PutTargetsCommand";
+import { PutRuleCommandInput, PutRuleCommandOutput } from "../commands/PutRuleCommand";
+import { PutTargetsCommandInput, PutTargetsCommandOutput } from "../commands/PutTargetsCommand";
 import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput
@@ -110,10 +89,7 @@ import {
   RemoveTargetsCommandInput,
   RemoveTargetsCommandOutput
 } from "../commands/RemoveTargetsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestEventPatternCommandInput,
   TestEventPatternCommandOutput
@@ -233,9 +209,7 @@ export const serializeAws_json1_1ActivateEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.ActivateEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ActivateEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ActivateEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -248,9 +222,7 @@ export const serializeAws_json1_1CreateEventBusCommand = async (
     "X-Amz-Target": "AWSEvents.CreateEventBus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateEventBusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -263,9 +235,7 @@ export const serializeAws_json1_1CreatePartnerEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.CreatePartnerEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreatePartnerEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreatePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -278,9 +248,7 @@ export const serializeAws_json1_1DeactivateEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.DeactivateEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeactivateEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeactivateEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -293,9 +261,7 @@ export const serializeAws_json1_1DeleteEventBusCommand = async (
     "X-Amz-Target": "AWSEvents.DeleteEventBus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteEventBusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -308,9 +274,7 @@ export const serializeAws_json1_1DeletePartnerEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.DeletePartnerEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeletePartnerEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeletePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -336,9 +300,7 @@ export const serializeAws_json1_1DescribeEventBusCommand = async (
     "X-Amz-Target": "AWSEvents.DescribeEventBus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEventBusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEventBusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,9 +313,7 @@ export const serializeAws_json1_1DescribeEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.DescribeEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -366,9 +326,7 @@ export const serializeAws_json1_1DescribePartnerEventSourceCommand = async (
     "X-Amz-Target": "AWSEvents.DescribePartnerEventSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribePartnerEventSourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribePartnerEventSourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -381,9 +339,7 @@ export const serializeAws_json1_1DescribeRuleCommand = async (
     "X-Amz-Target": "AWSEvents.DescribeRule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeRuleRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,9 +378,7 @@ export const serializeAws_json1_1ListEventBusesCommand = async (
     "X-Amz-Target": "AWSEvents.ListEventBuses"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListEventBusesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListEventBusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,9 +391,7 @@ export const serializeAws_json1_1ListEventSourcesCommand = async (
     "X-Amz-Target": "AWSEvents.ListEventSources"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListEventSourcesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListEventSourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -452,9 +404,7 @@ export const serializeAws_json1_1ListPartnerEventSourceAccountsCommand = async (
     "X-Amz-Target": "AWSEvents.ListPartnerEventSourceAccounts"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListPartnerEventSourceAccountsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListPartnerEventSourceAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -467,9 +417,7 @@ export const serializeAws_json1_1ListPartnerEventSourcesCommand = async (
     "X-Amz-Target": "AWSEvents.ListPartnerEventSources"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListPartnerEventSourcesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListPartnerEventSourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -482,9 +430,7 @@ export const serializeAws_json1_1ListRuleNamesByTargetCommand = async (
     "X-Amz-Target": "AWSEvents.ListRuleNamesByTarget"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListRuleNamesByTargetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListRuleNamesByTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,9 +456,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "AWSEvents.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -525,9 +469,7 @@ export const serializeAws_json1_1ListTargetsByRuleCommand = async (
     "X-Amz-Target": "AWSEvents.ListTargetsByRule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTargetsByRuleRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTargetsByRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -553,9 +495,7 @@ export const serializeAws_json1_1PutPartnerEventsCommand = async (
     "X-Amz-Target": "AWSEvents.PutPartnerEvents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutPartnerEventsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutPartnerEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -568,9 +508,7 @@ export const serializeAws_json1_1PutPermissionCommand = async (
     "X-Amz-Target": "AWSEvents.PutPermission"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutPermissionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutPermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -609,9 +547,7 @@ export const serializeAws_json1_1RemovePermissionCommand = async (
     "X-Amz-Target": "AWSEvents.RemovePermission"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RemovePermissionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RemovePermissionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -624,9 +560,7 @@ export const serializeAws_json1_1RemoveTargetsCommand = async (
     "X-Amz-Target": "AWSEvents.RemoveTargets"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RemoveTargetsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RemoveTargetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -652,9 +586,7 @@ export const serializeAws_json1_1TestEventPatternCommand = async (
     "X-Amz-Target": "AWSEvents.TestEventPattern"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TestEventPatternRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TestEventPatternRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -667,9 +599,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "AWSEvents.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -678,10 +608,7 @@ export const deserializeAws_json1_1ActivateEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<ActivateEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ActivateEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ActivateEventSourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ActivateEventSourceCommandOutput = {
@@ -701,16 +628,12 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -718,10 +641,7 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
     case "InvalidStateException":
     case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
       response = {
-        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -729,10 +649,7 @@ const deserializeAws_json1_1ActivateEventSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -783,8 +700,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -800,10 +716,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -811,10 +724,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
     case "InvalidStateException":
     case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
       response = {
-        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -822,10 +732,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
     case "LimitExceededException":
     case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -844,10 +751,7 @@ const deserializeAws_json1_1CreateEventBusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -874,17 +778,11 @@ export const deserializeAws_json1_1CreatePartnerEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePartnerEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreatePartnerEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePartnerEventSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePartnerEventSourceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePartnerEventSourceResponse(data, context);
   const response: CreatePartnerEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePartnerEventSourceResponse",
@@ -904,8 +802,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -921,10 +818,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -932,10 +826,7 @@ const deserializeAws_json1_1CreatePartnerEventSourceCommandError = async (
     case "LimitExceededException":
     case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -973,10 +864,7 @@ export const deserializeAws_json1_1DeactivateEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeactivateEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeactivateEventSourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeactivateEventSourceCommandOutput = {
@@ -996,16 +884,12 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1013,10 +897,7 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
     case "InvalidStateException":
     case "com.amazon.jetstream.v20151007.exceptions#InvalidStateException":
       response = {
-        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1024,10 +905,7 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1074,16 +952,12 @@ const deserializeAws_json1_1DeleteEventBusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1110,10 +984,7 @@ export const deserializeAws_json1_1DeletePartnerEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeletePartnerEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeletePartnerEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeletePartnerEventSourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePartnerEventSourceCommandOutput = {
@@ -1133,16 +1004,12 @@ const deserializeAws_json1_1DeletePartnerEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1189,8 +1056,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -1206,10 +1072,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1217,10 +1080,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1228,10 +1088,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1282,16 +1139,12 @@ const deserializeAws_json1_1DescribeEventBusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1299,10 +1152,7 @@ const deserializeAws_json1_1DescribeEventBusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1329,10 +1179,7 @@ export const deserializeAws_json1_1DescribeEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1356,16 +1203,12 @@ const deserializeAws_json1_1DescribeEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1373,10 +1216,7 @@ const deserializeAws_json1_1DescribeEventSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1403,17 +1243,11 @@ export const deserializeAws_json1_1DescribePartnerEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribePartnerEventSourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribePartnerEventSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePartnerEventSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePartnerEventSourceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePartnerEventSourceResponse(data, context);
   const response: DescribePartnerEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePartnerEventSourceResponse",
@@ -1433,16 +1267,12 @@ const deserializeAws_json1_1DescribePartnerEventSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1450,10 +1280,7 @@ const deserializeAws_json1_1DescribePartnerEventSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1504,16 +1331,12 @@ const deserializeAws_json1_1DescribeRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1521,10 +1344,7 @@ const deserializeAws_json1_1DescribeRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1571,8 +1391,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -1588,10 +1407,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1599,10 +1415,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1610,10 +1423,7 @@ const deserializeAws_json1_1DisableRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1660,8 +1470,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -1677,10 +1486,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1688,10 +1494,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1699,10 +1502,7 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1753,16 +1553,12 @@ const deserializeAws_json1_1ListEventBusesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1813,16 +1609,12 @@ const deserializeAws_json1_1ListEventSourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1849,17 +1641,11 @@ export const deserializeAws_json1_1ListPartnerEventSourceAccountsCommand = async
   context: __SerdeContext
 ): Promise<ListPartnerEventSourceAccountsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPartnerEventSourceAccountsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListPartnerEventSourceAccountsResponse(data, context);
   const response: ListPartnerEventSourceAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPartnerEventSourceAccountsResponse",
@@ -1879,16 +1665,12 @@ const deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1896,10 +1678,7 @@ const deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1926,17 +1705,11 @@ export const deserializeAws_json1_1ListPartnerEventSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListPartnerEventSourcesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListPartnerEventSourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPartnerEventSourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPartnerEventSourcesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListPartnerEventSourcesResponse(data, context);
   const response: ListPartnerEventSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPartnerEventSourcesResponse",
@@ -1956,16 +1729,12 @@ const deserializeAws_json1_1ListPartnerEventSourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1992,10 +1761,7 @@ export const deserializeAws_json1_1ListRuleNamesByTargetCommand = async (
   context: __SerdeContext
 ): Promise<ListRuleNamesByTargetCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRuleNamesByTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListRuleNamesByTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2019,16 +1785,12 @@ const deserializeAws_json1_1ListRuleNamesByTargetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2036,10 +1798,7 @@ const deserializeAws_json1_1ListRuleNamesByTargetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2090,16 +1849,12 @@ const deserializeAws_json1_1ListRulesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2107,10 +1862,7 @@ const deserializeAws_json1_1ListRulesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2137,10 +1889,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2164,16 +1913,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2181,10 +1926,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2235,16 +1977,12 @@ const deserializeAws_json1_1ListTargetsByRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2252,10 +1990,7 @@ const deserializeAws_json1_1ListTargetsByRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2306,16 +2041,12 @@ const deserializeAws_json1_1PutEventsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2366,16 +2097,12 @@ const deserializeAws_json1_1PutPartnerEventsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2422,8 +2149,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2439,10 +2165,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2461,10 +2184,7 @@ const deserializeAws_json1_1PutPermissionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2515,8 +2235,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2532,10 +2251,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2554,10 +2270,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
     case "LimitExceededException":
     case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2565,10 +2278,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2576,10 +2286,7 @@ const deserializeAws_json1_1PutRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2630,8 +2337,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2647,10 +2353,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2658,10 +2361,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.jetstream.v20151007.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2669,10 +2369,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2680,10 +2377,7 @@ const deserializeAws_json1_1PutTargetsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2730,8 +2424,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2747,10 +2440,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2758,10 +2448,7 @@ const deserializeAws_json1_1RemovePermissionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2812,8 +2499,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2829,10 +2515,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2840,10 +2523,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2851,10 +2531,7 @@ const deserializeAws_json1_1RemoveTargetsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2905,8 +2582,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -2922,10 +2598,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2933,10 +2606,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2944,10 +2614,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2998,16 +2665,12 @@ const deserializeAws_json1_1TestEventPatternCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3069,8 +2732,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.jetstream.v20151007.exceptions#ConcurrentModificationException":
@@ -3086,10 +2748,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InternalException":
     case "com.amazon.jetstream.v20151007.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_json1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3097,10 +2756,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ManagedRuleException":
     case "com.amazon.jetstream.v20151007.exceptions#ManagedRuleException":
       response = {
-        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ManagedRuleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3108,10 +2764,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.jetstream.v20151007.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3138,10 +2791,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "client",
@@ -3156,10 +2806,7 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalException(body, context);
   const contents: InternalException = {
     name: "InternalException",
     $fault: "server",
@@ -3174,10 +2821,7 @@ const deserializeAws_json1_1InvalidEventPatternExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidEventPatternException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEventPatternException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidEventPatternException(body, context);
   const contents: InvalidEventPatternException = {
     name: "InvalidEventPatternException",
     $fault: "client",
@@ -3192,10 +2836,7 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidStateException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidStateException(body, context);
   const contents: InvalidStateException = {
     name: "InvalidStateException",
     $fault: "client",
@@ -3210,10 +2851,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -3228,10 +2866,7 @@ const deserializeAws_json1_1ManagedRuleExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ManagedRuleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ManagedRuleException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ManagedRuleException(body, context);
   const contents: ManagedRuleException = {
     name: "ManagedRuleException",
     $fault: "client",
@@ -3246,10 +2881,7 @@ const deserializeAws_json1_1PolicyLengthExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PolicyLengthExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyLengthExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PolicyLengthExceededException(body, context);
   const contents: PolicyLengthExceededException = {
     name: "PolicyLengthExceededException",
     $fault: "client",
@@ -3264,10 +2896,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
@@ -3282,10 +2911,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -3313,10 +2939,7 @@ const serializeAws_json1_1AwsVpcConfiguration = (
       AssignPublicIp: input.AssignPublicIp
     }),
     ...(input.SecurityGroups !== undefined && {
-      SecurityGroups: serializeAws_json1_1StringList(
-        input.SecurityGroups,
-        context
-      )
+      SecurityGroups: serializeAws_json1_1StringList(input.SecurityGroups, context)
     }),
     ...(input.Subnets !== undefined && {
       Subnets: serializeAws_json1_1StringList(input.Subnets, context)
@@ -3339,20 +2962,14 @@ const serializeAws_json1_1BatchParameters = (
 ): any => {
   return {
     ...(input.ArrayProperties !== undefined && {
-      ArrayProperties: serializeAws_json1_1BatchArrayProperties(
-        input.ArrayProperties,
-        context
-      )
+      ArrayProperties: serializeAws_json1_1BatchArrayProperties(input.ArrayProperties, context)
     }),
     ...(input.JobDefinition !== undefined && {
       JobDefinition: input.JobDefinition
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.RetryStrategy !== undefined && {
-      RetryStrategy: serializeAws_json1_1BatchRetryStrategy(
-        input.RetryStrategy,
-        context
-      )
+      RetryStrategy: serializeAws_json1_1BatchRetryStrategy(input.RetryStrategy, context)
     })
   };
 };
@@ -3366,10 +2983,7 @@ const serializeAws_json1_1BatchRetryStrategy = (
   };
 };
 
-const serializeAws_json1_1Condition = (
-  input: Condition,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Type !== undefined && { Type: input.Type }),
@@ -3491,10 +3105,7 @@ const serializeAws_json1_1DisableRuleRequest = (
   };
 };
 
-const serializeAws_json1_1EcsParameters = (
-  input: EcsParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EcsParameters = (input: EcsParameters, context: __SerdeContext): any => {
   return {
     ...(input.Group !== undefined && { Group: input.Group }),
     ...(input.LaunchType !== undefined && { LaunchType: input.LaunchType }),
@@ -3526,10 +3137,7 @@ const serializeAws_json1_1EnableRuleRequest = (
   };
 };
 
-const serializeAws_json1_1EventResourceList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EventResourceList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3539,10 +3147,7 @@ const serializeAws_json1_1InputTransformer = (
 ): any => {
   return {
     ...(input.InputPathsMap !== undefined && {
-      InputPathsMap: serializeAws_json1_1TransformerPaths(
-        input.InputPathsMap,
-        context
-      )
+      InputPathsMap: serializeAws_json1_1TransformerPaths(input.InputPathsMap, context)
     }),
     ...(input.InputTemplate !== undefined && {
       InputTemplate: input.InputTemplate
@@ -3678,10 +3283,7 @@ const serializeAws_json1_1PutEventsRequest = (
 ): any => {
   return {
     ...(input.Entries !== undefined && {
-      Entries: serializeAws_json1_1PutEventsRequestEntryList(
-        input.Entries,
-        context
-      )
+      Entries: serializeAws_json1_1PutEventsRequestEntryList(input.Entries, context)
     })
   };
 };
@@ -3710,9 +3312,7 @@ const serializeAws_json1_1PutEventsRequestEntryList = (
   input: PutEventsRequestEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PutEventsRequestEntry(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PutEventsRequestEntry(entry, context));
 };
 
 const serializeAws_json1_1PutPartnerEventsRequest = (
@@ -3721,10 +3321,7 @@ const serializeAws_json1_1PutPartnerEventsRequest = (
 ): any => {
   return {
     ...(input.Entries !== undefined && {
-      Entries: serializeAws_json1_1PutPartnerEventsRequestEntryList(
-        input.Entries,
-        context
-      )
+      Entries: serializeAws_json1_1PutPartnerEventsRequestEntryList(input.Entries, context)
     })
   };
 };
@@ -3750,9 +3347,7 @@ const serializeAws_json1_1PutPartnerEventsRequestEntryList = (
   input: PutPartnerEventsRequestEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PutPartnerEventsRequestEntry(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PutPartnerEventsRequestEntry(entry, context));
 };
 
 const serializeAws_json1_1PutPermissionRequest = (
@@ -3845,10 +3440,7 @@ const serializeAws_json1_1RunCommandParameters = (
 ): any => {
   return {
     ...(input.RunCommandTargets !== undefined && {
-      RunCommandTargets: serializeAws_json1_1RunCommandTargets(
-        input.RunCommandTargets,
-        context
-      )
+      RunCommandTargets: serializeAws_json1_1RunCommandTargets(input.RunCommandTargets, context)
     })
   };
 };
@@ -3876,15 +3468,10 @@ const serializeAws_json1_1RunCommandTargets = (
   input: RunCommandTarget[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1RunCommandTarget(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1RunCommandTarget(entry, context));
 };
 
-const serializeAws_json1_1SqsParameters = (
-  input: SqsParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SqsParameters = (input: SqsParameters, context: __SerdeContext): any => {
   return {
     ...(input.MessageGroupId !== undefined && {
       MessageGroupId: input.MessageGroupId
@@ -3892,10 +3479,7 @@ const serializeAws_json1_1SqsParameters = (
   };
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3906,17 +3490,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -3932,38 +3510,23 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1Target = (
-  input: Target,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.BatchParameters !== undefined && {
-      BatchParameters: serializeAws_json1_1BatchParameters(
-        input.BatchParameters,
-        context
-      )
+      BatchParameters: serializeAws_json1_1BatchParameters(input.BatchParameters, context)
     }),
     ...(input.EcsParameters !== undefined && {
-      EcsParameters: serializeAws_json1_1EcsParameters(
-        input.EcsParameters,
-        context
-      )
+      EcsParameters: serializeAws_json1_1EcsParameters(input.EcsParameters, context)
     }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Input !== undefined && { Input: input.Input }),
     ...(input.InputPath !== undefined && { InputPath: input.InputPath }),
     ...(input.InputTransformer !== undefined && {
-      InputTransformer: serializeAws_json1_1InputTransformer(
-        input.InputTransformer,
-        context
-      )
+      InputTransformer: serializeAws_json1_1InputTransformer(input.InputTransformer, context)
     }),
     ...(input.KinesisParameters !== undefined && {
-      KinesisParameters: serializeAws_json1_1KinesisParameters(
-        input.KinesisParameters,
-        context
-      )
+      KinesisParameters: serializeAws_json1_1KinesisParameters(input.KinesisParameters, context)
     }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.RunCommandParameters !== undefined && {
@@ -3973,25 +3536,16 @@ const serializeAws_json1_1Target = (
       )
     }),
     ...(input.SqsParameters !== undefined && {
-      SqsParameters: serializeAws_json1_1SqsParameters(
-        input.SqsParameters,
-        context
-      )
+      SqsParameters: serializeAws_json1_1SqsParameters(input.SqsParameters, context)
     })
   };
 };
 
-const serializeAws_json1_1TargetIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TargetIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TargetList = (
-  input: Target[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TargetList = (input: Target[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Target(entry, context));
 };
 
@@ -4059,10 +3613,7 @@ const deserializeAws_json1_1BatchArrayProperties = (
 ): BatchArrayProperties => {
   return {
     __type: "BatchArrayProperties",
-    Size:
-      output.Size !== undefined && output.Size !== null
-        ? output.Size
-        : undefined
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined
   } as any;
 };
 
@@ -4074,25 +3625,16 @@ const deserializeAws_json1_1BatchParameters = (
     __type: "BatchParameters",
     ArrayProperties:
       output.ArrayProperties !== undefined && output.ArrayProperties !== null
-        ? deserializeAws_json1_1BatchArrayProperties(
-            output.ArrayProperties,
-            context
-          )
+        ? deserializeAws_json1_1BatchArrayProperties(output.ArrayProperties, context)
         : undefined,
     JobDefinition:
       output.JobDefinition !== undefined && output.JobDefinition !== null
         ? output.JobDefinition
         : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     RetryStrategy:
       output.RetryStrategy !== undefined && output.RetryStrategy !== null
-        ? deserializeAws_json1_1BatchRetryStrategy(
-            output.RetryStrategy,
-            context
-          )
+        ? deserializeAws_json1_1BatchRetryStrategy(output.RetryStrategy, context)
         : undefined
   } as any;
 };
@@ -4104,9 +3646,7 @@ const deserializeAws_json1_1BatchRetryStrategy = (
   return {
     __type: "BatchRetryStrategy",
     Attempts:
-      output.Attempts !== undefined && output.Attempts !== null
-        ? output.Attempts
-        : undefined
+      output.Attempts !== undefined && output.Attempts !== null ? output.Attempts : undefined
   } as any;
 };
 
@@ -4142,16 +3682,9 @@ const deserializeAws_json1_1DescribeEventBusResponse = (
 ): DescribeEventBusResponse => {
   return {
     __type: "DescribeEventBusResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? output.Policy
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined
   } as any;
 };
 
@@ -4161,12 +3694,9 @@ const deserializeAws_json1_1DescribeEventSourceResponse = (
 ): DescribeEventSourceResponse => {
   return {
     __type: "DescribeEventSourceResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? output.CreatedBy
-        : undefined,
+      output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4175,14 +3705,8 @@ const deserializeAws_json1_1DescribeEventSourceResponse = (
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
         ? new Date(Math.round(output.ExpirationTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -4192,12 +3716,8 @@ const deserializeAws_json1_1DescribePartnerEventSourceResponse = (
 ): DescribePartnerEventSourceResponse => {
   return {
     __type: "DescribePartnerEventSourceResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -4207,8 +3727,7 @@ const deserializeAws_json1_1DescribeRuleResponse = (
 ): DescribeRuleResponse => {
   return {
     __type: "DescribeRuleResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
         ? output.Description
@@ -4222,26 +3741,14 @@ const deserializeAws_json1_1DescribeRuleResponse = (
         ? output.EventPattern
         : undefined,
     ManagedBy:
-      output.ManagedBy !== undefined && output.ManagedBy !== null
-        ? output.ManagedBy
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+      output.ManagedBy !== undefined && output.ManagedBy !== null ? output.ManagedBy : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     ScheduleExpression:
-      output.ScheduleExpression !== undefined &&
-      output.ScheduleExpression !== null
+      output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -4251,78 +3758,45 @@ const deserializeAws_json1_1EcsParameters = (
 ): EcsParameters => {
   return {
     __type: "EcsParameters",
-    Group:
-      output.Group !== undefined && output.Group !== null
-        ? output.Group
-        : undefined,
+    Group: output.Group !== undefined && output.Group !== null ? output.Group : undefined,
     LaunchType:
-      output.LaunchType !== undefined && output.LaunchType !== null
-        ? output.LaunchType
-        : undefined,
+      output.LaunchType !== undefined && output.LaunchType !== null ? output.LaunchType : undefined,
     NetworkConfiguration:
-      output.NetworkConfiguration !== undefined &&
-      output.NetworkConfiguration !== null
-        ? deserializeAws_json1_1NetworkConfiguration(
-            output.NetworkConfiguration,
-            context
-          )
+      output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
+        ? deserializeAws_json1_1NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
     PlatformVersion:
       output.PlatformVersion !== undefined && output.PlatformVersion !== null
         ? output.PlatformVersion
         : undefined,
     TaskCount:
-      output.TaskCount !== undefined && output.TaskCount !== null
-        ? output.TaskCount
-        : undefined,
+      output.TaskCount !== undefined && output.TaskCount !== null ? output.TaskCount : undefined,
     TaskDefinitionArn:
-      output.TaskDefinitionArn !== undefined &&
-      output.TaskDefinitionArn !== null
+      output.TaskDefinitionArn !== undefined && output.TaskDefinitionArn !== null
         ? output.TaskDefinitionArn
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EventBus = (
-  output: any,
-  context: __SerdeContext
-): EventBus => {
+const deserializeAws_json1_1EventBus = (output: any, context: __SerdeContext): EventBus => {
   return {
     __type: "EventBus",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? output.Policy
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EventBusList = (
-  output: any,
-  context: __SerdeContext
-): EventBus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EventBus(entry, context)
-  );
+const deserializeAws_json1_1EventBusList = (output: any, context: __SerdeContext): EventBus[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EventBus(entry, context));
 };
 
-const deserializeAws_json1_1EventSource = (
-  output: any,
-  context: __SerdeContext
-): EventSource => {
+const deserializeAws_json1_1EventSource = (output: any, context: __SerdeContext): EventSource => {
   return {
     __type: "EventSource",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? output.CreatedBy
-        : undefined,
+      output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4331,14 +3805,8 @@ const deserializeAws_json1_1EventSource = (
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
         ? new Date(Math.round(output.ExpirationTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -4346,9 +3814,7 @@ const deserializeAws_json1_1EventSourceList = (
   output: any,
   context: __SerdeContext
 ): EventSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EventSource(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1EventSource(entry, context));
 };
 
 const deserializeAws_json1_1InputTransformer = (
@@ -4392,9 +3858,7 @@ const deserializeAws_json1_1ListEventBusesResponse = (
         ? deserializeAws_json1_1EventBusList(output.EventBuses, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -4409,9 +3873,7 @@ const deserializeAws_json1_1ListEventSourcesResponse = (
         ? deserializeAws_json1_1EventSourceList(output.EventSources, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -4422,12 +3884,9 @@ const deserializeAws_json1_1ListPartnerEventSourceAccountsResponse = (
   return {
     __type: "ListPartnerEventSourceAccountsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PartnerEventSourceAccounts:
-      output.PartnerEventSourceAccounts !== undefined &&
-      output.PartnerEventSourceAccounts !== null
+      output.PartnerEventSourceAccounts !== undefined && output.PartnerEventSourceAccounts !== null
         ? deserializeAws_json1_1PartnerEventSourceAccountList(
             output.PartnerEventSourceAccounts,
             context
@@ -4443,16 +3902,10 @@ const deserializeAws_json1_1ListPartnerEventSourcesResponse = (
   return {
     __type: "ListPartnerEventSourcesResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PartnerEventSources:
-      output.PartnerEventSources !== undefined &&
-      output.PartnerEventSources !== null
-        ? deserializeAws_json1_1PartnerEventSourceList(
-            output.PartnerEventSources,
-            context
-          )
+      output.PartnerEventSources !== undefined && output.PartnerEventSources !== null
+        ? deserializeAws_json1_1PartnerEventSourceList(output.PartnerEventSources, context)
         : undefined
   } as any;
 };
@@ -4464,9 +3917,7 @@ const deserializeAws_json1_1ListRuleNamesByTargetResponse = (
   return {
     __type: "ListRuleNamesByTargetResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RuleNames:
       output.RuleNames !== undefined && output.RuleNames !== null
         ? deserializeAws_json1_1RuleNameList(output.RuleNames, context)
@@ -4481,9 +3932,7 @@ const deserializeAws_json1_1ListRulesResponse = (
   return {
     __type: "ListRulesResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1RuleResponseList(output.Rules, context)
@@ -4511,9 +3960,7 @@ const deserializeAws_json1_1ListTargetsByRuleResponse = (
   return {
     __type: "ListTargetsByRuleResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1TargetList(output.Targets, context)
@@ -4528,12 +3975,8 @@ const deserializeAws_json1_1NetworkConfiguration = (
   return {
     __type: "NetworkConfiguration",
     awsvpcConfiguration:
-      output.awsvpcConfiguration !== undefined &&
-      output.awsvpcConfiguration !== null
-        ? deserializeAws_json1_1AwsVpcConfiguration(
-            output.awsvpcConfiguration,
-            context
-          )
+      output.awsvpcConfiguration !== undefined && output.awsvpcConfiguration !== null
+        ? deserializeAws_json1_1AwsVpcConfiguration(output.awsvpcConfiguration, context)
         : undefined
   } as any;
 };
@@ -4544,12 +3987,8 @@ const deserializeAws_json1_1PartnerEventSource = (
 ): PartnerEventSource => {
   return {
     __type: "PartnerEventSource",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -4559,10 +3998,7 @@ const deserializeAws_json1_1PartnerEventSourceAccount = (
 ): PartnerEventSourceAccount => {
   return {
     __type: "PartnerEventSourceAccount",
-    Account:
-      output.Account !== undefined && output.Account !== null
-        ? output.Account
-        : undefined,
+    Account: output.Account !== undefined && output.Account !== null ? output.Account : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4571,10 +4007,7 @@ const deserializeAws_json1_1PartnerEventSourceAccount = (
       output.ExpirationTime !== undefined && output.ExpirationTime !== null
         ? new Date(Math.round(output.ExpirationTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -4604,10 +4037,7 @@ const deserializeAws_json1_1PutEventsResponse = (
     __type: "PutEventsResponse",
     Entries:
       output.Entries !== undefined && output.Entries !== null
-        ? deserializeAws_json1_1PutEventsResultEntryList(
-            output.Entries,
-            context
-          )
+        ? deserializeAws_json1_1PutEventsResultEntryList(output.Entries, context)
         : undefined,
     FailedEntryCount:
       output.FailedEntryCount !== undefined && output.FailedEntryCount !== null
@@ -4623,17 +4053,12 @@ const deserializeAws_json1_1PutEventsResultEntry = (
   return {
     __type: "PutEventsResultEntry",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
-    EventId:
-      output.EventId !== undefined && output.EventId !== null
-        ? output.EventId
-        : undefined
+    EventId: output.EventId !== undefined && output.EventId !== null ? output.EventId : undefined
   } as any;
 };
 
@@ -4654,10 +4079,7 @@ const deserializeAws_json1_1PutPartnerEventsResponse = (
     __type: "PutPartnerEventsResponse",
     Entries:
       output.Entries !== undefined && output.Entries !== null
-        ? deserializeAws_json1_1PutPartnerEventsResultEntryList(
-            output.Entries,
-            context
-          )
+        ? deserializeAws_json1_1PutPartnerEventsResultEntryList(output.Entries, context)
         : undefined,
     FailedEntryCount:
       output.FailedEntryCount !== undefined && output.FailedEntryCount !== null
@@ -4673,17 +4095,12 @@ const deserializeAws_json1_1PutPartnerEventsResultEntry = (
   return {
     __type: "PutPartnerEventsResultEntry",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
-    EventId:
-      output.EventId !== undefined && output.EventId !== null
-        ? output.EventId
-        : undefined
+    EventId: output.EventId !== undefined && output.EventId !== null ? output.EventId : undefined
   } as any;
 };
 
@@ -4702,10 +4119,7 @@ const deserializeAws_json1_1PutRuleResponse = (
 ): PutRuleResponse => {
   return {
     __type: "PutRuleResponse",
-    RuleArn:
-      output.RuleArn !== undefined && output.RuleArn !== null
-        ? output.RuleArn
-        : undefined
+    RuleArn: output.RuleArn !== undefined && output.RuleArn !== null ? output.RuleArn : undefined
   } as any;
 };
 
@@ -4717,10 +4131,7 @@ const deserializeAws_json1_1PutTargetsResponse = (
     __type: "PutTargetsResponse",
     FailedEntries:
       output.FailedEntries !== undefined && output.FailedEntries !== null
-        ? deserializeAws_json1_1PutTargetsResultEntryList(
-            output.FailedEntries,
-            context
-          )
+        ? deserializeAws_json1_1PutTargetsResultEntryList(output.FailedEntries, context)
         : undefined,
     FailedEntryCount:
       output.FailedEntryCount !== undefined && output.FailedEntryCount !== null
@@ -4736,17 +4147,13 @@ const deserializeAws_json1_1PutTargetsResultEntry = (
   return {
     __type: "PutTargetsResultEntry",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     TargetId:
-      output.TargetId !== undefined && output.TargetId !== null
-        ? output.TargetId
-        : undefined
+      output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined
   } as any;
 };
 
@@ -4767,10 +4174,7 @@ const deserializeAws_json1_1RemoveTargetsResponse = (
     __type: "RemoveTargetsResponse",
     FailedEntries:
       output.FailedEntries !== undefined && output.FailedEntries !== null
-        ? deserializeAws_json1_1RemoveTargetsResultEntryList(
-            output.FailedEntries,
-            context
-          )
+        ? deserializeAws_json1_1RemoveTargetsResultEntryList(output.FailedEntries, context)
         : undefined,
     FailedEntryCount:
       output.FailedEntryCount !== undefined && output.FailedEntryCount !== null
@@ -4786,17 +4190,13 @@ const deserializeAws_json1_1RemoveTargetsResultEntry = (
   return {
     __type: "RemoveTargetsResultEntry",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
         : undefined,
     TargetId:
-      output.TargetId !== undefined && output.TargetId !== null
-        ? output.TargetId
-        : undefined
+      output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined
   } as any;
 };
 
@@ -4809,14 +4209,10 @@ const deserializeAws_json1_1RemoveTargetsResultEntryList = (
   );
 };
 
-const deserializeAws_json1_1Rule = (
-  output: any,
-  context: __SerdeContext
-): Rule => {
+const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
     __type: "Rule",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
         ? output.Description
@@ -4830,43 +4226,23 @@ const deserializeAws_json1_1Rule = (
         ? output.EventPattern
         : undefined,
     ManagedBy:
-      output.ManagedBy !== undefined && output.ManagedBy !== null
-        ? output.ManagedBy
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+      output.ManagedBy !== undefined && output.ManagedBy !== null ? output.ManagedBy : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     ScheduleExpression:
-      output.ScheduleExpression !== undefined &&
-      output.ScheduleExpression !== null
+      output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RuleNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1RuleNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1RuleResponseList = (
-  output: any,
-  context: __SerdeContext
-): Rule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Rule(entry, context)
-  );
+const deserializeAws_json1_1RuleResponseList = (output: any, context: __SerdeContext): Rule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Rule(entry, context));
 };
 
 const deserializeAws_json1_1RunCommandParameters = (
@@ -4876,12 +4252,8 @@ const deserializeAws_json1_1RunCommandParameters = (
   return {
     __type: "RunCommandParameters",
     RunCommandTargets:
-      output.RunCommandTargets !== undefined &&
-      output.RunCommandTargets !== null
-        ? deserializeAws_json1_1RunCommandTargets(
-            output.RunCommandTargets,
-            context
-          )
+      output.RunCommandTargets !== undefined && output.RunCommandTargets !== null
+        ? deserializeAws_json1_1RunCommandTargets(output.RunCommandTargets, context)
         : undefined
   } as any;
 };
@@ -4892,8 +4264,7 @@ const deserializeAws_json1_1RunCommandTarget = (
 ): RunCommandTarget => {
   return {
     __type: "RunCommandTarget",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1RunCommandTargetValues(output.Values, context)
@@ -4912,9 +4283,7 @@ const deserializeAws_json1_1RunCommandTargets = (
   output: any,
   context: __SerdeContext
 ): RunCommandTarget[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RunCommandTarget(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RunCommandTarget(entry, context));
 };
 
 const deserializeAws_json1_1SqsParameters = (
@@ -4930,35 +4299,20 @@ const deserializeAws_json1_1SqsParameters = (
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
@@ -4970,14 +4324,10 @@ const deserializeAws_json1_1TagResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Target = (
-  output: any,
-  context: __SerdeContext
-): Target => {
+const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Target => {
   return {
     __type: "Target",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     BatchParameters:
       output.BatchParameters !== undefined && output.BatchParameters !== null
         ? deserializeAws_json1_1BatchParameters(output.BatchParameters, context)
@@ -4987,40 +4337,21 @@ const deserializeAws_json1_1Target = (
         ? deserializeAws_json1_1EcsParameters(output.EcsParameters, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Input:
-      output.Input !== undefined && output.Input !== null
-        ? output.Input
-        : undefined,
+    Input: output.Input !== undefined && output.Input !== null ? output.Input : undefined,
     InputPath:
-      output.InputPath !== undefined && output.InputPath !== null
-        ? output.InputPath
-        : undefined,
+      output.InputPath !== undefined && output.InputPath !== null ? output.InputPath : undefined,
     InputTransformer:
       output.InputTransformer !== undefined && output.InputTransformer !== null
-        ? deserializeAws_json1_1InputTransformer(
-            output.InputTransformer,
-            context
-          )
+        ? deserializeAws_json1_1InputTransformer(output.InputTransformer, context)
         : undefined,
     KinesisParameters:
-      output.KinesisParameters !== undefined &&
-      output.KinesisParameters !== null
-        ? deserializeAws_json1_1KinesisParameters(
-            output.KinesisParameters,
-            context
-          )
+      output.KinesisParameters !== undefined && output.KinesisParameters !== null
+        ? deserializeAws_json1_1KinesisParameters(output.KinesisParameters, context)
         : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     RunCommandParameters:
-      output.RunCommandParameters !== undefined &&
-      output.RunCommandParameters !== null
-        ? deserializeAws_json1_1RunCommandParameters(
-            output.RunCommandParameters,
-            context
-          )
+      output.RunCommandParameters !== undefined && output.RunCommandParameters !== null
+        ? deserializeAws_json1_1RunCommandParameters(output.RunCommandParameters, context)
         : undefined,
     SqsParameters:
       output.SqsParameters !== undefined && output.SqsParameters !== null
@@ -5029,13 +4360,8 @@ const deserializeAws_json1_1Target = (
   } as any;
 };
 
-const deserializeAws_json1_1TargetList = (
-  output: any,
-  context: __SerdeContext
-): Target[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Target(entry, context)
-  );
+const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext): Target[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Target(entry, context));
 };
 
 const deserializeAws_json1_1TestEventPatternResponse = (
@@ -5044,10 +4370,7 @@ const deserializeAws_json1_1TestEventPatternResponse = (
 ): TestEventPatternResponse => {
   return {
     __type: "TestEventPatternResponse",
-    Result:
-      output.Result !== undefined && output.Result !== null
-        ? output.Result
-        : undefined
+    Result: output.Result !== undefined && output.Result !== null ? output.Result : undefined
   } as any;
 };
 
@@ -5079,10 +4402,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     __type: "ConcurrentModificationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5092,10 +4412,7 @@ const deserializeAws_json1_1InternalException = (
 ): InternalException => {
   return {
     __type: "InternalException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5105,10 +4422,7 @@ const deserializeAws_json1_1InvalidEventPatternException = (
 ): InvalidEventPatternException => {
   return {
     __type: "InvalidEventPatternException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5118,10 +4432,7 @@ const deserializeAws_json1_1InvalidStateException = (
 ): InvalidStateException => {
   return {
     __type: "InvalidStateException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5131,10 +4442,7 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5144,10 +4452,7 @@ const deserializeAws_json1_1ManagedRuleException = (
 ): ManagedRuleException => {
   return {
     __type: "ManagedRuleException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5157,10 +4462,7 @@ const deserializeAws_json1_1PolicyLengthExceededException = (
 ): PolicyLengthExceededException => {
   return {
     __type: "PolicyLengthExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5170,10 +4472,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5183,10 +4482,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5204,16 +4500,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

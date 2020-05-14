@@ -54,11 +54,7 @@ import {
   DisassociateCertificateCommandInput,
   DisassociateCertificateCommandOutput
 } from "./commands/DisassociateCertificateCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetJobTemplateCommand,
   GetJobTemplateCommandInput,
@@ -183,9 +179,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -218,9 +212,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -288,9 +280,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createPreset(
     args: CreatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresetCommandOutput) => void),
     cb?: (err: any, data?: CreatePresetCommandOutput) => void
   ): Promise<CreatePresetCommandOutput> | void {
     const command = new CreatePresetCommand(args);
@@ -323,9 +313,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createQueue(
     args: CreateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateQueueCommandOutput) => void
   ): Promise<CreateQueueCommandOutput> | void {
     const command = new CreateQueueCommand(args);
@@ -393,9 +381,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public deletePreset(
     args: DeletePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePresetCommandOutput) => void),
     cb?: (err: any, data?: DeletePresetCommandOutput) => void
   ): Promise<DeletePresetCommandOutput> | void {
     const command = new DeletePresetCommand(args);
@@ -428,9 +414,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public deleteQueue(
     args: DeleteQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueueCommandOutput) => void
   ): Promise<DeleteQueueCommandOutput> | void {
     const command = new DeleteQueueCommand(args);
@@ -522,10 +506,7 @@ export class MediaConvert extends MediaConvertClient {
     args: GetJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -533,9 +514,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
@@ -568,9 +547,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getJobTemplate(
     args: GetJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetJobTemplateCommandOutput) => void
   ): Promise<GetJobTemplateCommandOutput> | void {
     const command = new GetJobTemplateCommand(args);
@@ -603,9 +580,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getPreset(
     args: GetPresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPresetCommandOutput) => void),
     cb?: (err: any, data?: GetPresetCommandOutput) => void
   ): Promise<GetPresetCommandOutput> | void {
     const command = new GetPresetCommand(args);
@@ -638,9 +613,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getQueue(
     args: GetQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueueCommandOutput) => void),
     cb?: (err: any, data?: GetQueueCommandOutput) => void
   ): Promise<GetQueueCommandOutput> | void {
     const command = new GetQueueCommand(args);
@@ -673,9 +646,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listJobTemplates(
     args: ListJobTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
   ): Promise<ListJobTemplatesCommandOutput> | void {
     const command = new ListJobTemplatesCommand(args);
@@ -708,9 +679,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -743,9 +712,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listPresets(
     args: ListPresetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPresetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPresetsCommandOutput) => void),
     cb?: (err: any, data?: ListPresetsCommandOutput) => void
   ): Promise<ListPresetsCommandOutput> | void {
     const command = new ListPresetsCommand(args);
@@ -778,9 +745,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
@@ -848,9 +813,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -883,9 +846,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -953,9 +914,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public updatePreset(
     args: UpdatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePresetCommandOutput) => void),
     cb?: (err: any, data?: UpdatePresetCommandOutput) => void
   ): Promise<UpdatePresetCommandOutput> | void {
     const command = new UpdatePresetCommand(args);
@@ -988,9 +947,7 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public updateQueue(
     args: UpdateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateQueueCommandOutput) => void
   ): Promise<UpdateQueueCommandOutput> | void {
     const command = new UpdateQueueCommand(args);

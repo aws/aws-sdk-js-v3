@@ -6,8 +6,7 @@ import {
   HttpRequest as IHttpRequest
 } from "@aws-sdk/types";
 
-type HttpRequestOptions = Partial<HttpMessage> &
-  Partial<Endpoint> & { method?: string };
+type HttpRequestOptions = Partial<HttpMessage> & Partial<Endpoint> & { method?: string };
 
 export interface HttpRequest extends IHttpRequest {}
 
@@ -65,14 +64,11 @@ export class HttpRequest implements HttpMessage, Endpoint {
 }
 
 function cloneQuery(query: QueryParameterBag): QueryParameterBag {
-  return Object.keys(query).reduce(
-    (carry: QueryParameterBag, paramName: string) => {
-      const param = query[paramName];
-      return {
-        ...carry,
-        [paramName]: Array.isArray(param) ? [...param] : param
-      };
-    },
-    {}
-  );
+  return Object.keys(query).reduce((carry: QueryParameterBag, paramName: string) => {
+    const param = query[paramName];
+    return {
+      ...carry,
+      [paramName]: Array.isArray(param) ? [...param] : param
+    };
+  }, {});
 }

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateLoadBalancerPolicyInput,
-  CreateLoadBalancerPolicyOutput
-} from "../models/index";
+import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/index";
 import {
   deserializeAws_queryCreateLoadBalancerPolicyCommand,
   serializeAws_queryCreateLoadBalancerPolicyCommand
@@ -49,13 +46,8 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLoadBalancerPolicyCommandInput,
-    CreateLoadBalancerPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLoadBalancerPolicyCommandInput, CreateLoadBalancerPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DescribeChangeSetInput,
-  DescribeChangeSetOutput
-} from "../models/index";
+import { DescribeChangeSetInput, DescribeChangeSetOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeChangeSetCommand,
   serializeAws_queryDescribeChangeSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeChangeSetCommandInput = DescribeChangeSetInput;
-export type DescribeChangeSetCommandOutput = DescribeChangeSetOutput &
-  __MetadataBearer;
+export type DescribeChangeSetCommandOutput = DescribeChangeSetOutput & __MetadataBearer;
 
 export class DescribeChangeSetCommand extends $Command<
   DescribeChangeSetCommandInput,
@@ -50,9 +46,7 @@ export class DescribeChangeSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

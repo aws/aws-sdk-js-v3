@@ -1,12 +1,5 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  RemoveAutoScalingPolicyInput,
-  RemoveAutoScalingPolicyOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { RemoveAutoScalingPolicyInput, RemoveAutoScalingPolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1RemoveAutoScalingPolicyCommand,
   serializeAws_json1_1RemoveAutoScalingPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveAutoScalingPolicyCommandInput = RemoveAutoScalingPolicyInput;
-export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput &
-  __MetadataBearer;
+export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput & __MetadataBearer;
 
 export class RemoveAutoScalingPolicyCommand extends $Command<
   RemoveAutoScalingPolicyCommandInput,
@@ -49,13 +41,8 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveAutoScalingPolicyCommandInput,
-    RemoveAutoScalingPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveAutoScalingPolicyCommandInput, RemoveAutoScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAutoScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1RemoveAutoScalingPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveAutoScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

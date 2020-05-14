@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamOutput
-} from "../models/index";
+import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDeliveryStreamCommand,
   serializeAws_json1_1DeleteDeliveryStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDeliveryStreamCommandInput = DeleteDeliveryStreamInput;
-export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput &
-  __MetadataBearer;
+export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput & __MetadataBearer;
 
 export class DeleteDeliveryStreamCommand extends $Command<
   DeleteDeliveryStreamCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDeliveryStreamCommandInput,
-    DeleteDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDeliveryStreamCommandInput, DeleteDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

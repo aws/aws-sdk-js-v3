@@ -54,10 +54,7 @@ import {
   ListClosedWorkflowExecutionsCommandInput,
   ListClosedWorkflowExecutionsCommandOutput
 } from "./commands/ListClosedWorkflowExecutionsCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListOpenWorkflowExecutionsCommandInput,
   ListOpenWorkflowExecutionsCommandOutput
@@ -122,10 +119,7 @@ import {
   StartWorkflowExecutionCommandInput,
   StartWorkflowExecutionCommandOutput
 } from "./commands/StartWorkflowExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateWorkflowExecutionCommandInput,
   TerminateWorkflowExecutionCommandOutput
@@ -361,9 +355,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SWFClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SWFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +364,7 @@ export type SWFClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

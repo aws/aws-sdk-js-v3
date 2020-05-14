@@ -35,9 +35,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput
-  ) {
+  constructor(readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +49,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     AssociateApprovalRuleTemplateWithRepositoryCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,10 +68,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
   }
 
   private deserialize(

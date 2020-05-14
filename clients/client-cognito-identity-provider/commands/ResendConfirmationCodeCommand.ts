@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  ResendConfirmationCodeRequest,
-  ResendConfirmationCodeResponse
-} from "../models/index";
+import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/index";
 import {
   deserializeAws_json1_1ResendConfirmationCodeCommand,
   serializeAws_json1_1ResendConfirmationCodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResendConfirmationCodeCommandInput = ResendConfirmationCodeRequest;
-export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse &
-  __MetadataBearer;
+export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse & __MetadataBearer;
 
 export class ResendConfirmationCodeCommand extends $Command<
   ResendConfirmationCodeCommandInput,
@@ -49,13 +45,8 @@ export class ResendConfirmationCodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResendConfirmationCodeCommandInput,
-    ResendConfirmationCodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResendConfirmationCodeCommandInput, ResendConfirmationCodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

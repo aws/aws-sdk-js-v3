@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  GetExternalModelsRequest,
-  GetExternalModelsResult
-} from "../models/index";
+import { GetExternalModelsRequest, GetExternalModelsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetExternalModelsCommand,
   serializeAws_json1_1GetExternalModelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetExternalModelsCommandInput = GetExternalModelsRequest;
-export type GetExternalModelsCommandOutput = GetExternalModelsResult &
-  __MetadataBearer;
+export type GetExternalModelsCommandOutput = GetExternalModelsResult & __MetadataBearer;
 
 export class GetExternalModelsCommand extends $Command<
   GetExternalModelsCommandInput,
@@ -50,9 +46,7 @@ export class GetExternalModelsCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetExternalModelsCommandInput, GetExternalModelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

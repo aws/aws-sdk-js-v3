@@ -1,7 +1,4 @@
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "../commands/PutEventsCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand";
 import { Event, InvalidInputException } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
@@ -76,10 +73,7 @@ const deserializeAws_restJson1_1PutEventsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.events.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -118,10 +112,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Event = (
-  input: Event,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.eventId !== undefined && { eventId: input.eventId }),
     ...(input.eventType !== undefined && { eventType: input.eventType }),
@@ -134,10 +125,7 @@ const serializeAws_restJson1_1Event = (
   };
 };
 
-const serializeAws_restJson1_1EventList = (
-  input: Event[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1EventList = (input: Event[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Event(entry, context));
 };
 
@@ -155,23 +143,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

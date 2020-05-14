@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTeamMembersCommandInput = ListTeamMembersRequest;
-export type ListTeamMembersCommandOutput = ListTeamMembersResult &
-  __MetadataBearer;
+export type ListTeamMembersCommandOutput = ListTeamMembersResult & __MetadataBearer;
 
 export class ListTeamMembersCommand extends $Command<
   ListTeamMembersCommandInput,
@@ -47,9 +46,7 @@ export class ListTeamMembersCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTeamMembersCommandInput, ListTeamMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

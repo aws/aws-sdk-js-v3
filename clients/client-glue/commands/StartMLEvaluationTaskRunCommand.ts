@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  StartMLEvaluationTaskRunRequest,
-  StartMLEvaluationTaskRunResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartMLEvaluationTaskRunCommand,
   serializeAws_json1_1StartMLEvaluationTaskRunCommand
@@ -49,13 +42,8 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartMLEvaluationTaskRunCommandInput,
-    StartMLEvaluationTaskRunCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartMLEvaluationTaskRunCommandInput, StartMLEvaluationTaskRunCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMLEvaluationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLEvaluationTaskRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartMLEvaluationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  GetSystemInstanceRequest,
-  GetSystemInstanceResponse
-} from "../models/index";
+import { GetSystemInstanceRequest, GetSystemInstanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSystemInstanceCommand,
   serializeAws_json1_1GetSystemInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSystemInstanceCommandInput = GetSystemInstanceRequest;
-export type GetSystemInstanceCommandOutput = GetSystemInstanceResponse &
-  __MetadataBearer;
+export type GetSystemInstanceCommandOutput = GetSystemInstanceResponse & __MetadataBearer;
 
 export class GetSystemInstanceCommand extends $Command<
   GetSystemInstanceCommandInput,
@@ -50,9 +46,7 @@ export class GetSystemInstanceCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSystemInstanceCommandInput, GetSystemInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -39,9 +39,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateSnapshotFromVolumeRecoveryPointCommandInput
-  ) {
+  constructor(readonly input: CreateSnapshotFromVolumeRecoveryPointCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     CreateSnapshotFromVolumeRecoveryPointCommandInput,
     CreateSnapshotFromVolumeRecoveryPointCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  GetDocumentPathRequest,
-  GetDocumentPathResponse
-} from "../models/index";
+import { GetDocumentPathRequest, GetDocumentPathResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDocumentPathCommand,
   serializeAws_restJson1_1GetDocumentPathCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDocumentPathCommandInput = GetDocumentPathRequest;
-export type GetDocumentPathCommandOutput = GetDocumentPathResponse &
-  __MetadataBearer;
+export type GetDocumentPathCommandOutput = GetDocumentPathResponse & __MetadataBearer;
 
 export class GetDocumentPathCommand extends $Command<
   GetDocumentPathCommandInput,
@@ -50,9 +46,7 @@ export class GetDocumentPathCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDocumentPathCommandInput, GetDocumentPathCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

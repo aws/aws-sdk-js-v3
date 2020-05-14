@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import {
   CreateCertificateAuthorityRequest,
   CreateCertificateAuthorityResponse
@@ -49,13 +45,8 @@ export class CreateCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCertificateAuthorityCommandInput,
-    CreateCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCertificateAuthorityCommandInput, CreateCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateCertificateAuthorityCommand extends $Command<
     input: CreateCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCertificateAuthorityCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1CreateCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

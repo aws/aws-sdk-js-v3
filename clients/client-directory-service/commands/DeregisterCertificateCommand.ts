@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DeregisterCertificateRequest,
-  DeregisterCertificateResult
-} from "../models/index";
+import { DeregisterCertificateRequest, DeregisterCertificateResult } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterCertificateCommand,
   serializeAws_json1_1DeregisterCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterCertificateCommandInput = DeregisterCertificateRequest;
-export type DeregisterCertificateCommandOutput = DeregisterCertificateResult &
-  __MetadataBearer;
+export type DeregisterCertificateCommandOutput = DeregisterCertificateResult & __MetadataBearer;
 
 export class DeregisterCertificateCommand extends $Command<
   DeregisterCertificateCommandInput,
@@ -49,13 +45,8 @@ export class DeregisterCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterCertificateCommandInput,
-    DeregisterCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterCertificateCommandInput, DeregisterCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

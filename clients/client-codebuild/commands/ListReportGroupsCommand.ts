@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListReportGroupsCommandInput = ListReportGroupsInput;
-export type ListReportGroupsCommandOutput = ListReportGroupsOutput &
-  __MetadataBearer;
+export type ListReportGroupsCommandOutput = ListReportGroupsOutput & __MetadataBearer;
 
 export class ListReportGroupsCommand extends $Command<
   ListReportGroupsCommandInput,
@@ -47,9 +46,7 @@ export class ListReportGroupsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListReportGroupsCommandInput, ListReportGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

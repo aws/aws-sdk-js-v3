@@ -1,8 +1,4 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteFileSystemPolicyRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteFileSystemPolicyCommand,
@@ -45,13 +41,8 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteFileSystemPolicyCommandInput,
-    DeleteFileSystemPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteFileSystemPolicyCommandInput, DeleteFileSystemPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class DeleteFileSystemPolicyCommand extends $Command<
     input: DeleteFileSystemPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteFileSystemPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

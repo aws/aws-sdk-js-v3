@@ -49,13 +49,8 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMaintenanceStartTimeCommandInput,
-    DescribeMaintenanceStartTimeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMaintenanceStartTimeCommandInput, DescribeMaintenanceStartTimeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     input: DescribeMaintenanceStartTimeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceStartTimeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeMaintenanceStartTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMaintenanceStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeviceDefinitionVersionsCommandInput,
-    ListDeviceDefinitionVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeviceDefinitionVersionsCommandInput, ListDeviceDefinitionVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     input: ListDeviceDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDeviceDefinitionVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListDeviceDefinitionVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

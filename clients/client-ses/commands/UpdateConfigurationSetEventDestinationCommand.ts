@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   UpdateConfigurationSetEventDestinationRequest,
   UpdateConfigurationSetEventDestinationResponse
@@ -39,9 +35,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     UpdateConfigurationSetEventDestinationCommandInput,
     UpdateConfigurationSetEventDestinationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

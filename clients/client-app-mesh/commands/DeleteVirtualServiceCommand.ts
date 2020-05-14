@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  DeleteVirtualServiceInput,
-  DeleteVirtualServiceOutput
-} from "../models/index";
+import { DeleteVirtualServiceInput, DeleteVirtualServiceOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVirtualServiceCommand,
   serializeAws_restJson1_1DeleteVirtualServiceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVirtualServiceCommandInput = DeleteVirtualServiceInput;
-export type DeleteVirtualServiceCommandOutput = DeleteVirtualServiceOutput &
-  __MetadataBearer;
+export type DeleteVirtualServiceCommandOutput = DeleteVirtualServiceOutput & __MetadataBearer;
 
 export class DeleteVirtualServiceCommand extends $Command<
   DeleteVirtualServiceCommandInput,
@@ -49,13 +45,8 @@ export class DeleteVirtualServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVirtualServiceCommandInput,
-    DeleteVirtualServiceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVirtualServiceCommandInput, DeleteVirtualServiceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteVirtualServiceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVirtualServiceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

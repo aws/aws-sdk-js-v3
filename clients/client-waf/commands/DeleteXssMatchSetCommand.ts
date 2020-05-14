@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  DeleteXssMatchSetRequest,
-  DeleteXssMatchSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { DeleteXssMatchSetRequest, DeleteXssMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteXssMatchSetCommand,
   serializeAws_json1_1DeleteXssMatchSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteXssMatchSetCommandInput = DeleteXssMatchSetRequest;
-export type DeleteXssMatchSetCommandOutput = DeleteXssMatchSetResponse &
-  __MetadataBearer;
+export type DeleteXssMatchSetCommandOutput = DeleteXssMatchSetResponse & __MetadataBearer;
 
 export class DeleteXssMatchSetCommand extends $Command<
   DeleteXssMatchSetCommandInput,
@@ -50,9 +42,7 @@ export class DeleteXssMatchSetCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteXssMatchSetCommandInput, DeleteXssMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

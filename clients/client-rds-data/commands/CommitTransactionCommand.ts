@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSDataClient";
-import {
-  CommitTransactionRequest,
-  CommitTransactionResponse
-} from "../models/index";
+import { CommitTransactionRequest, CommitTransactionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CommitTransactionCommand,
   serializeAws_restJson1_1CommitTransactionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CommitTransactionCommandInput = CommitTransactionRequest;
-export type CommitTransactionCommandOutput = CommitTransactionResponse &
-  __MetadataBearer;
+export type CommitTransactionCommandOutput = CommitTransactionResponse & __MetadataBearer;
 
 export class CommitTransactionCommand extends $Command<
   CommitTransactionCommandInput,
@@ -50,9 +46,7 @@ export class CommitTransactionCommand extends $Command<
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CommitTransactionCommandInput, CommitTransactionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

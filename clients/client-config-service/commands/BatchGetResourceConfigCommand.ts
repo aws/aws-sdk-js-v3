@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  BatchGetResourceConfigRequest,
-  BatchGetResourceConfigResponse
-} from "../models/index";
+import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetResourceConfigCommand,
   serializeAws_json1_1BatchGetResourceConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetResourceConfigCommandInput = BatchGetResourceConfigRequest;
-export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse &
-  __MetadataBearer;
+export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse & __MetadataBearer;
 
 export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandInput,
@@ -49,13 +45,8 @@ export class BatchGetResourceConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetResourceConfigCommandInput,
-    BatchGetResourceConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetResourceConfigCommandInput, BatchGetResourceConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

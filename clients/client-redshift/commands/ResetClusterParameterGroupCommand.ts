@@ -49,13 +49,8 @@ export class ResetClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetClusterParameterGroupCommandInput,
-    ResetClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetClusterParameterGroupCommandInput, ResetClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ResetClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryResetClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

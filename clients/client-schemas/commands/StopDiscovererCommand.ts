@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDiscovererCommandInput = StopDiscovererRequest;
-export type StopDiscovererCommandOutput = StopDiscovererResponse &
-  __MetadataBearer;
+export type StopDiscovererCommandOutput = StopDiscovererResponse & __MetadataBearer;
 
 export class StopDiscovererCommand extends $Command<
   StopDiscovererCommandInput,
@@ -47,9 +46,7 @@ export class StopDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDiscovererCommandInput, StopDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

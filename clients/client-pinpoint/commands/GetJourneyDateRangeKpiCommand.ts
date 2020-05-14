@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetJourneyDateRangeKpiRequest,
-  GetJourneyDateRangeKpiResponse
-} from "../models/index";
+import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand,
   serializeAws_restJson1_1GetJourneyDateRangeKpiCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJourneyDateRangeKpiCommandInput = GetJourneyDateRangeKpiRequest;
-export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse &
-  __MetadataBearer;
+export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse & __MetadataBearer;
 
 export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandInput,
@@ -49,13 +45,8 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetJourneyDateRangeKpiCommandInput,
-    GetJourneyDateRangeKpiCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetJourneyDateRangeKpiCommandInput, GetJourneyDateRangeKpiCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     input: GetJourneyDateRangeKpiCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetJourneyDateRangeKpiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetJourneyDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

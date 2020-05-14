@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  UpdateRulesOfIpGroupRequest,
-  UpdateRulesOfIpGroupResult
-} from "../models/index";
+import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRulesOfIpGroupCommand,
   serializeAws_json1_1UpdateRulesOfIpGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRulesOfIpGroupCommandInput = UpdateRulesOfIpGroupRequest;
-export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult &
-  __MetadataBearer;
+export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult & __MetadataBearer;
 
 export class UpdateRulesOfIpGroupCommand extends $Command<
   UpdateRulesOfIpGroupCommandInput,
@@ -49,13 +45,8 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRulesOfIpGroupCommandInput,
-    UpdateRulesOfIpGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRulesOfIpGroupCommandInput, UpdateRulesOfIpGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

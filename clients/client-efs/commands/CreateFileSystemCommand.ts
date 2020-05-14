@@ -1,12 +1,5 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  CreateFileSystemRequest,
-  FileSystemDescription
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { CreateFileSystemRequest, FileSystemDescription } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateFileSystemCommand,
   serializeAws_restJson1_1CreateFileSystemCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFileSystemCommandInput = CreateFileSystemRequest;
-export type CreateFileSystemCommandOutput = FileSystemDescription &
-  __MetadataBearer;
+export type CreateFileSystemCommandOutput = FileSystemDescription & __MetadataBearer;
 
 export class CreateFileSystemCommand extends $Command<
   CreateFileSystemCommandInput,
@@ -50,9 +42,7 @@ export class CreateFileSystemCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFileSystemCommandInput, CreateFileSystemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

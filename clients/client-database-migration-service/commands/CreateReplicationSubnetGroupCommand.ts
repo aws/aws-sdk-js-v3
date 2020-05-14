@@ -49,13 +49,8 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReplicationSubnetGroupCommandInput,
-    CreateReplicationSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReplicationSubnetGroupCommandInput, CreateReplicationSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateReplicationSubnetGroupCommand extends $Command<
     input: CreateReplicationSubnetGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationSubnetGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateReplicationSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationSubnetGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

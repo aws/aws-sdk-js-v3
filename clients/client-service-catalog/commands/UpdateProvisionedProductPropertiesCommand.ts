@@ -53,9 +53,7 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     UpdateProvisionedProductPropertiesCommandInput,
     UpdateProvisionedProductPropertiesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     input: UpdateProvisionedProductPropertiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateProvisionedProductPropertiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

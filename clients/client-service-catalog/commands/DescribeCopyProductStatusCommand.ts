@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeCopyProductStatusInput,
-  DescribeCopyProductStatusOutput
-} from "../models/index";
+import { DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCopyProductStatusCommand,
   serializeAws_json1_1DescribeCopyProductStatusCommand
@@ -49,13 +46,8 @@ export class DescribeCopyProductStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCopyProductStatusCommandInput,
-    DescribeCopyProductStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCopyProductStatusCommandInput, DescribeCopyProductStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeCopyProductStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCopyProductStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCopyProductStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCopyProductStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

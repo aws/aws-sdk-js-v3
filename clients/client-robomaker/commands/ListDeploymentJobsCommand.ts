@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  ListDeploymentJobsRequest,
-  ListDeploymentJobsResponse
-} from "../models/index";
+import { ListDeploymentJobsRequest, ListDeploymentJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDeploymentJobsCommand,
   serializeAws_restJson1_1ListDeploymentJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentJobsCommandInput = ListDeploymentJobsRequest;
-export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse &
-  __MetadataBearer;
+export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse & __MetadataBearer;
 
 export class ListDeploymentJobsCommand extends $Command<
   ListDeploymentJobsCommandInput,
@@ -50,9 +46,7 @@ export class ListDeploymentJobsCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentJobsCommandInput, ListDeploymentJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

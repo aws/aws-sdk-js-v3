@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateBandwidthRateLimitInput,
-  UpdateBandwidthRateLimitOutput
-} from "../models/index";
+import { UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateBandwidthRateLimitCommand,
   serializeAws_json1_1UpdateBandwidthRateLimitCommand
@@ -49,13 +46,8 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateBandwidthRateLimitCommandInput,
-    UpdateBandwidthRateLimitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateBandwidthRateLimitCommandInput, UpdateBandwidthRateLimitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBandwidthRateLimitCommandOutput> {
-    return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

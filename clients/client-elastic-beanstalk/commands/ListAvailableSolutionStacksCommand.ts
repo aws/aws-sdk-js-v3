@@ -46,13 +46,8 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAvailableSolutionStacksCommandInput,
-    ListAvailableSolutionStacksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAvailableSolutionStacksCommandInput, ListAvailableSolutionStacksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableSolutionStacksCommandOutput> {
-    return deserializeAws_queryListAvailableSolutionStacksCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListAvailableSolutionStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

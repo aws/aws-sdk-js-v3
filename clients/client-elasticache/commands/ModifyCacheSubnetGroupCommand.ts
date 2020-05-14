@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  ModifyCacheSubnetGroupMessage,
-  ModifyCacheSubnetGroupResult
-} from "../models/index";
+import { ModifyCacheSubnetGroupMessage, ModifyCacheSubnetGroupResult } from "../models/index";
 import {
   deserializeAws_queryModifyCacheSubnetGroupCommand,
   serializeAws_queryModifyCacheSubnetGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyCacheSubnetGroupCommandInput = ModifyCacheSubnetGroupMessage;
-export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult &
-  __MetadataBearer;
+export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult & __MetadataBearer;
 
 export class ModifyCacheSubnetGroupCommand extends $Command<
   ModifyCacheSubnetGroupCommandInput,
@@ -49,13 +45,8 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyCacheSubnetGroupCommandInput,
-    ModifyCacheSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyCacheSubnetGroupCommandInput, ModifyCacheSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

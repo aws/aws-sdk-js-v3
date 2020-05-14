@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetPasswordCommandInput = ResetPasswordRequest;
-export type ResetPasswordCommandOutput = ResetPasswordResponse &
-  __MetadataBearer;
+export type ResetPasswordCommandOutput = ResetPasswordResponse & __MetadataBearer;
 
 export class ResetPasswordCommand extends $Command<
   ResetPasswordCommandInput,
@@ -47,9 +46,7 @@ export class ResetPasswordCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetPasswordCommandInput, ResetPasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

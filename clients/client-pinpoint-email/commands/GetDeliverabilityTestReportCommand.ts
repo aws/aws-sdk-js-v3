@@ -49,13 +49,8 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeliverabilityTestReportCommandInput,
-    GetDeliverabilityTestReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeliverabilityTestReportCommandInput, GetDeliverabilityTestReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     input: GetDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDeliverabilityTestReportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDeliverabilityTestReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1_1GetDeliverabilityTestReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class DescribeDocumentClassifierCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDocumentClassifierCommandInput,
-    DescribeDocumentClassifierCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDocumentClassifierCommandInput, DescribeDocumentClassifierCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeDocumentClassifierCommand extends $Command<
     input: DescribeDocumentClassifierCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentClassifierCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDocumentClassifierCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentClassifierCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentClassifierCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDocumentClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

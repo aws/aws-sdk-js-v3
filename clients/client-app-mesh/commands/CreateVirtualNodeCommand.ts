@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  CreateVirtualNodeInput,
-  CreateVirtualNodeOutput
-} from "../models/index";
+import { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVirtualNodeCommand,
   serializeAws_restJson1_1CreateVirtualNodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVirtualNodeCommandInput = CreateVirtualNodeInput;
-export type CreateVirtualNodeCommandOutput = CreateVirtualNodeOutput &
-  __MetadataBearer;
+export type CreateVirtualNodeCommandOutput = CreateVirtualNodeOutput & __MetadataBearer;
 
 export class CreateVirtualNodeCommand extends $Command<
   CreateVirtualNodeCommandInput,
@@ -50,9 +46,7 @@ export class CreateVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

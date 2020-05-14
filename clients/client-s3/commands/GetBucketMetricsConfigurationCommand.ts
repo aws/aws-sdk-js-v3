@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import {
   GetBucketMetricsConfigurationOutput,
   GetBucketMetricsConfigurationRequest
@@ -54,9 +50,7 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     GetBucketMetricsConfigurationCommandInput,
     GetBucketMetricsConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +70,14 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
     input: GetBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketMetricsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetBucketMetricsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketMetricsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -35,9 +35,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: HttpRequestWithLabelsAndTimestampFormatCommandInput
-  ) {
+  constructor(readonly input: HttpRequestWithLabelsAndTimestampFormatCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +49,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     HttpRequestWithLabelsAndTimestampFormatCommandInput,
     HttpRequestWithLabelsAndTimestampFormatCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,10 +68,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpRequestWithLabelsAndTimestampFormatCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1HttpRequestWithLabelsAndTimestampFormatCommand(input, context);
   }
 
   private deserialize(

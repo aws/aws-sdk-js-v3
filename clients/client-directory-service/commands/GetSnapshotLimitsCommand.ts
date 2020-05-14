@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  GetSnapshotLimitsRequest,
-  GetSnapshotLimitsResult
-} from "../models/index";
+import { GetSnapshotLimitsRequest, GetSnapshotLimitsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetSnapshotLimitsCommand,
   serializeAws_json1_1GetSnapshotLimitsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSnapshotLimitsCommandInput = GetSnapshotLimitsRequest;
-export type GetSnapshotLimitsCommandOutput = GetSnapshotLimitsResult &
-  __MetadataBearer;
+export type GetSnapshotLimitsCommandOutput = GetSnapshotLimitsResult & __MetadataBearer;
 
 export class GetSnapshotLimitsCommand extends $Command<
   GetSnapshotLimitsCommandInput,
@@ -50,9 +46,7 @@ export class GetSnapshotLimitsCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

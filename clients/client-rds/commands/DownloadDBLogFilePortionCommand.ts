@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DownloadDBLogFilePortionDetails,
-  DownloadDBLogFilePortionMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/index";
 import {
   deserializeAws_queryDownloadDBLogFilePortionCommand,
   serializeAws_queryDownloadDBLogFilePortionCommand
@@ -49,13 +42,8 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DownloadDBLogFilePortionCommandInput,
-    DownloadDBLogFilePortionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DownloadDBLogFilePortionCommandInput, DownloadDBLogFilePortionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

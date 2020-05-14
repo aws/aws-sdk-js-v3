@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeprecateThingTypeRequest,
-  DeprecateThingTypeResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeprecateThingTypeCommand,
   serializeAws_restJson1_1DeprecateThingTypeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeprecateThingTypeCommandInput = DeprecateThingTypeRequest;
-export type DeprecateThingTypeCommandOutput = DeprecateThingTypeResponse &
-  __MetadataBearer;
+export type DeprecateThingTypeCommandOutput = DeprecateThingTypeResponse & __MetadataBearer;
 
 export class DeprecateThingTypeCommand extends $Command<
   DeprecateThingTypeCommandInput,
@@ -50,9 +42,7 @@ export class DeprecateThingTypeCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeprecateThingTypeCommandInput, DeprecateThingTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

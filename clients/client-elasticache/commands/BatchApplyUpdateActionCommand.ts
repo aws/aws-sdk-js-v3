@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  BatchApplyUpdateActionMessage,
-  UpdateActionResultsMessage
-} from "../models/index";
+import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/index";
 import {
   deserializeAws_queryBatchApplyUpdateActionCommand,
   serializeAws_queryBatchApplyUpdateActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchApplyUpdateActionCommandInput = BatchApplyUpdateActionMessage;
-export type BatchApplyUpdateActionCommandOutput = UpdateActionResultsMessage &
-  __MetadataBearer;
+export type BatchApplyUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
 
 export class BatchApplyUpdateActionCommand extends $Command<
   BatchApplyUpdateActionCommandInput,
@@ -49,13 +45,8 @@ export class BatchApplyUpdateActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchApplyUpdateActionCommandInput,
-    BatchApplyUpdateActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchApplyUpdateActionCommandInput, BatchApplyUpdateActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

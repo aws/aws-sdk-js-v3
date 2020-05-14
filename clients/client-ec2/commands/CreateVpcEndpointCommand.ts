@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateVpcEndpointRequest,
-  CreateVpcEndpointResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateVpcEndpointRequest, CreateVpcEndpointResult } from "../models/index";
 import {
   deserializeAws_ec2CreateVpcEndpointCommand,
   serializeAws_ec2CreateVpcEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVpcEndpointCommandInput = CreateVpcEndpointRequest;
-export type CreateVpcEndpointCommandOutput = CreateVpcEndpointResult &
-  __MetadataBearer;
+export type CreateVpcEndpointCommandOutput = CreateVpcEndpointResult & __MetadataBearer;
 
 export class CreateVpcEndpointCommand extends $Command<
   CreateVpcEndpointCommandInput,
@@ -50,9 +42,7 @@ export class CreateVpcEndpointCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

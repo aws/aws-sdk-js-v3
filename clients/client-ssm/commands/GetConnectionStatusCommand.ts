@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetConnectionStatusRequest,
-  GetConnectionStatusResponse
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetConnectionStatusRequest, GetConnectionStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetConnectionStatusCommand,
   serializeAws_json1_1GetConnectionStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
-export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse &
-  __MetadataBearer;
+export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse & __MetadataBearer;
 
 export class GetConnectionStatusCommand extends $Command<
   GetConnectionStatusCommandInput,
@@ -49,13 +41,8 @@ export class GetConnectionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConnectionStatusCommandInput,
-    GetConnectionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConnectionStatusCommandInput, GetConnectionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

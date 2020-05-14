@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   UpdateThingGroupsForThingRequest,
   UpdateThingGroupsForThingResponse
@@ -49,13 +45,8 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateThingGroupsForThingCommandInput,
-    UpdateThingGroupsForThingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateThingGroupsForThingCommandInput, UpdateThingGroupsForThingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     input: UpdateThingGroupsForThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateThingGroupsForThingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateThingGroupsForThingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThingGroupsForThingCommandOutput> {
-    return deserializeAws_restJson1_1UpdateThingGroupsForThingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateThingGroupsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

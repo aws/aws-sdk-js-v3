@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DBSubnetGroupMessage,
-  DescribeDBSubnetGroupsMessage
-} from "../models/index";
+import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBSubnetGroupsCommand,
   serializeAws_queryDescribeDBSubnetGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBSubnetGroupsCommandInput = DescribeDBSubnetGroupsMessage;
-export type DescribeDBSubnetGroupsCommandOutput = DBSubnetGroupMessage &
-  __MetadataBearer;
+export type DescribeDBSubnetGroupsCommandOutput = DBSubnetGroupMessage & __MetadataBearer;
 
 export class DescribeDBSubnetGroupsCommand extends $Command<
   DescribeDBSubnetGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBSubnetGroupsCommandInput,
-    DescribeDBSubnetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBSubnetGroupsCommandInput, DescribeDBSubnetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

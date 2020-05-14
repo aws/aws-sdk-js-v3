@@ -39,9 +39,7 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput
-  ) {
+  constructor(readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     DescribeTrustedAdvisorCheckSummariesCommandInput,
     DescribeTrustedAdvisorCheckSummariesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     input: DescribeTrustedAdvisorCheckSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

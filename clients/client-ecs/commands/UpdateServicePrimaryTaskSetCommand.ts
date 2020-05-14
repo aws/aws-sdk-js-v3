@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   UpdateServicePrimaryTaskSetRequest,
   UpdateServicePrimaryTaskSetResponse
@@ -49,13 +45,8 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServicePrimaryTaskSetCommandInput,
-    UpdateServicePrimaryTaskSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServicePrimaryTaskSetCommandInput, UpdateServicePrimaryTaskSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     input: UpdateServicePrimaryTaskSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServicePrimaryTaskSetCommandOutput> {
-    return deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

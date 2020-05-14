@@ -352,9 +352,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public cancelIngestion(
     args: CancelIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelIngestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelIngestionCommandOutput) => void),
     cb?: (err: any, data?: CancelIngestionCommandOutput) => void
   ): Promise<CancelIngestionCommandOutput> | void {
     const command = new CancelIngestionCommand(args);
@@ -394,9 +392,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDashboard(
     args: CreateDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDashboardCommandOutput) => void),
     cb?: (err: any, data?: CreateDashboardCommandOutput) => void
   ): Promise<CreateDashboardCommandOutput> | void {
     const command = new CreateDashboardCommand(args);
@@ -429,9 +425,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDataSet(
     args: CreateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSetCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSetCommandOutput) => void
   ): Promise<CreateDataSetCommandOutput> | void {
     const command = new CreateDataSetCommand(args);
@@ -464,9 +458,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
@@ -503,9 +495,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -614,9 +604,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createIngestion(
     args: CreateIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIngestionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIngestionCommandOutput) => void),
     cb?: (err: any, data?: CreateIngestionCommandOutput) => void
   ): Promise<CreateIngestionCommandOutput> | void {
     const command = new CreateIngestionCommand(args);
@@ -656,9 +644,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public createTemplate(
     args: CreateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateTemplateCommandOutput) => void
   ): Promise<CreateTemplateCommandOutput> | void {
     const command = new CreateTemplateCommand(args);
@@ -726,9 +712,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDashboard(
     args: DeleteDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDashboardCommandOutput) => void),
     cb?: (err: any, data?: DeleteDashboardCommandOutput) => void
   ): Promise<DeleteDashboardCommandOutput> | void {
     const command = new DeleteDashboardCommand(args);
@@ -761,9 +745,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
   ): Promise<DeleteDataSetCommandOutput> | void {
     const command = new DeleteDataSetCommand(args);
@@ -797,9 +779,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
@@ -832,9 +812,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -937,9 +915,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteTemplate(
     args: DeleteTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): Promise<DeleteTemplateCommandOutput> | void {
     const command = new DeleteTemplateCommand(args);
@@ -1010,9 +986,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -1150,9 +1124,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeDataSet(
     args: DescribeDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSetCommandOutput) => void
   ): Promise<DescribeDataSetCommandOutput> | void {
     const command = new DescribeDataSetCommand(args);
@@ -1291,9 +1263,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeGroup(
     args: DescribeGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
@@ -1396,9 +1366,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeTemplate(
     args: DescribeTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTemplateCommandOutput) => void),
     cb?: (err: any, data?: DescribeTemplateCommandOutput) => void
   ): Promise<DescribeTemplateCommandOutput> | void {
     const command = new DescribeTemplateCommand(args);
@@ -1501,9 +1469,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
@@ -1612,9 +1578,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDashboards(
     args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDashboardsCommandOutput) => void),
     cb?: (err: any, data?: ListDashboardsCommandOutput) => void
   ): Promise<ListDashboardsCommandOutput> | void {
     const command = new ListDashboardsCommand(args);
@@ -1648,9 +1612,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDataSets(
     args: ListDataSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSetsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSetsCommandOutput) => void
   ): Promise<ListDataSetsCommandOutput> | void {
     const command = new ListDataSetsCommand(args);
@@ -1683,9 +1645,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
@@ -1753,9 +1713,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
@@ -1827,10 +1785,7 @@ export class QuickSight extends QuickSightClient {
     args: ListIAMPolicyAssignmentsForUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListIAMPolicyAssignmentsForUserCommandOutput
-        ) => void),
+      | ((err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void),
     cb?: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
   ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> | void {
     const command = new ListIAMPolicyAssignmentsForUserCommand(args);
@@ -1863,9 +1818,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listIngestions(
     args: ListIngestionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIngestionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIngestionsCommandOutput) => void),
     cb?: (err: any, data?: ListIngestionsCommandOutput) => void
   ): Promise<ListIngestionsCommandOutput> | void {
     const command = new ListIngestionsCommand(args);
@@ -2003,9 +1956,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listTemplates(
     args: ListTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
@@ -2038,9 +1989,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listUserGroups(
     args: ListUserGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListUserGroupsCommandOutput) => void
   ): Promise<ListUserGroupsCommandOutput> | void {
     const command = new ListUserGroupsCommand(args);
@@ -2073,9 +2022,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -2109,9 +2056,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public registerUser(
     args: RegisterUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterUserCommandOutput) => void),
     cb?: (err: any, data?: RegisterUserCommandOutput) => void
   ): Promise<RegisterUserCommandOutput> | void {
     const command = new RegisterUserCommand(args);
@@ -2165,9 +2110,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2200,9 +2143,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2235,9 +2176,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDashboard(
     args: UpdateDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDashboardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDashboardCommandOutput) => void),
     cb?: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): Promise<UpdateDashboardCommandOutput> | void {
     const command = new UpdateDashboardCommand(args);
@@ -2307,10 +2246,7 @@ export class QuickSight extends QuickSightClient {
     args: UpdateDashboardPublishedVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDashboardPublishedVersionCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> | void {
     const command = new UpdateDashboardPublishedVersionCommand(args);
@@ -2343,9 +2279,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSet(
     args: UpdateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): Promise<UpdateDataSetCommandOutput> | void {
     const command = new UpdateDataSetCommand(args);
@@ -2414,9 +2348,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
@@ -2484,9 +2416,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
@@ -2555,9 +2485,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateTemplate(
     args: UpdateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): Promise<UpdateTemplateCommandOutput> | void {
     const command = new UpdateTemplateCommand(args);
@@ -2660,9 +2588,7 @@ export class QuickSight extends QuickSightClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

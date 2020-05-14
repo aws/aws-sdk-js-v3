@@ -14,18 +14,12 @@ import {
   DetectEntitiesV2CommandInput,
   DetectEntitiesV2CommandOutput
 } from "../commands/DetectEntitiesV2Command";
-import {
-  DetectPHICommandInput,
-  DetectPHICommandOutput
-} from "../commands/DetectPHICommand";
+import { DetectPHICommandInput, DetectPHICommandOutput } from "../commands/DetectPHICommand";
 import {
   InferICD10CMCommandInput,
   InferICD10CMCommandOutput
 } from "../commands/InferICD10CMCommand";
-import {
-  InferRxNormCommandInput,
-  InferRxNormCommandOutput
-} from "../commands/InferRxNormCommand";
+import { InferRxNormCommandInput, InferRxNormCommandOutput } from "../commands/InferRxNormCommand";
 import {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput
@@ -125,9 +119,7 @@ export const serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -140,9 +132,7 @@ export const serializeAws_json1_1DescribePHIDetectionJobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.DescribePHIDetectionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribePHIDetectionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribePHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -155,9 +145,7 @@ export const serializeAws_json1_1DetectEntitiesCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.DetectEntities"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DetectEntitiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DetectEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,9 +158,7 @@ export const serializeAws_json1_1DetectEntitiesV2Command = async (
     "X-Amz-Target": "ComprehendMedical_20181030.DetectEntitiesV2"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DetectEntitiesV2Request(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DetectEntitiesV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -198,9 +184,7 @@ export const serializeAws_json1_1InferICD10CMCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.InferICD10CM"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1InferICD10CMRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1InferICD10CMRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -226,9 +210,7 @@ export const serializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -241,9 +223,7 @@ export const serializeAws_json1_1ListPHIDetectionJobsCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.ListPHIDetectionJobs"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListPHIDetectionJobsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListPHIDetectionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,9 +236,7 @@ export const serializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.StartEntitiesDetectionV2Job"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartEntitiesDetectionV2JobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -271,9 +249,7 @@ export const serializeAws_json1_1StartPHIDetectionJobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.StartPHIDetectionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartPHIDetectionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartPHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,9 +262,7 @@ export const serializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.StopEntitiesDetectionV2Job"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopEntitiesDetectionV2JobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopEntitiesDetectionV2JobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -301,9 +275,7 @@ export const serializeAws_json1_1StopPHIDetectionJobCommand = async (
     "X-Amz-Target": "ComprehendMedical_20181030.StopPHIDetectionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopPHIDetectionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopPHIDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -312,17 +284,11 @@ export const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async
   context: __SerdeContext
 ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse(data, context);
   const response: DescribeEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEntitiesDetectionV2JobResponse",
@@ -342,16 +308,12 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -359,10 +321,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -370,10 +329,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -381,10 +337,7 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -411,17 +364,11 @@ export const deserializeAws_json1_1DescribePHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribePHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribePHIDetectionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePHIDetectionJobResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePHIDetectionJobResponse(data, context);
   const response: DescribePHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePHIDetectionJobResponse",
@@ -441,16 +388,12 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -458,10 +401,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -469,10 +409,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -480,10 +417,7 @@ const deserializeAws_json1_1DescribePHIDetectionJobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -534,16 +468,12 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -551,10 +481,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     case "InvalidEncodingException":
     case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
       response = {
-        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -562,10 +489,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -573,10 +497,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -595,10 +516,7 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -649,16 +567,12 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -666,10 +580,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
     case "InvalidEncodingException":
     case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
       response = {
-        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -677,10 +588,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -688,10 +596,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -710,10 +615,7 @@ const deserializeAws_json1_1DetectEntitiesV2CommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -764,16 +666,12 @@ const deserializeAws_json1_1DetectPHICommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -781,10 +679,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
     case "InvalidEncodingException":
     case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
       response = {
-        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -792,10 +687,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -803,10 +695,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -825,10 +714,7 @@ const deserializeAws_json1_1DetectPHICommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -879,16 +765,12 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -896,10 +778,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
     case "InvalidEncodingException":
     case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
       response = {
-        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -907,10 +786,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,10 +794,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -940,10 +813,7 @@ const deserializeAws_json1_1InferICD10CMCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -994,16 +864,12 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1011,10 +877,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
     case "InvalidEncodingException":
     case "com.amazonaws.deepinsight.medical#InvalidEncodingException":
       response = {
-        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidEncodingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1022,10 +885,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1033,10 +893,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.deepinsight.medical#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1055,10 +912,7 @@ const deserializeAws_json1_1InferRxNormCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1085,17 +939,11 @@ export const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   context: __SerdeContext
 ): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse(data, context);
   const response: ListEntitiesDetectionV2JobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEntitiesDetectionV2JobsResponse",
@@ -1115,16 +963,12 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1132,10 +976,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1143,10 +984,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1154,10 +992,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.deepinsight.medical#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1184,10 +1019,7 @@ export const deserializeAws_json1_1ListPHIDetectionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListPHIDetectionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListPHIDetectionJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPHIDetectionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1211,16 +1043,12 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1228,10 +1056,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1239,10 +1064,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1250,10 +1072,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.deepinsight.medical#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1280,17 +1099,11 @@ export const deserializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   context: __SerdeContext
 ): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartEntitiesDetectionV2JobResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartEntitiesDetectionV2JobResponse(data, context);
   const response: StartEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartEntitiesDetectionV2JobResponse",
@@ -1310,16 +1123,12 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1327,10 +1136,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1338,10 +1144,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1349,10 +1152,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1379,10 +1179,7 @@ export const deserializeAws_json1_1StartPHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartPHIDetectionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartPHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1406,16 +1203,12 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1423,10 +1216,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1434,10 +1224,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,10 +1232,7 @@ const deserializeAws_json1_1StartPHIDetectionJobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.deepinsight.medical#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1475,17 +1259,11 @@ export const deserializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   context: __SerdeContext
 ): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopEntitiesDetectionV2JobResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StopEntitiesDetectionV2JobResponse(data, context);
   const response: StopEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopEntitiesDetectionV2JobResponse",
@@ -1505,16 +1283,12 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1522,10 +1296,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1533,10 +1304,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1563,10 +1331,7 @@ export const deserializeAws_json1_1StopPHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<StopPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopPHIDetectionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopPHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1590,16 +1355,12 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.deepinsight.medical#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1607,10 +1368,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.deepinsight.medical#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1618,10 +1376,7 @@ const deserializeAws_json1_1StopPHIDetectionJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.deepinsight.medical#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1648,10 +1403,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
@@ -1666,10 +1418,7 @@ const deserializeAws_json1_1InvalidEncodingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidEncodingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEncodingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidEncodingException(body, context);
   const contents: InvalidEncodingException = {
     name: "InvalidEncodingException",
     $fault: "client",
@@ -1684,10 +1433,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
@@ -1702,10 +1448,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -1720,10 +1463,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
@@ -1738,10 +1478,7 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TextSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TextSizeLimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TextSizeLimitExceededException(body, context);
   const contents: TextSizeLimitExceededException = {
     name: "TextSizeLimitExceededException",
     $fault: "client",
@@ -1756,10 +1493,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
@@ -1774,10 +1508,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
@@ -1882,10 +1613,7 @@ const serializeAws_json1_1ListEntitiesDetectionV2JobsRequest = (
 ): any => {
   return {
     ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(
-        input.Filter,
-        context
-      )
+      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(input.Filter, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -1898,10 +1626,7 @@ const serializeAws_json1_1ListPHIDetectionJobsRequest = (
 ): any => {
   return {
     ...(input.Filter !== undefined && {
-      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(
-        input.Filter,
-        context
-      )
+      Filter: serializeAws_json1_1ComprehendMedicalAsyncJobFilter(input.Filter, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -1928,10 +1653,7 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
       DataAccessRoleArn: input.DataAccessRoleArn
     }),
     ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(
-        input.InputDataConfig,
-        context
-      )
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context)
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
@@ -1939,10 +1661,7 @@ const serializeAws_json1_1StartEntitiesDetectionV2JobRequest = (
       LanguageCode: input.LanguageCode
     }),
     ...(input.OutputDataConfig !== undefined && {
-      OutputDataConfig: serializeAws_json1_1OutputDataConfig(
-        input.OutputDataConfig,
-        context
-      )
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context)
     })
   };
 };
@@ -1957,10 +1676,7 @@ const serializeAws_json1_1StartPHIDetectionJobRequest = (
       DataAccessRoleArn: input.DataAccessRoleArn
     }),
     ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(
-        input.InputDataConfig,
-        context
-      )
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context)
     }),
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
@@ -1968,10 +1684,7 @@ const serializeAws_json1_1StartPHIDetectionJobRequest = (
       LanguageCode: input.LanguageCode
     }),
     ...(input.OutputDataConfig !== undefined && {
-      OutputDataConfig: serializeAws_json1_1OutputDataConfig(
-        input.OutputDataConfig,
-        context
-      )
+      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context)
     })
   };
 };
@@ -1994,10 +1707,7 @@ const serializeAws_json1_1StopPHIDetectionJobRequest = (
   };
 };
 
-const deserializeAws_json1_1Attribute = (
-  output: any,
-  context: __SerdeContext
-): Attribute => {
+const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
     __type: "Attribute",
     BeginOffset:
@@ -2005,41 +1715,24 @@ const deserializeAws_json1_1Attribute = (
         ? output.BeginOffset
         : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RelationshipScore:
-      output.RelationshipScore !== undefined &&
-      output.RelationshipScore !== null
+      output.RelationshipScore !== undefined && output.RelationshipScore !== null
         ? output.RelationshipScore
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1TraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AttributeList = (
-  output: any,
-  context: __SerdeContext
-): Attribute[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Attribute(entry, context)
-  );
+const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContext): Attribute[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Attribute(entry, context));
 };
 
 const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
@@ -2049,8 +1742,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
   return {
     __type: "ComprehendMedicalAsyncJobProperties",
     DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined &&
-      output.DataAccessRoleArn !== null
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
         : undefined,
     EndTime:
@@ -2065,22 +1757,11 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
       output.InputDataConfig !== undefined && output.InputDataConfig !== null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
         : undefined,
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     JobStatus:
-      output.JobStatus !== undefined && output.JobStatus !== null
-        ? output.JobStatus
-        : undefined,
-    KMSKey:
-      output.KMSKey !== undefined && output.KMSKey !== null
-        ? output.KMSKey
-        : undefined,
+      output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     LanguageCode:
       output.LanguageCode !== undefined && output.LanguageCode !== null
         ? output.LanguageCode
@@ -2089,20 +1770,14 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
       output.ManifestFilePath !== undefined && output.ManifestFilePath !== null
         ? output.ManifestFilePath
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ModelVersion:
       output.ModelVersion !== undefined && output.ModelVersion !== null
         ? output.ModelVersion
         : undefined,
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
-        ? deserializeAws_json1_1OutputDataConfig(
-            output.OutputDataConfig,
-            context
-          )
+        ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
         : undefined,
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
@@ -2173,12 +1848,8 @@ const deserializeAws_json1_1DetectEntitiesResponse = (
         ? output.PaginationToken
         : undefined,
     UnmappedAttributes:
-      output.UnmappedAttributes !== undefined &&
-      output.UnmappedAttributes !== null
-        ? deserializeAws_json1_1UnmappedAttributeList(
-            output.UnmappedAttributes,
-            context
-          )
+      output.UnmappedAttributes !== undefined && output.UnmappedAttributes !== null
+        ? deserializeAws_json1_1UnmappedAttributeList(output.UnmappedAttributes, context)
         : undefined
   } as any;
 };
@@ -2202,12 +1873,8 @@ const deserializeAws_json1_1DetectEntitiesV2Response = (
         ? output.PaginationToken
         : undefined,
     UnmappedAttributes:
-      output.UnmappedAttributes !== undefined &&
-      output.UnmappedAttributes !== null
-        ? deserializeAws_json1_1UnmappedAttributeList(
-            output.UnmappedAttributes,
-            context
-          )
+      output.UnmappedAttributes !== undefined && output.UnmappedAttributes !== null
+        ? deserializeAws_json1_1UnmappedAttributeList(output.UnmappedAttributes, context)
         : undefined
   } as any;
 };
@@ -2233,10 +1900,7 @@ const deserializeAws_json1_1DetectPHIResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Entity = (
-  output: any,
-  context: __SerdeContext
-): Entity => {
+const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
     __type: "Entity",
     Attributes:
@@ -2248,40 +1912,22 @@ const deserializeAws_json1_1Entity = (
         ? output.BeginOffset
         : undefined,
     Category:
-      output.Category !== undefined && output.Category !== null
-        ? output.Category
-        : undefined,
+      output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1TraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EntityList = (
-  output: any,
-  context: __SerdeContext
-): Entity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Entity(entry, context)
-  );
+const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext): Entity[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Entity(entry, context));
 };
 
 const deserializeAws_json1_1ICD10CMAttribute = (
@@ -2295,31 +1941,19 @@ const deserializeAws_json1_1ICD10CMAttribute = (
         ? output.BeginOffset
         : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RelationshipScore:
-      output.RelationshipScore !== undefined &&
-      output.RelationshipScore !== null
+      output.RelationshipScore !== undefined && output.RelationshipScore !== null
         ? output.RelationshipScore
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1ICD10CMTraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2327,9 +1961,7 @@ const deserializeAws_json1_1ICD10CMAttributeList = (
   output: any,
   context: __SerdeContext
 ): ICD10CMAttribute[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ICD10CMAttribute(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ICD10CMAttribute(entry, context));
 };
 
 const deserializeAws_json1_1ICD10CMConcept = (
@@ -2338,18 +1970,12 @@ const deserializeAws_json1_1ICD10CMConcept = (
 ): ICD10CMConcept => {
   return {
     __type: "ICD10CMConcept",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
         ? output.Description
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined
   } as any;
 };
 
@@ -2357,9 +1983,7 @@ const deserializeAws_json1_1ICD10CMConceptList = (
   output: any,
   context: __SerdeContext
 ): ICD10CMConcept[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ICD10CMConcept(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ICD10CMConcept(entry, context));
 };
 
 const deserializeAws_json1_1ICD10CMEntity = (
@@ -2377,37 +2001,21 @@ const deserializeAws_json1_1ICD10CMEntity = (
         ? output.BeginOffset
         : undefined,
     Category:
-      output.Category !== undefined && output.Category !== null
-        ? output.Category
-        : undefined,
+      output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     ICD10CMConcepts:
       output.ICD10CMConcepts !== undefined && output.ICD10CMConcepts !== null
-        ? deserializeAws_json1_1ICD10CMConceptList(
-            output.ICD10CMConcepts,
-            context
-          )
+        ? deserializeAws_json1_1ICD10CMConceptList(output.ICD10CMConcepts, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1ICD10CMTraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2415,25 +2023,14 @@ const deserializeAws_json1_1ICD10CMEntityList = (
   output: any,
   context: __SerdeContext
 ): ICD10CMEntity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ICD10CMEntity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ICD10CMEntity(entry, context));
 };
 
-const deserializeAws_json1_1ICD10CMTrait = (
-  output: any,
-  context: __SerdeContext
-): ICD10CMTrait => {
+const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
   return {
     __type: "ICD10CMTrait",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined
   } as any;
 };
 
@@ -2441,9 +2038,7 @@ const deserializeAws_json1_1ICD10CMTraitList = (
   output: any,
   context: __SerdeContext
 ): ICD10CMTrait[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ICD10CMTrait(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ICD10CMTrait(entry, context));
 };
 
 const deserializeAws_json1_1InferICD10CMResponse = (
@@ -2495,13 +2090,8 @@ const deserializeAws_json1_1InputDataConfig = (
   return {
     __type: "InputDataConfig",
     S3Bucket:
-      output.S3Bucket !== undefined && output.S3Bucket !== null
-        ? output.S3Bucket
-        : undefined,
-    S3Key:
-      output.S3Key !== undefined && output.S3Key !== null
-        ? output.S3Key
-        : undefined
+      output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
+    S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined
   } as any;
 };
 
@@ -2511,10 +2101,7 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     __type: "InternalServerException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2524,10 +2111,7 @@ const deserializeAws_json1_1InvalidEncodingException = (
 ): InvalidEncodingException => {
   return {
     __type: "InvalidEncodingException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2537,10 +2121,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   return {
     __type: "InvalidRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2559,9 +2140,7 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse = (
           )
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -2580,9 +2159,7 @@ const deserializeAws_json1_1ListPHIDetectionJobsResponse = (
           )
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -2593,13 +2170,8 @@ const deserializeAws_json1_1OutputDataConfig = (
   return {
     __type: "OutputDataConfig",
     S3Bucket:
-      output.S3Bucket !== undefined && output.S3Bucket !== null
-        ? output.S3Bucket
-        : undefined,
-    S3Key:
-      output.S3Key !== undefined && output.S3Key !== null
-        ? output.S3Key
-        : undefined
+      output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
+    S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined
   } as any;
 };
 
@@ -2609,10 +2181,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2627,31 +2196,19 @@ const deserializeAws_json1_1RxNormAttribute = (
         ? output.BeginOffset
         : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RelationshipScore:
-      output.RelationshipScore !== undefined &&
-      output.RelationshipScore !== null
+      output.RelationshipScore !== undefined && output.RelationshipScore !== null
         ? output.RelationshipScore
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1RxNormTraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2659,9 +2216,7 @@ const deserializeAws_json1_1RxNormAttributeList = (
   output: any,
   context: __SerdeContext
 ): RxNormAttribute[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RxNormAttribute(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RxNormAttribute(entry, context));
 };
 
 const deserializeAws_json1_1RxNormConcept = (
@@ -2670,18 +2225,12 @@ const deserializeAws_json1_1RxNormConcept = (
 ): RxNormConcept => {
   return {
     __type: "RxNormConcept",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
         ? output.Description
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined
   } as any;
 };
 
@@ -2689,15 +2238,10 @@ const deserializeAws_json1_1RxNormConceptList = (
   output: any,
   context: __SerdeContext
 ): RxNormConcept[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RxNormConcept(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RxNormConcept(entry, context));
 };
 
-const deserializeAws_json1_1RxNormEntity = (
-  output: any,
-  context: __SerdeContext
-): RxNormEntity => {
+const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext): RxNormEntity => {
   return {
     __type: "RxNormEntity",
     Attributes:
@@ -2709,37 +2253,21 @@ const deserializeAws_json1_1RxNormEntity = (
         ? output.BeginOffset
         : undefined,
     Category:
-      output.Category !== undefined && output.Category !== null
-        ? output.Category
-        : undefined,
+      output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset:
-      output.EndOffset !== undefined && output.EndOffset !== null
-        ? output.EndOffset
-        : undefined,
+      output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RxNormConcepts:
       output.RxNormConcepts !== undefined && output.RxNormConcepts !== null
-        ? deserializeAws_json1_1RxNormConceptList(
-            output.RxNormConcepts,
-            context
-          )
+        ? deserializeAws_json1_1RxNormConceptList(output.RxNormConcepts, context)
         : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:
       output.Traits !== undefined && output.Traits !== null
         ? deserializeAws_json1_1RxNormTraitList(output.Traits, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2747,25 +2275,14 @@ const deserializeAws_json1_1RxNormEntityList = (
   output: any,
   context: __SerdeContext
 ): RxNormEntity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RxNormEntity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RxNormEntity(entry, context));
 };
 
-const deserializeAws_json1_1RxNormTrait = (
-  output: any,
-  context: __SerdeContext
-): RxNormTrait => {
+const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
   return {
     __type: "RxNormTrait",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined
   } as any;
 };
 
@@ -2773,9 +2290,7 @@ const deserializeAws_json1_1RxNormTraitList = (
   output: any,
   context: __SerdeContext
 ): RxNormTrait[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RxNormTrait(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1RxNormTrait(entry, context));
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
@@ -2784,10 +2299,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   return {
     __type: "ServiceUnavailableException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2797,10 +2309,7 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobResponse = (
 ): StartEntitiesDetectionV2JobResponse => {
   return {
     __type: "StartEntitiesDetectionV2JobResponse",
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined
   } as any;
 };
 
@@ -2810,10 +2319,7 @@ const deserializeAws_json1_1StartPHIDetectionJobResponse = (
 ): StartPHIDetectionJobResponse => {
   return {
     __type: "StartPHIDetectionJobResponse",
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined
   } as any;
 };
 
@@ -2823,10 +2329,7 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobResponse = (
 ): StopEntitiesDetectionV2JobResponse => {
   return {
     __type: "StopEntitiesDetectionV2JobResponse",
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined
   } as any;
 };
 
@@ -2836,10 +2339,7 @@ const deserializeAws_json1_1StopPHIDetectionJobResponse = (
 ): StopPHIDetectionJobResponse => {
   return {
     __type: "StopPHIDetectionJobResponse",
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined
   } as any;
 };
 
@@ -2849,10 +2349,7 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
 ): TextSizeLimitExceededException => {
   return {
     __type: "TextSizeLimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2862,37 +2359,20 @@ const deserializeAws_json1_1TooManyRequestsException = (
 ): TooManyRequestsException => {
   return {
     __type: "TooManyRequestsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Trait = (
-  output: any,
-  context: __SerdeContext
-): Trait => {
+const deserializeAws_json1_1Trait = (output: any, context: __SerdeContext): Trait => {
   return {
     __type: "Trait",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Score:
-      output.Score !== undefined && output.Score !== null
-        ? output.Score
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TraitList = (
-  output: any,
-  context: __SerdeContext
-): Trait[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Trait(entry, context)
-  );
+const deserializeAws_json1_1TraitList = (output: any, context: __SerdeContext): Trait[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Trait(entry, context));
 };
 
 const deserializeAws_json1_1UnmappedAttribute = (
@@ -2905,10 +2385,7 @@ const deserializeAws_json1_1UnmappedAttribute = (
       output.Attribute !== undefined && output.Attribute !== null
         ? deserializeAws_json1_1Attribute(output.Attribute, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2927,10 +2404,7 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   return {
     __type: "ValidationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2948,16 +2422,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

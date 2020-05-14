@@ -2,11 +2,7 @@ import {
   DescribeConfigurationRevisionRequest,
   DescribeConfigurationRevisionResponse
 } from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1DescribeConfigurationRevisionCommand,
   serializeAws_restJson1_1DescribeConfigurationRevisionCommand
@@ -53,9 +49,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     DescribeConfigurationRevisionCommandInput,
     DescribeConfigurationRevisionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     input: DescribeConfigurationRevisionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeConfigurationRevisionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeConfigurationRevisionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeConfigurationRevisionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeConfigurationRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

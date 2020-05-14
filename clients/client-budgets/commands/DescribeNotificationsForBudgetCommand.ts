@@ -53,9 +53,7 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     DescribeNotificationsForBudgetCommandInput,
     DescribeNotificationsForBudgetCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationsForBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

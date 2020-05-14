@@ -18,10 +18,7 @@ import {
   CompleteVaultLockCommandInput,
   CompleteVaultLockCommandOutput
 } from "./commands/CompleteVaultLockCommand";
-import {
-  CreateVaultCommandInput,
-  CreateVaultCommandOutput
-} from "./commands/CreateVaultCommand";
+import { CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand";
 import {
   DeleteArchiveCommandInput,
   DeleteArchiveCommandOutput
@@ -30,18 +27,12 @@ import {
   DeleteVaultAccessPolicyCommandInput,
   DeleteVaultAccessPolicyCommandOutput
 } from "./commands/DeleteVaultAccessPolicyCommand";
-import {
-  DeleteVaultCommandInput,
-  DeleteVaultCommandOutput
-} from "./commands/DeleteVaultCommand";
+import { DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand";
 import {
   DeleteVaultNotificationsCommandInput,
   DeleteVaultNotificationsCommandOutput
 } from "./commands/DeleteVaultNotificationsCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeVaultCommandInput,
   DescribeVaultCommandOutput
@@ -66,10 +57,7 @@ import {
   GetVaultNotificationsCommandInput,
   GetVaultNotificationsCommandOutput
 } from "./commands/GetVaultNotificationsCommand";
-import {
-  InitiateJobCommandInput,
-  InitiateJobCommandOutput
-} from "./commands/InitiateJobCommand";
+import { InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand";
 import {
   InitiateMultipartUploadCommandInput,
   InitiateMultipartUploadCommandOutput
@@ -78,18 +66,12 @@ import {
   InitiateVaultLockCommandInput,
   InitiateVaultLockCommandOutput
 } from "./commands/InitiateVaultLockCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput
 } from "./commands/ListMultipartUploadsCommand";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
   ListProvisionedCapacityCommandInput,
   ListProvisionedCapacityCommandOutput
@@ -98,10 +80,7 @@ import {
   ListTagsForVaultCommandInput,
   ListTagsForVaultCommandOutput
 } from "./commands/ListTagsForVaultCommand";
-import {
-  ListVaultsCommandInput,
-  ListVaultsCommandOutput
-} from "./commands/ListVaultsCommand";
+import { ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand";
 import {
   PurchaseProvisionedCapacityCommandInput,
   PurchaseProvisionedCapacityCommandOutput
@@ -347,9 +326,7 @@ export interface ClientDefaults
   ) => Promise<[string, string]>;
 }
 
-export type GlacierClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -358,9 +335,7 @@ export type GlacierClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

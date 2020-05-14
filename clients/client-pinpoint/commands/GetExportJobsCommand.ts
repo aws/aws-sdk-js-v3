@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetExportJobsCommandInput = GetExportJobsRequest;
-export type GetExportJobsCommandOutput = GetExportJobsResponse &
-  __MetadataBearer;
+export type GetExportJobsCommandOutput = GetExportJobsResponse & __MetadataBearer;
 
 export class GetExportJobsCommand extends $Command<
   GetExportJobsCommandInput,
@@ -47,9 +46,7 @@ export class GetExportJobsCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetExportJobsCommandInput, GetExportJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

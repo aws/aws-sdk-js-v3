@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  GetContactAttributesRequest,
-  GetContactAttributesResponse
-} from "../models/index";
+import { GetContactAttributesRequest, GetContactAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetContactAttributesCommand,
   serializeAws_restJson1_1GetContactAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetContactAttributesCommandInput = GetContactAttributesRequest;
-export type GetContactAttributesCommandOutput = GetContactAttributesResponse &
-  __MetadataBearer;
+export type GetContactAttributesCommandOutput = GetContactAttributesResponse & __MetadataBearer;
 
 export class GetContactAttributesCommand extends $Command<
   GetContactAttributesCommandInput,
@@ -49,13 +45,8 @@ export class GetContactAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetContactAttributesCommandInput,
-    GetContactAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetContactAttributesCommandInput, GetContactAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetContactAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContactAttributesCommandOutput> {
-    return deserializeAws_restJson1_1GetContactAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetContactAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

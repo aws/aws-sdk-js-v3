@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  UpdateDomainNameRequest,
-  UpdateDomainNameResponse
-} from "../models/index";
+import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDomainNameCommand,
   serializeAws_restJson1_1UpdateDomainNameCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainNameCommandInput = UpdateDomainNameRequest;
-export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse &
-  __MetadataBearer;
+export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse & __MetadataBearer;
 
 export class UpdateDomainNameCommand extends $Command<
   UpdateDomainNameCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDomainNameCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeSubnetsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSubnetsCommandInput = DescribeSubnetsRequest;
-export type DescribeSubnetsCommandOutput = DescribeSubnetsResult &
-  __MetadataBearer;
+export type DescribeSubnetsCommandOutput = DescribeSubnetsResult & __MetadataBearer;
 
 export class DescribeSubnetsCommand extends $Command<
   DescribeSubnetsCommandInput,
@@ -47,9 +42,7 @@ export class DescribeSubnetsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

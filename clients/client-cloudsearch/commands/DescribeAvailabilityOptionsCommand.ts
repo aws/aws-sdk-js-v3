@@ -49,13 +49,8 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAvailabilityOptionsCommandInput,
-    DescribeAvailabilityOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAvailabilityOptionsCommandInput, DescribeAvailabilityOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityOptionsCommandOutput> {
-    return deserializeAws_queryDescribeAvailabilityOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAvailabilityOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

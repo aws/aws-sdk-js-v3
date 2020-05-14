@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  ListConnectorDefinitionsRequest,
-  ListConnectorDefinitionsResponse
-} from "../models/index";
+import { ListConnectorDefinitionsRequest, ListConnectorDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListConnectorDefinitionsCommand,
   serializeAws_restJson1_1ListConnectorDefinitionsCommand
@@ -49,13 +46,8 @@ export class ListConnectorDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListConnectorDefinitionsCommandInput,
-    ListConnectorDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListConnectorDefinitionsCommandInput, ListConnectorDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListConnectorDefinitionsCommand extends $Command<
     input: ListConnectorDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListConnectorDefinitionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListConnectorDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConnectorDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListConnectorDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConnectorDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

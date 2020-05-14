@@ -1,12 +1,5 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
-import {
-  SendMessageBatchRequest,
-  SendMessageBatchResult
-} from "../models/index";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
+import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/index";
 import {
   deserializeAws_querySendMessageBatchCommand,
   serializeAws_querySendMessageBatchCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendMessageBatchCommandInput = SendMessageBatchRequest;
-export type SendMessageBatchCommandOutput = SendMessageBatchResult &
-  __MetadataBearer;
+export type SendMessageBatchCommandOutput = SendMessageBatchResult & __MetadataBearer;
 
 export class SendMessageBatchCommand extends $Command<
   SendMessageBatchCommandInput,
@@ -51,9 +43,7 @@ export class SendMessageBatchCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendMessageBatchCommandInput, SendMessageBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSendMessageBatchPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  DescribeFindingsRequest,
-  DescribeFindingsResponse
-} from "../models/index";
+import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFindingsCommand,
   serializeAws_json1_1DescribeFindingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFindingsCommandInput = DescribeFindingsRequest;
-export type DescribeFindingsCommandOutput = DescribeFindingsResponse &
-  __MetadataBearer;
+export type DescribeFindingsCommandOutput = DescribeFindingsResponse & __MetadataBearer;
 
 export class DescribeFindingsCommand extends $Command<
   DescribeFindingsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeFindingsCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFindingsCommandInput, DescribeFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

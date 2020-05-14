@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  AllocatePrivateVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { AllocatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand,
   serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocatePrivateVirtualInterfaceCommandInput = AllocatePrivateVirtualInterfaceRequest;
-export type AllocatePrivateVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type AllocatePrivateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class AllocatePrivateVirtualInterfaceCommand extends $Command<
   AllocatePrivateVirtualInterfaceCommandInput,
@@ -53,9 +49,7 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     AllocatePrivateVirtualInterfaceCommandInput,
     AllocatePrivateVirtualInterfaceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     input: AllocatePrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

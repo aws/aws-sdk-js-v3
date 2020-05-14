@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import { SendEmailRequest, SendEmailResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendEmailCommand,
@@ -46,9 +42,7 @@ export class SendEmailCommand extends $Command<
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendEmailCommandInput, SendEmailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class SendEmailCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendEmailCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SendEmailCommand(input, context);
   }
 

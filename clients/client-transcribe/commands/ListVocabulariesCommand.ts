@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 } from "../TranscribeClient";
-import {
-  ListVocabulariesRequest,
-  ListVocabulariesResponse
-} from "../models/index";
+import { ListVocabulariesRequest, ListVocabulariesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListVocabulariesCommand,
   serializeAws_json1_1ListVocabulariesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVocabulariesCommandInput = ListVocabulariesRequest;
-export type ListVocabulariesCommandOutput = ListVocabulariesResponse &
-  __MetadataBearer;
+export type ListVocabulariesCommandOutput = ListVocabulariesResponse & __MetadataBearer;
 
 export class ListVocabulariesCommand extends $Command<
   ListVocabulariesCommandInput,
@@ -50,9 +46,7 @@ export class ListVocabulariesCommand extends $Command<
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListVocabulariesCommandInput, ListVocabulariesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

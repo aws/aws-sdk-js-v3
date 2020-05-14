@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SupportClientResolvedConfig
 } from "../SupportClient";
-import {
-  DescribeAttachmentRequest,
-  DescribeAttachmentResponse
-} from "../models/index";
+import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAttachmentCommand,
   serializeAws_json1_1DescribeAttachmentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAttachmentCommandInput = DescribeAttachmentRequest;
-export type DescribeAttachmentCommandOutput = DescribeAttachmentResponse &
-  __MetadataBearer;
+export type DescribeAttachmentCommandOutput = DescribeAttachmentResponse & __MetadataBearer;
 
 export class DescribeAttachmentCommand extends $Command<
   DescribeAttachmentCommandInput,
@@ -50,9 +46,7 @@ export class DescribeAttachmentCommand extends $Command<
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

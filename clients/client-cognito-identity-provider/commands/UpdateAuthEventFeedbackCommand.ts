@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateAuthEventFeedbackRequest,
-  UpdateAuthEventFeedbackResponse
-} from "../models/index";
+import { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
   serializeAws_json1_1UpdateAuthEventFeedbackCommand
@@ -49,13 +46,8 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAuthEventFeedbackCommandInput,
-    UpdateAuthEventFeedbackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAuthEventFeedbackCommandInput, UpdateAuthEventFeedbackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAuthEventFeedbackCommandOutput> {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

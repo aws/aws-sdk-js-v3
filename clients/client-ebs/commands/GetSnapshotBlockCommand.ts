@@ -1,12 +1,5 @@
-import {
-  EBSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EBSClient";
-import {
-  GetSnapshotBlockRequest,
-  GetSnapshotBlockResponse
-} from "../models/index";
+import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
+import { GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSnapshotBlockCommand,
   serializeAws_restJson1_1GetSnapshotBlockCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSnapshotBlockCommandInput = GetSnapshotBlockRequest;
-export type GetSnapshotBlockCommandOutput = GetSnapshotBlockResponse &
-  __MetadataBearer;
+export type GetSnapshotBlockCommandOutput = GetSnapshotBlockResponse & __MetadataBearer;
 
 export class GetSnapshotBlockCommand extends $Command<
   GetSnapshotBlockCommandInput,
@@ -50,9 +42,7 @@ export class GetSnapshotBlockCommand extends $Command<
     configuration: EBSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSnapshotBlockCommandInput, GetSnapshotBlockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

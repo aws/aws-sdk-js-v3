@@ -6,10 +6,7 @@ import {
   CreateClusterCommandInput,
   CreateClusterCommandOutput
 } from "./commands/CreateClusterCommand";
-import {
-  CreateHsmCommandInput,
-  CreateHsmCommandOutput
-} from "./commands/CreateHsmCommand";
+import { CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand";
 import {
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput
@@ -18,10 +15,7 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput
 } from "./commands/DeleteClusterCommand";
-import {
-  DeleteHsmCommandInput,
-  DeleteHsmCommandOutput
-} from "./commands/DeleteHsmCommand";
+import { DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
 import {
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput
@@ -34,18 +28,12 @@ import {
   InitializeClusterCommandInput,
   InitializeClusterCommandOutput
 } from "./commands/InitializeClusterCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RestoreBackupCommandInput,
   RestoreBackupCommandOutput
 } from "./commands/RestoreBackupCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -217,9 +205,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudHSMV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudHSMV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +214,7 @@ export type CloudHSMV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudHSMV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudHSMV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  ListConfigurationsRequest,
-  ListConfigurationsResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListConfigurationsCommand,
   serializeAws_restJson1_1ListConfigurationsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListConfigurationsCommandInput = ListConfigurationsRequest;
-export type ListConfigurationsCommandOutput = ListConfigurationsResponse &
-  __MetadataBearer;
+export type ListConfigurationsCommandOutput = ListConfigurationsResponse & __MetadataBearer;
 
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,
@@ -50,9 +42,7 @@ export class ListConfigurationsCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConfigurationsCommandInput, ListConfigurationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

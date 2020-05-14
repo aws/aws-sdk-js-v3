@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBClusterCommandInput = ModifyDBClusterMessage;
-export type ModifyDBClusterCommandOutput = ModifyDBClusterResult &
-  __MetadataBearer;
+export type ModifyDBClusterCommandOutput = ModifyDBClusterResult & __MetadataBearer;
 
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,
@@ -47,9 +46,7 @@ export class ModifyDBClusterCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

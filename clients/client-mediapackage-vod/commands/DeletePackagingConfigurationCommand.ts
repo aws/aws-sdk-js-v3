@@ -49,13 +49,8 @@ export class DeletePackagingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePackagingConfigurationCommandInput,
-    DeletePackagingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePackagingConfigurationCommandInput, DeletePackagingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeletePackagingConfigurationCommand extends $Command<
     input: DeletePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePackagingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeletePackagingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeletePackagingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeletePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

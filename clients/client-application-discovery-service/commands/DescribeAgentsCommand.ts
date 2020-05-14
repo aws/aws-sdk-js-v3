@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAgentsCommandInput = DescribeAgentsRequest;
-export type DescribeAgentsCommandOutput = DescribeAgentsResponse &
-  __MetadataBearer;
+export type DescribeAgentsCommandOutput = DescribeAgentsResponse & __MetadataBearer;
 
 export class DescribeAgentsCommand extends $Command<
   DescribeAgentsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAgentsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAgentsCommandInput, DescribeAgentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

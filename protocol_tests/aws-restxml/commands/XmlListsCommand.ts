@@ -46,9 +46,7 @@ export class XmlListsCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlListsCommandInput, XmlListsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class XmlListsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: XmlListsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlListsCommand(input, context);
   }
 

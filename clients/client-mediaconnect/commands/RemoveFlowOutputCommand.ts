@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  RemoveFlowOutputRequest,
-  RemoveFlowOutputResponse
-} from "../models/index";
+import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveFlowOutputCommand,
   serializeAws_restJson1_1RemoveFlowOutputCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveFlowOutputCommandInput = RemoveFlowOutputRequest;
-export type RemoveFlowOutputCommandOutput = RemoveFlowOutputResponse &
-  __MetadataBearer;
+export type RemoveFlowOutputCommandOutput = RemoveFlowOutputResponse & __MetadataBearer;
 
 export class RemoveFlowOutputCommand extends $Command<
   RemoveFlowOutputCommandInput,
@@ -50,9 +46,7 @@ export class RemoveFlowOutputCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

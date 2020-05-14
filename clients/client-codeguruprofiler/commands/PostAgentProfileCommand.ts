@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  PostAgentProfileRequest,
-  PostAgentProfileResponse
-} from "../models/index";
+import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PostAgentProfileCommand,
   serializeAws_restJson1_1PostAgentProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PostAgentProfileCommandInput = PostAgentProfileRequest;
-export type PostAgentProfileCommandOutput = PostAgentProfileResponse &
-  __MetadataBearer;
+export type PostAgentProfileCommandOutput = PostAgentProfileResponse & __MetadataBearer;
 
 export class PostAgentProfileCommand extends $Command<
   PostAgentProfileCommandInput,
@@ -50,9 +46,7 @@ export class PostAgentProfileCommand extends $Command<
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostAgentProfileCommandInput, PostAgentProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

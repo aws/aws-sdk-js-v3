@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  UpdateQualificationTypeRequest,
-  UpdateQualificationTypeResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateQualificationTypeCommand,
   serializeAws_json1_1UpdateQualificationTypeCommand
@@ -49,13 +42,8 @@ export class UpdateQualificationTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateQualificationTypeCommandInput,
-    UpdateQualificationTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateQualificationTypeCommandInput, UpdateQualificationTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class UpdateQualificationTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1UpdateQualificationTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

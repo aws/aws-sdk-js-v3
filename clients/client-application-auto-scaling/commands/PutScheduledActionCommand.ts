@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScheduledActionRequest,
-  PutScheduledActionResponse
-} from "../models/index";
+import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutScheduledActionCommand,
   serializeAws_json1_1PutScheduledActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutScheduledActionCommandInput = PutScheduledActionRequest;
-export type PutScheduledActionCommandOutput = PutScheduledActionResponse &
-  __MetadataBearer;
+export type PutScheduledActionCommandOutput = PutScheduledActionResponse & __MetadataBearer;
 
 export class PutScheduledActionCommand extends $Command<
   PutScheduledActionCommandInput,
@@ -50,9 +46,7 @@ export class PutScheduledActionCommand extends $Command<
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutScheduledActionCommandInput, PutScheduledActionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  StartAccessLoggingInput,
-  StartAccessLoggingOutput
-} from "../models/index";
+import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartAccessLoggingCommand,
   serializeAws_json1_1StartAccessLoggingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
-export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput &
-  __MetadataBearer;
+export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput & __MetadataBearer;
 
 export class StartAccessLoggingCommand extends $Command<
   StartAccessLoggingCommandInput,
@@ -50,9 +46,7 @@ export class StartAccessLoggingCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

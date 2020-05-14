@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { PutImageRequest, PutImageResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutImageCommand,
@@ -46,9 +42,7 @@ export class PutImageCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutImageCommandInput, PutImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class PutImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutImageCommand(input, context);
   }
 

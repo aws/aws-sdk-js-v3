@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient";
-import {
-  ListSecretVersionIdsRequest,
-  ListSecretVersionIdsResponse
-} from "../models/index";
+import { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSecretVersionIdsCommand,
   serializeAws_json1_1ListSecretVersionIdsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSecretVersionIdsCommandInput = ListSecretVersionIdsRequest;
-export type ListSecretVersionIdsCommandOutput = ListSecretVersionIdsResponse &
-  __MetadataBearer;
+export type ListSecretVersionIdsCommandOutput = ListSecretVersionIdsResponse & __MetadataBearer;
 
 export class ListSecretVersionIdsCommand extends $Command<
   ListSecretVersionIdsCommandInput,
@@ -49,13 +45,8 @@ export class ListSecretVersionIdsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSecretVersionIdsCommandInput,
-    ListSecretVersionIdsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSecretVersionIdsCommandInput, ListSecretVersionIdsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  DocumentationVersion,
-  UpdateDocumentationVersionRequest
-} from "../models/index";
+import { DocumentationVersion, UpdateDocumentationVersionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDocumentationVersionCommand,
   serializeAws_restJson1_1UpdateDocumentationVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDocumentationVersionCommandInput = UpdateDocumentationVersionRequest;
-export type UpdateDocumentationVersionCommandOutput = DocumentationVersion &
-  __MetadataBearer;
+export type UpdateDocumentationVersionCommandOutput = DocumentationVersion & __MetadataBearer;
 
 export class UpdateDocumentationVersionCommand extends $Command<
   UpdateDocumentationVersionCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDocumentationVersionCommandInput,
-    UpdateDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDocumentationVersionCommandInput, UpdateDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateDocumentationVersionCommand extends $Command<
     input: UpdateDocumentationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDocumentationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateDocumentationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDocumentationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

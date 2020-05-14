@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  DeleteReplicationGroupMessage,
-  DeleteReplicationGroupResult
-} from "../models/index";
+import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/index";
 import {
   deserializeAws_queryDeleteReplicationGroupCommand,
   serializeAws_queryDeleteReplicationGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReplicationGroupCommandInput = DeleteReplicationGroupMessage;
-export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult &
-  __MetadataBearer;
+export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult & __MetadataBearer;
 
 export class DeleteReplicationGroupCommand extends $Command<
   DeleteReplicationGroupCommandInput,
@@ -49,13 +45,8 @@ export class DeleteReplicationGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationGroupCommandInput,
-    DeleteReplicationGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationGroupCommandInput, DeleteReplicationGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

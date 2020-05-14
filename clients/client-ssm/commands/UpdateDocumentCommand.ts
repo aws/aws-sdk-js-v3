@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { UpdateDocumentRequest, UpdateDocumentResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDocumentCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDocumentCommandInput = UpdateDocumentRequest;
-export type UpdateDocumentCommandOutput = UpdateDocumentResult &
-  __MetadataBearer;
+export type UpdateDocumentCommandOutput = UpdateDocumentResult & __MetadataBearer;
 
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,
@@ -47,9 +42,7 @@ export class UpdateDocumentCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDocumentCommandInput, UpdateDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

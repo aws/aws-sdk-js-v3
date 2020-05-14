@@ -44,10 +44,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR {
  * request. The thrown exception contains the serialized request.
  */
 class RequestSerializationTestHandler implements HttpHandler {
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
 }
@@ -61,12 +58,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   headers: HeaderBag;
   body: String;
 
-  constructor(
-    isSuccess: boolean,
-    code: number,
-    headers?: HeaderBag,
-    body?: String
-  ) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -80,10 +72,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
     this.body = body;
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
       response: {
         statusCode: this.code,
@@ -101,10 +90,7 @@ interface comparableParts {
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (
-  expectedParts: comparableParts,
-  generatedParts: comparableParts
-) => {
+const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
   const unequalParts: any = {};
   Object.keys(expectedParts).forEach(key => {
     if (generatedParts[key] === undefined) {
@@ -153,9 +139,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   Object.keys(localExpected).forEach(
     key => localExpected[key] === undefined && delete localExpected[key]
   );
-  Object.keys(generated).forEach(
-    key => generated[key] === undefined && delete generated[key]
-  );
+  Object.keys(generated).forEach(key => generated[key] === undefined && delete generated[key]);
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -168,9 +152,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (
-      !equivalentContents(localExpected[propertyName], generated[propertyName])
-    ) {
+    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
     }
   }
@@ -401,10 +383,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -414,12 +393,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
  */
 it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      `{}`
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`)
   });
 
   const params: any = {};
@@ -557,8 +531,7 @@ it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
 it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(false, 500, {
-      "x-amzn-errortype":
-        "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+      "x-amzn-errortype": "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
     })
   });
 
@@ -937,9 +910,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
   }
 });
 
@@ -1082,9 +1053,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
   }
 });
 
@@ -1164,10 +1133,7 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
         \"greeting\": \"hello\",
         \"name\": \"Phreddy\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1398,9 +1364,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe(
-      "/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy"
-    );
+    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
 
     expect(r.body).toBeFalsy();
   }
@@ -1871,8 +1835,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
       true,
       200,
       {
-        "x-timestamplist":
-          "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
+        "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
       },
       ``
     )
@@ -1971,10 +1934,7 @@ it("RestJsonJsonBlobs:Request", async () => {
     const bodyString = `{
         \"data\": \"dmFsdWU=\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2077,10 +2037,7 @@ it("RestJsonJsonEnums:Request", async () => {
             \"zero\": \"0\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2256,10 +2213,7 @@ it("RestJsonLists:Request", async () => {
             }
         ]
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2295,10 +2249,7 @@ it("RestJsonListsEmpty:Request", async () => {
     const bodyString = `{
         \"stringList\": []
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2336,10 +2287,7 @@ it("RestJsonListsSerializeNull:Request", async () => {
             null
         ]
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2582,10 +2530,7 @@ it("RestJsonJsonMaps:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2675,10 +2620,7 @@ it("RestJsonJsonTimestamps:Request", async () => {
     const bodyString = `{
         \"normal\": 1398796238
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2714,10 +2656,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     const bodyString = `{
         \"dateTime\": \"2014-04-29T18:30:38Z\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2753,10 +2692,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     const bodyString = `{
         \"epochSeconds\": 1398796238
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2792,10 +2728,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     const bodyString = `{
         \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3233,10 +3166,7 @@ it("RestJsonRecursiveShapes:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3364,10 +3294,7 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
         \"floatValue\": 5.5,
         \"DoubleDribble\": 6.5
     }`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3552,10 +3479,7 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
   const expectedParts = JSON.parse(expectedBody);
   const generatedParts = JSON.parse(generatedBody);
 

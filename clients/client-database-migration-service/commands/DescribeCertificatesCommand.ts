@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeCertificatesMessage,
-  DescribeCertificatesResponse
-} from "../models/index";
+import { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCertificatesCommand,
   serializeAws_json1_1DescribeCertificatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
-export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse &
-  __MetadataBearer;
+export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse & __MetadataBearer;
 
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCertificatesCommandInput,
-    DescribeCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCertificatesCommandInput, DescribeCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

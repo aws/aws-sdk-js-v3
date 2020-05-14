@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  CancelDeploymentJobRequest,
-  CancelDeploymentJobResponse
-} from "../models/index";
+import { CancelDeploymentJobRequest, CancelDeploymentJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelDeploymentJobCommand,
   serializeAws_restJson1_1CancelDeploymentJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelDeploymentJobCommandInput = CancelDeploymentJobRequest;
-export type CancelDeploymentJobCommandOutput = CancelDeploymentJobResponse &
-  __MetadataBearer;
+export type CancelDeploymentJobCommandOutput = CancelDeploymentJobResponse & __MetadataBearer;
 
 export class CancelDeploymentJobCommand extends $Command<
   CancelDeploymentJobCommandInput,
@@ -49,13 +45,8 @@ export class CancelDeploymentJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelDeploymentJobCommandInput,
-    CancelDeploymentJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelDeploymentJobCommandInput, CancelDeploymentJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CancelDeploymentJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1_1CancelDeploymentJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

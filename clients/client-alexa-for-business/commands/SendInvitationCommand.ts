@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendInvitationCommandInput = SendInvitationRequest;
-export type SendInvitationCommandOutput = SendInvitationResponse &
-  __MetadataBearer;
+export type SendInvitationCommandOutput = SendInvitationResponse & __MetadataBearer;
 
 export class SendInvitationCommand extends $Command<
   SendInvitationCommandInput,
@@ -47,9 +46,7 @@ export class SendInvitationCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendInvitationCommandInput, SendInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

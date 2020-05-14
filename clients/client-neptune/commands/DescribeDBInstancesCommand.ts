@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBInstancesCommandInput = DescribeDBInstancesMessage;
-export type DescribeDBInstancesCommandOutput = DBInstanceMessage &
-  __MetadataBearer;
+export type DescribeDBInstancesCommandOutput = DBInstanceMessage & __MetadataBearer;
 
 export class DescribeDBInstancesCommand extends $Command<
   DescribeDBInstancesCommandInput,
@@ -46,13 +45,8 @@ export class DescribeDBInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBInstancesCommandInput,
-    DescribeDBInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBInstancesCommandInput, DescribeDBInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

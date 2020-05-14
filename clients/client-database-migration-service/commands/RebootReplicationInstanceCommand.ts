@@ -49,13 +49,8 @@ export class RebootReplicationInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RebootReplicationInstanceCommandInput,
-    RebootReplicationInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RebootReplicationInstanceCommandInput, RebootReplicationInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class RebootReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebootReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1RebootReplicationInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RebootReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

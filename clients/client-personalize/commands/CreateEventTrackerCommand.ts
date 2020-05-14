@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  CreateEventTrackerRequest,
-  CreateEventTrackerResponse
-} from "../models/index";
+import { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateEventTrackerCommand,
   serializeAws_json1_1CreateEventTrackerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEventTrackerCommandInput = CreateEventTrackerRequest;
-export type CreateEventTrackerCommandOutput = CreateEventTrackerResponse &
-  __MetadataBearer;
+export type CreateEventTrackerCommandOutput = CreateEventTrackerResponse & __MetadataBearer;
 
 export class CreateEventTrackerCommand extends $Command<
   CreateEventTrackerCommandInput,
@@ -50,9 +46,7 @@ export class CreateEventTrackerCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

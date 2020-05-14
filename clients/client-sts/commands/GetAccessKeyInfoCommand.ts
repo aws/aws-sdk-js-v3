@@ -1,12 +1,5 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  GetAccessKeyInfoRequest,
-  GetAccessKeyInfoResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccessKeyInfoCommand,
   serializeAws_queryGetAccessKeyInfoCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccessKeyInfoCommandInput = GetAccessKeyInfoRequest;
-export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse &
-  __MetadataBearer;
+export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse & __MetadataBearer;
 
 export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandInput,
@@ -50,9 +42,7 @@ export class GetAccessKeyInfoCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

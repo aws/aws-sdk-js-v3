@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBSecurityGroupMessage,
-  DescribeDBSecurityGroupsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBSecurityGroupsCommand,
   serializeAws_queryDescribeDBSecurityGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBSecurityGroupsCommandInput = DescribeDBSecurityGroupsMessage;
-export type DescribeDBSecurityGroupsCommandOutput = DBSecurityGroupMessage &
-  __MetadataBearer;
+export type DescribeDBSecurityGroupsCommandOutput = DBSecurityGroupMessage & __MetadataBearer;
 
 export class DescribeDBSecurityGroupsCommand extends $Command<
   DescribeDBSecurityGroupsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBSecurityGroupsCommandInput,
-    DescribeDBSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBSecurityGroupsCommandInput, DescribeDBSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

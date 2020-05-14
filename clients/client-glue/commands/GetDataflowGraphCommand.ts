@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  GetDataflowGraphRequest,
-  GetDataflowGraphResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDataflowGraphCommand,
   serializeAws_json1_1GetDataflowGraphCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
-export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse &
-  __MetadataBearer;
+export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse & __MetadataBearer;
 
 export class GetDataflowGraphCommand extends $Command<
   GetDataflowGraphCommandInput,
@@ -50,9 +42,7 @@ export class GetDataflowGraphCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -42,10 +42,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -152,9 +149,7 @@ export const serializeAws_json1_1CancelDataRepositoryTaskCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CancelDataRepositoryTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CancelDataRepositoryTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -167,9 +162,7 @@ export const serializeAws_json1_1CreateBackupCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.CreateBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateBackupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -182,9 +175,7 @@ export const serializeAws_json1_1CreateDataRepositoryTaskCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDataRepositoryTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDataRepositoryTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -197,9 +188,7 @@ export const serializeAws_json1_1CreateFileSystemCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.CreateFileSystem"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateFileSystemRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -212,9 +201,7 @@ export const serializeAws_json1_1CreateFileSystemFromBackupCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateFileSystemFromBackupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateFileSystemFromBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -227,9 +214,7 @@ export const serializeAws_json1_1DeleteBackupCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.DeleteBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteBackupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -242,9 +227,7 @@ export const serializeAws_json1_1DeleteFileSystemCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.DeleteFileSystem"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteFileSystemRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -257,9 +240,7 @@ export const serializeAws_json1_1DescribeBackupsCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.DescribeBackups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeBackupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeBackupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -272,9 +253,7 @@ export const serializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDataRepositoryTasksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDataRepositoryTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -287,9 +266,7 @@ export const serializeAws_json1_1DescribeFileSystemsCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.DescribeFileSystems"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeFileSystemsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeFileSystemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,9 +279,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -330,9 +305,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -345,9 +318,7 @@ export const serializeAws_json1_1UpdateFileSystemCommand = async (
     "X-Amz-Target": "AWSSimbaAPIService_v20180301.UpdateFileSystem"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateFileSystemRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateFileSystemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -356,17 +327,11 @@ export const deserializeAws_json1_1CancelDataRepositoryTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelDataRepositoryTaskCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CancelDataRepositoryTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CancelDataRepositoryTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelDataRepositoryTaskResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CancelDataRepositoryTaskResponse(data, context);
   const response: CancelDataRepositoryTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelDataRepositoryTaskResponse",
@@ -386,16 +351,12 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -403,10 +364,7 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
     case "DataRepositoryTaskEnded":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskEnded":
       response = {
-        ...(await deserializeAws_json1_1DataRepositoryTaskEndedResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DataRepositoryTaskEndedResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -414,10 +372,7 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
     case "DataRepositoryTaskNotFound":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
       response = {
-        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -425,10 +380,7 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -436,10 +388,7 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -490,16 +439,12 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BackupInProgress":
     case "com.amazonaws.simba.api.v20180301#BackupInProgress":
       response = {
-        ...(await deserializeAws_json1_1BackupInProgressResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupInProgressResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -507,10 +452,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -518,10 +460,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -529,10 +468,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -540,10 +476,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -551,10 +484,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -562,10 +492,7 @@ const deserializeAws_json1_1CreateBackupCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -592,17 +519,11 @@ export const deserializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataRepositoryTaskCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataRepositoryTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataRepositoryTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataRepositoryTaskResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataRepositoryTaskResponse(data, context);
   const response: CreateDataRepositoryTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataRepositoryTaskResponse",
@@ -622,16 +543,12 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -639,10 +556,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "DataRepositoryTaskExecuting":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskExecuting":
       response = {
-        ...(await deserializeAws_json1_1DataRepositoryTaskExecutingResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DataRepositoryTaskExecutingResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -650,10 +564,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -661,10 +572,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -672,10 +580,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -683,10 +588,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -694,10 +596,7 @@ const deserializeAws_json1_1CreateDataRepositoryTaskCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -748,16 +647,12 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActiveDirectoryError":
     case "com.amazonaws.simba.api.v20180301#ActiveDirectoryError":
       response = {
-        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -765,10 +660,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -776,10 +668,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -787,10 +676,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -798,10 +684,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "InvalidExportPath":
     case "com.amazonaws.simba.api.v20180301#InvalidExportPath":
       response = {
-        ...(await deserializeAws_json1_1InvalidExportPathResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidExportPathResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -809,10 +692,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "InvalidImportPath":
     case "com.amazonaws.simba.api.v20180301#InvalidImportPath":
       response = {
-        ...(await deserializeAws_json1_1InvalidImportPathResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidImportPathResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -820,10 +700,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "InvalidNetworkSettings":
     case "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings":
       response = {
-        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -842,10 +719,7 @@ const deserializeAws_json1_1CreateFileSystemCommandError = async (
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -872,17 +746,11 @@ export const deserializeAws_json1_1CreateFileSystemFromBackupCommand = async (
   context: __SerdeContext
 ): Promise<CreateFileSystemFromBackupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateFileSystemFromBackupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateFileSystemFromBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFileSystemFromBackupResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateFileSystemFromBackupResponse(data, context);
   const response: CreateFileSystemFromBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFileSystemFromBackupResponse",
@@ -902,16 +770,12 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActiveDirectoryError":
     case "com.amazonaws.simba.api.v20180301#ActiveDirectoryError":
       response = {
-        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -919,10 +783,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
       response = {
-        ...(await deserializeAws_json1_1BackupNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -930,10 +791,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -941,10 +799,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -952,10 +807,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -963,10 +815,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "InvalidNetworkSettings":
     case "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings":
       response = {
-        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -985,10 +834,7 @@ const deserializeAws_json1_1CreateFileSystemFromBackupCommandError = async (
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1039,16 +885,12 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BackupInProgress":
     case "com.amazonaws.simba.api.v20180301#BackupInProgress":
       response = {
-        ...(await deserializeAws_json1_1BackupInProgressResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupInProgressResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1056,10 +898,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
       response = {
-        ...(await deserializeAws_json1_1BackupNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1067,10 +906,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "BackupRestoring":
     case "com.amazonaws.simba.api.v20180301#BackupRestoring":
       response = {
-        ...(await deserializeAws_json1_1BackupRestoringResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupRestoringResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1078,10 +914,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1089,10 +922,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1100,10 +930,7 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1154,16 +981,12 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1171,10 +994,7 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1182,10 +1002,7 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1193,10 +1010,7 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1204,10 +1018,7 @@ const deserializeAws_json1_1DeleteFileSystemCommandError = async (
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1258,16 +1069,12 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
       response = {
-        ...(await deserializeAws_json1_1BackupNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1275,10 +1082,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1286,10 +1090,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1297,10 +1098,7 @@ const deserializeAws_json1_1DescribeBackupsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1327,17 +1125,11 @@ export const deserializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataRepositoryTasksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDataRepositoryTasksResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDataRepositoryTasksResponse(data, context);
   const response: DescribeDataRepositoryTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDataRepositoryTasksResponse",
@@ -1357,16 +1149,12 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1374,10 +1162,7 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
     case "DataRepositoryTaskNotFound":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
       response = {
-        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1385,10 +1170,7 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1396,10 +1178,7 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1426,10 +1205,7 @@ export const deserializeAws_json1_1DescribeFileSystemsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFileSystemsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFileSystemsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1453,16 +1229,12 @@ const deserializeAws_json1_1DescribeFileSystemsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1470,10 +1242,7 @@ const deserializeAws_json1_1DescribeFileSystemsCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1481,10 +1250,7 @@ const deserializeAws_json1_1DescribeFileSystemsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1511,10 +1277,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1538,16 +1301,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1555,10 +1314,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1566,10 +1322,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
       response = {
-        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1588,10 +1341,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1642,16 +1392,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1659,10 +1405,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1670,10 +1413,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
       response = {
-        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1692,10 +1432,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1746,16 +1483,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1763,10 +1496,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1774,10 +1504,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
       response = {
-        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1796,10 +1523,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1850,16 +1574,12 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
       response = {
-        ...(await deserializeAws_json1_1BadRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1867,10 +1587,7 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
       response = {
-        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1878,10 +1595,7 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
       response = {
-        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1889,10 +1603,7 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1911,10 +1622,7 @@ const deserializeAws_json1_1UpdateFileSystemCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1941,10 +1649,7 @@ const deserializeAws_json1_1ActiveDirectoryErrorResponse = async (
   context: __SerdeContext
 ): Promise<ActiveDirectoryError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ActiveDirectoryError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ActiveDirectoryError(body, context);
   const contents: ActiveDirectoryError = {
     name: "ActiveDirectoryError",
     $fault: "client",
@@ -1959,10 +1664,7 @@ const deserializeAws_json1_1BackupInProgressResponse = async (
   context: __SerdeContext
 ): Promise<BackupInProgress> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BackupInProgress(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1BackupInProgress(body, context);
   const contents: BackupInProgress = {
     name: "BackupInProgress",
     $fault: "client",
@@ -1992,10 +1694,7 @@ const deserializeAws_json1_1BackupRestoringResponse = async (
   context: __SerdeContext
 ): Promise<BackupRestoring> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BackupRestoring(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1BackupRestoring(body, context);
   const contents: BackupRestoring = {
     name: "BackupRestoring",
     $fault: "client",
@@ -2025,10 +1724,7 @@ const deserializeAws_json1_1DataRepositoryTaskEndedResponse = async (
   context: __SerdeContext
 ): Promise<DataRepositoryTaskEnded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskEnded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskEnded(body, context);
   const contents: DataRepositoryTaskEnded = {
     name: "DataRepositoryTaskEnded",
     $fault: "client",
@@ -2043,10 +1739,7 @@ const deserializeAws_json1_1DataRepositoryTaskExecutingResponse = async (
   context: __SerdeContext
 ): Promise<DataRepositoryTaskExecuting> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskExecuting(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskExecuting(body, context);
   const contents: DataRepositoryTaskExecuting = {
     name: "DataRepositoryTaskExecuting",
     $fault: "client",
@@ -2061,10 +1754,7 @@ const deserializeAws_json1_1DataRepositoryTaskNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<DataRepositoryTaskNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DataRepositoryTaskNotFound(body, context);
   const contents: DataRepositoryTaskNotFound = {
     name: "DataRepositoryTaskNotFound",
     $fault: "client",
@@ -2079,10 +1769,7 @@ const deserializeAws_json1_1FileSystemNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<FileSystemNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FileSystemNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1FileSystemNotFound(body, context);
   const contents: FileSystemNotFound = {
     name: "FileSystemNotFound",
     $fault: "client",
@@ -2097,10 +1784,7 @@ const deserializeAws_json1_1IncompatibleParameterErrorResponse = async (
   context: __SerdeContext
 ): Promise<IncompatibleParameterError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IncompatibleParameterError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IncompatibleParameterError(body, context);
   const contents: IncompatibleParameterError = {
     name: "IncompatibleParameterError",
     $fault: "client",
@@ -2115,10 +1799,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -2133,10 +1814,7 @@ const deserializeAws_json1_1InvalidExportPathResponse = async (
   context: __SerdeContext
 ): Promise<InvalidExportPath> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidExportPath(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidExportPath(body, context);
   const contents: InvalidExportPath = {
     name: "InvalidExportPath",
     $fault: "client",
@@ -2151,10 +1829,7 @@ const deserializeAws_json1_1InvalidImportPathResponse = async (
   context: __SerdeContext
 ): Promise<InvalidImportPath> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidImportPath(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidImportPath(body, context);
   const contents: InvalidImportPath = {
     name: "InvalidImportPath",
     $fault: "client",
@@ -2169,10 +1844,7 @@ const deserializeAws_json1_1InvalidNetworkSettingsResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNetworkSettings> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNetworkSettings(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNetworkSettings(body, context);
   const contents: InvalidNetworkSettings = {
     name: "InvalidNetworkSettings",
     $fault: "client",
@@ -2187,10 +1859,7 @@ const deserializeAws_json1_1MissingFileSystemConfigurationResponse = async (
   context: __SerdeContext
 ): Promise<MissingFileSystemConfiguration> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MissingFileSystemConfiguration(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MissingFileSystemConfiguration(body, context);
   const contents: MissingFileSystemConfiguration = {
     name: "MissingFileSystemConfiguration",
     $fault: "client",
@@ -2205,10 +1874,7 @@ const deserializeAws_json1_1NotServiceResourceErrorResponse = async (
   context: __SerdeContext
 ): Promise<NotServiceResourceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotServiceResourceError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotServiceResourceError(body, context);
   const contents: NotServiceResourceError = {
     name: "NotServiceResourceError",
     $fault: "client",
@@ -2223,10 +1889,7 @@ const deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse = async (
   context: __SerdeContext
 ): Promise<ResourceDoesNotSupportTagging> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceDoesNotSupportTagging(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceDoesNotSupportTagging(body, context);
   const contents: ResourceDoesNotSupportTagging = {
     name: "ResourceDoesNotSupportTagging",
     $fault: "client",
@@ -2241,10 +1904,7 @@ const deserializeAws_json1_1ResourceNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFound(body, context);
   const contents: ResourceNotFound = {
     name: "ResourceNotFound",
     $fault: "client",
@@ -2259,10 +1919,7 @@ const deserializeAws_json1_1ServiceLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<ServiceLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceLimitExceeded(body, context);
   const contents: ServiceLimitExceeded = {
     name: "ServiceLimitExceeded",
     $fault: "client",
@@ -2277,10 +1934,7 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperation> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedOperation(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedOperation(body, context);
   const contents: UnsupportedOperation = {
     name: "UnsupportedOperation",
     $fault: "client",
@@ -2290,10 +1944,7 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1BackupIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1BackupIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2363,10 +2014,7 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
     ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
@@ -2416,10 +2064,7 @@ const serializeAws_json1_1CreateFileSystemRequest = (
       )
     }),
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context)
     }),
     ...(input.StorageCapacity !== undefined && {
       StorageCapacity: input.StorageCapacity
@@ -2484,10 +2129,7 @@ const serializeAws_json1_1DataRepositoryTaskFilter = (
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
-      Values: serializeAws_json1_1DataRepositoryTaskFilterValues(
-        input.Values,
-        context
-      )
+      Values: serializeAws_json1_1DataRepositoryTaskFilterValues(input.Values, context)
     })
   };
 };
@@ -2503,9 +2145,7 @@ const serializeAws_json1_1DataRepositoryTaskFilters = (
   input: DataRepositoryTaskFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1DataRepositoryTaskFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1DataRepositoryTaskFilter(entry, context));
 };
 
 const serializeAws_json1_1DataRepositoryTaskPaths = (
@@ -2579,10 +2219,7 @@ const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
 ): any => {
   return {
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1DataRepositoryTaskFilters(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_json1_1DataRepositoryTaskFilters(input.Filters, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -2598,34 +2235,22 @@ const serializeAws_json1_1DescribeFileSystemsRequest = (
 ): any => {
   return {
     ...(input.FileSystemIds !== undefined && {
-      FileSystemIds: serializeAws_json1_1FileSystemIds(
-        input.FileSystemIds,
-        context
-      )
+      FileSystemIds: serializeAws_json1_1FileSystemIds(input.FileSystemIds, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
   };
 };
 
-const serializeAws_json1_1DnsIps = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DnsIps = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1FileSystemIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FileSystemIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Filter = (
-  input: Filter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
@@ -2634,17 +2259,11 @@ const serializeAws_json1_1Filter = (
   };
 };
 
-const serializeAws_json1_1FilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Filters = (
-  input: Filter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
@@ -2659,10 +2278,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1SecurityGroupIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2679,8 +2295,7 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfiguration = (
       FileSystemAdministratorsGroup: input.FileSystemAdministratorsGroup
     }),
     ...(input.OrganizationalUnitDistinguishedName !== undefined && {
-      OrganizationalUnitDistinguishedName:
-        input.OrganizationalUnitDistinguishedName
+      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName
     }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.UserName !== undefined && { UserName: input.UserName })
@@ -2700,10 +2315,7 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates = (
   };
 };
 
-const serializeAws_json1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2714,10 +2326,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2733,17 +2342,11 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TaskIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TaskIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2824,14 +2427,11 @@ const deserializeAws_json1_1ActiveDirectoryBackupAttributes = (
   return {
     __type: "ActiveDirectoryBackupAttributes",
     ActiveDirectoryId:
-      output.ActiveDirectoryId !== undefined &&
-      output.ActiveDirectoryId !== null
+      output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
         : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined
   } as any;
 };
 
@@ -2842,38 +2442,25 @@ const deserializeAws_json1_1ActiveDirectoryError = (
   return {
     __type: "ActiveDirectoryError",
     ActiveDirectoryId:
-      output.ActiveDirectoryId !== undefined &&
-      output.ActiveDirectoryId !== null
+      output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Backup = (
-  output: any,
-  context: __SerdeContext
-): Backup => {
+const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
   return {
     __type: "Backup",
     BackupId:
-      output.BackupId !== undefined && output.BackupId !== null
-        ? output.BackupId
-        : undefined,
+      output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     DirectoryInformation:
-      output.DirectoryInformation !== undefined &&
-      output.DirectoryInformation !== null
+      output.DirectoryInformation !== undefined && output.DirectoryInformation !== null
         ? deserializeAws_json1_1ActiveDirectoryBackupAttributes(
             output.DirectoryInformation,
             context
@@ -2881,23 +2468,16 @@ const deserializeAws_json1_1Backup = (
         : undefined,
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_1BackupFailureDetails(
-            output.FailureDetails,
-            context
-          )
+        ? deserializeAws_json1_1BackupFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystem:
       output.FileSystem !== undefined && output.FileSystem !== null
         ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
         : undefined,
     KmsKeyId:
-      output.KmsKeyId !== undefined && output.KmsKeyId !== null
-        ? output.KmsKeyId
-        : undefined,
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined,
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     ProgressPercent:
       output.ProgressPercent !== undefined && output.ProgressPercent !== null
         ? output.ProgressPercent
@@ -2910,10 +2490,7 @@ const deserializeAws_json1_1Backup = (
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2923,10 +2500,7 @@ const deserializeAws_json1_1BackupFailureDetails = (
 ): BackupFailureDetails => {
   return {
     __type: "BackupFailureDetails",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2936,10 +2510,7 @@ const deserializeAws_json1_1BackupInProgress = (
 ): BackupInProgress => {
   return {
     __type: "BackupInProgress",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2949,10 +2520,7 @@ const deserializeAws_json1_1BackupNotFound = (
 ): BackupNotFound => {
   return {
     __type: "BackupNotFound",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2966,32 +2534,18 @@ const deserializeAws_json1_1BackupRestoring = (
       output.FileSystemId !== undefined && output.FileSystemId !== null
         ? output.FileSystemId
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Backups = (
-  output: any,
-  context: __SerdeContext
-): Backup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Backup(entry, context)
-  );
+const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Backup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Backup(entry, context));
 };
 
-const deserializeAws_json1_1BadRequest = (
-  output: any,
-  context: __SerdeContext
-): BadRequest => {
+const deserializeAws_json1_1BadRequest = (output: any, context: __SerdeContext): BadRequest => {
   return {
     __type: "BadRequest",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3002,13 +2556,8 @@ const deserializeAws_json1_1CancelDataRepositoryTaskResponse = (
   return {
     __type: "CancelDataRepositoryTaskResponse",
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined,
-    TaskId:
-      output.TaskId !== undefined && output.TaskId !== null
-        ? output.TaskId
-        : undefined
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
+    TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined
   } as any;
 };
 
@@ -3018,22 +2567,10 @@ const deserializeAws_json1_1CompletionReport = (
 ): CompletionReport => {
   return {
     __type: "CompletionReport",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
-    Format:
-      output.Format !== undefined && output.Format !== null
-        ? output.Format
-        : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined,
-    Scope:
-      output.Scope !== undefined && output.Scope !== null
-        ? output.Scope
-        : undefined
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    Scope: output.Scope !== undefined && output.Scope !== null ? output.Scope : undefined
   } as any;
 };
 
@@ -3057,12 +2594,8 @@ const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
   return {
     __type: "CreateDataRepositoryTaskResponse",
     DataRepositoryTask:
-      output.DataRepositoryTask !== undefined &&
-      output.DataRepositoryTask !== null
-        ? deserializeAws_json1_1DataRepositoryTask(
-            output.DataRepositoryTask,
-            context
-          )
+      output.DataRepositoryTask !== undefined && output.DataRepositoryTask !== null
+        ? deserializeAws_json1_1DataRepositoryTask(output.DataRepositoryTask, context)
         : undefined
   } as any;
 };
@@ -3100,16 +2633,11 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
   return {
     __type: "DataRepositoryConfiguration",
     ExportPath:
-      output.ExportPath !== undefined && output.ExportPath !== null
-        ? output.ExportPath
-        : undefined,
+      output.ExportPath !== undefined && output.ExportPath !== null ? output.ExportPath : undefined,
     ImportPath:
-      output.ImportPath !== undefined && output.ImportPath !== null
-        ? output.ImportPath
-        : undefined,
+      output.ImportPath !== undefined && output.ImportPath !== null ? output.ImportPath : undefined,
     ImportedFileChunkSize:
-      output.ImportedFileChunkSize !== undefined &&
-      output.ImportedFileChunkSize !== null
+      output.ImportedFileChunkSize !== undefined && output.ImportedFileChunkSize !== null
         ? output.ImportedFileChunkSize
         : undefined
   } as any;
@@ -3131,19 +2659,14 @@ const deserializeAws_json1_1DataRepositoryTask = (
         : undefined,
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_1DataRepositoryTaskFailureDetails(
-            output.FailureDetails,
-            context
-          )
+        ? deserializeAws_json1_1DataRepositoryTaskFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystemId:
       output.FileSystemId !== undefined && output.FileSystemId !== null
         ? output.FileSystemId
         : undefined,
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined,
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     Paths:
       output.Paths !== undefined && output.Paths !== null
         ? deserializeAws_json1_1DataRepositoryTaskPaths(output.Paths, context)
@@ -3168,14 +2691,8 @@ const deserializeAws_json1_1DataRepositoryTask = (
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
         : undefined,
-    TaskId:
-      output.TaskId !== undefined && output.TaskId !== null
-        ? output.TaskId
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -3185,10 +2702,7 @@ const deserializeAws_json1_1DataRepositoryTaskEnded = (
 ): DataRepositoryTaskEnded => {
   return {
     __type: "DataRepositoryTaskEnded",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3198,10 +2712,7 @@ const deserializeAws_json1_1DataRepositoryTaskExecuting = (
 ): DataRepositoryTaskExecuting => {
   return {
     __type: "DataRepositoryTaskExecuting",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3211,10 +2722,7 @@ const deserializeAws_json1_1DataRepositoryTaskFailureDetails = (
 ): DataRepositoryTaskFailureDetails => {
   return {
     __type: "DataRepositoryTaskFailureDetails",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3224,10 +2732,7 @@ const deserializeAws_json1_1DataRepositoryTaskNotFound = (
 ): DataRepositoryTaskNotFound => {
   return {
     __type: "DataRepositoryTaskNotFound",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3257,9 +2762,7 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
         ? output.SucceededCount
         : undefined,
     TotalCount:
-      output.TotalCount !== undefined && output.TotalCount !== null
-        ? output.TotalCount
-        : undefined
+      output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined
   } as any;
 };
 
@@ -3279,13 +2782,9 @@ const deserializeAws_json1_1DeleteBackupResponse = (
   return {
     __type: "DeleteBackupResponse",
     BackupId:
-      output.BackupId !== undefined && output.BackupId !== null
-        ? output.BackupId
-        : undefined,
+      output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined
   } as any;
 };
 
@@ -3300,15 +2799,10 @@ const deserializeAws_json1_1DeleteFileSystemResponse = (
         ? output.FileSystemId
         : undefined,
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined,
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     WindowsResponse:
       output.WindowsResponse !== undefined && output.WindowsResponse !== null
-        ? deserializeAws_json1_1DeleteFileSystemWindowsResponse(
-            output.WindowsResponse,
-            context
-          )
+        ? deserializeAws_json1_1DeleteFileSystemWindowsResponse(output.WindowsResponse, context)
         : undefined
   } as any;
 };
@@ -3341,9 +2835,7 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
         ? deserializeAws_json1_1Backups(output.Backups, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3354,17 +2846,11 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
   return {
     __type: "DescribeDataRepositoryTasksResponse",
     DataRepositoryTasks:
-      output.DataRepositoryTasks !== undefined &&
-      output.DataRepositoryTasks !== null
-        ? deserializeAws_json1_1DataRepositoryTasks(
-            output.DataRepositoryTasks,
-            context
-          )
+      output.DataRepositoryTasks !== undefined && output.DataRepositoryTasks !== null
+        ? deserializeAws_json1_1DataRepositoryTasks(output.DataRepositoryTasks, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3379,39 +2865,25 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
         ? deserializeAws_json1_1FileSystems(output.FileSystems, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DnsIps = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DnsIps = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1FileSystem = (
-  output: any,
-  context: __SerdeContext
-): FileSystem => {
+const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext): FileSystem => {
   return {
     __type: "FileSystem",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    DNSName:
-      output.DNSName !== undefined && output.DNSName !== null
-        ? output.DNSName
-        : undefined,
+    DNSName: output.DNSName !== undefined && output.DNSName !== null ? output.DNSName : undefined,
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
-        ? deserializeAws_json1_1FileSystemFailureDetails(
-            output.FailureDetails,
-            context
-          )
+        ? deserializeAws_json1_1FileSystemFailureDetails(output.FailureDetails, context)
         : undefined,
     FileSystemId:
       output.FileSystemId !== undefined && output.FileSystemId !== null
@@ -3422,33 +2894,18 @@ const deserializeAws_json1_1FileSystem = (
         ? output.FileSystemType
         : undefined,
     KmsKeyId:
-      output.KmsKeyId !== undefined && output.KmsKeyId !== null
-        ? output.KmsKeyId
-        : undefined,
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? output.Lifecycle
-        : undefined,
+      output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     LustreConfiguration:
-      output.LustreConfiguration !== undefined &&
-      output.LustreConfiguration !== null
-        ? deserializeAws_json1_1LustreFileSystemConfiguration(
-            output.LustreConfiguration,
-            context
-          )
+      output.LustreConfiguration !== undefined && output.LustreConfiguration !== null
+        ? deserializeAws_json1_1LustreFileSystemConfiguration(output.LustreConfiguration, context)
         : undefined,
     NetworkInterfaceIds:
-      output.NetworkInterfaceIds !== undefined &&
-      output.NetworkInterfaceIds !== null
-        ? deserializeAws_json1_1NetworkInterfaceIds(
-            output.NetworkInterfaceIds,
-            context
-          )
+      output.NetworkInterfaceIds !== undefined && output.NetworkInterfaceIds !== null
+        ? deserializeAws_json1_1NetworkInterfaceIds(output.NetworkInterfaceIds, context)
         : undefined,
-    OwnerId:
-      output.OwnerId !== undefined && output.OwnerId !== null
-        ? output.OwnerId
-        : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
@@ -3465,17 +2922,10 @@ const deserializeAws_json1_1FileSystem = (
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
         : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
     WindowsConfiguration:
-      output.WindowsConfiguration !== undefined &&
-      output.WindowsConfiguration !== null
-        ? deserializeAws_json1_1WindowsFileSystemConfiguration(
-            output.WindowsConfiguration,
-            context
-          )
+      output.WindowsConfiguration !== undefined && output.WindowsConfiguration !== null
+        ? deserializeAws_json1_1WindowsFileSystemConfiguration(output.WindowsConfiguration, context)
         : undefined
   } as any;
 };
@@ -3486,10 +2936,7 @@ const deserializeAws_json1_1FileSystemFailureDetails = (
 ): FileSystemFailureDetails => {
   return {
     __type: "FileSystemFailureDetails",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3506,20 +2953,12 @@ const deserializeAws_json1_1FileSystemNotFound = (
 ): FileSystemNotFound => {
   return {
     __type: "FileSystemNotFound",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1FileSystems = (
-  output: any,
-  context: __SerdeContext
-): FileSystem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FileSystem(entry, context)
-  );
+const deserializeAws_json1_1FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1FileSystem(entry, context));
 };
 
 const deserializeAws_json1_1IncompatibleParameterError = (
@@ -3528,14 +2967,9 @@ const deserializeAws_json1_1IncompatibleParameterError = (
 ): IncompatibleParameterError => {
   return {
     __type: "IncompatibleParameterError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Parameter:
-      output.Parameter !== undefined && output.Parameter !== null
-        ? output.Parameter
-        : undefined
+      output.Parameter !== undefined && output.Parameter !== null ? output.Parameter : undefined
   } as any;
 };
 
@@ -3545,10 +2979,7 @@ const deserializeAws_json1_1InternalServerError = (
 ): InternalServerError => {
   return {
     __type: "InternalServerError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3558,10 +2989,7 @@ const deserializeAws_json1_1InvalidExportPath = (
 ): InvalidExportPath => {
   return {
     __type: "InvalidExportPath",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3571,10 +2999,7 @@ const deserializeAws_json1_1InvalidImportPath = (
 ): InvalidImportPath => {
   return {
     __type: "InvalidImportPath",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3585,18 +3010,14 @@ const deserializeAws_json1_1InvalidNetworkSettings = (
   return {
     __type: "InvalidNetworkSettings",
     InvalidSecurityGroupId:
-      output.InvalidSecurityGroupId !== undefined &&
-      output.InvalidSecurityGroupId !== null
+      output.InvalidSecurityGroupId !== undefined && output.InvalidSecurityGroupId !== null
         ? output.InvalidSecurityGroupId
         : undefined,
     InvalidSubnetId:
       output.InvalidSubnetId !== undefined && output.InvalidSubnetId !== null
         ? output.InvalidSubnetId
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3607,9 +3028,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   return {
     __type: "ListTagsForResourceResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1Tags(output.Tags, context)
@@ -3632,8 +3051,7 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
           )
         : undefined,
     WeeklyMaintenanceStartTime:
-      output.WeeklyMaintenanceStartTime !== undefined &&
-      output.WeeklyMaintenanceStartTime !== null
+      output.WeeklyMaintenanceStartTime !== undefined && output.WeeklyMaintenanceStartTime !== null
         ? output.WeeklyMaintenanceStartTime
         : undefined
   } as any;
@@ -3645,10 +3063,7 @@ const deserializeAws_json1_1MissingFileSystemConfiguration = (
 ): MissingFileSystemConfiguration => {
   return {
     __type: "MissingFileSystemConfiguration",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3665,10 +3080,7 @@ const deserializeAws_json1_1NotServiceResourceError = (
 ): NotServiceResourceError => {
   return {
     __type: "NotServiceResourceError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
@@ -3682,10 +3094,7 @@ const deserializeAws_json1_1ResourceDoesNotSupportTagging = (
 ): ResourceDoesNotSupportTagging => {
   return {
     __type: "ResourceDoesNotSupportTagging",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
@@ -3699,10 +3108,7 @@ const deserializeAws_json1_1ResourceNotFound = (
 ): ResourceNotFound => {
   return {
     __type: "ResourceNotFound",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN:
       output.ResourceARN !== undefined && output.ResourceARN !== null
         ? output.ResourceARN
@@ -3721,9 +3127,7 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
         ? deserializeAws_json1_1DnsIps(output.DnsIps, context)
         : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     FileSystemAdministratorsGroup:
       output.FileSystemAdministratorsGroup !== undefined &&
       output.FileSystemAdministratorsGroup !== null
@@ -3735,9 +3139,7 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
         ? output.OrganizationalUnitDistinguishedName
         : undefined,
     UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+      output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
@@ -3747,36 +3149,20 @@ const deserializeAws_json1_1ServiceLimitExceeded = (
 ): ServiceLimitExceeded => {
   return {
     __type: "ServiceLimitExceeded",
-    Limit:
-      output.Limit !== undefined && output.Limit !== null
-        ? output.Limit
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SubnetIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -3789,13 +3175,8 @@ const deserializeAws_json1_1TagResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1UnsupportedOperation = (
@@ -3804,10 +3185,7 @@ const deserializeAws_json1_1UnsupportedOperation = (
 ): UnsupportedOperation => {
   return {
     __type: "UnsupportedOperation",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3840,8 +3218,7 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
   return {
     __type: "WindowsFileSystemConfiguration",
     ActiveDirectoryId:
-      output.ActiveDirectoryId !== undefined &&
-      output.ActiveDirectoryId !== null
+      output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
         : undefined,
     AutomaticBackupRetentionDays:
@@ -3850,8 +3227,7 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
         ? output.AutomaticBackupRetentionDays
         : undefined,
     CopyTagsToBackups:
-      output.CopyTagsToBackups !== undefined &&
-      output.CopyTagsToBackups !== null
+      output.CopyTagsToBackups !== undefined && output.CopyTagsToBackups !== null
         ? output.CopyTagsToBackups
         : undefined,
     DailyAutomaticBackupStartTime:
@@ -3872,13 +3248,11 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
           )
         : undefined,
     PreferredFileServerIp:
-      output.PreferredFileServerIp !== undefined &&
-      output.PreferredFileServerIp !== null
+      output.PreferredFileServerIp !== undefined && output.PreferredFileServerIp !== null
         ? output.PreferredFileServerIp
         : undefined,
     PreferredSubnetId:
-      output.PreferredSubnetId !== undefined &&
-      output.PreferredSubnetId !== null
+      output.PreferredSubnetId !== undefined && output.PreferredSubnetId !== null
         ? output.PreferredSubnetId
         : undefined,
     RemoteAdministrationEndpoint:
@@ -3895,13 +3269,11 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
           )
         : undefined,
     ThroughputCapacity:
-      output.ThroughputCapacity !== undefined &&
-      output.ThroughputCapacity !== null
+      output.ThroughputCapacity !== undefined && output.ThroughputCapacity !== null
         ? output.ThroughputCapacity
         : undefined,
     WeeklyMaintenanceStartTime:
-      output.WeeklyMaintenanceStartTime !== undefined &&
-      output.WeeklyMaintenanceStartTime !== null
+      output.WeeklyMaintenanceStartTime !== undefined && output.WeeklyMaintenanceStartTime !== null
         ? output.WeeklyMaintenanceStartTime
         : undefined
   } as any;
@@ -3921,16 +3293,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

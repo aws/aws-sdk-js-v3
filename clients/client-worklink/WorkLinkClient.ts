@@ -10,14 +10,8 @@ import {
   AssociateWebsiteCertificateAuthorityCommandInput,
   AssociateWebsiteCertificateAuthorityCommandOutput
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DescribeAuditStreamConfigurationCommandInput,
   DescribeAuditStreamConfigurationCommandOutput
@@ -62,18 +56,9 @@ import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
   DisassociateWebsiteCertificateAuthorityCommandOutput
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput
@@ -90,10 +75,7 @@ import {
   RevokeDomainAccessCommandInput,
   RevokeDomainAccessCommandOutput
 } from "./commands/RevokeDomainAccessCommand";
-import {
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput
-} from "./commands/SignOutUserCommand";
+import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput
@@ -319,9 +301,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkLinkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -330,9 +310,7 @@ export type WorkLinkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEventStreamCommandInput = PutEventStreamRequest;
-export type PutEventStreamCommandOutput = PutEventStreamResponse &
-  __MetadataBearer;
+export type PutEventStreamCommandOutput = PutEventStreamResponse & __MetadataBearer;
 
 export class PutEventStreamCommand extends $Command<
   PutEventStreamCommandInput,
@@ -47,9 +46,7 @@ export class PutEventStreamCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventStreamCommandInput, PutEventStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

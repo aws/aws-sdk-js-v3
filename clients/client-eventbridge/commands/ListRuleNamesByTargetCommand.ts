@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EventBridgeClient";
-import {
-  ListRuleNamesByTargetRequest,
-  ListRuleNamesByTargetResponse
-} from "../models/index";
+import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRuleNamesByTargetCommand,
   serializeAws_json1_1ListRuleNamesByTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRuleNamesByTargetCommandInput = ListRuleNamesByTargetRequest;
-export type ListRuleNamesByTargetCommandOutput = ListRuleNamesByTargetResponse &
-  __MetadataBearer;
+export type ListRuleNamesByTargetCommandOutput = ListRuleNamesByTargetResponse & __MetadataBearer;
 
 export class ListRuleNamesByTargetCommand extends $Command<
   ListRuleNamesByTargetCommandInput,
@@ -49,13 +45,8 @@ export class ListRuleNamesByTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRuleNamesByTargetCommandInput,
-    ListRuleNamesByTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRuleNamesByTargetCommandInput, ListRuleNamesByTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

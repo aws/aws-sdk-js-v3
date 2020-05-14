@@ -1,9 +1,5 @@
 import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
-import {
-  SearchCommand,
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
+import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   SuggestCommand,
   SuggestCommandInput,
@@ -38,10 +34,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
     args: SearchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchCommandOutput>;
-  public search(
-    args: SearchCommandInput,
-    cb: (err: any, data?: SearchCommandOutput) => void
-  ): void;
+  public search(args: SearchCommandInput, cb: (err: any, data?: SearchCommandOutput) => void): void;
   public search(
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
@@ -49,9 +42,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public search(
     args: SearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchCommandOutput) => void),
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
@@ -87,9 +78,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public suggest(
     args: SuggestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SuggestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuggestCommandOutput) => void),
     cb?: (err: any, data?: SuggestCommandOutput) => void
   ): Promise<SuggestCommandOutput> | void {
     const command = new SuggestCommand(args);
@@ -125,9 +114,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public uploadDocuments(
     args: UploadDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadDocumentsCommandOutput) => void),
     cb?: (err: any, data?: UploadDocumentsCommandOutput) => void
   ): Promise<UploadDocumentsCommandOutput> | void {
     const command = new UploadDocumentsCommand(args);

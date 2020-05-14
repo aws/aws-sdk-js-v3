@@ -50,13 +50,8 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateVPCWithHostedZoneCommandInput,
-    AssociateVPCWithHostedZoneCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateVPCWithHostedZoneCommandInput, AssociateVPCWithHostedZoneCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +71,14 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     input: AssociateVPCWithHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlAssociateVPCWithHostedZoneCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlAssociateVPCWithHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVPCWithHostedZoneCommandOutput> {
-    return deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

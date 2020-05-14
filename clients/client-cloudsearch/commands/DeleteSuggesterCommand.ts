@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DeleteSuggesterRequest,
-  DeleteSuggesterResponse
-} from "../models/index";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteSuggesterCommand,
   serializeAws_queryDeleteSuggesterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSuggesterCommandInput = DeleteSuggesterRequest;
-export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse &
-  __MetadataBearer;
+export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse & __MetadataBearer;
 
 export class DeleteSuggesterCommand extends $Command<
   DeleteSuggesterCommandInput,
@@ -50,9 +46,7 @@ export class DeleteSuggesterCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

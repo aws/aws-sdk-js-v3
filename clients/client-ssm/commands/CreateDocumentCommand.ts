@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { CreateDocumentRequest, CreateDocumentResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDocumentCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDocumentCommandInput = CreateDocumentRequest;
-export type CreateDocumentCommandOutput = CreateDocumentResult &
-  __MetadataBearer;
+export type CreateDocumentCommandOutput = CreateDocumentResult & __MetadataBearer;
 
 export class CreateDocumentCommand extends $Command<
   CreateDocumentCommandInput,
@@ -47,9 +42,7 @@ export class CreateDocumentCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDocumentCommandInput, CreateDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

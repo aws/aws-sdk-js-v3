@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  GetLinkAttributesRequest,
-  GetLinkAttributesResponse
-} from "../models/index";
+import { GetLinkAttributesRequest, GetLinkAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLinkAttributesCommand,
   serializeAws_restJson1_1GetLinkAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLinkAttributesCommandInput = GetLinkAttributesRequest;
-export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse &
-  __MetadataBearer;
+export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse & __MetadataBearer;
 
 export class GetLinkAttributesCommand extends $Command<
   GetLinkAttributesCommandInput,
@@ -50,9 +46,7 @@ export class GetLinkAttributesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLinkAttributesCommandInput, GetLinkAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

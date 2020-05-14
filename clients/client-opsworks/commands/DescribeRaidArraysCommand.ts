@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeRaidArraysRequest,
-  DescribeRaidArraysResult
-} from "../models/index";
+import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeRaidArraysCommand,
   serializeAws_json1_1DescribeRaidArraysCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRaidArraysCommandInput = DescribeRaidArraysRequest;
-export type DescribeRaidArraysCommandOutput = DescribeRaidArraysResult &
-  __MetadataBearer;
+export type DescribeRaidArraysCommandOutput = DescribeRaidArraysResult & __MetadataBearer;
 
 export class DescribeRaidArraysCommand extends $Command<
   DescribeRaidArraysCommandInput,
@@ -50,9 +46,7 @@ export class DescribeRaidArraysCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRaidArraysCommandInput, DescribeRaidArraysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

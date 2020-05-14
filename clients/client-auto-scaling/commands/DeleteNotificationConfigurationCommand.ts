@@ -49,9 +49,7 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     DeleteNotificationConfigurationCommandInput,
     DeleteNotificationConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class DeleteNotificationConfigurationCommand extends $Command<
     input: DeleteNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteNotificationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteNotificationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteNotificationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

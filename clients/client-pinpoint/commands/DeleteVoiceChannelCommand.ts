@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteVoiceChannelRequest,
-  DeleteVoiceChannelResponse
-} from "../models/index";
+import { DeleteVoiceChannelRequest, DeleteVoiceChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceChannelCommand,
   serializeAws_restJson1_1DeleteVoiceChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVoiceChannelCommandInput = DeleteVoiceChannelRequest;
-export type DeleteVoiceChannelCommandOutput = DeleteVoiceChannelResponse &
-  __MetadataBearer;
+export type DeleteVoiceChannelCommandOutput = DeleteVoiceChannelResponse & __MetadataBearer;
 
 export class DeleteVoiceChannelCommand extends $Command<
   DeleteVoiceChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteVoiceChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteVoiceChannelCommandInput, DeleteVoiceChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

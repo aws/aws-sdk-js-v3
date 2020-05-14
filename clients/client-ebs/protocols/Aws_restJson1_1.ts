@@ -44,10 +44,7 @@ export const serializeAws_restJson1_1GetSnapshotBlockCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BlockIndex.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BlockIndex}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
@@ -56,10 +53,7 @@ export const serializeAws_restJson1_1GetSnapshotBlockCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SnapshotId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
@@ -91,18 +85,14 @@ export const serializeAws_restJson1_1ListChangedBlocksCommand = async (
   if (input.SecondSnapshotId !== undefined) {
     const labelValue: string = input.SecondSnapshotId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SecondSnapshotId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SecondSnapshotId.");
     }
     resolvedPath = resolvedPath.replace(
       "{SecondSnapshotId}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SecondSnapshotId."
-    );
+    throw new Error("No value provided for input HTTP label: SecondSnapshotId.");
   }
   const query: any = {
     ...(input.FirstSnapshotId !== undefined && {
@@ -143,10 +133,7 @@ export const serializeAws_restJson1_1ListSnapshotBlocksCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SnapshotId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SnapshotId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
@@ -178,10 +165,7 @@ export const deserializeAws_restJson1_1GetSnapshotBlockCommand = async (
   context: __SerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSnapshotBlockCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSnapshotBlockCommandError(output, context);
   }
   const contents: GetSnapshotBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -231,10 +215,7 @@ const deserializeAws_restJson1_1GetSnapshotBlockCommandError = async (
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -261,10 +242,7 @@ export const deserializeAws_restJson1_1ListChangedBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListChangedBlocksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListChangedBlocksCommandError(output, context);
   }
   const contents: ListChangedBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -280,10 +258,7 @@ export const deserializeAws_restJson1_1ListChangedBlocksCommand = async (
     contents.BlockSize = data.BlockSize;
   }
   if (data.ChangedBlocks !== undefined && data.ChangedBlocks !== null) {
-    contents.ChangedBlocks = deserializeAws_restJson1_1ChangedBlocks(
-      data.ChangedBlocks,
-      context
-    );
+    contents.ChangedBlocks = deserializeAws_restJson1_1ChangedBlocks(data.ChangedBlocks, context);
   }
   if (data.ExpiryTime !== undefined && data.ExpiryTime !== null) {
     contents.ExpiryTime = new Date(Math.round(data.ExpiryTime * 1000));
@@ -323,10 +298,7 @@ const deserializeAws_restJson1_1ListChangedBlocksCommandError = async (
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -353,10 +325,7 @@ export const deserializeAws_restJson1_1ListSnapshotBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSnapshotBlocksCommandError(output, context);
   }
   const contents: ListSnapshotBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -412,10 +381,7 @@ const deserializeAws_restJson1_1ListSnapshotBlocksCommandError = async (
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -475,30 +441,18 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1_1Block = (
-  output: any,
-  context: __SerdeContext
-): Block => {
+const deserializeAws_restJson1_1Block = (output: any, context: __SerdeContext): Block => {
   return {
     __type: "Block",
     BlockIndex:
-      output.BlockIndex !== undefined && output.BlockIndex !== null
-        ? output.BlockIndex
-        : undefined,
+      output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
     BlockToken:
-      output.BlockToken !== undefined && output.BlockToken !== null
-        ? output.BlockToken
-        : undefined
+      output.BlockToken !== undefined && output.BlockToken !== null ? output.BlockToken : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Blocks = (
-  output: any,
-  context: __SerdeContext
-): Block[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Block(entry, context)
-  );
+const deserializeAws_restJson1_1Blocks = (output: any, context: __SerdeContext): Block[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Block(entry, context));
 };
 
 const deserializeAws_restJson1_1ChangedBlock = (
@@ -508,9 +462,7 @@ const deserializeAws_restJson1_1ChangedBlock = (
   return {
     __type: "ChangedBlock",
     BlockIndex:
-      output.BlockIndex !== undefined && output.BlockIndex !== null
-        ? output.BlockIndex
-        : undefined,
+      output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
     FirstBlockToken:
       output.FirstBlockToken !== undefined && output.FirstBlockToken !== null
         ? output.FirstBlockToken
@@ -526,9 +478,7 @@ const deserializeAws_restJson1_1ChangedBlocks = (
   output: any,
   context: __SerdeContext
 ): ChangedBlock[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ChangedBlock(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ChangedBlock(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -545,23 +495,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -450,10 +450,7 @@ export class ConfigService extends ConfigServiceClient {
     args: BatchGetAggregateResourceConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchGetAggregateResourceConfigCommandOutput
-        ) => void),
+      | ((err: any, data?: BatchGetAggregateResourceConfigCommandOutput) => void),
     cb?: (err: any, data?: BatchGetAggregateResourceConfigCommandOutput) => void
   ): Promise<BatchGetAggregateResourceConfigCommandOutput> | void {
     const command = new BatchGetAggregateResourceConfigCommand(args);
@@ -542,10 +539,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DeleteAggregationAuthorizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAggregationAuthorizationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteAggregationAuthorizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteAggregationAuthorizationCommandOutput) => void
   ): Promise<DeleteAggregationAuthorizationCommandOutput> | void {
     const command = new DeleteAggregationAuthorizationCommand(args);
@@ -586,9 +580,7 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigRuleCommandOutput) => void
   ): Promise<DeleteConfigRuleCommandOutput> | void {
     const command = new DeleteConfigRuleCommand(args);
@@ -843,31 +835,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DeleteOrganizationConformancePackCommandOutput>;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): void;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): void;
   public deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteOrganizationConformancePackCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteOrganizationConformancePackCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): Promise<DeleteOrganizationConformancePackCommandOutput> | void {
     const command = new DeleteOrganizationConformancePackCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -902,10 +882,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DeletePendingAggregationRequestCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeletePendingAggregationRequestCommandOutput
-        ) => void),
+      | ((err: any, data?: DeletePendingAggregationRequestCommandOutput) => void),
     cb?: (err: any, data?: DeletePendingAggregationRequestCommandOutput) => void
   ): Promise<DeletePendingAggregationRequestCommandOutput> | void {
     const command = new DeletePendingAggregationRequestCommand(args);
@@ -940,10 +917,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DeleteRemediationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteRemediationConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteRemediationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteRemediationConfigurationCommandOutput) => void
   ): Promise<DeleteRemediationConfigurationCommandOutput> | void {
     const command = new DeleteRemediationConfigurationCommand(args);
@@ -1131,31 +1105,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput>;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): void;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): void;
   public describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAggregateComplianceByConfigRulesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> | void {
     const command = new DescribeAggregateComplianceByConfigRulesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1179,31 +1141,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeAggregationAuthorizationsCommandOutput>;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): void;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): void;
   public describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAggregationAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAggregationAuthorizationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): Promise<DescribeAggregationAuthorizationsCommandOutput> | void {
     const command = new DescribeAggregationAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1269,10 +1219,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DescribeComplianceByConfigRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeComplianceByConfigRuleCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeComplianceByConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: DescribeComplianceByConfigRuleCommandOutput) => void
   ): Promise<DescribeComplianceByConfigRuleCommandOutput> | void {
     const command = new DescribeComplianceByConfigRuleCommand(args);
@@ -1367,31 +1314,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput>;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): void;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): void;
   public describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigRuleEvaluationStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigRuleEvaluationStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> | void {
     const command = new DescribeConfigRuleEvaluationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1450,35 +1385,21 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput>;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): void;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): void;
   public describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> | void {
-    const command = new DescribeConfigurationAggregatorSourcesStatusCommand(
-      args
-    );
+    const command = new DescribeConfigurationAggregatorSourcesStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1513,14 +1434,8 @@ export class ConfigService extends ConfigServiceClient {
     args: DescribeConfigurationAggregatorsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationAggregatorsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationAggregatorsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> | void {
     const command = new DescribeConfigurationAggregatorsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1550,31 +1465,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput>;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): void;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): void;
   public describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationRecorderStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConfigurationRecorderStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput> | void {
     const command = new DescribeConfigurationRecorderStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1615,10 +1518,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DescribeConfigurationRecordersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConfigurationRecordersCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeConfigurationRecordersCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
   ): Promise<DescribeConfigurationRecordersCommandOutput> | void {
     const command = new DescribeConfigurationRecordersCommand(args);
@@ -1645,31 +1545,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeConformancePackComplianceCommandOutput>;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): void;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): void;
   public describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConformancePackComplianceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConformancePackComplianceCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConformancePackComplianceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): Promise<DescribeConformancePackComplianceCommandOutput> | void {
     const command = new DescribeConformancePackComplianceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1855,31 +1743,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput>;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConfigRuleStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> | void {
     const command = new DescribeOrganizationConfigRuleStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1919,10 +1795,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DescribeOrganizationConfigRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConfigRulesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
   ): Promise<DescribeOrganizationConfigRulesCommandOutput> | void {
     const command = new DescribeOrganizationConfigRulesCommand(args);
@@ -1954,35 +1827,21 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput>;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): void;
   public describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConformancePackStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConformancePackStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> | void {
-    const command = new DescribeOrganizationConformancePackStatusesCommand(
-      args
-    );
+    const command = new DescribeOrganizationConformancePackStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2009,31 +1868,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeOrganizationConformancePacksCommandOutput>;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): void;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): void;
   public describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrganizationConformancePacksCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrganizationConformancePacksCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): Promise<DescribeOrganizationConformancePacksCommandOutput> | void {
     const command = new DescribeOrganizationConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2056,31 +1903,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribePendingAggregationRequestsCommandOutput>;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): void;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): void;
   public describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingAggregationRequestsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingAggregationRequestsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): Promise<DescribePendingAggregationRequestsCommandOutput> | void {
     const command = new DescribePendingAggregationRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2103,31 +1938,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeRemediationConfigurationsCommandOutput>;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): void;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): void;
   public describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRemediationConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeRemediationConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): Promise<DescribeRemediationConfigurationsCommandOutput> | void {
     const command = new DescribeRemediationConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2191,31 +2014,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<DescribeRemediationExecutionStatusCommandOutput>;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): void;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): void;
   public describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRemediationExecutionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeRemediationExecutionStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): Promise<DescribeRemediationExecutionStatusCommandOutput> | void {
     const command = new DescribeRemediationExecutionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2256,10 +2067,7 @@ export class ConfigService extends ConfigServiceClient {
     args: DescribeRetentionConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeRetentionConfigurationsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeRetentionConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeRetentionConfigurationsCommandOutput) => void
   ): Promise<DescribeRetentionConfigurationsCommandOutput> | void {
     const command = new DescribeRetentionConfigurationsCommand(args);
@@ -2291,31 +2099,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput>;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
   public getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+      | ((err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> | void {
     const command = new GetAggregateComplianceDetailsByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2344,31 +2140,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput>;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): void;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): void;
   public getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateConfigRuleComplianceSummaryCommandOutput
-    ) => void
+      | ((err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> | void {
     const command = new GetAggregateConfigRuleComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2393,31 +2177,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput>;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
-    cb: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): void;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): void;
   public getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAggregateDiscoveredResourceCountsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAggregateDiscoveredResourceCountsCommandOutput
-    ) => void
+      | ((err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> | void {
     const command = new GetAggregateDiscoveredResourceCountsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2489,14 +2261,8 @@ export class ConfigService extends ConfigServiceClient {
     args: GetComplianceDetailsByConfigRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceDetailsByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceDetailsByConfigRuleCommandOutput
-    ) => void
+      | ((err: any, data?: GetComplianceDetailsByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceDetailsByConfigRuleCommandOutput) => void
   ): Promise<GetComplianceDetailsByConfigRuleCommandOutput> | void {
     const command = new GetComplianceDetailsByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2533,10 +2299,7 @@ export class ConfigService extends ConfigServiceClient {
     args: GetComplianceDetailsByResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceDetailsByResourceCommandOutput
-        ) => void),
+      | ((err: any, data?: GetComplianceDetailsByResourceCommandOutput) => void),
     cb?: (err: any, data?: GetComplianceDetailsByResourceCommandOutput) => void
   ): Promise<GetComplianceDetailsByResourceCommandOutput> | void {
     const command = new GetComplianceDetailsByResourceCommand(args);
@@ -2572,14 +2335,8 @@ export class ConfigService extends ConfigServiceClient {
     args: GetComplianceSummaryByConfigRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceSummaryByConfigRuleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceSummaryByConfigRuleCommandOutput
-    ) => void
+      | ((err: any, data?: GetComplianceSummaryByConfigRuleCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceSummaryByConfigRuleCommandOutput) => void
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> | void {
     const command = new GetComplianceSummaryByConfigRuleCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2605,31 +2362,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetComplianceSummaryByResourceTypeCommandOutput>;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
-    cb: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+    cb: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): void;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+    cb: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): void;
   public getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetComplianceSummaryByResourceTypeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetComplianceSummaryByResourceTypeCommandOutput
-    ) => void
+      | ((err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void),
+    cb?: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): Promise<GetComplianceSummaryByResourceTypeCommandOutput> | void {
     const command = new GetComplianceSummaryByResourceTypeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2652,31 +2397,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetConformancePackComplianceDetailsCommandOutput>;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): void;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): void;
   public getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConformancePackComplianceDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConformancePackComplianceDetailsCommandOutput
-    ) => void
+      | ((err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): Promise<GetConformancePackComplianceDetailsCommandOutput> | void {
     const command = new GetConformancePackComplianceDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2699,31 +2432,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetConformancePackComplianceSummaryCommandOutput>;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): void;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): void;
   public getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConformancePackComplianceSummaryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConformancePackComplianceSummaryCommandOutput
-    ) => void
+      | ((err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): Promise<GetConformancePackComplianceSummaryCommandOutput> | void {
     const command = new GetConformancePackComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2847,31 +2568,19 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput>;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetOrganizationConfigRuleDetailedStatusCommandOutput
-    ) => void
+      | ((err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> | void {
     const command = new GetOrganizationConfigRuleDetailedStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2895,35 +2604,21 @@ export class ConfigService extends ConfigServiceClient {
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput>;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
-    cb: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): void;
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetOrganizationConformancePackDetailedStatusCommandOutput
-    ) => void
+      | ((err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> | void {
-    const command = new GetOrganizationConformancePackDetailedStatusCommand(
-      args
-    );
+    const command = new GetOrganizationConformancePackDetailedStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3012,14 +2707,8 @@ export class ConfigService extends ConfigServiceClient {
     args: ListAggregateDiscoveredResourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAggregateDiscoveredResourcesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAggregateDiscoveredResourcesCommandOutput
-    ) => void
+      | ((err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> | void {
     const command = new ListAggregateDiscoveredResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3208,9 +2897,7 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putConfigRule(
     args: PutConfigRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutConfigRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutConfigRuleCommandOutput) => void),
     cb?: (err: any, data?: PutConfigRuleCommandOutput) => void
   ): Promise<PutConfigRuleCommandOutput> | void {
     const command = new PutConfigRuleCommand(args);
@@ -3431,9 +3118,7 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public putEvaluations(
     args: PutEvaluationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEvaluationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEvaluationsCommandOutput) => void),
     cb?: (err: any, data?: PutEvaluationsCommandOutput) => void
   ): Promise<PutEvaluationsCommandOutput> | void {
     const command = new PutEvaluationsCommand(args);
@@ -3526,10 +3211,7 @@ export class ConfigService extends ConfigServiceClient {
     args: PutOrganizationConformancePackCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutOrganizationConformancePackCommandOutput
-        ) => void),
+      | ((err: any, data?: PutOrganizationConformancePackCommandOutput) => void),
     cb?: (err: any, data?: PutOrganizationConformancePackCommandOutput) => void
   ): Promise<PutOrganizationConformancePackCommandOutput> | void {
     const command = new PutOrganizationConformancePackCommand(args);
@@ -3953,9 +3635,7 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3988,9 +3668,7 @@ export class ConfigService extends ConfigServiceClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

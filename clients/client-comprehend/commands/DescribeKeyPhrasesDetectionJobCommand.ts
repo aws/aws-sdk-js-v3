@@ -53,9 +53,7 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     DescribeKeyPhrasesDetectionJobCommandInput,
     DescribeKeyPhrasesDetectionJobCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
     input: DescribeKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

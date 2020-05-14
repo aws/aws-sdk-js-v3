@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteServiceCommandInput = DeleteServiceRequest;
-export type DeleteServiceCommandOutput = DeleteServiceResponse &
-  __MetadataBearer;
+export type DeleteServiceCommandOutput = DeleteServiceResponse & __MetadataBearer;
 
 export class DeleteServiceCommand extends $Command<
   DeleteServiceCommandInput,
@@ -47,9 +46,7 @@ export class DeleteServiceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteServiceCommandInput, DeleteServiceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

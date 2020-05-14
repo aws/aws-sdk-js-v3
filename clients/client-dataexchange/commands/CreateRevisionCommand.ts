@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRevisionCommandInput = CreateRevisionRequest;
-export type CreateRevisionCommandOutput = CreateRevisionResponse &
-  __MetadataBearer;
+export type CreateRevisionCommandOutput = CreateRevisionResponse & __MetadataBearer;
 
 export class CreateRevisionCommand extends $Command<
   CreateRevisionCommandInput,
@@ -47,9 +46,7 @@ export class CreateRevisionCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRevisionCommandInput, CreateRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

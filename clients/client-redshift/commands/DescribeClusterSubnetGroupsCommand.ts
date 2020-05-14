@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterSubnetGroupMessage,
-  DescribeClusterSubnetGroupsMessage
-} from "../models/index";
+import { ClusterSubnetGroupMessage, DescribeClusterSubnetGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterSubnetGroupsCommand,
   serializeAws_queryDescribeClusterSubnetGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterSubnetGroupsCommandInput = DescribeClusterSubnetGroupsMessage;
-export type DescribeClusterSubnetGroupsCommandOutput = ClusterSubnetGroupMessage &
-  __MetadataBearer;
+export type DescribeClusterSubnetGroupsCommandOutput = ClusterSubnetGroupMessage & __MetadataBearer;
 
 export class DescribeClusterSubnetGroupsCommand extends $Command<
   DescribeClusterSubnetGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterSubnetGroupsCommandInput,
-    DescribeClusterSubnetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterSubnetGroupsCommandInput, DescribeClusterSubnetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSubnetGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeClusterSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

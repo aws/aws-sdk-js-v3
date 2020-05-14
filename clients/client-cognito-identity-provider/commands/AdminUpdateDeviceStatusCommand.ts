@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminUpdateDeviceStatusRequest,
-  AdminUpdateDeviceStatusResponse
-} from "../models/index";
+import { AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminUpdateDeviceStatusCommand,
   serializeAws_json1_1AdminUpdateDeviceStatusCommand
@@ -49,13 +46,8 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminUpdateDeviceStatusCommandInput,
-    AdminUpdateDeviceStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminUpdateDeviceStatusCommandInput, AdminUpdateDeviceStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateDeviceStatusCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateDeviceStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUpdateDeviceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopWorkspacesCommandInput = StopWorkspacesRequest;
-export type StopWorkspacesCommandOutput = StopWorkspacesResult &
-  __MetadataBearer;
+export type StopWorkspacesCommandOutput = StopWorkspacesResult & __MetadataBearer;
 
 export class StopWorkspacesCommand extends $Command<
   StopWorkspacesCommandInput,
@@ -47,9 +46,7 @@ export class StopWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopWorkspacesCommandInput, StopWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  GetCoipPoolUsageRequest,
-  GetCoipPoolUsageResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/index";
 import {
   deserializeAws_ec2GetCoipPoolUsageCommand,
   serializeAws_ec2GetCoipPoolUsageCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCoipPoolUsageCommandInput = GetCoipPoolUsageRequest;
-export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult &
-  __MetadataBearer;
+export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult & __MetadataBearer;
 
 export class GetCoipPoolUsageCommand extends $Command<
   GetCoipPoolUsageCommandInput,
@@ -50,9 +42,7 @@ export class GetCoipPoolUsageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCoipPoolUsageCommandInput, GetCoipPoolUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

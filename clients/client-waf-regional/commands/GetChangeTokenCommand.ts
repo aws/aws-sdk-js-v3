@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetChangeTokenCommandInput = GetChangeTokenRequest;
-export type GetChangeTokenCommandOutput = GetChangeTokenResponse &
-  __MetadataBearer;
+export type GetChangeTokenCommandOutput = GetChangeTokenResponse & __MetadataBearer;
 
 export class GetChangeTokenCommand extends $Command<
   GetChangeTokenCommandInput,
@@ -47,9 +46,7 @@ export class GetChangeTokenCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetChangeTokenCommandInput, GetChangeTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

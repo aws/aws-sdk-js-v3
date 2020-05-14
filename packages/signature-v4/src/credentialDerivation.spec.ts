@@ -1,17 +1,11 @@
-import {
-  clearCredentialCache,
-  createScope,
-  getSigningKey
-} from "./credentialDerivation";
+import { clearCredentialCache, createScope, getSigningKey } from "./credentialDerivation";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { Credentials } from "@aws-sdk/types";
 
 describe("createScope", () => {
   it("should create a scoped identifier for the credentials used", () => {
-    expect(createScope("date", "region", "service")).toBe(
-      "date/region/service/aws4_request"
-    );
+    expect(createScope("date", "region", "service")).toBe("date/region/service/aws4_request");
   });
 });
 
@@ -31,12 +25,8 @@ describe("getSigningKey", () => {
       " provided credentials, date, region, and service",
     () => {
       return expect(
-        getSigningKey(Sha256, credentials, shortDate, region, service).then(
-          toHex
-        )
-      ).resolves.toBe(
-        "b7c34d23320b5cd909500c889eac033a33c93f5a4bf67f71988a58f299e62e0a"
-      );
+        getSigningKey(Sha256, credentials, shortDate, region, service).then(toHex)
+      ).resolves.toBe("b7c34d23320b5cd909500c889eac033a33c93f5a4bf67f71988a58f299e62e0a");
     }
   );
 
@@ -56,20 +46,8 @@ describe("getSigningKey", () => {
 
   describe("caching", () => {
     it("should return the same promise when called with the same date, region, service, and credentials", () => {
-      const promise1 = getSigningKey(
-        Sha256,
-        credentials,
-        shortDate,
-        region,
-        service
-      );
-      const promise2 = getSigningKey(
-        Sha256,
-        credentials,
-        shortDate,
-        region,
-        service
-      );
+      const promise1 = getSigningKey(Sha256, credentials, shortDate, region, service);
+      const promise2 = getSigningKey(Sha256, credentials, shortDate, region, service);
       expect(promise1).toBe(promise2);
     });
 

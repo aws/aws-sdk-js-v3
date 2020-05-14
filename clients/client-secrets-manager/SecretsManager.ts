@@ -352,9 +352,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public createSecret(
     args: CreateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecretCommandOutput) => void),
     cb?: (err: any, data?: CreateSecretCommandOutput) => void
   ): Promise<CreateSecretCommandOutput> | void {
     const command = new CreateSecretCommand(args);
@@ -490,9 +488,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public deleteSecret(
     args: DeleteSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecretCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecretCommandOutput) => void
   ): Promise<DeleteSecretCommandOutput> | void {
     const command = new DeleteSecretCommand(args);
@@ -552,9 +548,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public describeSecret(
     args: DescribeSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecretCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecretCommandOutput) => void
   ): Promise<DescribeSecretCommandOutput> | void {
     const command = new DescribeSecretCommand(args);
@@ -722,9 +716,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getSecretValue(
     args: GetSecretValueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSecretValueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecretValueCommandOutput) => void),
     cb?: (err: any, data?: GetSecretValueCommandOutput) => void
   ): Promise<GetSecretValueCommandOutput> | void {
     const command = new GetSecretValueCommand(args);
@@ -849,9 +841,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public listSecrets(
     args: ListSecretsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSecretsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecretsCommandOutput) => void),
     cb?: (err: any, data?: ListSecretsCommandOutput) => void
   ): Promise<ListSecretsCommandOutput> | void {
     const command = new ListSecretsCommand(args);
@@ -1039,9 +1029,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public putSecretValue(
     args: PutSecretValueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSecretValueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSecretValueCommandOutput) => void),
     cb?: (err: any, data?: PutSecretValueCommandOutput) => void
   ): Promise<PutSecretValueCommandOutput> | void {
     const command = new PutSecretValueCommand(args);
@@ -1092,9 +1080,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public restoreSecret(
     args: RestoreSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreSecretCommandOutput) => void),
     cb?: (err: any, data?: RestoreSecretCommandOutput) => void
   ): Promise<RestoreSecretCommandOutput> | void {
     const command = new RestoreSecretCommand(args);
@@ -1188,9 +1174,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public rotateSecret(
     args: RotateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RotateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RotateSecretCommandOutput) => void),
     cb?: (err: any, data?: RotateSecretCommandOutput) => void
   ): Promise<RotateSecretCommandOutput> | void {
     const command = new RotateSecretCommand(args);
@@ -1278,9 +1262,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1341,9 +1323,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1460,9 +1440,7 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public updateSecret(
     args: UpdateSecretCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSecretCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecretCommandOutput) => void),
     cb?: (err: any, data?: UpdateSecretCommandOutput) => void
   ): Promise<UpdateSecretCommandOutput> | void {
     const command = new UpdateSecretCommand(args);

@@ -36,12 +36,7 @@ export class NodeHttpHandler implements HttpHandler {
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor({
-    connectionTimeout,
-    socketTimeout,
-    httpAgent,
-    httpsAgent
-  }: NodeHttpOptions = {}) {
+  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpOptions = {}) {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  CreateDeploymentRequest,
-  CreateDeploymentResponse
-} from "../models/index";
+import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDeploymentCommand,
   serializeAws_restJson1_1CreateDeploymentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResponse &
-  __MetadataBearer;
+export type CreateDeploymentCommandOutput = CreateDeploymentResponse & __MetadataBearer;
 
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,
@@ -50,9 +46,7 @@ export class CreateDeploymentCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDeploymentCommandInput, CreateDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

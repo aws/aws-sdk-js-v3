@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AssignPrivateIpAddressesRequest,
-  AssignPrivateIpAddressesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/index";
 import {
   deserializeAws_ec2AssignPrivateIpAddressesCommand,
   serializeAws_ec2AssignPrivateIpAddressesCommand
@@ -49,13 +42,8 @@ export class AssignPrivateIpAddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssignPrivateIpAddressesCommandInput,
-    AssignPrivateIpAddressesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssignPrivateIpAddressesCommandInput, AssignPrivateIpAddressesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

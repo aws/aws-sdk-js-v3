@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteTrafficMirrorFilterRequest,
-  DeleteTrafficMirrorFilterResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteTrafficMirrorFilterRequest, DeleteTrafficMirrorFilterResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteTrafficMirrorFilterCommand,
   serializeAws_ec2DeleteTrafficMirrorFilterCommand
@@ -49,13 +42,8 @@ export class DeleteTrafficMirrorFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTrafficMirrorFilterCommandInput,
-    DeleteTrafficMirrorFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTrafficMirrorFilterCommandInput, DeleteTrafficMirrorFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

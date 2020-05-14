@@ -1,8 +1,4 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ReEncryptRequest, ReEncryptResponse } from "../models/index";
 import {
   deserializeAws_json1_1ReEncryptCommand,
@@ -46,9 +42,7 @@ export class ReEncryptCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReEncryptCommandInput, ReEncryptCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class ReEncryptCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReEncryptCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReEncryptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ReEncryptCommand(input, context);
   }
 

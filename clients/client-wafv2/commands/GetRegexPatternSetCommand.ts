@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetRegexPatternSetCommand,
   serializeAws_json1_1GetRegexPatternSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRegexPatternSetCommandInput = GetRegexPatternSetRequest;
-export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse &
-  __MetadataBearer;
+export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse & __MetadataBearer;
 
 export class GetRegexPatternSetCommand extends $Command<
   GetRegexPatternSetCommandInput,
@@ -50,9 +42,7 @@ export class GetRegexPatternSetCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

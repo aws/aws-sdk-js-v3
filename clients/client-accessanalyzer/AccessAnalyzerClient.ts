@@ -18,18 +18,12 @@ import {
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput
 } from "./commands/GetAnalyzedResourceCommand";
-import {
-  GetAnalyzerCommandInput,
-  GetAnalyzerCommandOutput
-} from "./commands/GetAnalyzerCommand";
+import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand";
 import {
   GetArchiveRuleCommandInput,
   GetArchiveRuleCommandOutput
 } from "./commands/GetArchiveRuleCommand";
-import {
-  GetFindingCommandInput,
-  GetFindingCommandOutput
-} from "./commands/GetFindingCommand";
+import { GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
 import {
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput
@@ -54,10 +48,7 @@ import {
   StartResourceScanCommandInput,
   StartResourceScanCommandOutput
 } from "./commands/StartResourceScanCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -247,9 +238,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AccessAnalyzerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AccessAnalyzerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

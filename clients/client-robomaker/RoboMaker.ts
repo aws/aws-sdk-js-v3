@@ -351,9 +351,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
@@ -386,9 +384,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public createRobot(
     args: CreateRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRobotCommandOutput) => void),
     cb?: (err: any, data?: CreateRobotCommandOutput) => void
   ): Promise<CreateRobotCommandOutput> | void {
     const command = new CreateRobotCommand(args);
@@ -518,31 +514,19 @@ export class RoboMaker extends RoboMakerClient {
   ): Promise<CreateSimulationApplicationVersionCommandOutput>;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): void;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): void;
   public createSimulationApplicationVersion(
     args: CreateSimulationApplicationVersionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSimulationApplicationVersionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSimulationApplicationVersionCommandOutput
-    ) => void
+      | ((err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateSimulationApplicationVersionCommandOutput) => void
   ): Promise<CreateSimulationApplicationVersionCommandOutput> | void {
     const command = new CreateSimulationApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -613,9 +597,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
@@ -648,9 +630,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deleteRobot(
     args: DeleteRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRobotCommandOutput) => void),
     cb?: (err: any, data?: DeleteRobotCommandOutput) => void
   ): Promise<DeleteRobotCommandOutput> | void {
     const command = new DeleteRobotCommand(args);
@@ -753,9 +733,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public deregisterRobot(
     args: DeregisterRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterRobotCommandOutput) => void),
     cb?: (err: any, data?: DeregisterRobotCommandOutput) => void
   ): Promise<DeregisterRobotCommandOutput> | void {
     const command = new DeregisterRobotCommand(args);
@@ -823,9 +801,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeFleet(
     args: DescribeFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetCommandOutput) => void
   ): Promise<DescribeFleetCommandOutput> | void {
     const command = new DescribeFleetCommand(args);
@@ -858,9 +834,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public describeRobot(
     args: DescribeRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRobotCommandOutput) => void),
     cb?: (err: any, data?: DescribeRobotCommandOutput) => void
   ): Promise<DescribeRobotCommandOutput> | void {
     const command = new DescribeRobotCommand(args);
@@ -1039,9 +1013,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
@@ -1111,9 +1083,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public listRobots(
     args: ListRobotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRobotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRobotsCommandOutput) => void),
     cb?: (err: any, data?: ListRobotsCommandOutput) => void
   ): Promise<ListRobotsCommandOutput> | void {
     const command = new ListRobotsCommand(args);
@@ -1253,9 +1223,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public registerRobot(
     args: RegisterRobotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterRobotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterRobotCommandOutput) => void),
     cb?: (err: any, data?: RegisterRobotCommandOutput) => void
   ): Promise<RegisterRobotCommandOutput> | void {
     const command = new RegisterRobotCommand(args);
@@ -1360,9 +1328,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1400,9 +1366,7 @@ export class RoboMaker extends RoboMakerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

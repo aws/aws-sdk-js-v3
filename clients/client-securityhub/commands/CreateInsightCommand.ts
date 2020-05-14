@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInsightCommandInput = CreateInsightRequest;
-export type CreateInsightCommandOutput = CreateInsightResponse &
-  __MetadataBearer;
+export type CreateInsightCommandOutput = CreateInsightResponse & __MetadataBearer;
 
 export class CreateInsightCommand extends $Command<
   CreateInsightCommandInput,
@@ -47,9 +46,7 @@ export class CreateInsightCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInsightCommandInput, CreateInsightCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

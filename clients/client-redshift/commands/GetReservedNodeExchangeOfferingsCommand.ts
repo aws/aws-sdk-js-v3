@@ -53,9 +53,7 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     GetReservedNodeExchangeOfferingsCommandInput,
     GetReservedNodeExchangeOfferingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
     input: GetReservedNodeExchangeOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> {
-    return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

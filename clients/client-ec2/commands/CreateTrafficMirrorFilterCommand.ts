@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateTrafficMirrorFilterRequest,
-  CreateTrafficMirrorFilterResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateTrafficMirrorFilterRequest, CreateTrafficMirrorFilterResult } from "../models/index";
 import {
   deserializeAws_ec2CreateTrafficMirrorFilterCommand,
   serializeAws_ec2CreateTrafficMirrorFilterCommand
@@ -49,13 +42,8 @@ export class CreateTrafficMirrorFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTrafficMirrorFilterCommandInput,
-    CreateTrafficMirrorFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTrafficMirrorFilterCommandInput, CreateTrafficMirrorFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

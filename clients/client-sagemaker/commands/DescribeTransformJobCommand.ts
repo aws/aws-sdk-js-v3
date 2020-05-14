@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeTransformJobRequest,
-  DescribeTransformJobResponse
-} from "../models/index";
+import { DescribeTransformJobRequest, DescribeTransformJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTransformJobCommand,
   serializeAws_json1_1DescribeTransformJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTransformJobCommandInput = DescribeTransformJobRequest;
-export type DescribeTransformJobCommandOutput = DescribeTransformJobResponse &
-  __MetadataBearer;
+export type DescribeTransformJobCommandOutput = DescribeTransformJobResponse & __MetadataBearer;
 
 export class DescribeTransformJobCommand extends $Command<
   DescribeTransformJobCommandInput,
@@ -49,13 +45,8 @@ export class DescribeTransformJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTransformJobCommandInput,
-    DescribeTransformJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTransformJobCommandInput, DescribeTransformJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

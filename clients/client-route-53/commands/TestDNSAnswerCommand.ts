@@ -26,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestDNSAnswerCommandInput = TestDNSAnswerRequest;
-export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse &
-  __MetadataBearer;
+export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse & __MetadataBearer;
 
 export class TestDNSAnswerCommand extends $Command<
   TestDNSAnswerCommandInput,
@@ -48,9 +47,7 @@ export class TestDNSAnswerCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestDNSAnswerCommandInput, TestDNSAnswerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

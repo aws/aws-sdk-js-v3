@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeAuthorizerRequest,
-  DescribeAuthorizerResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeAuthorizerRequest, DescribeAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeAuthorizerCommand,
   serializeAws_restJson1_1DescribeAuthorizerCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAuthorizerCommandInput = DescribeAuthorizerRequest;
-export type DescribeAuthorizerCommandOutput = DescribeAuthorizerResponse &
-  __MetadataBearer;
+export type DescribeAuthorizerCommandOutput = DescribeAuthorizerResponse & __MetadataBearer;
 
 export class DescribeAuthorizerCommand extends $Command<
   DescribeAuthorizerCommandInput,
@@ -50,9 +42,7 @@ export class DescribeAuthorizerCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

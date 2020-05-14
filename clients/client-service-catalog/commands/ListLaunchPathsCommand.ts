@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLaunchPathsCommandInput = ListLaunchPathsInput;
-export type ListLaunchPathsCommandOutput = ListLaunchPathsOutput &
-  __MetadataBearer;
+export type ListLaunchPathsCommandOutput = ListLaunchPathsOutput & __MetadataBearer;
 
 export class ListLaunchPathsCommand extends $Command<
   ListLaunchPathsCommandInput,
@@ -47,9 +46,7 @@ export class ListLaunchPathsCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

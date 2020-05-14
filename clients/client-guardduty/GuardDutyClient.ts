@@ -14,10 +14,7 @@ import {
   CreateFilterCommandInput,
   CreateFilterCommandOutput
 } from "./commands/CreateFilterCommand";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateMembersCommandInput,
   CreateMembersCommandOutput
@@ -46,10 +43,7 @@ import {
   DeleteFilterCommandInput,
   DeleteFilterCommandOutput
 } from "./commands/DeleteFilterCommand";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteInvitationsCommandInput,
   DeleteInvitationsCommandOutput
@@ -78,26 +72,14 @@ import {
   DisassociateMembersCommandInput,
   DisassociateMembersCommandOutput
 } from "./commands/DisassociateMembersCommand";
-import {
-  GetDetectorCommandInput,
-  GetDetectorCommandOutput
-} from "./commands/GetDetectorCommand";
-import {
-  GetFilterCommandInput,
-  GetFilterCommandOutput
-} from "./commands/GetFilterCommand";
-import {
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput
-} from "./commands/GetFindingsCommand";
+import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
+import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
+import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput
 } from "./commands/GetFindingsStatisticsCommand";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput
@@ -106,10 +88,7 @@ import {
   GetMasterAccountCommandInput,
   GetMasterAccountCommandOutput
 } from "./commands/GetMasterAccountCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
   GetThreatIntelSetCommandInput,
   GetThreatIntelSetCommandOutput
@@ -122,26 +101,17 @@ import {
   ListDetectorsCommandInput,
   ListDetectorsCommandOutput
 } from "./commands/ListDetectorsCommand";
-import {
-  ListFiltersCommandInput,
-  ListFiltersCommandOutput
-} from "./commands/ListFiltersCommand";
+import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import {
   ListFindingsCommandInput,
   ListFindingsCommandOutput
 } from "./commands/ListFindingsCommand";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput
 } from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListPublishingDestinationsCommandInput,
   ListPublishingDestinationsCommandOutput
@@ -162,10 +132,7 @@ import {
   StopMonitoringMembersCommandInput,
   StopMonitoringMembersCommandOutput
 } from "./commands/StopMonitoringMembersCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnarchiveFindingsCommandInput,
   UnarchiveFindingsCommandOutput
@@ -186,10 +153,7 @@ import {
   UpdateFindingsFeedbackCommandInput,
   UpdateFindingsFeedbackCommandOutput
 } from "./commands/UpdateFindingsFeedbackCommand";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
   UpdatePublishingDestinationCommandInput,
   UpdatePublishingDestinationCommandOutput
@@ -439,9 +403,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GuardDutyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GuardDutyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -450,9 +412,7 @@ export type GuardDutyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

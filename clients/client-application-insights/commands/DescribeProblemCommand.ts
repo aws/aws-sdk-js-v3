@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DescribeProblemRequest,
-  DescribeProblemResponse
-} from "../models/index";
+import { DescribeProblemRequest, DescribeProblemResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProblemCommand,
   serializeAws_json1_1DescribeProblemCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProblemCommandInput = DescribeProblemRequest;
-export type DescribeProblemCommandOutput = DescribeProblemResponse &
-  __MetadataBearer;
+export type DescribeProblemCommandOutput = DescribeProblemResponse & __MetadataBearer;
 
 export class DescribeProblemCommand extends $Command<
   DescribeProblemCommandInput,
@@ -50,9 +46,7 @@ export class DescribeProblemCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProblemCommandInput, DescribeProblemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

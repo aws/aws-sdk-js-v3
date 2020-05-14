@@ -179,11 +179,7 @@ import {
   GetApnsVoipSandboxChannelCommandInput,
   GetApnsVoipSandboxChannelCommandOutput
 } from "./commands/GetApnsVoipSandboxChannelCommand";
-import {
-  GetAppCommand,
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommand, GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetApplicationDateRangeKpiCommand,
   GetApplicationDateRangeKpiCommandInput,
@@ -558,9 +554,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
@@ -593,9 +587,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createCampaign(
     args: CreateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCampaignCommandOutput) => void),
     cb?: (err: any, data?: CreateCampaignCommandOutput) => void
   ): Promise<CreateCampaignCommandOutput> | void {
     const command = new CreateCampaignCommand(args);
@@ -663,9 +655,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createExportJob(
     args: CreateExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateExportJobCommandOutput) => void
   ): Promise<CreateExportJobCommandOutput> | void {
     const command = new CreateExportJobCommand(args);
@@ -698,9 +688,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createImportJob(
     args: CreateImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateImportJobCommandOutput) => void
   ): Promise<CreateImportJobCommandOutput> | void {
     const command = new CreateImportJobCommand(args);
@@ -733,9 +721,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createJourney(
     args: CreateJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJourneyCommandOutput) => void),
     cb?: (err: any, data?: CreateJourneyCommandOutput) => void
   ): Promise<CreateJourneyCommandOutput> | void {
     const command = new CreateJourneyCommand(args);
@@ -803,9 +789,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createSegment(
     args: CreateSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSegmentCommandOutput) => void),
     cb?: (err: any, data?: CreateSegmentCommandOutput) => void
   ): Promise<CreateSegmentCommandOutput> | void {
     const command = new CreateSegmentCommand(args);
@@ -908,9 +892,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteAdmChannelCommandOutput) => void
   ): Promise<DeleteAdmChannelCommandOutput> | void {
     const command = new DeleteAdmChannelCommand(args);
@@ -1083,9 +1065,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
@@ -1153,9 +1133,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCampaignCommandOutput) => void),
     cb?: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): Promise<DeleteCampaignCommandOutput> | void {
     const command = new DeleteCampaignCommand(args);
@@ -1258,9 +1236,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
@@ -1328,9 +1304,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteGcmChannelCommandOutput) => void
   ): Promise<DeleteGcmChannelCommandOutput> | void {
     const command = new DeleteGcmChannelCommand(args);
@@ -1363,9 +1337,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteJourney(
     args: DeleteJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJourneyCommandOutput) => void),
     cb?: (err: any, data?: DeleteJourneyCommandOutput) => void
   ): Promise<DeleteJourneyCommandOutput> | void {
     const command = new DeleteJourneyCommand(args);
@@ -1433,9 +1405,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteSegment(
     args: DeleteSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSegmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteSegmentCommandOutput) => void
   ): Promise<DeleteSegmentCommandOutput> | void {
     const command = new DeleteSegmentCommand(args);
@@ -1468,9 +1438,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteSmsChannelCommandOutput) => void
   ): Promise<DeleteSmsChannelCommandOutput> | void {
     const command = new DeleteSmsChannelCommand(args);
@@ -1643,9 +1611,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getAdmChannel(
     args: GetAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: GetAdmChannelCommandOutput) => void
   ): Promise<GetAdmChannelCommandOutput> | void {
     const command = new GetAdmChannelCommand(args);
@@ -1678,9 +1644,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApnsChannel(
     args: GetApnsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApnsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsChannelCommandOutput) => void),
     cb?: (err: any, data?: GetApnsChannelCommandOutput) => void
   ): Promise<GetApnsChannelCommandOutput> | void {
     const command = new GetApnsChannelCommand(args);
@@ -1807,10 +1771,7 @@ export class Pinpoint extends PinpointClient {
     args: GetAppCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAppCommandOutput>;
-  public getApp(
-    args: GetAppCommandInput,
-    cb: (err: any, data?: GetAppCommandOutput) => void
-  ): void;
+  public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
   public getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
@@ -1818,9 +1779,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApp(
     args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
     cb?: (err: any, data?: GetAppCommandOutput) => void
   ): Promise<GetAppCommandOutput> | void {
     const command = new GetAppCommand(args);
@@ -1923,9 +1882,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApps(
     args: GetAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppsCommandOutput) => void),
     cb?: (err: any, data?: GetAppsCommandOutput) => void
   ): Promise<GetAppsCommandOutput> | void {
     const command = new GetAppsCommand(args);
@@ -1958,9 +1915,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getBaiduChannel(
     args: GetBaiduChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBaiduChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBaiduChannelCommandOutput) => void),
     cb?: (err: any, data?: GetBaiduChannelCommandOutput) => void
   ): Promise<GetBaiduChannelCommandOutput> | void {
     const command = new GetBaiduChannelCommand(args);
@@ -1993,9 +1948,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaign(
     args: GetCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignCommandOutput) => void
   ): Promise<GetCampaignCommandOutput> | void {
     const command = new GetCampaignCommand(args);
@@ -2168,9 +2121,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaigns(
     args: GetCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignsCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignsCommandOutput) => void
   ): Promise<GetCampaignsCommandOutput> | void {
     const command = new GetCampaignsCommand(args);
@@ -2203,9 +2154,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getChannels(
     args: GetChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelsCommandOutput) => void),
     cb?: (err: any, data?: GetChannelsCommandOutput) => void
   ): Promise<GetChannelsCommandOutput> | void {
     const command = new GetChannelsCommand(args);
@@ -2238,9 +2187,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEmailChannel(
     args: GetEmailChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailChannelCommandOutput) => void),
     cb?: (err: any, data?: GetEmailChannelCommandOutput) => void
   ): Promise<GetEmailChannelCommandOutput> | void {
     const command = new GetEmailChannelCommand(args);
@@ -2273,9 +2220,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetEmailTemplateCommandOutput) => void
   ): Promise<GetEmailTemplateCommandOutput> | void {
     const command = new GetEmailTemplateCommand(args);
@@ -2308,9 +2253,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEndpoint(
     args: GetEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetEndpointCommandOutput) => void
   ): Promise<GetEndpointCommandOutput> | void {
     const command = new GetEndpointCommand(args);
@@ -2343,9 +2286,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEventStream(
     args: GetEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEventStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventStreamCommandOutput) => void),
     cb?: (err: any, data?: GetEventStreamCommandOutput) => void
   ): Promise<GetEventStreamCommandOutput> | void {
     const command = new GetEventStreamCommand(args);
@@ -2378,9 +2319,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getExportJob(
     args: GetExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobCommandOutput) => void),
     cb?: (err: any, data?: GetExportJobCommandOutput) => void
   ): Promise<GetExportJobCommandOutput> | void {
     const command = new GetExportJobCommand(args);
@@ -2413,9 +2352,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getExportJobs(
     args: GetExportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetExportJobsCommandOutput) => void
   ): Promise<GetExportJobsCommandOutput> | void {
     const command = new GetExportJobsCommand(args);
@@ -2448,9 +2385,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getGcmChannel(
     args: GetGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: GetGcmChannelCommandOutput) => void
   ): Promise<GetGcmChannelCommandOutput> | void {
     const command = new GetGcmChannelCommand(args);
@@ -2483,9 +2418,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getImportJob(
     args: GetImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobCommandOutput) => void),
     cb?: (err: any, data?: GetImportJobCommandOutput) => void
   ): Promise<GetImportJobCommandOutput> | void {
     const command = new GetImportJobCommand(args);
@@ -2518,9 +2451,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getImportJobs(
     args: GetImportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetImportJobsCommandOutput) => void
   ): Promise<GetImportJobsCommandOutput> | void {
     const command = new GetImportJobsCommand(args);
@@ -2553,9 +2484,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getJourney(
     args: GetJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyCommandOutput) => void),
     cb?: (err: any, data?: GetJourneyCommandOutput) => void
   ): Promise<GetJourneyCommandOutput> | void {
     const command = new GetJourneyCommand(args);
@@ -2614,31 +2543,19 @@ export class Pinpoint extends PinpointClient {
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput>;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
-    cb: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetJourneyExecutionActivityMetricsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+      | ((err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void),
+    cb?: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> | void {
     const command = new GetJourneyExecutionActivityMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2705,9 +2622,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getPushTemplate(
     args: GetPushTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPushTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPushTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetPushTemplateCommandOutput) => void
   ): Promise<GetPushTemplateCommandOutput> | void {
     const command = new GetPushTemplateCommand(args);
@@ -2740,9 +2655,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegment(
     args: GetSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentCommandOutput) => void
   ): Promise<GetSegmentCommandOutput> | void {
     const command = new GetSegmentCommand(args);
@@ -2915,9 +2828,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegments(
     args: GetSegmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentsCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentsCommandOutput) => void
   ): Promise<GetSegmentsCommandOutput> | void {
     const command = new GetSegmentsCommand(args);
@@ -2950,9 +2861,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSmsChannel(
     args: GetSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: GetSmsChannelCommandOutput) => void
   ): Promise<GetSmsChannelCommandOutput> | void {
     const command = new GetSmsChannelCommand(args);
@@ -2985,9 +2894,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSmsTemplate(
     args: GetSmsTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSmsTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetSmsTemplateCommandOutput) => void
   ): Promise<GetSmsTemplateCommandOutput> | void {
     const command = new GetSmsTemplateCommand(args);
@@ -3020,9 +2927,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getUserEndpoints(
     args: GetUserEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserEndpointsCommandOutput) => void),
     cb?: (err: any, data?: GetUserEndpointsCommandOutput) => void
   ): Promise<GetUserEndpointsCommandOutput> | void {
     const command = new GetUserEndpointsCommand(args);
@@ -3055,9 +2960,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getVoiceChannel(
     args: GetVoiceChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceChannelCommandOutput) => void),
     cb?: (err: any, data?: GetVoiceChannelCommandOutput) => void
   ): Promise<GetVoiceChannelCommandOutput> | void {
     const command = new GetVoiceChannelCommand(args);
@@ -3090,9 +2993,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetVoiceTemplateCommandOutput) => void
   ): Promise<GetVoiceTemplateCommandOutput> | void {
     const command = new GetVoiceTemplateCommand(args);
@@ -3125,9 +3026,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public listJourneys(
     args: ListJourneysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJourneysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJourneysCommandOutput) => void),
     cb?: (err: any, data?: ListJourneysCommandOutput) => void
   ): Promise<ListJourneysCommandOutput> | void {
     const command = new ListJourneysCommand(args);
@@ -3230,9 +3129,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public listTemplates(
     args: ListTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
@@ -3300,9 +3197,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public putEventStream(
     args: PutEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventStreamCommandOutput) => void),
     cb?: (err: any, data?: PutEventStreamCommandOutput) => void
   ): Promise<PutEventStreamCommandOutput> | void {
     const command = new PutEventStreamCommand(args);
@@ -3335,9 +3230,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public putEvents(
     args: PutEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);
@@ -3370,9 +3263,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public removeAttributes(
     args: RemoveAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAttributesCommandOutput) => void),
     cb?: (err: any, data?: RemoveAttributesCommandOutput) => void
   ): Promise<RemoveAttributesCommandOutput> | void {
     const command = new RemoveAttributesCommand(args);
@@ -3405,9 +3296,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public sendMessages(
     args: SendMessagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessagesCommandOutput) => void),
     cb?: (err: any, data?: SendMessagesCommandOutput) => void
   ): Promise<SendMessagesCommandOutput> | void {
     const command = new SendMessagesCommand(args);
@@ -3475,9 +3364,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3510,9 +3397,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3545,9 +3430,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateAdmChannelCommandOutput) => void
   ): Promise<UpdateAdmChannelCommandOutput> | void {
     const command = new UpdateAdmChannelCommand(args);
@@ -3790,9 +3673,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCampaignCommandOutput) => void),
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);
@@ -3895,9 +3776,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
@@ -3965,9 +3844,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateGcmChannelCommandOutput) => void
   ): Promise<UpdateGcmChannelCommandOutput> | void {
     const command = new UpdateGcmChannelCommand(args);
@@ -4000,9 +3877,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateJourney(
     args: UpdateJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJourneyCommandOutput) => void),
     cb?: (err: any, data?: UpdateJourneyCommandOutput) => void
   ): Promise<UpdateJourneyCommandOutput> | void {
     const command = new UpdateJourneyCommand(args);
@@ -4105,9 +3980,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateSegment(
     args: UpdateSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSegmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateSegmentCommandOutput) => void
   ): Promise<UpdateSegmentCommandOutput> | void {
     const command = new UpdateSegmentCommand(args);
@@ -4140,9 +4013,7 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateSmsChannelCommandOutput) => void
   ): Promise<UpdateSmsChannelCommandOutput> | void {
     const command = new UpdateSmsChannelCommand(args);

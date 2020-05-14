@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  ClientCertificate,
-  GenerateClientCertificateRequest
-} from "../models/index";
+import { ClientCertificate, GenerateClientCertificateRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GenerateClientCertificateCommand,
   serializeAws_restJson1_1GenerateClientCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateClientCertificateCommandInput = GenerateClientCertificateRequest;
-export type GenerateClientCertificateCommandOutput = ClientCertificate &
-  __MetadataBearer;
+export type GenerateClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
 
 export class GenerateClientCertificateCommand extends $Command<
   GenerateClientCertificateCommandInput,
@@ -49,13 +45,8 @@ export class GenerateClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GenerateClientCertificateCommandInput,
-    GenerateClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GenerateClientCertificateCommandInput, GenerateClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GenerateClientCertificateCommand extends $Command<
     input: GenerateClientCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GenerateClientCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GenerateClientCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateClientCertificateCommandOutput> {
-    return deserializeAws_restJson1_1GenerateClientCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GenerateClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

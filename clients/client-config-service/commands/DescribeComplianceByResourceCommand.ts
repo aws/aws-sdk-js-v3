@@ -49,13 +49,8 @@ export class DescribeComplianceByResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeComplianceByResourceCommandInput,
-    DescribeComplianceByResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeComplianceByResourceCommandInput, DescribeComplianceByResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeComplianceByResourceCommand extends $Command<
     input: DescribeComplianceByResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByResourceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeComplianceByResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

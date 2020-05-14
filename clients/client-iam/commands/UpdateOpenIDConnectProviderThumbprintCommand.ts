@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/index";
 import {
   deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
@@ -35,9 +31,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput
-  ) {
+  constructor(readonly input: UpdateOpenIDConnectProviderThumbprintCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +45,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     UpdateOpenIDConnectProviderThumbprintCommandInput,
     UpdateOpenIDConnectProviderThumbprintCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +64,14 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     input: UpdateOpenIDConnectProviderThumbprintCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> {
-    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(output, context);
   }
 
   // Start section: command_body_extra

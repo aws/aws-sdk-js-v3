@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  NotifyApplicationStateRequest,
-  NotifyApplicationStateResult
-} from "../models/index";
+import { NotifyApplicationStateRequest, NotifyApplicationStateResult } from "../models/index";
 import {
   deserializeAws_json1_1NotifyApplicationStateCommand,
   serializeAws_json1_1NotifyApplicationStateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NotifyApplicationStateCommandInput = NotifyApplicationStateRequest;
-export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult &
-  __MetadataBearer;
+export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult & __MetadataBearer;
 
 export class NotifyApplicationStateCommand extends $Command<
   NotifyApplicationStateCommandInput,
@@ -49,13 +45,8 @@ export class NotifyApplicationStateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    NotifyApplicationStateCommandInput,
-    NotifyApplicationStateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<NotifyApplicationStateCommandInput, NotifyApplicationStateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

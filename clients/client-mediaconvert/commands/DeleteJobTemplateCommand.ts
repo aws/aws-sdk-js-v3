@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  DeleteJobTemplateRequest,
-  DeleteJobTemplateResponse
-} from "../models/index";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteJobTemplateCommand,
   serializeAws_restJson1_1DeleteJobTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
-export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse &
-  __MetadataBearer;
+export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse & __MetadataBearer;
 
 export class DeleteJobTemplateCommand extends $Command<
   DeleteJobTemplateCommandInput,
@@ -50,9 +46,7 @@ export class DeleteJobTemplateCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

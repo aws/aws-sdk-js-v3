@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetPersonTrackingRequest,
-  GetPersonTrackingResponse
-} from "../models/index";
+import { GetPersonTrackingRequest, GetPersonTrackingResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetPersonTrackingCommand,
   serializeAws_json1_1GetPersonTrackingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPersonTrackingCommandInput = GetPersonTrackingRequest;
-export type GetPersonTrackingCommandOutput = GetPersonTrackingResponse &
-  __MetadataBearer;
+export type GetPersonTrackingCommandOutput = GetPersonTrackingResponse & __MetadataBearer;
 
 export class GetPersonTrackingCommand extends $Command<
   GetPersonTrackingCommandInput,
@@ -50,9 +46,7 @@ export class GetPersonTrackingCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromRDSInput,
-  CreateDataSourceFromRDSOutput
-} from "../models/index";
+import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateDataSourceFromRDSCommand,
   serializeAws_json1_1CreateDataSourceFromRDSCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataSourceFromRDSCommandInput = CreateDataSourceFromRDSInput;
-export type CreateDataSourceFromRDSCommandOutput = CreateDataSourceFromRDSOutput &
-  __MetadataBearer;
+export type CreateDataSourceFromRDSCommandOutput = CreateDataSourceFromRDSOutput & __MetadataBearer;
 
 export class CreateDataSourceFromRDSCommand extends $Command<
   CreateDataSourceFromRDSCommandInput,
@@ -49,13 +45,8 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataSourceFromRDSCommandInput,
-    CreateDataSourceFromRDSCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataSourceFromRDSCommandInput, CreateDataSourceFromRDSCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateDataSourceFromRDSCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataSourceFromRDSCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRDSCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  ListMultipartUploadsInput,
-  ListMultipartUploadsOutput
-} from "../models/index";
+import { ListMultipartUploadsInput, ListMultipartUploadsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListMultipartUploadsCommand,
   serializeAws_restJson1_1ListMultipartUploadsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMultipartUploadsCommandInput = ListMultipartUploadsInput;
-export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput &
-  __MetadataBearer;
+export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput & __MetadataBearer;
 
 export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandInput,
@@ -49,13 +45,8 @@ export class ListMultipartUploadsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMultipartUploadsCommandInput,
-    ListMultipartUploadsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListMultipartUploadsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMultipartUploadsCommandOutput> {
-    return deserializeAws_restJson1_1ListMultipartUploadsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMultipartUploadsCommand(output, context);
   }
 
   // Start section: command_body_extra

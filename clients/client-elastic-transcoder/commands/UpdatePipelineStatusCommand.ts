@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticTranscoderClient";
-import {
-  UpdatePipelineStatusRequest,
-  UpdatePipelineStatusResponse
-} from "../models/index";
+import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdatePipelineStatusCommand,
   serializeAws_restJson1_1UpdatePipelineStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePipelineStatusCommandInput = UpdatePipelineStatusRequest;
-export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse &
-  __MetadataBearer;
+export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse & __MetadataBearer;
 
 export class UpdatePipelineStatusCommand extends $Command<
   UpdatePipelineStatusCommandInput,
@@ -49,13 +45,8 @@ export class UpdatePipelineStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePipelineStatusCommandInput,
-    UpdatePipelineStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePipelineStatusCommandInput, UpdatePipelineStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdatePipelineStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePipelineStatusCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePipelineStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdatePipelineStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

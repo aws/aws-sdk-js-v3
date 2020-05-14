@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticTranscoderClient";
-import {
-  ListJobsByStatusRequest,
-  ListJobsByStatusResponse
-} from "../models/index";
+import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListJobsByStatusCommand,
   serializeAws_restJson1_1ListJobsByStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListJobsByStatusCommandInput = ListJobsByStatusRequest;
-export type ListJobsByStatusCommandOutput = ListJobsByStatusResponse &
-  __MetadataBearer;
+export type ListJobsByStatusCommandOutput = ListJobsByStatusResponse & __MetadataBearer;
 
 export class ListJobsByStatusCommand extends $Command<
   ListJobsByStatusCommandInput,
@@ -50,9 +46,7 @@ export class ListJobsByStatusCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobsByStatusCommandInput, ListJobsByStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

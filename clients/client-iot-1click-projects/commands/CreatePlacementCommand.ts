@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickProjectsClient";
-import {
-  CreatePlacementRequest,
-  CreatePlacementResponse
-} from "../models/index";
+import { CreatePlacementRequest, CreatePlacementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePlacementCommand,
   serializeAws_restJson1_1CreatePlacementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePlacementCommandInput = CreatePlacementRequest;
-export type CreatePlacementCommandOutput = CreatePlacementResponse &
-  __MetadataBearer;
+export type CreatePlacementCommandOutput = CreatePlacementResponse & __MetadataBearer;
 
 export class CreatePlacementCommand extends $Command<
   CreatePlacementCommandInput,
@@ -50,9 +46,7 @@ export class CreatePlacementCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePlacementCommandInput, CreatePlacementCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

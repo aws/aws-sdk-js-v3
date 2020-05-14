@@ -26,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListIdentitiesCommandInput = ListIdentitiesInput;
-export type ListIdentitiesCommandOutput = ListIdentitiesResponse &
-  __MetadataBearer;
+export type ListIdentitiesCommandOutput = ListIdentitiesResponse & __MetadataBearer;
 
 export class ListIdentitiesCommand extends $Command<
   ListIdentitiesCommandInput,
@@ -48,9 +47,7 @@ export class ListIdentitiesCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIdentitiesCommandInput, ListIdentitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

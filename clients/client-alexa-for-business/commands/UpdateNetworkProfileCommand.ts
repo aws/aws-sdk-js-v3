@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  UpdateNetworkProfileRequest,
-  UpdateNetworkProfileResponse
-} from "../models/index";
+import { UpdateNetworkProfileRequest, UpdateNetworkProfileResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
   serializeAws_json1_1UpdateNetworkProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNetworkProfileCommandInput = UpdateNetworkProfileRequest;
-export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResponse &
-  __MetadataBearer;
+export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResponse & __MetadataBearer;
 
 export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandInput,
@@ -49,13 +45,8 @@ export class UpdateNetworkProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNetworkProfileCommandInput,
-    UpdateNetworkProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNetworkProfileCommandInput, UpdateNetworkProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

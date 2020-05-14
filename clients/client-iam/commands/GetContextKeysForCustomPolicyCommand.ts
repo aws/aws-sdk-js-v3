@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetContextKeysForCustomPolicyRequest,
   GetContextKeysForPolicyResponse
@@ -53,9 +49,7 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     GetContextKeysForCustomPolicyCommandInput,
     GetContextKeysForCustomPolicyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     input: GetContextKeysForCustomPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetContextKeysForCustomPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetContextKeysForCustomPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContextKeysForCustomPolicyCommandOutput> {
-    return deserializeAws_queryGetContextKeysForCustomPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetContextKeysForCustomPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

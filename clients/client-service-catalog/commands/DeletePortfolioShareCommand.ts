@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DeletePortfolioShareInput,
-  DeletePortfolioShareOutput
-} from "../models/index";
+import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeletePortfolioShareCommand,
   serializeAws_json1_1DeletePortfolioShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePortfolioShareCommandInput = DeletePortfolioShareInput;
-export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput &
-  __MetadataBearer;
+export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput & __MetadataBearer;
 
 export class DeletePortfolioShareCommand extends $Command<
   DeletePortfolioShareCommandInput,
@@ -49,13 +45,8 @@ export class DeletePortfolioShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePortfolioShareCommandInput,
-    DeletePortfolioShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePortfolioShareCommandInput, DeletePortfolioShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  ApplicationDescriptionsMessage,
-  DescribeApplicationsMessage
-} from "../models/index";
+import { ApplicationDescriptionsMessage, DescribeApplicationsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeApplicationsCommand,
   serializeAws_queryDescribeApplicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeApplicationsCommandInput = DescribeApplicationsMessage;
-export type DescribeApplicationsCommandOutput = ApplicationDescriptionsMessage &
-  __MetadataBearer;
+export type DescribeApplicationsCommandOutput = ApplicationDescriptionsMessage & __MetadataBearer;
 
 export class DescribeApplicationsCommand extends $Command<
   DescribeApplicationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeApplicationsCommandInput,
-    DescribeApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeApplicationsCommandInput, DescribeApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

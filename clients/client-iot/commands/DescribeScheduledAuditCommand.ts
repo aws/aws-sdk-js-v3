@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeScheduledAuditRequest,
-  DescribeScheduledAuditResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeScheduledAuditRequest, DescribeScheduledAuditResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeScheduledAuditCommand,
   serializeAws_restJson1_1DescribeScheduledAuditCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScheduledAuditCommandInput = DescribeScheduledAuditRequest;
-export type DescribeScheduledAuditCommandOutput = DescribeScheduledAuditResponse &
-  __MetadataBearer;
+export type DescribeScheduledAuditCommandOutput = DescribeScheduledAuditResponse & __MetadataBearer;
 
 export class DescribeScheduledAuditCommand extends $Command<
   DescribeScheduledAuditCommandInput,
@@ -49,13 +41,8 @@ export class DescribeScheduledAuditCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScheduledAuditCommandInput,
-    DescribeScheduledAuditCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScheduledAuditCommandInput, DescribeScheduledAuditCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class DescribeScheduledAuditCommand extends $Command<
     input: DescribeScheduledAuditCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeScheduledAuditCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeScheduledAuditCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledAuditCommandOutput> {
-    return deserializeAws_restJson1_1DescribeScheduledAuditCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeScheduledAuditCommand(output, context);
   }
 
   // Start section: command_body_extra

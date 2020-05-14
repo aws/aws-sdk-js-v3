@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayPeeringAttachmentsRequest,
   DescribeTransitGatewayPeeringAttachmentsResult
@@ -39,9 +35,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput
-  ) {
+  constructor(readonly input: DescribeTransitGatewayPeeringAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     DescribeTransitGatewayPeeringAttachmentsCommandInput,
     DescribeTransitGatewayPeeringAttachmentsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  SetInstanceProtectionAnswer,
-  SetInstanceProtectionQuery
-} from "../models/index";
+import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/index";
 import {
   deserializeAws_querySetInstanceProtectionCommand,
   serializeAws_querySetInstanceProtectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetInstanceProtectionCommandInput = SetInstanceProtectionQuery;
-export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer &
-  __MetadataBearer;
+export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer & __MetadataBearer;
 
 export class SetInstanceProtectionCommand extends $Command<
   SetInstanceProtectionCommandInput,
@@ -49,13 +45,8 @@ export class SetInstanceProtectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetInstanceProtectionCommandInput,
-    SetInstanceProtectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetInstanceProtectionCommandInput, SetInstanceProtectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

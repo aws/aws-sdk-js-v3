@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  PutConferencePreferenceRequest,
-  PutConferencePreferenceResponse
-} from "../models/index";
+import { PutConferencePreferenceRequest, PutConferencePreferenceResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutConferencePreferenceCommand,
   serializeAws_json1_1PutConferencePreferenceCommand
@@ -49,13 +46,8 @@ export class PutConferencePreferenceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConferencePreferenceCommandInput,
-    PutConferencePreferenceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConferencePreferenceCommandInput, PutConferencePreferenceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class PutConferencePreferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConferencePreferenceCommandOutput> {
-    return deserializeAws_json1_1PutConferencePreferenceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutConferencePreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

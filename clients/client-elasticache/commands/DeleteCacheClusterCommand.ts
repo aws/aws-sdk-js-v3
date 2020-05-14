@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  DeleteCacheClusterMessage,
-  DeleteCacheClusterResult
-} from "../models/index";
+import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteCacheClusterCommand,
   serializeAws_queryDeleteCacheClusterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCacheClusterCommandInput = DeleteCacheClusterMessage;
-export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult &
-  __MetadataBearer;
+export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult & __MetadataBearer;
 
 export class DeleteCacheClusterCommand extends $Command<
   DeleteCacheClusterCommandInput,
@@ -50,9 +46,7 @@ export class DeleteCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

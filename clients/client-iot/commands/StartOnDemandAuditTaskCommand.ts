@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  StartOnDemandAuditTaskRequest,
-  StartOnDemandAuditTaskResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartOnDemandAuditTaskCommand,
   serializeAws_restJson1_1StartOnDemandAuditTaskCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartOnDemandAuditTaskCommandInput = StartOnDemandAuditTaskRequest;
-export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse &
-  __MetadataBearer;
+export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse & __MetadataBearer;
 
 export class StartOnDemandAuditTaskCommand extends $Command<
   StartOnDemandAuditTaskCommandInput,
@@ -49,13 +41,8 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartOnDemandAuditTaskCommandInput,
-    StartOnDemandAuditTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartOnDemandAuditTaskCommandInput, StartOnDemandAuditTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     input: StartOnDemandAuditTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartOnDemandAuditTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartOnDemandAuditTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandAuditTaskCommandOutput> {
-    return deserializeAws_restJson1_1StartOnDemandAuditTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartOnDemandAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

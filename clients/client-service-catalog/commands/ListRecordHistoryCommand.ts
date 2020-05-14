@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListRecordHistoryInput,
-  ListRecordHistoryOutput
-} from "../models/index";
+import { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListRecordHistoryCommand,
   serializeAws_json1_1ListRecordHistoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRecordHistoryCommandInput = ListRecordHistoryInput;
-export type ListRecordHistoryCommandOutput = ListRecordHistoryOutput &
-  __MetadataBearer;
+export type ListRecordHistoryCommandOutput = ListRecordHistoryOutput & __MetadataBearer;
 
 export class ListRecordHistoryCommand extends $Command<
   ListRecordHistoryCommandInput,
@@ -50,9 +46,7 @@ export class ListRecordHistoryCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRecordHistoryCommandInput, ListRecordHistoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

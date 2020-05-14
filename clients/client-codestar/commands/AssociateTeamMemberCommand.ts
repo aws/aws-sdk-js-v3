@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  AssociateTeamMemberRequest,
-  AssociateTeamMemberResult
-} from "../models/index";
+import { AssociateTeamMemberRequest, AssociateTeamMemberResult } from "../models/index";
 import {
   deserializeAws_json1_1AssociateTeamMemberCommand,
   serializeAws_json1_1AssociateTeamMemberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateTeamMemberCommandInput = AssociateTeamMemberRequest;
-export type AssociateTeamMemberCommandOutput = AssociateTeamMemberResult &
-  __MetadataBearer;
+export type AssociateTeamMemberCommandOutput = AssociateTeamMemberResult & __MetadataBearer;
 
 export class AssociateTeamMemberCommand extends $Command<
   AssociateTeamMemberCommandInput,
@@ -49,13 +45,8 @@ export class AssociateTeamMemberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateTeamMemberCommandInput,
-    AssociateTeamMemberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateTeamMemberCommandInput, AssociateTeamMemberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

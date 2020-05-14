@@ -1,31 +1,23 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The request failed due to an unknown error.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServiceError {
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>One of the arguments provided is invalid for this request.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -39,17 +31,14 @@ export namespace InvalidArgumentException {
 /**
  * <p>The user is not authorized to perform this request.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 export enum ServiceType {
@@ -359,8 +348,7 @@ export interface DimensionGroup {
 }
 
 export namespace DimensionGroup {
-  export const isa = (o: any): o is DimensionGroup =>
-    __isa(o, "DimensionGroup");
+  export const isa = (o: any): o is DimensionGroup => __isa(o, "DimensionGroup");
 }
 
 /**
@@ -386,8 +374,7 @@ export interface DimensionKeyDescription {
 }
 
 export namespace DimensionKeyDescription {
-  export const isa = (o: any): o is DimensionKeyDescription =>
-    __isa(o, "DimensionKeyDescription");
+  export const isa = (o: any): o is DimensionKeyDescription => __isa(o, "DimensionKeyDescription");
 }
 
 export interface GetResourceMetricsRequest {
@@ -547,8 +534,7 @@ export interface MetricKeyDataPoints {
 }
 
 export namespace MetricKeyDataPoints {
-  export const isa = (o: any): o is MetricKeyDataPoints =>
-    __isa(o, "MetricKeyDataPoints");
+  export const isa = (o: any): o is MetricKeyDataPoints => __isa(o, "MetricKeyDataPoints");
 }
 
 /**
@@ -618,8 +604,7 @@ export interface ResponsePartitionKey {
 }
 
 export namespace ResponsePartitionKey {
-  export const isa = (o: any): o is ResponsePartitionKey =>
-    __isa(o, "ResponsePartitionKey");
+  export const isa = (o: any): o is ResponsePartitionKey => __isa(o, "ResponsePartitionKey");
 }
 
 /**

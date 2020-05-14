@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { FunctionConfiguration, PublishVersionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1PublishVersionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PublishVersionCommandInput = PublishVersionRequest;
-export type PublishVersionCommandOutput = FunctionConfiguration &
-  __MetadataBearer;
+export type PublishVersionCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 export class PublishVersionCommand extends $Command<
   PublishVersionCommandInput,
@@ -47,9 +42,7 @@ export class PublishVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishVersionCommandInput, PublishVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

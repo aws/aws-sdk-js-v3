@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateKeysAndCertificateRequest,
-  CreateKeysAndCertificateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateKeysAndCertificateCommand,
   serializeAws_restJson1_1CreateKeysAndCertificateCommand
@@ -49,13 +42,8 @@ export class CreateKeysAndCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateKeysAndCertificateCommandInput,
-    CreateKeysAndCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateKeysAndCertificateCommandInput, CreateKeysAndCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateKeysAndCertificateCommand extends $Command<
     input: CreateKeysAndCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateKeysAndCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateKeysAndCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateKeysAndCertificateCommandOutput> {
-    return deserializeAws_restJson1_1CreateKeysAndCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateKeysAndCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

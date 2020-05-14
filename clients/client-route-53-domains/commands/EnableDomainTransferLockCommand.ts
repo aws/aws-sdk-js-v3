@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  EnableDomainTransferLockRequest,
-  EnableDomainTransferLockResponse
-} from "../models/index";
+import { EnableDomainTransferLockRequest, EnableDomainTransferLockResponse } from "../models/index";
 import {
   deserializeAws_json1_1EnableDomainTransferLockCommand,
   serializeAws_json1_1EnableDomainTransferLockCommand
@@ -49,13 +46,8 @@ export class EnableDomainTransferLockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableDomainTransferLockCommandInput,
-    EnableDomainTransferLockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableDomainTransferLockCommandInput, EnableDomainTransferLockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class EnableDomainTransferLockCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableDomainTransferLockCommandOutput> {
-    return deserializeAws_json1_1EnableDomainTransferLockCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1EnableDomainTransferLockCommand(output, context);
   }
 
   // Start section: command_body_extra

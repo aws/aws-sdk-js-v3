@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { GetSendStatisticsResponse } from "../models/index";
 import {
   deserializeAws_queryGetSendStatisticsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSendStatisticsCommandInput = {};
-export type GetSendStatisticsCommandOutput = GetSendStatisticsResponse &
-  __MetadataBearer;
+export type GetSendStatisticsCommandOutput = GetSendStatisticsResponse & __MetadataBearer;
 
 export class GetSendStatisticsCommand extends $Command<
   GetSendStatisticsCommandInput,
@@ -47,9 +42,7 @@ export class GetSendStatisticsCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSendStatisticsCommandInput, GetSendStatisticsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  DescribePullRequestEventsInput,
-  DescribePullRequestEventsOutput
-} from "../models/index";
+import { DescribePullRequestEventsInput, DescribePullRequestEventsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribePullRequestEventsCommand,
   serializeAws_json1_1DescribePullRequestEventsCommand
@@ -49,13 +46,8 @@ export class DescribePullRequestEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePullRequestEventsCommandInput,
-    DescribePullRequestEventsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePullRequestEventsCommandInput, DescribePullRequestEventsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribePullRequestEventsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePullRequestEventsCommandOutput> {
-    return deserializeAws_json1_1DescribePullRequestEventsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePullRequestEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

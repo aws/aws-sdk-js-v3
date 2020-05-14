@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  PutIdentityPolicyRequest,
-  PutIdentityPolicyResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/index";
 import {
   deserializeAws_queryPutIdentityPolicyCommand,
   serializeAws_queryPutIdentityPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutIdentityPolicyCommandInput = PutIdentityPolicyRequest;
-export type PutIdentityPolicyCommandOutput = PutIdentityPolicyResponse &
-  __MetadataBearer;
+export type PutIdentityPolicyCommandOutput = PutIdentityPolicyResponse & __MetadataBearer;
 
 export class PutIdentityPolicyCommand extends $Command<
   PutIdentityPolicyCommandInput,
@@ -50,9 +42,7 @@ export class PutIdentityPolicyCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutIdentityPolicyCommandInput, PutIdentityPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

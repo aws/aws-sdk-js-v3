@@ -1,12 +1,5 @@
-import {
-  SSOClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOClient";
-import {
-  ListAccountRolesRequest,
-  ListAccountRolesResponse
-} from "../models/index";
+import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
+import { ListAccountRolesRequest, ListAccountRolesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAccountRolesCommand,
   serializeAws_restJson1_1ListAccountRolesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccountRolesCommandInput = ListAccountRolesRequest;
-export type ListAccountRolesCommandOutput = ListAccountRolesResponse &
-  __MetadataBearer;
+export type ListAccountRolesCommandOutput = ListAccountRolesResponse & __MetadataBearer;
 
 export class ListAccountRolesCommand extends $Command<
   ListAccountRolesCommandInput,
@@ -50,9 +42,7 @@ export class ListAccountRolesCommand extends $Command<
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountRolesCommandInput, ListAccountRolesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisClient";
-import {
-  ListTagsForStreamInput,
-  ListTagsForStreamOutput
-} from "../models/index";
+import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsForStreamCommand,
   serializeAws_json1_1ListTagsForStreamCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForStreamCommandInput = ListTagsForStreamInput;
-export type ListTagsForStreamCommandOutput = ListTagsForStreamOutput &
-  __MetadataBearer;
+export type ListTagsForStreamCommandOutput = ListTagsForStreamOutput & __MetadataBearer;
 
 export class ListTagsForStreamCommand extends $Command<
   ListTagsForStreamCommandInput,
@@ -50,9 +46,7 @@ export class ListTagsForStreamCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

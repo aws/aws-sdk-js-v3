@@ -1,12 +1,5 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  DescribeAccessPointsRequest,
-  DescribeAccessPointsResponse
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeAccessPointsCommand,
   serializeAws_restJson1_1DescribeAccessPointsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccessPointsCommandInput = DescribeAccessPointsRequest;
-export type DescribeAccessPointsCommandOutput = DescribeAccessPointsResponse &
-  __MetadataBearer;
+export type DescribeAccessPointsCommandOutput = DescribeAccessPointsResponse & __MetadataBearer;
 
 export class DescribeAccessPointsCommand extends $Command<
   DescribeAccessPointsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeAccessPointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccessPointsCommandInput,
-    DescribeAccessPointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccessPointsCommandInput, DescribeAccessPointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeAccessPointsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccessPointsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeAccessPointsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAccessPointsCommand(output, context);
   }
 
   // Start section: command_body_extra

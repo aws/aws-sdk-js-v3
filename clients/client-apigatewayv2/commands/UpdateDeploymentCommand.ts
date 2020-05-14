@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  UpdateDeploymentRequest,
-  UpdateDeploymentResponse
-} from "../models/index";
+import { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDeploymentCommand,
   serializeAws_restJson1_1UpdateDeploymentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDeploymentCommandInput = UpdateDeploymentRequest;
-export type UpdateDeploymentCommandOutput = UpdateDeploymentResponse &
-  __MetadataBearer;
+export type UpdateDeploymentCommandOutput = UpdateDeploymentResponse & __MetadataBearer;
 
 export class UpdateDeploymentCommand extends $Command<
   UpdateDeploymentCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDeploymentCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

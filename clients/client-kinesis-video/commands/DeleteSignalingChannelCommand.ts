@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  DeleteSignalingChannelInput,
-  DeleteSignalingChannelOutput
-} from "../models/index";
+import { DeleteSignalingChannelInput, DeleteSignalingChannelOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteSignalingChannelCommand,
   serializeAws_restJson1_1DeleteSignalingChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSignalingChannelCommandInput = DeleteSignalingChannelInput;
-export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput &
-  __MetadataBearer;
+export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput & __MetadataBearer;
 
 export class DeleteSignalingChannelCommand extends $Command<
   DeleteSignalingChannelCommandInput,
@@ -49,13 +45,8 @@ export class DeleteSignalingChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSignalingChannelCommandInput,
-    DeleteSignalingChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSignalingChannelCommandInput, DeleteSignalingChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteSignalingChannelCommand extends $Command<
     input: DeleteSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteSignalingChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

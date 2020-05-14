@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  UpdateRateBasedRuleRequest,
-  UpdateRateBasedRuleResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRateBasedRuleCommand,
   serializeAws_json1_1UpdateRateBasedRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRateBasedRuleCommandInput = UpdateRateBasedRuleRequest;
-export type UpdateRateBasedRuleCommandOutput = UpdateRateBasedRuleResponse &
-  __MetadataBearer;
+export type UpdateRateBasedRuleCommandOutput = UpdateRateBasedRuleResponse & __MetadataBearer;
 
 export class UpdateRateBasedRuleCommand extends $Command<
   UpdateRateBasedRuleCommandInput,
@@ -49,13 +41,8 @@ export class UpdateRateBasedRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRateBasedRuleCommandInput,
-    UpdateRateBasedRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRateBasedRuleCommandInput, UpdateRateBasedRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

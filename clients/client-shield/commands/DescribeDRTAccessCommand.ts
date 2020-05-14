@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  DescribeDRTAccessRequest,
-  DescribeDRTAccessResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDRTAccessCommand,
   serializeAws_json1_1DescribeDRTAccessCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDRTAccessCommandInput = DescribeDRTAccessRequest;
-export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse &
-  __MetadataBearer;
+export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse & __MetadataBearer;
 
 export class DescribeDRTAccessCommand extends $Command<
   DescribeDRTAccessCommandInput,
@@ -50,9 +42,7 @@ export class DescribeDRTAccessCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

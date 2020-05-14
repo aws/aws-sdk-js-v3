@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  DeleteInvitationsRequest,
-  DeleteInvitationsResponse
-} from "../models/index";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteInvitationsCommand,
   serializeAws_restJson1_1DeleteInvitationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInvitationsCommandInput = DeleteInvitationsRequest;
-export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse &
-  __MetadataBearer;
+export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse & __MetadataBearer;
 
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,
@@ -50,9 +46,7 @@ export class DeleteInvitationsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

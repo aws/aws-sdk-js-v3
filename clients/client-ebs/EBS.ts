@@ -54,9 +54,7 @@ export class EBS extends EBSClient {
   ): void;
   public getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSnapshotBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSnapshotBlockCommandOutput) => void),
     cb?: (err: any, data?: GetSnapshotBlockCommandOutput) => void
   ): Promise<GetSnapshotBlockCommandOutput> | void {
     const command = new GetSnapshotBlockCommand(args);

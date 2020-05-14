@@ -10,10 +10,7 @@ import {
   ChangeMessageVisibilityCommandInput,
   ChangeMessageVisibilityCommandOutput
 } from "../commands/ChangeMessageVisibilityCommand";
-import {
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput
-} from "../commands/CreateQueueCommand";
+import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import {
   DeleteMessageBatchCommandInput,
   DeleteMessageBatchCommandOutput
@@ -22,18 +19,12 @@ import {
   DeleteMessageCommandInput,
   DeleteMessageCommandOutput
 } from "../commands/DeleteMessageCommand";
-import {
-  DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
-} from "../commands/DeleteQueueCommand";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand";
 import {
   GetQueueAttributesCommandInput,
   GetQueueAttributesCommandOutput
 } from "../commands/GetQueueAttributesCommand";
-import {
-  GetQueueUrlCommandInput,
-  GetQueueUrlCommandOutput
-} from "../commands/GetQueueUrlCommand";
+import { GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "../commands/GetQueueUrlCommand";
 import {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput
@@ -42,14 +33,8 @@ import {
   ListQueueTagsCommandInput,
   ListQueueTagsCommandOutput
 } from "../commands/ListQueueTagsCommand";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "../commands/ListQueuesCommand";
-import {
-  PurgeQueueCommandInput,
-  PurgeQueueCommandOutput
-} from "../commands/PurgeQueueCommand";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
+import { PurgeQueueCommandInput, PurgeQueueCommandOutput } from "../commands/PurgeQueueCommand";
 import {
   ReceiveMessageCommandInput,
   ReceiveMessageCommandOutput
@@ -62,22 +47,13 @@ import {
   SendMessageBatchCommandInput,
   SendMessageBatchCommandOutput
 } from "../commands/SendMessageBatchCommand";
-import {
-  SendMessageCommandInput,
-  SendMessageCommandOutput
-} from "../commands/SendMessageCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand";
 import {
   SetQueueAttributesCommandInput,
   SetQueueAttributesCommandOutput
 } from "../commands/SetQueueAttributesCommand";
-import {
-  TagQueueCommandInput,
-  TagQueueCommandOutput
-} from "../commands/TagQueueCommand";
-import {
-  UntagQueueCommandInput,
-  UntagQueueCommandOutput
-} from "../commands/UntagQueueCommand";
+import { TagQueueCommandInput, TagQueueCommandOutput } from "../commands/TagQueueCommand";
+import { UntagQueueCommandInput, UntagQueueCommandOutput } from "../commands/UntagQueueCommand";
 import {
   AddPermissionRequest,
   BatchEntryIdsNotDistinct,
@@ -517,8 +493,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -534,10 +509,7 @@ export const deserializeAws_queryChangeMessageVisibilityCommand = async (
   context: __SerdeContext
 ): Promise<ChangeMessageVisibilityCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryChangeMessageVisibilityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryChangeMessageVisibilityCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ChangeMessageVisibilityCommandOutput = {
@@ -561,10 +533,7 @@ const deserializeAws_queryChangeMessageVisibilityCommandError = async (
     case "MessageNotInflight":
     case "com.amazonaws.sqs#MessageNotInflight":
       response = {
-        ...(await deserializeAws_queryMessageNotInflightResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryMessageNotInflightResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -572,10 +541,7 @@ const deserializeAws_queryChangeMessageVisibilityCommandError = async (
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
       response = {
-        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -586,8 +552,7 @@ const deserializeAws_queryChangeMessageVisibilityCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -603,10 +568,7 @@ export const deserializeAws_queryChangeMessageVisibilityBatchCommand = async (
   context: __SerdeContext
 ): Promise<ChangeMessageVisibilityBatchCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryChangeMessageVisibilityBatchCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryChangeMessageVisibilityBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -637,10 +599,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -648,10 +607,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -659,10 +615,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -670,10 +623,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -684,8 +634,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -705,10 +654,7 @@ export const deserializeAws_queryCreateQueueCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateQueueResult(
-    data.CreateQueueResult,
-    context
-  );
+  contents = deserializeAws_queryCreateQueueResult(data.CreateQueueResult, context);
   const response: CreateQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateQueueResult",
@@ -732,10 +678,7 @@ const deserializeAws_queryCreateQueueCommandError = async (
     case "QueueDeletedRecently":
     case "com.amazonaws.sqs#QueueDeletedRecently":
       response = {
-        ...(await deserializeAws_queryQueueDeletedRecentlyResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryQueueDeletedRecentlyResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -743,10 +686,7 @@ const deserializeAws_queryCreateQueueCommandError = async (
     case "QueueNameExists":
     case "com.amazonaws.sqs#QueueNameExists":
       response = {
-        ...(await deserializeAws_queryQueueNameExistsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryQueueNameExistsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -757,8 +697,7 @@ const deserializeAws_queryCreateQueueCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -798,10 +737,7 @@ const deserializeAws_queryDeleteMessageCommandError = async (
     case "InvalidIdFormat":
     case "com.amazonaws.sqs#InvalidIdFormat":
       response = {
-        ...(await deserializeAws_queryInvalidIdFormatResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidIdFormatResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -809,10 +745,7 @@ const deserializeAws_queryDeleteMessageCommandError = async (
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
       response = {
-        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -823,8 +756,7 @@ const deserializeAws_queryDeleteMessageCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -844,10 +776,7 @@ export const deserializeAws_queryDeleteMessageBatchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteMessageBatchResult(
-    data.DeleteMessageBatchResult,
-    context
-  );
+  contents = deserializeAws_queryDeleteMessageBatchResult(data.DeleteMessageBatchResult, context);
   const response: DeleteMessageBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteMessageBatchResult",
@@ -871,10 +800,7 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -882,10 +808,7 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -893,10 +816,7 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -904,10 +824,7 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,8 +835,7 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -962,8 +878,7 @@ const deserializeAws_queryDeleteQueueCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -983,10 +898,7 @@ export const deserializeAws_queryGetQueueAttributesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetQueueAttributesResult(
-    data.GetQueueAttributesResult,
-    context
-  );
+  contents = deserializeAws_queryGetQueueAttributesResult(data.GetQueueAttributesResult, context);
   const response: GetQueueAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueueAttributesResult",
@@ -1010,10 +922,7 @@ const deserializeAws_queryGetQueueAttributesCommandError = async (
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
       response = {
-        ...(await deserializeAws_queryInvalidAttributeNameResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1024,8 +933,7 @@ const deserializeAws_queryGetQueueAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1045,10 +953,7 @@ export const deserializeAws_queryGetQueueUrlCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryGetQueueUrlResult(
-    data.GetQueueUrlResult,
-    context
-  );
+  contents = deserializeAws_queryGetQueueUrlResult(data.GetQueueUrlResult, context);
   const response: GetQueueUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueueUrlResult",
@@ -1072,10 +977,7 @@ const deserializeAws_queryGetQueueUrlCommandError = async (
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1086,8 +988,7 @@ const deserializeAws_queryGetQueueUrlCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1103,10 +1004,7 @@ export const deserializeAws_queryListDeadLetterSourceQueuesCommand = async (
   context: __SerdeContext
 ): Promise<ListDeadLetterSourceQueuesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_queryListDeadLetterSourceQueuesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_queryListDeadLetterSourceQueuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1137,10 +1035,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesCommandError = async (
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1151,8 +1046,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1172,10 +1066,7 @@ export const deserializeAws_queryListQueueTagsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListQueueTagsResult(
-    data.ListQueueTagsResult,
-    context
-  );
+  contents = deserializeAws_queryListQueueTagsResult(data.ListQueueTagsResult, context);
   const response: ListQueueTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListQueueTagsResult",
@@ -1202,8 +1093,7 @@ const deserializeAws_queryListQueueTagsCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1223,10 +1113,7 @@ export const deserializeAws_queryListQueuesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryListQueuesResult(
-    data.ListQueuesResult,
-    context
-  );
+  contents = deserializeAws_queryListQueuesResult(data.ListQueuesResult, context);
   const response: ListQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListQueuesResult",
@@ -1253,8 +1140,7 @@ const deserializeAws_queryListQueuesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1294,10 +1180,7 @@ const deserializeAws_queryPurgeQueueCommandError = async (
     case "PurgeQueueInProgress":
     case "com.amazonaws.sqs#PurgeQueueInProgress":
       response = {
-        ...(await deserializeAws_queryPurgeQueueInProgressResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryPurgeQueueInProgressResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1305,10 +1188,7 @@ const deserializeAws_queryPurgeQueueCommandError = async (
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
       response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1319,8 +1199,7 @@ const deserializeAws_queryPurgeQueueCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1340,10 +1219,7 @@ export const deserializeAws_queryReceiveMessageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReceiveMessageResult(
-    data.ReceiveMessageResult,
-    context
-  );
+  contents = deserializeAws_queryReceiveMessageResult(data.ReceiveMessageResult, context);
   const response: ReceiveMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReceiveMessageResult",
@@ -1378,8 +1254,7 @@ const deserializeAws_queryReceiveMessageCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1422,8 +1297,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1443,10 +1317,7 @@ export const deserializeAws_querySendMessageCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySendMessageResult(
-    data.SendMessageResult,
-    context
-  );
+  contents = deserializeAws_querySendMessageResult(data.SendMessageResult, context);
   const response: SendMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendMessageResult",
@@ -1470,10 +1341,7 @@ const deserializeAws_querySendMessageCommandError = async (
     case "InvalidMessageContents":
     case "com.amazonaws.sqs#InvalidMessageContents":
       response = {
-        ...(await deserializeAws_queryInvalidMessageContentsResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidMessageContentsResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1481,10 +1349,7 @@ const deserializeAws_querySendMessageCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_queryUnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1495,8 +1360,7 @@ const deserializeAws_querySendMessageCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1516,10 +1380,7 @@ export const deserializeAws_querySendMessageBatchCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySendMessageBatchResult(
-    data.SendMessageBatchResult,
-    context
-  );
+  contents = deserializeAws_querySendMessageBatchResult(data.SendMessageBatchResult, context);
   const response: SendMessageBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendMessageBatchResult",
@@ -1543,10 +1404,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
       response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1554,10 +1412,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "BatchRequestTooLong":
     case "com.amazonaws.sqs#BatchRequestTooLong":
       response = {
-        ...(await deserializeAws_queryBatchRequestTooLongResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryBatchRequestTooLongResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1565,10 +1420,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
       response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1576,10 +1428,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
       response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1587,10 +1436,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
       response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1598,10 +1444,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
       response = {
-        ...(await deserializeAws_queryUnsupportedOperationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1612,8 +1455,7 @@ const deserializeAws_querySendMessageBatchCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1653,10 +1495,7 @@ const deserializeAws_querySetQueueAttributesCommandError = async (
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
       response = {
-        ...(await deserializeAws_queryInvalidAttributeNameResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,8 +1506,7 @@ const deserializeAws_querySetQueueAttributesCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1711,8 +1549,7 @@ const deserializeAws_queryTagQueueCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1755,8 +1592,7 @@ const deserializeAws_queryUntagQueueCommandError = async (
       response = {
         ...parsedBody.Error,
         name: `${errorCode}`,
-        message:
-          parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output)
       } as any;
@@ -1772,10 +1608,7 @@ const deserializeAws_queryBatchEntryIdsNotDistinctResponse = async (
   context: __SerdeContext
 ): Promise<BatchEntryIdsNotDistinct> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBatchEntryIdsNotDistinct(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryBatchEntryIdsNotDistinct(body.Error, context);
   const contents: BatchEntryIdsNotDistinct = {
     name: "BatchEntryIdsNotDistinct",
     $fault: "client",
@@ -1790,10 +1623,7 @@ const deserializeAws_queryBatchRequestTooLongResponse = async (
   context: __SerdeContext
 ): Promise<BatchRequestTooLong> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryBatchRequestTooLong(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryBatchRequestTooLong(body.Error, context);
   const contents: BatchRequestTooLong = {
     name: "BatchRequestTooLong",
     $fault: "client",
@@ -1808,10 +1638,7 @@ const deserializeAws_queryEmptyBatchRequestResponse = async (
   context: __SerdeContext
 ): Promise<EmptyBatchRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryEmptyBatchRequest(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryEmptyBatchRequest(body.Error, context);
   const contents: EmptyBatchRequest = {
     name: "EmptyBatchRequest",
     $fault: "client",
@@ -1826,10 +1653,7 @@ const deserializeAws_queryInvalidAttributeNameResponse = async (
   context: __SerdeContext
 ): Promise<InvalidAttributeName> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidAttributeName(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidAttributeName(body.Error, context);
   const contents: InvalidAttributeName = {
     name: "InvalidAttributeName",
     $fault: "client",
@@ -1844,10 +1668,7 @@ const deserializeAws_queryInvalidBatchEntryIdResponse = async (
   context: __SerdeContext
 ): Promise<InvalidBatchEntryId> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidBatchEntryId(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidBatchEntryId(body.Error, context);
   const contents: InvalidBatchEntryId = {
     name: "InvalidBatchEntryId",
     $fault: "client",
@@ -1862,10 +1683,7 @@ const deserializeAws_queryInvalidIdFormatResponse = async (
   context: __SerdeContext
 ): Promise<InvalidIdFormat> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidIdFormat(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidIdFormat(body.Error, context);
   const contents: InvalidIdFormat = {
     name: "InvalidIdFormat",
     $fault: "client",
@@ -1880,10 +1698,7 @@ const deserializeAws_queryInvalidMessageContentsResponse = async (
   context: __SerdeContext
 ): Promise<InvalidMessageContents> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidMessageContents(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryInvalidMessageContents(body.Error, context);
   const contents: InvalidMessageContents = {
     name: "InvalidMessageContents",
     $fault: "client",
@@ -1898,10 +1713,7 @@ const deserializeAws_queryMessageNotInflightResponse = async (
   context: __SerdeContext
 ): Promise<MessageNotInflight> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryMessageNotInflight(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryMessageNotInflight(body.Error, context);
   const contents: MessageNotInflight = {
     name: "MessageNotInflight",
     $fault: "client",
@@ -1931,10 +1743,7 @@ const deserializeAws_queryPurgeQueueInProgressResponse = async (
   context: __SerdeContext
 ): Promise<PurgeQueueInProgress> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPurgeQueueInProgress(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryPurgeQueueInProgress(body.Error, context);
   const contents: PurgeQueueInProgress = {
     name: "PurgeQueueInProgress",
     $fault: "client",
@@ -1949,10 +1758,7 @@ const deserializeAws_queryQueueDeletedRecentlyResponse = async (
   context: __SerdeContext
 ): Promise<QueueDeletedRecently> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryQueueDeletedRecently(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryQueueDeletedRecently(body.Error, context);
   const contents: QueueDeletedRecently = {
     name: "QueueDeletedRecently",
     $fault: "client",
@@ -1967,10 +1773,7 @@ const deserializeAws_queryQueueDoesNotExistResponse = async (
   context: __SerdeContext
 ): Promise<QueueDoesNotExist> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryQueueDoesNotExist(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryQueueDoesNotExist(body.Error, context);
   const contents: QueueDoesNotExist = {
     name: "QueueDoesNotExist",
     $fault: "client",
@@ -1985,10 +1788,7 @@ const deserializeAws_queryQueueNameExistsResponse = async (
   context: __SerdeContext
 ): Promise<QueueNameExists> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryQueueNameExists(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryQueueNameExists(body.Error, context);
   const contents: QueueNameExists = {
     name: "QueueNameExists",
     $fault: "client",
@@ -2003,10 +1803,7 @@ const deserializeAws_queryReceiptHandleIsInvalidResponse = async (
   context: __SerdeContext
 ): Promise<ReceiptHandleIsInvalid> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReceiptHandleIsInvalid(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryReceiptHandleIsInvalid(body.Error, context);
   const contents: ReceiptHandleIsInvalid = {
     name: "ReceiptHandleIsInvalid",
     $fault: "client",
@@ -2021,10 +1818,7 @@ const deserializeAws_queryTooManyEntriesInBatchRequestResponse = async (
   context: __SerdeContext
 ): Promise<TooManyEntriesInBatchRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyEntriesInBatchRequest(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryTooManyEntriesInBatchRequest(body.Error, context);
   const contents: TooManyEntriesInBatchRequest = {
     name: "TooManyEntriesInBatchRequest",
     $fault: "client",
@@ -2039,10 +1833,7 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedOperation> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUnsupportedOperation(
-    body.Error,
-    context
-  );
+  const deserialized: any = deserializeAws_queryUnsupportedOperation(body.Error, context);
   const contents: UnsupportedOperation = {
     name: "UnsupportedOperation",
     $fault: "client",
@@ -2052,10 +1843,7 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
   return contents;
 };
 
-const serializeAws_queryAWSAccountIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryAWSAccountIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -2065,10 +1853,7 @@ const serializeAws_queryAWSAccountIdList = (
   return entries;
 };
 
-const serializeAws_queryActionNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryActionNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -2084,20 +1869,14 @@ const serializeAws_queryAddPermissionRequest = (
 ): any => {
   const entries: any = {};
   if (input.AWSAccountIds !== undefined) {
-    const memberEntries = serializeAws_queryAWSAccountIdList(
-      input.AWSAccountIds,
-      context
-    );
+    const memberEntries = serializeAws_queryAWSAccountIdList(input.AWSAccountIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
   if (input.Actions !== undefined) {
-    const memberEntries = serializeAws_queryActionNameList(
-      input.Actions,
-      context
-    );
+    const memberEntries = serializeAws_queryActionNameList(input.Actions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2125,10 +1904,7 @@ const serializeAws_queryAttributeNameList = (
   return entries;
 };
 
-const serializeAws_queryBinaryList = (
-  input: Uint8Array[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryBinaryList = (input: Uint8Array[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -2149,9 +1925,7 @@ const serializeAws_queryChangeMessageVisibilityBatchRequest = (
       context
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ChangeMessageVisibilityBatchRequestEntry.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `ChangeMessageVisibilityBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -2220,10 +1994,7 @@ const serializeAws_queryCreateQueueRequest = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryQueueAttributeMap(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryQueueAttributeMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attribute.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2253,9 +2024,7 @@ const serializeAws_queryDeleteMessageBatchRequest = (
       context
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `DeleteMessageBatchRequestEntry.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `DeleteMessageBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -2286,10 +2055,7 @@ const serializeAws_queryDeleteMessageBatchRequestEntryList = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_queryDeleteMessageBatchRequestEntry(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_queryDeleteMessageBatchRequestEntry(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -2329,10 +2095,7 @@ const serializeAws_queryGetQueueAttributesRequest = (
 ): any => {
   const entries: any = {};
   if (input.AttributeNames !== undefined) {
-    const memberEntries = serializeAws_queryAttributeNameList(
-      input.AttributeNames,
-      context
-    );
+    const memberEntries = serializeAws_queryAttributeNameList(input.AttributeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2410,10 +2173,7 @@ const serializeAws_queryMessageAttributeValue = (
 ): any => {
   const entries: any = {};
   if (input.BinaryListValues !== undefined) {
-    const memberEntries = serializeAws_queryBinaryList(
-      input.BinaryListValues,
-      context
-    );
+    const memberEntries = serializeAws_queryBinaryList(input.BinaryListValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2426,10 +2186,7 @@ const serializeAws_queryMessageAttributeValue = (
     entries["DataType"] = input.DataType;
   }
   if (input.StringListValues !== undefined) {
-    const memberEntries = serializeAws_queryStringList(
-      input.StringListValues,
-      context
-    );
+    const memberEntries = serializeAws_queryStringList(input.StringListValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2449,10 +2206,7 @@ const serializeAws_queryMessageBodyAttributeMap = (
   let counter = 1;
   Object.keys(input).forEach(key => {
     entries[`entry.${counter}.Name`] = key;
-    const memberEntries = serializeAws_queryMessageAttributeValue(
-      input[key],
-      context
-    );
+    const memberEntries = serializeAws_queryMessageAttributeValue(input[key], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`entry.${counter}.Value.${key}`] = value;
     });
@@ -2469,10 +2223,7 @@ const serializeAws_queryMessageBodySystemAttributeMap = (
   let counter = 1;
   Object.keys(input).forEach(key => {
     entries[`entry.${counter}.Name`] = key;
-    const memberEntries = serializeAws_queryMessageSystemAttributeValue(
-      input[key],
-      context
-    );
+    const memberEntries = serializeAws_queryMessageSystemAttributeValue(input[key], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`entry.${counter}.Value.${key}`] = value;
     });
@@ -2487,10 +2238,7 @@ const serializeAws_queryMessageSystemAttributeValue = (
 ): any => {
   const entries: any = {};
   if (input.BinaryListValues !== undefined) {
-    const memberEntries = serializeAws_queryBinaryList(
-      input.BinaryListValues,
-      context
-    );
+    const memberEntries = serializeAws_queryBinaryList(input.BinaryListValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2503,10 +2251,7 @@ const serializeAws_queryMessageSystemAttributeValue = (
     entries["DataType"] = input.DataType;
   }
   if (input.StringListValues !== undefined) {
-    const memberEntries = serializeAws_queryStringList(
-      input.StringListValues,
-      context
-    );
+    const memberEntries = serializeAws_queryStringList(input.StringListValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2549,10 +2294,7 @@ const serializeAws_queryReceiveMessageRequest = (
 ): any => {
   const entries: any = {};
   if (input.AttributeNames !== undefined) {
-    const memberEntries = serializeAws_queryAttributeNameList(
-      input.AttributeNames,
-      context
-    );
+    const memberEntries = serializeAws_queryAttributeNameList(input.AttributeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2611,9 +2353,7 @@ const serializeAws_querySendMessageBatchRequest = (
       context
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SendMessageBatchRequestEntry.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `SendMessageBatchRequestEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -2659,9 +2399,7 @@ const serializeAws_querySendMessageBatchRequestEntry = (
       context
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MessageSystemAttribute.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `MessageSystemAttribute.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -2675,10 +2413,7 @@ const serializeAws_querySendMessageBatchRequestEntryList = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
-    const memberEntries = serializeAws_querySendMessageBatchRequestEntry(
-      entry,
-      context
-    );
+    const memberEntries = serializeAws_querySendMessageBatchRequestEntry(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -2720,9 +2455,7 @@ const serializeAws_querySendMessageRequest = (
       context
     );
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `MessageSystemAttribute.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `MessageSystemAttribute.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -2738,10 +2471,7 @@ const serializeAws_querySetQueueAttributesRequest = (
 ): any => {
   const entries: any = {};
   if (input.Attributes !== undefined) {
-    const memberEntries = serializeAws_queryQueueAttributeMap(
-      input.Attributes,
-      context
-    );
+    const memberEntries = serializeAws_queryQueueAttributeMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attribute.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -2753,10 +2483,7 @@ const serializeAws_querySetQueueAttributesRequest = (
   return entries;
 };
 
-const serializeAws_queryStringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -2766,10 +2493,7 @@ const serializeAws_queryStringList = (
   return entries;
 };
 
-const serializeAws_queryTagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -2884,10 +2608,7 @@ const deserializeAws_queryBatchResultErrorEntryList = (
   );
 };
 
-const deserializeAws_queryBinaryList = (
-  output: any,
-  context: __SerdeContext
-): Uint8Array[] => {
+const deserializeAws_queryBinaryList = (output: any, context: __SerdeContext): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
@@ -3127,10 +2848,7 @@ const deserializeAws_queryListQueueTagsResult = (
     contents.Tags = {};
   }
   if (output["Tag"] !== undefined) {
-    contents.Tags = deserializeAws_queryTagMap(
-      __getArrayIfSingleItem(output["Tag"]),
-      context
-    );
+    contents.Tags = deserializeAws_queryTagMap(__getArrayIfSingleItem(output["Tag"]), context);
   }
   return contents;
 };
@@ -3155,10 +2873,7 @@ const deserializeAws_queryListQueuesResult = (
   return contents;
 };
 
-const deserializeAws_queryMessage = (
-  output: any,
-  context: __SerdeContext
-): Message => {
+const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Message => {
   let contents: any = {
     __type: "Message",
     Attributes: undefined,
@@ -3254,22 +2969,14 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   return output.reduce(
     (acc: any, pair: any) => ({
       ...acc,
-      [pair["Name"]]: deserializeAws_queryMessageAttributeValue(
-        pair["Value"],
-        context
-      )
+      [pair["Name"]]: deserializeAws_queryMessageAttributeValue(pair["Value"], context)
     }),
     {}
   );
 };
 
-const deserializeAws_queryMessageList = (
-  output: any,
-  context: __SerdeContext
-): Message[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_queryMessage(entry, context)
-  );
+const deserializeAws_queryMessageList = (output: any, context: __SerdeContext): Message[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryMessage(entry, context));
 };
 
 const deserializeAws_queryMessageNotInflight = (
@@ -3295,10 +3002,7 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   );
 };
 
-const deserializeAws_queryOverLimit = (
-  output: any,
-  context: __SerdeContext
-): OverLimit => {
+const deserializeAws_queryOverLimit = (output: any, context: __SerdeContext): OverLimit => {
   let contents: any = {
     __type: "OverLimit"
   };
@@ -3358,10 +3062,7 @@ const deserializeAws_queryQueueNameExists = (
   return contents;
 };
 
-const deserializeAws_queryQueueUrlList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryQueueUrlList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3448,8 +3149,7 @@ const deserializeAws_querySendMessageBatchResultEntry = (
     contents.MD5OfMessageBody = output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
-    contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"];
+    contents.MD5OfMessageSystemAttributes = output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
     contents.MessageId = output["MessageId"];
@@ -3488,8 +3188,7 @@ const deserializeAws_querySendMessageResult = (
     contents.MD5OfMessageBody = output["MD5OfMessageBody"];
   }
   if (output["MD5OfMessageSystemAttributes"] !== undefined) {
-    contents.MD5OfMessageSystemAttributes =
-      output["MD5OfMessageSystemAttributes"];
+    contents.MD5OfMessageSystemAttributes = output["MD5OfMessageSystemAttributes"];
   }
   if (output["MessageId"] !== undefined) {
     contents.MessageId = output["MessageId"];
@@ -3500,10 +3199,7 @@ const deserializeAws_querySendMessageResult = (
   return contents;
 };
 
-const deserializeAws_queryStringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_queryStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3554,16 +3250,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (
@@ -3620,15 +3311,11 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: {
-  [key: string]: string;
-}): string =>
+const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
   Object.entries(formEntries)
     .map(
       ([key, value]) =>
-        __extendedEncodeURIComponent(key) +
-        "=" +
-        __extendedEncodeURIComponent(value)
+        __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value)
     )
     .join("&");
 

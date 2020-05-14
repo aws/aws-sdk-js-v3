@@ -10,10 +10,7 @@ import {
   CreateChangeSetCommandInput,
   CreateChangeSetCommandOutput
 } from "./commands/CreateChangeSetCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput
@@ -26,10 +23,7 @@ import {
   DeleteChangeSetCommandInput,
   DeleteChangeSetCommandOutput
 } from "./commands/DeleteChangeSetCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
   DeleteStackInstancesCommandOutput
@@ -118,10 +112,7 @@ import {
   GetStackPolicyCommandInput,
   GetStackPolicyCommandOutput
 } from "./commands/GetStackPolicyCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
   GetTemplateSummaryCommandInput,
   GetTemplateSummaryCommandOutput
@@ -130,14 +121,8 @@ import {
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput
 } from "./commands/ListChangeSetsCommand";
-import {
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "./commands/ListExportsCommand";
-import {
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "./commands/ListImportsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListStackInstancesCommandInput,
   ListStackInstancesCommandOutput
@@ -158,10 +143,7 @@ import {
   ListStackSetsCommandInput,
   ListStackSetsCommandOutput
 } from "./commands/ListStackSetsCommand";
-import {
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "./commands/ListStacksCommand";
+import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommandInput,
   ListTypeRegistrationsCommandOutput
@@ -170,10 +152,7 @@ import {
   ListTypeVersionsCommandInput,
   ListTypeVersionsCommandOutput
 } from "./commands/ListTypeVersionsCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput
@@ -198,10 +177,7 @@ import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput
 } from "./commands/StopStackSetOperationCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
   UpdateStackInstancesCommandOutput
@@ -469,9 +445,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFormationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

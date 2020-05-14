@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTrustsCommandInput = DescribeTrustsRequest;
-export type DescribeTrustsCommandOutput = DescribeTrustsResult &
-  __MetadataBearer;
+export type DescribeTrustsCommandOutput = DescribeTrustsResult & __MetadataBearer;
 
 export class DescribeTrustsCommand extends $Command<
   DescribeTrustsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeTrustsCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTrustsCommandInput, DescribeTrustsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

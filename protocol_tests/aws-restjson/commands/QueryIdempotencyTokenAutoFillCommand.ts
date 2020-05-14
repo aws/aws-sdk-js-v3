@@ -49,9 +49,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     QueryIdempotencyTokenAutoFillCommandInput,
     QueryIdempotencyTokenAutoFillCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     input: QueryIdempotencyTokenAutoFillCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(output, context);
   }
 
   // Start section: command_body_extra

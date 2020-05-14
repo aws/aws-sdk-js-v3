@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  CreateSubnetGroupRequest,
-  CreateSubnetGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSubnetGroupCommand,
   serializeAws_json1_1CreateSubnetGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSubnetGroupCommandInput = CreateSubnetGroupRequest;
-export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse &
-  __MetadataBearer;
+export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse & __MetadataBearer;
 
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,
@@ -50,9 +42,7 @@ export class CreateSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -58,9 +58,7 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | GetPersonalizedRankingCommandInput
-  | GetRecommendationsCommandInput;
+export type ServiceInputTypes = GetPersonalizedRankingCommandInput | GetRecommendationsCommandInput;
 
 export type ServiceOutputTypes =
   | GetPersonalizedRankingCommandOutput
@@ -151,9 +149,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PersonalizeRuntimeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PersonalizeRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

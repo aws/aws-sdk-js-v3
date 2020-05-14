@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaTailorClient";
-import {
-  GetPlaybackConfigurationRequest,
-  GetPlaybackConfigurationResponse
-} from "../models/index";
+import { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPlaybackConfigurationCommand,
   serializeAws_restJson1_1GetPlaybackConfigurationCommand
@@ -49,13 +46,8 @@ export class GetPlaybackConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPlaybackConfigurationCommandInput,
-    GetPlaybackConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPlaybackConfigurationCommandInput, GetPlaybackConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetPlaybackConfigurationCommand extends $Command<
     input: GetPlaybackConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPlaybackConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetPlaybackConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

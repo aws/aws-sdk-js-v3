@@ -14,18 +14,12 @@ import {
   DetectEntitiesV2CommandInput,
   DetectEntitiesV2CommandOutput
 } from "./commands/DetectEntitiesV2Command";
-import {
-  DetectPHICommandInput,
-  DetectPHICommandOutput
-} from "./commands/DetectPHICommand";
+import { DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
 import {
   InferICD10CMCommandInput,
   InferICD10CMCommandOutput
 } from "./commands/InferICD10CMCommand";
-import {
-  InferRxNormCommandInput,
-  InferRxNormCommandOutput
-} from "./commands/InferRxNormCommand";
+import { InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
 import {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput
@@ -217,9 +211,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ComprehendMedicalClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ComprehendMedicalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

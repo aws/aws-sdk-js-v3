@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateDefaultVpcRequest,
-  CreateDefaultVpcResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/index";
 import {
   deserializeAws_ec2CreateDefaultVpcCommand,
   serializeAws_ec2CreateDefaultVpcCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDefaultVpcCommandInput = CreateDefaultVpcRequest;
-export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult &
-  __MetadataBearer;
+export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult & __MetadataBearer;
 
 export class CreateDefaultVpcCommand extends $Command<
   CreateDefaultVpcCommandInput,
@@ -50,9 +42,7 @@ export class CreateDefaultVpcCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

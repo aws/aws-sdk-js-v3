@@ -1,16 +1,9 @@
-import {
-  GetSigningPlatformRequest,
-  GetSigningPlatformResponse
-} from "../models/index";
+import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSigningPlatformCommand,
   serializeAws_restJson1_1GetSigningPlatformCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSigningPlatformCommandInput = GetSigningPlatformRequest;
-export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse &
-  __MetadataBearer;
+export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse & __MetadataBearer;
 
 export class GetSigningPlatformCommand extends $Command<
   GetSigningPlatformCommandInput,
@@ -50,9 +42,7 @@ export class GetSigningPlatformCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

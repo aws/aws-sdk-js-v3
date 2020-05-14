@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  UpdateChannelClassRequest,
-  UpdateChannelClassResponse
-} from "../models/index";
+import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateChannelClassCommand,
   serializeAws_restJson1_1UpdateChannelClassCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateChannelClassCommandInput = UpdateChannelClassRequest;
-export type UpdateChannelClassCommandOutput = UpdateChannelClassResponse &
-  __MetadataBearer;
+export type UpdateChannelClassCommandOutput = UpdateChannelClassResponse & __MetadataBearer;
 
 export class UpdateChannelClassCommand extends $Command<
   UpdateChannelClassCommandInput,
@@ -50,9 +46,7 @@ export class UpdateChannelClassCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

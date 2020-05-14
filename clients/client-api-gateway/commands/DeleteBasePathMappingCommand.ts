@@ -45,13 +45,8 @@ export class DeleteBasePathMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBasePathMappingCommandInput,
-    DeleteBasePathMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBasePathMappingCommandInput, DeleteBasePathMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteBasePathMappingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBasePathMappingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

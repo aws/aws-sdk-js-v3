@@ -1,12 +1,5 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
-import {
-  DescribeEnvironmentStatusRequest,
-  DescribeEnvironmentStatusResult
-} from "../models/index";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEnvironmentStatusCommand,
   serializeAws_json1_1DescribeEnvironmentStatusCommand
@@ -49,13 +42,8 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentStatusCommandInput,
-    DescribeEnvironmentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentStatusCommandInput, DescribeEnvironmentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEnvironmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

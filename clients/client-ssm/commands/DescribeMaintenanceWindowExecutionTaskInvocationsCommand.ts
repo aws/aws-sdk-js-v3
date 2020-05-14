@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
   DescribeMaintenanceWindowExecutionTaskInvocationsResult
@@ -39,9 +35,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
-  ) {
+  constructor(readonly input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

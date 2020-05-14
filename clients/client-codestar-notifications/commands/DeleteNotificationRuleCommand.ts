@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   codestarnotificationsClientResolvedConfig
 } from "../codestarnotificationsClient";
-import {
-  DeleteNotificationRuleRequest,
-  DeleteNotificationRuleResult
-} from "../models/index";
+import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteNotificationRuleCommand,
   serializeAws_restJson1_1DeleteNotificationRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteNotificationRuleCommandInput = DeleteNotificationRuleRequest;
-export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult &
-  __MetadataBearer;
+export type DeleteNotificationRuleCommandOutput = DeleteNotificationRuleResult & __MetadataBearer;
 
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,
@@ -49,13 +45,8 @@ export class DeleteNotificationRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNotificationRuleCommandInput,
-    DeleteNotificationRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNotificationRuleCommandInput, DeleteNotificationRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteNotificationRuleCommand extends $Command<
     input: DeleteNotificationRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteNotificationRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteNotificationRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1_1DeleteNotificationRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

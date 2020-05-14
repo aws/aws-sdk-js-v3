@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  GetMetricWidgetImageInput,
-  GetMetricWidgetImageOutput
-} from "../models/index";
+import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/index";
 import {
   deserializeAws_queryGetMetricWidgetImageCommand,
   serializeAws_queryGetMetricWidgetImageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMetricWidgetImageCommandInput = GetMetricWidgetImageInput;
-export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput &
-  __MetadataBearer;
+export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput & __MetadataBearer;
 
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,
@@ -49,13 +45,8 @@ export class GetMetricWidgetImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMetricWidgetImageCommandInput,
-    GetMetricWidgetImageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMetricWidgetImageCommandInput, GetMetricWidgetImageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

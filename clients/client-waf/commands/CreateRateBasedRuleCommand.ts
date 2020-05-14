@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  CreateRateBasedRuleRequest,
-  CreateRateBasedRuleResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRateBasedRuleCommand,
   serializeAws_json1_1CreateRateBasedRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRateBasedRuleCommandInput = CreateRateBasedRuleRequest;
-export type CreateRateBasedRuleCommandOutput = CreateRateBasedRuleResponse &
-  __MetadataBearer;
+export type CreateRateBasedRuleCommandOutput = CreateRateBasedRuleResponse & __MetadataBearer;
 
 export class CreateRateBasedRuleCommand extends $Command<
   CreateRateBasedRuleCommandInput,
@@ -49,13 +41,8 @@ export class CreateRateBasedRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRateBasedRuleCommandInput,
-    CreateRateBasedRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRateBasedRuleCommandInput, CreateRateBasedRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

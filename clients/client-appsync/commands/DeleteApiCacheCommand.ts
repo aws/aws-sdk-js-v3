@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteApiCacheCommandInput = DeleteApiCacheRequest;
-export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse &
-  __MetadataBearer;
+export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse & __MetadataBearer;
 
 export class DeleteApiCacheCommand extends $Command<
   DeleteApiCacheCommandInput,
@@ -47,9 +46,7 @@ export class DeleteApiCacheCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -68,11 +68,7 @@ import {
   ListIndicesCommandInput,
   ListIndicesCommandOutput
 } from "./commands/ListIndicesCommand";
-import {
-  QueryCommand,
-  QueryCommandInput,
-  QueryCommandOutput
-} from "./commands/QueryCommand";
+import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommand,
   StartDataSourceSyncJobCommandInput,
@@ -169,9 +165,7 @@ export class kendra extends kendraClient {
   ): void;
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutDocumentCommandOutput) => void),
     cb?: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): Promise<BatchPutDocumentCommandOutput> | void {
     const command = new BatchPutDocumentCommand(args);
@@ -211,9 +205,7 @@ export class kendra extends kendraClient {
   ): void;
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
@@ -246,9 +238,7 @@ export class kendra extends kendraClient {
   ): void;
   public createFaq(
     args: CreateFaqCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFaqCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFaqCommandOutput) => void),
     cb?: (err: any, data?: CreateFaqCommandOutput) => void
   ): Promise<CreateFaqCommandOutput> | void {
     const command = new CreateFaqCommand(args);
@@ -286,9 +276,7 @@ export class kendra extends kendraClient {
   ): void;
   public createIndex(
     args: CreateIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIndexCommandOutput) => void),
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
@@ -321,9 +309,7 @@ export class kendra extends kendraClient {
   ): void;
   public deleteFaq(
     args: DeleteFaqCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFaqCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFaqCommandOutput) => void),
     cb?: (err: any, data?: DeleteFaqCommandOutput) => void
   ): Promise<DeleteFaqCommandOutput> | void {
     const command = new DeleteFaqCommand(args);
@@ -358,9 +344,7 @@ export class kendra extends kendraClient {
   ): void;
   public deleteIndex(
     args: DeleteIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIndexCommandOutput) => void),
     cb?: (err: any, data?: DeleteIndexCommandOutput) => void
   ): Promise<DeleteIndexCommandOutput> | void {
     const command = new DeleteIndexCommand(args);
@@ -428,9 +412,7 @@ export class kendra extends kendraClient {
   ): void;
   public describeFaq(
     args: DescribeFaqCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFaqCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFaqCommandOutput) => void),
     cb?: (err: any, data?: DescribeFaqCommandOutput) => void
   ): Promise<DescribeFaqCommandOutput> | void {
     const command = new DescribeFaqCommand(args);
@@ -463,9 +445,7 @@ export class kendra extends kendraClient {
   ): void;
   public describeIndex(
     args: DescribeIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIndexCommandOutput) => void),
     cb?: (err: any, data?: DescribeIndexCommandOutput) => void
   ): Promise<DescribeIndexCommandOutput> | void {
     const command = new DescribeIndexCommand(args);
@@ -533,9 +513,7 @@ export class kendra extends kendraClient {
   ): void;
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
@@ -568,9 +546,7 @@ export class kendra extends kendraClient {
   ): void;
   public listFaqs(
     args: ListFaqsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFaqsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFaqsCommandOutput) => void),
     cb?: (err: any, data?: ListFaqsCommandOutput) => void
   ): Promise<ListFaqsCommandOutput> | void {
     const command = new ListFaqsCommand(args);
@@ -603,9 +579,7 @@ export class kendra extends kendraClient {
   ): void;
   public listIndices(
     args: ListIndicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIndicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIndicesCommandOutput) => void),
     cb?: (err: any, data?: ListIndicesCommandOutput) => void
   ): Promise<ListIndicesCommandOutput> | void {
     const command = new ListIndicesCommand(args);
@@ -646,10 +620,7 @@ export class kendra extends kendraClient {
     args: QueryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<QueryCommandOutput>;
-  public query(
-    args: QueryCommandInput,
-    cb: (err: any, data?: QueryCommandOutput) => void
-  ): void;
+  public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
   public query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -657,9 +628,7 @@ export class kendra extends kendraClient {
   ): void;
   public query(
     args: QueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryCommandOutput) => void),
     cb?: (err: any, data?: QueryCommandOutput) => void
   ): Promise<QueryCommandOutput> | void {
     const command = new QueryCommand(args);
@@ -765,9 +734,7 @@ export class kendra extends kendraClient {
   ): void;
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitFeedbackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitFeedbackCommandOutput) => void),
     cb?: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): Promise<SubmitFeedbackCommandOutput> | void {
     const command = new SubmitFeedbackCommand(args);
@@ -800,9 +767,7 @@ export class kendra extends kendraClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
@@ -835,9 +800,7 @@ export class kendra extends kendraClient {
   ): void;
   public updateIndex(
     args: UpdateIndexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIndexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIndexCommandOutput) => void),
     cb?: (err: any, data?: UpdateIndexCommandOutput) => void
   ): Promise<UpdateIndexCommandOutput> | void {
     const command = new UpdateIndexCommand(args);

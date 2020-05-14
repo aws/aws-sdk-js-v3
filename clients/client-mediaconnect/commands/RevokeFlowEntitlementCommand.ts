@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  RevokeFlowEntitlementRequest,
-  RevokeFlowEntitlementResponse
-} from "../models/index";
+import { RevokeFlowEntitlementRequest, RevokeFlowEntitlementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RevokeFlowEntitlementCommand,
   serializeAws_restJson1_1RevokeFlowEntitlementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeFlowEntitlementCommandInput = RevokeFlowEntitlementRequest;
-export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse &
-  __MetadataBearer;
+export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse & __MetadataBearer;
 
 export class RevokeFlowEntitlementCommand extends $Command<
   RevokeFlowEntitlementCommandInput,
@@ -49,13 +45,8 @@ export class RevokeFlowEntitlementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeFlowEntitlementCommandInput,
-    RevokeFlowEntitlementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeFlowEntitlementCommandInput, RevokeFlowEntitlementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class RevokeFlowEntitlementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1_1RevokeFlowEntitlementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RevokeFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

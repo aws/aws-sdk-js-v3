@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  UpdateObjectAttributesRequest,
-  UpdateObjectAttributesResponse
-} from "../models/index";
+import { UpdateObjectAttributesRequest, UpdateObjectAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateObjectAttributesCommand,
   serializeAws_restJson1_1UpdateObjectAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateObjectAttributesCommandInput = UpdateObjectAttributesRequest;
-export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse &
-  __MetadataBearer;
+export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse & __MetadataBearer;
 
 export class UpdateObjectAttributesCommand extends $Command<
   UpdateObjectAttributesCommandInput,
@@ -49,13 +45,8 @@ export class UpdateObjectAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateObjectAttributesCommandInput,
-    UpdateObjectAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateObjectAttributesCommandInput, UpdateObjectAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateObjectAttributesCommand extends $Command<
     input: UpdateObjectAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateObjectAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateObjectAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateObjectAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

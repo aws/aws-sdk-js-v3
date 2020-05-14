@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribeActivationsRequest,
-  DescribeActivationsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribeActivationsRequest, DescribeActivationsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeActivationsCommand,
   serializeAws_json1_1DescribeActivationsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeActivationsCommandInput = DescribeActivationsRequest;
-export type DescribeActivationsCommandOutput = DescribeActivationsResult &
-  __MetadataBearer;
+export type DescribeActivationsCommandOutput = DescribeActivationsResult & __MetadataBearer;
 
 export class DescribeActivationsCommand extends $Command<
   DescribeActivationsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeActivationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeActivationsCommandInput,
-    DescribeActivationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeActivationsCommandInput, DescribeActivationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

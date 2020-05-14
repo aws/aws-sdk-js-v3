@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFileShareCommandInput = DeleteFileShareInput;
-export type DeleteFileShareCommandOutput = DeleteFileShareOutput &
-  __MetadataBearer;
+export type DeleteFileShareCommandOutput = DeleteFileShareOutput & __MetadataBearer;
 
 export class DeleteFileShareCommand extends $Command<
   DeleteFileShareCommandInput,
@@ -47,9 +46,7 @@ export class DeleteFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFileShareCommandInput, DeleteFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

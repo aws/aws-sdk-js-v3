@@ -210,9 +210,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public batchGetVariable(
     args: BatchGetVariableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetVariableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetVariableCommandOutput) => void),
     cb?: (err: any, data?: BatchGetVariableCommandOutput) => void
   ): Promise<BatchGetVariableCommandOutput> | void {
     const command = new BatchGetVariableCommand(args);
@@ -316,9 +314,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
@@ -351,9 +347,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createVariable(
     args: CreateVariableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVariableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVariableCommandOutput) => void),
     cb?: (err: any, data?: CreateVariableCommandOutput) => void
   ): Promise<CreateVariableCommandOutput> | void {
     const command = new CreateVariableCommand(args);
@@ -421,9 +415,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public deleteEvent(
     args: DeleteEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventCommandOutput) => void
   ): Promise<DeleteEventCommandOutput> | void {
     const command = new DeleteEventCommand(args);
@@ -456,9 +448,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public describeDetector(
     args: DescribeDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorCommandOutput) => void),
     cb?: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): Promise<DescribeDetectorCommandOutput> | void {
     const command = new DescribeDetectorCommand(args);
@@ -566,9 +556,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getDetectors(
     args: GetDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorsCommandOutput) => void),
     cb?: (err: any, data?: GetDetectorsCommandOutput) => void
   ): Promise<GetDetectorsCommandOutput> | void {
     const command = new GetDetectorsCommand(args);
@@ -641,9 +629,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getModelVersion(
     args: GetModelVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelVersionCommandOutput) => void),
     cb?: (err: any, data?: GetModelVersionCommandOutput) => void
   ): Promise<GetModelVersionCommandOutput> | void {
     const command = new GetModelVersionCommand(args);
@@ -677,9 +663,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getModels(
     args: GetModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
@@ -717,9 +701,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getOutcomes(
     args: GetOutcomesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOutcomesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutcomesCommandOutput) => void),
     cb?: (err: any, data?: GetOutcomesCommandOutput) => void
   ): Promise<GetOutcomesCommandOutput> | void {
     const command = new GetOutcomesCommand(args);
@@ -752,9 +734,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getPrediction(
     args: GetPredictionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPredictionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPredictionCommandOutput) => void),
     cb?: (err: any, data?: GetPredictionCommandOutput) => void
   ): Promise<GetPredictionCommandOutput> | void {
     const command = new GetPredictionCommand(args);
@@ -787,9 +767,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getRules(
     args: GetRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRulesCommandOutput) => void),
     cb?: (err: any, data?: GetRulesCommandOutput) => void
   ): Promise<GetRulesCommandOutput> | void {
     const command = new GetRulesCommand(args);
@@ -827,9 +805,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getVariables(
     args: GetVariablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVariablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVariablesCommandOutput) => void),
     cb?: (err: any, data?: GetVariablesCommandOutput) => void
   ): Promise<GetVariablesCommandOutput> | void {
     const command = new GetVariablesCommand(args);
@@ -862,9 +838,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putDetector(
     args: PutDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDetectorCommandOutput) => void),
     cb?: (err: any, data?: PutDetectorCommandOutput) => void
   ): Promise<PutDetectorCommandOutput> | void {
     const command = new PutDetectorCommand(args);
@@ -897,9 +871,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putExternalModel(
     args: PutExternalModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutExternalModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutExternalModelCommandOutput) => void),
     cb?: (err: any, data?: PutExternalModelCommandOutput) => void
   ): Promise<PutExternalModelCommandOutput> | void {
     const command = new PutExternalModelCommand(args);
@@ -932,9 +904,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putModel(
     args: PutModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutModelCommandOutput) => void),
     cb?: (err: any, data?: PutModelCommandOutput) => void
   ): Promise<PutModelCommandOutput> | void {
     const command = new PutModelCommand(args);
@@ -967,9 +937,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putOutcome(
     args: PutOutcomeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutOutcomeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutOutcomeCommandOutput) => void),
     cb?: (err: any, data?: PutOutcomeCommandOutput) => void
   ): Promise<PutOutcomeCommandOutput> | void {
     const command = new PutOutcomeCommand(args);
@@ -1225,9 +1193,7 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateVariable(
     args: UpdateVariableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVariableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVariableCommandOutput) => void),
     cb?: (err: any, data?: UpdateVariableCommandOutput) => void
   ): Promise<UpdateVariableCommandOutput> | void {
     const command = new UpdateVariableCommand(args);

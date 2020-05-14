@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEndpointCommandInput = DeleteEndpointMessage;
-export type DeleteEndpointCommandOutput = DeleteEndpointResponse &
-  __MetadataBearer;
+export type DeleteEndpointCommandOutput = DeleteEndpointResponse & __MetadataBearer;
 
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,
@@ -47,9 +46,7 @@ export class DeleteEndpointCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEndpointCommandInput, DeleteEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

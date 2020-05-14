@@ -49,13 +49,8 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLicenseConfigurationCommandInput,
-    DeleteLicenseConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLicenseConfigurationCommandInput, DeleteLicenseConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     input: DeleteLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteLicenseConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

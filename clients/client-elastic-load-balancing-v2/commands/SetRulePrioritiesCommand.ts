@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  SetRulePrioritiesInput,
-  SetRulePrioritiesOutput
-} from "../models/index";
+import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/index";
 import {
   deserializeAws_querySetRulePrioritiesCommand,
   serializeAws_querySetRulePrioritiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetRulePrioritiesCommandInput = SetRulePrioritiesInput;
-export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput &
-  __MetadataBearer;
+export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput & __MetadataBearer;
 
 export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandInput,
@@ -50,9 +46,7 @@ export class SetRulePrioritiesCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

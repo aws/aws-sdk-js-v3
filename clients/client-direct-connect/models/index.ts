@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
@@ -29,9 +26,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
-  export const isa = (
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is AcceptDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "AcceptDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -44,9 +39,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalResult {
-  export const isa = (
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is AcceptDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "AcceptDirectConnectGatewayAssociationProposalResult");
 }
 
@@ -139,9 +132,7 @@ export interface AllocatePrivateVirtualInterfaceRequest {
   /**
    * <p>Information about the private virtual interface.</p>
    */
-  newPrivateVirtualInterfaceAllocation:
-    | NewPrivateVirtualInterfaceAllocation
-    | undefined;
+  newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 
   /**
    * <p>The ID of the AWS account that owns the virtual private interface.</p>
@@ -164,9 +155,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
   /**
    * <p>Information about the public virtual interface.</p>
    */
-  newPublicVirtualInterfaceAllocation:
-    | NewPublicVirtualInterfaceAllocation
-    | undefined;
+  newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
 
   /**
    * <p>The ID of the AWS account that owns the public virtual interface.</p>
@@ -189,9 +178,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
   /**
    * <p>Information about the transit virtual interface.</p>
    */
-  newTransitVirtualInterfaceAllocation:
-    | NewTransitVirtualInterfaceAllocation
-    | undefined;
+  newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
 
   /**
    * <p>The ID of the AWS account that owns the transit virtual interface.</p>
@@ -298,8 +285,7 @@ export interface AssociatedGateway {
 }
 
 export namespace AssociatedGateway {
-  export const isa = (o: any): o is AssociatedGateway =>
-    __isa(o, "AssociatedGateway");
+  export const isa = (o: any): o is AssociatedGateway => __isa(o, "AssociatedGateway");
 }
 
 /**
@@ -849,8 +835,7 @@ export interface CreateBGPPeerRequest {
 }
 
 export namespace CreateBGPPeerRequest {
-  export const isa = (o: any): o is CreateBGPPeerRequest =>
-    __isa(o, "CreateBGPPeerRequest");
+  export const isa = (o: any): o is CreateBGPPeerRequest => __isa(o, "CreateBGPPeerRequest");
 }
 
 export interface CreateBGPPeerResponse {
@@ -862,8 +847,7 @@ export interface CreateBGPPeerResponse {
 }
 
 export namespace CreateBGPPeerResponse {
-  export const isa = (o: any): o is CreateBGPPeerResponse =>
-    __isa(o, "CreateBGPPeerResponse");
+  export const isa = (o: any): o is CreateBGPPeerResponse => __isa(o, "CreateBGPPeerResponse");
 }
 
 export interface CreateConnectionRequest {
@@ -900,8 +884,7 @@ export interface CreateConnectionRequest {
 }
 
 export namespace CreateConnectionRequest {
-  export const isa = (o: any): o is CreateConnectionRequest =>
-    __isa(o, "CreateConnectionRequest");
+  export const isa = (o: any): o is CreateConnectionRequest => __isa(o, "CreateConnectionRequest");
 }
 
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
@@ -933,9 +916,7 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "CreateDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -948,9 +929,7 @@ export interface CreateDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalResult {
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "CreateDirectConnectGatewayAssociationProposalResult");
 }
 
@@ -980,9 +959,7 @@ export interface CreateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationRequest {
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationRequest =>
     __isa(o, "CreateDirectConnectGatewayAssociationRequest");
 }
 
@@ -995,9 +972,7 @@ export interface CreateDirectConnectGatewayAssociationResult {
 }
 
 export namespace CreateDirectConnectGatewayAssociationResult {
-  export const isa = (
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is CreateDirectConnectGatewayAssociationResult =>
     __isa(o, "CreateDirectConnectGatewayAssociationResult");
 }
 
@@ -1116,8 +1091,7 @@ export interface CreateLagRequest {
 }
 
 export namespace CreateLagRequest {
-  export const isa = (o: any): o is CreateLagRequest =>
-    __isa(o, "CreateLagRequest");
+  export const isa = (o: any): o is CreateLagRequest => __isa(o, "CreateLagRequest");
 }
 
 export interface CreatePrivateVirtualInterfaceRequest {
@@ -1211,8 +1185,7 @@ export interface DeleteBGPPeerRequest {
 }
 
 export namespace DeleteBGPPeerRequest {
-  export const isa = (o: any): o is DeleteBGPPeerRequest =>
-    __isa(o, "DeleteBGPPeerRequest");
+  export const isa = (o: any): o is DeleteBGPPeerRequest => __isa(o, "DeleteBGPPeerRequest");
 }
 
 export interface DeleteBGPPeerResponse {
@@ -1224,8 +1197,7 @@ export interface DeleteBGPPeerResponse {
 }
 
 export namespace DeleteBGPPeerResponse {
-  export const isa = (o: any): o is DeleteBGPPeerResponse =>
-    __isa(o, "DeleteBGPPeerResponse");
+  export const isa = (o: any): o is DeleteBGPPeerResponse => __isa(o, "DeleteBGPPeerResponse");
 }
 
 export interface DeleteConnectionRequest {
@@ -1237,8 +1209,7 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
-  export const isa = (o: any): o is DeleteConnectionRequest =>
-    __isa(o, "DeleteConnectionRequest");
+  export const isa = (o: any): o is DeleteConnectionRequest => __isa(o, "DeleteConnectionRequest");
 }
 
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
@@ -1250,9 +1221,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalRequest =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationProposalRequest =>
     __isa(o, "DeleteDirectConnectGatewayAssociationProposalRequest");
 }
 
@@ -1265,9 +1234,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalResult {
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalResult =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationProposalResult =>
     __isa(o, "DeleteDirectConnectGatewayAssociationProposalResult");
 }
 
@@ -1290,9 +1257,7 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationRequest =>
     __isa(o, "DeleteDirectConnectGatewayAssociationRequest");
 }
 
@@ -1305,9 +1270,7 @@ export interface DeleteDirectConnectGatewayAssociationResult {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationResult {
-  export const isa = (
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is DeleteDirectConnectGatewayAssociationResult =>
     __isa(o, "DeleteDirectConnectGatewayAssociationResult");
 }
 
@@ -1403,8 +1366,7 @@ export interface DeleteLagRequest {
 }
 
 export namespace DeleteLagRequest {
-  export const isa = (o: any): o is DeleteLagRequest =>
-    __isa(o, "DeleteLagRequest");
+  export const isa = (o: any): o is DeleteLagRequest => __isa(o, "DeleteLagRequest");
 }
 
 export interface DeleteVirtualInterfaceRequest {
@@ -1566,9 +1528,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationProposalsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAssociationProposalsRequest");
 }
 
@@ -1586,9 +1546,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationProposalsResult =>
     __isa(o, "DescribeDirectConnectGatewayAssociationProposalsResult");
 }
 
@@ -1629,9 +1587,7 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAssociationsRequest");
 }
 
@@ -1649,9 +1605,7 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAssociationsResult =>
     __isa(o, "DescribeDirectConnectGatewayAssociationsResult");
 }
 
@@ -1682,9 +1636,7 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsRequest =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAttachmentsRequest =>
     __isa(o, "DescribeDirectConnectGatewayAttachmentsRequest");
 }
 
@@ -1702,9 +1654,7 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsResult =>
+  export const isa = (o: any): o is DescribeDirectConnectGatewayAttachmentsResult =>
     __isa(o, "DescribeDirectConnectGatewayAttachmentsResult");
 }
 
@@ -1823,8 +1773,7 @@ export interface DescribeLagsRequest {
 }
 
 export namespace DescribeLagsRequest {
-  export const isa = (o: any): o is DescribeLagsRequest =>
-    __isa(o, "DescribeLagsRequest");
+  export const isa = (o: any): o is DescribeLagsRequest => __isa(o, "DescribeLagsRequest");
 }
 
 export interface DescribeLoaRequest {
@@ -1847,8 +1796,7 @@ export interface DescribeLoaRequest {
 }
 
 export namespace DescribeLoaRequest {
-  export const isa = (o: any): o is DescribeLoaRequest =>
-    __isa(o, "DescribeLoaRequest");
+  export const isa = (o: any): o is DescribeLoaRequest => __isa(o, "DescribeLoaRequest");
 }
 
 export interface DescribeTagsRequest {
@@ -1860,8 +1808,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResponse {
@@ -1873,8 +1820,7 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
-  export const isa = (o: any): o is DescribeTagsResponse =>
-    __isa(o, "DescribeTagsResponse");
+  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 export interface DescribeVirtualInterfacesRequest {
@@ -1898,9 +1844,7 @@ export namespace DescribeVirtualInterfacesRequest {
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface DirectConnectClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DirectConnectClientException extends __SmithyException, $MetadataBearer {
   name: "DirectConnectClientException";
   $fault: "client";
   message?: string;
@@ -1966,8 +1910,7 @@ export interface DirectConnectGateway {
 }
 
 export namespace DirectConnectGateway {
-  export const isa = (o: any): o is DirectConnectGateway =>
-    __isa(o, "DirectConnectGateway");
+  export const isa = (o: any): o is DirectConnectGateway => __isa(o, "DirectConnectGateway");
 }
 
 /**
@@ -2109,10 +2052,7 @@ export namespace DirectConnectGatewayAssociationProposal {
     __isa(o, "DirectConnectGatewayAssociationProposal");
 }
 
-export type DirectConnectGatewayAssociationProposalState =
-  | "accepted"
-  | "deleted"
-  | "requested";
+export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted" | "requested";
 
 export type DirectConnectGatewayAssociationState =
   | "associated"
@@ -2195,18 +2135,12 @@ export type DirectConnectGatewayAttachmentType =
   | "PrivateVirtualInterface"
   | "TransitVirtualInterface";
 
-export type DirectConnectGatewayState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "pending";
 
 /**
  * <p>A server-side error occurred.</p>
  */
-export interface DirectConnectServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DirectConnectServerException extends __SmithyException, $MetadataBearer {
   name: "DirectConnectServerException";
   $fault: "client";
   message?: string;
@@ -2238,9 +2172,7 @@ export namespace DisassociateConnectionFromLagRequest {
 /**
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
   name: "DuplicateTagKeysException";
   $fault: "client";
   message?: string;
@@ -3038,8 +2970,7 @@ export interface RouteFilterPrefix {
 }
 
 export namespace RouteFilterPrefix {
-  export const isa = (o: any): o is RouteFilterPrefix =>
-    __isa(o, "RouteFilterPrefix");
+  export const isa = (o: any): o is RouteFilterPrefix => __isa(o, "RouteFilterPrefix");
 }
 
 /**
@@ -3076,8 +3007,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3085,24 +3015,20 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
@@ -3119,8 +3045,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -3128,8 +3053,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDirectConnectGatewayAssociationRequest {
@@ -3151,9 +3075,7 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationRequest =>
+  export const isa = (o: any): o is UpdateDirectConnectGatewayAssociationRequest =>
     __isa(o, "UpdateDirectConnectGatewayAssociationRequest");
 }
 
@@ -3166,9 +3088,7 @@ export interface UpdateDirectConnectGatewayAssociationResult {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationResult {
-  export const isa = (
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationResult =>
+  export const isa = (o: any): o is UpdateDirectConnectGatewayAssociationResult =>
     __isa(o, "UpdateDirectConnectGatewayAssociationResult");
 }
 
@@ -3191,8 +3111,7 @@ export interface UpdateLagRequest {
 }
 
 export namespace UpdateLagRequest {
-  export const isa = (o: any): o is UpdateLagRequest =>
-    __isa(o, "UpdateLagRequest");
+  export const isa = (o: any): o is UpdateLagRequest => __isa(o, "UpdateLagRequest");
 }
 
 export interface UpdateVirtualInterfaceAttributesRequest {
@@ -3248,8 +3167,7 @@ export interface VirtualGateway {
 }
 
 export namespace VirtualGateway {
-  export const isa = (o: any): o is VirtualGateway =>
-    __isa(o, "VirtualGateway");
+  export const isa = (o: any): o is VirtualGateway => __isa(o, "VirtualGateway");
 }
 
 export interface VirtualGateways {
@@ -3261,8 +3179,7 @@ export interface VirtualGateways {
 }
 
 export namespace VirtualGateways {
-  export const isa = (o: any): o is VirtualGateways =>
-    __isa(o, "VirtualGateways");
+  export const isa = (o: any): o is VirtualGateways => __isa(o, "VirtualGateways");
 }
 
 /**
@@ -3432,8 +3349,7 @@ export interface VirtualInterface {
 }
 
 export namespace VirtualInterface {
-  export const isa = (o: any): o is VirtualInterface =>
-    __isa(o, "VirtualInterface");
+  export const isa = (o: any): o is VirtualInterface => __isa(o, "VirtualInterface");
 }
 
 export type VirtualInterfaceState =
@@ -3456,6 +3372,5 @@ export interface VirtualInterfaces {
 }
 
 export namespace VirtualInterfaces {
-  export const isa = (o: any): o is VirtualInterfaces =>
-    __isa(o, "VirtualInterfaces");
+  export const isa = (o: any): o is VirtualInterfaces => __isa(o, "VirtualInterfaces");
 }

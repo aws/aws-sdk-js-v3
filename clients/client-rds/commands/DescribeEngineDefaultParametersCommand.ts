@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribeEngineDefaultParametersMessage,
   DescribeEngineDefaultParametersResult
@@ -53,9 +49,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     DescribeEngineDefaultParametersCommandInput,
     DescribeEngineDefaultParametersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEngineDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

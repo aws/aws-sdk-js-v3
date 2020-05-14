@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  RegisterResourceRequest,
-  RegisterResourceResponse
-} from "../models/index";
+import { RegisterResourceRequest, RegisterResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1RegisterResourceCommand,
   serializeAws_json1_1RegisterResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterResourceCommandInput = RegisterResourceRequest;
-export type RegisterResourceCommandOutput = RegisterResourceResponse &
-  __MetadataBearer;
+export type RegisterResourceCommandOutput = RegisterResourceResponse & __MetadataBearer;
 
 export class RegisterResourceCommand extends $Command<
   RegisterResourceCommandInput,
@@ -50,9 +46,7 @@ export class RegisterResourceCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterResourceCommandInput, RegisterResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

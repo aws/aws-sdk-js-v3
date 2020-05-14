@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeObjectCommandInput = DescribeObjectRequest;
-export type DescribeObjectCommandOutput = DescribeObjectResponse &
-  __MetadataBearer;
+export type DescribeObjectCommandOutput = DescribeObjectResponse & __MetadataBearer;
 
 export class DescribeObjectCommand extends $Command<
   DescribeObjectCommandInput,
@@ -47,9 +46,7 @@ export class DescribeObjectCommand extends $Command<
     configuration: MediaStoreDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeObjectCommandInput, DescribeObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

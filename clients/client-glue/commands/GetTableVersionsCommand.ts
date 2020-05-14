@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  GetTableVersionsRequest,
-  GetTableVersionsResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetTableVersionsCommand,
   serializeAws_json1_1GetTableVersionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTableVersionsCommandInput = GetTableVersionsRequest;
-export type GetTableVersionsCommandOutput = GetTableVersionsResponse &
-  __MetadataBearer;
+export type GetTableVersionsCommandOutput = GetTableVersionsResponse & __MetadataBearer;
 
 export class GetTableVersionsCommand extends $Command<
   GetTableVersionsCommandInput,
@@ -50,9 +42,7 @@ export class GetTableVersionsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTableVersionsCommandInput, GetTableVersionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

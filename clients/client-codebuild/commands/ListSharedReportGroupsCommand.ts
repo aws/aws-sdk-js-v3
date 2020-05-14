@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  ListSharedReportGroupsInput,
-  ListSharedReportGroupsOutput
-} from "../models/index";
+import { ListSharedReportGroupsInput, ListSharedReportGroupsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListSharedReportGroupsCommand,
   serializeAws_json1_1ListSharedReportGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSharedReportGroupsCommandInput = ListSharedReportGroupsInput;
-export type ListSharedReportGroupsCommandOutput = ListSharedReportGroupsOutput &
-  __MetadataBearer;
+export type ListSharedReportGroupsCommandOutput = ListSharedReportGroupsOutput & __MetadataBearer;
 
 export class ListSharedReportGroupsCommand extends $Command<
   ListSharedReportGroupsCommandInput,
@@ -49,13 +45,8 @@ export class ListSharedReportGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSharedReportGroupsCommandInput,
-    ListSharedReportGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSharedReportGroupsCommandInput, ListSharedReportGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     DeleteApplicationVpcConfigurationCommandInput,
     DeleteApplicationVpcConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     input: DeleteApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationVpcConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteApplicationVpcConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

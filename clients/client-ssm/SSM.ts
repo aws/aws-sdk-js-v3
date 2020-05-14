@@ -696,9 +696,7 @@ export class SSM extends SSMClient {
   ): void;
   public cancelCommand(
     args: CancelCommandCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelCommandCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelCommandCommandOutput) => void),
     cb?: (err: any, data?: CancelCommandCommandOutput) => void
   ): Promise<CancelCommandCommandOutput> | void {
     const command = new CancelCommandCommand(args);
@@ -735,14 +733,8 @@ export class SSM extends SSMClient {
     args: CancelMaintenanceWindowExecutionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CancelMaintenanceWindowExecutionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CancelMaintenanceWindowExecutionCommandOutput
-    ) => void
+      | ((err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void),
+    cb?: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> | void {
     const command = new CancelMaintenanceWindowExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -783,9 +775,7 @@ export class SSM extends SSMClient {
   ): void;
   public createActivation(
     args: CreateActivationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateActivationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActivationCommandOutput) => void),
     cb?: (err: any, data?: CreateActivationCommandOutput) => void
   ): Promise<CreateActivationCommandOutput> | void {
     const command = new CreateActivationCommand(args);
@@ -900,9 +890,7 @@ export class SSM extends SSMClient {
   ): void;
   public createDocument(
     args: CreateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDocumentCommandOutput) => void),
     cb?: (err: any, data?: CreateDocumentCommandOutput) => void
   ): Promise<CreateDocumentCommandOutput> | void {
     const command = new CreateDocumentCommand(args);
@@ -984,9 +972,7 @@ export class SSM extends SSMClient {
   ): void;
   public createOpsItem(
     args: CreateOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOpsItemCommandOutput) => void),
     cb?: (err: any, data?: CreateOpsItemCommandOutput) => void
   ): Promise<CreateOpsItemCommandOutput> | void {
     const command = new CreateOpsItemCommand(args);
@@ -1119,9 +1105,7 @@ export class SSM extends SSMClient {
   ): void;
   public deleteActivation(
     args: DeleteActivationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteActivationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActivationCommandOutput) => void),
     cb?: (err: any, data?: DeleteActivationCommandOutput) => void
   ): Promise<DeleteActivationCommandOutput> | void {
     const command = new DeleteActivationCommand(args);
@@ -1194,9 +1178,7 @@ export class SSM extends SSMClient {
   ): void;
   public deleteDocument(
     args: DeleteDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): Promise<DeleteDocumentCommandOutput> | void {
     const command = new DeleteDocumentCommand(args);
@@ -1231,9 +1213,7 @@ export class SSM extends SSMClient {
   ): void;
   public deleteInventory(
     args: DeleteInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInventoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteInventoryCommandOutput) => void
   ): Promise<DeleteInventoryCommandOutput> | void {
     const command = new DeleteInventoryCommand(args);
@@ -1301,9 +1281,7 @@ export class SSM extends SSMClient {
   ): void;
   public deleteParameter(
     args: DeleteParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParameterCommandOutput) => void),
     cb?: (err: any, data?: DeleteParameterCommandOutput) => void
   ): Promise<DeleteParameterCommandOutput> | void {
     const command = new DeleteParameterCommand(args);
@@ -1336,9 +1314,7 @@ export class SSM extends SSMClient {
   ): void;
   public deleteParameters(
     args: DeleteParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteParametersCommandOutput) => void),
     cb?: (err: any, data?: DeleteParametersCommandOutput) => void
   ): Promise<DeleteParametersCommandOutput> | void {
     const command = new DeleteParametersCommand(args);
@@ -1471,31 +1447,19 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+      | ((err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> | void {
     const command = new DeregisterPatchBaselineForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1518,31 +1482,19 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTargetFromMaintenanceWindowCommandOutput
-    ) => void
+      | ((err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> | void {
     const command = new DeregisterTargetFromMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1565,31 +1517,19 @@ export class SSM extends SSMClient {
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): void;
   public deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeregisterTaskFromMaintenanceWindowCommandOutput
-    ) => void
+      | ((err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> | void {
     const command = new DeregisterTaskFromMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1689,31 +1629,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput>;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): void;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): void;
   public describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAssociationExecutionTargetsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAssociationExecutionTargetsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput> | void {
     const command = new DescribeAssociationExecutionTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1818,14 +1746,8 @@ export class SSM extends SSMClient {
     args: DescribeAutomationStepExecutionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAutomationStepExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAutomationStepExecutionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
   ): Promise<DescribeAutomationStepExecutionsCommandOutput> | void {
     const command = new DescribeAutomationStepExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1892,9 +1814,7 @@ export class SSM extends SSMClient {
   ): void;
   public describeDocument(
     args: DescribeDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentCommandOutput) => void),
     cb?: (err: any, data?: DescribeDocumentCommandOutput) => void
   ): Promise<DescribeDocumentCommandOutput> | void {
     const command = new DescribeDocumentCommand(args);
@@ -1955,31 +1875,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): void;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): void;
   public describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEffectiveInstanceAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEffectiveInstanceAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> | void {
     const command = new DescribeEffectiveInstanceAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2003,31 +1911,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): void;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): void;
   public describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEffectivePatchesForPatchBaselineCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> | void {
     const command = new DescribeEffectivePatchesForPatchBaselineCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2050,31 +1946,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput>;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): void;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): void;
   public describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstanceAssociationsStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstanceAssociationsStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput> | void {
     const command = new DescribeInstanceAssociationsStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2176,31 +2060,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): void;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): void;
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeInstancePatchStatesForPatchGroupCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> | void {
     const command = new DescribeInstancePatchStatesForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2295,37 +2167,21 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
-  > | void {
-    const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
+  ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> | void {
+    const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2346,31 +2202,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionTasksCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> | void {
     const command = new DescribeMaintenanceWindowExecutionTasksCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2395,31 +2239,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): void;
   public describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowExecutionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowExecutionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> | void {
     const command = new DescribeMaintenanceWindowExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2442,31 +2274,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): void;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): void;
   public describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowScheduleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowScheduleCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput> | void {
     const command = new DescribeMaintenanceWindowScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2500,14 +2320,8 @@ export class SSM extends SSMClient {
     args: DescribeMaintenanceWindowTargetsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowTargetsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowTargetsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowTargetsCommandOutput> | void {
     const command = new DescribeMaintenanceWindowTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2541,10 +2355,7 @@ export class SSM extends SSMClient {
     args: DescribeMaintenanceWindowTasksCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowTasksCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowTasksCommandOutput> | void {
     const command = new DescribeMaintenanceWindowTasksCommand(args);
@@ -2604,31 +2415,19 @@ export class SSM extends SSMClient {
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): void;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): void;
   public describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMaintenanceWindowsForTargetCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMaintenanceWindowsForTargetCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> | void {
     const command = new DescribeMaintenanceWindowsForTargetCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2666,9 +2465,7 @@ export class SSM extends SSMClient {
   ): void;
   public describeOpsItems(
     args: DescribeOpsItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOpsItemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOpsItemsCommandOutput) => void),
     cb?: (err: any, data?: DescribeOpsItemsCommandOutput) => void
   ): Promise<DescribeOpsItemsCommandOutput> | void {
     const command = new DescribeOpsItemsCommand(args);
@@ -2919,9 +2716,7 @@ export class SSM extends SSMClient {
   ): void;
   public describeSessions(
     args: DescribeSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): Promise<DescribeSessionsCommandOutput> | void {
     const command = new DescribeSessionsCommand(args);
@@ -2994,9 +2789,7 @@ export class SSM extends SSMClient {
   ): void;
   public getCalendarState(
     args: GetCalendarStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCalendarStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCalendarStateCommandOutput) => void),
     cb?: (err: any, data?: GetCalendarStateCommandOutput) => void
   ): Promise<GetCalendarStateCommandOutput> | void {
     const command = new GetCalendarStateCommand(args);
@@ -3131,31 +2924,19 @@ export class SSM extends SSMClient {
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    cb: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): void;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+    cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): void;
   public getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDeployablePatchSnapshotForInstanceCommandOutput
-    ) => void
+      | ((err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void),
+    cb?: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> | void {
     const command = new GetDeployablePatchSnapshotForInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3187,9 +2968,7 @@ export class SSM extends SSMClient {
   ): void;
   public getDocument(
     args: GetDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentCommandOutput) => void
   ): Promise<GetDocumentCommandOutput> | void {
     const command = new GetDocumentCommand(args);
@@ -3222,9 +3001,7 @@ export class SSM extends SSMClient {
   ): void;
   public getInventory(
     args: GetInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInventoryCommandOutput) => void),
     cb?: (err: any, data?: GetInventoryCommandOutput) => void
   ): Promise<GetInventoryCommandOutput> | void {
     const command = new GetInventoryCommand(args);
@@ -3355,31 +3132,19 @@ export class SSM extends SSMClient {
   ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetMaintenanceWindowExecutionTaskCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskCommandOutput
-    ) => void
+      | ((err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> | void {
     const command = new GetMaintenanceWindowExecutionTaskCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3402,35 +3167,21 @@ export class SSM extends SSMClient {
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): void;
   public getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-    ) => void
+      | ((err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void),
+    cb?: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> | void {
-    const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(
-      args
-    );
+    const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3502,9 +3253,7 @@ export class SSM extends SSMClient {
   ): void;
   public getOpsItem(
     args: GetOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsItemCommandOutput) => void),
     cb?: (err: any, data?: GetOpsItemCommandOutput) => void
   ): Promise<GetOpsItemCommandOutput> | void {
     const command = new GetOpsItemCommand(args);
@@ -3537,9 +3286,7 @@ export class SSM extends SSMClient {
   ): void;
   public getOpsSummary(
     args: GetOpsSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpsSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpsSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetOpsSummaryCommandOutput) => void
   ): Promise<GetOpsSummaryCommandOutput> | void {
     const command = new GetOpsSummaryCommand(args);
@@ -3573,9 +3320,7 @@ export class SSM extends SSMClient {
   ): void;
   public getParameter(
     args: GetParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParameterCommandOutput) => void),
     cb?: (err: any, data?: GetParameterCommandOutput) => void
   ): Promise<GetParameterCommandOutput> | void {
     const command = new GetParameterCommand(args);
@@ -3643,9 +3388,7 @@ export class SSM extends SSMClient {
   ): void;
   public getParameters(
     args: GetParametersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetParametersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersCommandOutput) => void),
     cb?: (err: any, data?: GetParametersCommandOutput) => void
   ): Promise<GetParametersCommandOutput> | void {
     const command = new GetParametersCommand(args);
@@ -3721,9 +3464,7 @@ export class SSM extends SSMClient {
   ): void;
   public getPatchBaseline(
     args: GetPatchBaselineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPatchBaselineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPatchBaselineCommandOutput) => void),
     cb?: (err: any, data?: GetPatchBaselineCommandOutput) => void
   ): Promise<GetPatchBaselineCommandOutput> | void {
     const command = new GetPatchBaselineCommand(args);
@@ -3947,9 +3688,7 @@ export class SSM extends SSMClient {
   ): void;
   public listAssociations(
     args: ListAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationsCommandOutput) => void),
     cb?: (err: any, data?: ListAssociationsCommandOutput) => void
   ): Promise<ListAssociationsCommandOutput> | void {
     const command = new ListAssociationsCommand(args);
@@ -4020,9 +3759,7 @@ export class SSM extends SSMClient {
   ): void;
   public listCommands(
     args: ListCommandsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCommandsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCommandsCommandOutput) => void),
     cb?: (err: any, data?: ListCommandsCommandOutput) => void
   ): Promise<ListCommandsCommandOutput> | void {
     const command = new ListCommandsCommand(args);
@@ -4165,9 +3902,7 @@ export class SSM extends SSMClient {
   ): void;
   public listDocuments(
     args: ListDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentsCommandOutput) => void),
     cb?: (err: any, data?: ListDocumentsCommandOutput) => void
   ): Promise<ListDocumentsCommandOutput> | void {
     const command = new ListDocumentsCommand(args);
@@ -4239,10 +3974,7 @@ export class SSM extends SSMClient {
     args: ListResourceComplianceSummariesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListResourceComplianceSummariesCommandOutput
-        ) => void),
+      | ((err: any, data?: ListResourceComplianceSummariesCommandOutput) => void),
     cb?: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
   ): Promise<ListResourceComplianceSummariesCommandOutput> | void {
     const command = new ListResourceComplianceSummariesCommand(args);
@@ -4481,9 +4213,7 @@ export class SSM extends SSMClient {
   ): void;
   public putInventory(
     args: PutInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInventoryCommandOutput) => void),
     cb?: (err: any, data?: PutInventoryCommandOutput) => void
   ): Promise<PutInventoryCommandOutput> | void {
     const command = new PutInventoryCommand(args);
@@ -4516,9 +4246,7 @@ export class SSM extends SSMClient {
   ): void;
   public putParameter(
     args: PutParameterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutParameterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutParameterCommandOutput) => void),
     cb?: (err: any, data?: PutParameterCommandOutput) => void
   ): Promise<PutParameterCommandOutput> | void {
     const command = new PutParameterCommand(args);
@@ -4581,31 +4309,19 @@ export class SSM extends SSMClient {
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
   public registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterPatchBaselineForPatchGroupCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterPatchBaselineForPatchGroupCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void),
+    cb?: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> | void {
     const command = new RegisterPatchBaselineForPatchGroupCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4628,31 +4344,19 @@ export class SSM extends SSMClient {
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTargetWithMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTargetWithMaintenanceWindowCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> | void {
     const command = new RegisterTargetWithMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4675,31 +4379,19 @@ export class SSM extends SSMClient {
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
-    cb: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+    cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): void;
   public registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterTaskWithMaintenanceWindowCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RegisterTaskWithMaintenanceWindowCommandOutput
-    ) => void
+      | ((err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> | void {
     const command = new RegisterTaskWithMaintenanceWindowCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4820,9 +4512,7 @@ export class SSM extends SSMClient {
   ): void;
   public resumeSession(
     args: ResumeSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResumeSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResumeSessionCommandOutput) => void),
     cb?: (err: any, data?: ResumeSessionCommandOutput) => void
   ): Promise<ResumeSessionCommandOutput> | void {
     const command = new ResumeSessionCommand(args);
@@ -4891,9 +4581,7 @@ export class SSM extends SSMClient {
   ): void;
   public sendCommand(
     args: SendCommandCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendCommandCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCommandCommandOutput) => void),
     cb?: (err: any, data?: SendCommandCommandOutput) => void
   ): Promise<SendCommandCommandOutput> | void {
     const command = new SendCommandCommand(args);
@@ -5006,9 +4694,7 @@ export class SSM extends SSMClient {
   ): void;
   public startSession(
     args: StartSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSessionCommandOutput) => void),
     cb?: (err: any, data?: StartSessionCommandOutput) => void
   ): Promise<StartSessionCommandOutput> | void {
     const command = new StartSessionCommand(args);
@@ -5077,9 +4763,7 @@ export class SSM extends SSMClient {
   ): void;
   public terminateSession(
     args: TerminateSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateSessionCommandOutput) => void),
     cb?: (err: any, data?: TerminateSessionCommandOutput) => void
   ): Promise<TerminateSessionCommandOutput> | void {
     const command = new TerminateSessionCommand(args);
@@ -5194,9 +4878,7 @@ export class SSM extends SSMClient {
   ): void;
   public updateDocument(
     args: UpdateDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
   ): Promise<UpdateDocumentCommandOutput> | void {
     const command = new UpdateDocumentCommand(args);
@@ -5470,9 +5152,7 @@ export class SSM extends SSMClient {
   ): void;
   public updateOpsItem(
     args: UpdateOpsItemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateOpsItemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOpsItemCommandOutput) => void),
     cb?: (err: any, data?: UpdateOpsItemCommandOutput) => void
   ): Promise<UpdateOpsItemCommandOutput> | void {
     const command = new UpdateOpsItemCommand(args);

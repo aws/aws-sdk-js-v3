@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateDomainConfigurationRequest,
   CreateDomainConfigurationResponse
@@ -49,13 +45,8 @@ export class CreateDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDomainConfigurationCommandInput,
-    CreateDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDomainConfigurationCommandInput, CreateDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateDomainConfigurationCommand extends $Command<
     input: CreateDomainConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDomainConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1CreateDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

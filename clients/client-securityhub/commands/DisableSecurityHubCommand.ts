@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  DisableSecurityHubRequest,
-  DisableSecurityHubResponse
-} from "../models/index";
+import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisableSecurityHubCommand,
   serializeAws_restJson1_1DisableSecurityHubCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableSecurityHubCommandInput = DisableSecurityHubRequest;
-export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse &
-  __MetadataBearer;
+export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse & __MetadataBearer;
 
 export class DisableSecurityHubCommand extends $Command<
   DisableSecurityHubCommandInput,
@@ -50,9 +46,7 @@ export class DisableSecurityHubCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

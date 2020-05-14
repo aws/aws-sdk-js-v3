@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSDataClient";
-import {
-  BeginTransactionRequest,
-  BeginTransactionResponse
-} from "../models/index";
+import { BeginTransactionRequest, BeginTransactionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BeginTransactionCommand,
   serializeAws_restJson1_1BeginTransactionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BeginTransactionCommandInput = BeginTransactionRequest;
-export type BeginTransactionCommandOutput = BeginTransactionResponse &
-  __MetadataBearer;
+export type BeginTransactionCommandOutput = BeginTransactionResponse & __MetadataBearer;
 
 export class BeginTransactionCommand extends $Command<
   BeginTransactionCommandInput,
@@ -50,9 +46,7 @@ export class BeginTransactionCommand extends $Command<
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BeginTransactionCommandInput, BeginTransactionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

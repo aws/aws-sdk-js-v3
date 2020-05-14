@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountResponse
-} from "../models/index";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetInvitationsCountCommand,
   serializeAws_restJson1_1GetInvitationsCountCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
-export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse &
-  __MetadataBearer;
+export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse & __MetadataBearer;
 
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,
@@ -49,13 +45,8 @@ export class GetInvitationsCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInvitationsCountCommandInput,
-    GetInvitationsCountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInvitationsCountCommandInput, GetInvitationsCountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetInvitationsCountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1_1GetInvitationsCountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

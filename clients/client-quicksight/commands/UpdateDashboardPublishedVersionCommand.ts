@@ -53,9 +53,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     UpdateDashboardPublishedVersionCommandInput,
     UpdateDashboardPublishedVersionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
     input: UpdateDashboardPublishedVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

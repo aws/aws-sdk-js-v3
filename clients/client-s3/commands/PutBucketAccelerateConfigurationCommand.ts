@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketAccelerateConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketAccelerateConfigurationCommand,
@@ -50,9 +46,7 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     PutBucketAccelerateConfigurationCommandInput,
     PutBucketAccelerateConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     input: PutBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

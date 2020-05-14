@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGatewayCommandInput = UpdateGatewayRequest;
-export type UpdateGatewayCommandOutput = UpdateGatewayResponse &
-  __MetadataBearer;
+export type UpdateGatewayCommandOutput = UpdateGatewayResponse & __MetadataBearer;
 
 export class UpdateGatewayCommand extends $Command<
   UpdateGatewayCommandInput,
@@ -47,9 +46,7 @@ export class UpdateGatewayCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGatewayCommandInput, UpdateGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

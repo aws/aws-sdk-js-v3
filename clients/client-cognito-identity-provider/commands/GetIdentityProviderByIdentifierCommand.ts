@@ -53,9 +53,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     GetIdentityProviderByIdentifierCommandInput,
     GetIdentityProviderByIdentifierCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     input: GetIdentityProviderByIdentifierCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdentityProviderByIdentifierCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetIdentityProviderByIdentifierCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityProviderByIdentifierCommandOutput> {
-    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommand(output, context);
   }
 
   // Start section: command_body_extra

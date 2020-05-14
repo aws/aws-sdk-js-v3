@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetServiceSettingRequest,
-  GetServiceSettingResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/index";
 import {
   deserializeAws_json1_1GetServiceSettingCommand,
   serializeAws_json1_1GetServiceSettingCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetServiceSettingCommandInput = GetServiceSettingRequest;
-export type GetServiceSettingCommandOutput = GetServiceSettingResult &
-  __MetadataBearer;
+export type GetServiceSettingCommandOutput = GetServiceSettingResult & __MetadataBearer;
 
 export class GetServiceSettingCommand extends $Command<
   GetServiceSettingCommandInput,
@@ -50,9 +42,7 @@ export class GetServiceSettingCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetServiceSettingCommandInput, GetServiceSettingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

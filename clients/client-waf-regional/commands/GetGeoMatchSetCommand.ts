@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGeoMatchSetCommandInput = GetGeoMatchSetRequest;
-export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse &
-  __MetadataBearer;
+export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse & __MetadataBearer;
 
 export class GetGeoMatchSetCommand extends $Command<
   GetGeoMatchSetCommandInput,
@@ -47,9 +46,7 @@ export class GetGeoMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

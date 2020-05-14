@@ -46,9 +46,7 @@ export class QueryMapsCommand extends $Command<
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryMapsCommandInput, QueryMapsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class QueryMapsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: QueryMapsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: QueryMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryQueryMapsCommand(input, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListPartsOutput, ListPartsRequest } from "../models/index";
 import {
   deserializeAws_restXmlListPartsCommand,
@@ -47,9 +43,7 @@ export class ListPartsCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPartsCommandInput, ListPartsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -65,10 +59,7 @@ export class ListPartsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPartsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListPartsCommand(input, context);
   }
 

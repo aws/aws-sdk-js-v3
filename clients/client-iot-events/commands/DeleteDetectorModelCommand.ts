@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTEventsClient";
-import {
-  DeleteDetectorModelRequest,
-  DeleteDetectorModelResponse
-} from "../models/index";
+import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDetectorModelCommand,
   serializeAws_restJson1_1DeleteDetectorModelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDetectorModelCommandInput = DeleteDetectorModelRequest;
-export type DeleteDetectorModelCommandOutput = DeleteDetectorModelResponse &
-  __MetadataBearer;
+export type DeleteDetectorModelCommandOutput = DeleteDetectorModelResponse & __MetadataBearer;
 
 export class DeleteDetectorModelCommand extends $Command<
   DeleteDetectorModelCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDetectorModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDetectorModelCommandInput,
-    DeleteDetectorModelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDetectorModelCommandInput, DeleteDetectorModelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteDetectorModelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDetectorModelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDetectorModelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

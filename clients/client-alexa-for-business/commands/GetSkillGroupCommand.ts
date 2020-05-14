@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSkillGroupCommandInput = GetSkillGroupRequest;
-export type GetSkillGroupCommandOutput = GetSkillGroupResponse &
-  __MetadataBearer;
+export type GetSkillGroupCommandOutput = GetSkillGroupResponse & __MetadataBearer;
 
 export class GetSkillGroupCommand extends $Command<
   GetSkillGroupCommandInput,
@@ -47,9 +46,7 @@ export class GetSkillGroupCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSkillGroupCommandInput, GetSkillGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

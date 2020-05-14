@@ -49,9 +49,7 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     PutThirdPartyJobFailureResultCommandInput,
     PutThirdPartyJobFailureResultCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     input: PutThirdPartyJobFailureResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutThirdPartyJobFailureResultCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutThirdPartyJobFailureResultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
-    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommand(output, context);
   }
 
   // Start section: command_body_extra

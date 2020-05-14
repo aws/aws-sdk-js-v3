@@ -49,13 +49,8 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRuntimeConfigurationCommandInput,
-    DescribeRuntimeConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRuntimeConfigurationCommandInput, DescribeRuntimeConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     input: DescribeRuntimeConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRuntimeConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeRuntimeConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRuntimeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRuntimeConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

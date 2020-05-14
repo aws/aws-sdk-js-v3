@@ -49,13 +49,8 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSubscriptionDefinitionCommandInput,
-    CreateSubscriptionDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSubscriptionDefinitionCommandInput, CreateSubscriptionDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateSubscriptionDefinitionCommand extends $Command<
     input: CreateSubscriptionDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSubscriptionDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSubscriptionDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSubscriptionDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

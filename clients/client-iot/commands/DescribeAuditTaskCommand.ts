@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeAuditTaskRequest,
-  DescribeAuditTaskResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeAuditTaskRequest, DescribeAuditTaskResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeAuditTaskCommand,
   serializeAws_restJson1_1DescribeAuditTaskCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAuditTaskCommandInput = DescribeAuditTaskRequest;
-export type DescribeAuditTaskCommandOutput = DescribeAuditTaskResponse &
-  __MetadataBearer;
+export type DescribeAuditTaskCommandOutput = DescribeAuditTaskResponse & __MetadataBearer;
 
 export class DescribeAuditTaskCommand extends $Command<
   DescribeAuditTaskCommandInput,
@@ -50,9 +42,7 @@ export class DescribeAuditTaskCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

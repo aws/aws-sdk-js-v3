@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminConfirmSignUpRequest,
-  AdminConfirmSignUpResponse
-} from "../models/index";
+import { AdminConfirmSignUpRequest, AdminConfirmSignUpResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminConfirmSignUpCommand,
   serializeAws_json1_1AdminConfirmSignUpCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminConfirmSignUpCommandInput = AdminConfirmSignUpRequest;
-export type AdminConfirmSignUpCommandOutput = AdminConfirmSignUpResponse &
-  __MetadataBearer;
+export type AdminConfirmSignUpCommandOutput = AdminConfirmSignUpResponse & __MetadataBearer;
 
 export class AdminConfirmSignUpCommand extends $Command<
   AdminConfirmSignUpCommandInput,
@@ -50,9 +46,7 @@ export class AdminConfirmSignUpCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminConfirmSignUpCommandInput, AdminConfirmSignUpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

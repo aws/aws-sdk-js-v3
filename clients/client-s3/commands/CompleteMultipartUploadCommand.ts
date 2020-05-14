@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  CompleteMultipartUploadOutput,
-  CompleteMultipartUploadRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { CompleteMultipartUploadOutput, CompleteMultipartUploadRequest } from "../models/index";
 import {
   deserializeAws_restXmlCompleteMultipartUploadCommand,
   serializeAws_restXmlCompleteMultipartUploadCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadRequest;
-export type CompleteMultipartUploadCommandOutput = CompleteMultipartUploadOutput &
-  __MetadataBearer;
+export type CompleteMultipartUploadCommandOutput = CompleteMultipartUploadOutput & __MetadataBearer;
 
 export class CompleteMultipartUploadCommand extends $Command<
   CompleteMultipartUploadCommandInput,
@@ -50,13 +42,8 @@ export class CompleteMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteMultipartUploadCommandInput,
-    CompleteMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +70,7 @@ export class CompleteMultipartUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCompleteMultipartUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

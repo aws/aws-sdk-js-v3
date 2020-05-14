@@ -45,13 +45,8 @@ export class PutConfigurationRecorderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConfigurationRecorderCommandInput,
-    PutConfigurationRecorderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConfigurationRecorderCommandInput, PutConfigurationRecorderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class PutConfigurationRecorderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1PutConfigurationRecorderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

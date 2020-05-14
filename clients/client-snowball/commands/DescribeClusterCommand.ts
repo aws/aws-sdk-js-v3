@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterCommandInput = DescribeClusterRequest;
-export type DescribeClusterCommandOutput = DescribeClusterResult &
-  __MetadataBearer;
+export type DescribeClusterCommandOutput = DescribeClusterResult & __MetadataBearer;
 
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
@@ -47,9 +46,7 @@ export class DescribeClusterCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterCommandInput, DescribeClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

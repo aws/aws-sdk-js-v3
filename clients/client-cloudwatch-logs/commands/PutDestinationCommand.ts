@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutDestinationCommandInput = PutDestinationRequest;
-export type PutDestinationCommandOutput = PutDestinationResponse &
-  __MetadataBearer;
+export type PutDestinationCommandOutput = PutDestinationResponse & __MetadataBearer;
 
 export class PutDestinationCommand extends $Command<
   PutDestinationCommandInput,
@@ -47,9 +46,7 @@ export class PutDestinationCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutDestinationCommandInput, PutDestinationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListAttachedRolePoliciesRequest,
-  ListAttachedRolePoliciesResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListAttachedRolePoliciesRequest, ListAttachedRolePoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryListAttachedRolePoliciesCommand,
   serializeAws_queryListAttachedRolePoliciesCommand
@@ -49,13 +42,8 @@ export class ListAttachedRolePoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAttachedRolePoliciesCommandInput,
-    ListAttachedRolePoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAttachedRolePoliciesCommandInput, ListAttachedRolePoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

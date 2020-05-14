@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  ListResourcesForWebACLRequest,
-  ListResourcesForWebACLResponse
-} from "../models/index";
+import { ListResourcesForWebACLRequest, ListResourcesForWebACLResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResourcesForWebACLCommand,
   serializeAws_json1_1ListResourcesForWebACLCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourcesForWebACLCommandInput = ListResourcesForWebACLRequest;
-export type ListResourcesForWebACLCommandOutput = ListResourcesForWebACLResponse &
-  __MetadataBearer;
+export type ListResourcesForWebACLCommandOutput = ListResourcesForWebACLResponse & __MetadataBearer;
 
 export class ListResourcesForWebACLCommand extends $Command<
   ListResourcesForWebACLCommandInput,
@@ -49,13 +45,8 @@ export class ListResourcesForWebACLCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourcesForWebACLCommandInput,
-    ListResourcesForWebACLCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourcesForWebACLCommandInput, ListResourcesForWebACLCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

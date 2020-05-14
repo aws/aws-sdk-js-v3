@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
   ListRecoveryPointsByBackupVaultInput,
   ListRecoveryPointsByBackupVaultOutput
@@ -53,9 +49,7 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     ListRecoveryPointsByBackupVaultCommandInput,
     ListRecoveryPointsByBackupVaultCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     input: ListRecoveryPointsByBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
-    return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

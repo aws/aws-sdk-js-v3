@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDataSourceCommandInput = UpdateDataSourceInput;
-export type UpdateDataSourceCommandOutput = UpdateDataSourceOutput &
-  __MetadataBearer;
+export type UpdateDataSourceCommandOutput = UpdateDataSourceOutput & __MetadataBearer;
 
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,
@@ -47,9 +46,7 @@ export class UpdateDataSourceCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  UpdatePartitionRequest,
-  UpdatePartitionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { UpdatePartitionRequest, UpdatePartitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdatePartitionCommand,
   serializeAws_json1_1UpdatePartitionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePartitionCommandInput = UpdatePartitionRequest;
-export type UpdatePartitionCommandOutput = UpdatePartitionResponse &
-  __MetadataBearer;
+export type UpdatePartitionCommandOutput = UpdatePartitionResponse & __MetadataBearer;
 
 export class UpdatePartitionCommand extends $Command<
   UpdatePartitionCommandInput,
@@ -50,9 +42,7 @@ export class UpdatePartitionCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdatePartitionCommandInput, UpdatePartitionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

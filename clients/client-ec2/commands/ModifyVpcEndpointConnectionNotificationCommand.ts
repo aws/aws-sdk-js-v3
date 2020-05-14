@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult
@@ -39,9 +35,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ModifyVpcEndpointConnectionNotificationCommandInput
-  ) {
+  constructor(readonly input: ModifyVpcEndpointConnectionNotificationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     ModifyVpcEndpointConnectionNotificationCommandInput,
     ModifyVpcEndpointConnectionNotificationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  SearchNetworkProfilesRequest,
-  SearchNetworkProfilesResponse
-} from "../models/index";
+import { SearchNetworkProfilesRequest, SearchNetworkProfilesResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchNetworkProfilesCommand,
   serializeAws_json1_1SearchNetworkProfilesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchNetworkProfilesCommandInput = SearchNetworkProfilesRequest;
-export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse &
-  __MetadataBearer;
+export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse & __MetadataBearer;
 
 export class SearchNetworkProfilesCommand extends $Command<
   SearchNetworkProfilesCommandInput,
@@ -49,13 +45,8 @@ export class SearchNetworkProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchNetworkProfilesCommandInput,
-    SearchNetworkProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchNetworkProfilesCommandInput, SearchNetworkProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

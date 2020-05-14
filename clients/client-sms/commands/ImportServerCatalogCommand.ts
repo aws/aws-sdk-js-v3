@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  ImportServerCatalogRequest,
-  ImportServerCatalogResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { ImportServerCatalogRequest, ImportServerCatalogResponse } from "../models/index";
 import {
   deserializeAws_json1_1ImportServerCatalogCommand,
   serializeAws_json1_1ImportServerCatalogCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportServerCatalogCommandInput = ImportServerCatalogRequest;
-export type ImportServerCatalogCommandOutput = ImportServerCatalogResponse &
-  __MetadataBearer;
+export type ImportServerCatalogCommandOutput = ImportServerCatalogResponse & __MetadataBearer;
 
 export class ImportServerCatalogCommand extends $Command<
   ImportServerCatalogCommandInput,
@@ -49,13 +41,8 @@ export class ImportServerCatalogCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportServerCatalogCommandInput,
-    ImportServerCatalogCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportServerCatalogCommandInput, ImportServerCatalogCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

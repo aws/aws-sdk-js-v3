@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  DescribeMetricFiltersRequest,
-  DescribeMetricFiltersResponse
-} from "../models/index";
+import { DescribeMetricFiltersRequest, DescribeMetricFiltersResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMetricFiltersCommand,
   serializeAws_json1_1DescribeMetricFiltersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMetricFiltersCommandInput = DescribeMetricFiltersRequest;
-export type DescribeMetricFiltersCommandOutput = DescribeMetricFiltersResponse &
-  __MetadataBearer;
+export type DescribeMetricFiltersCommandOutput = DescribeMetricFiltersResponse & __MetadataBearer;
 
 export class DescribeMetricFiltersCommand extends $Command<
   DescribeMetricFiltersCommandInput,
@@ -49,13 +45,8 @@ export class DescribeMetricFiltersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMetricFiltersCommandInput,
-    DescribeMetricFiltersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMetricFiltersCommandInput, DescribeMetricFiltersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

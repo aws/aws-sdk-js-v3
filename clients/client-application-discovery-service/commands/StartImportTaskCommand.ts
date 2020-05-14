@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StartImportTaskRequest,
-  StartImportTaskResponse
-} from "../models/index";
+import { StartImportTaskRequest, StartImportTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartImportTaskCommand,
   serializeAws_json1_1StartImportTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartImportTaskCommandInput = StartImportTaskRequest;
-export type StartImportTaskCommandOutput = StartImportTaskResponse &
-  __MetadataBearer;
+export type StartImportTaskCommandOutput = StartImportTaskResponse & __MetadataBearer;
 
 export class StartImportTaskCommand extends $Command<
   StartImportTaskCommandInput,
@@ -50,9 +46,7 @@ export class StartImportTaskCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartImportTaskCommandInput, StartImportTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

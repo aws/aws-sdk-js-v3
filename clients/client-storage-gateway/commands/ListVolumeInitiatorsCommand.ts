@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  ListVolumeInitiatorsInput,
-  ListVolumeInitiatorsOutput
-} from "../models/index";
+import { ListVolumeInitiatorsInput, ListVolumeInitiatorsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListVolumeInitiatorsCommand,
   serializeAws_json1_1ListVolumeInitiatorsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVolumeInitiatorsCommandInput = ListVolumeInitiatorsInput;
-export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput &
-  __MetadataBearer;
+export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput & __MetadataBearer;
 
 export class ListVolumeInitiatorsCommand extends $Command<
   ListVolumeInitiatorsCommandInput,
@@ -49,13 +45,8 @@ export class ListVolumeInitiatorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVolumeInitiatorsCommandInput,
-    ListVolumeInitiatorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVolumeInitiatorsCommandInput, ListVolumeInitiatorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

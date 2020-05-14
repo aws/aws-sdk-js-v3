@@ -2,10 +2,7 @@ import {
   CreateAccessPointCommandInput,
   CreateAccessPointCommandOutput
 } from "./commands/CreateAccessPointCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   DeleteAccessPointCommandInput,
   DeleteAccessPointCommandOutput
@@ -18,10 +15,7 @@ import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput
 } from "./commands/DeletePublicAccessBlockCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   GetAccessPointCommandInput,
   GetAccessPointCommandOutput
@@ -42,10 +36,7 @@ import {
   ListAccessPointsCommandInput,
   ListAccessPointsCommandOutput
 } from "./commands/ListAccessPointsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput
@@ -236,9 +227,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type S3ControlClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -247,9 +236,7 @@ export type S3ControlClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  ListBuildsForProjectInput,
-  ListBuildsForProjectOutput
-} from "../models/index";
+import { ListBuildsForProjectInput, ListBuildsForProjectOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListBuildsForProjectCommand,
   serializeAws_json1_1ListBuildsForProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBuildsForProjectCommandInput = ListBuildsForProjectInput;
-export type ListBuildsForProjectCommandOutput = ListBuildsForProjectOutput &
-  __MetadataBearer;
+export type ListBuildsForProjectCommandOutput = ListBuildsForProjectOutput & __MetadataBearer;
 
 export class ListBuildsForProjectCommand extends $Command<
   ListBuildsForProjectCommandInput,
@@ -49,13 +45,8 @@ export class ListBuildsForProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBuildsForProjectCommandInput,
-    ListBuildsForProjectCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBuildsForProjectCommandInput, ListBuildsForProjectCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

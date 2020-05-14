@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  GetDataRetrievalPolicyInput,
-  GetDataRetrievalPolicyOutput
-} from "../models/index";
+import { GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDataRetrievalPolicyCommand,
   serializeAws_restJson1_1GetDataRetrievalPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
-export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput &
-  __MetadataBearer;
+export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput & __MetadataBearer;
 
 export class GetDataRetrievalPolicyCommand extends $Command<
   GetDataRetrievalPolicyCommandInput,
@@ -49,13 +45,8 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDataRetrievalPolicyCommandInput,
-    GetDataRetrievalPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDataRetrievalPolicyCommandInput, GetDataRetrievalPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetDataRetrievalPolicyCommand extends $Command<
     input: GetDataRetrievalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDataRetrievalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

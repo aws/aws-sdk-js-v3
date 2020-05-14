@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  UpdateJobTemplateRequest,
-  UpdateJobTemplateResponse
-} from "../models/index";
+import { UpdateJobTemplateRequest, UpdateJobTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJobTemplateCommand,
   serializeAws_restJson1_1UpdateJobTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJobTemplateCommandInput = UpdateJobTemplateRequest;
-export type UpdateJobTemplateCommandOutput = UpdateJobTemplateResponse &
-  __MetadataBearer;
+export type UpdateJobTemplateCommandOutput = UpdateJobTemplateResponse & __MetadataBearer;
 
 export class UpdateJobTemplateCommand extends $Command<
   UpdateJobTemplateCommandInput,
@@ -50,9 +46,7 @@ export class UpdateJobTemplateCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

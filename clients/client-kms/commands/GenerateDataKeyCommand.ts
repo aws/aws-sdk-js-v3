@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  GenerateDataKeyRequest,
-  GenerateDataKeyResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GenerateDataKeyCommand,
   serializeAws_json1_1GenerateDataKeyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateDataKeyCommandInput = GenerateDataKeyRequest;
-export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse &
-  __MetadataBearer;
+export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse & __MetadataBearer;
 
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,
@@ -50,9 +42,7 @@ export class GenerateDataKeyCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

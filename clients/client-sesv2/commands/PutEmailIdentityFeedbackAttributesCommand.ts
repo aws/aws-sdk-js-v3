@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutEmailIdentityFeedbackAttributesRequest,
   PutEmailIdentityFeedbackAttributesResponse
@@ -53,9 +49,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     PutEmailIdentityFeedbackAttributesCommandInput,
     PutEmailIdentityFeedbackAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     input: PutEmailIdentityFeedbackAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

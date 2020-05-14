@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestConnectionCommandInput = TestConnectionMessage;
-export type TestConnectionCommandOutput = TestConnectionResponse &
-  __MetadataBearer;
+export type TestConnectionCommandOutput = TestConnectionResponse & __MetadataBearer;
 
 export class TestConnectionCommand extends $Command<
   TestConnectionCommandInput,
@@ -47,9 +46,7 @@ export class TestConnectionCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestConnectionCommandInput, TestConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

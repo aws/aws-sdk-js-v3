@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  ListProfilingGroupsRequest,
-  ListProfilingGroupsResponse
-} from "../models/index";
+import { ListProfilingGroupsRequest, ListProfilingGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListProfilingGroupsCommand,
   serializeAws_restJson1_1ListProfilingGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProfilingGroupsCommandInput = ListProfilingGroupsRequest;
-export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse &
-  __MetadataBearer;
+export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse & __MetadataBearer;
 
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,
@@ -49,13 +45,8 @@ export class ListProfilingGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProfilingGroupsCommandInput,
-    ListProfilingGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProfilingGroupsCommandInput, ListProfilingGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListProfilingGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProfilingGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListProfilingGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProfilingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

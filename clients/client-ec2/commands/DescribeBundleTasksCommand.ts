@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeBundleTasksRequest,
-  DescribeBundleTasksResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeBundleTasksCommand,
   serializeAws_ec2DescribeBundleTasksCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBundleTasksCommandInput = DescribeBundleTasksRequest;
-export type DescribeBundleTasksCommandOutput = DescribeBundleTasksResult &
-  __MetadataBearer;
+export type DescribeBundleTasksCommandOutput = DescribeBundleTasksResult & __MetadataBearer;
 
 export class DescribeBundleTasksCommand extends $Command<
   DescribeBundleTasksCommandInput,
@@ -49,13 +41,8 @@ export class DescribeBundleTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBundleTasksCommandInput,
-    DescribeBundleTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBundleTasksCommandInput, DescribeBundleTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

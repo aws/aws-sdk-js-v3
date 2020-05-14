@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagUserRequest } from "../models/index";
 import {
   deserializeAws_queryUntagUserCommand,
@@ -46,9 +42,7 @@ export class UntagUserCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagUserCommandInput, UntagUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class UntagUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UntagUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UntagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUntagUserCommand(input, context);
   }
 

@@ -34,10 +34,7 @@ import {
   DeleteEmailIdentityCommandInput,
   DeleteEmailIdentityCommandOutput
 } from "./commands/DeleteEmailIdentityCommand";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommandInput,
   GetBlacklistReportsCommandOutput
@@ -150,14 +147,8 @@ import {
   PutEmailIdentityMailFromAttributesCommandInput,
   PutEmailIdentityMailFromAttributesCommandOutput
 } from "./commands/PutEmailIdentityMailFromAttributesCommand";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -391,9 +382,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PinpointEmailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PinpointEmailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

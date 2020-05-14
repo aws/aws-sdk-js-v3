@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -200,8 +197,7 @@ export interface AddPermissionRequest {
 }
 
 export namespace AddPermissionRequest {
-  export const isa = (o: any): o is AddPermissionRequest =>
-    __isa(o, "AddPermissionRequest");
+  export const isa = (o: any): o is AddPermissionRequest => __isa(o, "AddPermissionRequest");
 }
 
 export interface AddPermissionResponse {
@@ -213,8 +209,7 @@ export interface AddPermissionResponse {
 }
 
 export namespace AddPermissionResponse {
-  export const isa = (o: any): o is AddPermissionResponse =>
-    __isa(o, "AddPermissionResponse");
+  export const isa = (o: any): o is AddPermissionResponse => __isa(o, "AddPermissionResponse");
 }
 
 /**
@@ -255,8 +250,7 @@ export interface AliasConfiguration {
 }
 
 export namespace AliasConfiguration {
-  export const isa = (o: any): o is AliasConfiguration =>
-    __isa(o, "AliasConfiguration");
+  export const isa = (o: any): o is AliasConfiguration => __isa(o, "AliasConfiguration");
 }
 
 /**
@@ -279,9 +273,7 @@ export namespace AliasRoutingConfiguration {
  * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface CodeStorageExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CodeStorageExceededException extends __SmithyException, $MetadataBearer {
   name: "CodeStorageExceededException";
   $fault: "client";
   /**
@@ -358,8 +350,7 @@ export interface CreateAliasRequest {
 }
 
 export namespace CreateAliasRequest {
-  export const isa = (o: any): o is CreateAliasRequest =>
-    __isa(o, "CreateAliasRequest");
+  export const isa = (o: any): o is CreateAliasRequest => __isa(o, "CreateAliasRequest");
 }
 
 export interface CreateEventSourceMappingRequest {
@@ -597,8 +588,7 @@ export interface CreateFunctionRequest {
 }
 
 export namespace CreateFunctionRequest {
-  export const isa = (o: any): o is CreateFunctionRequest =>
-    __isa(o, "CreateFunctionRequest");
+  export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
 
 /**
@@ -614,8 +604,7 @@ export interface DeadLetterConfig {
 }
 
 export namespace DeadLetterConfig {
-  export const isa = (o: any): o is DeadLetterConfig =>
-    __isa(o, "DeadLetterConfig");
+  export const isa = (o: any): o is DeadLetterConfig => __isa(o, "DeadLetterConfig");
 }
 
 export interface DeleteAliasRequest {
@@ -651,8 +640,7 @@ export interface DeleteAliasRequest {
 }
 
 export namespace DeleteAliasRequest {
-  export const isa = (o: any): o is DeleteAliasRequest =>
-    __isa(o, "DeleteAliasRequest");
+  export const isa = (o: any): o is DeleteAliasRequest => __isa(o, "DeleteAliasRequest");
 }
 
 export interface DeleteEventSourceMappingRequest {
@@ -770,8 +758,7 @@ export interface DeleteFunctionRequest {
 }
 
 export namespace DeleteFunctionRequest {
-  export const isa = (o: any): o is DeleteFunctionRequest =>
-    __isa(o, "DeleteFunctionRequest");
+  export const isa = (o: any): o is DeleteFunctionRequest => __isa(o, "DeleteFunctionRequest");
 }
 
 export interface DeleteLayerVersionRequest {
@@ -846,16 +833,13 @@ export interface DestinationConfig {
 }
 
 export namespace DestinationConfig {
-  export const isa = (o: any): o is DestinationConfig =>
-    __isa(o, "DestinationConfig");
+  export const isa = (o: any): o is DestinationConfig => __isa(o, "DestinationConfig");
 }
 
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
-export interface EC2AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "EC2AccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -871,9 +855,7 @@ export namespace EC2AccessDeniedException {
  * <p>AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
  *       for the Lambda function.</p>
  */
-export interface EC2ThrottledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2ThrottledException extends __SmithyException, $MetadataBearer {
   name: "EC2ThrottledException";
   $fault: "server";
   Message?: string;
@@ -881,16 +863,13 @@ export interface EC2ThrottledException
 }
 
 export namespace EC2ThrottledException {
-  export const isa = (o: any): o is EC2ThrottledException =>
-    __isa(o, "EC2ThrottledException");
+  export const isa = (o: any): o is EC2ThrottledException => __isa(o, "EC2ThrottledException");
 }
 
 /**
  * <p>AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  */
-export interface EC2UnexpectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2UnexpectedException extends __SmithyException, $MetadataBearer {
   name: "EC2UnexpectedException";
   $fault: "server";
   EC2ErrorCode?: string;
@@ -899,17 +878,14 @@ export interface EC2UnexpectedException
 }
 
 export namespace EC2UnexpectedException {
-  export const isa = (o: any): o is EC2UnexpectedException =>
-    __isa(o, "EC2UnexpectedException");
+  export const isa = (o: any): o is EC2UnexpectedException => __isa(o, "EC2UnexpectedException");
 }
 
 /**
  * <p>AWS Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
  *       function configuration, because the limit for network interfaces has been reached.</p>
  */
-export interface ENILimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ENILimitReachedException extends __SmithyException, $MetadataBearer {
   name: "ENILimitReachedException";
   $fault: "server";
   Message?: string;
@@ -953,8 +929,7 @@ export interface EnvironmentError {
 }
 
 export namespace EnvironmentError {
-  export const isa = (o: any): o is EnvironmentError =>
-    __isa(o, "EnvironmentError");
+  export const isa = (o: any): o is EnvironmentError => __isa(o, "EnvironmentError");
 }
 
 /**
@@ -975,8 +950,7 @@ export interface EnvironmentResponse {
 }
 
 export namespace EnvironmentResponse {
-  export const isa = (o: any): o is EnvironmentResponse =>
-    __isa(o, "EnvironmentResponse");
+  export const isa = (o: any): o is EnvironmentResponse => __isa(o, "EnvironmentResponse");
 }
 
 /**
@@ -1119,8 +1093,7 @@ export interface FunctionCodeLocation {
 }
 
 export namespace FunctionCodeLocation {
-  export const isa = (o: any): o is FunctionCodeLocation =>
-    __isa(o, "FunctionCodeLocation");
+  export const isa = (o: any): o is FunctionCodeLocation => __isa(o, "FunctionCodeLocation");
 }
 
 /**
@@ -1265,8 +1238,7 @@ export interface FunctionConfiguration {
 }
 
 export namespace FunctionConfiguration {
-  export const isa = (o: any): o is FunctionConfiguration =>
-    __isa(o, "FunctionConfiguration");
+  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 export interface FunctionEventInvokeConfig {
@@ -1387,8 +1359,7 @@ export interface GetAliasRequest {
 }
 
 export namespace GetAliasRequest {
-  export const isa = (o: any): o is GetAliasRequest =>
-    __isa(o, "GetAliasRequest");
+  export const isa = (o: any): o is GetAliasRequest => __isa(o, "GetAliasRequest");
 }
 
 export interface GetEventSourceMappingRequest {
@@ -1556,8 +1527,7 @@ export interface GetFunctionRequest {
 }
 
 export namespace GetFunctionRequest {
-  export const isa = (o: any): o is GetFunctionRequest =>
-    __isa(o, "GetFunctionRequest");
+  export const isa = (o: any): o is GetFunctionRequest => __isa(o, "GetFunctionRequest");
 }
 
 export interface GetFunctionResponse {
@@ -1585,8 +1555,7 @@ export interface GetFunctionResponse {
 }
 
 export namespace GetFunctionResponse {
-  export const isa = (o: any): o is GetFunctionResponse =>
-    __isa(o, "GetFunctionResponse");
+  export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
 
 export interface GetLayerVersionByArnRequest {
@@ -1652,8 +1621,7 @@ export interface GetLayerVersionRequest {
 }
 
 export namespace GetLayerVersionRequest {
-  export const isa = (o: any): o is GetLayerVersionRequest =>
-    __isa(o, "GetLayerVersionRequest");
+  export const isa = (o: any): o is GetLayerVersionRequest => __isa(o, "GetLayerVersionRequest");
 }
 
 export interface GetLayerVersionResponse {
@@ -1700,8 +1668,7 @@ export interface GetLayerVersionResponse {
 }
 
 export namespace GetLayerVersionResponse {
-  export const isa = (o: any): o is GetLayerVersionResponse =>
-    __isa(o, "GetLayerVersionResponse");
+  export const isa = (o: any): o is GetLayerVersionResponse => __isa(o, "GetLayerVersionResponse");
 }
 
 export interface GetPolicyRequest {
@@ -1737,8 +1704,7 @@ export interface GetPolicyRequest {
 }
 
 export namespace GetPolicyRequest {
-  export const isa = (o: any): o is GetPolicyRequest =>
-    __isa(o, "GetPolicyRequest");
+  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
@@ -1755,8 +1721,7 @@ export interface GetPolicyResponse {
 }
 
 export namespace GetPolicyResponse {
-  export const isa = (o: any): o is GetPolicyResponse =>
-    __isa(o, "GetPolicyResponse");
+  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProvisionedConcurrencyConfigRequest {
@@ -1837,9 +1802,7 @@ export namespace GetProvisionedConcurrencyConfigResponse {
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -1861,9 +1824,7 @@ export namespace InvalidParameterValueException {
 /**
  * <p>The request body could not be parsed as JSON.</p>
  */
-export interface InvalidRequestContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestContentException";
   $fault: "client";
   /**
@@ -1885,9 +1846,7 @@ export namespace InvalidRequestContentException {
 /**
  * <p>The runtime or runtime version specified is not supported.</p>
  */
-export interface InvalidRuntimeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRuntimeException extends __SmithyException, $MetadataBearer {
   name: "InvalidRuntimeException";
   $fault: "server";
   Message?: string;
@@ -1895,16 +1854,13 @@ export interface InvalidRuntimeException
 }
 
 export namespace InvalidRuntimeException {
-  export const isa = (o: any): o is InvalidRuntimeException =>
-    __isa(o, "InvalidRuntimeException");
+  export const isa = (o: any): o is InvalidRuntimeException => __isa(o, "InvalidRuntimeException");
 }
 
 /**
  * <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSecurityGroupIDException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityGroupIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityGroupIDException";
   $fault: "server";
   Message?: string;
@@ -1919,9 +1875,7 @@ export namespace InvalidSecurityGroupIDException {
 /**
  * <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSubnetIDException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnetIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnetIDException";
   $fault: "server";
   Message?: string;
@@ -1936,9 +1890,7 @@ export namespace InvalidSubnetIDException {
 /**
  * <p>AWS Lambda could not unzip the deployment package.</p>
  */
-export interface InvalidZipFileException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidZipFileException extends __SmithyException, $MetadataBearer {
   name: "InvalidZipFileException";
   $fault: "server";
   Message?: string;
@@ -1946,8 +1898,7 @@ export interface InvalidZipFileException
 }
 
 export namespace InvalidZipFileException {
-  export const isa = (o: any): o is InvalidZipFileException =>
-    __isa(o, "InvalidZipFileException");
+  export const isa = (o: any): o is InvalidZipFileException => __isa(o, "InvalidZipFileException");
 }
 
 export interface InvocationRequest {
@@ -2022,8 +1973,7 @@ export interface InvocationRequest {
 }
 
 export namespace InvocationRequest {
-  export const isa = (o: any): o is InvocationRequest =>
-    __isa(o, "InvocationRequest");
+  export const isa = (o: any): o is InvocationRequest => __isa(o, "InvocationRequest");
 }
 
 export interface InvocationResponse {
@@ -2052,8 +2002,7 @@ export interface InvocationResponse {
 }
 
 export namespace InvocationResponse {
-  export const isa = (o: any): o is InvocationResponse =>
-    __isa(o, "InvocationResponse");
+  export const isa = (o: any): o is InvocationResponse => __isa(o, "InvocationResponse");
 }
 
 export enum InvocationType {
@@ -2095,8 +2044,7 @@ export interface InvokeAsyncRequest {
 }
 
 export namespace InvokeAsyncRequest {
-  export const isa = (o: any): o is InvokeAsyncRequest =>
-    __isa(o, "InvokeAsyncRequest");
+  export const isa = (o: any): o is InvokeAsyncRequest => __isa(o, "InvokeAsyncRequest");
 }
 
 /**
@@ -2107,17 +2055,14 @@ export interface InvokeAsyncResponse {
 }
 
 export namespace InvokeAsyncResponse {
-  export const isa = (o: any): o is InvokeAsyncResponse =>
-    __isa(o, "InvokeAsyncResponse");
+  export const isa = (o: any): o is InvokeAsyncResponse => __isa(o, "InvokeAsyncResponse");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda
  *       function's KMS permissions.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -2133,9 +2078,7 @@ export namespace KMSAccessDeniedException {
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
  *       function's KMS key settings.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "server";
   Message?: string;
@@ -2143,17 +2086,14 @@ export interface KMSDisabledException
 }
 
 export namespace KMSDisabledException {
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for
  *       Decrypt. Check the function's KMS key settings.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "server";
   Message?: string;
@@ -2169,9 +2109,7 @@ export namespace KMSInvalidStateException {
  * <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
  *       KMS key settings. </p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "server";
   Message?: string;
@@ -2179,8 +2117,7 @@ export interface KMSNotFoundException
 }
 
 export namespace KMSNotFoundException {
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 export enum LastUpdateStatus {
@@ -2319,8 +2256,7 @@ export interface LayerVersionsListItem {
 }
 
 export namespace LayerVersionsListItem {
-  export const isa = (o: any): o is LayerVersionsListItem =>
-    __isa(o, "LayerVersionsListItem");
+  export const isa = (o: any): o is LayerVersionsListItem => __isa(o, "LayerVersionsListItem");
 }
 
 /**
@@ -2346,8 +2282,7 @@ export interface LayersListItem {
 }
 
 export namespace LayersListItem {
-  export const isa = (o: any): o is LayersListItem =>
-    __isa(o, "LayersListItem");
+  export const isa = (o: any): o is LayersListItem => __isa(o, "LayersListItem");
 }
 
 export interface ListAliasesRequest {
@@ -2393,8 +2328,7 @@ export interface ListAliasesRequest {
 }
 
 export namespace ListAliasesRequest {
-  export const isa = (o: any): o is ListAliasesRequest =>
-    __isa(o, "ListAliasesRequest");
+  export const isa = (o: any): o is ListAliasesRequest => __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
@@ -2411,8 +2345,7 @@ export interface ListAliasesResponse {
 }
 
 export namespace ListAliasesResponse {
-  export const isa = (o: any): o is ListAliasesResponse =>
-    __isa(o, "ListAliasesResponse");
+  export const isa = (o: any): o is ListAliasesResponse => __isa(o, "ListAliasesResponse");
 }
 
 export interface ListEventSourceMappingsRequest {
@@ -2584,8 +2517,7 @@ export interface ListFunctionsRequest {
 }
 
 export namespace ListFunctionsRequest {
-  export const isa = (o: any): o is ListFunctionsRequest =>
-    __isa(o, "ListFunctionsRequest");
+  export const isa = (o: any): o is ListFunctionsRequest => __isa(o, "ListFunctionsRequest");
 }
 
 /**
@@ -2605,8 +2537,7 @@ export interface ListFunctionsResponse {
 }
 
 export namespace ListFunctionsResponse {
-  export const isa = (o: any): o is ListFunctionsResponse =>
-    __isa(o, "ListFunctionsResponse");
+  export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
 
 export interface ListLayerVersionsRequest {
@@ -2674,8 +2605,7 @@ export interface ListLayersRequest {
 }
 
 export namespace ListLayersRequest {
-  export const isa = (o: any): o is ListLayersRequest =>
-    __isa(o, "ListLayersRequest");
+  export const isa = (o: any): o is ListLayersRequest => __isa(o, "ListLayersRequest");
 }
 
 export interface ListLayersResponse {
@@ -2692,8 +2622,7 @@ export interface ListLayersResponse {
 }
 
 export namespace ListLayersResponse {
-  export const isa = (o: any): o is ListLayersResponse =>
-    __isa(o, "ListLayersResponse");
+  export const isa = (o: any): o is ListLayersResponse => __isa(o, "ListLayersResponse");
 }
 
 export interface ListProvisionedConcurrencyConfigsRequest {
@@ -2765,8 +2694,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -2778,8 +2706,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListVersionsByFunctionRequest {
@@ -2881,9 +2808,7 @@ export namespace OnSuccess {
  * <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface PolicyLengthExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyLengthExceededException extends __SmithyException, $MetadataBearer {
   name: "PolicyLengthExceededException";
   $fault: "client";
   Type?: string;
@@ -2900,9 +2825,7 @@ export namespace PolicyLengthExceededException {
  *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
  *       resource.</p>
  */
-export interface PreconditionFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
   name: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -2980,9 +2903,7 @@ export interface ProvisionedConcurrencyConfigNotFoundException
 }
 
 export namespace ProvisionedConcurrencyConfigNotFoundException {
-  export const isa = (
-    o: any
-  ): o is ProvisionedConcurrencyConfigNotFoundException =>
+  export const isa = (o: any): o is ProvisionedConcurrencyConfigNotFoundException =>
     __isa(o, "ProvisionedConcurrencyConfigNotFoundException");
 }
 
@@ -3133,8 +3054,7 @@ export interface PublishVersionRequest {
 }
 
 export namespace PublishVersionRequest {
-  export const isa = (o: any): o is PublishVersionRequest =>
-    __isa(o, "PublishVersionRequest");
+  export const isa = (o: any): o is PublishVersionRequest => __isa(o, "PublishVersionRequest");
 }
 
 export interface PutFunctionConcurrencyRequest {
@@ -3400,17 +3320,14 @@ export interface RemovePermissionRequest {
 }
 
 export namespace RemovePermissionRequest {
-  export const isa = (o: any): o is RemovePermissionRequest =>
-    __isa(o, "RemovePermissionRequest");
+  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 /**
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
  */
-export interface RequestTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestTooLargeException extends __SmithyException, $MetadataBearer {
   name: "RequestTooLargeException";
   $fault: "client";
   Type?: string;
@@ -3425,9 +3342,7 @@ export namespace RequestTooLargeException {
 /**
  * <p>The resource already exists, or another operation is in progress.</p>
  */
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -3450,9 +3365,7 @@ export namespace ResourceConflictException {
  * <p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource
  *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state. </p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -3460,16 +3373,13 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The resource specified in the request does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3485,9 +3395,7 @@ export namespace ResourceNotFoundException {
  * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
  *       reestablish and try again.</p>
  */
-export interface ResourceNotReadyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotReadyException";
   $fault: "server";
   /**
@@ -3539,8 +3447,7 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 export enum State {
@@ -3567,9 +3474,7 @@ export enum StateReasonCode {
  * <p>AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
  *       has no available IP addresses.</p>
  */
-export interface SubnetIPAddressLimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetIPAddressLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "SubnetIPAddressLimitReachedException";
   $fault: "server";
   Message?: string;
@@ -3595,8 +3500,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export enum ThrottleReason {
@@ -3610,9 +3514,7 @@ export enum ThrottleReason {
 /**
  * <p>The request throughput limit was exceeded.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Reason?: ThrottleReason | string;
@@ -3657,8 +3559,7 @@ export interface TracingConfigResponse {
 }
 
 export namespace TracingConfigResponse {
-  export const isa = (o: any): o is TracingConfigResponse =>
-    __isa(o, "TracingConfigResponse");
+  export const isa = (o: any): o is TracingConfigResponse => __isa(o, "TracingConfigResponse");
 }
 
 export enum TracingMode {
@@ -3669,9 +3570,7 @@ export enum TracingMode {
 /**
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
-export interface UnsupportedMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   Type?: string;
@@ -3697,8 +3596,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAliasRequest {
@@ -3756,8 +3654,7 @@ export interface UpdateAliasRequest {
 }
 
 export namespace UpdateAliasRequest {
-  export const isa = (o: any): o is UpdateAliasRequest =>
-    __isa(o, "UpdateAliasRequest");
+  export const isa = (o: any): o is UpdateAliasRequest => __isa(o, "UpdateAliasRequest");
 }
 
 export interface UpdateEventSourceMappingRequest {
@@ -4149,6 +4046,5 @@ export interface VpcConfigResponse {
 }
 
 export namespace VpcConfigResponse {
-  export const isa = (o: any): o is VpcConfigResponse =>
-    __isa(o, "VpcConfigResponse");
+  export const isa = (o: any): o is VpcConfigResponse => __isa(o, "VpcConfigResponse");
 }

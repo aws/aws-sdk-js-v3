@@ -45,13 +45,8 @@ export class StopConfigurationRecorderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopConfigurationRecorderCommandInput,
-    StopConfigurationRecorderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopConfigurationRecorderCommandInput, StopConfigurationRecorderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class StopConfigurationRecorderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1StopConfigurationRecorderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

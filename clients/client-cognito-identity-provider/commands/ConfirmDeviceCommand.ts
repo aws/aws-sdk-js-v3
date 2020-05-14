@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmDeviceCommandInput = ConfirmDeviceRequest;
-export type ConfirmDeviceCommandOutput = ConfirmDeviceResponse &
-  __MetadataBearer;
+export type ConfirmDeviceCommandOutput = ConfirmDeviceResponse & __MetadataBearer;
 
 export class ConfirmDeviceCommand extends $Command<
   ConfirmDeviceCommandInput,
@@ -47,9 +46,7 @@ export class ConfirmDeviceCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

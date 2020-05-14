@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Invalid request parameters.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -37,8 +31,7 @@ export interface CdnConfiguration {
 }
 
 export namespace CdnConfiguration {
-  export const isa = (o: any): o is CdnConfiguration =>
-    __isa(o, "CdnConfiguration");
+  export const isa = (o: any): o is CdnConfiguration => __isa(o, "CdnConfiguration");
 }
 
 /**
@@ -63,8 +56,7 @@ export interface DashConfiguration {
 }
 
 export namespace DashConfiguration {
-  export const isa = (o: any): o is DashConfiguration =>
-    __isa(o, "DashConfiguration");
+  export const isa = (o: any): o is DashConfiguration => __isa(o, "DashConfiguration");
 }
 
 /**
@@ -84,8 +76,7 @@ export interface DashConfigurationForPut {
 }
 
 export namespace DashConfigurationForPut {
-  export const isa = (o: any): o is DashConfigurationForPut =>
-    __isa(o, "DashConfigurationForPut");
+  export const isa = (o: any): o is DashConfigurationForPut => __isa(o, "DashConfigurationForPut");
 }
 
 export interface DeletePlaybackConfigurationRequest {
@@ -208,8 +199,7 @@ export interface HlsConfiguration {
 }
 
 export namespace HlsConfiguration {
-  export const isa = (o: any): o is HlsConfiguration =>
-    __isa(o, "HlsConfiguration");
+  export const isa = (o: any): o is HlsConfiguration => __isa(o, "HlsConfiguration");
 }
 
 export interface ListPlaybackConfigurationsRequest {
@@ -372,8 +362,7 @@ export interface PlaybackConfiguration {
 }
 
 export namespace PlaybackConfiguration {
-  export const isa = (o: any): o is PlaybackConfiguration =>
-    __isa(o, "PlaybackConfiguration");
+  export const isa = (o: any): o is PlaybackConfiguration => __isa(o, "PlaybackConfiguration");
 }
 
 export interface PutPlaybackConfigurationRequest {
@@ -521,8 +510,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -539,6 +527,5 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }

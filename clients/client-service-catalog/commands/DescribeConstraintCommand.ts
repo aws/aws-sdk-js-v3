@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeConstraintInput,
-  DescribeConstraintOutput
-} from "../models/index";
+import { DescribeConstraintInput, DescribeConstraintOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConstraintCommand,
   serializeAws_json1_1DescribeConstraintCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConstraintCommandInput = DescribeConstraintInput;
-export type DescribeConstraintCommandOutput = DescribeConstraintOutput &
-  __MetadataBearer;
+export type DescribeConstraintCommandOutput = DescribeConstraintOutput & __MetadataBearer;
 
 export class DescribeConstraintCommand extends $Command<
   DescribeConstraintCommandInput,
@@ -50,9 +46,7 @@ export class DescribeConstraintCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeConstraintCommandInput, DescribeConstraintCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -23,10 +23,7 @@ describe("bucketEndpointMiddleware", () => {
 
   it("should convert the request provided into one directed to a virtual hosted-style endpoint", async () => {
     const request = new HttpRequest(requestInput);
-    const handler = bucketEndpointMiddleware(resolveBucketEndpointConfig({}))(
-      next,
-      {} as any
-    );
+    const handler = bucketEndpointMiddleware(resolveBucketEndpointConfig({}))(next, {} as any);
     await handler({ input, request });
 
     const {
@@ -148,10 +145,7 @@ describe("bucketEndpointMiddleware", () => {
       ...bucketEndpointMiddlewareOptions,
       name: bucketEndpointMiddlewareOptions.toMiddleware
     });
-    stack.addRelativeTo(
-      mockbucketEndpointMiddleware,
-      bucketEndpointMiddlewareOptions
-    );
+    stack.addRelativeTo(mockbucketEndpointMiddleware, bucketEndpointMiddlewareOptions);
     const handler = stack.resolve(next, {} as any);
     expect.assertions(2);
     await handler({ request: { arr: [] }, input: {} } as any);

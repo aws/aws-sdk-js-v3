@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePortfolioCommandInput = CreatePortfolioInput;
-export type CreatePortfolioCommandOutput = CreatePortfolioOutput &
-  __MetadataBearer;
+export type CreatePortfolioCommandOutput = CreatePortfolioOutput & __MetadataBearer;
 
 export class CreatePortfolioCommand extends $Command<
   CreatePortfolioCommandInput,
@@ -47,9 +46,7 @@ export class CreatePortfolioCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePortfolioCommandInput, CreatePortfolioCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

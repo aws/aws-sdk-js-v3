@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBParameterGroupDetails,
-  DescribeDBParametersMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBParametersCommand,
   serializeAws_queryDescribeDBParametersCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBParametersCommandInput = DescribeDBParametersMessage;
-export type DescribeDBParametersCommandOutput = DBParameterGroupDetails &
-  __MetadataBearer;
+export type DescribeDBParametersCommandOutput = DBParameterGroupDetails & __MetadataBearer;
 
 export class DescribeDBParametersCommand extends $Command<
   DescribeDBParametersCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDBParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBParametersCommandInput,
-    DescribeDBParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBParametersCommandInput, DescribeDBParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

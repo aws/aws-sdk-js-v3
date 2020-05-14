@@ -10,14 +10,8 @@ import {
   AddJobFlowStepsCommandInput,
   AddJobFlowStepsCommandOutput
 } from "../commands/AddJobFlowStepsCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "../commands/AddTagsCommand";
-import {
-  CancelStepsCommandInput,
-  CancelStepsCommandOutput
-} from "../commands/CancelStepsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
+import { CancelStepsCommandInput, CancelStepsCommandOutput } from "../commands/CancelStepsCommand";
 import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput
@@ -70,10 +64,7 @@ import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput
 } from "../commands/ListSecurityConfigurationsCommand";
-import {
-  ListStepsCommandInput,
-  ListStepsCommandOutput
-} from "../commands/ListStepsCommand";
+import { ListStepsCommandInput, ListStepsCommandOutput } from "../commands/ListStepsCommand";
 import {
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput
@@ -98,14 +89,8 @@ import {
   RemoveAutoScalingPolicyCommandInput,
   RemoveAutoScalingPolicyCommandOutput
 } from "../commands/RemoveAutoScalingPolicyCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "../commands/RemoveTagsCommand";
-import {
-  RunJobFlowCommandInput,
-  RunJobFlowCommandOutput
-} from "../commands/RunJobFlowCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
+import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "../commands/RunJobFlowCommand";
 import {
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput
@@ -281,9 +266,7 @@ export const serializeAws_json1_1AddInstanceFleetCommand = async (
     "X-Amz-Target": "ElasticMapReduce.AddInstanceFleet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddInstanceFleetInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -296,9 +279,7 @@ export const serializeAws_json1_1AddInstanceGroupsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.AddInstanceGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddInstanceGroupsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -311,9 +292,7 @@ export const serializeAws_json1_1AddJobFlowStepsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.AddJobFlowSteps"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddJobFlowStepsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddJobFlowStepsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -352,9 +331,7 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
     "X-Amz-Target": "ElasticMapReduce.CreateSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSecurityConfigurationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,9 +344,7 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
     "X-Amz-Target": "ElasticMapReduce.DeleteSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSecurityConfigurationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -382,9 +357,7 @@ export const serializeAws_json1_1DescribeClusterCommand = async (
     "X-Amz-Target": "ElasticMapReduce.DescribeCluster"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeClusterInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeClusterInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -397,9 +370,7 @@ export const serializeAws_json1_1DescribeJobFlowsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.DescribeJobFlows"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeJobFlowsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -412,9 +383,7 @@ export const serializeAws_json1_1DescribeSecurityConfigurationCommand = async (
     "X-Amz-Target": "ElasticMapReduce.DescribeSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSecurityConfigurationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSecurityConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -440,9 +409,7 @@ export const serializeAws_json1_1GetBlockPublicAccessConfigurationCommand = asyn
     "X-Amz-Target": "ElasticMapReduce.GetBlockPublicAccessConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,9 +422,7 @@ export const serializeAws_json1_1ListBootstrapActionsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ListBootstrapActions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListBootstrapActionsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListBootstrapActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -483,9 +448,7 @@ export const serializeAws_json1_1ListInstanceFleetsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ListInstanceFleets"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListInstanceFleetsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListInstanceFleetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -498,9 +461,7 @@ export const serializeAws_json1_1ListInstanceGroupsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ListInstanceGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListInstanceGroupsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,9 +487,7 @@ export const serializeAws_json1_1ListSecurityConfigurationsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ListSecurityConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListSecurityConfigurationsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListSecurityConfigurationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -567,9 +526,7 @@ export const serializeAws_json1_1ModifyInstanceFleetCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ModifyInstanceFleet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyInstanceFleetInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -582,9 +539,7 @@ export const serializeAws_json1_1ModifyInstanceGroupsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.ModifyInstanceGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ModifyInstanceGroupsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ModifyInstanceGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -597,9 +552,7 @@ export const serializeAws_json1_1PutAutoScalingPolicyCommand = async (
     "X-Amz-Target": "ElasticMapReduce.PutAutoScalingPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutAutoScalingPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -612,9 +565,7 @@ export const serializeAws_json1_1PutBlockPublicAccessConfigurationCommand = asyn
     "X-Amz-Target": "ElasticMapReduce.PutBlockPublicAccessConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -627,9 +578,7 @@ export const serializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
     "X-Amz-Target": "ElasticMapReduce.RemoveAutoScalingPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -668,9 +617,7 @@ export const serializeAws_json1_1SetTerminationProtectionCommand = async (
     "X-Amz-Target": "ElasticMapReduce.SetTerminationProtection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SetTerminationProtectionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SetTerminationProtectionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -683,9 +630,7 @@ export const serializeAws_json1_1SetVisibleToAllUsersCommand = async (
     "X-Amz-Target": "ElasticMapReduce.SetVisibleToAllUsers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SetVisibleToAllUsersInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SetVisibleToAllUsersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -698,9 +643,7 @@ export const serializeAws_json1_1TerminateJobFlowsCommand = async (
     "X-Amz-Target": "ElasticMapReduce.TerminateJobFlows"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TerminateJobFlowsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TerminateJobFlowsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -733,16 +676,12 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -750,10 +689,7 @@ const deserializeAws_json1_1AddInstanceFleetCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -804,16 +740,12 @@ const deserializeAws_json1_1AddInstanceGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -864,16 +796,12 @@ const deserializeAws_json1_1AddJobFlowStepsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -924,16 +852,12 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -941,10 +865,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -995,16 +916,12 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1012,10 +929,7 @@ const deserializeAws_json1_1CancelStepsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1042,17 +956,11 @@ export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(data, context);
   const response: CreateSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSecurityConfigurationOutput",
@@ -1072,16 +980,12 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1089,10 +993,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1119,17 +1020,11 @@ export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(data, context);
   const response: DeleteSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSecurityConfigurationOutput",
@@ -1149,16 +1044,12 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1166,10 +1057,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1220,16 +1108,12 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1237,10 +1121,7 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1291,16 +1172,12 @@ const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1327,17 +1204,11 @@ export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(data, context);
   const response: DescribeSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSecurityConfigurationOutput",
@@ -1357,16 +1228,12 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1374,10 +1241,7 @@ const deserializeAws_json1_1DescribeSecurityConfigurationCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1428,16 +1292,12 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,10 +1305,7 @@ const deserializeAws_json1_1DescribeStepCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1475,17 +1332,11 @@ export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = as
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(data, context);
   const response: GetBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBlockPublicAccessConfigurationOutput",
@@ -1505,16 +1356,12 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1522,10 +1369,7 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError = asyn
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1552,10 +1396,7 @@ export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListBootstrapActionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListBootstrapActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1579,16 +1420,12 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1596,10 +1433,7 @@ const deserializeAws_json1_1ListBootstrapActionsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1650,16 +1484,12 @@ const deserializeAws_json1_1ListClustersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,10 +1497,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1697,10 +1524,7 @@ export const deserializeAws_json1_1ListInstanceFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListInstanceFleetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListInstanceFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1724,16 +1548,12 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1741,10 +1561,7 @@ const deserializeAws_json1_1ListInstanceFleetsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1771,10 +1588,7 @@ export const deserializeAws_json1_1ListInstanceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListInstanceGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListInstanceGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1798,16 +1612,12 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1815,10 +1625,7 @@ const deserializeAws_json1_1ListInstanceGroupsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1869,16 +1676,12 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1886,10 +1689,7 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1916,17 +1716,11 @@ export const deserializeAws_json1_1ListSecurityConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSecurityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(data, context);
   const response: ListSecurityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSecurityConfigurationsOutput",
@@ -1946,16 +1740,12 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1963,10 +1753,7 @@ const deserializeAws_json1_1ListSecurityConfigurationsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2017,16 +1804,12 @@ const deserializeAws_json1_1ListStepsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2034,10 +1817,7 @@ const deserializeAws_json1_1ListStepsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2088,16 +1868,12 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2105,10 +1881,7 @@ const deserializeAws_json1_1ModifyClusterCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2135,10 +1908,7 @@ export const deserializeAws_json1_1ModifyInstanceFleetCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyInstanceFleetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyInstanceFleetCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceFleetCommandOutput = {
@@ -2158,16 +1928,12 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2175,10 +1941,7 @@ const deserializeAws_json1_1ModifyInstanceFleetCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2205,10 +1968,7 @@ export const deserializeAws_json1_1ModifyInstanceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyInstanceGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyInstanceGroupsCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceGroupsCommandOutput = {
@@ -2228,16 +1988,12 @@ const deserializeAws_json1_1ModifyInstanceGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2264,10 +2020,7 @@ export const deserializeAws_json1_1PutAutoScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutAutoScalingPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2291,8 +2044,7 @@ const deserializeAws_json1_1PutAutoScalingPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -2316,17 +2068,11 @@ export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = as
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(data, context);
   const response: PutBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutBlockPublicAccessConfigurationOutput",
@@ -2346,16 +2092,12 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2363,10 +2105,7 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError = asyn
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2393,10 +2132,7 @@ export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2420,8 +2156,7 @@ const deserializeAws_json1_1RemoveAutoScalingPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -2469,16 +2204,12 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2486,10 +2217,7 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2540,16 +2268,12 @@ const deserializeAws_json1_1RunJobFlowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2576,10 +2300,7 @@ export const deserializeAws_json1_1SetTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetTerminationProtectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetTerminationProtectionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetTerminationProtectionCommandOutput = {
@@ -2599,16 +2320,12 @@ const deserializeAws_json1_1SetTerminationProtectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2635,10 +2352,7 @@ export const deserializeAws_json1_1SetVisibleToAllUsersCommand = async (
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetVisibleToAllUsersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetVisibleToAllUsersCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetVisibleToAllUsersCommandOutput = {
@@ -2658,16 +2372,12 @@ const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2714,16 +2424,12 @@ const deserializeAws_json1_1TerminateJobFlowsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2750,10 +2456,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -2768,10 +2471,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
@@ -2786,10 +2486,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
@@ -2806,10 +2503,7 @@ const serializeAws_json1_1AddInstanceFleetInput = (
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.InstanceFleet !== undefined && {
-      InstanceFleet: serializeAws_json1_1InstanceFleetConfig(
-        input.InstanceFleet,
-        context
-      )
+      InstanceFleet: serializeAws_json1_1InstanceFleetConfig(input.InstanceFleet, context)
     })
   };
 };
@@ -2820,10 +2514,7 @@ const serializeAws_json1_1AddInstanceGroupsInput = (
 ): any => {
   return {
     ...(input.InstanceGroups !== undefined && {
-      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(
-        input.InstanceGroups,
-        context
-      )
+      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context)
     }),
     ...(input.JobFlowId !== undefined && { JobFlowId: input.JobFlowId })
   };
@@ -2841,10 +2532,7 @@ const serializeAws_json1_1AddJobFlowStepsInput = (
   };
 };
 
-const serializeAws_json1_1AddTagsInput = (
-  input: AddTagsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
     ...(input.Tags !== undefined && {
@@ -2853,16 +2541,10 @@ const serializeAws_json1_1AddTagsInput = (
   };
 };
 
-const serializeAws_json1_1Application = (
-  input: Application,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Application = (input: Application, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalInfo !== undefined && {
-      AdditionalInfo: serializeAws_json1_1StringMap(
-        input.AdditionalInfo,
-        context
-      )
+      AdditionalInfo: serializeAws_json1_1StringMap(input.AdditionalInfo, context)
     }),
     ...(input.Args !== undefined && {
       Args: serializeAws_json1_1StringList(input.Args, context)
@@ -2885,10 +2567,7 @@ const serializeAws_json1_1AutoScalingPolicy = (
 ): any => {
   return {
     ...(input.Constraints !== undefined && {
-      Constraints: serializeAws_json1_1ScalingConstraints(
-        input.Constraints,
-        context
-      )
+      Constraints: serializeAws_json1_1ScalingConstraints(input.Constraints, context)
     }),
     ...(input.Rules !== undefined && {
       Rules: serializeAws_json1_1ScalingRuleList(input.Rules, context)
@@ -2908,10 +2587,7 @@ const serializeAws_json1_1BlockPublicAccessConfiguration = (
       Classification: input.Classification
     }),
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.PermittedPublicSecurityGroupRuleRanges !== undefined && {
       PermittedPublicSecurityGroupRuleRanges: serializeAws_json1_1PortRanges(
@@ -2944,9 +2620,7 @@ const serializeAws_json1_1BootstrapActionConfigList = (
   input: BootstrapActionConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1BootstrapActionConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1BootstrapActionConfig(entry, context));
 };
 
 const serializeAws_json1_1CancelStepsInput = (
@@ -2973,10 +2647,7 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
       ComparisonOperator: input.ComparisonOperator
     }),
     ...(input.Dimensions !== undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensionList(
-        input.Dimensions,
-        context
-      )
+      Dimensions: serializeAws_json1_1MetricDimensionList(input.Dimensions, context)
     }),
     ...(input.EvaluationPeriods !== undefined && {
       EvaluationPeriods: input.EvaluationPeriods
@@ -2997,19 +2668,13 @@ const serializeAws_json1_1ClusterStateList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Configuration = (
-  input: Configuration,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
     ...(input.Classification !== undefined && {
       Classification: input.Classification
     }),
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.Properties !== undefined && {
       Properties: serializeAws_json1_1StringMap(input.Properties, context)
@@ -3069,10 +2734,7 @@ const serializeAws_json1_1DescribeJobFlowsInput = (
       JobFlowIds: serializeAws_json1_1XmlStringList(input.JobFlowIds, context)
     }),
     ...(input.JobFlowStates !== undefined && {
-      JobFlowStates: serializeAws_json1_1JobFlowExecutionStateList(
-        input.JobFlowStates,
-        context
-      )
+      JobFlowStates: serializeAws_json1_1JobFlowExecutionStateList(input.JobFlowStates, context)
     })
   };
 };
@@ -3096,10 +2758,7 @@ const serializeAws_json1_1DescribeStepInput = (
   };
 };
 
-const serializeAws_json1_1EC2InstanceIdsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EC2InstanceIdsList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3131,9 +2790,7 @@ const serializeAws_json1_1EbsBlockDeviceConfigList = (
   input: EbsBlockDeviceConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1EbsBlockDeviceConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1EbsBlockDeviceConfig(entry, context));
 };
 
 const serializeAws_json1_1EbsConfiguration = (
@@ -3210,9 +2867,7 @@ const serializeAws_json1_1InstanceFleetConfigList = (
   input: InstanceFleetConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1InstanceFleetConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1InstanceFleetConfig(entry, context));
 };
 
 const serializeAws_json1_1InstanceFleetModifyConfig = (
@@ -3252,23 +2907,14 @@ const serializeAws_json1_1InstanceGroupConfig = (
 ): any => {
   return {
     ...(input.AutoScalingPolicy !== undefined && {
-      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(
-        input.AutoScalingPolicy,
-        context
-      )
+      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context)
     }),
     ...(input.BidPrice !== undefined && { BidPrice: input.BidPrice }),
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.EbsConfiguration !== undefined && {
-      EbsConfiguration: serializeAws_json1_1EbsConfiguration(
-        input.EbsConfiguration,
-        context
-      )
+      EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context)
     }),
     ...(input.InstanceCount !== undefined && {
       InstanceCount: input.InstanceCount
@@ -3288,9 +2934,7 @@ const serializeAws_json1_1InstanceGroupConfigList = (
   input: InstanceGroupConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1InstanceGroupConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1InstanceGroupConfig(entry, context));
 };
 
 const serializeAws_json1_1InstanceGroupModifyConfig = (
@@ -3299,10 +2943,7 @@ const serializeAws_json1_1InstanceGroupModifyConfig = (
 ): any => {
   return {
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.EC2InstanceIdsToTerminate !== undefined && {
       EC2InstanceIdsToTerminate: serializeAws_json1_1EC2InstanceIdsToTerminateList(
@@ -3317,10 +2958,7 @@ const serializeAws_json1_1InstanceGroupModifyConfig = (
       InstanceGroupId: input.InstanceGroupId
     }),
     ...(input.ShrinkPolicy !== undefined && {
-      ShrinkPolicy: serializeAws_json1_1ShrinkPolicy(
-        input.ShrinkPolicy,
-        context
-      )
+      ShrinkPolicy: serializeAws_json1_1ShrinkPolicy(input.ShrinkPolicy, context)
     })
   };
 };
@@ -3329,9 +2967,7 @@ const serializeAws_json1_1InstanceGroupModifyConfigList = (
   input: InstanceGroupModifyConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1InstanceGroupModifyConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1InstanceGroupModifyConfig(entry, context));
 };
 
 const serializeAws_json1_1InstanceGroupTypeList = (
@@ -3350,10 +2986,7 @@ const serializeAws_json1_1InstanceResizePolicy = (
       InstanceTerminationTimeout: input.InstanceTerminationTimeout
     }),
     ...(input.InstancesToProtect !== undefined && {
-      InstancesToProtect: serializeAws_json1_1EC2InstanceIdsList(
-        input.InstancesToProtect,
-        context
-      )
+      InstancesToProtect: serializeAws_json1_1EC2InstanceIdsList(input.InstancesToProtect, context)
     }),
     ...(input.InstancesToTerminate !== undefined && {
       InstancesToTerminate: serializeAws_json1_1EC2InstanceIdsList(
@@ -3378,20 +3011,13 @@ const serializeAws_json1_1InstanceTypeConfig = (
   return {
     ...(input.BidPrice !== undefined && { BidPrice: input.BidPrice }),
     ...(input.BidPriceAsPercentageOfOnDemandPrice !== undefined && {
-      BidPriceAsPercentageOfOnDemandPrice:
-        input.BidPriceAsPercentageOfOnDemandPrice
+      BidPriceAsPercentageOfOnDemandPrice: input.BidPriceAsPercentageOfOnDemandPrice
     }),
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.EbsConfiguration !== undefined && {
-      EbsConfiguration: serializeAws_json1_1EbsConfiguration(
-        input.EbsConfiguration,
-        context
-      )
+      EbsConfiguration: serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context)
     }),
     ...(input.InstanceType !== undefined && {
       InstanceType: input.InstanceType
@@ -3406,9 +3032,7 @@ const serializeAws_json1_1InstanceTypeConfigList = (
   input: InstanceTypeConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1InstanceTypeConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1InstanceTypeConfig(entry, context));
 };
 
 const serializeAws_json1_1JobFlowExecutionStateList = (
@@ -3438,10 +3062,7 @@ const serializeAws_json1_1JobFlowInstancesConfig = (
     ...(input.Ec2KeyName !== undefined && { Ec2KeyName: input.Ec2KeyName }),
     ...(input.Ec2SubnetId !== undefined && { Ec2SubnetId: input.Ec2SubnetId }),
     ...(input.Ec2SubnetIds !== undefined && {
-      Ec2SubnetIds: serializeAws_json1_1XmlStringMaxLen256List(
-        input.Ec2SubnetIds,
-        context
-      )
+      Ec2SubnetIds: serializeAws_json1_1XmlStringMaxLen256List(input.Ec2SubnetIds, context)
     }),
     ...(input.EmrManagedMasterSecurityGroup !== undefined && {
       EmrManagedMasterSecurityGroup: input.EmrManagedMasterSecurityGroup
@@ -3456,16 +3077,10 @@ const serializeAws_json1_1JobFlowInstancesConfig = (
       InstanceCount: input.InstanceCount
     }),
     ...(input.InstanceFleets !== undefined && {
-      InstanceFleets: serializeAws_json1_1InstanceFleetConfigList(
-        input.InstanceFleets,
-        context
-      )
+      InstanceFleets: serializeAws_json1_1InstanceFleetConfigList(input.InstanceFleets, context)
     }),
     ...(input.InstanceGroups !== undefined && {
-      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(
-        input.InstanceGroups,
-        context
-      )
+      InstanceGroups: serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context)
     }),
     ...(input.KeepJobFlowAliveWhenNoSteps !== undefined && {
       KeepJobFlowAliveWhenNoSteps: input.KeepJobFlowAliveWhenNoSteps
@@ -3509,20 +3124,14 @@ const serializeAws_json1_1KerberosAttributes = (
   };
 };
 
-const serializeAws_json1_1KeyValue = (
-  input: KeyValue,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1KeyValue = (input: KeyValue, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_json1_1KeyValueList = (
-  input: KeyValue[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1KeyValueList = (input: KeyValue[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1KeyValue(entry, context));
 };
 
@@ -3542,10 +3151,7 @@ const serializeAws_json1_1ListClustersInput = (
 ): any => {
   return {
     ...(input.ClusterStates !== undefined && {
-      ClusterStates: serializeAws_json1_1ClusterStateList(
-        input.ClusterStates,
-        context
-      )
+      ClusterStates: serializeAws_json1_1ClusterStateList(input.ClusterStates, context)
     }),
     ...(input.CreatedAfter !== undefined && {
       CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000)
@@ -3599,10 +3205,7 @@ const serializeAws_json1_1ListInstancesInput = (
       )
     }),
     ...(input.InstanceStates !== undefined && {
-      InstanceStates: serializeAws_json1_1InstanceStateList(
-        input.InstanceStates,
-        context
-      )
+      InstanceStates: serializeAws_json1_1InstanceStateList(input.InstanceStates, context)
     }),
     ...(input.Marker !== undefined && { Marker: input.Marker })
   };
@@ -3647,9 +3250,7 @@ const serializeAws_json1_1MetricDimensionList = (
   input: MetricDimension[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1MetricDimension(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1MetricDimension(entry, context));
 };
 
 const serializeAws_json1_1ModifyClusterInput = (
@@ -3671,10 +3272,7 @@ const serializeAws_json1_1ModifyInstanceFleetInput = (
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.InstanceFleet !== undefined && {
-      InstanceFleet: serializeAws_json1_1InstanceFleetModifyConfig(
-        input.InstanceFleet,
-        context
-      )
+      InstanceFleet: serializeAws_json1_1InstanceFleetModifyConfig(input.InstanceFleet, context)
     })
   };
 };
@@ -3698,15 +3296,10 @@ const serializeAws_json1_1NewSupportedProductsList = (
   input: SupportedProductConfig[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SupportedProductConfig(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1SupportedProductConfig(entry, context));
 };
 
-const serializeAws_json1_1PlacementType = (
-  input: PlacementType,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PlacementType = (input: PlacementType, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone !== undefined && {
       AvailabilityZone: input.AvailabilityZone
@@ -3720,20 +3313,14 @@ const serializeAws_json1_1PlacementType = (
   };
 };
 
-const serializeAws_json1_1PortRange = (
-  input: PortRange,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.MaxRange !== undefined && { MaxRange: input.MaxRange }),
     ...(input.MinRange !== undefined && { MinRange: input.MinRange })
   };
 };
 
-const serializeAws_json1_1PortRanges = (
-  input: PortRange[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PortRanges = (input: PortRange[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1PortRange(entry, context));
 };
 
@@ -3743,10 +3330,7 @@ const serializeAws_json1_1PutAutoScalingPolicyInput = (
 ): any => {
   return {
     ...(input.AutoScalingPolicy !== undefined && {
-      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(
-        input.AutoScalingPolicy,
-        context
-      )
+      AutoScalingPolicy: serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context)
     }),
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.InstanceGroupId !== undefined && {
@@ -3803,10 +3387,7 @@ const serializeAws_json1_1RunJobFlowInput = (
     }),
     ...(input.AmiVersion !== undefined && { AmiVersion: input.AmiVersion }),
     ...(input.Applications !== undefined && {
-      Applications: serializeAws_json1_1ApplicationList(
-        input.Applications,
-        context
-      )
+      Applications: serializeAws_json1_1ApplicationList(input.Applications, context)
     }),
     ...(input.AutoScalingRole !== undefined && {
       AutoScalingRole: input.AutoScalingRole
@@ -3818,27 +3399,18 @@ const serializeAws_json1_1RunJobFlowInput = (
       )
     }),
     ...(input.Configurations !== undefined && {
-      Configurations: serializeAws_json1_1ConfigurationList(
-        input.Configurations,
-        context
-      )
+      Configurations: serializeAws_json1_1ConfigurationList(input.Configurations, context)
     }),
     ...(input.CustomAmiId !== undefined && { CustomAmiId: input.CustomAmiId }),
     ...(input.EbsRootVolumeSize !== undefined && {
       EbsRootVolumeSize: input.EbsRootVolumeSize
     }),
     ...(input.Instances !== undefined && {
-      Instances: serializeAws_json1_1JobFlowInstancesConfig(
-        input.Instances,
-        context
-      )
+      Instances: serializeAws_json1_1JobFlowInstancesConfig(input.Instances, context)
     }),
     ...(input.JobFlowRole !== undefined && { JobFlowRole: input.JobFlowRole }),
     ...(input.KerberosAttributes !== undefined && {
-      KerberosAttributes: serializeAws_json1_1KerberosAttributes(
-        input.KerberosAttributes,
-        context
-      )
+      KerberosAttributes: serializeAws_json1_1KerberosAttributes(input.KerberosAttributes, context)
     }),
     ...(input.LogUri !== undefined && { LogUri: input.LogUri }),
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -3868,10 +3440,7 @@ const serializeAws_json1_1RunJobFlowInput = (
       Steps: serializeAws_json1_1StepConfigList(input.Steps, context)
     }),
     ...(input.SupportedProducts !== undefined && {
-      SupportedProducts: serializeAws_json1_1SupportedProductsList(
-        input.SupportedProducts,
-        context
-      )
+      SupportedProducts: serializeAws_json1_1SupportedProductsList(input.SupportedProducts, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_json1_1TagList(input.Tags, context)
@@ -3882,10 +3451,7 @@ const serializeAws_json1_1RunJobFlowInput = (
   };
 };
 
-const serializeAws_json1_1ScalingAction = (
-  input: ScalingAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScalingAction = (input: ScalingAction, context: __SerdeContext): any => {
   return {
     ...(input.Market !== undefined && { Market: input.Market }),
     ...(input.SimpleScalingPolicyConfiguration !== undefined && {
@@ -3907,10 +3473,7 @@ const serializeAws_json1_1ScalingConstraints = (
   };
 };
 
-const serializeAws_json1_1ScalingRule = (
-  input: ScalingRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScalingRule = (input: ScalingRule, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && {
       Action: serializeAws_json1_1ScalingAction(input.Action, context)
@@ -3956,10 +3519,7 @@ const serializeAws_json1_1ScriptBootstrapActionConfig = (
   };
 };
 
-const serializeAws_json1_1SecurityGroupsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SecurityGroupsList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3991,10 +3551,7 @@ const serializeAws_json1_1SetVisibleToAllUsersInput = (
   };
 };
 
-const serializeAws_json1_1ShrinkPolicy = (
-  input: ShrinkPolicy,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ShrinkPolicy = (input: ShrinkPolicy, context: __SerdeContext): any => {
   return {
     ...(input.DecommissionTimeout !== undefined && {
       DecommissionTimeout: input.DecommissionTimeout
@@ -4040,35 +3597,23 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
   };
 };
 
-const serializeAws_json1_1StepConfig = (
-  input: StepConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StepConfig = (input: StepConfig, context: __SerdeContext): any => {
   return {
     ...(input.ActionOnFailure !== undefined && {
       ActionOnFailure: input.ActionOnFailure
     }),
     ...(input.HadoopJarStep !== undefined && {
-      HadoopJarStep: serializeAws_json1_1HadoopJarStepConfig(
-        input.HadoopJarStep,
-        context
-      )
+      HadoopJarStep: serializeAws_json1_1HadoopJarStepConfig(input.HadoopJarStep, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name })
   };
 };
 
-const serializeAws_json1_1StepConfigList = (
-  input: StepConfig[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StepConfigList = (input: StepConfig[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1StepConfig(entry, context));
 };
 
-const serializeAws_json1_1StepIdsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StepIdsList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4079,10 +3624,7 @@ const serializeAws_json1_1StepStateList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4125,10 +3667,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -4154,10 +3693,7 @@ const serializeAws_json1_1VolumeSpecification = (
   };
 };
 
-const serializeAws_json1_1XmlStringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1XmlStringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4175,13 +3711,9 @@ const deserializeAws_json1_1AddInstanceFleetOutput = (
   return {
     __type: "AddInstanceFleetOutput",
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
+      output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     InstanceFleetId:
       output.InstanceFleetId !== undefined && output.InstanceFleetId !== null
         ? output.InstanceFleetId
@@ -4196,20 +3728,13 @@ const deserializeAws_json1_1AddInstanceGroupsOutput = (
   return {
     __type: "AddInstanceGroupsOutput",
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     InstanceGroupIds:
       output.InstanceGroupIds !== undefined && output.InstanceGroupIds !== null
-        ? deserializeAws_json1_1InstanceGroupIdsList(
-            output.InstanceGroupIds,
-            context
-          )
+        ? deserializeAws_json1_1InstanceGroupIdsList(output.InstanceGroupIds, context)
         : undefined,
     JobFlowId:
-      output.JobFlowId !== undefined && output.JobFlowId !== null
-        ? output.JobFlowId
-        : undefined
+      output.JobFlowId !== undefined && output.JobFlowId !== null ? output.JobFlowId : undefined
   } as any;
 };
 
@@ -4235,10 +3760,7 @@ const deserializeAws_json1_1AddTagsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1Application = (
-  output: any,
-  context: __SerdeContext
-): Application => {
+const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
   return {
     __type: "Application",
     AdditionalInfo:
@@ -4249,14 +3771,8 @@ const deserializeAws_json1_1Application = (
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1StringList(output.Args, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
@@ -4264,9 +3780,7 @@ const deserializeAws_json1_1ApplicationList = (
   output: any,
   context: __SerdeContext
 ): Application[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Application(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Application(entry, context));
 };
 
 const deserializeAws_json1_1AutoScalingPolicyDescription = (
@@ -4296,14 +3810,8 @@ const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
 ): AutoScalingPolicyStateChangeReason => {
   return {
     __type: "AutoScalingPolicyStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -4313,13 +3821,9 @@ const deserializeAws_json1_1AutoScalingPolicyStatus = (
 ): AutoScalingPolicyStatus => {
   return {
     __type: "AutoScalingPolicyStatus",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
         ? deserializeAws_json1_1AutoScalingPolicyStateChangeReason(
             output.StateChangeReason,
             context
@@ -4345,18 +3849,12 @@ const deserializeAws_json1_1BlockPublicAccessConfiguration = (
         : undefined,
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
-        ? deserializeAws_json1_1ConfigurationList(
-            output.Configurations,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     PermittedPublicSecurityGroupRuleRanges:
       output.PermittedPublicSecurityGroupRuleRanges !== undefined &&
       output.PermittedPublicSecurityGroupRuleRanges !== null
-        ? deserializeAws_json1_1PortRanges(
-            output.PermittedPublicSecurityGroupRuleRanges,
-            context
-          )
+        ? deserializeAws_json1_1PortRanges(output.PermittedPublicSecurityGroupRuleRanges, context)
         : undefined,
     Properties:
       output.Properties !== undefined && output.Properties !== null
@@ -4388,17 +3886,10 @@ const deserializeAws_json1_1BootstrapActionConfig = (
 ): BootstrapActionConfig => {
   return {
     __type: "BootstrapActionConfig",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScriptBootstrapAction:
-      output.ScriptBootstrapAction !== undefined &&
-      output.ScriptBootstrapAction !== null
-        ? deserializeAws_json1_1ScriptBootstrapActionConfig(
-            output.ScriptBootstrapAction,
-            context
-          )
+      output.ScriptBootstrapAction !== undefined && output.ScriptBootstrapAction !== null
+        ? deserializeAws_json1_1ScriptBootstrapActionConfig(output.ScriptBootstrapAction, context)
         : undefined
   } as any;
 };
@@ -4410,12 +3901,8 @@ const deserializeAws_json1_1BootstrapActionDetail = (
   return {
     __type: "BootstrapActionDetail",
     BootstrapActionConfig:
-      output.BootstrapActionConfig !== undefined &&
-      output.BootstrapActionConfig !== null
-        ? deserializeAws_json1_1BootstrapActionConfig(
-            output.BootstrapActionConfig,
-            context
-          )
+      output.BootstrapActionConfig !== undefined && output.BootstrapActionConfig !== null
+        ? deserializeAws_json1_1BootstrapActionConfig(output.BootstrapActionConfig, context)
         : undefined
   } as any;
 };
@@ -4435,18 +3922,9 @@ const deserializeAws_json1_1CancelStepsInfo = (
 ): CancelStepsInfo => {
   return {
     __type: "CancelStepsInfo",
-    Reason:
-      output.Reason !== undefined && output.Reason !== null
-        ? output.Reason
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    StepId:
-      output.StepId !== undefined && output.StepId !== null
-        ? output.StepId
-        : undefined
+    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StepId: output.StepId !== undefined && output.StepId !== null ? output.StepId : undefined
   } as any;
 };
 
@@ -4454,9 +3932,7 @@ const deserializeAws_json1_1CancelStepsInfoList = (
   output: any,
   context: __SerdeContext
 ): CancelStepsInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CancelStepsInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1CancelStepsInfo(entry, context));
 };
 
 const deserializeAws_json1_1CancelStepsOutput = (
@@ -4466,12 +3942,8 @@ const deserializeAws_json1_1CancelStepsOutput = (
   return {
     __type: "CancelStepsOutput",
     CancelStepsInfoList:
-      output.CancelStepsInfoList !== undefined &&
-      output.CancelStepsInfoList !== null
-        ? deserializeAws_json1_1CancelStepsInfoList(
-            output.CancelStepsInfoList,
-            context
-          )
+      output.CancelStepsInfoList !== undefined && output.CancelStepsInfoList !== null
+        ? deserializeAws_json1_1CancelStepsInfoList(output.CancelStepsInfoList, context)
         : undefined
   } as any;
 };
@@ -4483,8 +3955,7 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
   return {
     __type: "CloudWatchAlarmDefinition",
     ComparisonOperator:
-      output.ComparisonOperator !== undefined &&
-      output.ComparisonOperator !== null
+      output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
         : undefined,
     Dimensions:
@@ -4492,41 +3963,23 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
         ? deserializeAws_json1_1MetricDimensionList(output.Dimensions, context)
         : undefined,
     EvaluationPeriods:
-      output.EvaluationPeriods !== undefined &&
-      output.EvaluationPeriods !== null
+      output.EvaluationPeriods !== undefined && output.EvaluationPeriods !== null
         ? output.EvaluationPeriods
         : undefined,
     MetricName:
-      output.MetricName !== undefined && output.MetricName !== null
-        ? output.MetricName
-        : undefined,
+      output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
     Namespace:
-      output.Namespace !== undefined && output.Namespace !== null
-        ? output.Namespace
-        : undefined,
-    Period:
-      output.Period !== undefined && output.Period !== null
-        ? output.Period
-        : undefined,
+      output.Namespace !== undefined && output.Namespace !== null ? output.Namespace : undefined,
+    Period: output.Period !== undefined && output.Period !== null ? output.Period : undefined,
     Statistic:
-      output.Statistic !== undefined && output.Statistic !== null
-        ? output.Statistic
-        : undefined,
+      output.Statistic !== undefined && output.Statistic !== null ? output.Statistic : undefined,
     Threshold:
-      output.Threshold !== undefined && output.Threshold !== null
-        ? output.Threshold
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined
+      output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Cluster = (
-  output: any,
-  context: __SerdeContext
-): Cluster => {
+const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
     __type: "Cluster",
     Applications:
@@ -4542,96 +3995,66 @@ const deserializeAws_json1_1Cluster = (
         ? output.AutoTerminate
         : undefined,
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
-        ? deserializeAws_json1_1ConfigurationList(
-            output.Configurations,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     CustomAmiId:
       output.CustomAmiId !== undefined && output.CustomAmiId !== null
         ? output.CustomAmiId
         : undefined,
     EbsRootVolumeSize:
-      output.EbsRootVolumeSize !== undefined &&
-      output.EbsRootVolumeSize !== null
+      output.EbsRootVolumeSize !== undefined && output.EbsRootVolumeSize !== null
         ? output.EbsRootVolumeSize
         : undefined,
     Ec2InstanceAttributes:
-      output.Ec2InstanceAttributes !== undefined &&
-      output.Ec2InstanceAttributes !== null
-        ? deserializeAws_json1_1Ec2InstanceAttributes(
-            output.Ec2InstanceAttributes,
-            context
-          )
+      output.Ec2InstanceAttributes !== undefined && output.Ec2InstanceAttributes !== null
+        ? deserializeAws_json1_1Ec2InstanceAttributes(output.Ec2InstanceAttributes, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceCollectionType:
-      output.InstanceCollectionType !== undefined &&
-      output.InstanceCollectionType !== null
+      output.InstanceCollectionType !== undefined && output.InstanceCollectionType !== null
         ? output.InstanceCollectionType
         : undefined,
     KerberosAttributes:
-      output.KerberosAttributes !== undefined &&
-      output.KerberosAttributes !== null
-        ? deserializeAws_json1_1KerberosAttributes(
-            output.KerberosAttributes,
-            context
-          )
+      output.KerberosAttributes !== undefined && output.KerberosAttributes !== null
+        ? deserializeAws_json1_1KerberosAttributes(output.KerberosAttributes, context)
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
     MasterPublicDnsName:
-      output.MasterPublicDnsName !== undefined &&
-      output.MasterPublicDnsName !== null
+      output.MasterPublicDnsName !== undefined && output.MasterPublicDnsName !== null
         ? output.MasterPublicDnsName
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NormalizedInstanceHours:
-      output.NormalizedInstanceHours !== undefined &&
-      output.NormalizedInstanceHours !== null
+      output.NormalizedInstanceHours !== undefined && output.NormalizedInstanceHours !== null
         ? output.NormalizedInstanceHours
         : undefined,
     OutpostArn:
-      output.OutpostArn !== undefined && output.OutpostArn !== null
-        ? output.OutpostArn
-        : undefined,
+      output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
     ReleaseLabel:
       output.ReleaseLabel !== undefined && output.ReleaseLabel !== null
         ? output.ReleaseLabel
         : undefined,
     RepoUpgradeOnBoot:
-      output.RepoUpgradeOnBoot !== undefined &&
-      output.RepoUpgradeOnBoot !== null
+      output.RepoUpgradeOnBoot !== undefined && output.RepoUpgradeOnBoot !== null
         ? output.RepoUpgradeOnBoot
         : undefined,
     RequestedAmiVersion:
-      output.RequestedAmiVersion !== undefined &&
-      output.RequestedAmiVersion !== null
+      output.RequestedAmiVersion !== undefined && output.RequestedAmiVersion !== null
         ? output.RequestedAmiVersion
         : undefined,
     RunningAmiVersion:
-      output.RunningAmiVersion !== undefined &&
-      output.RunningAmiVersion !== null
+      output.RunningAmiVersion !== undefined && output.RunningAmiVersion !== null
         ? output.RunningAmiVersion
         : undefined,
     ScaleDownBehavior:
-      output.ScaleDownBehavior !== undefined &&
-      output.ScaleDownBehavior !== null
+      output.ScaleDownBehavior !== undefined && output.ScaleDownBehavior !== null
         ? output.ScaleDownBehavior
         : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
     ServiceRole:
@@ -4643,8 +4066,7 @@ const deserializeAws_json1_1Cluster = (
         ? deserializeAws_json1_1ClusterStatus(output.Status, context)
         : undefined,
     StepConcurrencyLevel:
-      output.StepConcurrencyLevel !== undefined &&
-      output.StepConcurrencyLevel !== null
+      output.StepConcurrencyLevel !== undefined && output.StepConcurrencyLevel !== null
         ? output.StepConcurrencyLevel
         : undefined,
     Tags:
@@ -4652,13 +4074,11 @@ const deserializeAws_json1_1Cluster = (
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
     TerminationProtected:
-      output.TerminationProtected !== undefined &&
-      output.TerminationProtected !== null
+      output.TerminationProtected !== undefined && output.TerminationProtected !== null
         ? output.TerminationProtected
         : undefined,
     VisibleToAllUsers:
-      output.VisibleToAllUsers !== undefined &&
-      output.VisibleToAllUsers !== null
+      output.VisibleToAllUsers !== undefined && output.VisibleToAllUsers !== null
         ? output.VisibleToAllUsers
         : undefined
   } as any;
@@ -4670,14 +4090,8 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
 ): ClusterStateChangeReason => {
   return {
     __type: "ClusterStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -4687,17 +4101,10 @@ const deserializeAws_json1_1ClusterStatus = (
 ): ClusterStatus => {
   return {
     __type: "ClusterStatus",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1ClusterStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1ClusterStateChangeReason(output.StateChangeReason, context)
         : undefined,
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
@@ -4713,23 +4120,15 @@ const deserializeAws_json1_1ClusterSummary = (
   return {
     __type: "ClusterSummary",
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NormalizedInstanceHours:
-      output.NormalizedInstanceHours !== undefined &&
-      output.NormalizedInstanceHours !== null
+      output.NormalizedInstanceHours !== undefined && output.NormalizedInstanceHours !== null
         ? output.NormalizedInstanceHours
         : undefined,
     OutpostArn:
-      output.OutpostArn !== undefined && output.OutpostArn !== null
-        ? output.OutpostArn
-        : undefined,
+      output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1ClusterStatus(output.Status, context)
@@ -4741,9 +4140,7 @@ const deserializeAws_json1_1ClusterSummaryList = (
   output: any,
   context: __SerdeContext
 ): ClusterSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ClusterSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ClusterSummary(entry, context));
 };
 
 const deserializeAws_json1_1ClusterTimeline = (
@@ -4767,34 +4164,21 @@ const deserializeAws_json1_1ClusterTimeline = (
   } as any;
 };
 
-const deserializeAws_json1_1Command = (
-  output: any,
-  context: __SerdeContext
-): Command => {
+const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Command => {
   return {
     __type: "Command",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1StringList(output.Args, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScriptPath:
-      output.ScriptPath !== undefined && output.ScriptPath !== null
-        ? output.ScriptPath
-        : undefined
+      output.ScriptPath !== undefined && output.ScriptPath !== null ? output.ScriptPath : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CommandList = (
-  output: any,
-  context: __SerdeContext
-): Command[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Command(entry, context)
-  );
+const deserializeAws_json1_1CommandList = (output: any, context: __SerdeContext): Command[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Command(entry, context));
 };
 
 const deserializeAws_json1_1Configuration = (
@@ -4809,10 +4193,7 @@ const deserializeAws_json1_1Configuration = (
         : undefined,
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
-        ? deserializeAws_json1_1ConfigurationList(
-            output.Configurations,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     Properties:
       output.Properties !== undefined && output.Properties !== null
@@ -4825,9 +4206,7 @@ const deserializeAws_json1_1ConfigurationList = (
   output: any,
   context: __SerdeContext
 ): Configuration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Configuration(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Configuration(entry, context));
 };
 
 const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
@@ -4840,10 +4219,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -4892,13 +4268,9 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined
   } as any;
@@ -4930,17 +4302,10 @@ const deserializeAws_json1_1EbsBlockDevice = (
 ): EbsBlockDevice => {
   return {
     __type: "EbsBlockDevice",
-    Device:
-      output.Device !== undefined && output.Device !== null
-        ? output.Device
-        : undefined,
+    Device: output.Device !== undefined && output.Device !== null ? output.Device : undefined,
     VolumeSpecification:
-      output.VolumeSpecification !== undefined &&
-      output.VolumeSpecification !== null
-        ? deserializeAws_json1_1VolumeSpecification(
-            output.VolumeSpecification,
-            context
-          )
+      output.VolumeSpecification !== undefined && output.VolumeSpecification !== null
+        ? deserializeAws_json1_1VolumeSpecification(output.VolumeSpecification, context)
         : undefined
   } as any;
 };
@@ -4949,35 +4314,20 @@ const deserializeAws_json1_1EbsBlockDeviceList = (
   output: any,
   context: __SerdeContext
 ): EbsBlockDevice[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EbsBlockDevice(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1EbsBlockDevice(entry, context));
 };
 
-const deserializeAws_json1_1EbsVolume = (
-  output: any,
-  context: __SerdeContext
-): EbsVolume => {
+const deserializeAws_json1_1EbsVolume = (output: any, context: __SerdeContext): EbsVolume => {
   return {
     __type: "EbsVolume",
-    Device:
-      output.Device !== undefined && output.Device !== null
-        ? output.Device
-        : undefined,
+    Device: output.Device !== undefined && output.Device !== null ? output.Device : undefined,
     VolumeId:
-      output.VolumeId !== undefined && output.VolumeId !== null
-        ? output.VolumeId
-        : undefined
+      output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EbsVolumeList = (
-  output: any,
-  context: __SerdeContext
-): EbsVolume[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EbsVolume(entry, context)
-  );
+const deserializeAws_json1_1EbsVolumeList = (output: any, context: __SerdeContext): EbsVolume[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EbsVolume(entry, context));
 };
 
 const deserializeAws_json1_1Ec2InstanceAttributes = (
@@ -4989,28 +4339,19 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
     AdditionalMasterSecurityGroups:
       output.AdditionalMasterSecurityGroups !== undefined &&
       output.AdditionalMasterSecurityGroups !== null
-        ? deserializeAws_json1_1StringList(
-            output.AdditionalMasterSecurityGroups,
-            context
-          )
+        ? deserializeAws_json1_1StringList(output.AdditionalMasterSecurityGroups, context)
         : undefined,
     AdditionalSlaveSecurityGroups:
       output.AdditionalSlaveSecurityGroups !== undefined &&
       output.AdditionalSlaveSecurityGroups !== null
-        ? deserializeAws_json1_1StringList(
-            output.AdditionalSlaveSecurityGroups,
-            context
-          )
+        ? deserializeAws_json1_1StringList(output.AdditionalSlaveSecurityGroups, context)
         : undefined,
     Ec2AvailabilityZone:
-      output.Ec2AvailabilityZone !== undefined &&
-      output.Ec2AvailabilityZone !== null
+      output.Ec2AvailabilityZone !== undefined && output.Ec2AvailabilityZone !== null
         ? output.Ec2AvailabilityZone
         : undefined,
     Ec2KeyName:
-      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null
-        ? output.Ec2KeyName
-        : undefined,
+      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null ? output.Ec2KeyName : undefined,
     Ec2SubnetId:
       output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null
         ? output.Ec2SubnetId
@@ -5026,8 +4367,7 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
         ? output.EmrManagedSlaveSecurityGroup
         : undefined,
     IamInstanceProfile:
-      output.IamInstanceProfile !== undefined &&
-      output.IamInstanceProfile !== null
+      output.IamInstanceProfile !== undefined && output.IamInstanceProfile !== null
         ? output.IamInstanceProfile
         : undefined,
     RequestedEc2AvailabilityZones:
@@ -5039,16 +4379,11 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
           )
         : undefined,
     RequestedEc2SubnetIds:
-      output.RequestedEc2SubnetIds !== undefined &&
-      output.RequestedEc2SubnetIds !== null
-        ? deserializeAws_json1_1XmlStringMaxLen256List(
-            output.RequestedEc2SubnetIds,
-            context
-          )
+      output.RequestedEc2SubnetIds !== undefined && output.RequestedEc2SubnetIds !== null
+        ? deserializeAws_json1_1XmlStringMaxLen256List(output.RequestedEc2SubnetIds, context)
         : undefined,
     ServiceAccessSecurityGroup:
-      output.ServiceAccessSecurityGroup !== undefined &&
-      output.ServiceAccessSecurityGroup !== null
+      output.ServiceAccessSecurityGroup !== undefined && output.ServiceAccessSecurityGroup !== null
         ? output.ServiceAccessSecurityGroup
         : undefined
   } as any;
@@ -5060,18 +4395,9 @@ const deserializeAws_json1_1FailureDetails = (
 ): FailureDetails => {
   return {
     __type: "FailureDetails",
-    LogFile:
-      output.LogFile !== undefined && output.LogFile !== null
-        ? output.LogFile
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Reason:
-      output.Reason !== undefined && output.Reason !== null
-        ? output.Reason
-        : undefined
+    LogFile: output.LogFile !== undefined && output.LogFile !== null ? output.LogFile : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined
   } as any;
 };
 
@@ -5110,12 +4436,9 @@ const deserializeAws_json1_1HadoopJarStepConfig = (
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1XmlStringList(output.Args, context)
         : undefined,
-    Jar:
-      output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
+    Jar: output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
     MainClass:
-      output.MainClass !== undefined && output.MainClass !== null
-        ? output.MainClass
-        : undefined,
+      output.MainClass !== undefined && output.MainClass !== null ? output.MainClass : undefined,
     Properties:
       output.Properties !== undefined && output.Properties !== null
         ? deserializeAws_json1_1KeyValueList(output.Properties, context)
@@ -5133,12 +4456,9 @@ const deserializeAws_json1_1HadoopStepConfig = (
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1StringList(output.Args, context)
         : undefined,
-    Jar:
-      output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
+    Jar: output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
     MainClass:
-      output.MainClass !== undefined && output.MainClass !== null
-        ? output.MainClass
-        : undefined,
+      output.MainClass !== undefined && output.MainClass !== null ? output.MainClass : undefined,
     Properties:
       output.Properties !== undefined && output.Properties !== null
         ? deserializeAws_json1_1StringMap(output.Properties, context)
@@ -5146,10 +4466,7 @@ const deserializeAws_json1_1HadoopStepConfig = (
   } as any;
 };
 
-const deserializeAws_json1_1Instance = (
-  output: any,
-  context: __SerdeContext
-): Instance => {
+const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
     __type: "Instance",
     EbsVolumes:
@@ -5173,10 +4490,7 @@ const deserializeAws_json1_1Instance = (
       output.InstanceType !== undefined && output.InstanceType !== null
         ? output.InstanceType
         : undefined,
-    Market:
-      output.Market !== undefined && output.Market !== null
-        ? output.Market
-        : undefined,
+    Market: output.Market !== undefined && output.Market !== null ? output.Market : undefined,
     PrivateDnsName:
       output.PrivateDnsName !== undefined && output.PrivateDnsName !== null
         ? output.PrivateDnsName
@@ -5208,38 +4522,31 @@ const deserializeAws_json1_1InstanceFleet = (
     __type: "InstanceFleet",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceFleetType:
-      output.InstanceFleetType !== undefined &&
-      output.InstanceFleetType !== null
+      output.InstanceFleetType !== undefined && output.InstanceFleetType !== null
         ? output.InstanceFleetType
         : undefined,
     InstanceTypeSpecifications:
-      output.InstanceTypeSpecifications !== undefined &&
-      output.InstanceTypeSpecifications !== null
+      output.InstanceTypeSpecifications !== undefined && output.InstanceTypeSpecifications !== null
         ? deserializeAws_json1_1InstanceTypeSpecificationList(
             output.InstanceTypeSpecifications,
             context
           )
         : undefined,
     LaunchSpecifications:
-      output.LaunchSpecifications !== undefined &&
-      output.LaunchSpecifications !== null
+      output.LaunchSpecifications !== undefined && output.LaunchSpecifications !== null
         ? deserializeAws_json1_1InstanceFleetProvisioningSpecifications(
             output.LaunchSpecifications,
             context
           )
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProvisionedOnDemandCapacity:
       output.ProvisionedOnDemandCapacity !== undefined &&
       output.ProvisionedOnDemandCapacity !== null
         ? output.ProvisionedOnDemandCapacity
         : undefined,
     ProvisionedSpotCapacity:
-      output.ProvisionedSpotCapacity !== undefined &&
-      output.ProvisionedSpotCapacity !== null
+      output.ProvisionedSpotCapacity !== undefined && output.ProvisionedSpotCapacity !== null
         ? output.ProvisionedSpotCapacity
         : undefined,
     Status:
@@ -5247,13 +4554,11 @@ const deserializeAws_json1_1InstanceFleet = (
         ? deserializeAws_json1_1InstanceFleetStatus(output.Status, context)
         : undefined,
     TargetOnDemandCapacity:
-      output.TargetOnDemandCapacity !== undefined &&
-      output.TargetOnDemandCapacity !== null
+      output.TargetOnDemandCapacity !== undefined && output.TargetOnDemandCapacity !== null
         ? output.TargetOnDemandCapacity
         : undefined,
     TargetSpotCapacity:
-      output.TargetSpotCapacity !== undefined &&
-      output.TargetSpotCapacity !== null
+      output.TargetSpotCapacity !== undefined && output.TargetSpotCapacity !== null
         ? output.TargetSpotCapacity
         : undefined
   } as any;
@@ -5263,9 +4568,7 @@ const deserializeAws_json1_1InstanceFleetList = (
   output: any,
   context: __SerdeContext
 ): InstanceFleet[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1InstanceFleet(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceFleet(entry, context));
 };
 
 const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
@@ -5275,12 +4578,8 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   return {
     __type: "InstanceFleetProvisioningSpecifications",
     SpotSpecification:
-      output.SpotSpecification !== undefined &&
-      output.SpotSpecification !== null
-        ? deserializeAws_json1_1SpotProvisioningSpecification(
-            output.SpotSpecification,
-            context
-          )
+      output.SpotSpecification !== undefined && output.SpotSpecification !== null
+        ? deserializeAws_json1_1SpotProvisioningSpecification(output.SpotSpecification, context)
         : undefined
   } as any;
 };
@@ -5291,14 +4590,8 @@ const deserializeAws_json1_1InstanceFleetStateChangeReason = (
 ): InstanceFleetStateChangeReason => {
   return {
     __type: "InstanceFleetStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5308,17 +4601,10 @@ const deserializeAws_json1_1InstanceFleetStatus = (
 ): InstanceFleetStatus => {
   return {
     __type: "InstanceFleetStatus",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1InstanceFleetStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceFleetStateChangeReason(output.StateChangeReason, context)
         : undefined,
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
@@ -5355,35 +4641,22 @@ const deserializeAws_json1_1InstanceGroup = (
   return {
     __type: "InstanceGroup",
     AutoScalingPolicy:
-      output.AutoScalingPolicy !== undefined &&
-      output.AutoScalingPolicy !== null
-        ? deserializeAws_json1_1AutoScalingPolicyDescription(
-            output.AutoScalingPolicy,
-            context
-          )
+      output.AutoScalingPolicy !== undefined && output.AutoScalingPolicy !== null
+        ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
         : undefined,
     BidPrice:
-      output.BidPrice !== undefined && output.BidPrice !== null
-        ? output.BidPrice
-        : undefined,
+      output.BidPrice !== undefined && output.BidPrice !== null ? output.BidPrice : undefined,
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
-        ? deserializeAws_json1_1ConfigurationList(
-            output.Configurations,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     ConfigurationsVersion:
-      output.ConfigurationsVersion !== undefined &&
-      output.ConfigurationsVersion !== null
+      output.ConfigurationsVersion !== undefined && output.ConfigurationsVersion !== null
         ? output.ConfigurationsVersion
         : undefined,
     EbsBlockDevices:
       output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
-        ? deserializeAws_json1_1EbsBlockDeviceList(
-            output.EbsBlockDevices,
-            context
-          )
+        ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)
         : undefined,
     EbsOptimized:
       output.EbsOptimized !== undefined && output.EbsOptimized !== null
@@ -5391,8 +4664,7 @@ const deserializeAws_json1_1InstanceGroup = (
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceGroupType:
-      output.InstanceGroupType !== undefined &&
-      output.InstanceGroupType !== null
+      output.InstanceGroupType !== undefined && output.InstanceGroupType !== null
         ? output.InstanceGroupType
         : undefined,
     InstanceType:
@@ -5412,22 +4684,14 @@ const deserializeAws_json1_1InstanceGroup = (
       output.LastSuccessfullyAppliedConfigurationsVersion !== null
         ? output.LastSuccessfullyAppliedConfigurationsVersion
         : undefined,
-    Market:
-      output.Market !== undefined && output.Market !== null
-        ? output.Market
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Market: output.Market !== undefined && output.Market !== null ? output.Market : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     RequestedInstanceCount:
-      output.RequestedInstanceCount !== undefined &&
-      output.RequestedInstanceCount !== null
+      output.RequestedInstanceCount !== undefined && output.RequestedInstanceCount !== null
         ? output.RequestedInstanceCount
         : undefined,
     RunningInstanceCount:
-      output.RunningInstanceCount !== undefined &&
-      output.RunningInstanceCount !== null
+      output.RunningInstanceCount !== undefined && output.RunningInstanceCount !== null
         ? output.RunningInstanceCount
         : undefined,
     ShrinkPolicy:
@@ -5448,9 +4712,7 @@ const deserializeAws_json1_1InstanceGroupDetail = (
   return {
     __type: "InstanceGroupDetail",
     BidPrice:
-      output.BidPrice !== undefined && output.BidPrice !== null
-        ? output.BidPrice
-        : undefined,
+      output.BidPrice !== undefined && output.BidPrice !== null ? output.BidPrice : undefined,
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -5464,8 +4726,7 @@ const deserializeAws_json1_1InstanceGroupDetail = (
         ? output.InstanceGroupId
         : undefined,
     InstanceRequestCount:
-      output.InstanceRequestCount !== undefined &&
-      output.InstanceRequestCount !== null
+      output.InstanceRequestCount !== undefined && output.InstanceRequestCount !== null
         ? output.InstanceRequestCount
         : undefined,
     InstanceRole:
@@ -5473,8 +4734,7 @@ const deserializeAws_json1_1InstanceGroupDetail = (
         ? output.InstanceRole
         : undefined,
     InstanceRunningCount:
-      output.InstanceRunningCount !== undefined &&
-      output.InstanceRunningCount !== null
+      output.InstanceRunningCount !== undefined && output.InstanceRunningCount !== null
         ? output.InstanceRunningCount
         : undefined,
     InstanceType:
@@ -5482,18 +4742,11 @@ const deserializeAws_json1_1InstanceGroupDetail = (
         ? output.InstanceType
         : undefined,
     LastStateChangeReason:
-      output.LastStateChangeReason !== undefined &&
-      output.LastStateChangeReason !== null
+      output.LastStateChangeReason !== undefined && output.LastStateChangeReason !== null
         ? output.LastStateChangeReason
         : undefined,
-    Market:
-      output.Market !== undefined && output.Market !== null
-        ? output.Market
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Market: output.Market !== undefined && output.Market !== null ? output.Market : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ReadyDateTime:
       output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
         ? new Date(Math.round(output.ReadyDateTime * 1000))
@@ -5502,10 +4755,7 @@ const deserializeAws_json1_1InstanceGroupDetail = (
       output.StartDateTime !== undefined && output.StartDateTime !== null
         ? new Date(Math.round(output.StartDateTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -5529,9 +4779,7 @@ const deserializeAws_json1_1InstanceGroupList = (
   output: any,
   context: __SerdeContext
 ): InstanceGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1InstanceGroup(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceGroup(entry, context));
 };
 
 const deserializeAws_json1_1InstanceGroupStateChangeReason = (
@@ -5540,14 +4788,8 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
 ): InstanceGroupStateChangeReason => {
   return {
     __type: "InstanceGroupStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5557,17 +4799,10 @@ const deserializeAws_json1_1InstanceGroupStatus = (
 ): InstanceGroupStatus => {
   return {
     __type: "InstanceGroupStatus",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1InstanceGroupStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceGroupStateChangeReason(output.StateChangeReason, context)
         : undefined,
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
@@ -5597,13 +4832,8 @@ const deserializeAws_json1_1InstanceGroupTimeline = (
   } as any;
 };
 
-const deserializeAws_json1_1InstanceList = (
-  output: any,
-  context: __SerdeContext
-): Instance[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Instance(entry, context)
-  );
+const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext): Instance[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Instance(entry, context));
 };
 
 const deserializeAws_json1_1InstanceResizePolicy = (
@@ -5613,25 +4843,16 @@ const deserializeAws_json1_1InstanceResizePolicy = (
   return {
     __type: "InstanceResizePolicy",
     InstanceTerminationTimeout:
-      output.InstanceTerminationTimeout !== undefined &&
-      output.InstanceTerminationTimeout !== null
+      output.InstanceTerminationTimeout !== undefined && output.InstanceTerminationTimeout !== null
         ? output.InstanceTerminationTimeout
         : undefined,
     InstancesToProtect:
-      output.InstancesToProtect !== undefined &&
-      output.InstancesToProtect !== null
-        ? deserializeAws_json1_1EC2InstanceIdsList(
-            output.InstancesToProtect,
-            context
-          )
+      output.InstancesToProtect !== undefined && output.InstancesToProtect !== null
+        ? deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToProtect, context)
         : undefined,
     InstancesToTerminate:
-      output.InstancesToTerminate !== undefined &&
-      output.InstancesToTerminate !== null
-        ? deserializeAws_json1_1EC2InstanceIdsList(
-            output.InstancesToTerminate,
-            context
-          )
+      output.InstancesToTerminate !== undefined && output.InstancesToTerminate !== null
+        ? deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToTerminate, context)
         : undefined
   } as any;
 };
@@ -5642,14 +4863,8 @@ const deserializeAws_json1_1InstanceStateChangeReason = (
 ): InstanceStateChangeReason => {
   return {
     __type: "InstanceStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5659,17 +4874,10 @@ const deserializeAws_json1_1InstanceStatus = (
 ): InstanceStatus => {
   return {
     __type: "InstanceStatus",
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1InstanceStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceStateChangeReason(output.StateChangeReason, context)
         : undefined,
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
@@ -5706,9 +4914,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
   return {
     __type: "InstanceTypeSpecification",
     BidPrice:
-      output.BidPrice !== undefined && output.BidPrice !== null
-        ? output.BidPrice
-        : undefined,
+      output.BidPrice !== undefined && output.BidPrice !== null ? output.BidPrice : undefined,
     BidPriceAsPercentageOfOnDemandPrice:
       output.BidPriceAsPercentageOfOnDemandPrice !== undefined &&
       output.BidPriceAsPercentageOfOnDemandPrice !== null
@@ -5716,17 +4922,11 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
         : undefined,
     Configurations:
       output.Configurations !== undefined && output.Configurations !== null
-        ? deserializeAws_json1_1ConfigurationList(
-            output.Configurations,
-            context
-          )
+        ? deserializeAws_json1_1ConfigurationList(output.Configurations, context)
         : undefined,
     EbsBlockDevices:
       output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
-        ? deserializeAws_json1_1EbsBlockDeviceList(
-            output.EbsBlockDevices,
-            context
-          )
+        ? deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context)
         : undefined,
     EbsOptimized:
       output.EbsOptimized !== undefined && output.EbsOptimized !== null
@@ -5767,10 +4967,7 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     __type: "InternalServerException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5781,13 +4978,8 @@ const deserializeAws_json1_1InvalidRequestException = (
   return {
     __type: "InvalidRequestException",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -5798,54 +4990,33 @@ const deserializeAws_json1_1JobFlowDetail = (
   return {
     __type: "JobFlowDetail",
     AmiVersion:
-      output.AmiVersion !== undefined && output.AmiVersion !== null
-        ? output.AmiVersion
-        : undefined,
+      output.AmiVersion !== undefined && output.AmiVersion !== null ? output.AmiVersion : undefined,
     AutoScalingRole:
       output.AutoScalingRole !== undefined && output.AutoScalingRole !== null
         ? output.AutoScalingRole
         : undefined,
     BootstrapActions:
       output.BootstrapActions !== undefined && output.BootstrapActions !== null
-        ? deserializeAws_json1_1BootstrapActionDetailList(
-            output.BootstrapActions,
-            context
-          )
+        ? deserializeAws_json1_1BootstrapActionDetailList(output.BootstrapActions, context)
         : undefined,
     ExecutionStatusDetail:
-      output.ExecutionStatusDetail !== undefined &&
-      output.ExecutionStatusDetail !== null
-        ? deserializeAws_json1_1JobFlowExecutionStatusDetail(
-            output.ExecutionStatusDetail,
-            context
-          )
+      output.ExecutionStatusDetail !== undefined && output.ExecutionStatusDetail !== null
+        ? deserializeAws_json1_1JobFlowExecutionStatusDetail(output.ExecutionStatusDetail, context)
         : undefined,
     Instances:
       output.Instances !== undefined && output.Instances !== null
-        ? deserializeAws_json1_1JobFlowInstancesDetail(
-            output.Instances,
-            context
-          )
+        ? deserializeAws_json1_1JobFlowInstancesDetail(output.Instances, context)
         : undefined,
     JobFlowId:
-      output.JobFlowId !== undefined && output.JobFlowId !== null
-        ? output.JobFlowId
-        : undefined,
+      output.JobFlowId !== undefined && output.JobFlowId !== null ? output.JobFlowId : undefined,
     JobFlowRole:
       output.JobFlowRole !== undefined && output.JobFlowRole !== null
         ? output.JobFlowRole
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScaleDownBehavior:
-      output.ScaleDownBehavior !== undefined &&
-      output.ScaleDownBehavior !== null
+      output.ScaleDownBehavior !== undefined && output.ScaleDownBehavior !== null
         ? output.ScaleDownBehavior
         : undefined,
     ServiceRole:
@@ -5857,16 +5028,11 @@ const deserializeAws_json1_1JobFlowDetail = (
         ? deserializeAws_json1_1StepDetailList(output.Steps, context)
         : undefined,
     SupportedProducts:
-      output.SupportedProducts !== undefined &&
-      output.SupportedProducts !== null
-        ? deserializeAws_json1_1SupportedProductsList(
-            output.SupportedProducts,
-            context
-          )
+      output.SupportedProducts !== undefined && output.SupportedProducts !== null
+        ? deserializeAws_json1_1SupportedProductsList(output.SupportedProducts, context)
         : undefined,
     VisibleToAllUsers:
-      output.VisibleToAllUsers !== undefined &&
-      output.VisibleToAllUsers !== null
+      output.VisibleToAllUsers !== undefined && output.VisibleToAllUsers !== null
         ? output.VisibleToAllUsers
         : undefined
   } as any;
@@ -5876,9 +5042,7 @@ const deserializeAws_json1_1JobFlowDetailList = (
   output: any,
   context: __SerdeContext
 ): JobFlowDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1JobFlowDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1JobFlowDetail(entry, context));
 };
 
 const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
@@ -5896,8 +5060,7 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
         ? new Date(Math.round(output.EndDateTime * 1000))
         : undefined,
     LastStateChangeReason:
-      output.LastStateChangeReason !== undefined &&
-      output.LastStateChangeReason !== null
+      output.LastStateChangeReason !== undefined && output.LastStateChangeReason !== null
         ? output.LastStateChangeReason
         : undefined,
     ReadyDateTime:
@@ -5908,10 +5071,7 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
       output.StartDateTime !== undefined && output.StartDateTime !== null
         ? new Date(Math.round(output.StartDateTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -5922,9 +5082,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
   return {
     __type: "JobFlowInstancesDetail",
     Ec2KeyName:
-      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null
-        ? output.Ec2KeyName
-        : undefined,
+      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null ? output.Ec2KeyName : undefined,
     Ec2SubnetId:
       output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null
         ? output.Ec2SubnetId
@@ -5939,10 +5097,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
         : undefined,
     InstanceGroups:
       output.InstanceGroups !== undefined && output.InstanceGroups !== null
-        ? deserializeAws_json1_1InstanceGroupDetailList(
-            output.InstanceGroups,
-            context
-          )
+        ? deserializeAws_json1_1InstanceGroupDetailList(output.InstanceGroups, context)
         : undefined,
     KeepJobFlowAliveWhenNoSteps:
       output.KeepJobFlowAliveWhenNoSteps !== undefined &&
@@ -5954,18 +5109,15 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
         ? output.MasterInstanceId
         : undefined,
     MasterInstanceType:
-      output.MasterInstanceType !== undefined &&
-      output.MasterInstanceType !== null
+      output.MasterInstanceType !== undefined && output.MasterInstanceType !== null
         ? output.MasterInstanceType
         : undefined,
     MasterPublicDnsName:
-      output.MasterPublicDnsName !== undefined &&
-      output.MasterPublicDnsName !== null
+      output.MasterPublicDnsName !== undefined && output.MasterPublicDnsName !== null
         ? output.MasterPublicDnsName
         : undefined,
     NormalizedInstanceHours:
-      output.NormalizedInstanceHours !== undefined &&
-      output.NormalizedInstanceHours !== null
+      output.NormalizedInstanceHours !== undefined && output.NormalizedInstanceHours !== null
         ? output.NormalizedInstanceHours
         : undefined,
     Placement:
@@ -5973,13 +5125,11 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
         ? deserializeAws_json1_1PlacementType(output.Placement, context)
         : undefined,
     SlaveInstanceType:
-      output.SlaveInstanceType !== undefined &&
-      output.SlaveInstanceType !== null
+      output.SlaveInstanceType !== undefined && output.SlaveInstanceType !== null
         ? output.SlaveInstanceType
         : undefined,
     TerminationProtected:
-      output.TerminationProtected !== undefined &&
-      output.TerminationProtected !== null
+      output.TerminationProtected !== undefined && output.TerminationProtected !== null
         ? output.TerminationProtected
         : undefined
   } as any;
@@ -5992,8 +5142,7 @@ const deserializeAws_json1_1KerberosAttributes = (
   return {
     __type: "KerberosAttributes",
     ADDomainJoinPassword:
-      output.ADDomainJoinPassword !== undefined &&
-      output.ADDomainJoinPassword !== null
+      output.ADDomainJoinPassword !== undefined && output.ADDomainJoinPassword !== null
         ? output.ADDomainJoinPassword
         : undefined,
     ADDomainJoinUser:
@@ -6009,35 +5158,20 @@ const deserializeAws_json1_1KerberosAttributes = (
       output.KdcAdminPassword !== undefined && output.KdcAdminPassword !== null
         ? output.KdcAdminPassword
         : undefined,
-    Realm:
-      output.Realm !== undefined && output.Realm !== null
-        ? output.Realm
-        : undefined
+    Realm: output.Realm !== undefined && output.Realm !== null ? output.Realm : undefined
   } as any;
 };
 
-const deserializeAws_json1_1KeyValue = (
-  output: any,
-  context: __SerdeContext
-): KeyValue => {
+const deserializeAws_json1_1KeyValue = (output: any, context: __SerdeContext): KeyValue => {
   return {
     __type: "KeyValue",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1KeyValueList = (
-  output: any,
-  context: __SerdeContext
-): KeyValue[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1KeyValue(entry, context)
-  );
+const deserializeAws_json1_1KeyValueList = (output: any, context: __SerdeContext): KeyValue[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1KeyValue(entry, context));
 };
 
 const deserializeAws_json1_1ListBootstrapActionsOutput = (
@@ -6050,10 +5184,7 @@ const deserializeAws_json1_1ListBootstrapActionsOutput = (
       output.BootstrapActions !== undefined && output.BootstrapActions !== null
         ? deserializeAws_json1_1CommandList(output.BootstrapActions, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -6067,10 +5198,7 @@ const deserializeAws_json1_1ListClustersOutput = (
       output.Clusters !== undefined && output.Clusters !== null
         ? deserializeAws_json1_1ClusterSummaryList(output.Clusters, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -6082,15 +5210,9 @@ const deserializeAws_json1_1ListInstanceFleetsOutput = (
     __type: "ListInstanceFleetsOutput",
     InstanceFleets:
       output.InstanceFleets !== undefined && output.InstanceFleets !== null
-        ? deserializeAws_json1_1InstanceFleetList(
-            output.InstanceFleets,
-            context
-          )
+        ? deserializeAws_json1_1InstanceFleetList(output.InstanceFleets, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -6102,15 +5224,9 @@ const deserializeAws_json1_1ListInstanceGroupsOutput = (
     __type: "ListInstanceGroupsOutput",
     InstanceGroups:
       output.InstanceGroups !== undefined && output.InstanceGroups !== null
-        ? deserializeAws_json1_1InstanceGroupList(
-            output.InstanceGroups,
-            context
-          )
+        ? deserializeAws_json1_1InstanceGroupList(output.InstanceGroups, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -6124,10 +5240,7 @@ const deserializeAws_json1_1ListInstancesOutput = (
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1InstanceList(output.Instances, context)
         : undefined,
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined
   } as any;
 };
 
@@ -6137,17 +5250,10 @@ const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
 ): ListSecurityConfigurationsOutput => {
   return {
     __type: "ListSecurityConfigurationsOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     SecurityConfigurations:
-      output.SecurityConfigurations !== undefined &&
-      output.SecurityConfigurations !== null
-        ? deserializeAws_json1_1SecurityConfigurationList(
-            output.SecurityConfigurations,
-            context
-          )
+      output.SecurityConfigurations !== undefined && output.SecurityConfigurations !== null
+        ? deserializeAws_json1_1SecurityConfigurationList(output.SecurityConfigurations, context)
         : undefined
   } as any;
 };
@@ -6158,10 +5264,7 @@ const deserializeAws_json1_1ListStepsOutput = (
 ): ListStepsOutput => {
   return {
     __type: "ListStepsOutput",
-    Marker:
-      output.Marker !== undefined && output.Marker !== null
-        ? output.Marker
-        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     Steps:
       output.Steps !== undefined && output.Steps !== null
         ? deserializeAws_json1_1StepSummaryList(output.Steps, context)
@@ -6175,12 +5278,8 @@ const deserializeAws_json1_1MetricDimension = (
 ): MetricDimension => {
   return {
     __type: "MetricDimension",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -6188,9 +5287,7 @@ const deserializeAws_json1_1MetricDimensionList = (
   output: any,
   context: __SerdeContext
 ): MetricDimension[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MetricDimension(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1MetricDimension(entry, context));
 };
 
 const deserializeAws_json1_1ModifyClusterOutput = (
@@ -6200,8 +5297,7 @@ const deserializeAws_json1_1ModifyClusterOutput = (
   return {
     __type: "ModifyClusterOutput",
     StepConcurrencyLevel:
-      output.StepConcurrencyLevel !== undefined &&
-      output.StepConcurrencyLevel !== null
+      output.StepConcurrencyLevel !== undefined && output.StepConcurrencyLevel !== null
         ? output.StepConcurrencyLevel
         : undefined
   } as any;
@@ -6218,40 +5314,24 @@ const deserializeAws_json1_1PlacementType = (
         ? output.AvailabilityZone
         : undefined,
     AvailabilityZones:
-      output.AvailabilityZones !== undefined &&
-      output.AvailabilityZones !== null
-        ? deserializeAws_json1_1XmlStringMaxLen256List(
-            output.AvailabilityZones,
-            context
-          )
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_json1_1XmlStringMaxLen256List(output.AvailabilityZones, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1PortRange = (
-  output: any,
-  context: __SerdeContext
-): PortRange => {
+const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
     __type: "PortRange",
     MaxRange:
-      output.MaxRange !== undefined && output.MaxRange !== null
-        ? output.MaxRange
-        : undefined,
+      output.MaxRange !== undefined && output.MaxRange !== null ? output.MaxRange : undefined,
     MinRange:
-      output.MinRange !== undefined && output.MinRange !== null
-        ? output.MinRange
-        : undefined
+      output.MinRange !== undefined && output.MinRange !== null ? output.MinRange : undefined
   } as any;
 };
 
-const deserializeAws_json1_1PortRanges = (
-  output: any,
-  context: __SerdeContext
-): PortRange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PortRange(entry, context)
-  );
+const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PortRange(entry, context));
 };
 
 const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
@@ -6261,21 +5341,13 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
   return {
     __type: "PutAutoScalingPolicyOutput",
     AutoScalingPolicy:
-      output.AutoScalingPolicy !== undefined &&
-      output.AutoScalingPolicy !== null
-        ? deserializeAws_json1_1AutoScalingPolicyDescription(
-            output.AutoScalingPolicy,
-            context
-          )
+      output.AutoScalingPolicy !== undefined && output.AutoScalingPolicy !== null
+        ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
         : undefined,
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
+      output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     InstanceGroupId:
       output.InstanceGroupId !== undefined && output.InstanceGroupId !== null
         ? output.InstanceGroupId
@@ -6317,13 +5389,9 @@ const deserializeAws_json1_1RunJobFlowOutput = (
   return {
     __type: "RunJobFlowOutput",
     ClusterArn:
-      output.ClusterArn !== undefined && output.ClusterArn !== null
-        ? output.ClusterArn
-        : undefined,
+      output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     JobFlowId:
-      output.JobFlowId !== undefined && output.JobFlowId !== null
-        ? output.JobFlowId
-        : undefined
+      output.JobFlowId !== undefined && output.JobFlowId !== null ? output.JobFlowId : undefined
   } as any;
 };
 
@@ -6333,10 +5401,7 @@ const deserializeAws_json1_1ScalingAction = (
 ): ScalingAction => {
   return {
     __type: "ScalingAction",
-    Market:
-      output.Market !== undefined && output.Market !== null
-        ? output.Market
-        : undefined,
+    Market: output.Market !== undefined && output.Market !== null ? output.Market : undefined,
     SimpleScalingPolicyConfiguration:
       output.SimpleScalingPolicyConfiguration !== undefined &&
       output.SimpleScalingPolicyConfiguration !== null
@@ -6365,10 +5430,7 @@ const deserializeAws_json1_1ScalingConstraints = (
   } as any;
 };
 
-const deserializeAws_json1_1ScalingRule = (
-  output: any,
-  context: __SerdeContext
-): ScalingRule => {
+const deserializeAws_json1_1ScalingRule = (output: any, context: __SerdeContext): ScalingRule => {
   return {
     __type: "ScalingRule",
     Action:
@@ -6379,10 +5441,7 @@ const deserializeAws_json1_1ScalingRule = (
       output.Description !== undefined && output.Description !== null
         ? output.Description
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Trigger:
       output.Trigger !== undefined && output.Trigger !== null
         ? deserializeAws_json1_1ScalingTrigger(output.Trigger, context)
@@ -6394,9 +5453,7 @@ const deserializeAws_json1_1ScalingRuleList = (
   output: any,
   context: __SerdeContext
 ): ScalingRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ScalingRule(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingRule(entry, context));
 };
 
 const deserializeAws_json1_1ScalingTrigger = (
@@ -6406,12 +5463,8 @@ const deserializeAws_json1_1ScalingTrigger = (
   return {
     __type: "ScalingTrigger",
     CloudWatchAlarmDefinition:
-      output.CloudWatchAlarmDefinition !== undefined &&
-      output.CloudWatchAlarmDefinition !== null
-        ? deserializeAws_json1_1CloudWatchAlarmDefinition(
-            output.CloudWatchAlarmDefinition,
-            context
-          )
+      output.CloudWatchAlarmDefinition !== undefined && output.CloudWatchAlarmDefinition !== null
+        ? deserializeAws_json1_1CloudWatchAlarmDefinition(output.CloudWatchAlarmDefinition, context)
         : undefined
   } as any;
 };
@@ -6426,10 +5479,7 @@ const deserializeAws_json1_1ScriptBootstrapActionConfig = (
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1XmlStringList(output.Args, context)
         : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined
   } as any;
 };
 
@@ -6452,31 +5502,20 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ShrinkPolicy = (
-  output: any,
-  context: __SerdeContext
-): ShrinkPolicy => {
+const deserializeAws_json1_1ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
   return {
     __type: "ShrinkPolicy",
     DecommissionTimeout:
-      output.DecommissionTimeout !== undefined &&
-      output.DecommissionTimeout !== null
+      output.DecommissionTimeout !== undefined && output.DecommissionTimeout !== null
         ? output.DecommissionTimeout
         : undefined,
     InstanceResizePolicy:
-      output.InstanceResizePolicy !== undefined &&
-      output.InstanceResizePolicy !== null
-        ? deserializeAws_json1_1InstanceResizePolicy(
-            output.InstanceResizePolicy,
-            context
-          )
+      output.InstanceResizePolicy !== undefined && output.InstanceResizePolicy !== null
+        ? deserializeAws_json1_1InstanceResizePolicy(output.InstanceResizePolicy, context)
         : undefined
   } as any;
 };
@@ -6492,12 +5531,9 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
         ? output.AdjustmentType
         : undefined,
     CoolDown:
-      output.CoolDown !== undefined && output.CoolDown !== null
-        ? output.CoolDown
-        : undefined,
+      output.CoolDown !== undefined && output.CoolDown !== null ? output.CoolDown : undefined,
     ScalingAdjustment:
-      output.ScalingAdjustment !== undefined &&
-      output.ScalingAdjustment !== null
+      output.ScalingAdjustment !== undefined && output.ScalingAdjustment !== null
         ? output.ScalingAdjustment
         : undefined
   } as any;
@@ -6510,8 +5546,7 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
   return {
     __type: "SpotProvisioningSpecification",
     BlockDurationMinutes:
-      output.BlockDurationMinutes !== undefined &&
-      output.BlockDurationMinutes !== null
+      output.BlockDurationMinutes !== undefined && output.BlockDurationMinutes !== null
         ? output.BlockDurationMinutes
         : undefined,
     TimeoutAction:
@@ -6519,17 +5554,13 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
         ? output.TimeoutAction
         : undefined,
     TimeoutDurationMinutes:
-      output.TimeoutDurationMinutes !== undefined &&
-      output.TimeoutDurationMinutes !== null
+      output.TimeoutDurationMinutes !== undefined && output.TimeoutDurationMinutes !== null
         ? output.TimeoutDurationMinutes
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Step = (
-  output: any,
-  context: __SerdeContext
-): Step => {
+const deserializeAws_json1_1Step = (output: any, context: __SerdeContext): Step => {
   return {
     __type: "Step",
     ActionOnFailure:
@@ -6541,10 +5572,7 @@ const deserializeAws_json1_1Step = (
         ? deserializeAws_json1_1HadoopStepConfig(output.Config, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1StepStatus(output.Status, context)
@@ -6552,10 +5580,7 @@ const deserializeAws_json1_1Step = (
   } as any;
 };
 
-const deserializeAws_json1_1StepConfig = (
-  output: any,
-  context: __SerdeContext
-): StepConfig => {
+const deserializeAws_json1_1StepConfig = (output: any, context: __SerdeContext): StepConfig => {
   return {
     __type: "StepConfig",
     ActionOnFailure:
@@ -6564,31 +5589,18 @@ const deserializeAws_json1_1StepConfig = (
         : undefined,
     HadoopJarStep:
       output.HadoopJarStep !== undefined && output.HadoopJarStep !== null
-        ? deserializeAws_json1_1HadoopJarStepConfig(
-            output.HadoopJarStep,
-            context
-          )
+        ? deserializeAws_json1_1HadoopJarStepConfig(output.HadoopJarStep, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StepDetail = (
-  output: any,
-  context: __SerdeContext
-): StepDetail => {
+const deserializeAws_json1_1StepDetail = (output: any, context: __SerdeContext): StepDetail => {
   return {
     __type: "StepDetail",
     ExecutionStatusDetail:
-      output.ExecutionStatusDetail !== undefined &&
-      output.ExecutionStatusDetail !== null
-        ? deserializeAws_json1_1StepExecutionStatusDetail(
-            output.ExecutionStatusDetail,
-            context
-          )
+      output.ExecutionStatusDetail !== undefined && output.ExecutionStatusDetail !== null
+        ? deserializeAws_json1_1StepExecutionStatusDetail(output.ExecutionStatusDetail, context)
         : undefined,
     StepConfig:
       output.StepConfig !== undefined && output.StepConfig !== null
@@ -6601,9 +5613,7 @@ const deserializeAws_json1_1StepDetailList = (
   output: any,
   context: __SerdeContext
 ): StepDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1StepDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1StepDetail(entry, context));
 };
 
 const deserializeAws_json1_1StepExecutionStatusDetail = (
@@ -6621,25 +5631,18 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
         ? new Date(Math.round(output.EndDateTime * 1000))
         : undefined,
     LastStateChangeReason:
-      output.LastStateChangeReason !== undefined &&
-      output.LastStateChangeReason !== null
+      output.LastStateChangeReason !== undefined && output.LastStateChangeReason !== null
         ? output.LastStateChangeReason
         : undefined,
     StartDateTime:
       output.StartDateTime !== undefined && output.StartDateTime !== null
         ? new Date(Math.round(output.StartDateTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StepIdsList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StepIdsList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6649,38 +5652,22 @@ const deserializeAws_json1_1StepStateChangeReason = (
 ): StepStateChangeReason => {
   return {
     __type: "StepStateChangeReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StepStatus = (
-  output: any,
-  context: __SerdeContext
-): StepStatus => {
+const deserializeAws_json1_1StepStatus = (output: any, context: __SerdeContext): StepStatus => {
   return {
     __type: "StepStatus",
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
         ? deserializeAws_json1_1FailureDetails(output.FailureDetails, context)
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
-      output.StateChangeReason !== undefined &&
-      output.StateChangeReason !== null
-        ? deserializeAws_json1_1StepStateChangeReason(
-            output.StateChangeReason,
-            context
-          )
+      output.StateChangeReason !== undefined && output.StateChangeReason !== null
+        ? deserializeAws_json1_1StepStateChangeReason(output.StateChangeReason, context)
         : undefined,
     Timeline:
       output.Timeline !== undefined && output.Timeline !== null
@@ -6689,10 +5676,7 @@ const deserializeAws_json1_1StepStatus = (
   } as any;
 };
 
-const deserializeAws_json1_1StepSummary = (
-  output: any,
-  context: __SerdeContext
-): StepSummary => {
+const deserializeAws_json1_1StepSummary = (output: any, context: __SerdeContext): StepSummary => {
   return {
     __type: "StepSummary",
     ActionOnFailure:
@@ -6704,10 +5688,7 @@ const deserializeAws_json1_1StepSummary = (
         ? deserializeAws_json1_1HadoopStepConfig(output.Config, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1StepStatus(output.Status, context)
@@ -6719,15 +5700,10 @@ const deserializeAws_json1_1StepSummaryList = (
   output: any,
   context: __SerdeContext
 ): StepSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1StepSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1StepSummary(entry, context));
 };
 
-const deserializeAws_json1_1StepTimeline = (
-  output: any,
-  context: __SerdeContext
-): StepTimeline => {
+const deserializeAws_json1_1StepTimeline = (output: any, context: __SerdeContext): StepTimeline => {
   return {
     __type: "StepTimeline",
     CreationDateTime:
@@ -6745,10 +5721,7 @@ const deserializeAws_json1_1StepTimeline = (
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6772,28 +5745,16 @@ const deserializeAws_json1_1SupportedProductsList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1VolumeSpecification = (
@@ -6802,25 +5763,15 @@ const deserializeAws_json1_1VolumeSpecification = (
 ): VolumeSpecification => {
   return {
     __type: "VolumeSpecification",
-    Iops:
-      output.Iops !== undefined && output.Iops !== null
-        ? output.Iops
-        : undefined,
+    Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     SizeInGB:
-      output.SizeInGB !== undefined && output.SizeInGB !== null
-        ? output.SizeInGB
-        : undefined,
+      output.SizeInGB !== undefined && output.SizeInGB !== null ? output.SizeInGB : undefined,
     VolumeType:
-      output.VolumeType !== undefined && output.VolumeType !== null
-        ? output.VolumeType
-        : undefined
+      output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1XmlStringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1XmlStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -6845,16 +5796,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

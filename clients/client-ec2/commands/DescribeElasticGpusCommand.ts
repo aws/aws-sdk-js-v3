@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeElasticGpusRequest,
-  DescribeElasticGpusResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeElasticGpusCommand,
   serializeAws_ec2DescribeElasticGpusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeElasticGpusCommandInput = DescribeElasticGpusRequest;
-export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult &
-  __MetadataBearer;
+export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult & __MetadataBearer;
 
 export class DescribeElasticGpusCommand extends $Command<
   DescribeElasticGpusCommandInput,
@@ -49,13 +41,8 @@ export class DescribeElasticGpusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeElasticGpusCommandInput,
-    DescribeElasticGpusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeElasticGpusCommandInput, DescribeElasticGpusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

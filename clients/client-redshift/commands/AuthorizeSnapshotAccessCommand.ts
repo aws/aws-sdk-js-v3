@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  AuthorizeSnapshotAccessMessage,
-  AuthorizeSnapshotAccessResult
-} from "../models/index";
+import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/index";
 import {
   deserializeAws_queryAuthorizeSnapshotAccessCommand,
   serializeAws_queryAuthorizeSnapshotAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
-export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult &
-  __MetadataBearer;
+export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult & __MetadataBearer;
 
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,
@@ -49,13 +45,8 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AuthorizeSnapshotAccessCommandInput,
-    AuthorizeSnapshotAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AuthorizeSnapshotAccessCommandInput, AuthorizeSnapshotAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

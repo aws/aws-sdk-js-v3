@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  DetectKeyPhrasesRequest,
-  DetectKeyPhrasesResponse
-} from "../models/index";
+import { DetectKeyPhrasesRequest, DetectKeyPhrasesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DetectKeyPhrasesCommand,
   serializeAws_json1_1DetectKeyPhrasesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectKeyPhrasesCommandInput = DetectKeyPhrasesRequest;
-export type DetectKeyPhrasesCommandOutput = DetectKeyPhrasesResponse &
-  __MetadataBearer;
+export type DetectKeyPhrasesCommandOutput = DetectKeyPhrasesResponse & __MetadataBearer;
 
 export class DetectKeyPhrasesCommand extends $Command<
   DetectKeyPhrasesCommandInput,
@@ -50,9 +46,7 @@ export class DetectKeyPhrasesCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

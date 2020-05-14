@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  CreateTrafficPolicyRequest,
-  CreateTrafficPolicyResponse
-} from "../models/index";
+import { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/index";
 import {
   deserializeAws_restXmlCreateTrafficPolicyCommand,
   serializeAws_restXmlCreateTrafficPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTrafficPolicyCommandInput = CreateTrafficPolicyRequest;
-export type CreateTrafficPolicyCommandOutput = CreateTrafficPolicyResponse &
-  __MetadataBearer;
+export type CreateTrafficPolicyCommandOutput = CreateTrafficPolicyResponse & __MetadataBearer;
 
 export class CreateTrafficPolicyCommand extends $Command<
   CreateTrafficPolicyCommandInput,
@@ -49,13 +45,8 @@ export class CreateTrafficPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTrafficPolicyCommandInput,
-    CreateTrafficPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTrafficPolicyCommandInput, CreateTrafficPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

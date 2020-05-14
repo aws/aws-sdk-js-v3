@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAuthorizersCommandInput = GetAuthorizersRequest;
-export type GetAuthorizersCommandOutput = GetAuthorizersResponse &
-  __MetadataBearer;
+export type GetAuthorizersCommandOutput = GetAuthorizersResponse & __MetadataBearer;
 
 export class GetAuthorizersCommand extends $Command<
   GetAuthorizersCommandInput,
@@ -47,9 +46,7 @@ export class GetAuthorizersCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAuthorizersCommandInput, GetAuthorizersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

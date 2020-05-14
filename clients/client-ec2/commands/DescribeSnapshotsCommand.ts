@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeSnapshotsCommand,
   serializeAws_ec2DescribeSnapshotsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsRequest;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult &
-  __MetadataBearer;
+export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult & __MetadataBearer;
 
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
@@ -50,9 +42,7 @@ export class DescribeSnapshotsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

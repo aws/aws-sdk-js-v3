@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeAgentVersionsRequest,
-  DescribeAgentVersionsResult
-} from "../models/index";
+import { DescribeAgentVersionsRequest, DescribeAgentVersionsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAgentVersionsCommand,
   serializeAws_json1_1DescribeAgentVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAgentVersionsCommandInput = DescribeAgentVersionsRequest;
-export type DescribeAgentVersionsCommandOutput = DescribeAgentVersionsResult &
-  __MetadataBearer;
+export type DescribeAgentVersionsCommandOutput = DescribeAgentVersionsResult & __MetadataBearer;
 
 export class DescribeAgentVersionsCommand extends $Command<
   DescribeAgentVersionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAgentVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAgentVersionsCommandInput,
-    DescribeAgentVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAgentVersionsCommandInput, DescribeAgentVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

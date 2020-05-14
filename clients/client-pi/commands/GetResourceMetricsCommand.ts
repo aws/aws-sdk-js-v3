@@ -1,12 +1,5 @@
-import {
-  PIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PIClient";
-import {
-  GetResourceMetricsRequest,
-  GetResourceMetricsResponse
-} from "../models/index";
+import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
+import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetResourceMetricsCommand,
   serializeAws_json1_1GetResourceMetricsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResourceMetricsCommandInput = GetResourceMetricsRequest;
-export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse &
-  __MetadataBearer;
+export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse & __MetadataBearer;
 
 export class GetResourceMetricsCommand extends $Command<
   GetResourceMetricsCommandInput,
@@ -50,9 +42,7 @@ export class GetResourceMetricsCommand extends $Command<
     configuration: PIClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetResourceMetricsCommandInput, GetResourceMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -2,10 +2,7 @@ import {
   CreateServerCommandInput,
   CreateServerCommandOutput
 } from "./commands/CreateServerCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   DeleteServerCommandInput,
   DeleteServerCommandOutput
@@ -14,10 +11,7 @@ import {
   DeleteSshPublicKeyCommandInput,
   DeleteSshPublicKeyCommandOutput
 } from "./commands/DeleteSshPublicKeyCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeServerCommandInput,
   DescribeServerCommandOutput
@@ -30,30 +24,15 @@ import {
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput
 } from "./commands/ImportSshPublicKeyCommand";
-import {
-  ListServersCommandInput,
-  ListServersCommandOutput
-} from "./commands/ListServersCommand";
+import { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  StartServerCommandInput,
-  StartServerCommandOutput
-} from "./commands/StartServerCommand";
-import {
-  StopServerCommandInput,
-  StopServerCommandOutput
-} from "./commands/StopServerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
+import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput
@@ -66,10 +45,7 @@ import {
   UpdateServerCommandInput,
   UpdateServerCommandOutput
 } from "./commands/UpdateServerCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -247,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type TransferClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TransferClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +232,7 @@ export type TransferClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

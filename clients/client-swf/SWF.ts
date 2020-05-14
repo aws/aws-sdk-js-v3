@@ -617,9 +617,7 @@ export class SWF extends SWFClient {
   ): void;
   public deprecateDomain(
     args: DeprecateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeprecateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeprecateDomainCommandOutput) => void),
     cb?: (err: any, data?: DeprecateDomainCommandOutput) => void
   ): Promise<DeprecateDomainCommandOutput> | void {
     const command = new DeprecateDomainCommand(args);
@@ -827,9 +825,7 @@ export class SWF extends SWFClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
@@ -1237,9 +1233,7 @@ export class SWF extends SWFClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
@@ -1786,9 +1780,7 @@ export class SWF extends SWFClient {
   ): void;
   public registerDomain(
     args: RegisterDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDomainCommandOutput) => void),
     cb?: (err: any, data?: RegisterDomainCommandOutput) => void
   ): Promise<RegisterDomainCommandOutput> | void {
     const command = new RegisterDomainCommand(args);
@@ -1943,10 +1935,7 @@ export class SWF extends SWFClient {
     args: RequestCancelWorkflowExecutionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RequestCancelWorkflowExecutionCommandOutput
-        ) => void),
+      | ((err: any, data?: RequestCancelWorkflowExecutionCommandOutput) => void),
     cb?: (err: any, data?: RequestCancelWorkflowExecutionCommandOutput) => void
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> | void {
     const command = new RequestCancelWorkflowExecutionCommand(args);
@@ -2426,9 +2415,7 @@ export class SWF extends SWFClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2754,9 +2741,7 @@ export class SWF extends SWFClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

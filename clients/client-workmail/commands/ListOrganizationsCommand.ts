@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  ListOrganizationsRequest,
-  ListOrganizationsResponse
-} from "../models/index";
+import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListOrganizationsCommand,
   serializeAws_json1_1ListOrganizationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOrganizationsCommandInput = ListOrganizationsRequest;
-export type ListOrganizationsCommandOutput = ListOrganizationsResponse &
-  __MetadataBearer;
+export type ListOrganizationsCommandOutput = ListOrganizationsResponse & __MetadataBearer;
 
 export class ListOrganizationsCommand extends $Command<
   ListOrganizationsCommandInput,
@@ -50,9 +46,7 @@ export class ListOrganizationsCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOrganizationsCommandInput, ListOrganizationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateUserPoolDomainRequest,
-  CreateUserPoolDomainResponse
-} from "../models/index";
+import { CreateUserPoolDomainRequest, CreateUserPoolDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateUserPoolDomainCommand,
   serializeAws_json1_1CreateUserPoolDomainCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateUserPoolDomainCommandInput = CreateUserPoolDomainRequest;
-export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse &
-  __MetadataBearer;
+export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse & __MetadataBearer;
 
 export class CreateUserPoolDomainCommand extends $Command<
   CreateUserPoolDomainCommandInput,
@@ -49,13 +45,8 @@ export class CreateUserPoolDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateUserPoolDomainCommandInput,
-    CreateUserPoolDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateUserPoolDomainCommandInput, CreateUserPoolDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

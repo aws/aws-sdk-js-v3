@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTaskSetCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTaskSetCommandInput = DeleteTaskSetRequest;
-export type DeleteTaskSetCommandOutput = DeleteTaskSetResponse &
-  __MetadataBearer;
+export type DeleteTaskSetCommandOutput = DeleteTaskSetResponse & __MetadataBearer;
 
 export class DeleteTaskSetCommand extends $Command<
   DeleteTaskSetCommandInput,
@@ -47,9 +42,7 @@ export class DeleteTaskSetCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTaskSetCommandInput, DeleteTaskSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

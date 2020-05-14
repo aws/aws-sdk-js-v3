@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -52,8 +49,7 @@ export interface AnnotationValue {
 }
 
 export namespace AnnotationValue {
-  export const isa = (o: any): o is AnnotationValue =>
-    __isa(o, "AnnotationValue");
+  export const isa = (o: any): o is AnnotationValue => __isa(o, "AnnotationValue");
 }
 
 /**
@@ -68,8 +64,7 @@ export interface AvailabilityZoneDetail {
 }
 
 export namespace AvailabilityZoneDetail {
-  export const isa = (o: any): o is AvailabilityZoneDetail =>
-    __isa(o, "AvailabilityZoneDetail");
+  export const isa = (o: any): o is AvailabilityZoneDetail => __isa(o, "AvailabilityZoneDetail");
 }
 
 /**
@@ -109,8 +104,7 @@ export interface BackendConnectionErrors {
 }
 
 export namespace BackendConnectionErrors {
-  export const isa = (o: any): o is BackendConnectionErrors =>
-    __isa(o, "BackendConnectionErrors");
+  export const isa = (o: any): o is BackendConnectionErrors => __isa(o, "BackendConnectionErrors");
 }
 
 export interface BatchGetTracesRequest {
@@ -127,8 +121,7 @@ export interface BatchGetTracesRequest {
 }
 
 export namespace BatchGetTracesRequest {
-  export const isa = (o: any): o is BatchGetTracesRequest =>
-    __isa(o, "BatchGetTracesRequest");
+  export const isa = (o: any): o is BatchGetTracesRequest => __isa(o, "BatchGetTracesRequest");
 }
 
 export interface BatchGetTracesResult {
@@ -150,8 +143,7 @@ export interface BatchGetTracesResult {
 }
 
 export namespace BatchGetTracesResult {
-  export const isa = (o: any): o is BatchGetTracesResult =>
-    __isa(o, "BatchGetTracesResult");
+  export const isa = (o: any): o is BatchGetTracesResult => __isa(o, "BatchGetTracesResult");
 }
 
 export interface CreateGroupRequest {
@@ -169,8 +161,7 @@ export interface CreateGroupRequest {
 }
 
 export namespace CreateGroupRequest {
-  export const isa = (o: any): o is CreateGroupRequest =>
-    __isa(o, "CreateGroupRequest");
+  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 export interface CreateGroupResult {
@@ -184,8 +175,7 @@ export interface CreateGroupResult {
 }
 
 export namespace CreateGroupResult {
-  export const isa = (o: any): o is CreateGroupResult =>
-    __isa(o, "CreateGroupResult");
+  export const isa = (o: any): o is CreateGroupResult => __isa(o, "CreateGroupResult");
 }
 
 export interface CreateSamplingRuleRequest {
@@ -228,8 +218,7 @@ export interface DeleteGroupRequest {
 }
 
 export namespace DeleteGroupRequest {
-  export const isa = (o: any): o is DeleteGroupRequest =>
-    __isa(o, "DeleteGroupRequest");
+  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteGroupResult {
@@ -237,8 +226,7 @@ export interface DeleteGroupResult {
 }
 
 export namespace DeleteGroupResult {
-  export const isa = (o: any): o is DeleteGroupResult =>
-    __isa(o, "DeleteGroupResult");
+  export const isa = (o: any): o is DeleteGroupResult => __isa(o, "DeleteGroupResult");
 }
 
 export interface DeleteSamplingRuleRequest {
@@ -344,8 +332,7 @@ export interface EdgeStatistics {
 }
 
 export namespace EdgeStatistics {
-  export const isa = (o: any): o is EdgeStatistics =>
-    __isa(o, "EdgeStatistics");
+  export const isa = (o: any): o is EdgeStatistics => __isa(o, "EdgeStatistics");
 }
 
 /**
@@ -371,8 +358,7 @@ export interface EncryptionConfig {
 }
 
 export namespace EncryptionConfig {
-  export const isa = (o: any): o is EncryptionConfig =>
-    __isa(o, "EncryptionConfig");
+  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
 }
 
 export enum EncryptionStatus {
@@ -398,8 +384,7 @@ export interface ErrorRootCause {
 }
 
 export namespace ErrorRootCause {
-  export const isa = (o: any): o is ErrorRootCause =>
-    __isa(o, "ErrorRootCause");
+  export const isa = (o: any): o is ErrorRootCause => __isa(o, "ErrorRootCause");
 }
 
 /**
@@ -425,8 +410,7 @@ export interface ErrorRootCauseEntity {
 }
 
 export namespace ErrorRootCauseEntity {
-  export const isa = (o: any): o is ErrorRootCauseEntity =>
-    __isa(o, "ErrorRootCauseEntity");
+  export const isa = (o: any): o is ErrorRootCauseEntity => __isa(o, "ErrorRootCauseEntity");
 }
 
 /**
@@ -466,8 +450,7 @@ export interface ErrorRootCauseService {
 }
 
 export namespace ErrorRootCauseService {
-  export const isa = (o: any): o is ErrorRootCauseService =>
-    __isa(o, "ErrorRootCauseService");
+  export const isa = (o: any): o is ErrorRootCauseService => __isa(o, "ErrorRootCauseService");
 }
 
 /**
@@ -493,8 +476,7 @@ export interface ErrorStatistics {
 }
 
 export namespace ErrorStatistics {
-  export const isa = (o: any): o is ErrorStatistics =>
-    __isa(o, "ErrorStatistics");
+  export const isa = (o: any): o is ErrorStatistics => __isa(o, "ErrorStatistics");
 }
 
 /**
@@ -510,8 +492,7 @@ export interface FaultRootCause {
 }
 
 export namespace FaultRootCause {
-  export const isa = (o: any): o is FaultRootCause =>
-    __isa(o, "FaultRootCause");
+  export const isa = (o: any): o is FaultRootCause => __isa(o, "FaultRootCause");
 }
 
 /**
@@ -537,8 +518,7 @@ export interface FaultRootCauseEntity {
 }
 
 export namespace FaultRootCauseEntity {
-  export const isa = (o: any): o is FaultRootCauseEntity =>
-    __isa(o, "FaultRootCauseEntity");
+  export const isa = (o: any): o is FaultRootCauseEntity => __isa(o, "FaultRootCauseEntity");
 }
 
 /**
@@ -578,8 +558,7 @@ export interface FaultRootCauseService {
 }
 
 export namespace FaultRootCauseService {
-  export const isa = (o: any): o is FaultRootCauseService =>
-    __isa(o, "FaultRootCauseService");
+  export const isa = (o: any): o is FaultRootCauseService => __isa(o, "FaultRootCauseService");
 }
 
 /**
@@ -600,8 +579,7 @@ export interface FaultStatistics {
 }
 
 export namespace FaultStatistics {
-  export const isa = (o: any): o is FaultStatistics =>
-    __isa(o, "FaultStatistics");
+  export const isa = (o: any): o is FaultStatistics => __isa(o, "FaultStatistics");
 }
 
 export interface GetEncryptionConfigRequest {
@@ -640,8 +618,7 @@ export interface GetGroupRequest {
 }
 
 export namespace GetGroupRequest {
-  export const isa = (o: any): o is GetGroupRequest =>
-    __isa(o, "GetGroupRequest");
+  export const isa = (o: any): o is GetGroupRequest => __isa(o, "GetGroupRequest");
 }
 
 export interface GetGroupResult {
@@ -654,8 +631,7 @@ export interface GetGroupResult {
 }
 
 export namespace GetGroupResult {
-  export const isa = (o: any): o is GetGroupResult =>
-    __isa(o, "GetGroupResult");
+  export const isa = (o: any): o is GetGroupResult => __isa(o, "GetGroupResult");
 }
 
 export interface GetGroupsRequest {
@@ -667,8 +643,7 @@ export interface GetGroupsRequest {
 }
 
 export namespace GetGroupsRequest {
-  export const isa = (o: any): o is GetGroupsRequest =>
-    __isa(o, "GetGroupsRequest");
+  export const isa = (o: any): o is GetGroupsRequest => __isa(o, "GetGroupsRequest");
 }
 
 export interface GetGroupsResult {
@@ -685,8 +660,7 @@ export interface GetGroupsResult {
 }
 
 export namespace GetGroupsResult {
-  export const isa = (o: any): o is GetGroupsResult =>
-    __isa(o, "GetGroupsResult");
+  export const isa = (o: any): o is GetGroupsResult => __isa(o, "GetGroupsResult");
 }
 
 export interface GetSamplingRulesRequest {
@@ -698,8 +672,7 @@ export interface GetSamplingRulesRequest {
 }
 
 export namespace GetSamplingRulesRequest {
-  export const isa = (o: any): o is GetSamplingRulesRequest =>
-    __isa(o, "GetSamplingRulesRequest");
+  export const isa = (o: any): o is GetSamplingRulesRequest => __isa(o, "GetSamplingRulesRequest");
 }
 
 export interface GetSamplingRulesResult {
@@ -716,8 +689,7 @@ export interface GetSamplingRulesResult {
 }
 
 export namespace GetSamplingRulesResult {
-  export const isa = (o: any): o is GetSamplingRulesResult =>
-    __isa(o, "GetSamplingRulesResult");
+  export const isa = (o: any): o is GetSamplingRulesResult => __isa(o, "GetSamplingRulesResult");
 }
 
 export interface GetSamplingStatisticSummariesRequest {
@@ -820,8 +792,7 @@ export interface GetServiceGraphRequest {
 }
 
 export namespace GetServiceGraphRequest {
-  export const isa = (o: any): o is GetServiceGraphRequest =>
-    __isa(o, "GetServiceGraphRequest");
+  export const isa = (o: any): o is GetServiceGraphRequest => __isa(o, "GetServiceGraphRequest");
 }
 
 export interface GetServiceGraphResult {
@@ -856,8 +827,7 @@ export interface GetServiceGraphResult {
 }
 
 export namespace GetServiceGraphResult {
-  export const isa = (o: any): o is GetServiceGraphResult =>
-    __isa(o, "GetServiceGraphResult");
+  export const isa = (o: any): o is GetServiceGraphResult => __isa(o, "GetServiceGraphResult");
 }
 
 export interface GetTimeSeriesServiceStatisticsRequest {
@@ -944,8 +914,7 @@ export interface GetTraceGraphRequest {
 }
 
 export namespace GetTraceGraphRequest {
-  export const isa = (o: any): o is GetTraceGraphRequest =>
-    __isa(o, "GetTraceGraphRequest");
+  export const isa = (o: any): o is GetTraceGraphRequest => __isa(o, "GetTraceGraphRequest");
 }
 
 export interface GetTraceGraphResult {
@@ -962,8 +931,7 @@ export interface GetTraceGraphResult {
 }
 
 export namespace GetTraceGraphResult {
-  export const isa = (o: any): o is GetTraceGraphResult =>
-    __isa(o, "GetTraceGraphResult");
+  export const isa = (o: any): o is GetTraceGraphResult => __isa(o, "GetTraceGraphResult");
 }
 
 export interface GetTraceSummariesRequest {
@@ -1041,8 +1009,7 @@ export interface GetTraceSummariesResult {
 }
 
 export namespace GetTraceSummariesResult {
-  export const isa = (o: any): o is GetTraceSummariesResult =>
-    __isa(o, "GetTraceSummariesResult");
+  export const isa = (o: any): o is GetTraceSummariesResult => __isa(o, "GetTraceSummariesResult");
 }
 
 /**
@@ -1113,8 +1080,7 @@ export interface HistogramEntry {
 }
 
 export namespace HistogramEntry {
-  export const isa = (o: any): o is HistogramEntry =>
-    __isa(o, "HistogramEntry");
+  export const isa = (o: any): o is HistogramEntry => __isa(o, "HistogramEntry");
 }
 
 /**
@@ -1164,24 +1130,20 @@ export interface InstanceIdDetail {
 }
 
 export namespace InstanceIdDetail {
-  export const isa = (o: any): o is InstanceIdDetail =>
-    __isa(o, "InstanceIdDetail");
+  export const isa = (o: any): o is InstanceIdDetail => __isa(o, "InstanceIdDetail");
 }
 
 /**
  * <p>The request is missing required parameters or has invalid parameters.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface PutEncryptionConfigRequest {
@@ -1283,8 +1245,7 @@ export interface PutTraceSegmentsRequest {
 }
 
 export namespace PutTraceSegmentsRequest {
-  export const isa = (o: any): o is PutTraceSegmentsRequest =>
-    __isa(o, "PutTraceSegmentsRequest");
+  export const isa = (o: any): o is PutTraceSegmentsRequest => __isa(o, "PutTraceSegmentsRequest");
 }
 
 export interface PutTraceSegmentsResult {
@@ -1296,8 +1257,7 @@ export interface PutTraceSegmentsResult {
 }
 
 export namespace PutTraceSegmentsResult {
-  export const isa = (o: any): o is PutTraceSegmentsResult =>
-    __isa(o, "PutTraceSegmentsResult");
+  export const isa = (o: any): o is PutTraceSegmentsResult => __isa(o, "PutTraceSegmentsResult");
 }
 
 /**
@@ -1312,8 +1272,7 @@ export interface ResourceARNDetail {
 }
 
 export namespace ResourceARNDetail {
-  export const isa = (o: any): o is ResourceARNDetail =>
-    __isa(o, "ResourceARNDetail");
+  export const isa = (o: any): o is ResourceARNDetail => __isa(o, "ResourceARNDetail");
 }
 
 /**
@@ -1329,8 +1288,7 @@ export interface ResponseTimeRootCause {
 }
 
 export namespace ResponseTimeRootCause {
-  export const isa = (o: any): o is ResponseTimeRootCause =>
-    __isa(o, "ResponseTimeRootCause");
+  export const isa = (o: any): o is ResponseTimeRootCause => __isa(o, "ResponseTimeRootCause");
 }
 
 /**
@@ -1418,16 +1376,13 @@ export interface RootCauseException {
 }
 
 export namespace RootCauseException {
-  export const isa = (o: any): o is RootCauseException =>
-    __isa(o, "RootCauseException");
+  export const isa = (o: any): o is RootCauseException => __isa(o, "RootCauseException");
 }
 
 /**
  * <p>You have reached the maximum number of sampling rules.</p>
  */
-export interface RuleLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RuleLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "RuleLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1539,8 +1494,7 @@ export interface SamplingRuleRecord {
 }
 
 export namespace SamplingRuleRecord {
-  export const isa = (o: any): o is SamplingRuleRecord =>
-    __isa(o, "SamplingRuleRecord");
+  export const isa = (o: any): o is SamplingRuleRecord => __isa(o, "SamplingRuleRecord");
 }
 
 /**
@@ -1612,8 +1566,7 @@ export interface SamplingRuleUpdate {
 }
 
 export namespace SamplingRuleUpdate {
-  export const isa = (o: any): o is SamplingRuleUpdate =>
-    __isa(o, "SamplingRuleUpdate");
+  export const isa = (o: any): o is SamplingRuleUpdate => __isa(o, "SamplingRuleUpdate");
 }
 
 /**
@@ -1713,8 +1666,7 @@ export interface SamplingStrategy {
 }
 
 export namespace SamplingStrategy {
-  export const isa = (o: any): o is SamplingStrategy =>
-    __isa(o, "SamplingStrategy");
+  export const isa = (o: any): o is SamplingStrategy => __isa(o, "SamplingStrategy");
 }
 
 export enum SamplingStrategyName {
@@ -1758,8 +1710,7 @@ export interface SamplingTargetDocument {
 }
 
 export namespace SamplingTargetDocument {
-  export const isa = (o: any): o is SamplingTargetDocument =>
-    __isa(o, "SamplingTargetDocument");
+  export const isa = (o: any): o is SamplingTargetDocument => __isa(o, "SamplingTargetDocument");
 }
 
 /**
@@ -1946,8 +1897,7 @@ export interface ServiceStatistics {
 }
 
 export namespace ServiceStatistics {
-  export const isa = (o: any): o is ServiceStatistics =>
-    __isa(o, "ServiceStatistics");
+  export const isa = (o: any): o is ServiceStatistics => __isa(o, "ServiceStatistics");
 }
 
 /**
@@ -1987,8 +1937,7 @@ export interface TelemetryRecord {
 }
 
 export namespace TelemetryRecord {
-  export const isa = (o: any): o is TelemetryRecord =>
-    __isa(o, "TelemetryRecord");
+  export const isa = (o: any): o is TelemetryRecord => __isa(o, "TelemetryRecord");
 }
 
 /**
@@ -2001,8 +1950,7 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
-  export const isa = (o: any): o is ThrottledException =>
-    __isa(o, "ThrottledException");
+  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 export enum TimeRangeType {
@@ -2231,8 +2179,7 @@ export interface UnprocessedStatistics {
 }
 
 export namespace UnprocessedStatistics {
-  export const isa = (o: any): o is UnprocessedStatistics =>
-    __isa(o, "UnprocessedStatistics");
+  export const isa = (o: any): o is UnprocessedStatistics => __isa(o, "UnprocessedStatistics");
 }
 
 /**
@@ -2257,8 +2204,7 @@ export interface UnprocessedTraceSegment {
 }
 
 export namespace UnprocessedTraceSegment {
-  export const isa = (o: any): o is UnprocessedTraceSegment =>
-    __isa(o, "UnprocessedTraceSegment");
+  export const isa = (o: any): o is UnprocessedTraceSegment => __isa(o, "UnprocessedTraceSegment");
 }
 
 export interface UpdateGroupRequest {
@@ -2280,8 +2226,7 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
-  export const isa = (o: any): o is UpdateGroupRequest =>
-    __isa(o, "UpdateGroupRequest");
+  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateGroupResult {
@@ -2295,8 +2240,7 @@ export interface UpdateGroupResult {
 }
 
 export namespace UpdateGroupResult {
-  export const isa = (o: any): o is UpdateGroupResult =>
-    __isa(o, "UpdateGroupResult");
+  export const isa = (o: any): o is UpdateGroupResult => __isa(o, "UpdateGroupResult");
 }
 
 export interface UpdateSamplingRuleRequest {
@@ -2342,6 +2286,5 @@ export interface ValueWithServiceIds {
 }
 
 export namespace ValueWithServiceIds {
-  export const isa = (o: any): o is ValueWithServiceIds =>
-    __isa(o, "ValueWithServiceIds");
+  export const isa = (o: any): o is ValueWithServiceIds => __isa(o, "ValueWithServiceIds");
 }

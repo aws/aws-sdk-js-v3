@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse
@@ -49,13 +45,8 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBProxyTargetGroupsCommandInput,
-    DescribeDBProxyTargetGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBProxyTargetGroupsCommandInput, DescribeDBProxyTargetGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBProxyTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

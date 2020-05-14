@@ -30,10 +30,7 @@ import {
   CreateNotificationSubscriptionCommandInput,
   CreateNotificationSubscriptionCommandOutput
 } from "../commands/CreateNotificationSubscriptionCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "../commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import {
   DeactivateUserCommandInput,
   DeactivateUserCommandOutput
@@ -66,10 +63,7 @@ import {
   DeleteNotificationSubscriptionCommandInput,
   DeleteNotificationSubscriptionCommandOutput
 } from "../commands/DeleteNotificationSubscriptionCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "../commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import {
   DescribeActivitiesCommandInput,
   DescribeActivitiesCommandOutput
@@ -110,10 +104,7 @@ import {
   GetCurrentUserCommandInput,
   GetCurrentUserCommandOutput
 } from "../commands/GetCurrentUserCommand";
-import {
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput
-} from "../commands/GetDocumentCommand";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "../commands/GetDocumentCommand";
 import {
   GetDocumentPathCommandInput,
   GetDocumentPathCommandOutput
@@ -122,10 +113,7 @@ import {
   GetDocumentVersionCommandInput,
   GetDocumentVersionCommandOutput
 } from "../commands/GetDocumentVersionCommand";
-import {
-  GetFolderCommandInput,
-  GetFolderCommandOutput
-} from "../commands/GetFolderCommand";
+import { GetFolderCommandInput, GetFolderCommandOutput } from "../commands/GetFolderCommand";
 import {
   GetFolderPathCommandInput,
   GetFolderPathCommandOutput
@@ -158,10 +146,7 @@ import {
   UpdateFolderCommandInput,
   UpdateFolderCommandOutput
 } from "../commands/UpdateFolderCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "../commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   Activity,
   Comment,
@@ -244,10 +229,7 @@ export const serializeAws_restJson1_1AbortDocumentVersionUploadCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -256,10 +238,7 @@ export const serializeAws_restJson1_1AbortDocumentVersionUploadCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -292,10 +271,7 @@ export const serializeAws_restJson1_1ActivateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
@@ -328,10 +304,7 @@ export const serializeAws_restJson1_1AddResourcePermissionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -344,10 +317,7 @@ export const serializeAws_restJson1_1AddResourcePermissionsCommand = async (
       )
     }),
     ...(input.Principals !== undefined && {
-      Principals: serializeAws_restJson1_1SharePrincipalList(
-        input.Principals,
-        context
-      )
+      Principals: serializeAws_restJson1_1SharePrincipalList(input.Principals, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -372,17 +342,13 @@ export const serializeAws_restJson1_1CreateCommentCommand = async (
       Authentication: input.AuthenticationToken!
     })
   };
-  let resolvedPath =
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
+  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
   if (input.DocumentId !== undefined) {
     const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -391,10 +357,7 @@ export const serializeAws_restJson1_1CreateCommentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -436,10 +399,7 @@ export const serializeAws_restJson1_1CreateCustomMetadataCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -449,10 +409,7 @@ export const serializeAws_restJson1_1CreateCustomMetadataCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.CustomMetadata !== undefined && {
-      CustomMetadata: serializeAws_restJson1_1CustomMetadataMap(
-        input.CustomMetadata,
-        context
-      )
+      CustomMetadata: serializeAws_restJson1_1CustomMetadataMap(input.CustomMetadata, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -514,10 +471,7 @@ export const serializeAws_restJson1_1CreateLabelsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -550,9 +504,7 @@ export const serializeAws_restJson1_1CreateNotificationSubscriptionCommand = asy
   if (input.OrganizationId !== undefined) {
     const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: OrganizationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: OrganizationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OrganizationId}",
@@ -603,10 +555,7 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
     }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.StorageRule !== undefined && {
-      StorageRule: serializeAws_restJson1_1StorageRuleType(
-        input.StorageRule,
-        context
-      )
+      StorageRule: serializeAws_restJson1_1StorageRuleType(input.StorageRule, context)
     }),
     ...(input.Surname !== undefined && { Surname: input.Surname }),
     ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
@@ -640,10 +589,7 @@ export const serializeAws_restJson1_1DeactivateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
@@ -670,17 +616,13 @@ export const serializeAws_restJson1_1DeleteCommentCommand = async (
       Authentication: input.AuthenticationToken!
     })
   };
-  let resolvedPath =
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
+  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
   if (input.CommentId !== undefined) {
     const labelValue: string = input.CommentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CommentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CommentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CommentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CommentId.");
   }
@@ -689,10 +631,7 @@ export const serializeAws_restJson1_1DeleteCommentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -701,10 +640,7 @@ export const serializeAws_restJson1_1DeleteCommentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -737,10 +673,7 @@ export const serializeAws_restJson1_1DeleteCustomMetadataCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -783,10 +716,7 @@ export const serializeAws_restJson1_1DeleteDocumentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -819,10 +749,7 @@ export const serializeAws_restJson1_1DeleteFolderCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -855,10 +782,7 @@ export const serializeAws_restJson1_1DeleteFolderContentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -891,10 +815,7 @@ export const serializeAws_restJson1_1DeleteLabelsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -927,14 +848,11 @@ export const serializeAws_restJson1_1DeleteNotificationSubscriptionCommand = asy
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
+  let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
   if (input.OrganizationId !== undefined) {
     const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: OrganizationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: OrganizationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OrganizationId}",
@@ -946,9 +864,7 @@ export const serializeAws_restJson1_1DeleteNotificationSubscriptionCommand = asy
   if (input.SubscriptionId !== undefined) {
     const labelValue: string = input.SubscriptionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscriptionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscriptionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{SubscriptionId}",
@@ -986,10 +902,7 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
@@ -1062,17 +975,13 @@ export const serializeAws_restJson1_1DescribeCommentsCommand = async (
       Authentication: input.AuthenticationToken!
     })
   };
-  let resolvedPath =
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
+  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
   if (input.DocumentId !== undefined) {
     const labelValue: string = input.DocumentId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1081,10 +990,7 @@ export const serializeAws_restJson1_1DescribeCommentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -1122,10 +1028,7 @@ export const serializeAws_restJson1_1DescribeDocumentVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1165,10 +1068,7 @@ export const serializeAws_restJson1_1DescribeFolderContentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -1238,9 +1138,7 @@ export const serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand = 
   if (input.OrganizationId !== undefined) {
     const labelValue: string = input.OrganizationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: OrganizationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: OrganizationId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OrganizationId}",
@@ -1283,10 +1181,7 @@ export const serializeAws_restJson1_1DescribeResourcePermissionsCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -1416,10 +1311,7 @@ export const serializeAws_restJson1_1GetDocumentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1458,10 +1350,7 @@ export const serializeAws_restJson1_1GetDocumentPathCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1500,10 +1389,7 @@ export const serializeAws_restJson1_1GetDocumentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1512,10 +1398,7 @@ export const serializeAws_restJson1_1GetDocumentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -1555,10 +1438,7 @@ export const serializeAws_restJson1_1GetFolderCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -1597,10 +1477,7 @@ export const serializeAws_restJson1_1GetFolderPathCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -1670,14 +1547,10 @@ export const serializeAws_restJson1_1InitiateDocumentVersionUploadCommand = asyn
   let body: any;
   body = JSON.stringify({
     ...(input.ContentCreatedTimestamp !== undefined && {
-      ContentCreatedTimestamp: Math.round(
-        input.ContentCreatedTimestamp.getTime() / 1000
-      )
+      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000)
     }),
     ...(input.ContentModifiedTimestamp !== undefined && {
-      ContentModifiedTimestamp: Math.round(
-        input.ContentModifiedTimestamp.getTime() / 1000
-      )
+      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000)
     }),
     ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
     ...(input.DocumentSizeInBytes !== undefined && {
@@ -1717,10 +1590,7 @@ export const serializeAws_restJson1_1RemoveAllResourcePermissionsCommand = async
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -1751,14 +1621,9 @@ export const serializeAws_restJson1_1RemoveResourcePermissionCommand = async (
   if (input.PrincipalId !== undefined) {
     const labelValue: string = input.PrincipalId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: PrincipalId."
-      );
+      throw new Error("Empty value provided for input HTTP label: PrincipalId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PrincipalId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PrincipalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PrincipalId.");
   }
@@ -1767,10 +1632,7 @@ export const serializeAws_restJson1_1RemoveResourcePermissionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
@@ -1807,10 +1669,7 @@ export const serializeAws_restJson1_1UpdateDocumentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1852,10 +1711,7 @@ export const serializeAws_restJson1_1UpdateDocumentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DocumentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DocumentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
@@ -1864,10 +1720,7 @@ export const serializeAws_restJson1_1UpdateDocumentVersionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
@@ -1905,10 +1758,7 @@ export const serializeAws_restJson1_1UpdateFolderCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FolderId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FolderId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
@@ -1950,10 +1800,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
   }
@@ -1965,10 +1812,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     }),
     ...(input.Locale !== undefined && { Locale: input.Locale }),
     ...(input.StorageRule !== undefined && {
-      StorageRule: serializeAws_restJson1_1StorageRuleType(
-        input.StorageRule,
-        context
-      )
+      StorageRule: serializeAws_restJson1_1StorageRuleType(input.StorageRule, context)
     }),
     ...(input.Surname !== undefined && { Surname: input.Surname }),
     ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
@@ -1991,10 +1835,7 @@ export const deserializeAws_restJson1_1AbortDocumentVersionUploadCommand = async
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(output, context);
   }
   const contents: AbortDocumentVersionUploadCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2206,10 +2047,7 @@ export const deserializeAws_restJson1_1AddResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AddResourcePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AddResourcePermissionsCommandError(output, context);
   }
   const contents: AddResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2218,10 +2056,7 @@ export const deserializeAws_restJson1_1AddResourcePermissionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ShareResults !== undefined && data.ShareResults !== null) {
-    contents.ShareResults = deserializeAws_restJson1_1ShareResultsList(
-      data.ShareResults,
-      context
-    );
+    contents.ShareResults = deserializeAws_restJson1_1ShareResultsList(data.ShareResults, context);
   }
   return Promise.resolve(contents);
 };
@@ -2440,10 +2275,7 @@ export const deserializeAws_restJson1_1CreateCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateCustomMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCustomMetadataCommandError(output, context);
   }
   const contents: CreateCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2573,10 +2405,7 @@ export const deserializeAws_restJson1_1CreateFolderCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Metadata !== undefined && data.Metadata !== null) {
-    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(
-      data.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(data.Metadata, context);
   }
   return Promise.resolve(contents);
 };
@@ -2640,10 +2469,7 @@ const deserializeAws_restJson1_1CreateFolderCommandError = async (
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2772,10 +2598,7 @@ const deserializeAws_restJson1_1CreateLabelsCommandError = async (
     case "TooManyLabelsException":
     case "com.amazon.aws.gorillaboy#TooManyLabelsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2824,10 +2647,7 @@ export const deserializeAws_restJson1_1CreateNotificationSubscriptionCommand = a
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(output, context);
   }
   const contents: CreateNotificationSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2836,10 +2656,7 @@ export const deserializeAws_restJson1_1CreateNotificationSubscriptionCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.Subscription !== undefined && data.Subscription !== null) {
-    contents.Subscription = deserializeAws_restJson1_1Subscription(
-      data.Subscription,
-      context
-    );
+    contents.Subscription = deserializeAws_restJson1_1Subscription(data.Subscription, context);
   }
   return Promise.resolve(contents);
 };
@@ -3014,10 +2831,7 @@ export const deserializeAws_restJson1_1DeactivateUserCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeactivateUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeactivateUserCommandError(output, context);
   }
   const contents: DeactivateUserCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -3235,10 +3049,7 @@ export const deserializeAws_restJson1_1DeleteCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCustomMetadataCommandError(output, context);
   }
   const contents: DeleteCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3348,10 +3159,7 @@ export const deserializeAws_restJson1_1DeleteDocumentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDocumentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDocumentCommandError(output, context);
   }
   const contents: DeleteDocumentCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -3613,10 +3421,7 @@ export const deserializeAws_restJson1_1DeleteFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteFolderContentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFolderContentsCommandError(output, context);
   }
   const contents: DeleteFolderContentsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -3835,10 +3640,7 @@ export const deserializeAws_restJson1_1DeleteNotificationSubscriptionCommand = a
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(output, context);
   }
   const contents: DeleteNotificationSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -4023,10 +3825,7 @@ export const deserializeAws_restJson1_1DescribeActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeActivitiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeActivitiesCommandError(output, context);
   }
   const contents: DescribeActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4136,10 +3935,7 @@ export const deserializeAws_restJson1_1DescribeCommentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeCommentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCommentsCommandError(output, context);
   }
   const contents: DescribeCommentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4149,10 +3945,7 @@ export const deserializeAws_restJson1_1DescribeCommentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Comments !== undefined && data.Comments !== null) {
-    contents.Comments = deserializeAws_restJson1_1CommentList(
-      data.Comments,
-      context
-    );
+    contents.Comments = deserializeAws_restJson1_1CommentList(data.Comments, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
@@ -4260,10 +4053,7 @@ export const deserializeAws_restJson1_1DescribeDocumentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(output, context);
   }
   const contents: DescribeDocumentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4395,10 +4185,7 @@ export const deserializeAws_restJson1_1DescribeFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeFolderContentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFolderContentsCommandError(output, context);
   }
   const contents: DescribeFolderContentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4409,16 +4196,10 @@ export const deserializeAws_restJson1_1DescribeFolderContentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Documents !== undefined && data.Documents !== null) {
-    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(
-      data.Documents,
-      context
-    );
+    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(data.Documents, context);
   }
   if (data.Folders !== undefined && data.Folders !== null) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
-      data.Folders,
-      context
-    );
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
@@ -4526,10 +4307,7 @@ export const deserializeAws_restJson1_1DescribeGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeGroupsCommandError(output, context);
   }
   const contents: DescribeGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4539,10 +4317,7 @@ export const deserializeAws_restJson1_1DescribeGroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Groups !== undefined && data.Groups !== null) {
-    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(
-      data.Groups,
-      context
-    );
+    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(data.Groups, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
@@ -4628,10 +4403,7 @@ export const deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand 
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(output, context);
   }
   const contents: DescribeNotificationSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4719,10 +4491,7 @@ export const deserializeAws_restJson1_1DescribeResourcePermissionsCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(output, context);
   }
   const contents: DescribeResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4735,10 +4504,7 @@ export const deserializeAws_restJson1_1DescribeResourcePermissionsCommand = asyn
     contents.Marker = data.Marker;
   }
   if (data.Principals !== undefined && data.Principals !== null) {
-    contents.Principals = deserializeAws_restJson1_1PrincipalList(
-      data.Principals,
-      context
-    );
+    contents.Principals = deserializeAws_restJson1_1PrincipalList(data.Principals, context);
   }
   return Promise.resolve(contents);
 };
@@ -4821,10 +4587,7 @@ export const deserializeAws_restJson1_1DescribeRootFoldersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeRootFoldersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRootFoldersCommandError(output, context);
   }
   const contents: DescribeRootFoldersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4834,10 +4597,7 @@ export const deserializeAws_restJson1_1DescribeRootFoldersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Folders !== undefined && data.Folders !== null) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
-      data.Folders,
-      context
-    );
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
@@ -4947,17 +4707,11 @@ export const deserializeAws_restJson1_1DescribeUsersCommand = async (
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
   }
-  if (
-    data.TotalNumberOfUsers !== undefined &&
-    data.TotalNumberOfUsers !== null
-  ) {
+  if (data.TotalNumberOfUsers !== undefined && data.TotalNumberOfUsers !== null) {
     contents.TotalNumberOfUsers = data.TotalNumberOfUsers;
   }
   if (data.Users !== undefined && data.Users !== null) {
-    contents.Users = deserializeAws_restJson1_1OrganizationUserList(
-      data.Users,
-      context
-    );
+    contents.Users = deserializeAws_restJson1_1OrganizationUserList(data.Users, context);
   }
   return Promise.resolve(contents);
 };
@@ -5073,10 +4827,7 @@ export const deserializeAws_restJson1_1GetCurrentUserCommand = async (
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetCurrentUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCurrentUserCommandError(output, context);
   }
   const contents: GetCurrentUserCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5195,10 +4946,7 @@ export const deserializeAws_restJson1_1GetDocumentCommand = async (
     );
   }
   if (data.Metadata !== undefined && data.Metadata !== null) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(
-      data.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(data.Metadata, context);
   }
   return Promise.resolve(contents);
 };
@@ -5314,10 +5062,7 @@ export const deserializeAws_restJson1_1GetDocumentPathCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDocumentPathCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDocumentPathCommandError(output, context);
   }
   const contents: GetDocumentPathCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5420,10 +5165,7 @@ export const deserializeAws_restJson1_1GetDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDocumentVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDocumentVersionCommandError(output, context);
   }
   const contents: GetDocumentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5439,10 +5181,7 @@ export const deserializeAws_restJson1_1GetDocumentVersionCommand = async (
     );
   }
   if (data.Metadata !== undefined && data.Metadata !== null) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentVersionMetadata(
-      data.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_restJson1_1DocumentVersionMetadata(data.Metadata, context);
   }
   return Promise.resolve(contents);
 };
@@ -5574,10 +5313,7 @@ export const deserializeAws_restJson1_1GetFolderCommand = async (
     );
   }
   if (data.Metadata !== undefined && data.Metadata !== null) {
-    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(
-      data.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(data.Metadata, context);
   }
   return Promise.resolve(contents);
 };
@@ -5807,16 +5543,10 @@ export const deserializeAws_restJson1_1GetResourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Documents !== undefined && data.Documents !== null) {
-    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(
-      data.Documents,
-      context
-    );
+    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(data.Documents, context);
   }
   if (data.Folders !== undefined && data.Folders !== null) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
-      data.Folders,
-      context
-    );
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
     contents.Marker = data.Marker;
@@ -5913,10 +5643,7 @@ export const deserializeAws_restJson1_1InitiateDocumentVersionUploadCommand = as
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(output, context);
   }
   const contents: InitiateDocumentVersionUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5926,10 +5653,7 @@ export const deserializeAws_restJson1_1InitiateDocumentVersionUploadCommand = as
   };
   const data: any = await parseBody(output.body, context);
   if (data.Metadata !== undefined && data.Metadata !== null) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(
-      data.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(data.Metadata, context);
   }
   if (data.UploadMetadata !== undefined && data.UploadMetadata !== null) {
     contents.UploadMetadata = deserializeAws_restJson1_1UploadMetadata(
@@ -6095,10 +5819,7 @@ export const deserializeAws_restJson1_1RemoveAllResourcePermissionsCommand = asy
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(output, context);
   }
   const contents: RemoveAllResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -6185,10 +5906,7 @@ export const deserializeAws_restJson1_1RemoveResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveResourcePermissionCommandError(output, context);
   }
   const contents: RemoveResourcePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -6275,10 +5993,7 @@ export const deserializeAws_restJson1_1UpdateDocumentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDocumentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDocumentCommandError(output, context);
   }
   const contents: UpdateDocumentCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -6357,10 +6072,7 @@ const deserializeAws_restJson1_1UpdateDocumentCommandError = async (
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6431,10 +6143,7 @@ export const deserializeAws_restJson1_1UpdateDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDocumentVersionCommandError(output, context);
   }
   const contents: UpdateDocumentVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -6644,10 +6353,7 @@ const deserializeAws_restJson1_1UpdateFolderCommandError = async (
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6985,10 +6691,7 @@ const deserializeAws_restJson1_1EntityNotExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.EntityIds !== undefined && data.EntityIds !== null) {
-    contents.EntityIds = deserializeAws_restJson1_1EntityIdList(
-      data.EntityIds,
-      context
-    );
+    contents.EntityIds = deserializeAws_restJson1_1EntityIdList(data.EntityIds, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
@@ -7329,15 +7032,10 @@ const serializeAws_restJson1_1SharePrincipalList = (
   input: SharePrincipal[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1SharePrincipal(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1SharePrincipal(entry, context));
 };
 
-const serializeAws_restJson1_1SharedLabels = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SharedLabels = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -7353,26 +7051,19 @@ const serializeAws_restJson1_1StorageRuleType = (
   };
 };
 
-const deserializeAws_restJson1_1Activity = (
-  output: any,
-  context: __SerdeContext
-): Activity => {
+const deserializeAws_restJson1_1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
     __type: "Activity",
     CommentMetadata:
       output.CommentMetadata !== undefined && output.CommentMetadata !== null
-        ? deserializeAws_restJson1_1CommentMetadata(
-            output.CommentMetadata,
-            context
-          )
+        ? deserializeAws_restJson1_1CommentMetadata(output.CommentMetadata, context)
         : undefined,
     Initiator:
       output.Initiator !== undefined && output.Initiator !== null
         ? deserializeAws_restJson1_1UserMetadata(output.Initiator, context)
         : undefined,
     IsIndirectActivity:
-      output.IsIndirectActivity !== undefined &&
-      output.IsIndirectActivity !== null
+      output.IsIndirectActivity !== undefined && output.IsIndirectActivity !== null
         ? output.IsIndirectActivity
         : undefined,
     OrganizationId:
@@ -7381,10 +7072,7 @@ const deserializeAws_restJson1_1Activity = (
         : undefined,
     OriginalParent:
       output.OriginalParent !== undefined && output.OriginalParent !== null
-        ? deserializeAws_restJson1_1ResourceMetadata(
-            output.OriginalParent,
-            context
-          )
+        ? deserializeAws_restJson1_1ResourceMetadata(output.OriginalParent, context)
         : undefined,
     Participants:
       output.Participants !== undefined && output.Participants !== null
@@ -7392,32 +7080,21 @@ const deserializeAws_restJson1_1Activity = (
         : undefined,
     ResourceMetadata:
       output.ResourceMetadata !== undefined && output.ResourceMetadata !== null
-        ? deserializeAws_restJson1_1ResourceMetadata(
-            output.ResourceMetadata,
-            context
-          )
+        ? deserializeAws_restJson1_1ResourceMetadata(output.ResourceMetadata, context)
         : undefined,
     TimeStamp:
       output.TimeStamp !== undefined && output.TimeStamp !== null
         ? new Date(Math.round(output.TimeStamp * 1000))
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Comment = (
-  output: any,
-  context: __SerdeContext
-): Comment => {
+const deserializeAws_restJson1_1Comment = (output: any, context: __SerdeContext): Comment => {
   return {
     __type: "Comment",
     CommentId:
-      output.CommentId !== undefined && output.CommentId !== null
-        ? output.CommentId
-        : undefined,
+      output.CommentId !== undefined && output.CommentId !== null ? output.CommentId : undefined,
     Contributor:
       output.Contributor !== undefined && output.Contributor !== null
         ? deserializeAws_restJson1_1User(output.Contributor, context)
@@ -7427,39 +7104,22 @@ const deserializeAws_restJson1_1Comment = (
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
         : undefined,
     ParentId:
-      output.ParentId !== undefined && output.ParentId !== null
-        ? output.ParentId
-        : undefined,
+      output.ParentId !== undefined && output.ParentId !== null ? output.ParentId : undefined,
     RecipientId:
       output.RecipientId !== undefined && output.RecipientId !== null
         ? output.RecipientId
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Text:
-      output.Text !== undefined && output.Text !== null
-        ? output.Text
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     ThreadId:
-      output.ThreadId !== undefined && output.ThreadId !== null
-        ? output.ThreadId
-        : undefined,
+      output.ThreadId !== undefined && output.ThreadId !== null ? output.ThreadId : undefined,
     Visibility:
-      output.Visibility !== undefined && output.Visibility !== null
-        ? output.Visibility
-        : undefined
+      output.Visibility !== undefined && output.Visibility !== null ? output.Visibility : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CommentList = (
-  output: any,
-  context: __SerdeContext
-): Comment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Comment(entry, context)
-  );
+const deserializeAws_restJson1_1CommentList = (output: any, context: __SerdeContext): Comment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Comment(entry, context));
 };
 
 const deserializeAws_restJson1_1CommentMetadata = (
@@ -7469,9 +7129,7 @@ const deserializeAws_restJson1_1CommentMetadata = (
   return {
     __type: "CommentMetadata",
     CommentId:
-      output.CommentId !== undefined && output.CommentId !== null
-        ? output.CommentId
-        : undefined,
+      output.CommentId !== undefined && output.CommentId !== null ? output.CommentId : undefined,
     CommentStatus:
       output.CommentStatus !== undefined && output.CommentStatus !== null
         ? output.CommentStatus
@@ -7515,25 +7173,18 @@ const deserializeAws_restJson1_1DocumentMetadata = (
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
         : undefined,
     CreatorId:
-      output.CreatorId !== undefined && output.CreatorId !== null
-        ? output.CreatorId
-        : undefined,
+      output.CreatorId !== undefined && output.CreatorId !== null ? output.CreatorId : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Labels:
       output.Labels !== undefined && output.Labels !== null
         ? deserializeAws_restJson1_1SharedLabels(output.Labels, context)
         : undefined,
     LatestVersionMetadata:
-      output.LatestVersionMetadata !== undefined &&
-      output.LatestVersionMetadata !== null
-        ? deserializeAws_restJson1_1DocumentVersionMetadata(
-            output.LatestVersionMetadata,
-            context
-          )
+      output.LatestVersionMetadata !== undefined && output.LatestVersionMetadata !== null
+        ? deserializeAws_restJson1_1DocumentVersionMetadata(output.LatestVersionMetadata, context)
         : undefined,
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined &&
-      output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
         : undefined,
     ParentFolderId:
@@ -7561,10 +7212,7 @@ const deserializeAws_restJson1_1DocumentSourceUrlMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [DocumentSourceType | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [DocumentSourceType | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -7577,10 +7225,7 @@ const deserializeAws_restJson1_1DocumentThumbnailUrlMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [DocumentThumbnailType | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [DocumentThumbnailType | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -7595,13 +7240,11 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
   return {
     __type: "DocumentVersionMetadata",
     ContentCreatedTimestamp:
-      output.ContentCreatedTimestamp !== undefined &&
-      output.ContentCreatedTimestamp !== null
+      output.ContentCreatedTimestamp !== undefined && output.ContentCreatedTimestamp !== null
         ? new Date(Math.round(output.ContentCreatedTimestamp * 1000))
         : undefined,
     ContentModifiedTimestamp:
-      output.ContentModifiedTimestamp !== undefined &&
-      output.ContentModifiedTimestamp !== null
+      output.ContentModifiedTimestamp !== undefined && output.ContentModifiedTimestamp !== null
         ? new Date(Math.round(output.ContentModifiedTimestamp * 1000))
         : undefined,
     ContentType:
@@ -7613,41 +7256,24 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
         : undefined,
     CreatorId:
-      output.CreatorId !== undefined && output.CreatorId !== null
-        ? output.CreatorId
-        : undefined,
+      output.CreatorId !== undefined && output.CreatorId !== null ? output.CreatorId : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined &&
-      output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Signature:
-      output.Signature !== undefined && output.Signature !== null
-        ? output.Signature
-        : undefined,
-    Size:
-      output.Size !== undefined && output.Size !== null
-        ? output.Size
-        : undefined,
+      output.Signature !== undefined && output.Signature !== null ? output.Signature : undefined,
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
     Source:
       output.Source !== undefined && output.Source !== null
         ? deserializeAws_restJson1_1DocumentSourceUrlMap(output.Source, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Thumbnail:
       output.Thumbnail !== undefined && output.Thumbnail !== null
-        ? deserializeAws_restJson1_1DocumentThumbnailUrlMap(
-            output.Thumbnail,
-            context
-          )
+        ? deserializeAws_restJson1_1DocumentThumbnailUrlMap(output.Thumbnail, context)
         : undefined
   } as any;
 };
@@ -7661,10 +7287,7 @@ const deserializeAws_restJson1_1DocumentVersionMetadataList = (
   );
 };
 
-const deserializeAws_restJson1_1EntityIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1EntityIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7679,28 +7302,21 @@ const deserializeAws_restJson1_1FolderMetadata = (
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
         : undefined,
     CreatorId:
-      output.CreatorId !== undefined && output.CreatorId !== null
-        ? output.CreatorId
-        : undefined,
+      output.CreatorId !== undefined && output.CreatorId !== null ? output.CreatorId : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Labels:
       output.Labels !== undefined && output.Labels !== null
         ? deserializeAws_restJson1_1SharedLabels(output.Labels, context)
         : undefined,
     LatestVersionSize:
-      output.LatestVersionSize !== undefined &&
-      output.LatestVersionSize !== null
+      output.LatestVersionSize !== undefined && output.LatestVersionSize !== null
         ? output.LatestVersionSize
         : undefined,
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined &&
-      output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ParentFolderId:
       output.ParentFolderId !== undefined && output.ParentFolderId !== null
         ? output.ParentFolderId
@@ -7710,13 +7326,8 @@ const deserializeAws_restJson1_1FolderMetadata = (
         ? output.ResourceState
         : undefined,
     Signature:
-      output.Signature !== undefined && output.Signature !== null
-        ? output.Signature
-        : undefined,
-    Size:
-      output.Size !== undefined && output.Size !== null
-        ? output.Size
-        : undefined
+      output.Signature !== undefined && output.Signature !== null ? output.Signature : undefined,
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined
   } as any;
 };
 
@@ -7736,10 +7347,7 @@ const deserializeAws_restJson1_1GroupMetadata = (
   return {
     __type: "GroupMetadata",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -7756,9 +7364,7 @@ const deserializeAws_restJson1_1OrganizationUserList = (
   output: any,
   context: __SerdeContext
 ): User[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1User(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1User(entry, context));
 };
 
 const deserializeAws_restJson1_1Participants = (
@@ -7784,14 +7390,8 @@ const deserializeAws_restJson1_1PermissionInfo = (
 ): PermissionInfo => {
   return {
     __type: "PermissionInfo",
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -7804,10 +7404,7 @@ const deserializeAws_restJson1_1PermissionInfoList = (
   );
 };
 
-const deserializeAws_restJson1_1Principal = (
-  output: any,
-  context: __SerdeContext
-): Principal => {
+const deserializeAws_restJson1_1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
     __type: "Principal",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -7815,10 +7412,7 @@ const deserializeAws_restJson1_1Principal = (
       output.Roles !== undefined && output.Roles !== null
         ? deserializeAws_restJson1_1PermissionInfoList(output.Roles, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -7826,9 +7420,7 @@ const deserializeAws_restJson1_1PrincipalList = (
   output: any,
   context: __SerdeContext
 ): Principal[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Principal(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Principal(entry, context));
 };
 
 const deserializeAws_restJson1_1ResourceMetadata = (
@@ -7838,10 +7430,7 @@ const deserializeAws_restJson1_1ResourceMetadata = (
   return {
     __type: "ResourceMetadata",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OriginalName:
       output.OriginalName !== undefined && output.OriginalName !== null
         ? output.OriginalName
@@ -7851,17 +7440,10 @@ const deserializeAws_restJson1_1ResourceMetadata = (
         ? deserializeAws_restJson1_1UserMetadata(output.Owner, context)
         : undefined,
     ParentId:
-      output.ParentId !== undefined && output.ParentId !== null
-        ? output.ParentId
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined,
+      output.ParentId !== undefined && output.ParentId !== null ? output.ParentId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     VersionId:
-      output.VersionId !== undefined && output.VersionId !== null
-        ? output.VersionId
-        : undefined
+      output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined
   } as any;
 };
 
@@ -7873,10 +7455,7 @@ const deserializeAws_restJson1_1ResourcePath = (
     __type: "ResourcePath",
     Components:
       output.Components !== undefined && output.Components !== null
-        ? deserializeAws_restJson1_1ResourcePathComponentList(
-            output.Components,
-            context
-          )
+        ? deserializeAws_restJson1_1ResourcePathComponentList(output.Components, context)
         : undefined
   } as any;
 };
@@ -7888,10 +7467,7 @@ const deserializeAws_restJson1_1ResourcePathComponent = (
   return {
     __type: "ResourcePathComponent",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -7911,26 +7487,16 @@ const deserializeAws_restJson1_1ShareResult = (
   return {
     __type: "ShareResult",
     InviteePrincipalId:
-      output.InviteePrincipalId !== undefined &&
-      output.InviteePrincipalId !== null
+      output.InviteePrincipalId !== undefined && output.InviteePrincipalId !== null
         ? output.InviteePrincipalId
         : undefined,
     PrincipalId:
       output.PrincipalId !== undefined && output.PrincipalId !== null
         ? output.PrincipalId
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
-    ShareId:
-      output.ShareId !== undefined && output.ShareId !== null
-        ? output.ShareId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
+    ShareId: output.ShareId !== undefined && output.ShareId !== null ? output.ShareId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusMessage:
       output.StatusMessage !== undefined && output.StatusMessage !== null
         ? output.StatusMessage
@@ -7942,15 +7508,10 @@ const deserializeAws_restJson1_1ShareResultsList = (
   output: any,
   context: __SerdeContext
 ): ShareResult[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ShareResult(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ShareResult(entry, context));
 };
 
-const deserializeAws_restJson1_1SharedLabels = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1SharedLabels = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7974,8 +7535,7 @@ const deserializeAws_restJson1_1StorageRuleType = (
   return {
     __type: "StorageRuleType",
     StorageAllocatedInBytes:
-      output.StorageAllocatedInBytes !== undefined &&
-      output.StorageAllocatedInBytes !== null
+      output.StorageAllocatedInBytes !== undefined && output.StorageAllocatedInBytes !== null
         ? output.StorageAllocatedInBytes
         : undefined,
     StorageType:
@@ -7992,13 +7552,9 @@ const deserializeAws_restJson1_1Subscription = (
   return {
     __type: "Subscription",
     EndPoint:
-      output.EndPoint !== undefined && output.EndPoint !== null
-        ? output.EndPoint
-        : undefined,
+      output.EndPoint !== undefined && output.EndPoint !== null ? output.EndPoint : undefined,
     Protocol:
-      output.Protocol !== undefined && output.Protocol !== null
-        ? output.Protocol
-        : undefined,
+      output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
     SubscriptionId:
       output.SubscriptionId !== undefined && output.SubscriptionId !== null
         ? output.SubscriptionId
@@ -8010,9 +7566,7 @@ const deserializeAws_restJson1_1SubscriptionList = (
   output: any,
   context: __SerdeContext
 ): Subscription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Subscription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Subscription(entry, context));
 };
 
 const deserializeAws_restJson1_1UploadMetadata = (
@@ -8023,22 +7577,14 @@ const deserializeAws_restJson1_1UploadMetadata = (
     __type: "UploadMetadata",
     SignedHeaders:
       output.SignedHeaders !== undefined && output.SignedHeaders !== null
-        ? deserializeAws_restJson1_1SignedHeaderMap(
-            output.SignedHeaders,
-            context
-          )
+        ? deserializeAws_restJson1_1SignedHeaderMap(output.SignedHeaders, context)
         : undefined,
     UploadUrl:
-      output.UploadUrl !== undefined && output.UploadUrl !== null
-        ? output.UploadUrl
-        : undefined
+      output.UploadUrl !== undefined && output.UploadUrl !== null ? output.UploadUrl : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1User = (
-  output: any,
-  context: __SerdeContext
-): User => {
+const deserializeAws_restJson1_1User = (output: any, context: __SerdeContext): User => {
   return {
     __type: "User",
     CreatedTimestamp:
@@ -8050,17 +7596,11 @@ const deserializeAws_restJson1_1User = (
         ? output.EmailAddress
         : undefined,
     GivenName:
-      output.GivenName !== undefined && output.GivenName !== null
-        ? output.GivenName
-        : undefined,
+      output.GivenName !== undefined && output.GivenName !== null ? output.GivenName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Locale:
-      output.Locale !== undefined && output.Locale !== null
-        ? output.Locale
-        : undefined,
+    Locale: output.Locale !== undefined && output.Locale !== null ? output.Locale : undefined,
     ModifiedTimestamp:
-      output.ModifiedTimestamp !== undefined &&
-      output.ModifiedTimestamp !== null
+      output.ModifiedTimestamp !== undefined && output.ModifiedTimestamp !== null
         ? new Date(Math.round(output.ModifiedTimestamp * 1000))
         : undefined,
     OrganizationId:
@@ -8068,38 +7608,24 @@ const deserializeAws_restJson1_1User = (
         ? output.OrganizationId
         : undefined,
     RecycleBinFolderId:
-      output.RecycleBinFolderId !== undefined &&
-      output.RecycleBinFolderId !== null
+      output.RecycleBinFolderId !== undefined && output.RecycleBinFolderId !== null
         ? output.RecycleBinFolderId
         : undefined,
     RootFolderId:
       output.RootFolderId !== undefined && output.RootFolderId !== null
         ? output.RootFolderId
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Storage:
       output.Storage !== undefined && output.Storage !== null
         ? deserializeAws_restJson1_1UserStorageMetadata(output.Storage, context)
         : undefined,
-    Surname:
-      output.Surname !== undefined && output.Surname !== null
-        ? output.Surname
-        : undefined,
+    Surname: output.Surname !== undefined && output.Surname !== null ? output.Surname : undefined,
     TimeZoneId:
-      output.TimeZoneId !== undefined && output.TimeZoneId !== null
-        ? output.TimeZoneId
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined,
+      output.TimeZoneId !== undefined && output.TimeZoneId !== null ? output.TimeZoneId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Username:
-      output.Username !== undefined && output.Username !== null
-        ? output.Username
-        : undefined
+      output.Username !== undefined && output.Username !== null ? output.Username : undefined
   } as any;
 };
 
@@ -8107,9 +7633,7 @@ const deserializeAws_restJson1_1UserActivities = (
   output: any,
   context: __SerdeContext
 ): Activity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Activity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Activity(entry, context));
 };
 
 const deserializeAws_restJson1_1UserMetadata = (
@@ -8123,18 +7647,11 @@ const deserializeAws_restJson1_1UserMetadata = (
         ? output.EmailAddress
         : undefined,
     GivenName:
-      output.GivenName !== undefined && output.GivenName !== null
-        ? output.GivenName
-        : undefined,
+      output.GivenName !== undefined && output.GivenName !== null ? output.GivenName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Surname:
-      output.Surname !== undefined && output.Surname !== null
-        ? output.Surname
-        : undefined,
+    Surname: output.Surname !== undefined && output.Surname !== null ? output.Surname : undefined,
     Username:
-      output.Username !== undefined && output.Username !== null
-        ? output.Username
-        : undefined
+      output.Username !== undefined && output.Username !== null ? output.Username : undefined
   } as any;
 };
 
@@ -8142,9 +7659,7 @@ const deserializeAws_restJson1_1UserMetadataList = (
   output: any,
   context: __SerdeContext
 ): UserMetadata[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1UserMetadata(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1UserMetadata(entry, context));
 };
 
 const deserializeAws_restJson1_1UserStorageMetadata = (
@@ -8158,8 +7673,7 @@ const deserializeAws_restJson1_1UserStorageMetadata = (
         ? deserializeAws_restJson1_1StorageRuleType(output.StorageRule, context)
         : undefined,
     StorageUtilizedInBytes:
-      output.StorageUtilizedInBytes !== undefined &&
-      output.StorageUtilizedInBytes !== null
+      output.StorageUtilizedInBytes !== undefined && output.StorageUtilizedInBytes !== null
         ? output.StorageUtilizedInBytes
         : undefined
   } as any;
@@ -8179,23 +7693,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

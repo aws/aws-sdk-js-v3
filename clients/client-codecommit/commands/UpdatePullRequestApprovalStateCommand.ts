@@ -49,9 +49,7 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     UpdatePullRequestApprovalStateCommandInput,
     UpdatePullRequestApprovalStateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     input: UpdatePullRequestApprovalStateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalStateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdatePullRequestApprovalStateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalStateCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalStateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdatePullRequestApprovalStateCommand(output, context);
   }
 
   // Start section: command_body_extra

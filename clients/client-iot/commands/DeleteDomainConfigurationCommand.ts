@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DeleteDomainConfigurationRequest,
   DeleteDomainConfigurationResponse
@@ -49,13 +45,8 @@ export class DeleteDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDomainConfigurationCommandInput,
-    DeleteDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDomainConfigurationCommandInput, DeleteDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteDomainConfigurationCommand extends $Command<
     input: DeleteDomainConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDomainConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

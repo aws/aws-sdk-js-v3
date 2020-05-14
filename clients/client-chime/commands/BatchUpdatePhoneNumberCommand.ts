@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  BatchUpdatePhoneNumberRequest,
-  BatchUpdatePhoneNumberResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand,
   serializeAws_restJson1_1BatchUpdatePhoneNumberCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchUpdatePhoneNumberCommandInput = BatchUpdatePhoneNumberRequest;
-export type BatchUpdatePhoneNumberCommandOutput = BatchUpdatePhoneNumberResponse &
-  __MetadataBearer;
+export type BatchUpdatePhoneNumberCommandOutput = BatchUpdatePhoneNumberResponse & __MetadataBearer;
 
 export class BatchUpdatePhoneNumberCommand extends $Command<
   BatchUpdatePhoneNumberCommandInput,
@@ -49,13 +41,8 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchUpdatePhoneNumberCommandInput,
-    BatchUpdatePhoneNumberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchUpdatePhoneNumberCommandInput, BatchUpdatePhoneNumberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     input: BatchUpdatePhoneNumberCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1BatchUpdatePhoneNumberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchUpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

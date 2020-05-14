@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   DescribeContainerInstancesRequest,
   DescribeContainerInstancesResponse
@@ -49,13 +45,8 @@ export class DescribeContainerInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeContainerInstancesCommandInput,
-    DescribeContainerInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeContainerInstancesCommandInput, DescribeContainerInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeContainerInstancesCommand extends $Command<
     input: DescribeContainerInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeContainerInstancesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeContainerInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContainerInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeContainerInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeContainerInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

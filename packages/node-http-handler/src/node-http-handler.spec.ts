@@ -6,11 +6,7 @@ import * as https from "https";
 import * as http from "http";
 import { NodeHttpHandler } from "./node-http-handler";
 import { ReadFromBuffers } from "./readable.mock";
-import {
-  createMockHttpServer,
-  createMockHttpsServer,
-  createResponseFunction
-} from "./server.mock";
+import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
 import { AddressInfo } from "net";
 
 describe("NodeHttpHandler", () => {
@@ -25,9 +21,7 @@ describe("NodeHttpHandler", () => {
       nodeHttpHandler = new NodeHttpHandler({
         httpsAgent: new https.Agent({ maxSockets })
       });
-      expect((nodeHttpHandler as any).httpsAgent.maxSockets).toEqual(
-        maxSockets
-      );
+      expect((nodeHttpHandler as any).httpsAgent.maxSockets).toEqual(maxSockets);
     });
   });
   describe("http", () => {
@@ -51,10 +45,7 @@ describe("NodeHttpHandler", () => {
         headers: {},
         body: "test"
       };
-      mockHttpServer.addListener(
-        "request",
-        createResponseFunction(mockResponse)
-      );
+      mockHttpServer.addListener("request", createResponseFunction(mockResponse));
       const nodeHttpHandler = new NodeHttpHandler();
 
       let { response } = await nodeHttpHandler.handle(
@@ -259,10 +250,7 @@ describe("NodeHttpHandler", () => {
         headers: {},
         body: "test"
       };
-      mockHttpsServer.addListener(
-        "request",
-        createResponseFunction(mockResponse)
-      );
+      mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       const nodeHttpHandler = new NodeHttpHandler();
 
       await expect(
@@ -286,10 +274,7 @@ describe("NodeHttpHandler", () => {
         headers: {},
         body: "test"
       };
-      mockHttpsServer.addListener(
-        "request",
-        createResponseFunction(mockResponse)
-      );
+      mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
         let calls = spy.mock.calls;
         let currentIndex = calls.length - 1;
@@ -326,19 +311,13 @@ describe("NodeHttpHandler", () => {
         headers: {},
         body: "test"
       };
-      mockHttpsServer.addListener(
-        "request",
-        createResponseFunction(mockResponse)
-      );
+      mockHttpsServer.addListener("request", createResponseFunction(mockResponse));
       let httpRequest: http.ClientRequest;
       let reqAbortSpy: any;
       const spy = jest.spyOn(https, "request").mockImplementationOnce(() => {
         let calls = spy.mock.calls;
         let currentIndex = calls.length - 1;
-        httpRequest = https.request(
-          calls[currentIndex][0],
-          calls[currentIndex][1]
-        );
+        httpRequest = https.request(calls[currentIndex][0], calls[currentIndex][1]);
         reqAbortSpy = jest.spyOn(httpRequest, "abort");
         return httpRequest;
       });

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTEventsClient";
-import {
-  DescribeLoggingOptionsRequest,
-  DescribeLoggingOptionsResponse
-} from "../models/index";
+import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeLoggingOptionsCommand,
   serializeAws_restJson1_1DescribeLoggingOptionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLoggingOptionsCommandInput = DescribeLoggingOptionsRequest;
-export type DescribeLoggingOptionsCommandOutput = DescribeLoggingOptionsResponse &
-  __MetadataBearer;
+export type DescribeLoggingOptionsCommandOutput = DescribeLoggingOptionsResponse & __MetadataBearer;
 
 export class DescribeLoggingOptionsCommand extends $Command<
   DescribeLoggingOptionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeLoggingOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoggingOptionsCommandInput,
-    DescribeLoggingOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoggingOptionsCommandInput, DescribeLoggingOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeLoggingOptionsCommand extends $Command<
     input: DescribeLoggingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeLoggingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeLoggingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

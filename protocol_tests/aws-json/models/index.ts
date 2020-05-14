@@ -29,20 +29,16 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ErrorWithMembers {
-  export const isa = (o: any): o is ErrorWithMembers =>
-    __isa(o, "ErrorWithMembers");
+  export const isa = (o: any): o is ErrorWithMembers => __isa(o, "ErrorWithMembers");
 }
 
-export interface ErrorWithoutMembers
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer {
   name: "ErrorWithoutMembers";
   $fault: "server";
 }
 
 export namespace ErrorWithoutMembers {
-  export const isa = (o: any): o is ErrorWithoutMembers =>
-    __isa(o, "ErrorWithoutMembers");
+  export const isa = (o: any): o is ErrorWithoutMembers => __isa(o, "ErrorWithoutMembers");
 }
 
 export interface KitchenSink {
@@ -94,6 +90,5 @@ export interface StructWithLocationName {
 }
 
 export namespace StructWithLocationName {
-  export const isa = (o: any): o is StructWithLocationName =>
-    __isa(o, "StructWithLocationName");
+  export const isa = (o: any): o is StructWithLocationName => __isa(o, "StructWithLocationName");
 }

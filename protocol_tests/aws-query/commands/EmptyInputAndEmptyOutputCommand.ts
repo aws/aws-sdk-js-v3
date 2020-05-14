@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QueryProtocolClient";
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput
-} from "../models/index";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/index";
 import {
   deserializeAws_queryEmptyInputAndEmptyOutputCommand,
   serializeAws_queryEmptyInputAndEmptyOutputCommand
@@ -49,13 +46,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EmptyInputAndEmptyOutputCommandInput,
-    EmptyInputAndEmptyOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EmptyInputAndEmptyOutputCommandInput, EmptyInputAndEmptyOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

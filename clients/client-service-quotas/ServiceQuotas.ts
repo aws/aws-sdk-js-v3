@@ -144,37 +144,21 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput>;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public deleteServiceQuotaIncreaseRequestFromTemplate(
     args: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
-  ): Promise<
-    DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  > | void {
-    const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
-      args
-    );
+      | ((err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
+  ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> | void {
+    const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -221,14 +205,8 @@ export class ServiceQuotas extends ServiceQuotasClient {
     args: DisassociateServiceQuotaTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceQuotaTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceQuotaTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateServiceQuotaTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceQuotaTemplateCommandOutput) => void
   ): Promise<DisassociateServiceQuotaTemplateCommandOutput> | void {
     const command = new DisassociateServiceQuotaTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -288,31 +266,19 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput>;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): void;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): void;
   public getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAssociationForServiceQuotaTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAssociationForServiceQuotaTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetAssociationForServiceQuotaTemplateCommandOutput) => void
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> | void {
     const command = new GetAssociationForServiceQuotaTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -346,10 +312,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
     args: GetRequestedServiceQuotaChangeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRequestedServiceQuotaChangeCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRequestedServiceQuotaChangeCommandOutput) => void),
     cb?: (err: any, data?: GetRequestedServiceQuotaChangeCommandOutput) => void
   ): Promise<GetRequestedServiceQuotaChangeCommandOutput> | void {
     const command = new GetRequestedServiceQuotaChangeCommand(args);
@@ -385,9 +348,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public getServiceQuota(
     args: GetServiceQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceQuotaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceQuotaCommandOutput) => void),
     cb?: (err: any, data?: GetServiceQuotaCommandOutput) => void
   ): Promise<GetServiceQuotaCommandOutput> | void {
     const command = new GetServiceQuotaCommand(args);
@@ -411,31 +372,19 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput>;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): void;
   public getServiceQuotaIncreaseRequestFromTemplate(
     args: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput) => void
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> | void {
     const command = new GetServiceQuotaIncreaseRequestFromTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -505,31 +454,19 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput>;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryCommandOutput
-    ) => void
+      | ((err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListRequestedServiceQuotaChangeHistoryCommandOutput) => void
   ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> | void {
     const command = new ListRequestedServiceQuotaChangeHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -555,37 +492,21 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput>;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
   ): void;
   public listRequestedServiceQuotaChangeHistoryByQuota(
     args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-    ) => void
-  ): Promise<
-    ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
-  > | void {
-    const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
-      args
-    );
+      | ((err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void),
+    cb?: (err: any, data?: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput) => void
+  ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> | void {
+    const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -606,31 +527,19 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput>;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): void;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): void;
   public listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput) => void
   ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> | void {
     const command = new ListServiceQuotaIncreaseRequestsInTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -708,9 +617,7 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
@@ -737,31 +644,19 @@ export class ServiceQuotas extends ServiceQuotasClient {
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput>;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): void;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): void;
   public putServiceQuotaIncreaseRequestIntoTemplate(
     args: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void),
+    cb?: (err: any, data?: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput) => void
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> | void {
     const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(args);
     if (typeof optionsOrCb === "function") {

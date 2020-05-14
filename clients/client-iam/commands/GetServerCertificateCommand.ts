@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetServerCertificateRequest,
-  GetServerCertificateResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetServerCertificateRequest, GetServerCertificateResponse } from "../models/index";
 import {
   deserializeAws_queryGetServerCertificateCommand,
   serializeAws_queryGetServerCertificateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetServerCertificateCommandInput = GetServerCertificateRequest;
-export type GetServerCertificateCommandOutput = GetServerCertificateResponse &
-  __MetadataBearer;
+export type GetServerCertificateCommandOutput = GetServerCertificateResponse & __MetadataBearer;
 
 export class GetServerCertificateCommand extends $Command<
   GetServerCertificateCommandInput,
@@ -49,13 +41,8 @@ export class GetServerCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetServerCertificateCommandInput,
-    GetServerCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetServerCertificateCommandInput, GetServerCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

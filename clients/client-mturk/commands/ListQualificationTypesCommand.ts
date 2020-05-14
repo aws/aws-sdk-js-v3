@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ListQualificationTypesRequest,
-  ListQualificationTypesResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ListQualificationTypesRequest, ListQualificationTypesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListQualificationTypesCommand,
   serializeAws_json1_1ListQualificationTypesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListQualificationTypesCommandInput = ListQualificationTypesRequest;
-export type ListQualificationTypesCommandOutput = ListQualificationTypesResponse &
-  __MetadataBearer;
+export type ListQualificationTypesCommandOutput = ListQualificationTypesResponse & __MetadataBearer;
 
 export class ListQualificationTypesCommand extends $Command<
   ListQualificationTypesCommandInput,
@@ -49,13 +41,8 @@ export class ListQualificationTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListQualificationTypesCommandInput,
-    ListQualificationTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListQualificationTypesCommandInput, ListQualificationTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

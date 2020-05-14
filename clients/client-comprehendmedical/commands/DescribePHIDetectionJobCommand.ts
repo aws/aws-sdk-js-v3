@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendMedicalClient";
-import {
-  DescribePHIDetectionJobRequest,
-  DescribePHIDetectionJobResponse
-} from "../models/index";
+import { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribePHIDetectionJobCommand,
   serializeAws_json1_1DescribePHIDetectionJobCommand
@@ -49,13 +46,8 @@ export class DescribePHIDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePHIDetectionJobCommandInput,
-    DescribePHIDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePHIDetectionJobCommandInput, DescribePHIDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribePHIDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePHIDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribePHIDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePHIDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

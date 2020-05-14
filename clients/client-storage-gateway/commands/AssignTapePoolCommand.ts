@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssignTapePoolCommandInput = AssignTapePoolInput;
-export type AssignTapePoolCommandOutput = AssignTapePoolOutput &
-  __MetadataBearer;
+export type AssignTapePoolCommandOutput = AssignTapePoolOutput & __MetadataBearer;
 
 export class AssignTapePoolCommand extends $Command<
   AssignTapePoolCommandInput,
@@ -47,9 +46,7 @@ export class AssignTapePoolCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssignTapePoolCommandInput, AssignTapePoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAddressCommandInput = DescribeAddressRequest;
-export type DescribeAddressCommandOutput = DescribeAddressResult &
-  __MetadataBearer;
+export type DescribeAddressCommandOutput = DescribeAddressResult & __MetadataBearer;
 
 export class DescribeAddressCommand extends $Command<
   DescribeAddressCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAddressCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAddressCommandInput, DescribeAddressCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

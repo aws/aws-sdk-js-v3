@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 } from "../TranscribeClient";
-import {
-  StartTranscriptionJobRequest,
-  StartTranscriptionJobResponse
-} from "../models/index";
+import { StartTranscriptionJobRequest, StartTranscriptionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartTranscriptionJobCommand,
   serializeAws_json1_1StartTranscriptionJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartTranscriptionJobCommandInput = StartTranscriptionJobRequest;
-export type StartTranscriptionJobCommandOutput = StartTranscriptionJobResponse &
-  __MetadataBearer;
+export type StartTranscriptionJobCommandOutput = StartTranscriptionJobResponse & __MetadataBearer;
 
 export class StartTranscriptionJobCommand extends $Command<
   StartTranscriptionJobCommandInput,
@@ -49,13 +45,8 @@ export class StartTranscriptionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartTranscriptionJobCommandInput,
-    StartTranscriptionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartTranscriptionJobCommandInput, StartTranscriptionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { StartImageScanRequest, StartImageScanResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartImageScanCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartImageScanCommandInput = StartImageScanRequest;
-export type StartImageScanCommandOutput = StartImageScanResponse &
-  __MetadataBearer;
+export type StartImageScanCommandOutput = StartImageScanResponse & __MetadataBearer;
 
 export class StartImageScanCommand extends $Command<
   StartImageScanCommandInput,
@@ -47,9 +42,7 @@ export class StartImageScanCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartImageScanCommandInput, StartImageScanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

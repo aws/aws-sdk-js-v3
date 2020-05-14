@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TranslateTextCommandInput = TranslateTextRequest;
-export type TranslateTextCommandOutput = TranslateTextResponse &
-  __MetadataBearer;
+export type TranslateTextCommandOutput = TranslateTextResponse & __MetadataBearer;
 
 export class TranslateTextCommand extends $Command<
   TranslateTextCommandInput,
@@ -47,9 +46,7 @@ export class TranslateTextCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TranslateTextCommandInput, TranslateTextCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DescribeExpressionsRequest,
-  DescribeExpressionsResponse
-} from "../models/index";
+import { DescribeExpressionsRequest, DescribeExpressionsResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeExpressionsCommand,
   serializeAws_queryDescribeExpressionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeExpressionsCommandInput = DescribeExpressionsRequest;
-export type DescribeExpressionsCommandOutput = DescribeExpressionsResponse &
-  __MetadataBearer;
+export type DescribeExpressionsCommandOutput = DescribeExpressionsResponse & __MetadataBearer;
 
 export class DescribeExpressionsCommand extends $Command<
   DescribeExpressionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeExpressionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeExpressionsCommandInput,
-    DescribeExpressionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeExpressionsCommandInput, DescribeExpressionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TextractClientResolvedConfig
 } from "../TextractClient";
-import {
-  StartDocumentAnalysisRequest,
-  StartDocumentAnalysisResponse
-} from "../models/index";
+import { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartDocumentAnalysisCommand,
   serializeAws_json1_1StartDocumentAnalysisCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDocumentAnalysisCommandInput = StartDocumentAnalysisRequest;
-export type StartDocumentAnalysisCommandOutput = StartDocumentAnalysisResponse &
-  __MetadataBearer;
+export type StartDocumentAnalysisCommandOutput = StartDocumentAnalysisResponse & __MetadataBearer;
 
 export class StartDocumentAnalysisCommand extends $Command<
   StartDocumentAnalysisCommandInput,
@@ -49,13 +45,8 @@ export class StartDocumentAnalysisCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TextractClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartDocumentAnalysisCommandInput,
-    StartDocumentAnalysisCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartDocumentAnalysisCommandInput, StartDocumentAnalysisCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

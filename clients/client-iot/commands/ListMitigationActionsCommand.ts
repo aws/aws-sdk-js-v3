@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListMitigationActionsRequest,
-  ListMitigationActionsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListMitigationActionsCommand,
   serializeAws_restJson1_1ListMitigationActionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMitigationActionsCommandInput = ListMitigationActionsRequest;
-export type ListMitigationActionsCommandOutput = ListMitigationActionsResponse &
-  __MetadataBearer;
+export type ListMitigationActionsCommandOutput = ListMitigationActionsResponse & __MetadataBearer;
 
 export class ListMitigationActionsCommand extends $Command<
   ListMitigationActionsCommandInput,
@@ -49,13 +41,8 @@ export class ListMitigationActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMitigationActionsCommandInput,
-    ListMitigationActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMitigationActionsCommandInput, ListMitigationActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListMitigationActionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMitigationActionsCommandOutput> {
-    return deserializeAws_restJson1_1ListMitigationActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMitigationActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

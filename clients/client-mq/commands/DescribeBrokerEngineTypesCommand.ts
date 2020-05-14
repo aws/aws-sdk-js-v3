@@ -2,11 +2,7 @@ import {
   DescribeBrokerEngineTypesRequest,
   DescribeBrokerEngineTypesResponse
 } from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand,
   serializeAws_restJson1_1DescribeBrokerEngineTypesCommand
@@ -49,13 +45,8 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: mqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBrokerEngineTypesCommandInput,
-    DescribeBrokerEngineTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBrokerEngineTypesCommandInput, DescribeBrokerEngineTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     input: DescribeBrokerEngineTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeBrokerEngineTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

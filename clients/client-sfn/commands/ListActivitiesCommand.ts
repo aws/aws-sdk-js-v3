@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { ListActivitiesInput, ListActivitiesOutput } from "../models/index";
 import {
   deserializeAws_json1_0ListActivitiesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListActivitiesCommandInput = ListActivitiesInput;
-export type ListActivitiesCommandOutput = ListActivitiesOutput &
-  __MetadataBearer;
+export type ListActivitiesCommandOutput = ListActivitiesOutput & __MetadataBearer;
 
 export class ListActivitiesCommand extends $Command<
   ListActivitiesCommandInput,
@@ -47,9 +42,7 @@ export class ListActivitiesCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListActivitiesCommandInput, ListActivitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

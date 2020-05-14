@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateAccountRequest, UpdateAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAccountCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAccountCommandInput = UpdateAccountRequest;
-export type UpdateAccountCommandOutput = UpdateAccountResponse &
-  __MetadataBearer;
+export type UpdateAccountCommandOutput = UpdateAccountResponse & __MetadataBearer;
 
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,
@@ -47,9 +42,7 @@ export class UpdateAccountCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccountCommandInput, UpdateAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  DeleteRobotApplicationRequest,
-  DeleteRobotApplicationResponse
-} from "../models/index";
+import { DeleteRobotApplicationRequest, DeleteRobotApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRobotApplicationCommand,
   serializeAws_restJson1_1DeleteRobotApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRobotApplicationCommandInput = DeleteRobotApplicationRequest;
-export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse &
-  __MetadataBearer;
+export type DeleteRobotApplicationCommandOutput = DeleteRobotApplicationResponse & __MetadataBearer;
 
 export class DeleteRobotApplicationCommand extends $Command<
   DeleteRobotApplicationCommandInput,
@@ -49,13 +45,8 @@ export class DeleteRobotApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRobotApplicationCommandInput,
-    DeleteRobotApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRobotApplicationCommandInput, DeleteRobotApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteRobotApplicationCommand extends $Command<
     input: DeleteRobotApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteRobotApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteRobotApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRobotApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

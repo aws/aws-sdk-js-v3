@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  PutAccountSettingRequest,
-  PutAccountSettingResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutAccountSettingCommand,
   serializeAws_json1_1PutAccountSettingCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutAccountSettingCommandInput = PutAccountSettingRequest;
-export type PutAccountSettingCommandOutput = PutAccountSettingResponse &
-  __MetadataBearer;
+export type PutAccountSettingCommandOutput = PutAccountSettingResponse & __MetadataBearer;
 
 export class PutAccountSettingCommand extends $Command<
   PutAccountSettingCommandInput,
@@ -50,9 +42,7 @@ export class PutAccountSettingCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutAccountSettingCommandInput, PutAccountSettingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

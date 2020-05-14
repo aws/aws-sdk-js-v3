@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeEffectiveInstanceAssociationsRequest,
   DescribeEffectiveInstanceAssociationsResult
@@ -39,9 +35,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeEffectiveInstanceAssociationsCommandInput
-  ) {
+  constructor(readonly input: DescribeEffectiveInstanceAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     DescribeEffectiveInstanceAssociationsCommandInput,
     DescribeEffectiveInstanceAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     input: DescribeEffectiveInstanceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

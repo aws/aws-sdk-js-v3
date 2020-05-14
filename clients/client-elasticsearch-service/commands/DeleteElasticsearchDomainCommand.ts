@@ -49,13 +49,8 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteElasticsearchDomainCommandInput,
-    DeleteElasticsearchDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteElasticsearchDomainCommandInput, DeleteElasticsearchDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteElasticsearchDomainCommand extends $Command<
     input: DeleteElasticsearchDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteElasticsearchDomainCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteElasticsearchDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1_1DeleteElasticsearchDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

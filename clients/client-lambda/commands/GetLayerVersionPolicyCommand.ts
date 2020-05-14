@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetLayerVersionPolicyRequest,
-  GetLayerVersionPolicyResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLayerVersionPolicyCommand,
   serializeAws_restJson1_1GetLayerVersionPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLayerVersionPolicyCommandInput = GetLayerVersionPolicyRequest;
-export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse &
-  __MetadataBearer;
+export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse & __MetadataBearer;
 
 export class GetLayerVersionPolicyCommand extends $Command<
   GetLayerVersionPolicyCommandInput,
@@ -49,13 +41,8 @@ export class GetLayerVersionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLayerVersionPolicyCommandInput,
-    GetLayerVersionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLayerVersionPolicyCommandInput, GetLayerVersionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class GetLayerVersionPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLayerVersionPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetLayerVersionPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLayerVersionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

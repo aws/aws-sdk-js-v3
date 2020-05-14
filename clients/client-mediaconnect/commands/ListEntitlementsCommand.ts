@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  ListEntitlementsRequest,
-  ListEntitlementsResponse
-} from "../models/index";
+import { ListEntitlementsRequest, ListEntitlementsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListEntitlementsCommand,
   serializeAws_restJson1_1ListEntitlementsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEntitlementsCommandInput = ListEntitlementsRequest;
-export type ListEntitlementsCommandOutput = ListEntitlementsResponse &
-  __MetadataBearer;
+export type ListEntitlementsCommandOutput = ListEntitlementsResponse & __MetadataBearer;
 
 export class ListEntitlementsCommand extends $Command<
   ListEntitlementsCommandInput,
@@ -50,9 +46,7 @@ export class ListEntitlementsCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEntitlementsCommandInput, ListEntitlementsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

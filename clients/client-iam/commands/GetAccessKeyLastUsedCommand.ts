@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetAccessKeyLastUsedRequest,
-  GetAccessKeyLastUsedResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccessKeyLastUsedCommand,
   serializeAws_queryGetAccessKeyLastUsedCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
-export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse &
-  __MetadataBearer;
+export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse & __MetadataBearer;
 
 export class GetAccessKeyLastUsedCommand extends $Command<
   GetAccessKeyLastUsedCommandInput,
@@ -49,13 +41,8 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAccessKeyLastUsedCommandInput,
-    GetAccessKeyLastUsedCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAccessKeyLastUsedCommandInput, GetAccessKeyLastUsedCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

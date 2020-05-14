@@ -140,9 +140,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -281,9 +279,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
@@ -316,9 +312,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public getAccessPoint(
     args: GetAccessPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccessPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointCommandOutput) => void),
     cb?: (err: any, data?: GetAccessPointCommandOutput) => void
   ): Promise<GetAccessPointCommandOutput> | void {
     const command = new GetAccessPointCommand(args);
@@ -457,9 +451,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public listAccessPoints(
     args: ListAccessPointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccessPointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPointsCommandOutput) => void),
     cb?: (err: any, data?: ListAccessPointsCommandOutput) => void
   ): Promise<ListAccessPointsCommandOutput> | void {
     const command = new ListAccessPointsCommand(args);
@@ -492,9 +484,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -633,9 +623,7 @@ export class S3Control extends S3ControlClient {
   ): void;
   public updateJobStatus(
     args: UpdateJobStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobStatusCommandOutput) => void
   ): Promise<UpdateJobStatusCommandOutput> | void {
     const command = new UpdateJobStatusCommand(args);

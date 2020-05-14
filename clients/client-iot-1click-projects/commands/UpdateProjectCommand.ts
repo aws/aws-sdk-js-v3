@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateProjectCommandInput = UpdateProjectRequest;
-export type UpdateProjectCommandOutput = UpdateProjectResponse &
-  __MetadataBearer;
+export type UpdateProjectCommandOutput = UpdateProjectResponse & __MetadataBearer;
 
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,
@@ -47,9 +46,7 @@ export class UpdateProjectCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

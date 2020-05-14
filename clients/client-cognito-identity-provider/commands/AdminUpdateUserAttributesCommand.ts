@@ -49,13 +49,8 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminUpdateUserAttributesCommandInput,
-    AdminUpdateUserAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminUpdateUserAttributesCommandInput, AdminUpdateUserAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

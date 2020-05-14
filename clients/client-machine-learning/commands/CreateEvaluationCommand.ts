@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEvaluationCommandInput = CreateEvaluationInput;
-export type CreateEvaluationCommandOutput = CreateEvaluationOutput &
-  __MetadataBearer;
+export type CreateEvaluationCommandOutput = CreateEvaluationOutput & __MetadataBearer;
 
 export class CreateEvaluationCommand extends $Command<
   CreateEvaluationCommandInput,
@@ -47,9 +46,7 @@ export class CreateEvaluationCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEvaluationCommandInput, CreateEvaluationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

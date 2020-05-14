@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteChangeSetCommandInput = DeleteChangeSetInput;
-export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput &
-  __MetadataBearer;
+export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput & __MetadataBearer;
 
 export class DeleteChangeSetCommand extends $Command<
   DeleteChangeSetCommandInput,
@@ -47,9 +46,7 @@ export class DeleteChangeSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

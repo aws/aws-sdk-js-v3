@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileResult
-} from "../models/index";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateInstanceProfileCommand,
   serializeAws_json1_1CreateInstanceProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
-export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult &
-  __MetadataBearer;
+export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult & __MetadataBearer;
 
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,
@@ -49,13 +45,8 @@ export class CreateInstanceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceProfileCommandInput,
-    CreateInstanceProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceProfileCommandInput, CreateInstanceProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,16 +1,11 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Your account isn't a member of an organization. To make this request, you must use the
  *       credentials of an account that belongs to an organization.</p>
  */
-export interface AWSOrganizationsNotInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AWSOrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
   name: "AWSOrganizationsNotInUseException";
   $fault: "client";
   Message?: string;
@@ -32,8 +27,7 @@ export interface AcceptHandshakeRequest {
 }
 
 export namespace AcceptHandshakeRequest {
-  export const isa = (o: any): o is AcceptHandshakeRequest =>
-    __isa(o, "AcceptHandshakeRequest");
+  export const isa = (o: any): o is AcceptHandshakeRequest => __isa(o, "AcceptHandshakeRequest");
 }
 
 export interface AcceptHandshakeResponse {
@@ -45,8 +39,7 @@ export interface AcceptHandshakeResponse {
 }
 
 export namespace AcceptHandshakeResponse {
-  export const isa = (o: any): o is AcceptHandshakeResponse =>
-    __isa(o, "AcceptHandshakeResponse");
+  export const isa = (o: any): o is AcceptHandshakeResponse => __isa(o, "AcceptHandshakeResponse");
 }
 
 /**
@@ -56,17 +49,14 @@ export namespace AcceptHandshakeResponse {
  *         <i>IAM User Guide.</i>
  *          </p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -75,9 +65,7 @@ export namespace AccessDeniedException {
  *       permission so that AWS Organizations can create the required service-linked role. You don't have that
  *       permission.</p>
  */
-export interface AccessDeniedForDependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedForDependencyException";
   $fault: "client";
   Message?: string;
@@ -157,9 +145,7 @@ export enum AccountJoinedMethod {
  *       account whose credentials you used to make this request isn't a member of an
  *       organization.</p>
  */
-export interface AccountNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AccountNotFoundException";
   $fault: "client";
   Message?: string;
@@ -176,9 +162,7 @@ export namespace AccountNotFoundException {
  *         Verification</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface AccountOwnerNotVerifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountOwnerNotVerifiedException extends __SmithyException, $MetadataBearer {
   name: "AccountOwnerNotVerifiedException";
   $fault: "client";
   Message?: string;
@@ -205,9 +189,7 @@ export enum ActionType {
  * <p>This account is already a member of an organization. An account can belong to only one
  *       organization at a time.</p>
  */
-export interface AlreadyInOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyInOrganizationException extends __SmithyException, $MetadataBearer {
   name: "AlreadyInOrganizationException";
   $fault: "client";
   Message?: string;
@@ -256,8 +238,7 @@ export interface AttachPolicyRequest {
 }
 
 export namespace AttachPolicyRequest {
-  export const isa = (o: any): o is AttachPolicyRequest =>
-    __isa(o, "AttachPolicyRequest");
+  export const isa = (o: any): o is AttachPolicyRequest => __isa(o, "AttachPolicyRequest");
 }
 
 export interface CancelHandshakeRequest {
@@ -272,8 +253,7 @@ export interface CancelHandshakeRequest {
 }
 
 export namespace CancelHandshakeRequest {
-  export const isa = (o: any): o is CancelHandshakeRequest =>
-    __isa(o, "CancelHandshakeRequest");
+  export const isa = (o: any): o is CancelHandshakeRequest => __isa(o, "CancelHandshakeRequest");
 }
 
 export interface CancelHandshakeResponse {
@@ -285,8 +265,7 @@ export interface CancelHandshakeResponse {
 }
 
 export namespace CancelHandshakeResponse {
-  export const isa = (o: any): o is CancelHandshakeResponse =>
-    __isa(o, "CancelHandshakeResponse");
+  export const isa = (o: any): o is CancelHandshakeResponse => __isa(o, "CancelHandshakeResponse");
 }
 
 /**
@@ -325,17 +304,14 @@ export namespace Child {
  * <p>We can't find an organizational unit (OU) or AWS account with the <code>ChildId</code>
  *       that you specified.</p>
  */
-export interface ChildNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ChildNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ChildNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ChildNotFoundException {
-  export const isa = (o: any): o is ChildNotFoundException =>
-    __isa(o, "ChildNotFoundException");
+  export const isa = (o: any): o is ChildNotFoundException => __isa(o, "ChildNotFoundException");
 }
 
 export enum ChildType {
@@ -347,9 +323,7 @@ export enum ChildType {
  * <p>The target of the operation is currently being modified by a different request. Try again
  *       later.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -484,9 +458,7 @@ export namespace ConcurrentModificationException {
  *             </li>
  *          </ul>
  */
-export interface ConstraintViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConstraintViolationException extends __SmithyException, $MetadataBearer {
   name: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -582,8 +554,7 @@ export interface CreateAccountRequest {
 }
 
 export namespace CreateAccountRequest {
-  export const isa = (o: any): o is CreateAccountRequest =>
-    __isa(o, "CreateAccountRequest");
+  export const isa = (o: any): o is CreateAccountRequest => __isa(o, "CreateAccountRequest");
 }
 
 export interface CreateAccountResponse {
@@ -601,8 +572,7 @@ export interface CreateAccountResponse {
 }
 
 export namespace CreateAccountResponse {
-  export const isa = (o: any): o is CreateAccountResponse =>
-    __isa(o, "CreateAccountResponse");
+  export const isa = (o: any): o is CreateAccountResponse => __isa(o, "CreateAccountResponse");
 }
 
 export enum CreateAccountState {
@@ -692,17 +662,14 @@ export interface CreateAccountStatus {
 }
 
 export namespace CreateAccountStatus {
-  export const isa = (o: any): o is CreateAccountStatus =>
-    __isa(o, "CreateAccountStatus");
+  export const isa = (o: any): o is CreateAccountStatus => __isa(o, "CreateAccountStatus");
 }
 
 /**
  * <p>We can't find a create account request with the <code>CreateAccountRequestId</code> that
  *       you specified.</p>
  */
-export interface CreateAccountStatusNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CreateAccountStatusNotFoundException extends __SmithyException, $MetadataBearer {
   name: "CreateAccountStatusNotFoundException";
   $fault: "client";
   Message?: string;
@@ -910,8 +877,7 @@ export interface CreatePolicyRequest {
 }
 
 export namespace CreatePolicyRequest {
-  export const isa = (o: any): o is CreatePolicyRequest =>
-    __isa(o, "CreatePolicyRequest");
+  export const isa = (o: any): o is CreatePolicyRequest => __isa(o, "CreatePolicyRequest");
 }
 
 export interface CreatePolicyResponse {
@@ -923,8 +889,7 @@ export interface CreatePolicyResponse {
 }
 
 export namespace CreatePolicyResponse {
-  export const isa = (o: any): o is CreatePolicyResponse =>
-    __isa(o, "CreatePolicyResponse");
+  export const isa = (o: any): o is CreatePolicyResponse => __isa(o, "CreatePolicyResponse");
 }
 
 export interface DeclineHandshakeRequest {
@@ -939,8 +904,7 @@ export interface DeclineHandshakeRequest {
 }
 
 export namespace DeclineHandshakeRequest {
-  export const isa = (o: any): o is DeclineHandshakeRequest =>
-    __isa(o, "DeclineHandshakeRequest");
+  export const isa = (o: any): o is DeclineHandshakeRequest => __isa(o, "DeclineHandshakeRequest");
 }
 
 export interface DeclineHandshakeResponse {
@@ -988,8 +952,7 @@ export interface DeletePolicyRequest {
 }
 
 export namespace DeletePolicyRequest {
-  export const isa = (o: any): o is DeletePolicyRequest =>
-    __isa(o, "DeletePolicyRequest");
+  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export interface DescribeAccountRequest {
@@ -1005,8 +968,7 @@ export interface DescribeAccountRequest {
 }
 
 export namespace DescribeAccountRequest {
-  export const isa = (o: any): o is DescribeAccountRequest =>
-    __isa(o, "DescribeAccountRequest");
+  export const isa = (o: any): o is DescribeAccountRequest => __isa(o, "DescribeAccountRequest");
 }
 
 export interface DescribeAccountResponse {
@@ -1018,8 +980,7 @@ export interface DescribeAccountResponse {
 }
 
 export namespace DescribeAccountResponse {
-  export const isa = (o: any): o is DescribeAccountResponse =>
-    __isa(o, "DescribeAccountResponse");
+  export const isa = (o: any): o is DescribeAccountResponse => __isa(o, "DescribeAccountResponse");
 }
 
 export interface DescribeCreateAccountStatusRequest {
@@ -1171,8 +1132,7 @@ export interface DescribePolicyRequest {
 }
 
 export namespace DescribePolicyRequest {
-  export const isa = (o: any): o is DescribePolicyRequest =>
-    __isa(o, "DescribePolicyRequest");
+  export const isa = (o: any): o is DescribePolicyRequest => __isa(o, "DescribePolicyRequest");
 }
 
 export interface DescribePolicyResponse {
@@ -1184,17 +1144,14 @@ export interface DescribePolicyResponse {
 }
 
 export namespace DescribePolicyResponse {
-  export const isa = (o: any): o is DescribePolicyResponse =>
-    __isa(o, "DescribePolicyResponse");
+  export const isa = (o: any): o is DescribePolicyResponse => __isa(o, "DescribePolicyResponse");
 }
 
 /**
  * <p>We can't find the destination container (a root or OU) with the <code>ParentId</code> that
  *       you specified.</p>
  */
-export interface DestinationParentNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DestinationParentNotFoundException extends __SmithyException, $MetadataBearer {
   name: "DestinationParentNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1243,8 +1200,7 @@ export interface DetachPolicyRequest {
 }
 
 export namespace DetachPolicyRequest {
-  export const isa = (o: any): o is DetachPolicyRequest =>
-    __isa(o, "DetachPolicyRequest");
+  export const isa = (o: any): o is DetachPolicyRequest => __isa(o, "DetachPolicyRequest");
 }
 
 export interface DisableAWSServiceAccessRequest {
@@ -1300,9 +1256,7 @@ export namespace DisablePolicyTypeResponse {
 /**
  * <p>That account is already present in the specified destination.</p>
  */
-export interface DuplicateAccountException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateAccountException extends __SmithyException, $MetadataBearer {
   name: "DuplicateAccountException";
   $fault: "client";
   Message?: string;
@@ -1319,9 +1273,7 @@ export namespace DuplicateAccountException {
  *       from this organization. If you intend to resend an invitation to an account, ensure that
  *       existing handshakes that might be considered duplicates are canceled or declined.</p>
  */
-export interface DuplicateHandshakeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateHandshakeException extends __SmithyException, $MetadataBearer {
   name: "DuplicateHandshakeException";
   $fault: "client";
   Message?: string;
@@ -1335,9 +1287,7 @@ export namespace DuplicateHandshakeException {
 /**
  * <p>An OU with the same name already exists.</p>
  */
-export interface DuplicateOrganizationalUnitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateOrganizationalUnitException extends __SmithyException, $MetadataBearer {
   name: "DuplicateOrganizationalUnitException";
   $fault: "client";
   Message?: string;
@@ -1351,9 +1301,7 @@ export namespace DuplicateOrganizationalUnitException {
 /**
  * <p>The selected policy is already attached to the specified target.</p>
  */
-export interface DuplicatePolicyAttachmentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicatePolicyAttachmentException extends __SmithyException, $MetadataBearer {
   name: "DuplicatePolicyAttachmentException";
   $fault: "client";
   Message?: string;
@@ -1367,9 +1315,7 @@ export namespace DuplicatePolicyAttachmentException {
 /**
  * <p>A policy with the same name already exists.</p>
  */
-export interface DuplicatePolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicatePolicyException extends __SmithyException, $MetadataBearer {
   name: "DuplicatePolicyException";
   $fault: "client";
   Message?: string;
@@ -1409,8 +1355,7 @@ export interface EffectivePolicy {
 }
 
 export namespace EffectivePolicy {
-  export const isa = (o: any): o is EffectivePolicy =>
-    __isa(o, "EffectivePolicy");
+  export const isa = (o: any): o is EffectivePolicy => __isa(o, "EffectivePolicy");
 }
 
 /**
@@ -1419,9 +1364,7 @@ export namespace EffectivePolicy {
  *       Contact the administrator of your organization about attaching a policy of this type to the
  *       account. </p>
  */
-export interface EffectivePolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EffectivePolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EffectivePolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1492,8 +1435,7 @@ export interface EnablePolicyTypeRequest {
 }
 
 export namespace EnablePolicyTypeRequest {
-  export const isa = (o: any): o is EnablePolicyTypeRequest =>
-    __isa(o, "EnablePolicyTypeRequest");
+  export const isa = (o: any): o is EnablePolicyTypeRequest => __isa(o, "EnablePolicyTypeRequest");
 }
 
 export interface EnablePolicyTypeResponse {
@@ -1529,8 +1471,7 @@ export interface EnabledServicePrincipal {
 }
 
 export namespace EnabledServicePrincipal {
-  export const isa = (o: any): o is EnabledServicePrincipal =>
-    __isa(o, "EnabledServicePrincipal");
+  export const isa = (o: any): o is EnabledServicePrincipal => __isa(o, "EnabledServicePrincipal");
 }
 
 /**
@@ -1539,9 +1480,7 @@ export namespace EnabledServicePrincipal {
  *       receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
  *       Support</a>.</p>
  */
-export interface FinalizingOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FinalizingOrganizationException extends __SmithyException, $MetadataBearer {
   name: "FinalizingOrganizationException";
   $fault: "client";
   Message?: string;
@@ -1682,9 +1621,7 @@ export namespace Handshake {
  * <p>The specified handshake is already in the requested state. For example, you can't accept a
  *       handshake that was already accepted.</p>
  */
-export interface HandshakeAlreadyInStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HandshakeAlreadyInStateException extends __SmithyException, $MetadataBearer {
   name: "HandshakeAlreadyInStateException";
   $fault: "client";
   Message?: string;
@@ -1745,9 +1682,7 @@ export namespace HandshakeAlreadyInStateException {
  *             </li>
  *          </ul>
  */
-export interface HandshakeConstraintViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HandshakeConstraintViolationException extends __SmithyException, $MetadataBearer {
   name: "HandshakeConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -1794,16 +1729,13 @@ export interface HandshakeFilter {
 }
 
 export namespace HandshakeFilter {
-  export const isa = (o: any): o is HandshakeFilter =>
-    __isa(o, "HandshakeFilter");
+  export const isa = (o: any): o is HandshakeFilter => __isa(o, "HandshakeFilter");
 }
 
 /**
  * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  */
-export interface HandshakeNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HandshakeNotFoundException extends __SmithyException, $MetadataBearer {
   name: "HandshakeNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1833,8 +1765,7 @@ export interface HandshakeParty {
 }
 
 export namespace HandshakeParty {
-  export const isa = (o: any): o is HandshakeParty =>
-    __isa(o, "HandshakeParty");
+  export const isa = (o: any): o is HandshakeParty => __isa(o, "HandshakeParty");
 }
 
 export enum HandshakePartyType {
@@ -1898,8 +1829,7 @@ export interface HandshakeResource {
 }
 
 export namespace HandshakeResource {
-  export const isa = (o: any): o is HandshakeResource =>
-    __isa(o, "HandshakeResource");
+  export const isa = (o: any): o is HandshakeResource => __isa(o, "HandshakeResource");
 }
 
 export enum HandshakeResourceType {
@@ -1932,9 +1862,7 @@ export enum IAMUserAccessToBilling {
  *       can't cancel a handshake that was already accepted or accept a handshake that was already
  *       declined.</p>
  */
-export interface InvalidHandshakeTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidHandshakeTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidHandshakeTransitionException";
   $fault: "client";
   Message?: string;
@@ -2032,9 +1960,7 @@ export namespace InvalidHandshakeTransitionException {
  *             </li>
  *          </ul>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -2042,8 +1968,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum InvalidInputExceptionReason {
@@ -2146,9 +2071,7 @@ export interface ListAWSServiceAccessForOrganizationRequest {
 }
 
 export namespace ListAWSServiceAccessForOrganizationRequest {
-  export const isa = (
-    o: any
-  ): o is ListAWSServiceAccessForOrganizationRequest =>
+  export const isa = (o: any): o is ListAWSServiceAccessForOrganizationRequest =>
     __isa(o, "ListAWSServiceAccessForOrganizationRequest");
 }
 
@@ -2172,9 +2095,7 @@ export interface ListAWSServiceAccessForOrganizationResponse {
 }
 
 export namespace ListAWSServiceAccessForOrganizationResponse {
-  export const isa = (
-    o: any
-  ): o is ListAWSServiceAccessForOrganizationResponse =>
+  export const isa = (o: any): o is ListAWSServiceAccessForOrganizationResponse =>
     __isa(o, "ListAWSServiceAccessForOrganizationResponse");
 }
 
@@ -2258,8 +2179,7 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
-  export const isa = (o: any): o is ListAccountsRequest =>
-    __isa(o, "ListAccountsRequest");
+  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
@@ -2280,8 +2200,7 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
-  export const isa = (o: any): o is ListAccountsResponse =>
-    __isa(o, "ListAccountsResponse");
+  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface ListChildrenRequest {
@@ -2334,8 +2253,7 @@ export interface ListChildrenRequest {
 }
 
 export namespace ListChildrenRequest {
-  export const isa = (o: any): o is ListChildrenRequest =>
-    __isa(o, "ListChildrenRequest");
+  export const isa = (o: any): o is ListChildrenRequest => __isa(o, "ListChildrenRequest");
 }
 
 export interface ListChildrenResponse {
@@ -2356,8 +2274,7 @@ export interface ListChildrenResponse {
 }
 
 export namespace ListChildrenResponse {
-  export const isa = (o: any): o is ListChildrenResponse =>
-    __isa(o, "ListChildrenResponse");
+  export const isa = (o: any): o is ListChildrenResponse => __isa(o, "ListChildrenResponse");
 }
 
 export interface ListCreateAccountStatusRequest {
@@ -2655,8 +2572,7 @@ export interface ListParentsRequest {
 }
 
 export namespace ListParentsRequest {
-  export const isa = (o: any): o is ListParentsRequest =>
-    __isa(o, "ListParentsRequest");
+  export const isa = (o: any): o is ListParentsRequest => __isa(o, "ListParentsRequest");
 }
 
 export interface ListParentsResponse {
@@ -2677,8 +2593,7 @@ export interface ListParentsResponse {
 }
 
 export namespace ListParentsResponse {
-  export const isa = (o: any): o is ListParentsResponse =>
-    __isa(o, "ListParentsResponse");
+  export const isa = (o: any): o is ListParentsResponse => __isa(o, "ListParentsResponse");
 }
 
 export interface ListPoliciesForTargetRequest {
@@ -2790,8 +2705,7 @@ export interface ListPoliciesRequest {
 }
 
 export namespace ListPoliciesRequest {
-  export const isa = (o: any): o is ListPoliciesRequest =>
-    __isa(o, "ListPoliciesRequest");
+  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 export interface ListPoliciesResponse {
@@ -2813,8 +2727,7 @@ export interface ListPoliciesResponse {
 }
 
 export namespace ListPoliciesResponse {
-  export const isa = (o: any): o is ListPoliciesResponse =>
-    __isa(o, "ListPoliciesResponse");
+  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListRootsRequest {
@@ -2841,8 +2754,7 @@ export interface ListRootsRequest {
 }
 
 export namespace ListRootsRequest {
-  export const isa = (o: any): o is ListRootsRequest =>
-    __isa(o, "ListRootsRequest");
+  export const isa = (o: any): o is ListRootsRequest => __isa(o, "ListRootsRequest");
 }
 
 export interface ListRootsResponse {
@@ -2863,8 +2775,7 @@ export interface ListRootsResponse {
 }
 
 export namespace ListRootsResponse {
-  export const isa = (o: any): o is ListRootsResponse =>
-    __isa(o, "ListRootsResponse");
+  export const isa = (o: any): o is ListRootsResponse => __isa(o, "ListRootsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2975,9 +2886,7 @@ export namespace ListTargetsForPolicyResponse {
  *         Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
@@ -2993,9 +2902,7 @@ export namespace MalformedPolicyDocumentException {
  *       become a member account in another organization, you must first delete the current
  *       organization of the master account.</p>
  */
-export interface MasterCannotLeaveOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MasterCannotLeaveOrganizationException extends __SmithyException, $MetadataBearer {
   name: "MasterCannotLeaveOrganizationException";
   $fault: "client";
   Message?: string;
@@ -3059,8 +2966,7 @@ export interface MoveAccountRequest {
 }
 
 export namespace MoveAccountRequest {
-  export const isa = (o: any): o is MoveAccountRequest =>
-    __isa(o, "MoveAccountRequest");
+  export const isa = (o: any): o is MoveAccountRequest => __isa(o, "MoveAccountRequest");
 }
 
 /**
@@ -3141,9 +3047,7 @@ export enum OrganizationFeatureSet {
  * <p>The organization isn't empty. To delete an organization, you must first remove all
  *       accounts except the master account, delete all OUs, and delete all policies.</p>
  */
-export interface OrganizationNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "OrganizationNotEmptyException";
   $fault: "client";
   Message?: string;
@@ -3187,17 +3091,14 @@ export interface OrganizationalUnit {
 }
 
 export namespace OrganizationalUnit {
-  export const isa = (o: any): o is OrganizationalUnit =>
-    __isa(o, "OrganizationalUnit");
+  export const isa = (o: any): o is OrganizationalUnit => __isa(o, "OrganizationalUnit");
 }
 
 /**
  * <p>The specified OU is not empty. Move all accounts to another root or to other OUs, remove
  *       all child OUs, and try the operation again.</p>
  */
-export interface OrganizationalUnitNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationalUnitNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "OrganizationalUnitNotEmptyException";
   $fault: "client";
   Message?: string;
@@ -3211,9 +3112,7 @@ export namespace OrganizationalUnitNotEmptyException {
 /**
  * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you specified.</p>
  */
-export interface OrganizationalUnitNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationalUnitNotFoundException extends __SmithyException, $MetadataBearer {
   name: "OrganizationalUnitNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3261,17 +3160,14 @@ export namespace Parent {
 /**
  * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  */
-export interface ParentNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParentNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ParentNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ParentNotFoundException {
-  export const isa = (o: any): o is ParentNotFoundException =>
-    __isa(o, "ParentNotFoundException");
+  export const isa = (o: any): o is ParentNotFoundException => __isa(o, "ParentNotFoundException");
 }
 
 export enum ParentType {
@@ -3304,9 +3200,7 @@ export namespace Policy {
  * <p>Changes to the effective policy are in progress, and its contents can't be returned. Try
  *       the operation again later. </p>
  */
-export interface PolicyChangesInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyChangesInProgressException extends __SmithyException, $MetadataBearer {
   name: "PolicyChangesInProgressException";
   $fault: "client";
   Message?: string;
@@ -3321,25 +3215,20 @@ export namespace PolicyChangesInProgressException {
  * <p>The policy is attached to one or more entities. You must detach it from all roots, OUs,
  *       and accounts before performing this operation.</p>
  */
-export interface PolicyInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyInUseException extends __SmithyException, $MetadataBearer {
   name: "PolicyInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PolicyInUseException {
-  export const isa = (o: any): o is PolicyInUseException =>
-    __isa(o, "PolicyInUseException");
+  export const isa = (o: any): o is PolicyInUseException => __isa(o, "PolicyInUseException");
 }
 
 /**
  * <p>The policy isn't attached to the specified target in the specified root.</p>
  */
-export interface PolicyNotAttachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyNotAttachedException extends __SmithyException, $MetadataBearer {
   name: "PolicyNotAttachedException";
   $fault: "client";
   Message?: string;
@@ -3353,17 +3242,14 @@ export namespace PolicyNotAttachedException {
 /**
  * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  */
-export interface PolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PolicyNotFoundException {
-  export const isa = (o: any): o is PolicyNotFoundException =>
-    __isa(o, "PolicyNotFoundException");
+  export const isa = (o: any): o is PolicyNotFoundException => __isa(o, "PolicyNotFoundException");
 }
 
 /**
@@ -3464,8 +3350,7 @@ export interface PolicyTargetSummary {
 }
 
 export namespace PolicyTargetSummary {
-  export const isa = (o: any): o is PolicyTargetSummary =>
-    __isa(o, "PolicyTargetSummary");
+  export const isa = (o: any): o is PolicyTargetSummary => __isa(o, "PolicyTargetSummary");
 }
 
 export enum PolicyType {
@@ -3476,9 +3361,7 @@ export enum PolicyType {
 /**
  * <p>The specified policy type is already enabled in the specified root.</p>
  */
-export interface PolicyTypeAlreadyEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyTypeAlreadyEnabledException extends __SmithyException, $MetadataBearer {
   name: "PolicyTypeAlreadyEnabledException";
   $fault: "client";
   Message?: string;
@@ -3505,9 +3388,7 @@ export interface PolicyTypeNotAvailableForOrganizationException
 }
 
 export namespace PolicyTypeNotAvailableForOrganizationException {
-  export const isa = (
-    o: any
-  ): o is PolicyTypeNotAvailableForOrganizationException =>
+  export const isa = (o: any): o is PolicyTypeNotAvailableForOrganizationException =>
     __isa(o, "PolicyTypeNotAvailableForOrganizationException");
 }
 
@@ -3518,9 +3399,7 @@ export namespace PolicyTypeNotAvailableForOrganizationException {
  *         Organization</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface PolicyTypeNotEnabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyTypeNotEnabledException extends __SmithyException, $MetadataBearer {
   name: "PolicyTypeNotEnabledException";
   $fault: "client";
   Message?: string;
@@ -3556,8 +3435,7 @@ export interface PolicyTypeSummary {
 }
 
 export namespace PolicyTypeSummary {
-  export const isa = (o: any): o is PolicyTypeSummary =>
-    __isa(o, "PolicyTypeSummary");
+  export const isa = (o: any): o is PolicyTypeSummary => __isa(o, "PolicyTypeSummary");
 }
 
 export interface RemoveAccountFromOrganizationRequest {
@@ -3626,17 +3504,14 @@ export namespace Root {
 /**
  * <p>We can't find a root with the <code>RootId</code> that you specified.</p>
  */
-export interface RootNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RootNotFoundException extends __SmithyException, $MetadataBearer {
   name: "RootNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace RootNotFoundException {
-  export const isa = (o: any): o is RootNotFoundException =>
-    __isa(o, "RootNotFoundException");
+  export const isa = (o: any): o is RootNotFoundException => __isa(o, "RootNotFoundException");
 }
 
 /**
@@ -3650,17 +3525,14 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
  * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *       specified.</p>
  */
-export interface SourceParentNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceParentNotFoundException extends __SmithyException, $MetadataBearer {
   name: "SourceParentNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3708,25 +3580,21 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>We can't find a root, OU, or account with the <code>TargetId</code> that you
  *       specified.</p>
  */
-export interface TargetNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TargetNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TargetNotFoundException {
-  export const isa = (o: any): o is TargetNotFoundException =>
-    __isa(o, "TargetNotFoundException");
+  export const isa = (o: any): o is TargetNotFoundException => __isa(o, "TargetNotFoundException");
 }
 
 export enum TargetType {
@@ -3742,9 +3610,7 @@ export enum TargetType {
  *         <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -3759,9 +3625,7 @@ export namespace TooManyRequestsException {
 /**
  * <p>This action isn't available in the current Region.</p>
  */
-export interface UnsupportedAPIEndpointException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedAPIEndpointException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedAPIEndpointException";
   $fault: "client";
   Message?: string;
@@ -3786,8 +3650,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateOrganizationalUnitRequest {
@@ -3862,8 +3725,7 @@ export interface UpdatePolicyRequest {
 }
 
 export namespace UpdatePolicyRequest {
-  export const isa = (o: any): o is UpdatePolicyRequest =>
-    __isa(o, "UpdatePolicyRequest");
+  export const isa = (o: any): o is UpdatePolicyRequest => __isa(o, "UpdatePolicyRequest");
 }
 
 export interface UpdatePolicyResponse {
@@ -3876,6 +3738,5 @@ export interface UpdatePolicyResponse {
 }
 
 export namespace UpdatePolicyResponse {
-  export const isa = (o: any): o is UpdatePolicyResponse =>
-    __isa(o, "UpdatePolicyResponse");
+  export const isa = (o: any): o is UpdatePolicyResponse => __isa(o, "UpdatePolicyResponse");
 }

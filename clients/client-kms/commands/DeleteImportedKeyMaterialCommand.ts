@@ -1,8 +1,4 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DeleteImportedKeyMaterialRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
@@ -45,13 +41,8 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteImportedKeyMaterialCommandInput,
-    DeleteImportedKeyMaterialCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteImportedKeyMaterialCommandInput, DeleteImportedKeyMaterialCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImportedKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

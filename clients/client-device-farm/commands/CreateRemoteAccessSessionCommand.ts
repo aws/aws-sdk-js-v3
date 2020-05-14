@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  CreateRemoteAccessSessionRequest,
-  CreateRemoteAccessSessionResult
-} from "../models/index";
+import { CreateRemoteAccessSessionRequest, CreateRemoteAccessSessionResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateRemoteAccessSessionCommand,
   serializeAws_json1_1CreateRemoteAccessSessionCommand
@@ -49,13 +46,8 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRemoteAccessSessionCommandInput,
-    CreateRemoteAccessSessionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRemoteAccessSessionCommandInput, CreateRemoteAccessSessionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateRemoteAccessSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1CreateRemoteAccessSessionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

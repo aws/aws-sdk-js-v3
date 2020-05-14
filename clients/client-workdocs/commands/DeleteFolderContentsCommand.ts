@@ -45,13 +45,8 @@ export class DeleteFolderContentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteFolderContentsCommandInput,
-    DeleteFolderContentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteFolderContentsCommandInput, DeleteFolderContentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteFolderContentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFolderContentsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFolderContentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

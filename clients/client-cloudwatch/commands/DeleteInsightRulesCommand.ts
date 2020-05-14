@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DeleteInsightRulesInput,
-  DeleteInsightRulesOutput
-} from "../models/index";
+import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteInsightRulesCommand,
   serializeAws_queryDeleteInsightRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
-export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput &
-  __MetadataBearer;
+export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput & __MetadataBearer;
 
 export class DeleteInsightRulesCommand extends $Command<
   DeleteInsightRulesCommandInput,
@@ -50,9 +46,7 @@ export class DeleteInsightRulesCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

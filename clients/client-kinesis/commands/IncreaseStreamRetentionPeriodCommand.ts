@@ -49,9 +49,7 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
     IncreaseStreamRetentionPeriodCommandInput,
     IncreaseStreamRetentionPeriodCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
     input: IncreaseStreamRetentionPeriodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseStreamRetentionPeriodCommandOutput> {
-    return deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeUserImportJobRequest,
-  DescribeUserImportJobResponse
-} from "../models/index";
+import { DescribeUserImportJobRequest, DescribeUserImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUserImportJobCommand,
   serializeAws_json1_1DescribeUserImportJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUserImportJobCommandInput = DescribeUserImportJobRequest;
-export type DescribeUserImportJobCommandOutput = DescribeUserImportJobResponse &
-  __MetadataBearer;
+export type DescribeUserImportJobCommandOutput = DescribeUserImportJobResponse & __MetadataBearer;
 
 export class DescribeUserImportJobCommand extends $Command<
   DescribeUserImportJobCommandInput,
@@ -49,13 +45,8 @@ export class DescribeUserImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserImportJobCommandInput,
-    DescribeUserImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserImportJobCommandInput, DescribeUserImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

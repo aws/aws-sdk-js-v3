@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient";
-import {
-  GetBulkPublishDetailsRequest,
-  GetBulkPublishDetailsResponse
-} from "../models/index";
+import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBulkPublishDetailsCommand,
   serializeAws_restJson1_1GetBulkPublishDetailsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBulkPublishDetailsCommandInput = GetBulkPublishDetailsRequest;
-export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse &
-  __MetadataBearer;
+export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse & __MetadataBearer;
 
 export class GetBulkPublishDetailsCommand extends $Command<
   GetBulkPublishDetailsCommandInput,
@@ -49,13 +45,8 @@ export class GetBulkPublishDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBulkPublishDetailsCommandInput,
-    GetBulkPublishDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBulkPublishDetailsCommandInput, GetBulkPublishDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetBulkPublishDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBulkPublishDetailsCommandOutput> {
-    return deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBulkPublishDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

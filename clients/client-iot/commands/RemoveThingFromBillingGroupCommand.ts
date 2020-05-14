@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   RemoveThingFromBillingGroupRequest,
   RemoveThingFromBillingGroupResponse
@@ -49,13 +45,8 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveThingFromBillingGroupCommandInput,
-    RemoveThingFromBillingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveThingFromBillingGroupCommandInput, RemoveThingFromBillingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     input: RemoveThingFromBillingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveThingFromBillingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RemoveThingFromBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveThingFromBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1RemoveThingFromBillingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveThingFromBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

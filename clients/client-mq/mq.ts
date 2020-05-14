@@ -133,9 +133,7 @@ export class mq extends mqClient {
   ): void;
   public createBroker(
     args: CreateBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBrokerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBrokerCommandOutput) => void),
     cb?: (err: any, data?: CreateBrokerCommandOutput) => void
   ): Promise<CreateBrokerCommandOutput> | void {
     const command = new CreateBrokerCommand(args);
@@ -203,9 +201,7 @@ export class mq extends mqClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -238,9 +234,7 @@ export class mq extends mqClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -273,9 +267,7 @@ export class mq extends mqClient {
   ): void;
   public deleteBroker(
     args: DeleteBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBrokerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBrokerCommandOutput) => void),
     cb?: (err: any, data?: DeleteBrokerCommandOutput) => void
   ): Promise<DeleteBrokerCommandOutput> | void {
     const command = new DeleteBrokerCommand(args);
@@ -308,9 +300,7 @@ export class mq extends mqClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -343,9 +333,7 @@ export class mq extends mqClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -378,9 +366,7 @@ export class mq extends mqClient {
   ): void;
   public describeBroker(
     args: DescribeBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBrokerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBrokerCommandOutput) => void),
     cb?: (err: any, data?: DescribeBrokerCommandOutput) => void
   ): Promise<DescribeBrokerCommandOutput> | void {
     const command = new DescribeBrokerCommand(args);
@@ -553,9 +539,7 @@ export class mq extends mqClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
@@ -588,9 +572,7 @@ export class mq extends mqClient {
   ): void;
   public listBrokers(
     args: ListBrokersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBrokersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBrokersCommandOutput) => void),
     cb?: (err: any, data?: ListBrokersCommandOutput) => void
   ): Promise<ListBrokersCommandOutput> | void {
     const command = new ListBrokersCommand(args);
@@ -693,9 +675,7 @@ export class mq extends mqClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -728,9 +708,7 @@ export class mq extends mqClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -763,9 +741,7 @@ export class mq extends mqClient {
   ): void;
   public rebootBroker(
     args: RebootBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootBrokerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootBrokerCommandOutput) => void),
     cb?: (err: any, data?: RebootBrokerCommandOutput) => void
   ): Promise<RebootBrokerCommandOutput> | void {
     const command = new RebootBrokerCommand(args);
@@ -798,9 +774,7 @@ export class mq extends mqClient {
   ): void;
   public updateBroker(
     args: UpdateBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBrokerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBrokerCommandOutput) => void),
     cb?: (err: any, data?: UpdateBrokerCommandOutput) => void
   ): Promise<UpdateBrokerCommandOutput> | void {
     const command = new UpdateBrokerCommand(args);
@@ -868,9 +842,7 @@ export class mq extends mqClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);

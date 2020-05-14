@@ -49,13 +49,8 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDirectConnectGatewayCommandInput,
-    CreateDirectConnectGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDirectConnectGatewayCommandInput, CreateDirectConnectGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateDirectConnectGatewayCommand extends $Command<
     input: CreateDirectConnectGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateDirectConnectGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  EnvironmentDescription,
-  UpdateEnvironmentMessage
-} from "../models/index";
+import { EnvironmentDescription, UpdateEnvironmentMessage } from "../models/index";
 import {
   deserializeAws_queryUpdateEnvironmentCommand,
   serializeAws_queryUpdateEnvironmentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEnvironmentCommandInput = UpdateEnvironmentMessage;
-export type UpdateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type UpdateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,
@@ -50,9 +46,7 @@ export class UpdateEnvironmentCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

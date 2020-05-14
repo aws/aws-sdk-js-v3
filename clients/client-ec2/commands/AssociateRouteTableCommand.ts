@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AssociateRouteTableRequest,
-  AssociateRouteTableResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/index";
 import {
   deserializeAws_ec2AssociateRouteTableCommand,
   serializeAws_ec2AssociateRouteTableCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateRouteTableCommandInput = AssociateRouteTableRequest;
-export type AssociateRouteTableCommandOutput = AssociateRouteTableResult &
-  __MetadataBearer;
+export type AssociateRouteTableCommandOutput = AssociateRouteTableResult & __MetadataBearer;
 
 export class AssociateRouteTableCommand extends $Command<
   AssociateRouteTableCommandInput,
@@ -49,13 +41,8 @@ export class AssociateRouteTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRouteTableCommandInput,
-    AssociateRouteTableCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRouteTableCommandInput, AssociateRouteTableCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

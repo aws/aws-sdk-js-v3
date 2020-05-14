@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeAvailabilityZonesRequest,
-  DescribeAvailabilityZonesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeAvailabilityZonesCommand,
   serializeAws_ec2DescribeAvailabilityZonesCommand
@@ -49,13 +42,8 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAvailabilityZonesCommandInput,
-    DescribeAvailabilityZonesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAvailabilityZonesCommandInput, DescribeAvailabilityZonesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

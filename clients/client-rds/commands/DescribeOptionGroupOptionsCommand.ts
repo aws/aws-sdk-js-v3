@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeOptionGroupOptionsMessage,
-  OptionGroupOptionsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeOptionGroupOptionsMessage, OptionGroupOptionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeOptionGroupOptionsCommand,
   serializeAws_queryDescribeOptionGroupOptionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeOptionGroupOptionsCommandInput = DescribeOptionGroupOptionsMessage;
-export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage &
-  __MetadataBearer;
+export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage & __MetadataBearer;
 
 export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOptionGroupOptionsCommandInput,
-    DescribeOptionGroupOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOptionGroupOptionsCommandInput, DescribeOptionGroupOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOptionGroupOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOptionGroupOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeOptionGroupOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

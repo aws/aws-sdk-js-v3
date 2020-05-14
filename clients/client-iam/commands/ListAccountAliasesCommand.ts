@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListAccountAliasesRequest,
-  ListAccountAliasesResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/index";
 import {
   deserializeAws_queryListAccountAliasesCommand,
   serializeAws_queryListAccountAliasesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccountAliasesCommandInput = ListAccountAliasesRequest;
-export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse &
-  __MetadataBearer;
+export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse & __MetadataBearer;
 
 export class ListAccountAliasesCommand extends $Command<
   ListAccountAliasesCommandInput,
@@ -50,9 +42,7 @@ export class ListAccountAliasesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountAliasesCommandInput, ListAccountAliasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateProposalCommandInput = CreateProposalInput;
-export type CreateProposalCommandOutput = CreateProposalOutput &
-  __MetadataBearer;
+export type CreateProposalCommandOutput = CreateProposalOutput & __MetadataBearer;
 
 export class CreateProposalCommand extends $Command<
   CreateProposalCommandInput,
@@ -47,9 +46,7 @@ export class CreateProposalCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProposalCommandInput, CreateProposalCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

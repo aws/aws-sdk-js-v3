@@ -1,8 +1,4 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeImagesRequest, DescribeImagesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeImagesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeImagesCommandInput = DescribeImagesRequest;
-export type DescribeImagesCommandOutput = DescribeImagesResponse &
-  __MetadataBearer;
+export type DescribeImagesCommandOutput = DescribeImagesResponse & __MetadataBearer;
 
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,
@@ -47,9 +42,7 @@ export class DescribeImagesCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeImagesCommandInput, DescribeImagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

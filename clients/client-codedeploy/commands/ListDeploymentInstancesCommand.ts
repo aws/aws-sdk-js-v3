@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  ListDeploymentInstancesInput,
-  ListDeploymentInstancesOutput
-} from "../models/index";
+import { ListDeploymentInstancesInput, ListDeploymentInstancesOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListDeploymentInstancesCommand,
   serializeAws_json1_1ListDeploymentInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentInstancesCommandInput = ListDeploymentInstancesInput;
-export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput &
-  __MetadataBearer;
+export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput & __MetadataBearer;
 
 export class ListDeploymentInstancesCommand extends $Command<
   ListDeploymentInstancesCommandInput,
@@ -49,13 +45,8 @@ export class ListDeploymentInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeploymentInstancesCommandInput,
-    ListDeploymentInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeploymentInstancesCommandInput, ListDeploymentInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDeploymentInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeploymentInstancesCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDeploymentInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

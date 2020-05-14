@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteLaunchTemplateRequest,
-  DeleteLaunchTemplateResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteLaunchTemplateCommand,
   serializeAws_ec2DeleteLaunchTemplateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLaunchTemplateCommandInput = DeleteLaunchTemplateRequest;
-export type DeleteLaunchTemplateCommandOutput = DeleteLaunchTemplateResult &
-  __MetadataBearer;
+export type DeleteLaunchTemplateCommandOutput = DeleteLaunchTemplateResult & __MetadataBearer;
 
 export class DeleteLaunchTemplateCommand extends $Command<
   DeleteLaunchTemplateCommandInput,
@@ -49,13 +41,8 @@ export class DeleteLaunchTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLaunchTemplateCommandInput,
-    DeleteLaunchTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLaunchTemplateCommandInput, DeleteLaunchTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCommentsForComparedCommitCommandInput,
-    GetCommentsForComparedCommitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCommentsForComparedCommitCommandInput, GetCommentsForComparedCommitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     input: GetCommentsForComparedCommitCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentsForComparedCommitCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetCommentsForComparedCommitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCommentsForComparedCommitCommandOutput> {
-    return deserializeAws_json1_1GetCommentsForComparedCommitCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetCommentsForComparedCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

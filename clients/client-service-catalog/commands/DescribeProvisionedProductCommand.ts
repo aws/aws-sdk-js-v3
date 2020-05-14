@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeProvisionedProductInput,
-  DescribeProvisionedProductOutput
-} from "../models/index";
+import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProvisionedProductCommand,
   serializeAws_json1_1DescribeProvisionedProductCommand
@@ -49,13 +46,8 @@ export class DescribeProvisionedProductCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProvisionedProductCommandInput,
-    DescribeProvisionedProductCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProvisionedProductCommandInput, DescribeProvisionedProductCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeProvisionedProductCommand extends $Command<
     input: DescribeProvisionedProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisionedProductCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeProvisionedProductCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisionedProductCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

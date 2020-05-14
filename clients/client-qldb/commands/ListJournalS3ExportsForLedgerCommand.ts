@@ -1,8 +1,4 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import {
   ListJournalS3ExportsForLedgerRequest,
   ListJournalS3ExportsForLedgerResponse
@@ -53,9 +49,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     ListJournalS3ExportsForLedgerCommandInput,
     ListJournalS3ExportsForLedgerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
     input: ListJournalS3ExportsForLedgerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-    return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

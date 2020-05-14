@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutConfigurationSetTrackingOptionsRequest,
   PutConfigurationSetTrackingOptionsResponse
@@ -53,9 +49,7 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     PutConfigurationSetTrackingOptionsCommandInput,
     PutConfigurationSetTrackingOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
     input: PutConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

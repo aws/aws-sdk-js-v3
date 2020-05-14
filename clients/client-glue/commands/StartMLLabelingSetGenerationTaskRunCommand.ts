@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
   StartMLLabelingSetGenerationTaskRunResponse
@@ -53,9 +49,7 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     StartMLLabelingSetGenerationTaskRunCommandInput,
     StartMLLabelingSetGenerationTaskRunCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
     input: StartMLLabelingSetGenerationTaskRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

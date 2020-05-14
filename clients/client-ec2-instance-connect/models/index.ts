@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -20,9 +17,7 @@ export namespace AuthException {
 /**
  * <p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>
  */
-export interface EC2InstanceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EC2InstanceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EC2InstanceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -36,17 +31,14 @@ export namespace EC2InstanceNotFoundException {
 /**
  * <p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidArgsException {
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 export interface SendSSHPublicKeyRequest {
@@ -73,8 +65,7 @@ export interface SendSSHPublicKeyRequest {
 }
 
 export namespace SendSSHPublicKeyRequest {
-  export const isa = (o: any): o is SendSSHPublicKeyRequest =>
-    __isa(o, "SendSSHPublicKeyRequest");
+  export const isa = (o: any): o is SendSSHPublicKeyRequest => __isa(o, "SendSSHPublicKeyRequest");
 }
 
 export interface SendSSHPublicKeyResponse {
@@ -105,22 +96,18 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
-  export const isa = (o: any): o is ServiceException =>
-    __isa(o, "ServiceException");
+  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
  * <p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

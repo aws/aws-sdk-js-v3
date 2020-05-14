@@ -49,13 +49,8 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteClusterSnapshotsCommandInput,
-    BatchDeleteClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteClusterSnapshotsCommandInput, BatchDeleteClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

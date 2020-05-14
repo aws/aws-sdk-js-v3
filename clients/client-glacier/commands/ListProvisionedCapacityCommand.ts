@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  ListProvisionedCapacityInput,
-  ListProvisionedCapacityOutput
-} from "../models/index";
+import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListProvisionedCapacityCommand,
   serializeAws_restJson1_1ListProvisionedCapacityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProvisionedCapacityCommandInput = ListProvisionedCapacityInput;
-export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput &
-  __MetadataBearer;
+export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput & __MetadataBearer;
 
 export class ListProvisionedCapacityCommand extends $Command<
   ListProvisionedCapacityCommandInput,
@@ -49,13 +45,8 @@ export class ListProvisionedCapacityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListProvisionedCapacityCommandInput,
-    ListProvisionedCapacityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListProvisionedCapacityCommandInput, ListProvisionedCapacityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListProvisionedCapacityCommand extends $Command<
     input: ListProvisionedCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListProvisionedCapacityCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListProvisionedCapacityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1_1ListProvisionedCapacityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProvisionedCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

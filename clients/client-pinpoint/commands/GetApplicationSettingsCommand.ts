@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetApplicationSettingsRequest,
-  GetApplicationSettingsResponse
-} from "../models/index";
+import { GetApplicationSettingsRequest, GetApplicationSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetApplicationSettingsCommand,
   serializeAws_restJson1_1GetApplicationSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApplicationSettingsCommandInput = GetApplicationSettingsRequest;
-export type GetApplicationSettingsCommandOutput = GetApplicationSettingsResponse &
-  __MetadataBearer;
+export type GetApplicationSettingsCommandOutput = GetApplicationSettingsResponse & __MetadataBearer;
 
 export class GetApplicationSettingsCommand extends $Command<
   GetApplicationSettingsCommandInput,
@@ -49,13 +45,8 @@ export class GetApplicationSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetApplicationSettingsCommandInput,
-    GetApplicationSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetApplicationSettingsCommandInput, GetApplicationSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetApplicationSettingsCommand extends $Command<
     input: GetApplicationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetApplicationSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetApplicationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationSettingsCommandOutput> {
-    return deserializeAws_restJson1_1GetApplicationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetApplicationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

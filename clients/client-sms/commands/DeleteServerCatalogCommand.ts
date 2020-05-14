@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  DeleteServerCatalogRequest,
-  DeleteServerCatalogResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { DeleteServerCatalogRequest, DeleteServerCatalogResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteServerCatalogCommand,
   serializeAws_json1_1DeleteServerCatalogCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteServerCatalogCommandInput = DeleteServerCatalogRequest;
-export type DeleteServerCatalogCommandOutput = DeleteServerCatalogResponse &
-  __MetadataBearer;
+export type DeleteServerCatalogCommandOutput = DeleteServerCatalogResponse & __MetadataBearer;
 
 export class DeleteServerCatalogCommand extends $Command<
   DeleteServerCatalogCommandInput,
@@ -49,13 +41,8 @@ export class DeleteServerCatalogCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteServerCatalogCommandInput,
-    DeleteServerCatalogCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteServerCatalogCommandInput, DeleteServerCatalogCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

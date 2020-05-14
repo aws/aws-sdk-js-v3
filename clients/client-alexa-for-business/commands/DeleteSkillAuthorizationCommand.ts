@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteSkillAuthorizationRequest,
-  DeleteSkillAuthorizationResponse
-} from "../models/index";
+import { DeleteSkillAuthorizationRequest, DeleteSkillAuthorizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSkillAuthorizationCommand,
   serializeAws_json1_1DeleteSkillAuthorizationCommand
@@ -49,13 +46,8 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSkillAuthorizationCommandInput,
-    DeleteSkillAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSkillAuthorizationCommandInput, DeleteSkillAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSkillAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteSkillAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSkillAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

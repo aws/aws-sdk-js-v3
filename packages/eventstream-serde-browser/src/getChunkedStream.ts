@@ -1,6 +1,4 @@
-export function getChunkedStream(
-  source: ReadableStream<Uint8Array>
-): ReadableStream<Uint8Array> {
+export function getChunkedStream(source: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
   const sourceReader = source.getReader();
   let currentMessageTotalLength = 0;
   let currentMessagePendingLength = 0;
@@ -9,8 +7,7 @@ export function getChunkedStream(
   const allocateMessage = function (size: number) {
     if (typeof size !== "number") {
       throw new Error(
-        "Attempted to allocate an event message where size was not a number: " +
-          size
+        "Attempted to allocate an event message where size was not a number: " + size
       );
     }
     currentMessageTotalLength = size;
@@ -67,9 +64,7 @@ export function getChunkedStream(
                 // not enough information to create the current message
                 break;
               }
-              allocateMessage(
-                new DataView(messageLengthBuffer.buffer).getUint32(0, false)
-              );
+              allocateMessage(new DataView(messageLengthBuffer.buffer).getUint32(0, false));
               messageLengthBuffer = null;
             }
 

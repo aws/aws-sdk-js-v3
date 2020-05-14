@@ -1,9 +1,5 @@
 import { HttpRequest, HeaderBag } from "@aws-sdk/types";
-import {
-  ALWAYS_UNSIGNABLE_HEADERS,
-  PROXY_HEADER_PATTERN,
-  SEC_HEADER_PATTERN
-} from "./constants";
+import { ALWAYS_UNSIGNABLE_HEADERS, PROXY_HEADER_PATTERN, SEC_HEADER_PATTERN } from "./constants";
 
 /**
  * @internal
@@ -22,17 +18,12 @@ export function getCanonicalHeaders(
       PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
       SEC_HEADER_PATTERN.test(canonicalHeaderName)
     ) {
-      if (
-        !signableHeaders ||
-        (signableHeaders && !signableHeaders.has(canonicalHeaderName))
-      ) {
+      if (!signableHeaders || (signableHeaders && !signableHeaders.has(canonicalHeaderName))) {
         continue;
       }
     }
 
-    canonical[canonicalHeaderName] = headers[headerName]
-      .trim()
-      .replace(/\s+/g, " ");
+    canonical[canonicalHeaderName] = headers[headerName].trim().replace(/\s+/g, " ");
   }
 
   return canonical;

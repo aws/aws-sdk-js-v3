@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutConfigurationSetSendingOptionsRequest,
   PutConfigurationSetSendingOptionsResponse
@@ -53,9 +49,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     PutConfigurationSetSendingOptionsCommandInput,
     PutConfigurationSetSendingOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteTemplateCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTemplateCommandInput = DeleteTemplateRequest;
-export type DeleteTemplateCommandOutput = DeleteTemplateResponse &
-  __MetadataBearer;
+export type DeleteTemplateCommandOutput = DeleteTemplateResponse & __MetadataBearer;
 
 export class DeleteTemplateCommand extends $Command<
   DeleteTemplateCommandInput,
@@ -47,9 +42,7 @@ export class DeleteTemplateCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTemplateCommandInput, DeleteTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

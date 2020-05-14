@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruReviewerClient";
-import {
-  AssociateRepositoryRequest,
-  AssociateRepositoryResponse
-} from "../models/index";
+import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateRepositoryCommand,
   serializeAws_restJson1_1AssociateRepositoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
-export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse &
-  __MetadataBearer;
+export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse & __MetadataBearer;
 
 export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandInput,
@@ -49,13 +45,8 @@ export class AssociateRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRepositoryCommandInput,
-    AssociateRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class AssociateRepositoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1_1AssociateRepositoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

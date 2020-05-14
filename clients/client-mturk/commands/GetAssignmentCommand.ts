@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetAssignmentRequest, GetAssignmentResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAssignmentCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAssignmentCommandInput = GetAssignmentRequest;
-export type GetAssignmentCommandOutput = GetAssignmentResponse &
-  __MetadataBearer;
+export type GetAssignmentCommandOutput = GetAssignmentResponse & __MetadataBearer;
 
 export class GetAssignmentCommand extends $Command<
   GetAssignmentCommandInput,
@@ -47,9 +42,7 @@ export class GetAssignmentCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAssignmentCommandInput, GetAssignmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  ListAssociatedFleetsRequest,
-  ListAssociatedFleetsResult
-} from "../models/index";
+import { ListAssociatedFleetsRequest, ListAssociatedFleetsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListAssociatedFleetsCommand,
   serializeAws_json1_1ListAssociatedFleetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAssociatedFleetsCommandInput = ListAssociatedFleetsRequest;
-export type ListAssociatedFleetsCommandOutput = ListAssociatedFleetsResult &
-  __MetadataBearer;
+export type ListAssociatedFleetsCommandOutput = ListAssociatedFleetsResult & __MetadataBearer;
 
 export class ListAssociatedFleetsCommand extends $Command<
   ListAssociatedFleetsCommandInput,
@@ -49,13 +45,8 @@ export class ListAssociatedFleetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssociatedFleetsCommandInput,
-    ListAssociatedFleetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssociatedFleetsCommandInput, ListAssociatedFleetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

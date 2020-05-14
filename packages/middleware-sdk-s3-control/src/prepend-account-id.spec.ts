@@ -64,9 +64,7 @@ describe("prependAccountIdMiddleware", () => {
       });
     } catch (e) {
       expect(e).toEqual(
-        new Error(
-          "ValidationError: AccountId should be hostname compatible. AccountId: ###"
-        )
+        new Error("ValidationError: AccountId should be hostname compatible. AccountId: ###")
       );
     }
   });

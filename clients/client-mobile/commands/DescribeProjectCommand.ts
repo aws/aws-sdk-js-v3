@@ -1,8 +1,4 @@
-import {
-  MobileClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MobileClient";
+import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
 import { DescribeProjectRequest, DescribeProjectResult } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeProjectCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProjectCommandInput = DescribeProjectRequest;
-export type DescribeProjectCommandOutput = DescribeProjectResult &
-  __MetadataBearer;
+export type DescribeProjectCommandOutput = DescribeProjectResult & __MetadataBearer;
 
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,
@@ -47,9 +42,7 @@ export class DescribeProjectCommand extends $Command<
     configuration: MobileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProjectCommandInput, DescribeProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

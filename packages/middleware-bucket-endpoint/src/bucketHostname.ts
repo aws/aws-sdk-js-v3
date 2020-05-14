@@ -35,9 +35,7 @@ export function bucketHostname({
     };
   }
 
-  const [region, hostnameSuffix] = S3_US_EAST_1_ALTNAME_PATTERN.test(
-    baseHostname
-  )
+  const [region, hostnameSuffix] = S3_US_EAST_1_ALTNAME_PATTERN.test(baseHostname)
     ? ["us-east-1", AWS_PARTITION_SUFFIX]
     : partitionSuffix(baseHostname);
 
@@ -48,16 +46,12 @@ export function bucketHostname({
   ) {
     return {
       bucketEndpoint: false,
-      hostname: dualstackEndpoint
-        ? `s3.dualstack.${region}.${hostnameSuffix}`
-        : baseHostname
+      hostname: dualstackEndpoint ? `s3.dualstack.${region}.${hostnameSuffix}` : baseHostname
     };
   }
 
   if (accelerateEndpoint) {
-    baseHostname = `s3-accelerate${
-      dualstackEndpoint ? ".dualstack" : ""
-    }.${hostnameSuffix}`;
+    baseHostname = `s3-accelerate${dualstackEndpoint ? ".dualstack" : ""}.${hostnameSuffix}`;
   } else if (dualstackEndpoint) {
     baseHostname = `s3.dualstack.${region}.${hostnameSuffix}`;
   }

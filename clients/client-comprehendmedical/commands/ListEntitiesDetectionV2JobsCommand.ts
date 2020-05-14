@@ -49,13 +49,8 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEntitiesDetectionV2JobsCommandInput,
-    ListEntitiesDetectionV2JobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEntitiesDetectionV2JobsCommandInput, ListEntitiesDetectionV2JobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     input: ListEntitiesDetectionV2JobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(output, context);
   }
 
   // Start section: command_body_extra

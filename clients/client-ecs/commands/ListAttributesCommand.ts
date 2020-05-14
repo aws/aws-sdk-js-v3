@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { ListAttributesRequest, ListAttributesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAttributesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAttributesCommandInput = ListAttributesRequest;
-export type ListAttributesCommandOutput = ListAttributesResponse &
-  __MetadataBearer;
+export type ListAttributesCommandOutput = ListAttributesResponse & __MetadataBearer;
 
 export class ListAttributesCommand extends $Command<
   ListAttributesCommandInput,
@@ -47,9 +42,7 @@ export class ListAttributesCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAttributesCommandInput, ListAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteContainerCommandInput = DeleteContainerInput;
-export type DeleteContainerCommandOutput = DeleteContainerOutput &
-  __MetadataBearer;
+export type DeleteContainerCommandOutput = DeleteContainerOutput & __MetadataBearer;
 
 export class DeleteContainerCommand extends $Command<
   DeleteContainerCommandInput,
@@ -47,9 +46,7 @@ export class DeleteContainerCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteContainerCommandInput, DeleteContainerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

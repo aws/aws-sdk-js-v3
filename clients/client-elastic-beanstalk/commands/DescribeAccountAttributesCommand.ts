@@ -46,13 +46,8 @@ export class DescribeAccountAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountAttributesCommandInput,
-    DescribeAccountAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountAttributesCommandInput, DescribeAccountAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +73,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_queryDescribeAccountAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

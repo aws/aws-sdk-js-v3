@@ -49,13 +49,8 @@ export class UpdateSimulationApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSimulationApplicationCommandInput,
-    UpdateSimulationApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSimulationApplicationCommandInput, UpdateSimulationApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateSimulationApplicationCommand extends $Command<
     input: UpdateSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSimulationApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateSimulationApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSimulationApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -151,9 +151,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public cancelContact(
     args: CancelContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelContactCommandOutput) => void),
     cb?: (err: any, data?: CancelContactCommandOutput) => void
   ): Promise<CancelContactCommandOutput> | void {
     const command = new CancelContactCommand(args);
@@ -187,9 +185,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public createConfig(
     args: CreateConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigCommandOutput) => void
   ): Promise<CreateConfigCommandOutput> | void {
     const command = new CreateConfigCommand(args);
@@ -299,9 +295,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public deleteConfig(
     args: DeleteConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigCommandOutput) => void
   ): Promise<DeleteConfigCommandOutput> | void {
     const command = new DeleteConfigCommand(args);
@@ -404,9 +398,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public describeContact(
     args: DescribeContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContactCommandOutput) => void),
     cb?: (err: any, data?: DescribeContactCommandOutput) => void
   ): Promise<DescribeContactCommandOutput> | void {
     const command = new DescribeContactCommand(args);
@@ -440,9 +432,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getConfig(
     args: GetConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigCommandOutput) => void),
     cb?: (err: any, data?: GetConfigCommandOutput) => void
   ): Promise<GetConfigCommandOutput> | void {
     const command = new GetConfigCommand(args);
@@ -545,9 +535,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listConfigs(
     args: ListConfigsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigsCommandOutput) => void
   ): Promise<ListConfigsCommandOutput> | void {
     const command = new ListConfigsCommand(args);
@@ -583,9 +571,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listContacts(
     args: ListContactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactsCommandOutput) => void),
     cb?: (err: any, data?: ListContactsCommandOutput) => void
   ): Promise<ListContactsCommandOutput> | void {
     const command = new ListContactsCommand(args);
@@ -688,9 +674,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public reserveContact(
     args: ReserveContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReserveContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReserveContactCommandOutput) => void),
     cb?: (err: any, data?: ReserveContactCommandOutput) => void
   ): Promise<ReserveContactCommandOutput> | void {
     const command = new ReserveContactCommand(args);
@@ -725,9 +709,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public updateConfig(
     args: UpdateConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConfigCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateConfigCommandOutput) => void
   ): Promise<UpdateConfigCommandOutput> | void {
     const command = new UpdateConfigCommand(args);
@@ -797,9 +779,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getMinuteUsage(
     args: GetMinuteUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMinuteUsageCommandOutput) => void),
     cb?: (err: any, data?: GetMinuteUsageCommandOutput) => void
   ): Promise<GetMinuteUsageCommandOutput> | void {
     const command = new GetMinuteUsageCommand(args);
@@ -832,9 +812,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public getSatellite(
     args: GetSatelliteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSatelliteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSatelliteCommandOutput) => void),
     cb?: (err: any, data?: GetSatelliteCommandOutput) => void
   ): Promise<GetSatelliteCommandOutput> | void {
     const command = new GetSatelliteCommand(args);
@@ -902,9 +880,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public listSatellites(
     args: ListSatellitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSatellitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSatellitesCommandOutput) => void),
     cb?: (err: any, data?: ListSatellitesCommandOutput) => void
   ): Promise<ListSatellitesCommandOutput> | void {
     const command = new ListSatellitesCommand(args);
@@ -972,9 +948,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1007,9 +981,7 @@ export class GroundStation extends GroundStationClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

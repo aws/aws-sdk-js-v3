@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult
@@ -39,9 +35,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeScheduledInstanceAvailabilityCommandInput
-  ) {
+  constructor(readonly input: DescribeScheduledInstanceAvailabilityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     DescribeScheduledInstanceAvailabilityCommandInput,
     DescribeScheduledInstanceAvailabilityCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     input: DescribeScheduledInstanceAvailabilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> {
-    return deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

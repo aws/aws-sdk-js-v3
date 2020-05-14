@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLOutput
-} from "../models/index";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand,
   serializeAws_restJson1_1GetHLSStreamingSessionURLCommand
@@ -49,13 +46,8 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHLSStreamingSessionURLCommandInput,
-    GetHLSStreamingSessionURLCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHLSStreamingSessionURLCommandInput, GetHLSStreamingSessionURLCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     input: GetHLSStreamingSessionURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

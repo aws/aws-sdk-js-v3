@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyDefaultCreditSpecificationRequest,
   ModifyDefaultCreditSpecificationResult
@@ -53,9 +49,7 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     ModifyDefaultCreditSpecificationCommandInput,
     ModifyDefaultCreditSpecificationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     input: ModifyDefaultCreditSpecificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

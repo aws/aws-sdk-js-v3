@@ -53,9 +53,7 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     CreateSimulationApplicationVersionCommandInput,
     CreateSimulationApplicationVersionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     input: CreateSimulationApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSimulationApplicationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSimulationApplicationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSimulationApplicationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSimulationApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

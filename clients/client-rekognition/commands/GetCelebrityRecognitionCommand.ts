@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetCelebrityRecognitionRequest,
-  GetCelebrityRecognitionResponse
-} from "../models/index";
+import { GetCelebrityRecognitionRequest, GetCelebrityRecognitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCelebrityRecognitionCommand,
   serializeAws_json1_1GetCelebrityRecognitionCommand
@@ -49,13 +46,8 @@ export class GetCelebrityRecognitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCelebrityRecognitionCommandInput,
-    GetCelebrityRecognitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCelebrityRecognitionCommandInput, GetCelebrityRecognitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetCelebrityRecognitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCelebrityRecognitionCommandOutput> {
-    return deserializeAws_json1_1GetCelebrityRecognitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetCelebrityRecognitionCommand(output, context);
   }
 
   // Start section: command_body_extra

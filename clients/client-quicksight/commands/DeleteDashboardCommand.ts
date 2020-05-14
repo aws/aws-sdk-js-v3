@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DeleteDashboardRequest,
-  DeleteDashboardResponse
-} from "../models/index";
+import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDashboardCommand,
   serializeAws_restJson1_1DeleteDashboardCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDashboardCommandInput = DeleteDashboardRequest;
-export type DeleteDashboardCommandOutput = DeleteDashboardResponse &
-  __MetadataBearer;
+export type DeleteDashboardCommandOutput = DeleteDashboardResponse & __MetadataBearer;
 
 export class DeleteDashboardCommand extends $Command<
   DeleteDashboardCommandInput,
@@ -50,9 +46,7 @@ export class DeleteDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDashboardCommandInput, DeleteDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

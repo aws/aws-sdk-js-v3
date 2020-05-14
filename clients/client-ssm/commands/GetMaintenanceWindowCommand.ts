@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetMaintenanceWindowRequest,
-  GetMaintenanceWindowResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetMaintenanceWindowRequest, GetMaintenanceWindowResult } from "../models/index";
 import {
   deserializeAws_json1_1GetMaintenanceWindowCommand,
   serializeAws_json1_1GetMaintenanceWindowCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMaintenanceWindowCommandInput = GetMaintenanceWindowRequest;
-export type GetMaintenanceWindowCommandOutput = GetMaintenanceWindowResult &
-  __MetadataBearer;
+export type GetMaintenanceWindowCommandOutput = GetMaintenanceWindowResult & __MetadataBearer;
 
 export class GetMaintenanceWindowCommand extends $Command<
   GetMaintenanceWindowCommandInput,
@@ -49,13 +41,8 @@ export class GetMaintenanceWindowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMaintenanceWindowCommandInput,
-    GetMaintenanceWindowCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMaintenanceWindowCommandInput, GetMaintenanceWindowCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

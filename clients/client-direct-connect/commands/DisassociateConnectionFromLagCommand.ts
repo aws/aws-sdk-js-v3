@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  Connection,
-  DisassociateConnectionFromLagRequest
-} from "../models/index";
+import { Connection, DisassociateConnectionFromLagRequest } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateConnectionFromLagCommand,
   serializeAws_json1_1DisassociateConnectionFromLagCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateConnectionFromLagCommandInput = DisassociateConnectionFromLagRequest;
-export type DisassociateConnectionFromLagCommandOutput = Connection &
-  __MetadataBearer;
+export type DisassociateConnectionFromLagCommandOutput = Connection & __MetadataBearer;
 
 export class DisassociateConnectionFromLagCommand extends $Command<
   DisassociateConnectionFromLagCommandInput,
@@ -53,9 +49,7 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     DisassociateConnectionFromLagCommandInput,
     DisassociateConnectionFromLagCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     input: DisassociateConnectionFromLagCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionFromLagCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateConnectionFromLagCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionFromLagCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionFromLagCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateConnectionFromLagCommand(output, context);
   }
 
   // Start section: command_body_extra

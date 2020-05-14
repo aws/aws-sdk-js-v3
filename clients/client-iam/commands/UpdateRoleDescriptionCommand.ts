@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  UpdateRoleDescriptionRequest,
-  UpdateRoleDescriptionResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/index";
 import {
   deserializeAws_queryUpdateRoleDescriptionCommand,
   serializeAws_queryUpdateRoleDescriptionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRoleDescriptionCommandInput = UpdateRoleDescriptionRequest;
-export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse &
-  __MetadataBearer;
+export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse & __MetadataBearer;
 
 export class UpdateRoleDescriptionCommand extends $Command<
   UpdateRoleDescriptionCommandInput,
@@ -49,13 +41,8 @@ export class UpdateRoleDescriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRoleDescriptionCommandInput,
-    UpdateRoleDescriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRoleDescriptionCommandInput, UpdateRoleDescriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

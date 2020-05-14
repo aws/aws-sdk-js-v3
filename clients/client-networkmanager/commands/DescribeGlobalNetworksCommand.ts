@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  DescribeGlobalNetworksRequest,
-  DescribeGlobalNetworksResponse
-} from "../models/index";
+import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeGlobalNetworksCommand,
   serializeAws_restJson1_1DescribeGlobalNetworksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeGlobalNetworksCommandInput = DescribeGlobalNetworksRequest;
-export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse &
-  __MetadataBearer;
+export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse & __MetadataBearer;
 
 export class DescribeGlobalNetworksCommand extends $Command<
   DescribeGlobalNetworksCommandInput,
@@ -49,13 +45,8 @@ export class DescribeGlobalNetworksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGlobalNetworksCommandInput,
-    DescribeGlobalNetworksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGlobalNetworksCommandInput, DescribeGlobalNetworksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeGlobalNetworksCommand extends $Command<
     input: DescribeGlobalNetworksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeGlobalNetworksCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeGlobalNetworksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGlobalNetworksCommandOutput> {
-    return deserializeAws_restJson1_1DescribeGlobalNetworksCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeGlobalNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

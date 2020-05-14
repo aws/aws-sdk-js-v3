@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  CreateMLTransformRequest,
-  CreateMLTransformResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateMLTransformCommand,
   serializeAws_json1_1CreateMLTransformCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMLTransformCommandInput = CreateMLTransformRequest;
-export type CreateMLTransformCommandOutput = CreateMLTransformResponse &
-  __MetadataBearer;
+export type CreateMLTransformCommandOutput = CreateMLTransformResponse & __MetadataBearer;
 
 export class CreateMLTransformCommand extends $Command<
   CreateMLTransformCommandInput,
@@ -50,9 +42,7 @@ export class CreateMLTransformCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMLTransformCommandInput, CreateMLTransformCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

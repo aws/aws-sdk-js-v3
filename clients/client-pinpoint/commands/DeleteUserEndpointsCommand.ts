@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteUserEndpointsRequest,
-  DeleteUserEndpointsResponse
-} from "../models/index";
+import { DeleteUserEndpointsRequest, DeleteUserEndpointsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteUserEndpointsCommand,
   serializeAws_restJson1_1DeleteUserEndpointsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteUserEndpointsCommandInput = DeleteUserEndpointsRequest;
-export type DeleteUserEndpointsCommandOutput = DeleteUserEndpointsResponse &
-  __MetadataBearer;
+export type DeleteUserEndpointsCommandOutput = DeleteUserEndpointsResponse & __MetadataBearer;
 
 export class DeleteUserEndpointsCommand extends $Command<
   DeleteUserEndpointsCommandInput,
@@ -49,13 +45,8 @@ export class DeleteUserEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteUserEndpointsCommandInput,
-    DeleteUserEndpointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteUserEndpointsCommandInput, DeleteUserEndpointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteUserEndpointsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteUserEndpointsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

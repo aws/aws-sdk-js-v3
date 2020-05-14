@@ -2,10 +2,7 @@ import {
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput
 } from "./commands/AddListenerCertificatesCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreateListenerCommandInput,
   CreateListenerCommandOutput
@@ -14,10 +11,7 @@ import {
   CreateLoadBalancerCommandInput,
   CreateLoadBalancerCommandOutput
 } from "./commands/CreateLoadBalancerCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateTargetGroupCommandInput,
   CreateTargetGroupCommandOutput
@@ -30,10 +24,7 @@ import {
   DeleteLoadBalancerCommandInput,
   DeleteLoadBalancerCommandOutput
 } from "./commands/DeleteLoadBalancerCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput
@@ -94,10 +85,7 @@ import {
   ModifyLoadBalancerAttributesCommandInput,
   ModifyLoadBalancerAttributesCommandOutput
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import {
-  ModifyRuleCommandInput,
-  ModifyRuleCommandOutput
-} from "./commands/ModifyRuleCommand";
+import { ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
 import {
   ModifyTargetGroupAttributesCommandInput,
   ModifyTargetGroupAttributesCommandOutput
@@ -114,10 +102,7 @@ import {
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput
 } from "./commands/RemoveListenerCertificatesCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   SetIpAddressTypeCommandInput,
   SetIpAddressTypeCommandOutput
@@ -130,10 +115,7 @@ import {
   SetSecurityGroupsCommandInput,
   SetSecurityGroupsCommandOutput
 } from "./commands/SetSecurityGroupsCommand";
-import {
-  SetSubnetsCommandInput,
-  SetSubnetsCommandOutput
-} from "./commands/SetSubnetsCommand";
+import { SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,

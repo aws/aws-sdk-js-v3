@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopFleetActionsCommandInput = StopFleetActionsInput;
-export type StopFleetActionsCommandOutput = StopFleetActionsOutput &
-  __MetadataBearer;
+export type StopFleetActionsCommandOutput = StopFleetActionsOutput & __MetadataBearer;
 
 export class StopFleetActionsCommand extends $Command<
   StopFleetActionsCommandInput,
@@ -47,9 +46,7 @@ export class StopFleetActionsCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopFleetActionsCommandInput, StopFleetActionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

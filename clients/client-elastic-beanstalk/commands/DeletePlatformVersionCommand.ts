@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  DeletePlatformVersionRequest,
-  DeletePlatformVersionResult
-} from "../models/index";
+import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/index";
 import {
   deserializeAws_queryDeletePlatformVersionCommand,
   serializeAws_queryDeletePlatformVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePlatformVersionCommandInput = DeletePlatformVersionRequest;
-export type DeletePlatformVersionCommandOutput = DeletePlatformVersionResult &
-  __MetadataBearer;
+export type DeletePlatformVersionCommandOutput = DeletePlatformVersionResult & __MetadataBearer;
 
 export class DeletePlatformVersionCommand extends $Command<
   DeletePlatformVersionCommandInput,
@@ -49,13 +45,8 @@ export class DeletePlatformVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePlatformVersionCommandInput,
-    DeletePlatformVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePlatformVersionCommandInput, DeletePlatformVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

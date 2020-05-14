@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  PutComplianceItemsRequest,
-  PutComplianceItemsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/index";
 import {
   deserializeAws_json1_1PutComplianceItemsCommand,
   serializeAws_json1_1PutComplianceItemsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutComplianceItemsCommandInput = PutComplianceItemsRequest;
-export type PutComplianceItemsCommandOutput = PutComplianceItemsResult &
-  __MetadataBearer;
+export type PutComplianceItemsCommandOutput = PutComplianceItemsResult & __MetadataBearer;
 
 export class PutComplianceItemsCommand extends $Command<
   PutComplianceItemsCommandInput,
@@ -50,9 +42,7 @@ export class PutComplianceItemsCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

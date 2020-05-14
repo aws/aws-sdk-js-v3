@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DescribeStackSetOperationInput,
-  DescribeStackSetOperationOutput
-} from "../models/index";
+import { DescribeStackSetOperationInput, DescribeStackSetOperationOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeStackSetOperationCommand,
   serializeAws_queryDescribeStackSetOperationCommand
@@ -49,13 +46,8 @@ export class DescribeStackSetOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackSetOperationCommandInput,
-    DescribeStackSetOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackSetOperationCommandInput, DescribeStackSetOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeStackSetOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackSetOperationCommandOutput> {
-    return deserializeAws_queryDescribeStackSetOperationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackSetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

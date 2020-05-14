@@ -1,8 +1,4 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   DBClusterParameterGroupNameMessage,
   ResetDBClusterParameterGroupMessage
@@ -49,13 +45,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetDBClusterParameterGroupCommandInput,
-    ResetDBClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetDBClusterParameterGroupCommandInput, ResetDBClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     input: ResetDBClusterParameterGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

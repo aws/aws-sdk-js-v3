@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { DeleteCertificateAuthorityRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCertificateAuthorityCommand,
@@ -45,13 +41,8 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCertificateAuthorityCommandInput,
-    DeleteCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCertificateAuthorityCommandInput, DeleteCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     input: DeleteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateAuthorityCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

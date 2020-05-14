@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  StartChatContactRequest,
-  StartChatContactResponse
-} from "../models/index";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartChatContactCommand,
   serializeAws_restJson1_1StartChatContactCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartChatContactCommandInput = StartChatContactRequest;
-export type StartChatContactCommandOutput = StartChatContactResponse &
-  __MetadataBearer;
+export type StartChatContactCommandOutput = StartChatContactResponse & __MetadataBearer;
 
 export class StartChatContactCommand extends $Command<
   StartChatContactCommandInput,
@@ -50,9 +46,7 @@ export class StartChatContactCommand extends $Command<
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartChatContactCommandInput, StartChatContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

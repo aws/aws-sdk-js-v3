@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHealthCheckCommandInput = GetHealthCheckRequest;
-export type GetHealthCheckCommandOutput = GetHealthCheckResponse &
-  __MetadataBearer;
+export type GetHealthCheckCommandOutput = GetHealthCheckResponse & __MetadataBearer;
 
 export class GetHealthCheckCommand extends $Command<
   GetHealthCheckCommandInput,
@@ -47,9 +46,7 @@ export class GetHealthCheckCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHealthCheckCommandInput, GetHealthCheckCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

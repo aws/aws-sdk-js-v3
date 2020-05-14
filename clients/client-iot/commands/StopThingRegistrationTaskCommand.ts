@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   StopThingRegistrationTaskRequest,
   StopThingRegistrationTaskResponse
@@ -49,13 +45,8 @@ export class StopThingRegistrationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopThingRegistrationTaskCommandInput,
-    StopThingRegistrationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopThingRegistrationTaskCommandInput, StopThingRegistrationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class StopThingRegistrationTaskCommand extends $Command<
     input: StopThingRegistrationTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StopThingRegistrationTaskCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StopThingRegistrationTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopThingRegistrationTaskCommandOutput> {
-    return deserializeAws_restJson1_1StopThingRegistrationTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StopThingRegistrationTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -39,9 +39,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ModifyReplicationGroupShardConfigurationCommandInput
-  ) {
+  constructor(readonly input: ModifyReplicationGroupShardConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     ModifyReplicationGroupShardConfigurationCommandInput,
     ModifyReplicationGroupShardConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     input: ModifyReplicationGroupShardConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
-    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

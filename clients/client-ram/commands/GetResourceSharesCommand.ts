@@ -1,12 +1,5 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  GetResourceSharesRequest,
-  GetResourceSharesResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { GetResourceSharesRequest, GetResourceSharesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetResourceSharesCommand,
   serializeAws_restJson1_1GetResourceSharesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResourceSharesCommandInput = GetResourceSharesRequest;
-export type GetResourceSharesCommandOutput = GetResourceSharesResponse &
-  __MetadataBearer;
+export type GetResourceSharesCommandOutput = GetResourceSharesResponse & __MetadataBearer;
 
 export class GetResourceSharesCommand extends $Command<
   GetResourceSharesCommandInput,
@@ -50,9 +42,7 @@ export class GetResourceSharesCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetResourceSharesCommandInput, GetResourceSharesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

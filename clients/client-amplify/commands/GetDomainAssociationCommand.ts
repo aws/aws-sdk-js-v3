@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  GetDomainAssociationRequest,
-  GetDomainAssociationResult
-} from "../models/index";
+import { GetDomainAssociationRequest, GetDomainAssociationResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDomainAssociationCommand,
   serializeAws_restJson1_1GetDomainAssociationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDomainAssociationCommandInput = GetDomainAssociationRequest;
-export type GetDomainAssociationCommandOutput = GetDomainAssociationResult &
-  __MetadataBearer;
+export type GetDomainAssociationCommandOutput = GetDomainAssociationResult & __MetadataBearer;
 
 export class GetDomainAssociationCommand extends $Command<
   GetDomainAssociationCommandInput,
@@ -49,13 +45,8 @@ export class GetDomainAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDomainAssociationCommandInput,
-    GetDomainAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDomainAssociationCommandInput, GetDomainAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDomainAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1_1GetDomainAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

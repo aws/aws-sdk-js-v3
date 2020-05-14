@@ -245,31 +245,19 @@ export class LicenseManager extends LicenseManagerClient {
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput>;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAssociationsForLicenseConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> | void {
     const command = new ListAssociationsForLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -292,37 +280,21 @@ export class LicenseManager extends LicenseManagerClient {
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput>;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
-  ): Promise<
-    ListFailuresForLicenseConfigurationOperationsCommandOutput
-  > | void {
-    const command = new ListFailuresForLicenseConfigurationOperationsCommand(
-      args
-    );
+      | ((err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
+  ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> | void {
+    const command = new ListFailuresForLicenseConfigurationOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -378,31 +350,19 @@ export class LicenseManager extends LicenseManagerClient {
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput>;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    cb: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListLicenseSpecificationsForResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+      | ((err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput> | void {
     const command = new ListLicenseSpecificationsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -508,14 +468,8 @@ export class LicenseManager extends LicenseManagerClient {
     args: ListUsageForLicenseConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListUsageForLicenseConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListUsageForLicenseConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
   ): Promise<ListUsageForLicenseConfigurationCommandOutput> | void {
     const command = new ListUsageForLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -547,9 +501,7 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -582,9 +534,7 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -651,31 +601,19 @@ export class LicenseManager extends LicenseManagerClient {
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput>;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateLicenseSpecificationsForResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> | void {
     const command = new UpdateLicenseSpecificationsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateMitigationActionRequest,
-  UpdateMitigationActionResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateMitigationActionRequest, UpdateMitigationActionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateMitigationActionCommand,
   serializeAws_restJson1_1UpdateMitigationActionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMitigationActionCommandInput = UpdateMitigationActionRequest;
-export type UpdateMitigationActionCommandOutput = UpdateMitigationActionResponse &
-  __MetadataBearer;
+export type UpdateMitigationActionCommandOutput = UpdateMitigationActionResponse & __MetadataBearer;
 
 export class UpdateMitigationActionCommand extends $Command<
   UpdateMitigationActionCommandInput,
@@ -49,13 +41,8 @@ export class UpdateMitigationActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMitigationActionCommandInput,
-    UpdateMitigationActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMitigationActionCommandInput, UpdateMitigationActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class UpdateMitigationActionCommand extends $Command<
     input: UpdateMitigationActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateMitigationActionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateMitigationActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMitigationActionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMitigationActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

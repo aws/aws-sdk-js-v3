@@ -49,13 +49,8 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTemplatePermissionsCommandInput,
-    UpdateTemplatePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTemplatePermissionsCommandInput, UpdateTemplatePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     input: UpdateTemplatePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateTemplatePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateTemplatePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTemplatePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTemplatePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTemplatePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

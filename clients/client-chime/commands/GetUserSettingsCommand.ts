@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetUserSettingsRequest,
-  GetUserSettingsResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUserSettingsCommand,
   serializeAws_restJson1_1GetUserSettingsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUserSettingsCommandInput = GetUserSettingsRequest;
-export type GetUserSettingsCommandOutput = GetUserSettingsResponse &
-  __MetadataBearer;
+export type GetUserSettingsCommandOutput = GetUserSettingsResponse & __MetadataBearer;
 
 export class GetUserSettingsCommand extends $Command<
   GetUserSettingsCommandInput,
@@ -50,9 +42,7 @@ export class GetUserSettingsCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserSettingsCommandInput, GetUserSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

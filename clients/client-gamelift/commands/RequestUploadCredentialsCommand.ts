@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  RequestUploadCredentialsInput,
-  RequestUploadCredentialsOutput
-} from "../models/index";
+import { RequestUploadCredentialsInput, RequestUploadCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1RequestUploadCredentialsCommand,
   serializeAws_json1_1RequestUploadCredentialsCommand
@@ -49,13 +46,8 @@ export class RequestUploadCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RequestUploadCredentialsCommandInput,
-    RequestUploadCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RequestUploadCredentialsCommandInput, RequestUploadCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class RequestUploadCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestUploadCredentialsCommandOutput> {
-    return deserializeAws_json1_1RequestUploadCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RequestUploadCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

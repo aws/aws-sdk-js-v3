@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  PutApplicationPolicyRequest,
-  PutApplicationPolicyResponse
-} from "../models/index";
+import { PutApplicationPolicyRequest, PutApplicationPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutApplicationPolicyCommand,
   serializeAws_restJson1_1PutApplicationPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutApplicationPolicyCommandInput = PutApplicationPolicyRequest;
-export type PutApplicationPolicyCommandOutput = PutApplicationPolicyResponse &
-  __MetadataBearer;
+export type PutApplicationPolicyCommandOutput = PutApplicationPolicyResponse & __MetadataBearer;
 
 export class PutApplicationPolicyCommand extends $Command<
   PutApplicationPolicyCommandInput,
@@ -49,13 +45,8 @@ export class PutApplicationPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutApplicationPolicyCommandInput,
-    PutApplicationPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutApplicationPolicyCommandInput, PutApplicationPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class PutApplicationPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutApplicationPolicyCommandOutput> {
-    return deserializeAws_restJson1_1PutApplicationPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutApplicationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

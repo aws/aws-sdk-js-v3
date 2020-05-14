@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGcmChannelCommandInput = GetGcmChannelRequest;
-export type GetGcmChannelCommandOutput = GetGcmChannelResponse &
-  __MetadataBearer;
+export type GetGcmChannelCommandOutput = GetGcmChannelResponse & __MetadataBearer;
 
 export class GetGcmChannelCommand extends $Command<
   GetGcmChannelCommandInput,
@@ -47,9 +46,7 @@ export class GetGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGcmChannelCommandInput, GetGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

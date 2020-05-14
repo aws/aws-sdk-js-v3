@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  NotifyMigrationTaskStateRequest,
-  NotifyMigrationTaskStateResult
-} from "../models/index";
+import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/index";
 import {
   deserializeAws_json1_1NotifyMigrationTaskStateCommand,
   serializeAws_json1_1NotifyMigrationTaskStateCommand
@@ -49,13 +46,8 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    NotifyMigrationTaskStateCommandInput,
-    NotifyMigrationTaskStateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<NotifyMigrationTaskStateCommandInput, NotifyMigrationTaskStateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class NotifyMigrationTaskStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyMigrationTaskStateCommandOutput> {
-    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
   }
 
   // Start section: command_body_extra

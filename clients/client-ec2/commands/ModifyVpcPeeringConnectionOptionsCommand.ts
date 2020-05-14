@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult
@@ -53,9 +49,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     ModifyVpcPeeringConnectionOptionsCommandInput,
     ModifyVpcPeeringConnectionOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

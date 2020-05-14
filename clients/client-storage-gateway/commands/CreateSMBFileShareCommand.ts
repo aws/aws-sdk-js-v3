@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  CreateSMBFileShareInput,
-  CreateSMBFileShareOutput
-} from "../models/index";
+import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateSMBFileShareCommand,
   serializeAws_json1_1CreateSMBFileShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSMBFileShareCommandInput = CreateSMBFileShareInput;
-export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput &
-  __MetadataBearer;
+export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput & __MetadataBearer;
 
 export class CreateSMBFileShareCommand extends $Command<
   CreateSMBFileShareCommandInput,
@@ -50,9 +46,7 @@ export class CreateSMBFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchMeterUsageCommandInput = BatchMeterUsageRequest;
-export type BatchMeterUsageCommandOutput = BatchMeterUsageResult &
-  __MetadataBearer;
+export type BatchMeterUsageCommandOutput = BatchMeterUsageResult & __MetadataBearer;
 
 export class BatchMeterUsageCommand extends $Command<
   BatchMeterUsageCommandInput,
@@ -47,9 +46,7 @@ export class BatchMeterUsageCommand extends $Command<
     configuration: MarketplaceMeteringClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

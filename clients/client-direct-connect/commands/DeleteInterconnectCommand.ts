@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  DeleteInterconnectRequest,
-  DeleteInterconnectResponse
-} from "../models/index";
+import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteInterconnectCommand,
   serializeAws_json1_1DeleteInterconnectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInterconnectCommandInput = DeleteInterconnectRequest;
-export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse &
-  __MetadataBearer;
+export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse & __MetadataBearer;
 
 export class DeleteInterconnectCommand extends $Command<
   DeleteInterconnectCommandInput,
@@ -50,9 +46,7 @@ export class DeleteInterconnectCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

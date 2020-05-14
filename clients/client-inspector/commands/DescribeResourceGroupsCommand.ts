@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  DescribeResourceGroupsRequest,
-  DescribeResourceGroupsResponse
-} from "../models/index";
+import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeResourceGroupsCommand,
   serializeAws_json1_1DescribeResourceGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeResourceGroupsCommandInput = DescribeResourceGroupsRequest;
-export type DescribeResourceGroupsCommandOutput = DescribeResourceGroupsResponse &
-  __MetadataBearer;
+export type DescribeResourceGroupsCommandOutput = DescribeResourceGroupsResponse & __MetadataBearer;
 
 export class DescribeResourceGroupsCommand extends $Command<
   DescribeResourceGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeResourceGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeResourceGroupsCommandInput,
-    DescribeResourceGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeResourceGroupsCommandInput, DescribeResourceGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     ApplySecurityGroupsToLoadBalancerCommandInput,
     ApplySecurityGroupsToLoadBalancerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
     input: ApplySecurityGroupsToLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryApplySecurityGroupsToLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> {
-    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryStopDBInstanceCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
-export type StopDBInstanceCommandOutput = StopDBInstanceResult &
-  __MetadataBearer;
+export type StopDBInstanceCommandOutput = StopDBInstanceResult & __MetadataBearer;
 
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,
@@ -47,9 +42,7 @@ export class StopDBInstanceCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDBInstanceCommandInput, StopDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

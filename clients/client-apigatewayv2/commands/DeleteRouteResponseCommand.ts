@@ -45,13 +45,8 @@ export class DeleteRouteResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRouteResponseCommandInput,
-    DeleteRouteResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRouteResponseCommandInput, DeleteRouteResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteRouteResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRouteResponseCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRouteResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

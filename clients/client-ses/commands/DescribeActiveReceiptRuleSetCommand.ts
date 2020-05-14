@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   DescribeActiveReceiptRuleSetRequest,
   DescribeActiveReceiptRuleSetResponse
@@ -49,13 +45,8 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeActiveReceiptRuleSetCommandInput,
-    DescribeActiveReceiptRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeActiveReceiptRuleSetCommandInput, DescribeActiveReceiptRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
     input: DescribeActiveReceiptRuleSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeActiveReceiptRuleSetCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeActiveReceiptRuleSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeActiveReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryDescribeActiveReceiptRuleSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeActiveReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

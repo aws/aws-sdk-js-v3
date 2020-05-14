@@ -1,8 +1,4 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { DescribeClusterInput, DescribeClusterOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterCommandInput = DescribeClusterInput;
-export type DescribeClusterCommandOutput = DescribeClusterOutput &
-  __MetadataBearer;
+export type DescribeClusterCommandOutput = DescribeClusterOutput & __MetadataBearer;
 
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,
@@ -47,9 +42,7 @@ export class DescribeClusterCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterCommandInput, DescribeClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

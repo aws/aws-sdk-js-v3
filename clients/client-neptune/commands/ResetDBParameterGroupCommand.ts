@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DBParameterGroupNameMessage,
-  ResetDBParameterGroupMessage
-} from "../models/index";
+import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/index";
 import {
   deserializeAws_queryResetDBParameterGroupCommand,
   serializeAws_queryResetDBParameterGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetDBParameterGroupCommandInput = ResetDBParameterGroupMessage;
-export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage &
-  __MetadataBearer;
+export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage & __MetadataBearer;
 
 export class ResetDBParameterGroupCommand extends $Command<
   ResetDBParameterGroupCommandInput,
@@ -49,13 +45,8 @@ export class ResetDBParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetDBParameterGroupCommandInput,
-    ResetDBParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetDBParameterGroupCommandInput, ResetDBParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

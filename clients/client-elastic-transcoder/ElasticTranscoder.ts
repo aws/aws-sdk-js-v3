@@ -114,9 +114,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -153,9 +151,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -188,9 +184,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
@@ -236,9 +230,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createPreset(
     args: CreatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresetCommandOutput) => void),
     cb?: (err: any, data?: CreatePresetCommandOutput) => void
   ): Promise<CreatePresetCommandOutput> | void {
     const command = new CreatePresetCommand(args);
@@ -274,9 +266,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
@@ -312,9 +302,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public deletePreset(
     args: DeletePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePresetCommandOutput) => void),
     cb?: (err: any, data?: DeletePresetCommandOutput) => void
   ): Promise<DeletePresetCommandOutput> | void {
     const command = new DeletePresetCommand(args);
@@ -385,9 +373,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listJobsByStatus(
     args: ListJobsByStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
     cb?: (err: any, data?: ListJobsByStatusCommandOutput) => void
   ): Promise<ListJobsByStatusCommandOutput> | void {
     const command = new ListJobsByStatusCommand(args);
@@ -420,9 +406,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
@@ -456,9 +440,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listPresets(
     args: ListPresetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPresetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPresetsCommandOutput) => void),
     cb?: (err: any, data?: ListPresetsCommandOutput) => void
   ): Promise<ListPresetsCommandOutput> | void {
     const command = new ListPresetsCommand(args);
@@ -491,9 +473,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readJob(
     args: ReadJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadJobCommandOutput) => void),
     cb?: (err: any, data?: ReadJobCommandOutput) => void
   ): Promise<ReadJobCommandOutput> | void {
     const command = new ReadJobCommand(args);
@@ -526,9 +506,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readPipeline(
     args: ReadPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadPipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadPipelineCommandOutput) => void),
     cb?: (err: any, data?: ReadPipelineCommandOutput) => void
   ): Promise<ReadPipelineCommandOutput> | void {
     const command = new ReadPipelineCommand(args);
@@ -561,9 +539,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readPreset(
     args: ReadPresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadPresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadPresetCommandOutput) => void),
     cb?: (err: any, data?: ReadPresetCommandOutput) => void
   ): Promise<ReadPresetCommandOutput> | void {
     const command = new ReadPresetCommand(args);
@@ -601,9 +577,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public testRole(
     args: TestRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestRoleCommandOutput) => void),
     cb?: (err: any, data?: TestRoleCommandOutput) => void
   ): Promise<TestRoleCommandOutput> | void {
     const command = new TestRoleCommand(args);
@@ -641,9 +615,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);

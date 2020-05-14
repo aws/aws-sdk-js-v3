@@ -231,9 +231,7 @@ export class EFS extends EFSClient {
   ): void;
   public createFileSystem(
     args: CreateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): Promise<CreateFileSystemCommandOutput> | void {
     const command = new CreateFileSystemCommand(args);
@@ -432,9 +430,7 @@ export class EFS extends EFSClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -519,9 +515,7 @@ export class EFS extends EFSClient {
   ): void;
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): Promise<DeleteFileSystemCommandOutput> | void {
     const command = new DeleteFileSystemCommand(args);
@@ -666,9 +660,7 @@ export class EFS extends EFSClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -840,10 +832,7 @@ export class EFS extends EFSClient {
     args: DescribeLifecycleConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLifecycleConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
   ): Promise<DescribeLifecycleConfigurationCommandOutput> | void {
     const command = new DescribeLifecycleConfigurationCommand(args);
@@ -882,31 +871,19 @@ export class EFS extends EFSClient {
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput>;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): void;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): void;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMountTargetSecurityGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> | void {
     const command = new DescribeMountTargetSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -984,9 +961,7 @@ export class EFS extends EFSClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -1076,10 +1051,7 @@ export class EFS extends EFSClient {
     args: ModifyMountTargetSecurityGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyMountTargetSecurityGroupsCommandOutput
-        ) => void),
+      | ((err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> | void {
     const command = new ModifyMountTargetSecurityGroupsCommand(args);
@@ -1217,9 +1189,7 @@ export class EFS extends EFSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1253,9 +1223,7 @@ export class EFS extends EFSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1289,9 +1257,7 @@ export class EFS extends EFSClient {
   ): void;
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): Promise<UpdateFileSystemCommandOutput> | void {
     const command = new UpdateFileSystemCommand(args);

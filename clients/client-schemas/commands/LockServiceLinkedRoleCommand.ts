@@ -1,7 +1,4 @@
-import {
-  LockServiceLinkedRoleRequest,
-  LockServiceLinkedRoleResponse
-} from "../models/index";
+import { LockServiceLinkedRoleRequest, LockServiceLinkedRoleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1LockServiceLinkedRoleCommand,
   serializeAws_restJson1_1LockServiceLinkedRoleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type LockServiceLinkedRoleCommandInput = LockServiceLinkedRoleRequest;
-export type LockServiceLinkedRoleCommandOutput = LockServiceLinkedRoleResponse &
-  __MetadataBearer;
+export type LockServiceLinkedRoleCommandOutput = LockServiceLinkedRoleResponse & __MetadataBearer;
 
 export class LockServiceLinkedRoleCommand extends $Command<
   LockServiceLinkedRoleCommandInput,
@@ -49,13 +45,8 @@ export class LockServiceLinkedRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    LockServiceLinkedRoleCommandInput,
-    LockServiceLinkedRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<LockServiceLinkedRoleCommandInput, LockServiceLinkedRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class LockServiceLinkedRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<LockServiceLinkedRoleCommandOutput> {
-    return deserializeAws_restJson1_1LockServiceLinkedRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1LockServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

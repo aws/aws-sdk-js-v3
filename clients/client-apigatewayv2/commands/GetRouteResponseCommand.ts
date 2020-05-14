@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  GetRouteResponseRequest,
-  GetRouteResponseResponse
-} from "../models/index";
+import { GetRouteResponseRequest, GetRouteResponseResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRouteResponseCommand,
   serializeAws_restJson1_1GetRouteResponseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRouteResponseCommandInput = GetRouteResponseRequest;
-export type GetRouteResponseCommandOutput = GetRouteResponseResponse &
-  __MetadataBearer;
+export type GetRouteResponseCommandOutput = GetRouteResponseResponse & __MetadataBearer;
 
 export class GetRouteResponseCommand extends $Command<
   GetRouteResponseCommandInput,
@@ -50,9 +46,7 @@ export class GetRouteResponseCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRouteResponseCommandInput, GetRouteResponseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

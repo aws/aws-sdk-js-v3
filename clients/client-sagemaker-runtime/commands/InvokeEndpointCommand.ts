@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InvokeEndpointCommandInput = InvokeEndpointInput;
-export type InvokeEndpointCommandOutput = InvokeEndpointOutput &
-  __MetadataBearer;
+export type InvokeEndpointCommandOutput = InvokeEndpointOutput & __MetadataBearer;
 
 export class InvokeEndpointCommand extends $Command<
   InvokeEndpointCommandInput,
@@ -47,9 +46,7 @@ export class InvokeEndpointCommand extends $Command<
     configuration: SageMakerRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeEndpointCommandInput, InvokeEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

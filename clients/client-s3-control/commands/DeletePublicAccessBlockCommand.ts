@@ -45,13 +45,8 @@ export class DeletePublicAccessBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePublicAccessBlockCommandInput,
-    DeletePublicAccessBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePublicAccessBlockCommandInput, DeletePublicAccessBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeletePublicAccessBlockCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlDeletePublicAccessBlockCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeletePublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

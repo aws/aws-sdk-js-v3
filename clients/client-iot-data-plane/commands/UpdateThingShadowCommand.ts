@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTDataPlaneClient";
-import {
-  UpdateThingShadowRequest,
-  UpdateThingShadowResponse
-} from "../models/index";
+import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateThingShadowCommand,
   serializeAws_restJson1_1UpdateThingShadowCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateThingShadowCommandInput = UpdateThingShadowRequest;
-export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse &
-  __MetadataBearer;
+export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse & __MetadataBearer;
 
 export class UpdateThingShadowCommand extends $Command<
   UpdateThingShadowCommandInput,
@@ -50,9 +46,7 @@ export class UpdateThingShadowCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

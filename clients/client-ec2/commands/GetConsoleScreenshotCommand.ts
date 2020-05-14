@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  GetConsoleScreenshotRequest,
-  GetConsoleScreenshotResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/index";
 import {
   deserializeAws_ec2GetConsoleScreenshotCommand,
   serializeAws_ec2GetConsoleScreenshotCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConsoleScreenshotCommandInput = GetConsoleScreenshotRequest;
-export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult &
-  __MetadataBearer;
+export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult & __MetadataBearer;
 
 export class GetConsoleScreenshotCommand extends $Command<
   GetConsoleScreenshotCommandInput,
@@ -49,13 +41,8 @@ export class GetConsoleScreenshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConsoleScreenshotCommandInput,
-    GetConsoleScreenshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConsoleScreenshotCommandInput, GetConsoleScreenshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DBInstanceAutomatedBackupMessage,
   DescribeDBInstanceAutomatedBackupsMessage
@@ -53,9 +49,7 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     DescribeDBInstanceAutomatedBackupsCommandInput,
     DescribeDBInstanceAutomatedBackupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     input: DescribeDBInstanceAutomatedBackupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> {
-    return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

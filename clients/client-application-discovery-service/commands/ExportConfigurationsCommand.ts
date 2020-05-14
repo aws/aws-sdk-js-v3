@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportConfigurationsCommandInput = {};
-export type ExportConfigurationsCommandOutput = ExportConfigurationsResponse &
-  __MetadataBearer;
+export type ExportConfigurationsCommandOutput = ExportConfigurationsResponse & __MetadataBearer;
 
 export class ExportConfigurationsCommand extends $Command<
   ExportConfigurationsCommandInput,
@@ -46,13 +45,8 @@ export class ExportConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ExportConfigurationsCommandInput,
-    ExportConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ExportConfigurationsCommandInput, ExportConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

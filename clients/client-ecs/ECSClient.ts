@@ -106,10 +106,7 @@ import {
   ListTaskDefinitionsCommandInput,
   ListTaskDefinitionsCommandOutput
 } from "./commands/ListTaskDefinitionsCommand";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
 import {
   PutAccountSettingCommandInput,
   PutAccountSettingCommandOutput
@@ -134,18 +131,9 @@ import {
   RegisterTaskDefinitionCommandInput,
   RegisterTaskDefinitionCommandOutput
 } from "./commands/RegisterTaskDefinitionCommand";
-import {
-  RunTaskCommandInput,
-  RunTaskCommandOutput
-} from "./commands/RunTaskCommand";
-import {
-  StartTaskCommandInput,
-  StartTaskCommandOutput
-} from "./commands/StartTaskCommand";
-import {
-  StopTaskCommandInput,
-  StopTaskCommandOutput
-} from "./commands/StopTaskCommand";
+import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
+import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
   SubmitAttachmentStateChangesCommandOutput
@@ -158,10 +146,7 @@ import {
   SubmitTaskStateChangeCommandInput,
   SubmitTaskStateChangeCommandOutput
 } from "./commands/SubmitTaskStateChangeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -427,9 +412,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ECSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ECSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -438,9 +421,7 @@ export type ECSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

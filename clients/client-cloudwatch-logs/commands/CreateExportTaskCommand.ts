@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  CreateExportTaskRequest,
-  CreateExportTaskResponse
-} from "../models/index";
+import { CreateExportTaskRequest, CreateExportTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateExportTaskCommand,
   serializeAws_json1_1CreateExportTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateExportTaskCommandInput = CreateExportTaskRequest;
-export type CreateExportTaskCommandOutput = CreateExportTaskResponse &
-  __MetadataBearer;
+export type CreateExportTaskCommandOutput = CreateExportTaskResponse & __MetadataBearer;
 
 export class CreateExportTaskCommand extends $Command<
   CreateExportTaskCommandInput,
@@ -50,9 +46,7 @@ export class CreateExportTaskCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateExportTaskCommandInput, CreateExportTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

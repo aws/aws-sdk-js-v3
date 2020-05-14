@@ -39,9 +39,7 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateRelationalDatabaseFromSnapshotCommandInput
-  ) {
+  constructor(readonly input: CreateRelationalDatabaseFromSnapshotCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     CreateRelationalDatabaseFromSnapshotCommandInput,
     CreateRelationalDatabaseFromSnapshotCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
     input: CreateRelationalDatabaseFromSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

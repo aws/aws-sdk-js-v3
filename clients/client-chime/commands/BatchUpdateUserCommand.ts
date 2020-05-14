@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  BatchUpdateUserRequest,
-  BatchUpdateUserResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchUpdateUserCommand,
   serializeAws_restJson1_1BatchUpdateUserCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchUpdateUserCommandInput = BatchUpdateUserRequest;
-export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse &
-  __MetadataBearer;
+export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse & __MetadataBearer;
 
 export class BatchUpdateUserCommand extends $Command<
   BatchUpdateUserCommandInput,
@@ -50,9 +42,7 @@ export class BatchUpdateUserCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchUpdateUserCommandInput, BatchUpdateUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

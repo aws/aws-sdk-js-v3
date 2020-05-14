@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeDocumentPermissionRequest,
   DescribeDocumentPermissionResponse
@@ -49,13 +45,8 @@ export class DescribeDocumentPermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDocumentPermissionCommandInput,
-    DescribeDocumentPermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDocumentPermissionCommandInput, DescribeDocumentPermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeDocumentPermissionCommand extends $Command<
     input: DescribeDocumentPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentPermissionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDocumentPermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentPermissionCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentPermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDocumentPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateCrawlerRequest, CreateCrawlerResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateCrawlerCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCrawlerCommandInput = CreateCrawlerRequest;
-export type CreateCrawlerCommandOutput = CreateCrawlerResponse &
-  __MetadataBearer;
+export type CreateCrawlerCommandOutput = CreateCrawlerResponse & __MetadataBearer;
 
 export class CreateCrawlerCommand extends $Command<
   CreateCrawlerCommandInput,
@@ -47,9 +42,7 @@ export class CreateCrawlerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCrawlerCommandInput, CreateCrawlerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

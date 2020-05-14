@@ -27,9 +27,7 @@ describe("predictEndpointMiddleware", () => {
       request: { hostname, path, protocol }
     } = next.mock.calls[0][0];
 
-    expect(mockUrlParser.mock.calls[0][0]).toBe(
-      "http://api.example.com/foo/bar"
-    );
+    expect(mockUrlParser.mock.calls[0][0]).toBe("http://api.example.com/foo/bar");
     expect(forwardedInput).toBe(input);
     expect(hostname).toBe("api.example.com");
     expect(path).toBe("/foo/bar");

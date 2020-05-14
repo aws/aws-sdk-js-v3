@@ -39,9 +39,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput
-  ) {
+  constructor(readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     PurchaseReservedElasticsearchInstanceOfferingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

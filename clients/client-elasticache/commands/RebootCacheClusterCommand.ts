@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  RebootCacheClusterMessage,
-  RebootCacheClusterResult
-} from "../models/index";
+import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/index";
 import {
   deserializeAws_queryRebootCacheClusterCommand,
   serializeAws_queryRebootCacheClusterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebootCacheClusterCommandInput = RebootCacheClusterMessage;
-export type RebootCacheClusterCommandOutput = RebootCacheClusterResult &
-  __MetadataBearer;
+export type RebootCacheClusterCommandOutput = RebootCacheClusterResult & __MetadataBearer;
 
 export class RebootCacheClusterCommand extends $Command<
   RebootCacheClusterCommandInput,
@@ -50,9 +46,7 @@ export class RebootCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootCacheClusterCommandInput, RebootCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

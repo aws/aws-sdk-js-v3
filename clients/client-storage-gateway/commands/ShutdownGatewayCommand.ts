@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ShutdownGatewayCommandInput = ShutdownGatewayInput;
-export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput &
-  __MetadataBearer;
+export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput & __MetadataBearer;
 
 export class ShutdownGatewayCommand extends $Command<
   ShutdownGatewayCommandInput,
@@ -47,9 +46,7 @@ export class ShutdownGatewayCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

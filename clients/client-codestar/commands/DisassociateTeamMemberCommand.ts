@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult
-} from "../models/index";
+import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateTeamMemberCommand,
   serializeAws_json1_1DisassociateTeamMemberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateTeamMemberCommandInput = DisassociateTeamMemberRequest;
-export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult &
-  __MetadataBearer;
+export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult & __MetadataBearer;
 
 export class DisassociateTeamMemberCommand extends $Command<
   DisassociateTeamMemberCommandInput,
@@ -49,13 +45,8 @@ export class DisassociateTeamMemberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateTeamMemberCommandInput,
-    DisassociateTeamMemberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateTeamMemberCommandInput, DisassociateTeamMemberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

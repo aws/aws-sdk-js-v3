@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  RevokeSnapshotAccessMessage,
-  RevokeSnapshotAccessResult
-} from "../models/index";
+import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/index";
 import {
   deserializeAws_queryRevokeSnapshotAccessCommand,
   serializeAws_queryRevokeSnapshotAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeSnapshotAccessCommandInput = RevokeSnapshotAccessMessage;
-export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult &
-  __MetadataBearer;
+export type RevokeSnapshotAccessCommandOutput = RevokeSnapshotAccessResult & __MetadataBearer;
 
 export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandInput,
@@ -49,13 +45,8 @@ export class RevokeSnapshotAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeSnapshotAccessCommandInput,
-    RevokeSnapshotAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeSnapshotAccessCommandInput, RevokeSnapshotAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

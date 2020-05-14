@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DeleteAnomalyDetectorInput,
-  DeleteAnomalyDetectorOutput
-} from "../models/index";
+import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteAnomalyDetectorCommand,
   serializeAws_queryDeleteAnomalyDetectorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorInput;
-export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput &
-  __MetadataBearer;
+export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput & __MetadataBearer;
 
 export class DeleteAnomalyDetectorCommand extends $Command<
   DeleteAnomalyDetectorCommandInput,
@@ -49,13 +45,8 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAnomalyDetectorCommandInput,
-    DeleteAnomalyDetectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAnomalyDetectorCommandInput, DeleteAnomalyDetectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

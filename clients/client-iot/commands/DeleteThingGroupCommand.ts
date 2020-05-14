@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteThingGroupRequest,
-  DeleteThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteThingGroupRequest, DeleteThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteThingGroupCommand,
   serializeAws_restJson1_1DeleteThingGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteThingGroupCommandInput = DeleteThingGroupRequest;
-export type DeleteThingGroupCommandOutput = DeleteThingGroupResponse &
-  __MetadataBearer;
+export type DeleteThingGroupCommandOutput = DeleteThingGroupResponse & __MetadataBearer;
 
 export class DeleteThingGroupCommand extends $Command<
   DeleteThingGroupCommandInput,
@@ -50,9 +42,7 @@ export class DeleteThingGroupCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteThingGroupCommandInput, DeleteThingGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

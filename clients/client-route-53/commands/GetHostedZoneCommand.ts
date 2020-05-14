@@ -26,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHostedZoneCommandInput = GetHostedZoneRequest;
-export type GetHostedZoneCommandOutput = GetHostedZoneResponse &
-  __MetadataBearer;
+export type GetHostedZoneCommandOutput = GetHostedZoneResponse & __MetadataBearer;
 
 export class GetHostedZoneCommand extends $Command<
   GetHostedZoneCommandInput,
@@ -48,9 +47,7 @@ export class GetHostedZoneCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHostedZoneCommandInput, GetHostedZoneCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

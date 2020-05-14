@@ -46,9 +46,7 @@ export class ListInputsCommand extends $Command<
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInputsCommandInput, ListInputsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

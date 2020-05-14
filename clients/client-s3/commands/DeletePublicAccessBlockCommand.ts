@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeletePublicAccessBlockRequest } from "../models/index";
 import {
   deserializeAws_restXmlDeletePublicAccessBlockCommand,
@@ -46,13 +42,8 @@ export class DeletePublicAccessBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePublicAccessBlockCommandInput,
-    DeletePublicAccessBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePublicAccessBlockCommandInput, DeletePublicAccessBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -79,10 +70,7 @@ export class DeletePublicAccessBlockCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlDeletePublicAccessBlockCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeletePublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

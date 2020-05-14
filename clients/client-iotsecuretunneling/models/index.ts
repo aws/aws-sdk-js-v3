@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CloseTunnelRequest {
@@ -19,8 +16,7 @@ export interface CloseTunnelRequest {
 }
 
 export namespace CloseTunnelRequest {
-  export const isa = (o: any): o is CloseTunnelRequest =>
-    __isa(o, "CloseTunnelRequest");
+  export const isa = (o: any): o is CloseTunnelRequest => __isa(o, "CloseTunnelRequest");
 }
 
 export interface CloseTunnelResponse {
@@ -28,8 +24,7 @@ export interface CloseTunnelResponse {
 }
 
 export namespace CloseTunnelResponse {
-  export const isa = (o: any): o is CloseTunnelResponse =>
-    __isa(o, "CloseTunnelResponse");
+  export const isa = (o: any): o is CloseTunnelResponse => __isa(o, "CloseTunnelResponse");
 }
 
 /**
@@ -50,8 +45,7 @@ export interface ConnectionState {
 }
 
 export namespace ConnectionState {
-  export const isa = (o: any): o is ConnectionState =>
-    __isa(o, "ConnectionState");
+  export const isa = (o: any): o is ConnectionState => __isa(o, "ConnectionState");
 }
 
 export enum ConnectionStatus {
@@ -68,8 +62,7 @@ export interface DescribeTunnelRequest {
 }
 
 export namespace DescribeTunnelRequest {
-  export const isa = (o: any): o is DescribeTunnelRequest =>
-    __isa(o, "DescribeTunnelRequest");
+  export const isa = (o: any): o is DescribeTunnelRequest => __isa(o, "DescribeTunnelRequest");
 }
 
 export interface DescribeTunnelResponse {
@@ -81,8 +74,7 @@ export interface DescribeTunnelResponse {
 }
 
 export namespace DescribeTunnelResponse {
-  export const isa = (o: any): o is DescribeTunnelResponse =>
-    __isa(o, "DescribeTunnelResponse");
+  export const isa = (o: any): o is DescribeTunnelResponse => __isa(o, "DescribeTunnelResponse");
 }
 
 /**
@@ -106,24 +98,20 @@ export interface DestinationConfig {
 }
 
 export namespace DestinationConfig {
-  export const isa = (o: any): o is DestinationConfig =>
-    __isa(o, "DestinationConfig");
+  export const isa = (o: any): o is DestinationConfig => __isa(o, "DestinationConfig");
 }
 
 /**
  * <p>Thrown when a tunnel limit is exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -171,8 +159,7 @@ export interface ListTunnelsRequest {
 }
 
 export namespace ListTunnelsRequest {
-  export const isa = (o: any): o is ListTunnelsRequest =>
-    __isa(o, "ListTunnelsRequest");
+  export const isa = (o: any): o is ListTunnelsRequest => __isa(o, "ListTunnelsRequest");
 }
 
 export interface ListTunnelsResponse {
@@ -189,8 +176,7 @@ export interface ListTunnelsResponse {
 }
 
 export namespace ListTunnelsResponse {
-  export const isa = (o: any): o is ListTunnelsResponse =>
-    __isa(o, "ListTunnelsResponse");
+  export const isa = (o: any): o is ListTunnelsResponse => __isa(o, "ListTunnelsResponse");
 }
 
 export interface OpenTunnelRequest {
@@ -217,8 +203,7 @@ export interface OpenTunnelRequest {
 }
 
 export namespace OpenTunnelRequest {
-  export const isa = (o: any): o is OpenTunnelRequest =>
-    __isa(o, "OpenTunnelRequest");
+  export const isa = (o: any): o is OpenTunnelRequest => __isa(o, "OpenTunnelRequest");
 }
 
 export interface OpenTunnelResponse {
@@ -249,16 +234,13 @@ export interface OpenTunnelResponse {
 }
 
 export namespace OpenTunnelResponse {
-  export const isa = (o: any): o is OpenTunnelResponse =>
-    __isa(o, "OpenTunnelResponse");
+  export const isa = (o: any): o is OpenTunnelResponse => __isa(o, "OpenTunnelResponse");
 }
 
 /**
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -304,8 +286,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -313,8 +294,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -464,8 +444,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -473,6 +452,5 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

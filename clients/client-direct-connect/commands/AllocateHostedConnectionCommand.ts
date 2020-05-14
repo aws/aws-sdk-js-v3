@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocateHostedConnectionCommandInput = AllocateHostedConnectionRequest;
-export type AllocateHostedConnectionCommandOutput = Connection &
-  __MetadataBearer;
+export type AllocateHostedConnectionCommandOutput = Connection & __MetadataBearer;
 
 export class AllocateHostedConnectionCommand extends $Command<
   AllocateHostedConnectionCommandInput,
@@ -46,13 +45,8 @@ export class AllocateHostedConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AllocateHostedConnectionCommandInput,
-    AllocateHostedConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AllocateHostedConnectionCommandInput, AllocateHostedConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class AllocateHostedConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AllocateHostedConnectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AllocateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

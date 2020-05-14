@@ -49,13 +49,8 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHyperParameterTuningJobsCommandInput,
-    ListHyperParameterTuningJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHyperParameterTuningJobsCommandInput, ListHyperParameterTuningJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     input: ListHyperParameterTuningJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHyperParameterTuningJobsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListHyperParameterTuningJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHyperParameterTuningJobsCommandOutput> {
-    return deserializeAws_json1_1ListHyperParameterTuningJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListHyperParameterTuningJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

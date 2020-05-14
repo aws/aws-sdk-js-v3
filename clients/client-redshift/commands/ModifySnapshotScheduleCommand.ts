@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ModifySnapshotScheduleMessage,
-  SnapshotSchedule
-} from "../models/index";
+import { ModifySnapshotScheduleMessage, SnapshotSchedule } from "../models/index";
 import {
   deserializeAws_queryModifySnapshotScheduleCommand,
   serializeAws_queryModifySnapshotScheduleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifySnapshotScheduleCommandInput = ModifySnapshotScheduleMessage;
-export type ModifySnapshotScheduleCommandOutput = SnapshotSchedule &
-  __MetadataBearer;
+export type ModifySnapshotScheduleCommandOutput = SnapshotSchedule & __MetadataBearer;
 
 export class ModifySnapshotScheduleCommand extends $Command<
   ModifySnapshotScheduleCommandInput,
@@ -49,13 +45,8 @@ export class ModifySnapshotScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifySnapshotScheduleCommandInput,
-    ModifySnapshotScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifySnapshotScheduleCommandInput, ModifySnapshotScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CertificateMessage,
-  DescribeCertificatesMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CertificateMessage, DescribeCertificatesMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeCertificatesCommand,
   serializeAws_queryDescribeCertificatesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
-export type DescribeCertificatesCommandOutput = CertificateMessage &
-  __MetadataBearer;
+export type DescribeCertificatesCommandOutput = CertificateMessage & __MetadataBearer;
 
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCertificatesCommandInput,
-    DescribeCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCertificatesCommandInput, DescribeCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

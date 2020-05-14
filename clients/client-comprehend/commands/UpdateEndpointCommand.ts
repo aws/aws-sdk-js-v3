@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEndpointCommandInput = UpdateEndpointRequest;
-export type UpdateEndpointCommandOutput = UpdateEndpointResponse &
-  __MetadataBearer;
+export type UpdateEndpointCommandOutput = UpdateEndpointResponse & __MetadataBearer;
 
 export class UpdateEndpointCommand extends $Command<
   UpdateEndpointCommandInput,
@@ -47,9 +46,7 @@ export class UpdateEndpointCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEndpointCommandInput, UpdateEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

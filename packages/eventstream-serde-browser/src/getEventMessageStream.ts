@@ -22,11 +22,9 @@ export function getEventMessageStream(
           if (messageType === "error") {
             // Unmodeled exception in event
             const unmodeledError = new Error(
-              (message.headers[":error-message"].value as string) ||
-                "UnknownError"
+              (message.headers[":error-message"].value as string) || "UnknownError"
             );
-            unmodeledError.name = message.headers[":error-code"]
-              .value as string;
+            unmodeledError.name = message.headers[":error-code"].value as string;
             controller.error(unmodeledError);
           } else if (messageType === "exception") {
             // throw this.exceptionsDeserializer(message);
@@ -39,9 +37,7 @@ export function getEventMessageStream(
             });
           } else {
             controller.error(
-              new Error(
-                `Unrecognizable event type: ${message.headers[":event-type"].value}`
-              )
+              new Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`)
             );
           }
           push();

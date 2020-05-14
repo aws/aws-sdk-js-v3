@@ -1,12 +1,5 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceResult
-} from "../models/index";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult &
-  __MetadataBearer;
+export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
@@ -50,9 +42,7 @@ export class ModifyDBInstanceCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

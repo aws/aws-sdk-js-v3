@@ -496,9 +496,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public sendAnnouncement(
     args: SendAnnouncementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendAnnouncementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendAnnouncementCommandOutput) => void),
     cb?: (err: any, data?: SendAnnouncementCommandOutput) => void
   ): Promise<SendAnnouncementCommandOutput> | void {
     const command = new SendAnnouncementCommand(args);
@@ -569,9 +567,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public approveSkill(
     args: ApproveSkillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApproveSkillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApproveSkillCommandOutput) => void),
     cb?: (err: any, data?: ApproveSkillCommandOutput) => void
   ): Promise<ApproveSkillCommandOutput> | void {
     const command = new ApproveSkillCommand(args);
@@ -606,10 +602,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: AssociateContactWithAddressBookCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateContactWithAddressBookCommandOutput
-        ) => void),
+      | ((err: any, data?: AssociateContactWithAddressBookCommandOutput) => void),
     cb?: (err: any, data?: AssociateContactWithAddressBookCommandOutput) => void
   ): Promise<AssociateContactWithAddressBookCommandOutput> | void {
     const command = new AssociateContactWithAddressBookCommand(args);
@@ -633,31 +626,19 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): Promise<AssociateDeviceWithNetworkProfileCommandOutput>;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): void;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): void;
   public associateDeviceWithNetworkProfile(
     args: AssociateDeviceWithNetworkProfileCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateDeviceWithNetworkProfileCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateDeviceWithNetworkProfileCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void),
+    cb?: (err: any, data?: AssociateDeviceWithNetworkProfileCommandOutput) => void
   ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> | void {
     const command = new AssociateDeviceWithNetworkProfileCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -938,9 +919,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createContact(
     args: CreateContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactCommandOutput) => void),
     cb?: (err: any, data?: CreateContactCommandOutput) => void
   ): Promise<CreateContactCommandOutput> | void {
     const command = new CreateContactCommand(args);
@@ -1043,9 +1022,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createProfile(
     args: CreateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateProfileCommandOutput) => void
   ): Promise<CreateProfileCommandOutput> | void {
     const command = new CreateProfileCommand(args);
@@ -1078,9 +1055,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createRoom(
     args: CreateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoomCommandOutput) => void),
     cb?: (err: any, data?: CreateRoomCommandOutput) => void
   ): Promise<CreateRoomCommandOutput> | void {
     const command = new CreateRoomCommand(args);
@@ -1113,9 +1088,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createSkillGroup(
     args: CreateSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateSkillGroupCommandOutput) => void
   ): Promise<CreateSkillGroupCommandOutput> | void {
     const command = new CreateSkillGroupCommand(args);
@@ -1148,9 +1121,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -1289,9 +1260,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteContact(
     args: DeleteContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactCommandOutput) => void),
     cb?: (err: any, data?: DeleteContactCommandOutput) => void
   ): Promise<DeleteContactCommandOutput> | void {
     const command = new DeleteContactCommand(args);
@@ -1324,9 +1293,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteDevice(
     args: DeleteDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): Promise<DeleteDeviceCommandOutput> | void {
     const command = new DeleteDeviceCommand(args);
@@ -1429,9 +1396,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteProfile(
     args: DeleteProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteProfileCommandOutput) => void
   ): Promise<DeleteProfileCommandOutput> | void {
     const command = new DeleteProfileCommand(args);
@@ -1464,9 +1429,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteRoom(
     args: DeleteRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomCommandOutput) => void),
     cb?: (err: any, data?: DeleteRoomCommandOutput) => void
   ): Promise<DeleteRoomCommandOutput> | void {
     const command = new DeleteRoomCommand(args);
@@ -1569,9 +1532,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteSkillGroup(
     args: DeleteSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteSkillGroupCommandOutput) => void
   ): Promise<DeleteSkillGroupCommandOutput> | void {
     const command = new DeleteSkillGroupCommand(args);
@@ -1604,9 +1565,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -1630,31 +1589,19 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): Promise<DisassociateContactFromAddressBookCommandOutput>;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): void;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): void;
   public disassociateContactFromAddressBook(
     args: DisassociateContactFromAddressBookCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateContactFromAddressBookCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateContactFromAddressBookCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateContactFromAddressBookCommandOutput) => void
   ): Promise<DisassociateContactFromAddressBookCommandOutput> | void {
     const command = new DisassociateContactFromAddressBookCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1725,10 +1672,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: DisassociateSkillFromSkillGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateSkillFromSkillGroupCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateSkillFromSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSkillFromSkillGroupCommandOutput) => void
   ): Promise<DisassociateSkillFromSkillGroupCommandOutput> | void {
     const command = new DisassociateSkillFromSkillGroupCommand(args);
@@ -1800,10 +1744,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: DisassociateSkillGroupFromRoomCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateSkillGroupFromRoomCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateSkillGroupFromRoomCommandOutput) => void),
     cb?: (err: any, data?: DisassociateSkillGroupFromRoomCommandOutput) => void
   ): Promise<DisassociateSkillGroupFromRoomCommandOutput> | void {
     const command = new DisassociateSkillGroupFromRoomCommand(args);
@@ -1871,9 +1812,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getAddressBook(
     args: GetAddressBookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAddressBookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAddressBookCommandOutput) => void),
     cb?: (err: any, data?: GetAddressBookCommandOutput) => void
   ): Promise<GetAddressBookCommandOutput> | void {
     const command = new GetAddressBookCommand(args);
@@ -1976,9 +1915,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getContact(
     args: GetContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactCommandOutput) => void),
     cb?: (err: any, data?: GetContactCommandOutput) => void
   ): Promise<GetContactCommandOutput> | void {
     const command = new GetContactCommand(args);
@@ -2011,9 +1948,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
@@ -2046,9 +1981,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getGateway(
     args: GetGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGatewayCommandOutput) => void),
     cb?: (err: any, data?: GetGatewayCommandOutput) => void
   ): Promise<GetGatewayCommandOutput> | void {
     const command = new GetGatewayCommand(args);
@@ -2081,9 +2014,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getGatewayGroup(
     args: GetGatewayGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGatewayGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGatewayGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGatewayGroupCommandOutput) => void
   ): Promise<GetGatewayGroupCommandOutput> | void {
     const command = new GetGatewayGroupCommand(args);
@@ -2187,9 +2118,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getProfile(
     args: GetProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProfileCommandOutput) => void),
     cb?: (err: any, data?: GetProfileCommandOutput) => void
   ): Promise<GetProfileCommandOutput> | void {
     const command = new GetProfileCommand(args);
@@ -2222,9 +2151,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getRoom(
     args: GetRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoomCommandOutput) => void),
     cb?: (err: any, data?: GetRoomCommandOutput) => void
   ): Promise<GetRoomCommandOutput> | void {
     const command = new GetRoomCommand(args);
@@ -2292,9 +2219,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public getSkillGroup(
     args: GetSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: GetSkillGroupCommandOutput) => void
   ): Promise<GetSkillGroupCommandOutput> | void {
     const command = new GetSkillGroupCommand(args);
@@ -2398,9 +2323,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listDeviceEvents(
     args: ListDeviceEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeviceEventsCommandOutput) => void),
     cb?: (err: any, data?: ListDeviceEventsCommandOutput) => void
   ): Promise<ListDeviceEventsCommandOutput> | void {
     const command = new ListDeviceEventsCommand(args);
@@ -2471,9 +2394,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listGateways(
     args: ListGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewaysCommandOutput) => void),
     cb?: (err: any, data?: ListGatewaysCommandOutput) => void
   ): Promise<ListGatewaysCommandOutput> | void {
     const command = new ListGatewaysCommand(args);
@@ -2506,9 +2427,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listSkills(
     args: ListSkillsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSkillsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSkillsCommandOutput) => void),
     cb?: (err: any, data?: ListSkillsCommandOutput) => void
   ): Promise<ListSkillsCommandOutput> | void {
     const command = new ListSkillsCommand(args);
@@ -2578,10 +2497,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: ListSkillsStoreSkillsByCategoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListSkillsStoreSkillsByCategoryCommandOutput
-        ) => void),
+      | ((err: any, data?: ListSkillsStoreSkillsByCategoryCommandOutput) => void),
     cb?: (err: any, data?: ListSkillsStoreSkillsByCategoryCommandOutput) => void
   ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> | void {
     const command = new ListSkillsStoreSkillsByCategoryCommand(args);
@@ -2649,9 +2565,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -2867,9 +2781,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public rejectSkill(
     args: RejectSkillCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectSkillCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectSkillCommandOutput) => void),
     cb?: (err: any, data?: RejectSkillCommandOutput) => void
   ): Promise<RejectSkillCommandOutput> | void {
     const command = new RejectSkillCommand(args);
@@ -2903,9 +2815,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public resolveRoom(
     args: ResolveRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveRoomCommandOutput) => void),
     cb?: (err: any, data?: ResolveRoomCommandOutput) => void
   ): Promise<ResolveRoomCommandOutput> | void {
     const command = new ResolveRoomCommand(args);
@@ -2938,9 +2848,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public revokeInvitation(
     args: RevokeInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeInvitationCommandOutput) => void),
     cb?: (err: any, data?: RevokeInvitationCommandOutput) => void
   ): Promise<RevokeInvitationCommandOutput> | void {
     const command = new RevokeInvitationCommand(args);
@@ -3010,9 +2918,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchContacts(
     args: SearchContactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchContactsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchContactsCommandOutput) => void),
     cb?: (err: any, data?: SearchContactsCommandOutput) => void
   ): Promise<SearchContactsCommandOutput> | void {
     const command = new SearchContactsCommand(args);
@@ -3045,9 +2951,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchDevices(
     args: SearchDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDevicesCommandOutput) => void),
     cb?: (err: any, data?: SearchDevicesCommandOutput) => void
   ): Promise<SearchDevicesCommandOutput> | void {
     const command = new SearchDevicesCommand(args);
@@ -3117,9 +3021,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchProfiles(
     args: SearchProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProfilesCommandOutput) => void),
     cb?: (err: any, data?: SearchProfilesCommandOutput) => void
   ): Promise<SearchProfilesCommandOutput> | void {
     const command = new SearchProfilesCommand(args);
@@ -3153,9 +3055,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchRooms(
     args: SearchRoomsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchRoomsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchRoomsCommandOutput) => void),
     cb?: (err: any, data?: SearchRoomsCommandOutput) => void
   ): Promise<SearchRoomsCommandOutput> | void {
     const command = new SearchRoomsCommand(args);
@@ -3225,9 +3125,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public searchUsers(
     args: SearchUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchUsersCommandOutput) => void),
     cb?: (err: any, data?: SearchUsersCommandOutput) => void
   ): Promise<SearchUsersCommandOutput> | void {
     const command = new SearchUsersCommand(args);
@@ -3261,9 +3159,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public sendInvitation(
     args: SendInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendInvitationCommandOutput) => void),
     cb?: (err: any, data?: SendInvitationCommandOutput) => void
   ): Promise<SendInvitationCommandOutput> | void {
     const command = new SendInvitationCommand(args);
@@ -3317,9 +3213,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public startDeviceSync(
     args: StartDeviceSyncCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeviceSyncCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeviceSyncCommandOutput) => void),
     cb?: (err: any, data?: StartDeviceSyncCommandOutput) => void
   ): Promise<StartDeviceSyncCommandOutput> | void {
     const command = new StartDeviceSyncCommand(args);
@@ -3355,14 +3249,8 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
     args: StartSmartHomeApplianceDiscoveryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartSmartHomeApplianceDiscoveryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartSmartHomeApplianceDiscoveryCommandOutput
-    ) => void
+      | ((err: any, data?: StartSmartHomeApplianceDiscoveryCommandOutput) => void),
+    cb?: (err: any, data?: StartSmartHomeApplianceDiscoveryCommandOutput) => void
   ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> | void {
     const command = new StartSmartHomeApplianceDiscoveryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3394,9 +3282,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3429,9 +3315,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3570,9 +3454,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateContact(
     args: UpdateContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContactCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactCommandOutput) => void),
     cb?: (err: any, data?: UpdateContactCommandOutput) => void
   ): Promise<UpdateContactCommandOutput> | void {
     const command = new UpdateContactCommand(args);
@@ -3605,9 +3487,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateDevice(
     args: UpdateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): Promise<UpdateDeviceCommandOutput> | void {
     const command = new UpdateDeviceCommand(args);
@@ -3641,9 +3521,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateGateway(
     args: UpdateGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayCommandOutput) => void),
     cb?: (err: any, data?: UpdateGatewayCommandOutput) => void
   ): Promise<UpdateGatewayCommandOutput> | void {
     const command = new UpdateGatewayCommand(args);
@@ -3747,9 +3625,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateProfile(
     args: UpdateProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateProfileCommandOutput) => void
   ): Promise<UpdateProfileCommandOutput> | void {
     const command = new UpdateProfileCommand(args);
@@ -3782,9 +3658,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateRoom(
     args: UpdateRoomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRoomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoomCommandOutput) => void),
     cb?: (err: any, data?: UpdateRoomCommandOutput) => void
   ): Promise<UpdateRoomCommandOutput> | void {
     const command = new UpdateRoomCommand(args);
@@ -3817,9 +3691,7 @@ export class AlexaForBusiness extends AlexaForBusinessClient {
   ): void;
   public updateSkillGroup(
     args: UpdateSkillGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSkillGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSkillGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateSkillGroupCommandOutput) => void
   ): Promise<UpdateSkillGroupCommandOutput> | void {
     const command = new UpdateSkillGroupCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeTableStatisticsMessage,
-  DescribeTableStatisticsResponse
-} from "../models/index";
+import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTableStatisticsCommand,
   serializeAws_json1_1DescribeTableStatisticsCommand
@@ -49,13 +46,8 @@ export class DescribeTableStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTableStatisticsCommandInput,
-    DescribeTableStatisticsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTableStatisticsCommandInput, DescribeTableStatisticsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeTableStatisticsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableStatisticsCommandOutput> {
-    return deserializeAws_json1_1DescribeTableStatisticsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTableStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

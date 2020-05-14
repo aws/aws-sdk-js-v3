@@ -58,9 +58,7 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | GetIceServerConfigCommandInput
-  | SendAlexaOfferToMasterCommandInput;
+export type ServiceInputTypes = GetIceServerConfigCommandInput | SendAlexaOfferToMasterCommandInput;
 
 export type ServiceOutputTypes =
   | GetIceServerConfigCommandOutput

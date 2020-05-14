@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DeleteExperimentRequest,
-  DeleteExperimentResponse
-} from "../models/index";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteExperimentCommand,
   serializeAws_json1_1DeleteExperimentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteExperimentCommandInput = DeleteExperimentRequest;
-export type DeleteExperimentCommandOutput = DeleteExperimentResponse &
-  __MetadataBearer;
+export type DeleteExperimentCommandOutput = DeleteExperimentResponse & __MetadataBearer;
 
 export class DeleteExperimentCommand extends $Command<
   DeleteExperimentCommandInput,
@@ -50,9 +46,7 @@ export class DeleteExperimentCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteExperimentCommandInput, DeleteExperimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

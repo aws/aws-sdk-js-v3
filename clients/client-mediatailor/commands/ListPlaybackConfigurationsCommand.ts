@@ -49,13 +49,8 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPlaybackConfigurationsCommandInput,
-    ListPlaybackConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPlaybackConfigurationsCommandInput, ListPlaybackConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     input: ListPlaybackConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListPlaybackConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPlaybackConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1ListPlaybackConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPlaybackConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

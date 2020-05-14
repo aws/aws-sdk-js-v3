@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  UpdateDatasetGroupRequest,
-  UpdateDatasetGroupResponse
-} from "../models/index";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDatasetGroupCommand,
   serializeAws_json1_1UpdateDatasetGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDatasetGroupCommandInput = UpdateDatasetGroupRequest;
-export type UpdateDatasetGroupCommandOutput = UpdateDatasetGroupResponse &
-  __MetadataBearer;
+export type UpdateDatasetGroupCommandOutput = UpdateDatasetGroupResponse & __MetadataBearer;
 
 export class UpdateDatasetGroupCommand extends $Command<
   UpdateDatasetGroupCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDatasetGroupCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

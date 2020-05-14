@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetPushTemplateRequest,
-  GetPushTemplateResponse
-} from "../models/index";
+import { GetPushTemplateRequest, GetPushTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPushTemplateCommand,
   serializeAws_restJson1_1GetPushTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPushTemplateCommandInput = GetPushTemplateRequest;
-export type GetPushTemplateCommandOutput = GetPushTemplateResponse &
-  __MetadataBearer;
+export type GetPushTemplateCommandOutput = GetPushTemplateResponse & __MetadataBearer;
 
 export class GetPushTemplateCommand extends $Command<
   GetPushTemplateCommandInput,
@@ -50,9 +46,7 @@ export class GetPushTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPushTemplateCommandInput, GetPushTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

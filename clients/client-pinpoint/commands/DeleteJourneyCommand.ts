@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteJourneyCommandInput = DeleteJourneyRequest;
-export type DeleteJourneyCommandOutput = DeleteJourneyResponse &
-  __MetadataBearer;
+export type DeleteJourneyCommandOutput = DeleteJourneyResponse & __MetadataBearer;
 
 export class DeleteJourneyCommand extends $Command<
   DeleteJourneyCommandInput,
@@ -47,9 +46,7 @@ export class DeleteJourneyCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJourneyCommandInput, DeleteJourneyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

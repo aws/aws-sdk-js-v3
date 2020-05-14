@@ -39,9 +39,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput
-  ) {
+  constructor(readonly input: RemoveSourceIdentifierFromSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     RemoveSourceIdentifierFromSubscriptionCommandInput,
     RemoveSourceIdentifierFromSubscriptionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

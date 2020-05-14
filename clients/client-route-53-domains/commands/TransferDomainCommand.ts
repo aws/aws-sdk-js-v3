@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TransferDomainCommandInput = TransferDomainRequest;
-export type TransferDomainCommandOutput = TransferDomainResponse &
-  __MetadataBearer;
+export type TransferDomainCommandOutput = TransferDomainResponse & __MetadataBearer;
 
 export class TransferDomainCommand extends $Command<
   TransferDomainCommandInput,
@@ -47,9 +46,7 @@ export class TransferDomainCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransferDomainCommandInput, TransferDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

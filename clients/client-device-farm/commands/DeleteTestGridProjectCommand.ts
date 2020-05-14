@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  DeleteTestGridProjectRequest,
-  DeleteTestGridProjectResult
-} from "../models/index";
+import { DeleteTestGridProjectRequest, DeleteTestGridProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTestGridProjectCommand,
   serializeAws_json1_1DeleteTestGridProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTestGridProjectCommandInput = DeleteTestGridProjectRequest;
-export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult &
-  __MetadataBearer;
+export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult & __MetadataBearer;
 
 export class DeleteTestGridProjectCommand extends $Command<
   DeleteTestGridProjectCommandInput,
@@ -49,13 +45,8 @@ export class DeleteTestGridProjectCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTestGridProjectCommandInput,
-    DeleteTestGridProjectCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTestGridProjectCommandInput, DeleteTestGridProjectCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

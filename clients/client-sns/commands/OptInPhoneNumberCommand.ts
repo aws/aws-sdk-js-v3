@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  OptInPhoneNumberInput,
-  OptInPhoneNumberResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/index";
 import {
   deserializeAws_queryOptInPhoneNumberCommand,
   serializeAws_queryOptInPhoneNumberCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type OptInPhoneNumberCommandInput = OptInPhoneNumberInput;
-export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse &
-  __MetadataBearer;
+export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse & __MetadataBearer;
 
 export class OptInPhoneNumberCommand extends $Command<
   OptInPhoneNumberCommandInput,
@@ -50,9 +42,7 @@ export class OptInPhoneNumberCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

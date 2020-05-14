@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DescribeDefaultAuthorizerRequest,
   DescribeDefaultAuthorizerResponse
@@ -49,13 +45,8 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDefaultAuthorizerCommandInput,
-    DescribeDefaultAuthorizerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDefaultAuthorizerCommandInput, DescribeDefaultAuthorizerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     input: DescribeDefaultAuthorizerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDefaultAuthorizerCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeDefaultAuthorizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

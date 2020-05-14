@@ -14,10 +14,7 @@ jest.mock("./whatwgEncodingApi", () => {
     toUtf8: jest.fn().mockReturnValue("")
   };
 });
-import {
-  fromUtf8 as textEncoderFromUtf8,
-  toUtf8 as textEncoderToUtf8
-} from "./whatwgEncodingApi";
+import { fromUtf8 as textEncoderFromUtf8, toUtf8 as textEncoderToUtf8 } from "./whatwgEncodingApi";
 
 beforeEach(() => {
   (jsFromUtf8 as any).mockClear();

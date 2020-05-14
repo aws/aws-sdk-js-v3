@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  GetEbsEncryptionByDefaultRequest,
-  GetEbsEncryptionByDefaultResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResult } from "../models/index";
 import {
   deserializeAws_ec2GetEbsEncryptionByDefaultCommand,
   serializeAws_ec2GetEbsEncryptionByDefaultCommand
@@ -49,13 +42,8 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEbsEncryptionByDefaultCommandInput,
-    GetEbsEncryptionByDefaultCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEbsEncryptionByDefaultCommandInput, GetEbsEncryptionByDefaultCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

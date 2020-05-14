@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  DeleteFlowTemplateRequest,
-  DeleteFlowTemplateResponse
-} from "../models/index";
+import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteFlowTemplateCommand,
   serializeAws_json1_1DeleteFlowTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFlowTemplateCommandInput = DeleteFlowTemplateRequest;
-export type DeleteFlowTemplateCommandOutput = DeleteFlowTemplateResponse &
-  __MetadataBearer;
+export type DeleteFlowTemplateCommandOutput = DeleteFlowTemplateResponse & __MetadataBearer;
 
 export class DeleteFlowTemplateCommand extends $Command<
   DeleteFlowTemplateCommandInput,
@@ -50,9 +46,7 @@ export class DeleteFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFlowTemplateCommandInput, DeleteFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

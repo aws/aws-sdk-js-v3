@@ -49,13 +49,8 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGlobalTableSettingsCommandInput,
-    DescribeGlobalTableSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGlobalTableSettingsCommandInput, DescribeGlobalTableSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     input: DescribeGlobalTableSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeGlobalTableSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0DescribeGlobalTableSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGlobalTableSettingsCommandOutput> {
-    return deserializeAws_json1_0DescribeGlobalTableSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeGlobalTableSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

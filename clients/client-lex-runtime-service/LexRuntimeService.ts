@@ -56,9 +56,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public deleteSession(
     args: DeleteSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSessionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSessionCommandOutput) => void
   ): Promise<DeleteSessionCommandOutput> | void {
     const command = new DeleteSessionCommand(args);
@@ -91,9 +89,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public getSession(
     args: GetSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionCommandOutput) => void),
     cb?: (err: any, data?: GetSessionCommandOutput) => void
   ): Promise<GetSessionCommandOutput> | void {
     const command = new GetSessionCommand(args);
@@ -193,9 +189,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public postContent(
     args: PostContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostContentCommandOutput) => void),
     cb?: (err: any, data?: PostContentCommandOutput) => void
   ): Promise<PostContentCommandOutput> | void {
     const command = new PostContentCommand(args);
@@ -295,9 +289,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public postText(
     args: PostTextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostTextCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostTextCommandOutput) => void),
     cb?: (err: any, data?: PostTextCommandOutput) => void
   ): Promise<PostTextCommandOutput> | void {
     const command = new PostTextCommand(args);
@@ -332,9 +324,7 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
   ): void;
   public putSession(
     args: PutSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSessionCommandOutput) => void),
     cb?: (err: any, data?: PutSessionCommandOutput) => void
   ): Promise<PutSessionCommandOutput> | void {
     const command = new PutSessionCommand(args);

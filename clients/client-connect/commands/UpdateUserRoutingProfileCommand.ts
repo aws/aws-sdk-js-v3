@@ -45,13 +45,8 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserRoutingProfileCommandInput,
-    UpdateUserRoutingProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserRoutingProfileCommandInput, UpdateUserRoutingProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     input: UpdateUserRoutingProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateUserRoutingProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

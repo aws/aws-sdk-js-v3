@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { PutWorkflowRunPropertiesRequest, PutWorkflowRunPropertiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
   serializeAws_json1_1PutWorkflowRunPropertiesCommand
@@ -49,13 +42,8 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutWorkflowRunPropertiesCommandInput,
-    PutWorkflowRunPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutWorkflowRunPropertiesCommandInput, PutWorkflowRunPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutWorkflowRunPropertiesCommandOutput> {
-    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "../commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput
@@ -66,18 +63,12 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput
 } from "../commands/ListElasticsearchVersionsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "../commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput
 } from "../commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "../commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput
@@ -223,16 +214,10 @@ export const serializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
       AccessPolicies: input.AccessPolicies
     }),
     ...(input.AdvancedOptions !== undefined && {
-      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(
-        input.AdvancedOptions,
-        context
-      )
+      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(input.AdvancedOptions, context)
     }),
     ...(input.CognitoOptions !== undefined && {
-      CognitoOptions: serializeAws_restJson1_1CognitoOptions(
-        input.CognitoOptions,
-        context
-      )
+      CognitoOptions: serializeAws_restJson1_1CognitoOptions(input.CognitoOptions, context)
     }),
     ...(input.DomainEndpointOptions !== undefined && {
       DomainEndpointOptions: serializeAws_restJson1_1DomainEndpointOptions(
@@ -272,10 +257,7 @@ export const serializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
       )
     }),
     ...(input.SnapshotOptions !== undefined && {
-      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(
-        input.SnapshotOptions,
-        context
-      )
+      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(input.SnapshotOptions, context)
     }),
     ...(input.VPCOptions !== undefined && {
       VPCOptions: serializeAws_restJson1_1VPCOptions(input.VPCOptions, context)
@@ -306,10 +288,7 @@ export const serializeAws_restJson1_1DeleteElasticsearchDomainCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -361,10 +340,7 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -394,10 +370,7 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand = 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -425,10 +398,7 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainsCommand = async
   let body: any;
   body = JSON.stringify({
     ...(input.DomainNames !== undefined && {
-      DomainNames: serializeAws_restJson1_1DomainNameList(
-        input.DomainNames,
-        context
-      )
+      DomainNames: serializeAws_restJson1_1DomainNameList(input.DomainNames, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -450,35 +420,25 @@ export const serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsComm
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
+  let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ElasticsearchVersion."
-      );
+      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ElasticsearchVersion."
-    );
+    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   if (input.InstanceType !== undefined) {
     const labelValue: string = input.InstanceType;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InstanceType."
-      );
+      throw new Error("Empty value provided for input HTTP label: InstanceType.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{InstanceType}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{InstanceType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
   }
@@ -599,10 +559,7 @@ export const serializeAws_restJson1_1GetUpgradeHistoryCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -639,10 +596,7 @@ export const serializeAws_restJson1_1GetUpgradeStatusCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -692,18 +646,14 @@ export const serializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = asy
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ElasticsearchVersion."
-      );
+      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
     }
     resolvedPath = resolvedPath.replace(
       "{ElasticsearchVersion}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ElasticsearchVersion."
-    );
+    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -796,8 +746,7 @@ export const serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferi
       ReservationName: input.ReservationName
     }),
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
-      ReservedElasticsearchInstanceOfferingId:
-        input.ReservedElasticsearchInstanceOfferingId
+      ReservedElasticsearchInstanceOfferingId: input.ReservedElasticsearchInstanceOfferingId
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -876,10 +825,7 @@ export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = as
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -889,16 +835,10 @@ export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = as
       AccessPolicies: input.AccessPolicies
     }),
     ...(input.AdvancedOptions !== undefined && {
-      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(
-        input.AdvancedOptions,
-        context
-      )
+      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(input.AdvancedOptions, context)
     }),
     ...(input.CognitoOptions !== undefined && {
-      CognitoOptions: serializeAws_restJson1_1CognitoOptions(
-        input.CognitoOptions,
-        context
-      )
+      CognitoOptions: serializeAws_restJson1_1CognitoOptions(input.CognitoOptions, context)
     }),
     ...(input.DomainEndpointOptions !== undefined && {
       DomainEndpointOptions: serializeAws_restJson1_1DomainEndpointOptions(
@@ -922,10 +862,7 @@ export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = as
       )
     }),
     ...(input.SnapshotOptions !== undefined && {
-      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(
-        input.SnapshotOptions,
-        context
-      )
+      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(input.SnapshotOptions, context)
     }),
     ...(input.VPCOptions !== undefined && {
       VPCOptions: serializeAws_restJson1_1VPCOptions(input.VPCOptions, context)
@@ -1002,10 +939,7 @@ const deserializeAws_restJson1_1AddTagsCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1013,10 +947,7 @@ const deserializeAws_restJson1_1AddTagsCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1024,10 +955,7 @@ const deserializeAws_restJson1_1AddTagsCommandError = async (
     case "LimitExceededException":
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1035,10 +963,7 @@ const deserializeAws_restJson1_1AddTagsCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1076,10 +1001,7 @@ export const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateC
     ServiceSoftwareOptions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ServiceSoftwareOptions !== undefined &&
-    data.ServiceSoftwareOptions !== null
-  ) {
+  if (data.ServiceSoftwareOptions !== undefined && data.ServiceSoftwareOptions !== null) {
     contents.ServiceSoftwareOptions = deserializeAws_restJson1_1ServiceSoftwareOptions(
       data.ServiceSoftwareOptions,
       context
@@ -1103,10 +1025,7 @@ const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandE
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1114,10 +1033,7 @@ const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandE
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1136,10 +1052,7 @@ const deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommandE
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1166,10 +1079,7 @@ export const deserializeAws_restJson1_1CreateElasticsearchDomainCommand = async 
   context: __SerdeContext
 ): Promise<CreateElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(output, context);
   }
   const contents: CreateElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1201,10 +1111,7 @@ const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1223,10 +1130,7 @@ const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1234,10 +1138,7 @@ const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
     case "InvalidTypeException":
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1245,10 +1146,7 @@ const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
     case "LimitExceededException":
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1267,10 +1165,7 @@ const deserializeAws_restJson1_1CreateElasticsearchDomainCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1297,10 +1192,7 @@ export const deserializeAws_restJson1_1DeleteElasticsearchDomainCommand = async 
   context: __SerdeContext
 ): Promise<DeleteElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(output, context);
   }
   const contents: DeleteElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1332,10 +1224,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1343,10 +1232,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1365,10 +1251,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1395,10 +1278,7 @@ export const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommand = a
   context: __SerdeContext
 ): Promise<DeleteElasticsearchServiceRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError(output, context);
   }
   const contents: DeleteElasticsearchServiceRoleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1422,10 +1302,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError = asy
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1433,10 +1310,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError = asy
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1444,10 +1318,7 @@ const deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandError = asy
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1474,10 +1345,7 @@ export const deserializeAws_restJson1_1DescribeElasticsearchDomainCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1509,10 +1377,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError = async 
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1520,10 +1385,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError = async 
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1542,10 +1404,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError = async 
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1572,10 +1431,7 @@ export const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand 
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1607,10 +1463,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError = 
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1618,10 +1471,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError = 
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1640,10 +1490,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommandError = 
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1670,10 +1517,7 @@ export const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommand = asy
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1705,10 +1549,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError = async
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1716,10 +1557,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError = async
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1727,10 +1565,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandError = async
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1769,10 +1604,7 @@ export const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCo
   };
   const data: any = await parseBody(output.body, context);
   if (data.LimitsByRole !== undefined && data.LimitsByRole !== null) {
-    contents.LimitsByRole = deserializeAws_restJson1_1LimitsByRole(
-      data.LimitsByRole,
-      context
-    );
+    contents.LimitsByRole = deserializeAws_restJson1_1LimitsByRole(data.LimitsByRole, context);
   }
   return Promise.resolve(contents);
 };
@@ -1792,10 +1624,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandEr
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1803,10 +1632,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandEr
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1814,10 +1640,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandEr
     case "InvalidTypeException":
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1825,10 +1648,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandEr
     case "LimitExceededException":
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1847,10 +1667,7 @@ const deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommandEr
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1930,10 +1747,7 @@ const deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCo
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1952,10 +1766,7 @@ const deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCo
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2035,10 +1846,7 @@ const deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommandErr
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2057,10 +1865,7 @@ const deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommandErr
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2125,10 +1930,7 @@ const deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError =
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2147,10 +1949,7 @@ const deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError =
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2169,10 +1968,7 @@ const deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsCommandError =
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2199,10 +1995,7 @@ export const deserializeAws_restJson1_1GetUpgradeHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetUpgradeHistoryCommandError(output, context);
   }
   const contents: GetUpgradeHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2238,10 +2031,7 @@ const deserializeAws_restJson1_1GetUpgradeHistoryCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2260,10 +2050,7 @@ const deserializeAws_restJson1_1GetUpgradeHistoryCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2282,10 +2069,7 @@ const deserializeAws_restJson1_1GetUpgradeHistoryCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2312,10 +2096,7 @@ export const deserializeAws_restJson1_1GetUpgradeStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetUpgradeStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetUpgradeStatusCommandError(output, context);
   }
   const contents: GetUpgradeStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2352,10 +2133,7 @@ const deserializeAws_restJson1_1GetUpgradeStatusCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2374,10 +2152,7 @@ const deserializeAws_restJson1_1GetUpgradeStatusCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2396,10 +2171,7 @@ const deserializeAws_restJson1_1GetUpgradeStatusCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2426,10 +2198,7 @@ export const deserializeAws_restJson1_1ListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDomainNamesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDomainNamesCommandError(output, context);
   }
   const contents: ListDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2438,10 +2207,7 @@ export const deserializeAws_restJson1_1ListDomainNamesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DomainNames !== undefined && data.DomainNames !== null) {
-    contents.DomainNames = deserializeAws_restJson1_1DomainInfoList(
-      data.DomainNames,
-      context
-    );
+    contents.DomainNames = deserializeAws_restJson1_1DomainInfoList(data.DomainNames, context);
   }
   return Promise.resolve(contents);
 };
@@ -2461,10 +2227,7 @@ const deserializeAws_restJson1_1ListDomainNamesCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2472,10 +2235,7 @@ const deserializeAws_restJson1_1ListDomainNamesCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2502,10 +2262,7 @@ export const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = a
   context: __SerdeContext
 ): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError(output, context);
   }
   const contents: ListElasticsearchInstanceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2514,10 +2271,7 @@ export const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommand = a
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ElasticsearchInstanceTypes !== undefined &&
-    data.ElasticsearchInstanceTypes !== null
-  ) {
+  if (data.ElasticsearchInstanceTypes !== undefined && data.ElasticsearchInstanceTypes !== null) {
     contents.ElasticsearchInstanceTypes = deserializeAws_restJson1_1ElasticsearchInstanceTypeList(
       data.ElasticsearchInstanceTypes,
       context
@@ -2544,10 +2298,7 @@ const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError = asy
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2555,10 +2306,7 @@ const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError = asy
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2577,10 +2325,7 @@ const deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandError = asy
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2607,10 +2352,7 @@ export const deserializeAws_restJson1_1ListElasticsearchVersionsCommand = async 
   context: __SerdeContext
 ): Promise<ListElasticsearchVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(output, context);
   }
   const contents: ListElasticsearchVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2619,10 +2361,7 @@ export const deserializeAws_restJson1_1ListElasticsearchVersionsCommand = async 
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ElasticsearchVersions !== undefined &&
-    data.ElasticsearchVersions !== null
-  ) {
+  if (data.ElasticsearchVersions !== undefined && data.ElasticsearchVersions !== null) {
     contents.ElasticsearchVersions = deserializeAws_restJson1_1ElasticsearchVersionList(
       data.ElasticsearchVersions,
       context
@@ -2649,10 +2388,7 @@ const deserializeAws_restJson1_1ListElasticsearchVersionsCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2660,10 +2396,7 @@ const deserializeAws_restJson1_1ListElasticsearchVersionsCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2682,10 +2415,7 @@ const deserializeAws_restJson1_1ListElasticsearchVersionsCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2741,10 +2471,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2752,10 +2479,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2774,10 +2498,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2823,8 +2544,7 @@ export const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOffe
     data.ReservedElasticsearchInstanceId !== undefined &&
     data.ReservedElasticsearchInstanceId !== null
   ) {
-    contents.ReservedElasticsearchInstanceId =
-      data.ReservedElasticsearchInstanceId;
+    contents.ReservedElasticsearchInstanceId = data.ReservedElasticsearchInstanceId;
   }
   return Promise.resolve(contents);
 };
@@ -2855,10 +2575,7 @@ const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCom
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2866,10 +2583,7 @@ const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCom
     case "LimitExceededException":
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2899,10 +2613,7 @@ const deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCom
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2953,10 +2664,7 @@ const deserializeAws_restJson1_1RemoveTagsCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2964,10 +2672,7 @@ const deserializeAws_restJson1_1RemoveTagsCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2975,10 +2680,7 @@ const deserializeAws_restJson1_1RemoveTagsCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3016,10 +2718,7 @@ export const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCo
     ServiceSoftwareOptions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ServiceSoftwareOptions !== undefined &&
-    data.ServiceSoftwareOptions !== null
-  ) {
+  if (data.ServiceSoftwareOptions !== undefined && data.ServiceSoftwareOptions !== null) {
     contents.ServiceSoftwareOptions = deserializeAws_restJson1_1ServiceSoftwareOptions(
       data.ServiceSoftwareOptions,
       context
@@ -3043,10 +2742,7 @@ const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandEr
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3054,10 +2750,7 @@ const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandEr
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3076,10 +2769,7 @@ const deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateCommandEr
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3106,10 +2796,7 @@ export const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = 
   context: __SerdeContext
 ): Promise<UpdateElasticsearchDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError(output, context);
   }
   const contents: UpdateElasticsearchDomainConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3141,10 +2828,7 @@ const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = as
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3152,10 +2836,7 @@ const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = as
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3163,10 +2844,7 @@ const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = as
     case "InvalidTypeException":
     case "com.a9.es.exceptions#InvalidTypeException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidTypeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3174,10 +2852,7 @@ const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = as
     case "LimitExceededException":
     case "com.a9.es.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3196,10 +2871,7 @@ const deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandError = as
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3226,10 +2898,7 @@ export const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommand = async
   context: __SerdeContext
 ): Promise<UpgradeElasticsearchDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(output, context);
   }
   const contents: UpgradeElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3266,10 +2935,7 @@ const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError = async (
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
       response = {
-        ...(await deserializeAws_restJson1_1BaseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3288,10 +2954,7 @@ const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError = async (
     case "InternalException":
     case "com.a9.es.exceptions#InternalException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3321,10 +2984,7 @@ const deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError = async (
     case "ValidationException":
     case "com.a9.es.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3523,17 +3183,11 @@ const serializeAws_restJson1_1DomainEndpointOptions = (
   };
 };
 
-const serializeAws_restJson1_1DomainNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DomainNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1EBSOptions = (
-  input: EBSOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1EBSOptions = (input: EBSOptions, context: __SerdeContext): any => {
   return {
     ...(input.EBSEnabled !== undefined && { EBSEnabled: input.EBSEnabled }),
     ...(input.Iops !== undefined && { Iops: input.Iops }),
@@ -3604,10 +3258,7 @@ const serializeAws_restJson1_1LogPublishingOptions = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: LogPublishingOption },
-      [key, value]: [LogType | string, any]
-    ) => ({
+    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => ({
       ...acc,
       [key]: serializeAws_restJson1_1LogPublishingOption(value, context)
     }),
@@ -3635,40 +3286,25 @@ const serializeAws_restJson1_1SnapshotOptions = (
   };
 };
 
-const serializeAws_restJson1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1VPCOptions = (
-  input: VPCOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1VPCOptions = (input: VPCOptions, context: __SerdeContext): any => {
   return {
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_restJson1_1StringList(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_restJson1_1StringList(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_restJson1_1StringList(input.SubnetIds, context)
@@ -3693,10 +3329,7 @@ const deserializeAws_restJson1_1AccessPoliciesStatus = (
 ): AccessPoliciesStatus => {
   return {
     __type: "AccessPoliciesStatus",
-    Options:
-      output.Options !== undefined && output.Options !== null
-        ? output.Options
-        : undefined,
+    Options: output.Options !== undefined && output.Options !== null ? output.Options : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1_1OptionStatus(output.Status, context)
@@ -3711,9 +3344,7 @@ const deserializeAws_restJson1_1AdditionalLimit = (
   return {
     __type: "AdditionalLimit",
     LimitName:
-      output.LimitName !== undefined && output.LimitName !== null
-        ? output.LimitName
-        : undefined,
+      output.LimitName !== undefined && output.LimitName !== null ? output.LimitName : undefined,
     LimitValues:
       output.LimitValues !== undefined && output.LimitValues !== null
         ? deserializeAws_restJson1_1LimitValueList(output.LimitValues, context)
@@ -3766,22 +3397,14 @@ const deserializeAws_restJson1_1CognitoOptions = (
 ): CognitoOptions => {
   return {
     __type: "CognitoOptions",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     IdentityPoolId:
       output.IdentityPoolId !== undefined && output.IdentityPoolId !== null
         ? output.IdentityPoolId
         : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     UserPoolId:
-      output.UserPoolId !== undefined && output.UserPoolId !== null
-        ? output.UserPoolId
-        : undefined
+      output.UserPoolId !== undefined && output.UserPoolId !== null ? output.UserPoolId : undefined
   } as any;
 };
 
@@ -3823,10 +3446,7 @@ const deserializeAws_restJson1_1CompatibleVersionsMap = (
         : undefined,
     TargetVersions:
       output.TargetVersions !== undefined && output.TargetVersions !== null
-        ? deserializeAws_restJson1_1ElasticsearchVersionList(
-            output.TargetVersions,
-            context
-          )
+        ? deserializeAws_restJson1_1ElasticsearchVersionList(output.TargetVersions, context)
         : undefined
   } as any;
 };
@@ -3842,8 +3462,7 @@ const deserializeAws_restJson1_1DomainEndpointOptions = (
         ? output.EnforceHTTPS
         : undefined,
     TLSSecurityPolicy:
-      output.TLSSecurityPolicy !== undefined &&
-      output.TLSSecurityPolicy !== null
+      output.TLSSecurityPolicy !== undefined && output.TLSSecurityPolicy !== null
         ? output.TLSSecurityPolicy
         : undefined
   } as any;
@@ -3857,10 +3476,7 @@ const deserializeAws_restJson1_1DomainEndpointOptionsStatus = (
     __type: "DomainEndpointOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
-        ? deserializeAws_restJson1_1DomainEndpointOptions(
-            output.Options,
-            context
-          )
+        ? deserializeAws_restJson1_1DomainEndpointOptions(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -3869,16 +3485,11 @@ const deserializeAws_restJson1_1DomainEndpointOptionsStatus = (
   } as any;
 };
 
-const deserializeAws_restJson1_1DomainInfo = (
-  output: any,
-  context: __SerdeContext
-): DomainInfo => {
+const deserializeAws_restJson1_1DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
   return {
     __type: "DomainInfo",
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined
   } as any;
 };
 
@@ -3886,33 +3497,19 @@ const deserializeAws_restJson1_1DomainInfoList = (
   output: any,
   context: __SerdeContext
 ): DomainInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DomainInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DomainInfo(entry, context));
 };
 
-const deserializeAws_restJson1_1EBSOptions = (
-  output: any,
-  context: __SerdeContext
-): EBSOptions => {
+const deserializeAws_restJson1_1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
   return {
     __type: "EBSOptions",
     EBSEnabled:
-      output.EBSEnabled !== undefined && output.EBSEnabled !== null
-        ? output.EBSEnabled
-        : undefined,
-    Iops:
-      output.Iops !== undefined && output.Iops !== null
-        ? output.Iops
-        : undefined,
+      output.EBSEnabled !== undefined && output.EBSEnabled !== null ? output.EBSEnabled : undefined,
+    Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     VolumeSize:
-      output.VolumeSize !== undefined && output.VolumeSize !== null
-        ? output.VolumeSize
-        : undefined,
+      output.VolumeSize !== undefined && output.VolumeSize !== null ? output.VolumeSize : undefined,
     VolumeType:
-      output.VolumeType !== undefined && output.VolumeType !== null
-        ? output.VolumeType
-        : undefined
+      output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined
   } as any;
 };
 
@@ -3940,18 +3537,15 @@ const deserializeAws_restJson1_1ElasticsearchClusterConfig = (
   return {
     __type: "ElasticsearchClusterConfig",
     DedicatedMasterCount:
-      output.DedicatedMasterCount !== undefined &&
-      output.DedicatedMasterCount !== null
+      output.DedicatedMasterCount !== undefined && output.DedicatedMasterCount !== null
         ? output.DedicatedMasterCount
         : undefined,
     DedicatedMasterEnabled:
-      output.DedicatedMasterEnabled !== undefined &&
-      output.DedicatedMasterEnabled !== null
+      output.DedicatedMasterEnabled !== undefined && output.DedicatedMasterEnabled !== null
         ? output.DedicatedMasterEnabled
         : undefined,
     DedicatedMasterType:
-      output.DedicatedMasterType !== undefined &&
-      output.DedicatedMasterType !== null
+      output.DedicatedMasterType !== undefined && output.DedicatedMasterType !== null
         ? output.DedicatedMasterType
         : undefined,
     InstanceCount:
@@ -3963,28 +3557,19 @@ const deserializeAws_restJson1_1ElasticsearchClusterConfig = (
         ? output.InstanceType
         : undefined,
     WarmCount:
-      output.WarmCount !== undefined && output.WarmCount !== null
-        ? output.WarmCount
-        : undefined,
+      output.WarmCount !== undefined && output.WarmCount !== null ? output.WarmCount : undefined,
     WarmEnabled:
       output.WarmEnabled !== undefined && output.WarmEnabled !== null
         ? output.WarmEnabled
         : undefined,
     WarmType:
-      output.WarmType !== undefined && output.WarmType !== null
-        ? output.WarmType
-        : undefined,
+      output.WarmType !== undefined && output.WarmType !== null ? output.WarmType : undefined,
     ZoneAwarenessConfig:
-      output.ZoneAwarenessConfig !== undefined &&
-      output.ZoneAwarenessConfig !== null
-        ? deserializeAws_restJson1_1ZoneAwarenessConfig(
-            output.ZoneAwarenessConfig,
-            context
-          )
+      output.ZoneAwarenessConfig !== undefined && output.ZoneAwarenessConfig !== null
+        ? deserializeAws_restJson1_1ZoneAwarenessConfig(output.ZoneAwarenessConfig, context)
         : undefined,
     ZoneAwarenessEnabled:
-      output.ZoneAwarenessEnabled !== undefined &&
-      output.ZoneAwarenessEnabled !== null
+      output.ZoneAwarenessEnabled !== undefined && output.ZoneAwarenessEnabled !== null
         ? output.ZoneAwarenessEnabled
         : undefined
   } as any;
@@ -3998,10 +3583,7 @@ const deserializeAws_restJson1_1ElasticsearchClusterConfigStatus = (
     __type: "ElasticsearchClusterConfigStatus",
     Options:
       output.Options !== undefined && output.Options !== null
-        ? deserializeAws_restJson1_1ElasticsearchClusterConfig(
-            output.Options,
-            context
-          )
+        ? deserializeAws_restJson1_1ElasticsearchClusterConfig(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4018,28 +3600,18 @@ const deserializeAws_restJson1_1ElasticsearchDomainConfig = (
     __type: "ElasticsearchDomainConfig",
     AccessPolicies:
       output.AccessPolicies !== undefined && output.AccessPolicies !== null
-        ? deserializeAws_restJson1_1AccessPoliciesStatus(
-            output.AccessPolicies,
-            context
-          )
+        ? deserializeAws_restJson1_1AccessPoliciesStatus(output.AccessPolicies, context)
         : undefined,
     AdvancedOptions:
       output.AdvancedOptions !== undefined && output.AdvancedOptions !== null
-        ? deserializeAws_restJson1_1AdvancedOptionsStatus(
-            output.AdvancedOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1AdvancedOptionsStatus(output.AdvancedOptions, context)
         : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
-        ? deserializeAws_restJson1_1CognitoOptionsStatus(
-            output.CognitoOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1CognitoOptionsStatus(output.CognitoOptions, context)
         : undefined,
     DomainEndpointOptions:
-      output.DomainEndpointOptions !== undefined &&
-      output.DomainEndpointOptions !== null
+      output.DomainEndpointOptions !== undefined && output.DomainEndpointOptions !== null
         ? deserializeAws_restJson1_1DomainEndpointOptionsStatus(
             output.DomainEndpointOptions,
             context
@@ -4050,36 +3622,26 @@ const deserializeAws_restJson1_1ElasticsearchDomainConfig = (
         ? deserializeAws_restJson1_1EBSOptionsStatus(output.EBSOptions, context)
         : undefined,
     ElasticsearchClusterConfig:
-      output.ElasticsearchClusterConfig !== undefined &&
-      output.ElasticsearchClusterConfig !== null
+      output.ElasticsearchClusterConfig !== undefined && output.ElasticsearchClusterConfig !== null
         ? deserializeAws_restJson1_1ElasticsearchClusterConfigStatus(
             output.ElasticsearchClusterConfig,
             context
           )
         : undefined,
     ElasticsearchVersion:
-      output.ElasticsearchVersion !== undefined &&
-      output.ElasticsearchVersion !== null
-        ? deserializeAws_restJson1_1ElasticsearchVersionStatus(
-            output.ElasticsearchVersion,
-            context
-          )
+      output.ElasticsearchVersion !== undefined && output.ElasticsearchVersion !== null
+        ? deserializeAws_restJson1_1ElasticsearchVersionStatus(output.ElasticsearchVersion, context)
         : undefined,
     EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions !== undefined &&
-      output.EncryptionAtRestOptions !== null
+      output.EncryptionAtRestOptions !== undefined && output.EncryptionAtRestOptions !== null
         ? deserializeAws_restJson1_1EncryptionAtRestOptionsStatus(
             output.EncryptionAtRestOptions,
             context
           )
         : undefined,
     LogPublishingOptions:
-      output.LogPublishingOptions !== undefined &&
-      output.LogPublishingOptions !== null
-        ? deserializeAws_restJson1_1LogPublishingOptionsStatus(
-            output.LogPublishingOptions,
-            context
-          )
+      output.LogPublishingOptions !== undefined && output.LogPublishingOptions !== null
+        ? deserializeAws_restJson1_1LogPublishingOptionsStatus(output.LogPublishingOptions, context)
         : undefined,
     NodeToNodeEncryptionOptions:
       output.NodeToNodeEncryptionOptions !== undefined &&
@@ -4091,17 +3653,11 @@ const deserializeAws_restJson1_1ElasticsearchDomainConfig = (
         : undefined,
     SnapshotOptions:
       output.SnapshotOptions !== undefined && output.SnapshotOptions !== null
-        ? deserializeAws_restJson1_1SnapshotOptionsStatus(
-            output.SnapshotOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1SnapshotOptionsStatus(output.SnapshotOptions, context)
         : undefined,
     VPCOptions:
       output.VPCOptions !== undefined && output.VPCOptions !== null
-        ? deserializeAws_restJson1_1VPCDerivedInfoStatus(
-            output.VPCOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1VPCDerivedInfoStatus(output.VPCOptions, context)
         : undefined
   } as any;
 };
@@ -4112,90 +3668,57 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatus = (
 ): ElasticsearchDomainStatus => {
   return {
     __type: "ElasticsearchDomainStatus",
-    ARN:
-      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AccessPolicies:
       output.AccessPolicies !== undefined && output.AccessPolicies !== null
         ? output.AccessPolicies
         : undefined,
     AdvancedOptions:
       output.AdvancedOptions !== undefined && output.AdvancedOptions !== null
-        ? deserializeAws_restJson1_1AdvancedOptions(
-            output.AdvancedOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1AdvancedOptions(output.AdvancedOptions, context)
         : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
-        ? deserializeAws_restJson1_1CognitoOptions(
-            output.CognitoOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1CognitoOptions(output.CognitoOptions, context)
         : undefined,
-    Created:
-      output.Created !== undefined && output.Created !== null
-        ? output.Created
-        : undefined,
-    Deleted:
-      output.Deleted !== undefined && output.Deleted !== null
-        ? output.Deleted
-        : undefined,
+    Created: output.Created !== undefined && output.Created !== null ? output.Created : undefined,
+    Deleted: output.Deleted !== undefined && output.Deleted !== null ? output.Deleted : undefined,
     DomainEndpointOptions:
-      output.DomainEndpointOptions !== undefined &&
-      output.DomainEndpointOptions !== null
-        ? deserializeAws_restJson1_1DomainEndpointOptions(
-            output.DomainEndpointOptions,
-            context
-          )
+      output.DomainEndpointOptions !== undefined && output.DomainEndpointOptions !== null
+        ? deserializeAws_restJson1_1DomainEndpointOptions(output.DomainEndpointOptions, context)
         : undefined,
     DomainId:
-      output.DomainId !== undefined && output.DomainId !== null
-        ? output.DomainId
-        : undefined,
+      output.DomainId !== undefined && output.DomainId !== null ? output.DomainId : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     EBSOptions:
       output.EBSOptions !== undefined && output.EBSOptions !== null
         ? deserializeAws_restJson1_1EBSOptions(output.EBSOptions, context)
         : undefined,
     ElasticsearchClusterConfig:
-      output.ElasticsearchClusterConfig !== undefined &&
-      output.ElasticsearchClusterConfig !== null
+      output.ElasticsearchClusterConfig !== undefined && output.ElasticsearchClusterConfig !== null
         ? deserializeAws_restJson1_1ElasticsearchClusterConfig(
             output.ElasticsearchClusterConfig,
             context
           )
         : undefined,
     ElasticsearchVersion:
-      output.ElasticsearchVersion !== undefined &&
-      output.ElasticsearchVersion !== null
+      output.ElasticsearchVersion !== undefined && output.ElasticsearchVersion !== null
         ? output.ElasticsearchVersion
         : undefined,
     EncryptionAtRestOptions:
-      output.EncryptionAtRestOptions !== undefined &&
-      output.EncryptionAtRestOptions !== null
-        ? deserializeAws_restJson1_1EncryptionAtRestOptions(
-            output.EncryptionAtRestOptions,
-            context
-          )
+      output.EncryptionAtRestOptions !== undefined && output.EncryptionAtRestOptions !== null
+        ? deserializeAws_restJson1_1EncryptionAtRestOptions(output.EncryptionAtRestOptions, context)
         : undefined,
     Endpoint:
-      output.Endpoint !== undefined && output.Endpoint !== null
-        ? output.Endpoint
-        : undefined,
+      output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
     Endpoints:
       output.Endpoints !== undefined && output.Endpoints !== null
         ? deserializeAws_restJson1_1EndpointsMap(output.Endpoints, context)
         : undefined,
     LogPublishingOptions:
-      output.LogPublishingOptions !== undefined &&
-      output.LogPublishingOptions !== null
-        ? deserializeAws_restJson1_1LogPublishingOptions(
-            output.LogPublishingOptions,
-            context
-          )
+      output.LogPublishingOptions !== undefined && output.LogPublishingOptions !== null
+        ? deserializeAws_restJson1_1LogPublishingOptions(output.LogPublishingOptions, context)
         : undefined,
     NodeToNodeEncryptionOptions:
       output.NodeToNodeEncryptionOptions !== undefined &&
@@ -4206,27 +3729,17 @@ const deserializeAws_restJson1_1ElasticsearchDomainStatus = (
           )
         : undefined,
     Processing:
-      output.Processing !== undefined && output.Processing !== null
-        ? output.Processing
-        : undefined,
+      output.Processing !== undefined && output.Processing !== null ? output.Processing : undefined,
     ServiceSoftwareOptions:
-      output.ServiceSoftwareOptions !== undefined &&
-      output.ServiceSoftwareOptions !== null
-        ? deserializeAws_restJson1_1ServiceSoftwareOptions(
-            output.ServiceSoftwareOptions,
-            context
-          )
+      output.ServiceSoftwareOptions !== undefined && output.ServiceSoftwareOptions !== null
+        ? deserializeAws_restJson1_1ServiceSoftwareOptions(output.ServiceSoftwareOptions, context)
         : undefined,
     SnapshotOptions:
       output.SnapshotOptions !== undefined && output.SnapshotOptions !== null
-        ? deserializeAws_restJson1_1SnapshotOptions(
-            output.SnapshotOptions,
-            context
-          )
+        ? deserializeAws_restJson1_1SnapshotOptions(output.SnapshotOptions, context)
         : undefined,
     UpgradeProcessing:
-      output.UpgradeProcessing !== undefined &&
-      output.UpgradeProcessing !== null
+      output.UpgradeProcessing !== undefined && output.UpgradeProcessing !== null
         ? output.UpgradeProcessing
         : undefined,
     VPCOptions:
@@ -4265,10 +3778,7 @@ const deserializeAws_restJson1_1ElasticsearchVersionStatus = (
 ): ElasticsearchVersionStatus => {
   return {
     __type: "ElasticsearchVersionStatus",
-    Options:
-      output.Options !== undefined && output.Options !== null
-        ? output.Options
-        : undefined,
+    Options: output.Options !== undefined && output.Options !== null ? output.Options : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1_1OptionStatus(output.Status, context)
@@ -4282,14 +3792,9 @@ const deserializeAws_restJson1_1EncryptionAtRestOptions = (
 ): EncryptionAtRestOptions => {
   return {
     __type: "EncryptionAtRestOptions",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     KmsKeyId:
-      output.KmsKeyId !== undefined && output.KmsKeyId !== null
-        ? output.KmsKeyId
-        : undefined
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined
   } as any;
 };
 
@@ -4301,10 +3806,7 @@ const deserializeAws_restJson1_1EncryptionAtRestOptionsStatus = (
     __type: "EncryptionAtRestOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
-        ? deserializeAws_restJson1_1EncryptionAtRestOptions(
-            output.Options,
-            context
-          )
+        ? deserializeAws_restJson1_1EncryptionAtRestOptions(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4333,13 +3835,11 @@ const deserializeAws_restJson1_1InstanceCountLimits = (
   return {
     __type: "InstanceCountLimits",
     MaximumInstanceCount:
-      output.MaximumInstanceCount !== undefined &&
-      output.MaximumInstanceCount !== null
+      output.MaximumInstanceCount !== undefined && output.MaximumInstanceCount !== null
         ? output.MaximumInstanceCount
         : undefined,
     MinimumInstanceCount:
-      output.MinimumInstanceCount !== undefined &&
-      output.MinimumInstanceCount !== null
+      output.MinimumInstanceCount !== undefined && output.MinimumInstanceCount !== null
         ? output.MinimumInstanceCount
         : undefined
   } as any;
@@ -4352,20 +3852,13 @@ const deserializeAws_restJson1_1InstanceLimits = (
   return {
     __type: "InstanceLimits",
     InstanceCountLimits:
-      output.InstanceCountLimits !== undefined &&
-      output.InstanceCountLimits !== null
-        ? deserializeAws_restJson1_1InstanceCountLimits(
-            output.InstanceCountLimits,
-            context
-          )
+      output.InstanceCountLimits !== undefined && output.InstanceCountLimits !== null
+        ? deserializeAws_restJson1_1InstanceCountLimits(output.InstanceCountLimits, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Issues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Issues = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4376,32 +3869,20 @@ const deserializeAws_restJson1_1LimitValueList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Limits = (
-  output: any,
-  context: __SerdeContext
-): Limits => {
+const deserializeAws_restJson1_1Limits = (output: any, context: __SerdeContext): Limits => {
   return {
     __type: "Limits",
     AdditionalLimits:
       output.AdditionalLimits !== undefined && output.AdditionalLimits !== null
-        ? deserializeAws_restJson1_1AdditionalLimitList(
-            output.AdditionalLimits,
-            context
-          )
+        ? deserializeAws_restJson1_1AdditionalLimitList(output.AdditionalLimits, context)
         : undefined,
     InstanceLimits:
       output.InstanceLimits !== undefined && output.InstanceLimits !== null
-        ? deserializeAws_restJson1_1InstanceLimits(
-            output.InstanceLimits,
-            context
-          )
+        ? deserializeAws_restJson1_1InstanceLimits(output.InstanceLimits, context)
         : undefined,
     StorageTypes:
       output.StorageTypes !== undefined && output.StorageTypes !== null
-        ? deserializeAws_restJson1_1StorageTypeList(
-            output.StorageTypes,
-            context
-          )
+        ? deserializeAws_restJson1_1StorageTypeList(output.StorageTypes, context)
         : undefined
   } as any;
 };
@@ -4426,14 +3907,10 @@ const deserializeAws_restJson1_1LogPublishingOption = (
   return {
     __type: "LogPublishingOption",
     CloudWatchLogsLogGroupArn:
-      output.CloudWatchLogsLogGroupArn !== undefined &&
-      output.CloudWatchLogsLogGroupArn !== null
+      output.CloudWatchLogsLogGroupArn !== undefined && output.CloudWatchLogsLogGroupArn !== null
         ? output.CloudWatchLogsLogGroupArn
         : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined
   } as any;
 };
 
@@ -4442,10 +3919,7 @@ const deserializeAws_restJson1_1LogPublishingOptions = (
   context: __SerdeContext
 ): { [key: string]: LogPublishingOption } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: LogPublishingOption },
-      [key, value]: [LogType | string, any]
-    ) => ({
+    (acc: { [key: string]: LogPublishingOption }, [key, value]: [LogType | string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1LogPublishingOption(value, context)
     }),
@@ -4461,10 +3935,7 @@ const deserializeAws_restJson1_1LogPublishingOptionsStatus = (
     __type: "LogPublishingOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
-        ? deserializeAws_restJson1_1LogPublishingOptions(
-            output.Options,
-            context
-          )
+        ? deserializeAws_restJson1_1LogPublishingOptions(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4479,10 +3950,7 @@ const deserializeAws_restJson1_1NodeToNodeEncryptionOptions = (
 ): NodeToNodeEncryptionOptions => {
   return {
     __type: "NodeToNodeEncryptionOptions",
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined
   } as any;
 };
 
@@ -4494,10 +3962,7 @@ const deserializeAws_restJson1_1NodeToNodeEncryptionOptionsStatus = (
     __type: "NodeToNodeEncryptionOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
-        ? deserializeAws_restJson1_1NodeToNodeEncryptionOptions(
-            output.Options,
-            context
-          )
+        ? deserializeAws_restJson1_1NodeToNodeEncryptionOptions(output.Options, context)
         : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4520,10 +3985,7 @@ const deserializeAws_restJson1_1OptionStatus = (
       output.PendingDeletion !== undefined && output.PendingDeletion !== null
         ? output.PendingDeletion
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     UpdateDate:
       output.UpdateDate !== undefined && output.UpdateDate !== null
         ? new Date(Math.round(output.UpdateDate * 1000))
@@ -4542,13 +4004,11 @@ const deserializeAws_restJson1_1RecurringCharge = (
   return {
     __type: "RecurringCharge",
     RecurringChargeAmount:
-      output.RecurringChargeAmount !== undefined &&
-      output.RecurringChargeAmount !== null
+      output.RecurringChargeAmount !== undefined && output.RecurringChargeAmount !== null
         ? output.RecurringChargeAmount
         : undefined,
     RecurringChargeFrequency:
-      output.RecurringChargeFrequency !== undefined &&
-      output.RecurringChargeFrequency !== null
+      output.RecurringChargeFrequency !== undefined && output.RecurringChargeFrequency !== null
         ? output.RecurringChargeFrequency
         : undefined
   } as any;
@@ -4574,33 +4034,24 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstance = (
         ? output.CurrencyCode
         : undefined,
     Duration:
-      output.Duration !== undefined && output.Duration !== null
-        ? output.Duration
-        : undefined,
+      output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     ElasticsearchInstanceCount:
-      output.ElasticsearchInstanceCount !== undefined &&
-      output.ElasticsearchInstanceCount !== null
+      output.ElasticsearchInstanceCount !== undefined && output.ElasticsearchInstanceCount !== null
         ? output.ElasticsearchInstanceCount
         : undefined,
     ElasticsearchInstanceType:
-      output.ElasticsearchInstanceType !== undefined &&
-      output.ElasticsearchInstanceType !== null
+      output.ElasticsearchInstanceType !== undefined && output.ElasticsearchInstanceType !== null
         ? output.ElasticsearchInstanceType
         : undefined,
     FixedPrice:
-      output.FixedPrice !== undefined && output.FixedPrice !== null
-        ? output.FixedPrice
-        : undefined,
+      output.FixedPrice !== undefined && output.FixedPrice !== null ? output.FixedPrice : undefined,
     PaymentOption:
       output.PaymentOption !== undefined && output.PaymentOption !== null
         ? output.PaymentOption
         : undefined,
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
-        ? deserializeAws_restJson1_1RecurringChargeList(
-            output.RecurringCharges,
-            context
-          )
+        ? deserializeAws_restJson1_1RecurringChargeList(output.RecurringCharges, context)
         : undefined,
     ReservationName:
       output.ReservationName !== undefined && output.ReservationName !== null
@@ -4620,14 +4071,9 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstance = (
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     UsagePrice:
-      output.UsagePrice !== undefined && output.UsagePrice !== null
-        ? output.UsagePrice
-        : undefined
+      output.UsagePrice !== undefined && output.UsagePrice !== null ? output.UsagePrice : undefined
   } as any;
 };
 
@@ -4651,28 +4097,20 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering = (
         ? output.CurrencyCode
         : undefined,
     Duration:
-      output.Duration !== undefined && output.Duration !== null
-        ? output.Duration
-        : undefined,
+      output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     ElasticsearchInstanceType:
-      output.ElasticsearchInstanceType !== undefined &&
-      output.ElasticsearchInstanceType !== null
+      output.ElasticsearchInstanceType !== undefined && output.ElasticsearchInstanceType !== null
         ? output.ElasticsearchInstanceType
         : undefined,
     FixedPrice:
-      output.FixedPrice !== undefined && output.FixedPrice !== null
-        ? output.FixedPrice
-        : undefined,
+      output.FixedPrice !== undefined && output.FixedPrice !== null ? output.FixedPrice : undefined,
     PaymentOption:
       output.PaymentOption !== undefined && output.PaymentOption !== null
         ? output.PaymentOption
         : undefined,
     RecurringCharges:
       output.RecurringCharges !== undefined && output.RecurringCharges !== null
-        ? deserializeAws_restJson1_1RecurringChargeList(
-            output.RecurringCharges,
-            context
-          )
+        ? deserializeAws_restJson1_1RecurringChargeList(output.RecurringCharges, context)
         : undefined,
     ReservedElasticsearchInstanceOfferingId:
       output.ReservedElasticsearchInstanceOfferingId !== undefined &&
@@ -4680,9 +4118,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering = (
         ? output.ReservedElasticsearchInstanceOfferingId
         : undefined,
     UsagePrice:
-      output.UsagePrice !== undefined && output.UsagePrice !== null
-        ? output.UsagePrice
-        : undefined
+      output.UsagePrice !== undefined && output.UsagePrice !== null ? output.UsagePrice : undefined
   } as any;
 };
 
@@ -4691,10 +4127,7 @@ const deserializeAws_restJson1_1ReservedElasticsearchInstanceOfferingList = (
   context: __SerdeContext
 ): ReservedElasticsearchInstanceOffering[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering(
-      entry,
-      context
-    )
+    deserializeAws_restJson1_1ReservedElasticsearchInstanceOffering(entry, context)
   );
 };
 
@@ -4705,8 +4138,7 @@ const deserializeAws_restJson1_1ServiceSoftwareOptions = (
   return {
     __type: "ServiceSoftwareOptions",
     AutomatedUpdateDate:
-      output.AutomatedUpdateDate !== undefined &&
-      output.AutomatedUpdateDate !== null
+      output.AutomatedUpdateDate !== undefined && output.AutomatedUpdateDate !== null
         ? new Date(Math.round(output.AutomatedUpdateDate * 1000))
         : undefined,
     Cancellable:
@@ -4722,9 +4154,7 @@ const deserializeAws_restJson1_1ServiceSoftwareOptions = (
         ? output.Description
         : undefined,
     NewVersion:
-      output.NewVersion !== undefined && output.NewVersion !== null
-        ? output.NewVersion
-        : undefined,
+      output.NewVersion !== undefined && output.NewVersion !== null ? output.NewVersion : undefined,
     UpdateAvailable:
       output.UpdateAvailable !== undefined && output.UpdateAvailable !== null
         ? output.UpdateAvailable
@@ -4743,8 +4173,7 @@ const deserializeAws_restJson1_1SnapshotOptions = (
   return {
     __type: "SnapshotOptions",
     AutomatedSnapshotStartHour:
-      output.AutomatedSnapshotStartHour !== undefined &&
-      output.AutomatedSnapshotStartHour !== null
+      output.AutomatedSnapshotStartHour !== undefined && output.AutomatedSnapshotStartHour !== null
         ? output.AutomatedSnapshotStartHour
         : undefined
   } as any;
@@ -4774,17 +4203,12 @@ const deserializeAws_restJson1_1StorageType = (
   return {
     __type: "StorageType",
     StorageSubTypeName:
-      output.StorageSubTypeName !== undefined &&
-      output.StorageSubTypeName !== null
+      output.StorageSubTypeName !== undefined && output.StorageSubTypeName !== null
         ? output.StorageSubTypeName
         : undefined,
     StorageTypeLimits:
-      output.StorageTypeLimits !== undefined &&
-      output.StorageTypeLimits !== null
-        ? deserializeAws_restJson1_1StorageTypeLimitList(
-            output.StorageTypeLimits,
-            context
-          )
+      output.StorageTypeLimits !== undefined && output.StorageTypeLimits !== null
+        ? deserializeAws_restJson1_1StorageTypeLimitList(output.StorageTypeLimits, context)
         : undefined,
     StorageTypeName:
       output.StorageTypeName !== undefined && output.StorageTypeName !== null
@@ -4800,9 +4224,7 @@ const deserializeAws_restJson1_1StorageTypeLimit = (
   return {
     __type: "StorageTypeLimit",
     LimitName:
-      output.LimitName !== undefined && output.LimitName !== null
-        ? output.LimitName
-        : undefined,
+      output.LimitName !== undefined && output.LimitName !== null ? output.LimitName : undefined,
     LimitValues:
       output.LimitValues !== undefined && output.LimitValues !== null
         ? deserializeAws_restJson1_1LimitValueList(output.LimitValues, context)
@@ -4823,40 +4245,23 @@ const deserializeAws_restJson1_1StorageTypeList = (
   output: any,
   context: __SerdeContext
 ): StorageType[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1StorageType(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1StorageType(entry, context));
 };
 
-const deserializeAws_restJson1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeAws_restJson1_1UpgradeHistory = (
@@ -4912,8 +4317,7 @@ const deserializeAws_restJson1_1UpgradeStepItem = (
         ? output.UpgradeStep
         : undefined,
     UpgradeStepStatus:
-      output.UpgradeStepStatus !== undefined &&
-      output.UpgradeStepStatus !== null
+      output.UpgradeStepStatus !== undefined && output.UpgradeStepStatus !== null
         ? output.UpgradeStepStatus
         : undefined
   } as any;
@@ -4935,12 +4339,8 @@ const deserializeAws_restJson1_1VPCDerivedInfo = (
   return {
     __type: "VPCDerivedInfo",
     AvailabilityZones:
-      output.AvailabilityZones !== undefined &&
-      output.AvailabilityZones !== null
-        ? deserializeAws_restJson1_1StringList(
-            output.AvailabilityZones,
-            context
-          )
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1_1StringList(output.AvailabilityZones, context)
         : undefined,
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
@@ -4950,10 +4350,7 @@ const deserializeAws_restJson1_1VPCDerivedInfo = (
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_restJson1_1StringList(output.SubnetIds, context)
         : undefined,
-    VPCId:
-      output.VPCId !== undefined && output.VPCId !== null
-        ? output.VPCId
-        : undefined
+    VPCId: output.VPCId !== undefined && output.VPCId !== null ? output.VPCId : undefined
   } as any;
 };
 
@@ -4981,8 +4378,7 @@ const deserializeAws_restJson1_1ZoneAwarenessConfig = (
   return {
     __type: "ZoneAwarenessConfig",
     AvailabilityZoneCount:
-      output.AvailabilityZoneCount !== undefined &&
-      output.AvailabilityZoneCount !== null
+      output.AvailabilityZoneCount !== undefined && output.AvailabilityZoneCount !== null
         ? output.AvailabilityZoneCount
         : undefined
   } as any;
@@ -5002,23 +4398,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

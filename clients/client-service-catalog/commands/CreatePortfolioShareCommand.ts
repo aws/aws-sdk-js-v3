@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  CreatePortfolioShareInput,
-  CreatePortfolioShareOutput
-} from "../models/index";
+import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreatePortfolioShareCommand,
   serializeAws_json1_1CreatePortfolioShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePortfolioShareCommandInput = CreatePortfolioShareInput;
-export type CreatePortfolioShareCommandOutput = CreatePortfolioShareOutput &
-  __MetadataBearer;
+export type CreatePortfolioShareCommandOutput = CreatePortfolioShareOutput & __MetadataBearer;
 
 export class CreatePortfolioShareCommand extends $Command<
   CreatePortfolioShareCommandInput,
@@ -49,13 +45,8 @@ export class CreatePortfolioShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePortfolioShareCommandInput,
-    CreatePortfolioShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePortfolioShareCommandInput, CreatePortfolioShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

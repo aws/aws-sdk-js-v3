@@ -50,10 +50,7 @@ import {
   DescribeActionTargetsCommandInput,
   DescribeActionTargetsCommandOutput
 } from "./commands/DescribeActionTargetsCommand";
-import {
-  DescribeHubCommandInput,
-  DescribeHubCommandOutput
-} from "./commands/DescribeHubCommand";
+import { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
 import {
   DescribeProductsCommandInput,
   DescribeProductsCommandOutput
@@ -90,18 +87,12 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput
 } from "./commands/GetEnabledStandardsCommand";
-import {
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput
-} from "./commands/GetFindingsCommand";
+import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
   GetInsightResultsCommandInput,
   GetInsightResultsCommandOutput
 } from "./commands/GetInsightResultsCommand";
-import {
-  GetInsightsCommandInput,
-  GetInsightsCommandOutput
-} from "./commands/GetInsightsCommand";
+import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
 import {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput
@@ -110,10 +101,7 @@ import {
   GetMasterAccountCommandInput,
   GetMasterAccountCommandOutput
 } from "./commands/GetMasterAccountCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
   InviteMembersCommandInput,
   InviteMembersCommandOutput
@@ -126,18 +114,12 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput
 } from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -379,9 +361,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecurityHubClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecurityHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -390,9 +370,7 @@ export type SecurityHubClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

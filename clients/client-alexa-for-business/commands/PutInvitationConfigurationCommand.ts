@@ -49,13 +49,8 @@ export class PutInvitationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutInvitationConfigurationCommandInput,
-    PutInvitationConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutInvitationConfigurationCommandInput, PutInvitationConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class PutInvitationConfigurationCommand extends $Command<
     input: PutInvitationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInvitationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutInvitationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutInvitationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutInvitationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutInvitationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

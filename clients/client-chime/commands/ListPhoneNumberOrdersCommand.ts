@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  ListPhoneNumberOrdersRequest,
-  ListPhoneNumberOrdersResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { ListPhoneNumberOrdersRequest, ListPhoneNumberOrdersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPhoneNumberOrdersCommand,
   serializeAws_restJson1_1ListPhoneNumberOrdersCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPhoneNumberOrdersCommandInput = ListPhoneNumberOrdersRequest;
-export type ListPhoneNumberOrdersCommandOutput = ListPhoneNumberOrdersResponse &
-  __MetadataBearer;
+export type ListPhoneNumberOrdersCommandOutput = ListPhoneNumberOrdersResponse & __MetadataBearer;
 
 export class ListPhoneNumberOrdersCommand extends $Command<
   ListPhoneNumberOrdersCommandInput,
@@ -49,13 +41,8 @@ export class ListPhoneNumberOrdersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPhoneNumberOrdersCommandInput,
-    ListPhoneNumberOrdersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPhoneNumberOrdersCommandInput, ListPhoneNumberOrdersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListPhoneNumberOrdersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPhoneNumberOrdersCommandOutput> {
-    return deserializeAws_restJson1_1ListPhoneNumberOrdersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPhoneNumberOrdersCommand(output, context);
   }
 
   // Start section: command_body_extra

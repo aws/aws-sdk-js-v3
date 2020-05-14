@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   DescribeCapacityProvidersRequest,
   DescribeCapacityProvidersResponse
@@ -49,13 +45,8 @@ export class DescribeCapacityProvidersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCapacityProvidersCommandInput,
-    DescribeCapacityProvidersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCapacityProvidersCommandInput, DescribeCapacityProvidersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeCapacityProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCapacityProvidersCommandOutput> {
-    return deserializeAws_json1_1DescribeCapacityProvidersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCapacityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

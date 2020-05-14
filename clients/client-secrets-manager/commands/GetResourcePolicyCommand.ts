@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient";
-import {
-  GetResourcePolicyRequest,
-  GetResourcePolicyResponse
-} from "../models/index";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetResourcePolicyCommand,
   serializeAws_json1_1GetResourcePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResourcePolicyCommandInput = GetResourcePolicyRequest;
-export type GetResourcePolicyCommandOutput = GetResourcePolicyResponse &
-  __MetadataBearer;
+export type GetResourcePolicyCommandOutput = GetResourcePolicyResponse & __MetadataBearer;
 
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,
@@ -50,9 +46,7 @@ export class GetResourcePolicyCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

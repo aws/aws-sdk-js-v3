@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDatasetCommandInput = DeleteDatasetRequest;
-export type DeleteDatasetCommandOutput = DeleteDatasetResponse &
-  __MetadataBearer;
+export type DeleteDatasetCommandOutput = DeleteDatasetResponse & __MetadataBearer;
 
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,
@@ -47,9 +46,7 @@ export class DeleteDatasetCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDatasetCommandInput, DeleteDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

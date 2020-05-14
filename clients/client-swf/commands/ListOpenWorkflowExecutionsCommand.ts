@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  ListOpenWorkflowExecutionsInput,
-  WorkflowExecutionInfos
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/index";
 import {
   deserializeAws_json1_0ListOpenWorkflowExecutionsCommand,
   serializeAws_json1_0ListOpenWorkflowExecutionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOpenWorkflowExecutionsCommandInput = ListOpenWorkflowExecutionsInput;
-export type ListOpenWorkflowExecutionsCommandOutput = WorkflowExecutionInfos &
-  __MetadataBearer;
+export type ListOpenWorkflowExecutionsCommandOutput = WorkflowExecutionInfos & __MetadataBearer;
 
 export class ListOpenWorkflowExecutionsCommand extends $Command<
   ListOpenWorkflowExecutionsCommandInput,
@@ -49,13 +41,8 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOpenWorkflowExecutionsCommandInput,
-    ListOpenWorkflowExecutionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOpenWorkflowExecutionsCommandInput, ListOpenWorkflowExecutionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ListOpenWorkflowExecutionsCommand extends $Command<
     input: ListOpenWorkflowExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0ListOpenWorkflowExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListOpenWorkflowExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0ListOpenWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

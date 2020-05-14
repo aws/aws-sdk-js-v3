@@ -53,9 +53,7 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     UpdateTableReplicaAutoScalingCommandInput,
     UpdateTableReplicaAutoScalingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
     input: UpdateTableReplicaAutoScalingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTableReplicaAutoScalingCommandOutput> {
-    return deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateServiceCommandInput = UpdateServiceRequest;
-export type UpdateServiceCommandOutput = UpdateServiceResponse &
-  __MetadataBearer;
+export type UpdateServiceCommandOutput = UpdateServiceResponse & __MetadataBearer;
 
 export class UpdateServiceCommand extends $Command<
   UpdateServiceCommandInput,
@@ -47,9 +46,7 @@ export class UpdateServiceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateServiceCommandInput, UpdateServiceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

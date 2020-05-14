@@ -46,9 +46,7 @@ export class XmlNamespacesCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlNamespacesCommandInput, XmlNamespacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

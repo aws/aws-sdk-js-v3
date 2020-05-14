@@ -49,13 +49,8 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAssessmentTargetsCommandInput,
-    DescribeAssessmentTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAssessmentTargetsCommandInput, DescribeAssessmentTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeAssessmentTargetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssessmentTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssessmentTargetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssessmentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

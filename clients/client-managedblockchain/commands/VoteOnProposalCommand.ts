@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type VoteOnProposalCommandInput = VoteOnProposalInput;
-export type VoteOnProposalCommandOutput = VoteOnProposalOutput &
-  __MetadataBearer;
+export type VoteOnProposalCommandOutput = VoteOnProposalOutput & __MetadataBearer;
 
 export class VoteOnProposalCommand extends $Command<
   VoteOnProposalCommandInput,
@@ -47,9 +46,7 @@ export class VoteOnProposalCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<VoteOnProposalCommandInput, VoteOnProposalCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

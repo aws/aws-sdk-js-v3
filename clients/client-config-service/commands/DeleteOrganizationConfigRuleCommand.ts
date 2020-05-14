@@ -45,13 +45,8 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteOrganizationConfigRuleCommandInput,
-    DeleteOrganizationConfigRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteOrganizationConfigRuleCommandInput, DeleteOrganizationConfigRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class DeleteOrganizationConfigRuleCommand extends $Command<
     input: DeleteOrganizationConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOrganizationConfigRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteOrganizationConfigRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOrganizationConfigRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

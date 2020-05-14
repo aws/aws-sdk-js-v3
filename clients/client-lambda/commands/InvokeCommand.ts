@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { InvocationRequest, InvocationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1InvokeCommand,
@@ -46,9 +42,7 @@ export class InvokeCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeCommandInput, InvokeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class InvokeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: InvokeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1InvokeCommand(input, context);
   }
 

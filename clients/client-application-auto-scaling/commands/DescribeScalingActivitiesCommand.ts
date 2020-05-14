@@ -49,13 +49,8 @@ export class DescribeScalingActivitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeScalingActivitiesCommandInput,
-    DescribeScalingActivitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeScalingActivitiesCommandInput, DescribeScalingActivitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeScalingActivitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingActivitiesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingActivitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

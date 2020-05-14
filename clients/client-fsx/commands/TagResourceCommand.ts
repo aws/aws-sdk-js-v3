@@ -1,8 +1,4 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { TagResourceRequest, TagResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1TagResourceCommand,
@@ -46,9 +42,7 @@ export class TagResourceCommand extends $Command<
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

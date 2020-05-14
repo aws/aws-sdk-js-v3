@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { RemoveRoleFromInstanceProfileRequest } from "../models/index";
 import {
   deserializeAws_queryRemoveRoleFromInstanceProfileCommand,
@@ -49,9 +45,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     RemoveRoleFromInstanceProfileCommandInput,
     RemoveRoleFromInstanceProfileCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     input: RemoveRoleFromInstanceProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromInstanceProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRemoveRoleFromInstanceProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveRoleFromInstanceProfileCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromInstanceProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRemoveRoleFromInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

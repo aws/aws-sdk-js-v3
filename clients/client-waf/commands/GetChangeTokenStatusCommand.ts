@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  GetChangeTokenStatusRequest,
-  GetChangeTokenStatusResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetChangeTokenStatusCommand,
   serializeAws_json1_1GetChangeTokenStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetChangeTokenStatusCommandInput = GetChangeTokenStatusRequest;
-export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse &
-  __MetadataBearer;
+export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse & __MetadataBearer;
 
 export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandInput,
@@ -49,13 +41,8 @@ export class GetChangeTokenStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetChangeTokenStatusCommandInput,
-    GetChangeTokenStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

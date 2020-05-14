@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  ComposeEnvironmentsMessage,
-  EnvironmentDescriptionsMessage
-} from "../models/index";
+import { ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/index";
 import {
   deserializeAws_queryComposeEnvironmentsCommand,
   serializeAws_queryComposeEnvironmentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ComposeEnvironmentsCommandInput = ComposeEnvironmentsMessage;
-export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage &
-  __MetadataBearer;
+export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
 
 export class ComposeEnvironmentsCommand extends $Command<
   ComposeEnvironmentsCommandInput,
@@ -49,13 +45,8 @@ export class ComposeEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ComposeEnvironmentsCommandInput,
-    ComposeEnvironmentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ComposeEnvironmentsCommandInput, ComposeEnvironmentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

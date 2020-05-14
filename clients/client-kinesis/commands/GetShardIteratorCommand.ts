@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetShardIteratorCommandInput = GetShardIteratorInput;
-export type GetShardIteratorCommandOutput = GetShardIteratorOutput &
-  __MetadataBearer;
+export type GetShardIteratorCommandOutput = GetShardIteratorOutput & __MetadataBearer;
 
 export class GetShardIteratorCommand extends $Command<
   GetShardIteratorCommandInput,
@@ -47,9 +46,7 @@ export class GetShardIteratorCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetShardIteratorCommandInput, GetShardIteratorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

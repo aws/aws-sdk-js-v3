@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityClient";
-import {
-  MergeDeveloperIdentitiesInput,
-  MergeDeveloperIdentitiesResponse
-} from "../models/index";
+import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1MergeDeveloperIdentitiesCommand,
   serializeAws_json1_1MergeDeveloperIdentitiesCommand
@@ -50,13 +47,8 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergeDeveloperIdentitiesCommandInput,
-    MergeDeveloperIdentitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergeDeveloperIdentitiesCommandInput, MergeDeveloperIdentitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergeDeveloperIdentitiesCommandOutput> {
-    return deserializeAws_json1_1MergeDeveloperIdentitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergeDeveloperIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

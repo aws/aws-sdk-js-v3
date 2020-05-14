@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DownloadDefaultKeyPairRequest,
-  DownloadDefaultKeyPairResult
-} from "../models/index";
+import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/index";
 import {
   deserializeAws_json1_1DownloadDefaultKeyPairCommand,
   serializeAws_json1_1DownloadDefaultKeyPairCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DownloadDefaultKeyPairCommandInput = DownloadDefaultKeyPairRequest;
-export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult &
-  __MetadataBearer;
+export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult & __MetadataBearer;
 
 export class DownloadDefaultKeyPairCommand extends $Command<
   DownloadDefaultKeyPairCommandInput,
@@ -49,13 +45,8 @@ export class DownloadDefaultKeyPairCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DownloadDefaultKeyPairCommandInput,
-    DownloadDefaultKeyPairCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DownloadDefaultKeyPairCommandInput, DownloadDefaultKeyPairCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

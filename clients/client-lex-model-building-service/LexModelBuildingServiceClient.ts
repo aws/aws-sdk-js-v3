@@ -18,10 +18,7 @@ import {
   DeleteBotChannelAssociationCommandInput,
   DeleteBotChannelAssociationCommandOutput
 } from "./commands/DeleteBotChannelAssociationCommand";
-import {
-  DeleteBotCommandInput,
-  DeleteBotCommandOutput
-} from "./commands/DeleteBotCommand";
+import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import {
   DeleteBotVersionCommandInput,
   DeleteBotVersionCommandOutput
@@ -46,10 +43,7 @@ import {
   DeleteUtterancesCommandInput,
   DeleteUtterancesCommandOutput
 } from "./commands/DeleteUtterancesCommand";
-import {
-  GetBotAliasCommandInput,
-  GetBotAliasCommandOutput
-} from "./commands/GetBotAliasCommand";
+import { GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
 import {
   GetBotAliasesCommandInput,
   GetBotAliasesCommandOutput
@@ -62,18 +56,12 @@ import {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput
 } from "./commands/GetBotChannelAssociationsCommand";
-import {
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
+import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
 import {
   GetBotVersionsCommandInput,
   GetBotVersionsCommandOutput
 } from "./commands/GetBotVersionsCommand";
-import {
-  GetBotsCommandInput,
-  GetBotsCommandOutput
-} from "./commands/GetBotsCommand";
+import { GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
 import {
   GetBuiltinIntentCommandInput,
   GetBuiltinIntentCommandOutput
@@ -86,30 +74,15 @@ import {
   GetBuiltinSlotTypesCommandInput,
   GetBuiltinSlotTypesCommandOutput
 } from "./commands/GetBuiltinSlotTypesCommand";
-import {
-  GetExportCommandInput,
-  GetExportCommandOutput
-} from "./commands/GetExportCommand";
-import {
-  GetImportCommandInput,
-  GetImportCommandOutput
-} from "./commands/GetImportCommand";
-import {
-  GetIntentCommandInput,
-  GetIntentCommandOutput
-} from "./commands/GetIntentCommand";
+import { GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import { GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
 import {
   GetIntentVersionsCommandInput,
   GetIntentVersionsCommandOutput
 } from "./commands/GetIntentVersionsCommand";
-import {
-  GetIntentsCommandInput,
-  GetIntentsCommandOutput
-} from "./commands/GetIntentsCommand";
-import {
-  GetSlotTypeCommandInput,
-  GetSlotTypeCommandOutput
-} from "./commands/GetSlotTypeCommand";
+import { GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommandInput,
   GetSlotTypeVersionsCommandOutput
@@ -122,26 +95,11 @@ import {
   GetUtterancesViewCommandInput,
   GetUtterancesViewCommandOutput
 } from "./commands/GetUtterancesViewCommand";
-import {
-  PutBotAliasCommandInput,
-  PutBotAliasCommandOutput
-} from "./commands/PutBotAliasCommand";
-import {
-  PutBotCommandInput,
-  PutBotCommandOutput
-} from "./commands/PutBotCommand";
-import {
-  PutIntentCommandInput,
-  PutIntentCommandOutput
-} from "./commands/PutIntentCommand";
-import {
-  PutSlotTypeCommandInput,
-  PutSlotTypeCommandOutput
-} from "./commands/PutSlotTypeCommand";
-import {
-  StartImportCommandInput,
-  StartImportCommandOutput
-} from "./commands/StartImportCommand";
+import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
+import { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
+import { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
+import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,

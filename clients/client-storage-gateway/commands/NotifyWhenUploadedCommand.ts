@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  NotifyWhenUploadedInput,
-  NotifyWhenUploadedOutput
-} from "../models/index";
+import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/index";
 import {
   deserializeAws_json1_1NotifyWhenUploadedCommand,
   serializeAws_json1_1NotifyWhenUploadedCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type NotifyWhenUploadedCommandInput = NotifyWhenUploadedInput;
-export type NotifyWhenUploadedCommandOutput = NotifyWhenUploadedOutput &
-  __MetadataBearer;
+export type NotifyWhenUploadedCommandOutput = NotifyWhenUploadedOutput & __MetadataBearer;
 
 export class NotifyWhenUploadedCommand extends $Command<
   NotifyWhenUploadedCommandInput,
@@ -50,9 +46,7 @@ export class NotifyWhenUploadedCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NotifyWhenUploadedCommandInput, NotifyWhenUploadedCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

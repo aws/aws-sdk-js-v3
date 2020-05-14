@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   ServiceQuotasClientResolvedConfig
 } from "../ServiceQuotasClient";
-import {
-  ListServiceQuotasRequest,
-  ListServiceQuotasResponse
-} from "../models/index";
+import { ListServiceQuotasRequest, ListServiceQuotasResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListServiceQuotasCommand,
   serializeAws_json1_1ListServiceQuotasCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListServiceQuotasCommandInput = ListServiceQuotasRequest;
-export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse &
-  __MetadataBearer;
+export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse & __MetadataBearer;
 
 export class ListServiceQuotasCommand extends $Command<
   ListServiceQuotasCommandInput,
@@ -50,9 +46,7 @@ export class ListServiceQuotasCommand extends $Command<
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListServiceQuotasCommandInput, ListServiceQuotasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

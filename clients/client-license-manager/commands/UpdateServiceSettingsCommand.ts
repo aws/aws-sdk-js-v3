@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LicenseManagerClient";
-import {
-  UpdateServiceSettingsRequest,
-  UpdateServiceSettingsResponse
-} from "../models/index";
+import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateServiceSettingsCommand,
   serializeAws_json1_1UpdateServiceSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateServiceSettingsCommandInput = UpdateServiceSettingsRequest;
-export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse &
-  __MetadataBearer;
+export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse & __MetadataBearer;
 
 export class UpdateServiceSettingsCommand extends $Command<
   UpdateServiceSettingsCommandInput,
@@ -49,13 +45,8 @@ export class UpdateServiceSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServiceSettingsCommandInput,
-    UpdateServiceSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServiceSettingsCommandInput, UpdateServiceSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

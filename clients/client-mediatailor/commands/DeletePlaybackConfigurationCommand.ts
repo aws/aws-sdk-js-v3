@@ -49,13 +49,8 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePlaybackConfigurationCommandInput,
-    DeletePlaybackConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePlaybackConfigurationCommandInput, DeletePlaybackConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     input: DeletePlaybackConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeletePlaybackConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeletePlaybackConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeletePlaybackConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeletePlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

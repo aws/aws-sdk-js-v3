@@ -6,10 +6,7 @@ import {
   DescribeVoicesCommandInput,
   DescribeVoicesCommandOutput
 } from "../commands/DescribeVoicesCommand";
-import {
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "../commands/GetLexiconCommand";
+import { GetLexiconCommandInput, GetLexiconCommandOutput } from "../commands/GetLexiconCommand";
 import {
   GetSpeechSynthesisTaskCommandInput,
   GetSpeechSynthesisTaskCommandOutput
@@ -22,10 +19,7 @@ import {
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput
 } from "../commands/ListSpeechSynthesisTasksCommand";
-import {
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "../commands/PutLexiconCommand";
+import { PutLexiconCommandInput, PutLexiconCommandOutput } from "../commands/PutLexiconCommand";
 import {
   StartSpeechSynthesisTaskCommandInput,
   StartSpeechSynthesisTaskCommandOutput
@@ -93,10 +87,7 @@ export const serializeAws_restJson1_1DeleteLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -158,10 +149,7 @@ export const serializeAws_restJson1_1GetLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -191,10 +179,7 @@ export const serializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TaskId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TaskId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TaskId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TaskId.");
   }
@@ -278,10 +263,7 @@ export const serializeAws_restJson1_1PutLexiconCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
@@ -316,10 +298,7 @@ export const serializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
       LanguageCode: input.LanguageCode
     }),
     ...(input.LexiconNames !== undefined && {
-      LexiconNames: serializeAws_restJson1_1LexiconNameList(
-        input.LexiconNames,
-        context
-      )
+      LexiconNames: serializeAws_restJson1_1LexiconNameList(input.LexiconNames, context)
     }),
     ...(input.OutputFormat !== undefined && {
       OutputFormat: input.OutputFormat
@@ -333,10 +312,7 @@ export const serializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
     ...(input.SpeechMarkTypes !== undefined && {
-      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(
-        input.SpeechMarkTypes,
-        context
-      )
+      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(input.SpeechMarkTypes, context)
     }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.TextType !== undefined && { TextType: input.TextType }),
@@ -369,20 +345,14 @@ export const serializeAws_restJson1_1SynthesizeSpeechCommand = async (
       LanguageCode: input.LanguageCode
     }),
     ...(input.LexiconNames !== undefined && {
-      LexiconNames: serializeAws_restJson1_1LexiconNameList(
-        input.LexiconNames,
-        context
-      )
+      LexiconNames: serializeAws_restJson1_1LexiconNameList(input.LexiconNames, context)
     }),
     ...(input.OutputFormat !== undefined && {
       OutputFormat: input.OutputFormat
     }),
     ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
     ...(input.SpeechMarkTypes !== undefined && {
-      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(
-        input.SpeechMarkTypes,
-        context
-      )
+      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(input.SpeechMarkTypes, context)
     }),
     ...(input.Text !== undefined && { Text: input.Text }),
     ...(input.TextType !== undefined && { TextType: input.TextType }),
@@ -441,10 +411,7 @@ const deserializeAws_restJson1_1DeleteLexiconCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -471,10 +438,7 @@ export const deserializeAws_restJson1_1DescribeVoicesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVoicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeVoicesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVoicesCommandError(output, context);
   }
   const contents: DescribeVoicesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -518,10 +482,7 @@ const deserializeAws_restJson1_1DescribeVoicesCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -595,10 +556,7 @@ const deserializeAws_restJson1_1GetLexiconCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -625,10 +583,7 @@ export const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: GetSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -637,10 +592,7 @@ export const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
-    contents.SynthesisTask = deserializeAws_restJson1_1SynthesisTask(
-      data.SynthesisTask,
-      context
-    );
+    contents.SynthesisTask = deserializeAws_restJson1_1SynthesisTask(data.SynthesisTask, context);
   }
   return Promise.resolve(contents);
 };
@@ -660,10 +612,7 @@ const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError = async (
     case "InvalidTaskIdException":
     case "com.amazonaws.parrot.v1#InvalidTaskIdException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidTaskIdExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidTaskIdExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -671,10 +620,7 @@ const deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -722,10 +668,7 @@ export const deserializeAws_restJson1_1ListLexiconsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Lexicons !== undefined && data.Lexicons !== null) {
-    contents.Lexicons = deserializeAws_restJson1_1LexiconDescriptionList(
-      data.Lexicons,
-      context
-    );
+    contents.Lexicons = deserializeAws_restJson1_1LexiconDescriptionList(data.Lexicons, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -759,10 +702,7 @@ const deserializeAws_restJson1_1ListLexiconsCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -789,10 +729,7 @@ export const deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(output, context);
   }
   const contents: ListSpeechSynthesisTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -839,10 +776,7 @@ const deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -894,10 +828,7 @@ const deserializeAws_restJson1_1PutLexiconCommandError = async (
     case "InvalidLexiconException":
     case "com.amazonaws.parrot.v1#InvalidLexiconException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidLexiconExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidLexiconExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -938,10 +869,7 @@ const deserializeAws_restJson1_1PutLexiconCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -990,10 +918,7 @@ export const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: StartSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1002,10 +927,7 @@ export const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.SynthesisTask !== undefined && data.SynthesisTask !== null) {
-    contents.SynthesisTask = deserializeAws_restJson1_1SynthesisTask(
-      data.SynthesisTask,
-      context
-    );
+    contents.SynthesisTask = deserializeAws_restJson1_1SynthesisTask(data.SynthesisTask, context);
   }
   return Promise.resolve(contents);
 };
@@ -1047,10 +969,7 @@ const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError = async (
     case "InvalidS3KeyException":
     case "com.amazonaws.parrot.v1#InvalidS3KeyException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidS3KeyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidS3KeyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1080,10 +999,7 @@ const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError = async (
     case "InvalidSsmlException":
     case "com.amazonaws.parrot.v1#InvalidSsmlException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1124,10 +1040,7 @@ const deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1176,10 +1089,7 @@ export const deserializeAws_restJson1_1SynthesizeSpeechCommand = async (
   context: __SerdeContext
 ): Promise<SynthesizeSpeechCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SynthesizeSpeechCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SynthesizeSpeechCommandError(output, context);
   }
   const contents: SynthesizeSpeechCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1192,10 +1102,7 @@ export const deserializeAws_restJson1_1SynthesizeSpeechCommand = async (
     contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["x-amzn-requestcharacters"] !== undefined) {
-    contents.RequestCharacters = parseInt(
-      output.headers["x-amzn-requestcharacters"],
-      10
-    );
+    contents.RequestCharacters = parseInt(output.headers["x-amzn-requestcharacters"], 10);
   }
   const data: any = output.body;
   contents.AudioStream = data;
@@ -1239,10 +1146,7 @@ const deserializeAws_restJson1_1SynthesizeSpeechCommandError = async (
     case "InvalidSsmlException":
     case "com.amazonaws.parrot.v1#InvalidSsmlException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidSsmlExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1283,10 +1187,7 @@ const deserializeAws_restJson1_1SynthesizeSpeechCommandError = async (
     case "ServiceFailureException":
     case "com.amazonaws.parrot.v1#ServiceFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1687,10 +1588,7 @@ const deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse = async 
   return contents;
 };
 
-const serializeAws_restJson1_1LexiconNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LexiconNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1715,20 +1613,11 @@ const deserializeAws_restJson1_1LanguageCodeList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Lexicon = (
-  output: any,
-  context: __SerdeContext
-): Lexicon => {
+const deserializeAws_restJson1_1Lexicon = (output: any, context: __SerdeContext): Lexicon => {
   return {
     __type: "Lexicon",
-    Content:
-      output.Content !== undefined && output.Content !== null
-        ? output.Content
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -1739,9 +1628,7 @@ const deserializeAws_restJson1_1LexiconAttributes = (
   return {
     __type: "LexiconAttributes",
     Alphabet:
-      output.Alphabet !== undefined && output.Alphabet !== null
-        ? output.Alphabet
-        : undefined,
+      output.Alphabet !== undefined && output.Alphabet !== null ? output.Alphabet : undefined,
     LanguageCode:
       output.LanguageCode !== undefined && output.LanguageCode !== null
         ? output.LanguageCode
@@ -1755,13 +1642,8 @@ const deserializeAws_restJson1_1LexiconAttributes = (
         ? output.LexemesCount
         : undefined,
     LexiconArn:
-      output.LexiconArn !== undefined && output.LexiconArn !== null
-        ? output.LexiconArn
-        : undefined,
-    Size:
-      output.Size !== undefined && output.Size !== null
-        ? output.Size
-        : undefined
+      output.LexiconArn !== undefined && output.LexiconArn !== null ? output.LexiconArn : undefined,
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined
   } as any;
 };
 
@@ -1773,15 +1655,9 @@ const deserializeAws_restJson1_1LexiconDescription = (
     __type: "LexiconDescription",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_restJson1_1LexiconAttributes(
-            output.Attributes,
-            context
-          )
+        ? deserializeAws_restJson1_1LexiconAttributes(output.Attributes, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -1818,69 +1694,45 @@ const deserializeAws_restJson1_1SynthesisTask = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Engine:
-      output.Engine !== undefined && output.Engine !== null
-        ? output.Engine
-        : undefined,
+    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
     LanguageCode:
       output.LanguageCode !== undefined && output.LanguageCode !== null
         ? output.LanguageCode
         : undefined,
     LexiconNames:
       output.LexiconNames !== undefined && output.LexiconNames !== null
-        ? deserializeAws_restJson1_1LexiconNameList(
-            output.LexiconNames,
-            context
-          )
+        ? deserializeAws_restJson1_1LexiconNameList(output.LexiconNames, context)
         : undefined,
     OutputFormat:
       output.OutputFormat !== undefined && output.OutputFormat !== null
         ? output.OutputFormat
         : undefined,
     OutputUri:
-      output.OutputUri !== undefined && output.OutputUri !== null
-        ? output.OutputUri
-        : undefined,
+      output.OutputUri !== undefined && output.OutputUri !== null ? output.OutputUri : undefined,
     RequestCharacters:
-      output.RequestCharacters !== undefined &&
-      output.RequestCharacters !== null
+      output.RequestCharacters !== undefined && output.RequestCharacters !== null
         ? output.RequestCharacters
         : undefined,
     SampleRate:
-      output.SampleRate !== undefined && output.SampleRate !== null
-        ? output.SampleRate
-        : undefined,
+      output.SampleRate !== undefined && output.SampleRate !== null ? output.SampleRate : undefined,
     SnsTopicArn:
       output.SnsTopicArn !== undefined && output.SnsTopicArn !== null
         ? output.SnsTopicArn
         : undefined,
     SpeechMarkTypes:
       output.SpeechMarkTypes !== undefined && output.SpeechMarkTypes !== null
-        ? deserializeAws_restJson1_1SpeechMarkTypeList(
-            output.SpeechMarkTypes,
-            context
-          )
+        ? deserializeAws_restJson1_1SpeechMarkTypeList(output.SpeechMarkTypes, context)
         : undefined,
-    TaskId:
-      output.TaskId !== undefined && output.TaskId !== null
-        ? output.TaskId
-        : undefined,
+    TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined,
     TaskStatus:
-      output.TaskStatus !== undefined && output.TaskStatus !== null
-        ? output.TaskStatus
-        : undefined,
+      output.TaskStatus !== undefined && output.TaskStatus !== null ? output.TaskStatus : undefined,
     TaskStatusReason:
       output.TaskStatusReason !== undefined && output.TaskStatusReason !== null
         ? output.TaskStatusReason
         : undefined,
     TextType:
-      output.TextType !== undefined && output.TextType !== null
-        ? output.TextType
-        : undefined,
-    VoiceId:
-      output.VoiceId !== undefined && output.VoiceId !== null
-        ? output.VoiceId
-        : undefined
+      output.TextType !== undefined && output.TextType !== null ? output.TextType : undefined,
+    VoiceId: output.VoiceId !== undefined && output.VoiceId !== null ? output.VoiceId : undefined
   } as any;
 };
 
@@ -1893,24 +1745,14 @@ const deserializeAws_restJson1_1SynthesisTasks = (
   );
 };
 
-const deserializeAws_restJson1_1Voice = (
-  output: any,
-  context: __SerdeContext
-): Voice => {
+const deserializeAws_restJson1_1Voice = (output: any, context: __SerdeContext): Voice => {
   return {
     __type: "Voice",
     AdditionalLanguageCodes:
-      output.AdditionalLanguageCodes !== undefined &&
-      output.AdditionalLanguageCodes !== null
-        ? deserializeAws_restJson1_1LanguageCodeList(
-            output.AdditionalLanguageCodes,
-            context
-          )
+      output.AdditionalLanguageCodes !== undefined && output.AdditionalLanguageCodes !== null
+        ? deserializeAws_restJson1_1LanguageCodeList(output.AdditionalLanguageCodes, context)
         : undefined,
-    Gender:
-      output.Gender !== undefined && output.Gender !== null
-        ? output.Gender
-        : undefined,
+    Gender: output.Gender !== undefined && output.Gender !== null ? output.Gender : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LanguageCode:
       output.LanguageCode !== undefined && output.LanguageCode !== null
@@ -1920,10 +1762,7 @@ const deserializeAws_restJson1_1Voice = (
       output.LanguageName !== undefined && output.LanguageName !== null
         ? output.LanguageName
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SupportedEngines:
       output.SupportedEngines !== undefined && output.SupportedEngines !== null
         ? deserializeAws_restJson1_1EngineList(output.SupportedEngines, context)
@@ -1931,13 +1770,8 @@ const deserializeAws_restJson1_1Voice = (
   } as any;
 };
 
-const deserializeAws_restJson1_1VoiceList = (
-  output: any,
-  context: __SerdeContext
-): Voice[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Voice(entry, context)
-  );
+const deserializeAws_restJson1_1VoiceList = (output: any, context: __SerdeContext): Voice[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Voice(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1954,23 +1788,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

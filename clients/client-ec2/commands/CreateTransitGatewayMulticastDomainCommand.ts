@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateTransitGatewayMulticastDomainRequest,
   CreateTransitGatewayMulticastDomainResult
@@ -53,9 +49,7 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     CreateTransitGatewayMulticastDomainCommandInput,
     CreateTransitGatewayMulticastDomainCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     input: CreateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

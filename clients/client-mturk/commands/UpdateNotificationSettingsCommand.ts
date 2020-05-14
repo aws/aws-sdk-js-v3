@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   UpdateNotificationSettingsRequest,
   UpdateNotificationSettingsResponse
@@ -49,13 +45,8 @@ export class UpdateNotificationSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNotificationSettingsCommandInput,
-    UpdateNotificationSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNotificationSettingsCommandInput, UpdateNotificationSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateNotificationSettingsCommand extends $Command<
     input: UpdateNotificationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotificationSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateNotificationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotificationSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateNotificationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateNotificationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

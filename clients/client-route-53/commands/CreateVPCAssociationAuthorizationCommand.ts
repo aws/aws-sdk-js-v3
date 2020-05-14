@@ -54,9 +54,7 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     CreateVPCAssociationAuthorizationCommandInput,
     CreateVPCAssociationAuthorizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +74,14 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
     input: CreateVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateVPCAssociationAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlCreateVPCAssociationAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput> {
-    return deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

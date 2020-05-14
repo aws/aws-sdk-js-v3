@@ -1,12 +1,5 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  AssumeRoleWithSAMLRequest,
-  AssumeRoleWithSAMLResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/index";
 import {
   deserializeAws_queryAssumeRoleWithSAMLCommand,
   serializeAws_queryAssumeRoleWithSAMLCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssumeRoleWithSAMLCommandInput = AssumeRoleWithSAMLRequest;
-export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse &
-  __MetadataBearer;
+export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __MetadataBearer;
 
 export class AssumeRoleWithSAMLCommand extends $Command<
   AssumeRoleWithSAMLCommandInput,
@@ -50,9 +42,7 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

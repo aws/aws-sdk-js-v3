@@ -2,18 +2,12 @@ import {
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput
 } from "./commands/AcceptInvitationCommand";
-import {
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput
-} from "./commands/CreateGraphCommand";
+import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
   CreateMembersCommandInput,
   CreateMembersCommandOutput
 } from "./commands/CreateMembersCommand";
-import {
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput
-} from "./commands/DeleteGraphCommand";
+import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
 import {
   DeleteMembersCommandInput,
   DeleteMembersCommandOutput
@@ -22,22 +16,13 @@ import {
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput
 } from "./commands/DisassociateMembershipCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
-import {
-  ListGraphsCommandInput,
-  ListGraphsCommandOutput
-} from "./commands/ListGraphsCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput
 } from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   RejectInvitationCommandInput,
   RejectInvitationCommandOutput
@@ -205,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DetectiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DetectiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -216,9 +199,7 @@ export type DetectiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

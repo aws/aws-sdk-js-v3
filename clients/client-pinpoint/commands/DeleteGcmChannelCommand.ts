@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteGcmChannelRequest,
-  DeleteGcmChannelResponse
-} from "../models/index";
+import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGcmChannelCommand,
   serializeAws_restJson1_1DeleteGcmChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGcmChannelCommandInput = DeleteGcmChannelRequest;
-export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse &
-  __MetadataBearer;
+export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse & __MetadataBearer;
 
 export class DeleteGcmChannelCommand extends $Command<
   DeleteGcmChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

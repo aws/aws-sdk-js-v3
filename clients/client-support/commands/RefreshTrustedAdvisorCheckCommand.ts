@@ -49,13 +49,8 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RefreshTrustedAdvisorCheckCommandInput,
-    RefreshTrustedAdvisorCheckCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RefreshTrustedAdvisorCheckCommandInput, RefreshTrustedAdvisorCheckCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     input: RefreshTrustedAdvisorCheckCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput> {
-    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

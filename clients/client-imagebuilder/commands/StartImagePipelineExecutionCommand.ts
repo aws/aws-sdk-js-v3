@@ -49,13 +49,8 @@ export class StartImagePipelineExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartImagePipelineExecutionCommandInput,
-    StartImagePipelineExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartImagePipelineExecutionCommandInput, StartImagePipelineExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StartImagePipelineExecutionCommand extends $Command<
     input: StartImagePipelineExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartImagePipelineExecutionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartImagePipelineExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartImagePipelineExecutionCommandOutput> {
-    return deserializeAws_restJson1_1StartImagePipelineExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartImagePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

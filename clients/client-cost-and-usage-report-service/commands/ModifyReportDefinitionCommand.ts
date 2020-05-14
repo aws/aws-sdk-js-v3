@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostandUsageReportServiceClient";
-import {
-  ModifyReportDefinitionRequest,
-  ModifyReportDefinitionResponse
-} from "../models/index";
+import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ModifyReportDefinitionCommand,
   serializeAws_json1_1ModifyReportDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyReportDefinitionCommandInput = ModifyReportDefinitionRequest;
-export type ModifyReportDefinitionCommandOutput = ModifyReportDefinitionResponse &
-  __MetadataBearer;
+export type ModifyReportDefinitionCommandOutput = ModifyReportDefinitionResponse & __MetadataBearer;
 
 export class ModifyReportDefinitionCommand extends $Command<
   ModifyReportDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class ModifyReportDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReportDefinitionCommandInput,
-    ModifyReportDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyReportDefinitionCommandInput, ModifyReportDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

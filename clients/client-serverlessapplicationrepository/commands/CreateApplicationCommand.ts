@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  CreateApplicationRequest,
-  CreateApplicationResponse
-} from "../models/index";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateApplicationCommand,
   serializeAws_restJson1_1CreateApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = CreateApplicationResponse &
-  __MetadataBearer;
+export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
@@ -50,9 +46,7 @@ export class CreateApplicationCommand extends $Command<
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

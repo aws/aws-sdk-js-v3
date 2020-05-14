@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetResourceDefinitionRequest,
-  GetResourceDefinitionResponse
-} from "../models/index";
+import { GetResourceDefinitionRequest, GetResourceDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetResourceDefinitionCommand,
   serializeAws_restJson1_1GetResourceDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResourceDefinitionCommandInput = GetResourceDefinitionRequest;
-export type GetResourceDefinitionCommandOutput = GetResourceDefinitionResponse &
-  __MetadataBearer;
+export type GetResourceDefinitionCommandOutput = GetResourceDefinitionResponse & __MetadataBearer;
 
 export class GetResourceDefinitionCommand extends $Command<
   GetResourceDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class GetResourceDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetResourceDefinitionCommandInput,
-    GetResourceDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetResourceDefinitionCommandInput, GetResourceDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetResourceDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1GetResourceDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

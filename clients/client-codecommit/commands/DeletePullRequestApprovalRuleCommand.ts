@@ -53,9 +53,7 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     DeletePullRequestApprovalRuleCommandInput,
     DeletePullRequestApprovalRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     input: DeletePullRequestApprovalRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeletePullRequestApprovalRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePullRequestApprovalRuleCommandOutput> {
-    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeletePullRequestApprovalRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

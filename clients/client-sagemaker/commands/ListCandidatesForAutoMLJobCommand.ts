@@ -49,13 +49,8 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCandidatesForAutoMLJobCommandInput,
-    ListCandidatesForAutoMLJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCandidatesForAutoMLJobCommandInput, ListCandidatesForAutoMLJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     input: ListCandidatesForAutoMLJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCandidatesForAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  GetStreamingDistributionRequest,
-  GetStreamingDistributionResult
-} from "../models/index";
+import { GetStreamingDistributionRequest, GetStreamingDistributionResult } from "../models/index";
 import {
   deserializeAws_restXmlGetStreamingDistributionCommand,
   serializeAws_restXmlGetStreamingDistributionCommand
@@ -49,13 +46,8 @@ export class GetStreamingDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetStreamingDistributionCommandInput,
-    GetStreamingDistributionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetStreamingDistributionCommandInput, GetStreamingDistributionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetStreamingDistributionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlGetStreamingDistributionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

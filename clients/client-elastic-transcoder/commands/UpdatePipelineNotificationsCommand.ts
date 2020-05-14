@@ -49,13 +49,8 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePipelineNotificationsCommandInput,
-    UpdatePipelineNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePipelineNotificationsCommandInput, UpdatePipelineNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     input: UpdatePipelineNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePipelineNotificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdatePipelineNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePipelineNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePipelineNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdatePipelineNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

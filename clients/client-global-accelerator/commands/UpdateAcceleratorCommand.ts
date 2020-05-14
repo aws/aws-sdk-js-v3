@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateAcceleratorRequest,
-  UpdateAcceleratorResponse
-} from "../models/index";
+import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateAcceleratorCommand,
   serializeAws_json1_1UpdateAcceleratorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAcceleratorCommandInput = UpdateAcceleratorRequest;
-export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse &
-  __MetadataBearer;
+export type UpdateAcceleratorCommandOutput = UpdateAcceleratorResponse & __MetadataBearer;
 
 export class UpdateAcceleratorCommand extends $Command<
   UpdateAcceleratorCommandInput,
@@ -50,9 +46,7 @@ export class UpdateAcceleratorCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

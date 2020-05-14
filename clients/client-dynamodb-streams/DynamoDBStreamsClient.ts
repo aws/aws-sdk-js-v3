@@ -2,18 +2,12 @@ import {
   DescribeStreamCommandInput,
   DescribeStreamCommandOutput
 } from "./commands/DescribeStreamCommand";
-import {
-  GetRecordsCommandInput,
-  GetRecordsCommandOutput
-} from "./commands/GetRecordsCommand";
+import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
   GetShardIteratorCommandInput,
   GetShardIteratorCommandOutput
 } from "./commands/GetShardIteratorCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -163,9 +157,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DynamoDBStreamsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DynamoDBStreamsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

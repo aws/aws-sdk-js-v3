@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   ListCustomVerificationEmailTemplatesRequest,
   ListCustomVerificationEmailTemplatesResponse
@@ -39,9 +35,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListCustomVerificationEmailTemplatesCommandInput
-  ) {
+  constructor(readonly input: ListCustomVerificationEmailTemplatesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     ListCustomVerificationEmailTemplatesCommandInput,
     ListCustomVerificationEmailTemplatesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
     input: ListCustomVerificationEmailTemplatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListCustomVerificationEmailTemplatesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListCustomVerificationEmailTemplatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> {
-    return deserializeAws_queryListCustomVerificationEmailTemplatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListCustomVerificationEmailTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

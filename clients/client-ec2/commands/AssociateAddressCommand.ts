@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AssociateAddressRequest,
-  AssociateAddressResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AssociateAddressRequest, AssociateAddressResult } from "../models/index";
 import {
   deserializeAws_ec2AssociateAddressCommand,
   serializeAws_ec2AssociateAddressCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateAddressCommandInput = AssociateAddressRequest;
-export type AssociateAddressCommandOutput = AssociateAddressResult &
-  __MetadataBearer;
+export type AssociateAddressCommandOutput = AssociateAddressResult & __MetadataBearer;
 
 export class AssociateAddressCommand extends $Command<
   AssociateAddressCommandInput,
@@ -50,9 +42,7 @@ export class AssociateAddressCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateAddressCommandInput, AssociateAddressCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

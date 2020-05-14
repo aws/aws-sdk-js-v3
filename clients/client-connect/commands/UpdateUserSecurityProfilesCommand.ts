@@ -45,13 +45,8 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserSecurityProfilesCommandInput,
-    UpdateUserSecurityProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserSecurityProfilesCommandInput, UpdateUserSecurityProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     input: UpdateUserSecurityProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

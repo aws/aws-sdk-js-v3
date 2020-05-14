@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayRouteTableRequest,
   DeleteTransitGatewayRouteTableResult
@@ -53,9 +49,7 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
     DeleteTransitGatewayRouteTableCommandInput,
     DeleteTransitGatewayRouteTableCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
     input: DeleteTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayRouteTableCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteTransitGatewayRouteTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayRouteTableCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

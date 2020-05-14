@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyReservedInstancesRequest,
-  ModifyReservedInstancesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyReservedInstancesRequest, ModifyReservedInstancesResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyReservedInstancesCommand,
   serializeAws_ec2ModifyReservedInstancesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyReservedInstancesCommandInput = ModifyReservedInstancesRequest;
-export type ModifyReservedInstancesCommandOutput = ModifyReservedInstancesResult &
-  __MetadataBearer;
+export type ModifyReservedInstancesCommandOutput = ModifyReservedInstancesResult & __MetadataBearer;
 
 export class ModifyReservedInstancesCommand extends $Command<
   ModifyReservedInstancesCommandInput,
@@ -49,13 +41,8 @@ export class ModifyReservedInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReservedInstancesCommandInput,
-    ModifyReservedInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyReservedInstancesCommandInput, ModifyReservedInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -166,9 +166,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -436,9 +434,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createEvaluation(
     args: CreateEvaluationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEvaluationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEvaluationCommandOutput) => void),
     cb?: (err: any, data?: CreateEvaluationCommandOutput) => void
   ): Promise<CreateEvaluationCommandOutput> | void {
     const command = new CreateEvaluationCommand(args);
@@ -490,9 +486,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createMLModel(
     args: CreateMLModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMLModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMLModelCommandOutput) => void),
     cb?: (err: any, data?: CreateMLModelCommandOutput) => void
   ): Promise<CreateMLModelCommandOutput> | void {
     const command = new CreateMLModelCommand(args);
@@ -603,9 +597,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
@@ -643,9 +635,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteEvaluation(
     args: DeleteEvaluationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEvaluationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEvaluationCommandOutput) => void),
     cb?: (err: any, data?: DeleteEvaluationCommandOutput) => void
   ): Promise<DeleteEvaluationCommandOutput> | void {
     const command = new DeleteEvaluationCommand(args);
@@ -683,9 +673,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteMLModel(
     args: DeleteMLModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMLModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMLModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteMLModelCommandOutput) => void
   ): Promise<DeleteMLModelCommandOutput> | void {
     const command = new DeleteMLModelCommand(args);
@@ -754,9 +742,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -894,9 +880,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeMLModels(
     args: DescribeMLModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMLModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMLModelsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMLModelsCommandOutput) => void
   ): Promise<DescribeMLModelsCommandOutput> | void {
     const command = new DescribeMLModelsCommand(args);
@@ -929,9 +913,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -1003,9 +985,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getDataSource(
     args: GetDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataSourceCommandOutput) => void),
     cb?: (err: any, data?: GetDataSourceCommandOutput) => void
   ): Promise<GetDataSourceCommandOutput> | void {
     const command = new GetDataSourceCommand(args);
@@ -1038,9 +1018,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getEvaluation(
     args: GetEvaluationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEvaluationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEvaluationCommandOutput) => void),
     cb?: (err: any, data?: GetEvaluationCommandOutput) => void
   ): Promise<GetEvaluationCommandOutput> | void {
     const command = new GetEvaluationCommand(args);
@@ -1075,9 +1053,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getMLModel(
     args: GetMLModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLModelCommandOutput) => void),
     cb?: (err: any, data?: GetMLModelCommandOutput) => void
   ): Promise<GetMLModelCommandOutput> | void {
     const command = new GetMLModelCommand(args);
@@ -1113,9 +1089,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public predict(
     args: PredictCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PredictCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PredictCommandOutput) => void),
     cb?: (err: any, data?: PredictCommandOutput) => void
   ): Promise<PredictCommandOutput> | void {
     const command = new PredictCommand(args);
@@ -1185,9 +1159,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
@@ -1221,9 +1193,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateEvaluation(
     args: UpdateEvaluationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEvaluationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEvaluationCommandOutput) => void),
     cb?: (err: any, data?: UpdateEvaluationCommandOutput) => void
   ): Promise<UpdateEvaluationCommandOutput> | void {
     const command = new UpdateEvaluationCommand(args);
@@ -1257,9 +1227,7 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateMLModel(
     args: UpdateMLModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMLModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMLModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateMLModelCommandOutput) => void
   ): Promise<UpdateMLModelCommandOutput> | void {
     const command = new UpdateMLModelCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  RemoveAttributesRequest,
-  RemoveAttributesResponse
-} from "../models/index";
+import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveAttributesCommand,
   serializeAws_restJson1_1RemoveAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveAttributesCommandInput = RemoveAttributesRequest;
-export type RemoveAttributesCommandOutput = RemoveAttributesResponse &
-  __MetadataBearer;
+export type RemoveAttributesCommandOutput = RemoveAttributesResponse & __MetadataBearer;
 
 export class RemoveAttributesCommand extends $Command<
   RemoveAttributesCommandInput,
@@ -50,9 +46,7 @@ export class RemoveAttributesCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveAttributesCommandInput, RemoveAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

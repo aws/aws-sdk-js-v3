@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeRegionsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRegionsCommandInput = DescribeRegionsRequest;
-export type DescribeRegionsCommandOutput = DescribeRegionsResult &
-  __MetadataBearer;
+export type DescribeRegionsCommandOutput = DescribeRegionsResult & __MetadataBearer;
 
 export class DescribeRegionsCommand extends $Command<
   DescribeRegionsCommandInput,
@@ -47,9 +42,7 @@ export class DescribeRegionsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRegionsCommandInput, DescribeRegionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  ClientCertificate,
-  GetClientCertificateRequest
-} from "../models/index";
+import { ClientCertificate, GetClientCertificateRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetClientCertificateCommand,
   serializeAws_restJson1_1GetClientCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetClientCertificateCommandInput = GetClientCertificateRequest;
-export type GetClientCertificateCommandOutput = ClientCertificate &
-  __MetadataBearer;
+export type GetClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
 
 export class GetClientCertificateCommand extends $Command<
   GetClientCertificateCommandInput,
@@ -49,13 +45,8 @@ export class GetClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetClientCertificateCommandInput,
-    GetClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetClientCertificateCommandInput, GetClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClientCertificateCommandOutput> {
-    return deserializeAws_restJson1_1GetClientCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

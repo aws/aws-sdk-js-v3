@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  CreateCustomMetadataRequest,
-  CreateCustomMetadataResponse
-} from "../models/index";
+import { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateCustomMetadataCommand,
   serializeAws_restJson1_1CreateCustomMetadataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
-export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse &
-  __MetadataBearer;
+export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse & __MetadataBearer;
 
 export class CreateCustomMetadataCommand extends $Command<
   CreateCustomMetadataCommandInput,
@@ -49,13 +45,8 @@ export class CreateCustomMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomMetadataCommandInput,
-    CreateCustomMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomMetadataCommandInput, CreateCustomMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateCustomMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1_1CreateCustomMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

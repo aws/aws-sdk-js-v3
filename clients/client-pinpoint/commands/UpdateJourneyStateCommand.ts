@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateJourneyStateRequest,
-  UpdateJourneyStateResponse
-} from "../models/index";
+import { UpdateJourneyStateRequest, UpdateJourneyStateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJourneyStateCommand,
   serializeAws_restJson1_1UpdateJourneyStateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJourneyStateCommandInput = UpdateJourneyStateRequest;
-export type UpdateJourneyStateCommandOutput = UpdateJourneyStateResponse &
-  __MetadataBearer;
+export type UpdateJourneyStateCommandOutput = UpdateJourneyStateResponse & __MetadataBearer;
 
 export class UpdateJourneyStateCommand extends $Command<
   UpdateJourneyStateCommandInput,
@@ -50,9 +46,7 @@ export class UpdateJourneyStateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJourneyStateCommandInput, UpdateJourneyStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

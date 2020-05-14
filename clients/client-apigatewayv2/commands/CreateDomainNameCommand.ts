@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  CreateDomainNameRequest,
-  CreateDomainNameResponse
-} from "../models/index";
+import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDomainNameCommand,
   serializeAws_restJson1_1CreateDomainNameCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDomainNameCommandInput = CreateDomainNameRequest;
-export type CreateDomainNameCommandOutput = CreateDomainNameResponse &
-  __MetadataBearer;
+export type CreateDomainNameCommandOutput = CreateDomainNameResponse & __MetadataBearer;
 
 export class CreateDomainNameCommand extends $Command<
   CreateDomainNameCommandInput,
@@ -50,9 +46,7 @@ export class CreateDomainNameCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDomainNameCommandInput, CreateDomainNameCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { UndeprecateActivityTypeInput } from "../models/index";
 import {
   deserializeAws_json1_0UndeprecateActivityTypeCommand,
@@ -45,13 +41,8 @@ export class UndeprecateActivityTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UndeprecateActivityTypeCommandInput,
-    UndeprecateActivityTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UndeprecateActivityTypeCommandInput, UndeprecateActivityTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class UndeprecateActivityTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UndeprecateActivityTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateActivityTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UndeprecateActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

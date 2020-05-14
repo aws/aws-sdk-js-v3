@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCorsPolicyCommandInput = DeleteCorsPolicyInput;
-export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput &
-  __MetadataBearer;
+export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput & __MetadataBearer;
 
 export class DeleteCorsPolicyCommand extends $Command<
   DeleteCorsPolicyCommandInput,
@@ -47,9 +46,7 @@ export class DeleteCorsPolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

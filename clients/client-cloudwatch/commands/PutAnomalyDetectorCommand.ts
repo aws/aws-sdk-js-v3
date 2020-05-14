@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  PutAnomalyDetectorInput,
-  PutAnomalyDetectorOutput
-} from "../models/index";
+import { PutAnomalyDetectorInput, PutAnomalyDetectorOutput } from "../models/index";
 import {
   deserializeAws_queryPutAnomalyDetectorCommand,
   serializeAws_queryPutAnomalyDetectorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutAnomalyDetectorCommandInput = PutAnomalyDetectorInput;
-export type PutAnomalyDetectorCommandOutput = PutAnomalyDetectorOutput &
-  __MetadataBearer;
+export type PutAnomalyDetectorCommandOutput = PutAnomalyDetectorOutput & __MetadataBearer;
 
 export class PutAnomalyDetectorCommand extends $Command<
   PutAnomalyDetectorCommandInput,
@@ -50,9 +46,7 @@ export class PutAnomalyDetectorCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

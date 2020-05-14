@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  GetLogGroupFieldsRequest,
-  GetLogGroupFieldsResponse
-} from "../models/index";
+import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLogGroupFieldsCommand,
   serializeAws_json1_1GetLogGroupFieldsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLogGroupFieldsCommandInput = GetLogGroupFieldsRequest;
-export type GetLogGroupFieldsCommandOutput = GetLogGroupFieldsResponse &
-  __MetadataBearer;
+export type GetLogGroupFieldsCommandOutput = GetLogGroupFieldsResponse & __MetadataBearer;
 
 export class GetLogGroupFieldsCommand extends $Command<
   GetLogGroupFieldsCommandInput,
@@ -50,9 +46,7 @@ export class GetLogGroupFieldsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

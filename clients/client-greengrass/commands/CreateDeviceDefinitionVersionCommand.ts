@@ -53,9 +53,7 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     CreateDeviceDefinitionVersionCommandInput,
     CreateDeviceDefinitionVersionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     input: CreateDeviceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeviceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

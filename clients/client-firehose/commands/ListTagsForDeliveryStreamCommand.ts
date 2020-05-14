@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  ListTagsForDeliveryStreamInput,
-  ListTagsForDeliveryStreamOutput
-} from "../models/index";
+import { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListTagsForDeliveryStreamCommand,
   serializeAws_json1_1ListTagsForDeliveryStreamCommand
@@ -49,13 +46,8 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTagsForDeliveryStreamCommandInput,
-    ListTagsForDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTagsForDeliveryStreamCommandInput, ListTagsForDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTagsForDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

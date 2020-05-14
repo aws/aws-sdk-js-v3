@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  GetWebACLForResourceRequest,
-  GetWebACLForResourceResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetWebACLForResourceCommand,
   serializeAws_json1_1GetWebACLForResourceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetWebACLForResourceCommandInput = GetWebACLForResourceRequest;
-export type GetWebACLForResourceCommandOutput = GetWebACLForResourceResponse &
-  __MetadataBearer;
+export type GetWebACLForResourceCommandOutput = GetWebACLForResourceResponse & __MetadataBearer;
 
 export class GetWebACLForResourceCommand extends $Command<
   GetWebACLForResourceCommandInput,
@@ -49,13 +41,8 @@ export class GetWebACLForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetWebACLForResourceCommandInput,
-    GetWebACLForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetWebACLForResourceCommandInput, GetWebACLForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

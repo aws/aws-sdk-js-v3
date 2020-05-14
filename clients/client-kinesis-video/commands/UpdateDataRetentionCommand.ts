@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  UpdateDataRetentionInput,
-  UpdateDataRetentionOutput
-} from "../models/index";
+import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDataRetentionCommand,
   serializeAws_restJson1_1UpdateDataRetentionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDataRetentionCommandInput = UpdateDataRetentionInput;
-export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput &
-  __MetadataBearer;
+export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput & __MetadataBearer;
 
 export class UpdateDataRetentionCommand extends $Command<
   UpdateDataRetentionCommandInput,
@@ -49,13 +45,8 @@ export class UpdateDataRetentionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDataRetentionCommandInput,
-    UpdateDataRetentionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDataRetentionCommandInput, UpdateDataRetentionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateDataRetentionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataRetentionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDataRetentionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDataRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

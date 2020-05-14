@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -44,8 +41,7 @@ export interface AttachmentDetails {
 }
 
 export namespace AttachmentDetails {
-  export const isa = (o: any): o is AttachmentDetails =>
-    __isa(o, "AttachmentDetails");
+  export const isa = (o: any): o is AttachmentDetails => __isa(o, "AttachmentDetails");
 }
 
 /**
@@ -323,9 +319,7 @@ export namespace Service {
 /**
  * <p>An attachment with the specified ID could not be found.</p>
  */
-export interface AttachmentIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentIdNotFound extends __SmithyException, $MetadataBearer {
   name: "AttachmentIdNotFound";
   $fault: "client";
   /**
@@ -335,17 +329,14 @@ export interface AttachmentIdNotFound
 }
 
 export namespace AttachmentIdNotFound {
-  export const isa = (o: any): o is AttachmentIdNotFound =>
-    __isa(o, "AttachmentIdNotFound");
+  export const isa = (o: any): o is AttachmentIdNotFound => __isa(o, "AttachmentIdNotFound");
 }
 
 /**
  * <p>The limit for the number of attachment sets created in a short period of time has
  *             been exceeded.</p>
  */
-export interface AttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -356,17 +347,14 @@ export interface AttachmentLimitExceeded
 }
 
 export namespace AttachmentLimitExceeded {
-  export const isa = (o: any): o is AttachmentLimitExceeded =>
-    __isa(o, "AttachmentLimitExceeded");
+  export const isa = (o: any): o is AttachmentLimitExceeded => __isa(o, "AttachmentLimitExceeded");
 }
 
 /**
  * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
  *             it is created.</p>
  */
-export interface AttachmentSetExpired
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetExpired extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetExpired";
   $fault: "client";
   /**
@@ -377,16 +365,13 @@ export interface AttachmentSetExpired
 }
 
 export namespace AttachmentSetExpired {
-  export const isa = (o: any): o is AttachmentSetExpired =>
-    __isa(o, "AttachmentSetExpired");
+  export const isa = (o: any): o is AttachmentSetExpired => __isa(o, "AttachmentSetExpired");
 }
 
 /**
  * <p>An attachment set with the specified ID could not be found.</p>
  */
-export interface AttachmentSetIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetIdNotFound extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetIdNotFound";
   $fault: "client";
   /**
@@ -396,17 +381,14 @@ export interface AttachmentSetIdNotFound
 }
 
 export namespace AttachmentSetIdNotFound {
-  export const isa = (o: any): o is AttachmentSetIdNotFound =>
-    __isa(o, "AttachmentSetIdNotFound");
+  export const isa = (o: any): o is AttachmentSetIdNotFound => __isa(o, "AttachmentSetIdNotFound");
 }
 
 /**
  * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
  *             attachments and 5 MB per attachment.</p>
  */
-export interface AttachmentSetSizeLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetSizeLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
   /**
@@ -424,9 +406,7 @@ export namespace AttachmentSetSizeLimitExceeded {
 /**
  * <p>The case creation limit for the account has been exceeded.</p>
  */
-export interface CaseCreationLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CaseCreationLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "CaseCreationLimitExceeded";
   $fault: "client";
   /**
@@ -454,17 +434,14 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CaseIdNotFound {
-  export const isa = (o: any): o is CaseIdNotFound =>
-    __isa(o, "CaseIdNotFound");
+  export const isa = (o: any): o is CaseIdNotFound => __isa(o, "CaseIdNotFound");
 }
 
 /**
  * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
  *             short period of time has been exceeded.</p>
  */
-export interface DescribeAttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DescribeAttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "DescribeAttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -482,9 +459,7 @@ export namespace DescribeAttachmentLimitExceeded {
 /**
  * <p>An internal server error occurred.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -494,8 +469,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -663,8 +637,7 @@ export interface CreateCaseRequest {
 }
 
 export namespace CreateCaseRequest {
-  export const isa = (o: any): o is CreateCaseRequest =>
-    __isa(o, "CreateCaseRequest");
+  export const isa = (o: any): o is CreateCaseRequest => __isa(o, "CreateCaseRequest");
 }
 
 /**
@@ -682,8 +655,7 @@ export interface CreateCaseResponse {
 }
 
 export namespace CreateCaseResponse {
-  export const isa = (o: any): o is CreateCaseResponse =>
-    __isa(o, "CreateCaseResponse");
+  export const isa = (o: any): o is CreateCaseResponse => __isa(o, "CreateCaseResponse");
 }
 
 export interface DescribeAttachmentRequest {
@@ -771,8 +743,7 @@ export interface DescribeCasesRequest {
 }
 
 export namespace DescribeCasesRequest {
-  export const isa = (o: any): o is DescribeCasesRequest =>
-    __isa(o, "DescribeCasesRequest");
+  export const isa = (o: any): o is DescribeCasesRequest => __isa(o, "DescribeCasesRequest");
 }
 
 /**
@@ -794,8 +765,7 @@ export interface DescribeCasesResponse {
 }
 
 export namespace DescribeCasesResponse {
-  export const isa = (o: any): o is DescribeCasesResponse =>
-    __isa(o, "DescribeCasesResponse");
+  export const isa = (o: any): o is DescribeCasesResponse => __isa(o, "DescribeCasesResponse");
 }
 
 export interface DescribeCommunicationsRequest {
@@ -874,8 +844,7 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export const isa = (o: any): o is DescribeServicesRequest =>
-    __isa(o, "DescribeServicesRequest");
+  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 /**
@@ -939,8 +908,7 @@ export interface ResolveCaseRequest {
 }
 
 export namespace ResolveCaseRequest {
-  export const isa = (o: any): o is ResolveCaseRequest =>
-    __isa(o, "ResolveCaseRequest");
+  export const isa = (o: any): o is ResolveCaseRequest => __isa(o, "ResolveCaseRequest");
 }
 
 /**
@@ -963,8 +931,7 @@ export interface ResolveCaseResponse {
 }
 
 export namespace ResolveCaseResponse {
-  export const isa = (o: any): o is ResolveCaseResponse =>
-    __isa(o, "ResolveCaseResponse");
+  export const isa = (o: any): o is ResolveCaseResponse => __isa(o, "ResolveCaseResponse");
 }
 
 /**
@@ -1038,9 +1005,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
     __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
 }
 
@@ -1056,9 +1021,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
     __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
 }
 
@@ -1110,9 +1073,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesRequest =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesRequest =>
     __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
 }
 
@@ -1128,9 +1089,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesResponse =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesResponse =>
     __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
 }
 

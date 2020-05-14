@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteKnownHostKeysRequest,
-  DeleteKnownHostKeysResult
-} from "../models/index";
+import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteKnownHostKeysCommand,
   serializeAws_json1_1DeleteKnownHostKeysCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteKnownHostKeysCommandInput = DeleteKnownHostKeysRequest;
-export type DeleteKnownHostKeysCommandOutput = DeleteKnownHostKeysResult &
-  __MetadataBearer;
+export type DeleteKnownHostKeysCommandOutput = DeleteKnownHostKeysResult & __MetadataBearer;
 
 export class DeleteKnownHostKeysCommand extends $Command<
   DeleteKnownHostKeysCommandInput,
@@ -49,13 +45,8 @@ export class DeleteKnownHostKeysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteKnownHostKeysCommandInput,
-    DeleteKnownHostKeysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteKnownHostKeysCommandInput, DeleteKnownHostKeysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

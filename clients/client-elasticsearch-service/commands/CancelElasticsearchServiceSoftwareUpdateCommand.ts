@@ -39,9 +39,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput
-  ) {
+  constructor(readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     CancelElasticsearchServiceSoftwareUpdateCommandInput,
     CancelElasticsearchServiceSoftwareUpdateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
   private deserialize(

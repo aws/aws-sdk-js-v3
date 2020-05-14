@@ -1,12 +1,5 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  DisassociateConnectorRequest,
-  DisassociateConnectorResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateConnectorCommand,
   serializeAws_json1_1DisassociateConnectorCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateConnectorCommandInput = DisassociateConnectorRequest;
-export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse &
-  __MetadataBearer;
+export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse & __MetadataBearer;
 
 export class DisassociateConnectorCommand extends $Command<
   DisassociateConnectorCommandInput,
@@ -49,13 +41,8 @@ export class DisassociateConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateConnectorCommandInput,
-    DisassociateConnectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateConnectorCommandInput, DisassociateConnectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

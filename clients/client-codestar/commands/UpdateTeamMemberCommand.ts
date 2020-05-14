@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  UpdateTeamMemberRequest,
-  UpdateTeamMemberResult
-} from "../models/index";
+import { UpdateTeamMemberRequest, UpdateTeamMemberResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateTeamMemberCommand,
   serializeAws_json1_1UpdateTeamMemberCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTeamMemberCommandInput = UpdateTeamMemberRequest;
-export type UpdateTeamMemberCommandOutput = UpdateTeamMemberResult &
-  __MetadataBearer;
+export type UpdateTeamMemberCommandOutput = UpdateTeamMemberResult & __MetadataBearer;
 
 export class UpdateTeamMemberCommand extends $Command<
   UpdateTeamMemberCommandInput,
@@ -50,9 +46,7 @@ export class UpdateTeamMemberCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTeamMemberCommandInput, UpdateTeamMemberCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

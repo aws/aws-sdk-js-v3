@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLoadBalancerCommandInput = GetLoadBalancerRequest;
-export type GetLoadBalancerCommandOutput = GetLoadBalancerResult &
-  __MetadataBearer;
+export type GetLoadBalancerCommandOutput = GetLoadBalancerResult & __MetadataBearer;
 
 export class GetLoadBalancerCommand extends $Command<
   GetLoadBalancerCommandInput,
@@ -47,9 +46,7 @@ export class GetLoadBalancerCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLoadBalancerCommandInput, GetLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

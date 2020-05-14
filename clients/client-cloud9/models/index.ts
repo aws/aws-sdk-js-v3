@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The target request is invalid.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   className?: string;
@@ -18,8 +13,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -34,8 +28,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateEnvironmentEC2Request {
@@ -187,8 +180,7 @@ export interface DeleteEnvironmentResult {
 }
 
 export namespace DeleteEnvironmentResult {
-  export const isa = (o: any): o is DeleteEnvironmentResult =>
-    __isa(o, "DeleteEnvironmentResult");
+  export const isa = (o: any): o is DeleteEnvironmentResult => __isa(o, "DeleteEnvironmentResult");
 }
 
 export interface DescribeEnvironmentMembershipsRequest {
@@ -443,8 +435,7 @@ export interface EnvironmentLifecycle {
 }
 
 export namespace EnvironmentLifecycle {
-  export const isa = (o: any): o is EnvironmentLifecycle =>
-    __isa(o, "EnvironmentLifecycle");
+  export const isa = (o: any): o is EnvironmentLifecycle => __isa(o, "EnvironmentLifecycle");
 }
 
 export enum EnvironmentLifecycleStatus {
@@ -501,8 +492,7 @@ export interface EnvironmentMember {
 }
 
 export namespace EnvironmentMember {
-  export const isa = (o: any): o is EnvironmentMember =>
-    __isa(o, "EnvironmentMember");
+  export const isa = (o: any): o is EnvironmentMember => __isa(o, "EnvironmentMember");
 }
 
 export enum EnvironmentStatus {
@@ -532,16 +522,13 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * <p>An internal server error occurred.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   className?: string;
@@ -557,9 +544,7 @@ export namespace InternalServerErrorException {
 /**
  * <p>A service limit was exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   className?: string;
@@ -568,8 +553,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListEnvironmentsRequest {
@@ -586,8 +570,7 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
-  export const isa = (o: any): o is ListEnvironmentsRequest =>
-    __isa(o, "ListEnvironmentsRequest");
+  export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
 }
 
 export interface ListEnvironmentsResult {
@@ -604,8 +587,7 @@ export interface ListEnvironmentsResult {
 }
 
 export namespace ListEnvironmentsResult {
-  export const isa = (o: any): o is ListEnvironmentsResult =>
-    __isa(o, "ListEnvironmentsResult");
+  export const isa = (o: any): o is ListEnvironmentsResult => __isa(o, "ListEnvironmentsResult");
 }
 
 export enum MemberPermissions {
@@ -625,8 +607,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Permissions {
@@ -638,9 +619,7 @@ export enum Permissions {
 /**
  * <p>Too many service requests were made over the given time period.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   className?: string;
@@ -727,6 +706,5 @@ export interface UpdateEnvironmentResult {
 }
 
 export namespace UpdateEnvironmentResult {
-  export const isa = (o: any): o is UpdateEnvironmentResult =>
-    __isa(o, "UpdateEnvironmentResult");
+  export const isa = (o: any): o is UpdateEnvironmentResult => __isa(o, "UpdateEnvironmentResult");
 }

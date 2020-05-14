@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetObjectLegalHoldOutput,
-  GetObjectLegalHoldRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetObjectLegalHoldOutput, GetObjectLegalHoldRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetObjectLegalHoldCommand,
   serializeAws_restXmlGetObjectLegalHoldCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetObjectLegalHoldCommandInput = GetObjectLegalHoldRequest;
-export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput &
-  __MetadataBearer;
+export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput & __MetadataBearer;
 
 export class GetObjectLegalHoldCommand extends $Command<
   GetObjectLegalHoldCommandInput,
@@ -51,9 +43,7 @@ export class GetObjectLegalHoldCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

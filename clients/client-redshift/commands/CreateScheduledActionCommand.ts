@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateScheduledActionCommandInput = CreateScheduledActionMessage;
-export type CreateScheduledActionCommandOutput = ScheduledAction &
-  __MetadataBearer;
+export type CreateScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
 
 export class CreateScheduledActionCommand extends $Command<
   CreateScheduledActionCommandInput,
@@ -46,13 +45,8 @@ export class CreateScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateScheduledActionCommandInput,
-    CreateScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateScheduledActionCommandInput, CreateScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

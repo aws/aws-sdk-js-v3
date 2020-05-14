@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  DeleteSamplingRuleRequest,
-  DeleteSamplingRuleResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteSamplingRuleCommand,
   serializeAws_restJson1_1DeleteSamplingRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSamplingRuleCommandInput = DeleteSamplingRuleRequest;
-export type DeleteSamplingRuleCommandOutput = DeleteSamplingRuleResult &
-  __MetadataBearer;
+export type DeleteSamplingRuleCommandOutput = DeleteSamplingRuleResult & __MetadataBearer;
 
 export class DeleteSamplingRuleCommand extends $Command<
   DeleteSamplingRuleCommandInput,
@@ -50,9 +42,7 @@ export class DeleteSamplingRuleCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

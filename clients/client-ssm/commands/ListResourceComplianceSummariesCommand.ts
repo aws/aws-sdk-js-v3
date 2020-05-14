@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   ListResourceComplianceSummariesRequest,
   ListResourceComplianceSummariesResult
@@ -53,9 +49,7 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     ListResourceComplianceSummariesCommandInput,
     ListResourceComplianceSummariesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     input: ListResourceComplianceSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceComplianceSummariesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListResourceComplianceSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceComplianceSummariesCommandOutput> {
-    return deserializeAws_json1_1ListResourceComplianceSummariesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListResourceComplianceSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

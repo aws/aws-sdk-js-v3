@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  ListContactFlowsRequest,
-  ListContactFlowsResponse
-} from "../models/index";
+import { ListContactFlowsRequest, ListContactFlowsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListContactFlowsCommand,
   serializeAws_restJson1_1ListContactFlowsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListContactFlowsCommandInput = ListContactFlowsRequest;
-export type ListContactFlowsCommandOutput = ListContactFlowsResponse &
-  __MetadataBearer;
+export type ListContactFlowsCommandOutput = ListContactFlowsResponse & __MetadataBearer;
 
 export class ListContactFlowsCommand extends $Command<
   ListContactFlowsCommandInput,
@@ -50,9 +46,7 @@ export class ListContactFlowsCommand extends $Command<
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListContactFlowsCommandInput, ListContactFlowsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

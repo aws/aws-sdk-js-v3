@@ -14,9 +14,7 @@ export function deserializerMiddleware<
   options: RuntimeUtils,
   deserializer: ResponseDeserializer<any, any, RuntimeUtils>
 ): DeserializeMiddleware<Input, Output> {
-  return (
-    next: DeserializeHandler<Input, Output>
-  ): DeserializeHandler<Input, Output> => async (
+  return (next: DeserializeHandler<Input, Output>): DeserializeHandler<Input, Output> => async (
     args: DeserializeHandlerArguments<Input>
   ): Promise<DeserializeHandlerOutput<Output>> => {
     const { response } = await next(args);

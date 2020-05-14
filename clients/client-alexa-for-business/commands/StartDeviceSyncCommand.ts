@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  StartDeviceSyncRequest,
-  StartDeviceSyncResponse
-} from "../models/index";
+import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartDeviceSyncCommand,
   serializeAws_json1_1StartDeviceSyncCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDeviceSyncCommandInput = StartDeviceSyncRequest;
-export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse &
-  __MetadataBearer;
+export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse & __MetadataBearer;
 
 export class StartDeviceSyncCommand extends $Command<
   StartDeviceSyncCommandInput,
@@ -50,9 +46,7 @@ export class StartDeviceSyncCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

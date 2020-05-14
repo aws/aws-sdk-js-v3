@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  DeleteSystemTemplateRequest,
-  DeleteSystemTemplateResponse
-} from "../models/index";
+import { DeleteSystemTemplateRequest, DeleteSystemTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSystemTemplateCommand,
   serializeAws_json1_1DeleteSystemTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSystemTemplateCommandInput = DeleteSystemTemplateRequest;
-export type DeleteSystemTemplateCommandOutput = DeleteSystemTemplateResponse &
-  __MetadataBearer;
+export type DeleteSystemTemplateCommandOutput = DeleteSystemTemplateResponse & __MetadataBearer;
 
 export class DeleteSystemTemplateCommand extends $Command<
   DeleteSystemTemplateCommandInput,
@@ -49,13 +45,8 @@ export class DeleteSystemTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSystemTemplateCommandInput,
-    DeleteSystemTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSystemTemplateCommandInput, DeleteSystemTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

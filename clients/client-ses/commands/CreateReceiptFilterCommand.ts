@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  CreateReceiptFilterRequest,
-  CreateReceiptFilterResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { CreateReceiptFilterRequest, CreateReceiptFilterResponse } from "../models/index";
 import {
   deserializeAws_queryCreateReceiptFilterCommand,
   serializeAws_queryCreateReceiptFilterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateReceiptFilterCommandInput = CreateReceiptFilterRequest;
-export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse &
-  __MetadataBearer;
+export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse & __MetadataBearer;
 
 export class CreateReceiptFilterCommand extends $Command<
   CreateReceiptFilterCommandInput,
@@ -49,13 +41,8 @@ export class CreateReceiptFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateReceiptFilterCommandInput,
-    CreateReceiptFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateReceiptFilterCommandInput, CreateReceiptFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

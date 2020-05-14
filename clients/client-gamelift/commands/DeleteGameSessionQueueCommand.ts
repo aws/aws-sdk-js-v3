@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DeleteGameSessionQueueInput,
-  DeleteGameSessionQueueOutput
-} from "../models/index";
+import { DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteGameSessionQueueCommand,
   serializeAws_json1_1DeleteGameSessionQueueCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGameSessionQueueCommandInput = DeleteGameSessionQueueInput;
-export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput &
-  __MetadataBearer;
+export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput & __MetadataBearer;
 
 export class DeleteGameSessionQueueCommand extends $Command<
   DeleteGameSessionQueueCommandInput,
@@ -49,13 +45,8 @@ export class DeleteGameSessionQueueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteGameSessionQueueCommandInput,
-    DeleteGameSessionQueueCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteGameSessionQueueCommandInput, DeleteGameSessionQueueCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

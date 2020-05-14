@@ -74,9 +74,7 @@ export class Polly extends PollyClient {
   ): void;
   public deleteLexicon(
     args: DeleteLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLexiconCommandOutput) => void),
     cb?: (err: any, data?: DeleteLexiconCommandOutput) => void
   ): Promise<DeleteLexiconCommandOutput> | void {
     const command = new DeleteLexiconCommand(args);
@@ -128,9 +126,7 @@ export class Polly extends PollyClient {
   ): void;
   public describeVoices(
     args: DescribeVoicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVoicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVoicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVoicesCommandOutput) => void
   ): Promise<DescribeVoicesCommandOutput> | void {
     const command = new DescribeVoicesCommand(args);
@@ -164,9 +160,7 @@ export class Polly extends PollyClient {
   ): void;
   public getLexicon(
     args: GetLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLexiconCommandOutput) => void),
     cb?: (err: any, data?: GetLexiconCommandOutput) => void
   ): Promise<GetLexiconCommandOutput> | void {
     const command = new GetLexiconCommand(args);
@@ -237,9 +231,7 @@ export class Polly extends PollyClient {
   ): void;
   public listLexicons(
     args: ListLexiconsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLexiconsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLexiconsCommandOutput) => void),
     cb?: (err: any, data?: ListLexiconsCommandOutput) => void
   ): Promise<ListLexiconsCommandOutput> | void {
     const command = new ListLexiconsCommand(args);
@@ -313,9 +305,7 @@ export class Polly extends PollyClient {
   ): void;
   public putLexicon(
     args: PutLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLexiconCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLexiconCommandOutput) => void),
     cb?: (err: any, data?: PutLexiconCommandOutput) => void
   ): Promise<PutLexiconCommandOutput> | void {
     const command = new PutLexiconCommand(args);
@@ -390,9 +380,7 @@ export class Polly extends PollyClient {
   ): void;
   public synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
     cb?: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): Promise<SynthesizeSpeechCommandOutput> | void {
     const command = new SynthesizeSpeechCommand(args);

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateLocalGatewayRouteRequest,
-  CreateLocalGatewayRouteResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateLocalGatewayRouteRequest, CreateLocalGatewayRouteResult } from "../models/index";
 import {
   deserializeAws_ec2CreateLocalGatewayRouteCommand,
   serializeAws_ec2CreateLocalGatewayRouteCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLocalGatewayRouteCommandInput = CreateLocalGatewayRouteRequest;
-export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult &
-  __MetadataBearer;
+export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult & __MetadataBearer;
 
 export class CreateLocalGatewayRouteCommand extends $Command<
   CreateLocalGatewayRouteCommandInput,
@@ -49,13 +41,8 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLocalGatewayRouteCommandInput,
-    CreateLocalGatewayRouteCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLocalGatewayRouteCommandInput, CreateLocalGatewayRouteCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

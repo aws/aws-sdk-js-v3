@@ -465,31 +465,19 @@ export class SES extends SESClient {
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -516,31 +504,19 @@ export class SES extends SESClient {
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput>;
   public createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetTrackingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetTrackingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new CreateConfigurationSetTrackingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -566,31 +542,19 @@ export class SES extends SESClient {
   ): Promise<CreateCustomVerificationEmailTemplateCommandOutput>;
   public createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: CreateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateCustomVerificationEmailTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
   ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> | void {
     const command = new CreateCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -738,9 +702,7 @@ export class SES extends SESClient {
   ): void;
   public createTemplate(
     args: CreateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateTemplateCommandOutput) => void
   ): Promise<CreateTemplateCommandOutput> | void {
     const command = new CreateTemplateCommand(args);
@@ -804,31 +766,19 @@ export class SES extends SESClient {
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -860,31 +810,19 @@ export class SES extends SESClient {
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput>;
   public deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetTrackingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetTrackingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new DeleteConfigurationSetTrackingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -910,31 +848,19 @@ export class SES extends SESClient {
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput>;
   public deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteCustomVerificationEmailTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteCustomVerificationEmailTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> | void {
     const command = new DeleteCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -968,9 +894,7 @@ export class SES extends SESClient {
   ): void;
   public deleteIdentity(
     args: DeleteIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIdentityCommandOutput) => void),
     cb?: (err: any, data?: DeleteIdentityCommandOutput) => void
   ): Promise<DeleteIdentityCommandOutput> | void {
     const command = new DeleteIdentityCommand(args);
@@ -1167,9 +1091,7 @@ export class SES extends SESClient {
   ): void;
   public deleteTemplate(
     args: DeleteTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): Promise<DeleteTemplateCommandOutput> | void {
     const command = new DeleteTemplateCommand(args);
@@ -1421,31 +1343,19 @@ export class SES extends SESClient {
   ): Promise<GetCustomVerificationEmailTemplateCommandOutput>;
   public getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: GetCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCustomVerificationEmailTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetCustomVerificationEmailTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
   ): Promise<GetCustomVerificationEmailTemplateCommandOutput> | void {
     const command = new GetCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1528,31 +1438,19 @@ export class SES extends SESClient {
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput>;
   public getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: GetIdentityMailFromDomainAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityMailFromDomainAttributesCommandOutput) => void
   ): void;
   public getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetIdentityMailFromDomainAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityMailFromDomainAttributesCommandOutput) => void
   ): void;
   public getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetIdentityMailFromDomainAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetIdentityMailFromDomainAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: GetIdentityMailFromDomainAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityMailFromDomainAttributesCommandOutput) => void
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> | void {
     const command = new GetIdentityMailFromDomainAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1580,31 +1478,19 @@ export class SES extends SESClient {
   ): Promise<GetIdentityNotificationAttributesCommandOutput>;
   public getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: GetIdentityNotificationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityNotificationAttributesCommandOutput) => void
   ): void;
   public getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetIdentityNotificationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityNotificationAttributesCommandOutput) => void
   ): void;
   public getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetIdentityNotificationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetIdentityNotificationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: GetIdentityNotificationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityNotificationAttributesCommandOutput) => void
   ): Promise<GetIdentityNotificationAttributesCommandOutput> | void {
     const command = new GetIdentityNotificationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1688,31 +1574,19 @@ export class SES extends SESClient {
   ): Promise<GetIdentityVerificationAttributesCommandOutput>;
   public getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: GetIdentityVerificationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityVerificationAttributesCommandOutput) => void
   ): void;
   public getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetIdentityVerificationAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: GetIdentityVerificationAttributesCommandOutput) => void
   ): void;
   public getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetIdentityVerificationAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetIdentityVerificationAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: GetIdentityVerificationAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityVerificationAttributesCommandOutput) => void
   ): Promise<GetIdentityVerificationAttributesCommandOutput> | void {
     const command = new GetIdentityVerificationAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1745,9 +1619,7 @@ export class SES extends SESClient {
   ): void;
   public getSendQuota(
     args: GetSendQuotaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSendQuotaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSendQuotaCommandOutput) => void),
     cb?: (err: any, data?: GetSendQuotaCommandOutput) => void
   ): Promise<GetSendQuotaCommandOutput> | void {
     const command = new GetSendQuotaCommand(args);
@@ -1820,9 +1692,7 @@ export class SES extends SESClient {
   ): void;
   public getTemplate(
     args: GetTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetTemplateCommandOutput) => void
   ): Promise<GetTemplateCommandOutput> | void {
     const command = new GetTemplateCommand(args);
@@ -1894,31 +1764,19 @@ export class SES extends SESClient {
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
   public listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
-    cb: (
-      err: any,
-      data?: ListCustomVerificationEmailTemplatesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
   ): void;
   public listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListCustomVerificationEmailTemplatesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
   ): void;
   public listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListCustomVerificationEmailTemplatesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListCustomVerificationEmailTemplatesCommandOutput
-    ) => void
+      | ((err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> | void {
     const command = new ListCustomVerificationEmailTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1952,9 +1810,7 @@ export class SES extends SESClient {
   ): void;
   public listIdentities(
     args: ListIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIdentitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentitiesCommandOutput) => void),
     cb?: (err: any, data?: ListIdentitiesCommandOutput) => void
   ): Promise<ListIdentitiesCommandOutput> | void {
     const command = new ListIdentitiesCommand(args);
@@ -2114,9 +1970,7 @@ export class SES extends SESClient {
   ): void;
   public listTemplates(
     args: ListTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
@@ -2176,31 +2030,19 @@ export class SES extends SESClient {
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput>;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
   public putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutConfigurationSetDeliveryOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutConfigurationSetDeliveryOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void),
+    cb?: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> | void {
     const command = new PutConfigurationSetDeliveryOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2327,9 +2169,7 @@ export class SES extends SESClient {
   ): void;
   public sendBounce(
     args: SendBounceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendBounceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendBounceCommandOutput) => void),
     cb?: (err: any, data?: SendBounceCommandOutput) => void
   ): Promise<SendBounceCommandOutput> | void {
     const command = new SendBounceCommand(args);
@@ -2526,9 +2366,7 @@ export class SES extends SESClient {
   ): void;
   public sendEmail(
     args: SendEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendEmailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEmailCommandOutput) => void),
     cb?: (err: any, data?: SendEmailCommandOutput) => void
   ): Promise<SendEmailCommandOutput> | void {
     const command = new SendEmailCommand(args);
@@ -2669,9 +2507,7 @@ export class SES extends SESClient {
   ): void;
   public sendRawEmail(
     args: SendRawEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendRawEmailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendRawEmailCommandOutput) => void),
     cb?: (err: any, data?: SendRawEmailCommandOutput) => void
   ): Promise<SendRawEmailCommandOutput> | void {
     const command = new SendRawEmailCommand(args);
@@ -2877,31 +2713,19 @@ export class SES extends SESClient {
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput>;
   public setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
-    cb: (
-      err: any,
-      data?: SetIdentityFeedbackForwardingEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: SetIdentityFeedbackForwardingEnabledCommandOutput) => void
   ): void;
   public setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetIdentityFeedbackForwardingEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: SetIdentityFeedbackForwardingEnabledCommandOutput) => void
   ): void;
   public setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetIdentityFeedbackForwardingEnabledCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetIdentityFeedbackForwardingEnabledCommandOutput
-    ) => void
+      | ((err: any, data?: SetIdentityFeedbackForwardingEnabledCommandOutput) => void),
+    cb?: (err: any, data?: SetIdentityFeedbackForwardingEnabledCommandOutput) => void
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> | void {
     const command = new SetIdentityFeedbackForwardingEnabledCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2929,31 +2753,19 @@ export class SES extends SESClient {
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput>;
   public setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
-    cb: (
-      err: any,
-      data?: SetIdentityHeadersInNotificationsEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: SetIdentityHeadersInNotificationsEnabledCommandOutput) => void
   ): void;
   public setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SetIdentityHeadersInNotificationsEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: SetIdentityHeadersInNotificationsEnabledCommandOutput) => void
   ): void;
   public setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SetIdentityHeadersInNotificationsEnabledCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SetIdentityHeadersInNotificationsEnabledCommandOutput
-    ) => void
+      | ((err: any, data?: SetIdentityHeadersInNotificationsEnabledCommandOutput) => void),
+    cb?: (err: any, data?: SetIdentityHeadersInNotificationsEnabledCommandOutput) => void
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> | void {
     const command = new SetIdentityHeadersInNotificationsEnabledCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3189,31 +3001,19 @@ export class SES extends SESClient {
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3240,37 +3040,21 @@ export class SES extends SESClient {
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput>;
   public updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput) => void
   ): void;
   public updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput) => void
   ): void;
   public updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput
-    ) => void
-  ): Promise<
-    UpdateConfigurationSetReputationMetricsEnabledCommandOutput
-  > | void {
-    const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(
-      args
-    );
+      | ((err: any, data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput) => void
+  ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> | void {
+    const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3296,31 +3080,19 @@ export class SES extends SESClient {
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput>;
   public updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetSendingEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetSendingEnabledCommandOutput) => void
   ): void;
   public updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetSendingEnabledCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetSendingEnabledCommandOutput) => void
   ): void;
   public updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetSendingEnabledCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetSendingEnabledCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetSendingEnabledCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetSendingEnabledCommandOutput) => void
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> | void {
     const command = new UpdateConfigurationSetSendingEnabledCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3347,31 +3119,19 @@ export class SES extends SESClient {
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput>;
   public updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
   public updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetTrackingOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetTrackingOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetTrackingOptionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetTrackingOptionsCommandOutput) => void
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> | void {
     const command = new UpdateConfigurationSetTrackingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3397,31 +3157,19 @@ export class SES extends SESClient {
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput>;
   public updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
   public updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateCustomVerificationEmailTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateCustomVerificationEmailTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> | void {
     const command = new UpdateCustomVerificationEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3494,9 +3242,7 @@ export class SES extends SESClient {
   ): void;
   public updateTemplate(
     args: UpdateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): Promise<UpdateTemplateCommandOutput> | void {
     const command = new UpdateTemplateCommand(args);
@@ -3567,9 +3313,7 @@ export class SES extends SESClient {
   ): void;
   public verifyDomainDkim(
     args: VerifyDomainDkimCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyDomainDkimCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyDomainDkimCommandOutput) => void),
     cb?: (err: any, data?: VerifyDomainDkimCommandOutput) => void
   ): Promise<VerifyDomainDkimCommandOutput> | void {
     const command = new VerifyDomainDkimCommand(args);

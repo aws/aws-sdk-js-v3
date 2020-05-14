@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterCommandInput = CreateClusterRequest;
-export type CreateClusterCommandOutput = CreateClusterResponse &
-  __MetadataBearer;
+export type CreateClusterCommandOutput = CreateClusterResponse & __MetadataBearer;
 
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
@@ -47,9 +46,7 @@ export class CreateClusterCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

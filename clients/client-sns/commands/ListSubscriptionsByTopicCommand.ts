@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  ListSubscriptionsByTopicInput,
-  ListSubscriptionsByTopicResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { ListSubscriptionsByTopicInput, ListSubscriptionsByTopicResponse } from "../models/index";
 import {
   deserializeAws_queryListSubscriptionsByTopicCommand,
   serializeAws_queryListSubscriptionsByTopicCommand
@@ -49,13 +42,8 @@ export class ListSubscriptionsByTopicCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSubscriptionsByTopicCommandInput,
-    ListSubscriptionsByTopicCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSubscriptionsByTopicCommandInput, ListSubscriptionsByTopicCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

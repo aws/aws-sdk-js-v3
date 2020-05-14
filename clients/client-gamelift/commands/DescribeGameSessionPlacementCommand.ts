@@ -49,13 +49,8 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGameSessionPlacementCommandInput,
-    DescribeGameSessionPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGameSessionPlacementCommandInput, DescribeGameSessionPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     input: DescribeGameSessionPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionPlacementCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

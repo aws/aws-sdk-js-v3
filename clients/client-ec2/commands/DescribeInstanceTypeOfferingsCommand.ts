@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult
@@ -53,9 +49,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     DescribeInstanceTypeOfferingsCommandInput,
     DescribeInstanceTypeOfferingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +75,7 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceTypeOfferingsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeInstanceTypeOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

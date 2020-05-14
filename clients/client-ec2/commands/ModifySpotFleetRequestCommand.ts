@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifySpotFleetRequestRequest,
-  ModifySpotFleetRequestResponse
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/index";
 import {
   deserializeAws_ec2ModifySpotFleetRequestCommand,
   serializeAws_ec2ModifySpotFleetRequestCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifySpotFleetRequestCommandInput = ModifySpotFleetRequestRequest;
-export type ModifySpotFleetRequestCommandOutput = ModifySpotFleetRequestResponse &
-  __MetadataBearer;
+export type ModifySpotFleetRequestCommandOutput = ModifySpotFleetRequestResponse & __MetadataBearer;
 
 export class ModifySpotFleetRequestCommand extends $Command<
   ModifySpotFleetRequestCommandInput,
@@ -49,13 +41,8 @@ export class ModifySpotFleetRequestCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifySpotFleetRequestCommandInput,
-    ModifySpotFleetRequestCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifySpotFleetRequestCommandInput, ModifySpotFleetRequestCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

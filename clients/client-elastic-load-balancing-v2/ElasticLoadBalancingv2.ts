@@ -268,9 +268,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -314,9 +312,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createListener(
     args: CreateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListenerCommandOutput) => void),
     cb?: (err: any, data?: CreateListenerCommandOutput) => void
   ): Promise<CreateListenerCommandOutput> | void {
     const command = new CreateListenerCommand(args);
@@ -407,9 +403,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
@@ -492,9 +486,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteListener(
     args: DeleteListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListenerCommandOutput) => void),
     cb?: (err: any, data?: DeleteListenerCommandOutput) => void
   ): Promise<DeleteListenerCommandOutput> | void {
     const command = new DeleteListenerCommand(args);
@@ -568,9 +560,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
@@ -800,10 +790,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
     args: DescribeLoadBalancerAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLoadBalancerAttributesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoadBalancerAttributesCommandOutput) => void
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> | void {
     const command = new DescribeLoadBalancerAttributesCommand(args);
@@ -874,9 +861,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeRules(
     args: DescribeRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRulesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRulesCommandOutput) => void
   ): Promise<DescribeRulesCommandOutput> | void {
     const command = new DescribeRulesCommand(args);
@@ -947,9 +932,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -1102,9 +1085,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyListener(
     args: ModifyListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyListenerCommandOutput) => void),
     cb?: (err: any, data?: ModifyListenerCommandOutput) => void
   ): Promise<ModifyListenerCommandOutput> | void {
     const command = new ModifyListenerCommand(args);
@@ -1180,9 +1161,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public modifyRule(
     args: ModifyRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyRuleCommandOutput) => void),
     cb?: (err: any, data?: ModifyRuleCommandOutput) => void
   ): Promise<ModifyRuleCommandOutput> | void {
     const command = new ModifyRuleCommand(args);
@@ -1300,9 +1279,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public registerTargets(
     args: RegisterTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTargetsCommandOutput) => void),
     cb?: (err: any, data?: RegisterTargetsCommandOutput) => void
   ): Promise<RegisterTargetsCommandOutput> | void {
     const command = new RegisterTargetsCommand(args);
@@ -1375,9 +1352,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
@@ -1411,9 +1386,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setIpAddressType(
     args: SetIpAddressTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetIpAddressTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetIpAddressTypeCommandOutput) => void),
     cb?: (err: any, data?: SetIpAddressTypeCommandOutput) => void
   ): Promise<SetIpAddressTypeCommandOutput> | void {
     const command = new SetIpAddressTypeCommand(args);
@@ -1524,9 +1497,7 @@ export class ElasticLoadBalancingv2 extends ElasticLoadBalancingv2Client {
   ): void;
   public setSubnets(
     args: SetSubnetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSubnetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSubnetsCommandOutput) => void),
     cb?: (err: any, data?: SetSubnetsCommandOutput) => void
   ): Promise<SetSubnetsCommandOutput> | void {
     const command = new SetSubnetsCommand(args);

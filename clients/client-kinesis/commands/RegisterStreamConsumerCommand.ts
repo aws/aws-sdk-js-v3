@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisClient";
-import {
-  RegisterStreamConsumerInput,
-  RegisterStreamConsumerOutput
-} from "../models/index";
+import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/index";
 import {
   deserializeAws_json1_1RegisterStreamConsumerCommand,
   serializeAws_json1_1RegisterStreamConsumerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterStreamConsumerCommandInput = RegisterStreamConsumerInput;
-export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput &
-  __MetadataBearer;
+export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput & __MetadataBearer;
 
 export class RegisterStreamConsumerCommand extends $Command<
   RegisterStreamConsumerCommandInput,
@@ -49,13 +45,8 @@ export class RegisterStreamConsumerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterStreamConsumerCommandInput,
-    RegisterStreamConsumerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

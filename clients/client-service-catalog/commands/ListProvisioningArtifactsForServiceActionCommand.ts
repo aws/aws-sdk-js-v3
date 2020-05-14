@@ -39,9 +39,7 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListProvisioningArtifactsForServiceActionCommandInput
-  ) {
+  constructor(readonly input: ListProvisioningArtifactsForServiceActionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     ListProvisioningArtifactsForServiceActionCommandInput,
     ListProvisioningArtifactsForServiceActionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
     input: ListProvisioningArtifactsForServiceActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> {
-    return deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

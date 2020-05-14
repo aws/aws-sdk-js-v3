@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  GetOnPremisesInstanceInput,
-  GetOnPremisesInstanceOutput
-} from "../models/index";
+import { GetOnPremisesInstanceInput, GetOnPremisesInstanceOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetOnPremisesInstanceCommand,
   serializeAws_json1_1GetOnPremisesInstanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetOnPremisesInstanceCommandInput = GetOnPremisesInstanceInput;
-export type GetOnPremisesInstanceCommandOutput = GetOnPremisesInstanceOutput &
-  __MetadataBearer;
+export type GetOnPremisesInstanceCommandOutput = GetOnPremisesInstanceOutput & __MetadataBearer;
 
 export class GetOnPremisesInstanceCommand extends $Command<
   GetOnPremisesInstanceCommandInput,
@@ -49,13 +45,8 @@ export class GetOnPremisesInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOnPremisesInstanceCommandInput,
-    GetOnPremisesInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOnPremisesInstanceCommandInput, GetOnPremisesInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

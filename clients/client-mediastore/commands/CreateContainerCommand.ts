@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateContainerCommandInput = CreateContainerInput;
-export type CreateContainerCommandOutput = CreateContainerOutput &
-  __MetadataBearer;
+export type CreateContainerCommandOutput = CreateContainerOutput & __MetadataBearer;
 
 export class CreateContainerCommand extends $Command<
   CreateContainerCommandInput,
@@ -47,9 +46,7 @@ export class CreateContainerCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateContainerCommandInput, CreateContainerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

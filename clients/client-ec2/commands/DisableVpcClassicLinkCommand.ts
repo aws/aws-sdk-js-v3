@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DisableVpcClassicLinkRequest,
-  DisableVpcClassicLinkResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult } from "../models/index";
 import {
   deserializeAws_ec2DisableVpcClassicLinkCommand,
   serializeAws_ec2DisableVpcClassicLinkCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableVpcClassicLinkCommandInput = DisableVpcClassicLinkRequest;
-export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult &
-  __MetadataBearer;
+export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult & __MetadataBearer;
 
 export class DisableVpcClassicLinkCommand extends $Command<
   DisableVpcClassicLinkCommandInput,
@@ -49,13 +41,8 @@ export class DisableVpcClassicLinkCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableVpcClassicLinkCommandInput,
-    DisableVpcClassicLinkCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableVpcClassicLinkCommandInput, DisableVpcClassicLinkCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

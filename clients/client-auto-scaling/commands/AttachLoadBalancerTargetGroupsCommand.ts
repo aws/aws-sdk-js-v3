@@ -53,9 +53,7 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     AttachLoadBalancerTargetGroupsCommandInput,
     AttachLoadBalancerTargetGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     input: AttachLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAttachLoadBalancerTargetGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAttachLoadBalancerTargetGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> {
-    return deserializeAws_queryAttachLoadBalancerTargetGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAttachLoadBalancerTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

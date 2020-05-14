@@ -135,9 +135,7 @@ export class MigrationHubConfig extends MigrationHubConfigClient {
   ): void;
   public getHomeRegion(
     args: GetHomeRegionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHomeRegionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHomeRegionCommandOutput) => void),
     cb?: (err: any, data?: GetHomeRegionCommandOutput) => void
   ): Promise<GetHomeRegionCommandOutput> | void {
     const command = new GetHomeRegionCommand(args);

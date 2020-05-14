@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  CountClosedWorkflowExecutionsInput,
-  WorkflowExecutionCount
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/index";
 import {
   deserializeAws_json1_0CountClosedWorkflowExecutionsCommand,
   serializeAws_json1_0CountClosedWorkflowExecutionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CountClosedWorkflowExecutionsCommandInput = CountClosedWorkflowExecutionsInput;
-export type CountClosedWorkflowExecutionsCommandOutput = WorkflowExecutionCount &
-  __MetadataBearer;
+export type CountClosedWorkflowExecutionsCommandOutput = WorkflowExecutionCount & __MetadataBearer;
 
 export class CountClosedWorkflowExecutionsCommand extends $Command<
   CountClosedWorkflowExecutionsCommandInput,
@@ -53,9 +45,7 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     CountClosedWorkflowExecutionsCommandInput,
     CountClosedWorkflowExecutionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +64,14 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     input: CountClosedWorkflowExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0CountClosedWorkflowExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

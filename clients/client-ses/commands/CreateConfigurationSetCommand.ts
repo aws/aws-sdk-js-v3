@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_queryCreateConfigurationSetCommand,
   serializeAws_queryCreateConfigurationSetCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
-export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse &
-  __MetadataBearer;
+export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
 
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,
@@ -49,13 +41,8 @@ export class CreateConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationSetCommandInput,
-    CreateConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationSetCommandInput, CreateConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -89,31 +89,19 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -171,31 +159,19 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -218,31 +194,19 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
   public getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConfigurationSetEventDestinationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
+      | ((err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void),
+    cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -309,9 +273,7 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): void;
   public sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendVoiceMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendVoiceMessageCommandOutput) => void),
     cb?: (err: any, data?: SendVoiceMessageCommandOutput) => void
   ): Promise<SendVoiceMessageCommandOutput> | void {
     const command = new SendVoiceMessageCommand(args);
@@ -335,31 +297,19 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
   public updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {

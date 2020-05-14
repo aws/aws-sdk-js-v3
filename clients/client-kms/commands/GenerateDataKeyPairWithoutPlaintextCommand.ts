@@ -1,8 +1,4 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyPairWithoutPlaintextRequest,
   GenerateDataKeyPairWithoutPlaintextResponse
@@ -53,9 +49,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     GenerateDataKeyPairWithoutPlaintextCommandInput,
     GenerateDataKeyPairWithoutPlaintextCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     input: GenerateDataKeyPairWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

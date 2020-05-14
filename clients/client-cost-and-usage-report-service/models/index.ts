@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AWSRegion {
@@ -108,9 +105,7 @@ export namespace DescribeReportDefinitionsResponse {
 /**
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
-export interface DuplicateReportNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateReportNameException extends __SmithyException, $MetadataBearer {
   name: "DuplicateReportNameException";
   $fault: "client";
   /**
@@ -127,9 +122,7 @@ export namespace DuplicateReportNameException {
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -139,8 +132,7 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 export interface ModifyReportDefinitionRequest {
@@ -272,8 +264,7 @@ export interface ReportDefinition {
 }
 
 export namespace ReportDefinition {
-  export const isa = (o: any): o is ReportDefinition =>
-    __isa(o, "ReportDefinition");
+  export const isa = (o: any): o is ReportDefinition => __isa(o, "ReportDefinition");
 }
 
 export enum ReportFormat {
@@ -284,9 +275,7 @@ export enum ReportFormat {
 /**
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
-export interface ReportLimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReportLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "ReportLimitReachedException";
   $fault: "client";
   /**
@@ -317,9 +306,7 @@ export enum TimeUnit {
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -329,6 +316,5 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -18,16 +15,13 @@ export interface AccessDeniedFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AccessDeniedFault {
-  export const isa = (o: any): o is AccessDeniedFault =>
-    __isa(o, "AccessDeniedFault");
+  export const isa = (o: any): o is AccessDeniedFault => __isa(o, "AccessDeniedFault");
 }
 
 /**
  * <p>There are not enough resources allocated to the database migration.</p>
  */
-export interface InsufficientResourceCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientResourceCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientResourceCapacityFault";
   $fault: "client";
   /**
@@ -44,25 +38,20 @@ export namespace InsufficientResourceCapacityFault {
 /**
  * <p>The certificate was not valid.</p>
  */
-export interface InvalidCertificateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCertificateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidCertificateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidCertificateFault {
-  export const isa = (o: any): o is InvalidCertificateFault =>
-    __isa(o, "InvalidCertificateFault");
+  export const isa = (o: any): o is InvalidCertificateFault => __isa(o, "InvalidCertificateFault");
 }
 
 /**
  * <p>The resource is in a state that prevents it from being used for database migration.</p>
  */
-export interface InvalidResourceStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceStateFault";
   $fault: "client";
   /**
@@ -95,17 +84,14 @@ export namespace InvalidSubnet {
 /**
  * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  */
-export interface KMSAccessDeniedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedFault extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSAccessDeniedFault {
-  export const isa = (o: any): o is KMSAccessDeniedFault =>
-    __isa(o, "KMSAccessDeniedFault");
+  export const isa = (o: any): o is KMSAccessDeniedFault => __isa(o, "KMSAccessDeniedFault");
 }
 
 /**
@@ -118,32 +104,26 @@ export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSDisabledFault {
-  export const isa = (o: any): o is KMSDisabledFault =>
-    __isa(o, "KMSDisabledFault");
+  export const isa = (o: any): o is KMSDisabledFault => __isa(o, "KMSDisabledFault");
 }
 
 /**
  * <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
  */
-export interface KMSInvalidStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateFault extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSInvalidStateFault {
-  export const isa = (o: any): o is KMSInvalidStateFault =>
-    __isa(o, "KMSInvalidStateFault");
+  export const isa = (o: any): o is KMSInvalidStateFault => __isa(o, "KMSInvalidStateFault");
 }
 
 /**
  * <p>AWS DMS cannot access the AWS KMS key.</p>
  */
-export interface KMSKeyNotAccessibleFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   /**
@@ -167,8 +147,7 @@ export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSNotFoundFault {
-  export const isa = (o: any): o is KMSNotFoundFault =>
-    __isa(o, "KMSNotFoundFault");
+  export const isa = (o: any): o is KMSNotFoundFault => __isa(o, "KMSNotFoundFault");
 }
 
 /**
@@ -181,8 +160,7 @@ export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSThrottlingFault {
-  export const isa = (o: any): o is KMSThrottlingFault =>
-    __isa(o, "KMSThrottlingFault");
+  export const isa = (o: any): o is KMSThrottlingFault => __isa(o, "KMSThrottlingFault");
 }
 
 /**
@@ -200,18 +178,14 @@ export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
 }
 
 export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-  export const isa = (
-    o: any
-  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs =>
+  export const isa = (o: any): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs =>
     __isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
 }
 
 /**
  * <p>The resource you are attempting to create already exists.</p>
  */
-export interface ResourceAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsFault";
   $fault: "client";
   /**
@@ -230,9 +204,7 @@ export namespace ResourceAlreadyExistsFault {
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundFault";
   $fault: "client";
   /**
@@ -242,16 +214,13 @@ export interface ResourceNotFoundFault
 }
 
 export namespace ResourceNotFoundFault {
-  export const isa = (o: any): o is ResourceNotFoundFault =>
-    __isa(o, "ResourceNotFoundFault");
+  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
  * <p>The quota for this resource quota has been exceeded.</p>
  */
-export interface ResourceQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ResourceQuotaExceededFault";
   $fault: "client";
   /**
@@ -268,9 +237,7 @@ export namespace ResourceQuotaExceededFault {
 /**
  * <p>The SNS topic is invalid.</p>
  */
-export interface SNSInvalidTopicFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
   name: "SNSInvalidTopicFault";
   $fault: "client";
   /**
@@ -280,16 +247,13 @@ export interface SNSInvalidTopicFault
 }
 
 export namespace SNSInvalidTopicFault {
-  export const isa = (o: any): o is SNSInvalidTopicFault =>
-    __isa(o, "SNSInvalidTopicFault");
+  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
  * <p>You are not authorized for the SNS subscription.</p>
  */
-export interface SNSNoAuthorizationFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
   name: "SNSNoAuthorizationFault";
   $fault: "client";
   /**
@@ -299,16 +263,13 @@ export interface SNSNoAuthorizationFault
 }
 
 export namespace SNSNoAuthorizationFault {
-  export const isa = (o: any): o is SNSNoAuthorizationFault =>
-    __isa(o, "SNSNoAuthorizationFault");
+  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
  * <p>The storage quota has been exceeded.</p>
  */
-export interface StorageQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "StorageQuotaExceededFault";
   $fault: "client";
   /**
@@ -335,16 +296,13 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetAlreadyInUse {
-  export const isa = (o: any): o is SubnetAlreadyInUse =>
-    __isa(o, "SubnetAlreadyInUse");
+  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
  * <p>An upgrade dependency is preventing the database migration.</p>
  */
-export interface UpgradeDependencyFailureFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UpgradeDependencyFailureFault extends __SmithyException, $MetadataBearer {
   name: "UpgradeDependencyFailureFault";
   $fault: "client";
   /**
@@ -502,8 +460,7 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -796,8 +753,7 @@ export interface CreateEndpointMessage {
 }
 
 export namespace CreateEndpointMessage {
-  export const isa = (o: any): o is CreateEndpointMessage =>
-    __isa(o, "CreateEndpointMessage");
+  export const isa = (o: any): o is CreateEndpointMessage => __isa(o, "CreateEndpointMessage");
 }
 
 /**
@@ -812,8 +768,7 @@ export interface CreateEndpointResponse {
 }
 
 export namespace CreateEndpointResponse {
-  export const isa = (o: any): o is CreateEndpointResponse =>
-    __isa(o, "CreateEndpointResponse");
+  export const isa = (o: any): o is CreateEndpointResponse => __isa(o, "CreateEndpointResponse");
 }
 
 /**
@@ -1255,8 +1210,7 @@ export interface DeleteConnectionMessage {
 }
 
 export namespace DeleteConnectionMessage {
-  export const isa = (o: any): o is DeleteConnectionMessage =>
-    __isa(o, "DeleteConnectionMessage");
+  export const isa = (o: any): o is DeleteConnectionMessage => __isa(o, "DeleteConnectionMessage");
 }
 
 /**
@@ -1287,8 +1241,7 @@ export interface DeleteEndpointMessage {
 }
 
 export namespace DeleteEndpointMessage {
-  export const isa = (o: any): o is DeleteEndpointMessage =>
-    __isa(o, "DeleteEndpointMessage");
+  export const isa = (o: any): o is DeleteEndpointMessage => __isa(o, "DeleteEndpointMessage");
 }
 
 /**
@@ -1303,8 +1256,7 @@ export interface DeleteEndpointResponse {
 }
 
 export namespace DeleteEndpointResponse {
-  export const isa = (o: any): o is DeleteEndpointResponse =>
-    __isa(o, "DeleteEndpointResponse");
+  export const isa = (o: any): o is DeleteEndpointResponse => __isa(o, "DeleteEndpointResponse");
 }
 
 /**
@@ -1847,8 +1799,7 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
@@ -1870,8 +1821,7 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
-  export const isa = (o: any): o is DescribeEventsResponse =>
-    __isa(o, "DescribeEventsResponse");
+  export const isa = (o: any): o is DescribeEventsResponse => __isa(o, "DescribeEventsResponse");
 }
 
 /**
@@ -1897,9 +1847,7 @@ export interface DescribeOrderableReplicationInstancesMessage {
 }
 
 export namespace DescribeOrderableReplicationInstancesMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeOrderableReplicationInstancesMessage =>
+  export const isa = (o: any): o is DescribeOrderableReplicationInstancesMessage =>
     __isa(o, "DescribeOrderableReplicationInstancesMessage");
 }
 
@@ -1922,9 +1870,7 @@ export interface DescribeOrderableReplicationInstancesResponse {
 }
 
 export namespace DescribeOrderableReplicationInstancesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeOrderableReplicationInstancesResponse =>
+  export const isa = (o: any): o is DescribeOrderableReplicationInstancesResponse =>
     __isa(o, "DescribeOrderableReplicationInstancesResponse");
 }
 
@@ -2045,9 +1991,7 @@ export interface DescribeReplicationInstanceTaskLogsMessage {
 }
 
 export namespace DescribeReplicationInstanceTaskLogsMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeReplicationInstanceTaskLogsMessage =>
+  export const isa = (o: any): o is DescribeReplicationInstanceTaskLogsMessage =>
     __isa(o, "DescribeReplicationInstanceTaskLogsMessage");
 }
 
@@ -2073,9 +2017,7 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
 }
 
 export namespace DescribeReplicationInstanceTaskLogsResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeReplicationInstanceTaskLogsResponse =>
+  export const isa = (o: any): o is DescribeReplicationInstanceTaskLogsResponse =>
     __isa(o, "DescribeReplicationInstanceTaskLogsResponse");
 }
 
@@ -2221,9 +2163,7 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
 }
 
 export namespace DescribeReplicationTaskAssessmentResultsMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeReplicationTaskAssessmentResultsMessage =>
+  export const isa = (o: any): o is DescribeReplicationTaskAssessmentResultsMessage =>
     __isa(o, "DescribeReplicationTaskAssessmentResultsMessage");
 }
 
@@ -2251,9 +2191,7 @@ export interface DescribeReplicationTaskAssessmentResultsResponse {
 }
 
 export namespace DescribeReplicationTaskAssessmentResultsResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeReplicationTaskAssessmentResultsResponse =>
+  export const isa = (o: any): o is DescribeReplicationTaskAssessmentResultsResponse =>
     __isa(o, "DescribeReplicationTaskAssessmentResultsResponse");
 }
 
@@ -2349,8 +2287,7 @@ export interface DescribeSchemasMessage {
 }
 
 export namespace DescribeSchemasMessage {
-  export const isa = (o: any): o is DescribeSchemasMessage =>
-    __isa(o, "DescribeSchemasMessage");
+  export const isa = (o: any): o is DescribeSchemasMessage => __isa(o, "DescribeSchemasMessage");
 }
 
 /**
@@ -2372,8 +2309,7 @@ export interface DescribeSchemasResponse {
 }
 
 export namespace DescribeSchemasResponse {
-  export const isa = (o: any): o is DescribeSchemasResponse =>
-    __isa(o, "DescribeSchemasResponse");
+  export const isa = (o: any): o is DescribeSchemasResponse => __isa(o, "DescribeSchemasResponse");
 }
 
 /**
@@ -2468,8 +2404,7 @@ export interface DmsTransferSettings {
 }
 
 export namespace DmsTransferSettings {
-  export const isa = (o: any): o is DmsTransferSettings =>
-    __isa(o, "DmsTransferSettings");
+  export const isa = (o: any): o is DmsTransferSettings => __isa(o, "DmsTransferSettings");
 }
 
 /**
@@ -2484,8 +2419,7 @@ export interface DynamoDbSettings {
 }
 
 export namespace DynamoDbSettings {
-  export const isa = (o: any): o is DynamoDbSettings =>
-    __isa(o, "DynamoDbSettings");
+  export const isa = (o: any): o is DynamoDbSettings => __isa(o, "DynamoDbSettings");
 }
 
 /**
@@ -2517,8 +2451,7 @@ export interface ElasticsearchSettings {
 }
 
 export namespace ElasticsearchSettings {
-  export const isa = (o: any): o is ElasticsearchSettings =>
-    __isa(o, "ElasticsearchSettings");
+  export const isa = (o: any): o is ElasticsearchSettings => __isa(o, "ElasticsearchSettings");
 }
 
 export enum EncodingTypeValue {
@@ -2757,8 +2690,7 @@ export interface EventCategoryGroup {
 }
 
 export namespace EventCategoryGroup {
-  export const isa = (o: any): o is EventCategoryGroup =>
-    __isa(o, "EventCategoryGroup");
+  export const isa = (o: any): o is EventCategoryGroup => __isa(o, "EventCategoryGroup");
 }
 
 /**
@@ -2822,8 +2754,7 @@ export interface EventSubscription {
 }
 
 export namespace EventSubscription {
-  export const isa = (o: any): o is EventSubscription =>
-    __isa(o, "EventSubscription");
+  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -2913,8 +2844,7 @@ export interface KinesisSettings {
 }
 
 export namespace KinesisSettings {
-  export const isa = (o: any): o is KinesisSettings =>
-    __isa(o, "KinesisSettings");
+  export const isa = (o: any): o is KinesisSettings => __isa(o, "KinesisSettings");
 }
 
 /**
@@ -3115,8 +3045,7 @@ export interface ModifyEndpointMessage {
 }
 
 export namespace ModifyEndpointMessage {
-  export const isa = (o: any): o is ModifyEndpointMessage =>
-    __isa(o, "ModifyEndpointMessage");
+  export const isa = (o: any): o is ModifyEndpointMessage => __isa(o, "ModifyEndpointMessage");
 }
 
 /**
@@ -3131,8 +3060,7 @@ export interface ModifyEndpointResponse {
 }
 
 export namespace ModifyEndpointResponse {
-  export const isa = (o: any): o is ModifyEndpointResponse =>
-    __isa(o, "ModifyEndpointResponse");
+  export const isa = (o: any): o is ModifyEndpointResponse => __isa(o, "ModifyEndpointResponse");
 }
 
 /**
@@ -3530,8 +3458,7 @@ export interface MongoDbSettings {
 }
 
 export namespace MongoDbSettings {
-  export const isa = (o: any): o is MongoDbSettings =>
-    __isa(o, "MongoDbSettings");
+  export const isa = (o: any): o is MongoDbSettings => __isa(o, "MongoDbSettings");
 }
 
 export enum NestingLevelValue {
@@ -3874,8 +3801,7 @@ export interface RedshiftSettings {
 }
 
 export namespace RedshiftSettings {
-  export const isa = (o: any): o is RedshiftSettings =>
-    __isa(o, "RedshiftSettings");
+  export const isa = (o: any): o is RedshiftSettings => __isa(o, "RedshiftSettings");
 }
 
 /**
@@ -3895,8 +3821,7 @@ export interface RefreshSchemasMessage {
 }
 
 export namespace RefreshSchemasMessage {
-  export const isa = (o: any): o is RefreshSchemasMessage =>
-    __isa(o, "RefreshSchemasMessage");
+  export const isa = (o: any): o is RefreshSchemasMessage => __isa(o, "RefreshSchemasMessage");
 }
 
 /**
@@ -3911,8 +3836,7 @@ export interface RefreshSchemasResponse {
 }
 
 export namespace RefreshSchemasResponse {
-  export const isa = (o: any): o is RefreshSchemasResponse =>
-    __isa(o, "RefreshSchemasResponse");
+  export const isa = (o: any): o is RefreshSchemasResponse => __isa(o, "RefreshSchemasResponse");
 }
 
 /**
@@ -3947,8 +3871,7 @@ export interface RefreshSchemasStatus {
 }
 
 export namespace RefreshSchemasStatus {
-  export const isa = (o: any): o is RefreshSchemasStatus =>
-    __isa(o, "RefreshSchemasStatus");
+  export const isa = (o: any): o is RefreshSchemasStatus => __isa(o, "RefreshSchemasStatus");
 }
 
 export enum RefreshSchemasStatusTypeValue {
@@ -3989,8 +3912,7 @@ export interface ReloadTablesMessage {
 }
 
 export namespace ReloadTablesMessage {
-  export const isa = (o: any): o is ReloadTablesMessage =>
-    __isa(o, "ReloadTablesMessage");
+  export const isa = (o: any): o is ReloadTablesMessage => __isa(o, "ReloadTablesMessage");
 }
 
 export interface ReloadTablesResponse {
@@ -4002,8 +3924,7 @@ export interface ReloadTablesResponse {
 }
 
 export namespace ReloadTablesResponse {
-  export const isa = (o: any): o is ReloadTablesResponse =>
-    __isa(o, "ReloadTablesResponse");
+  export const isa = (o: any): o is ReloadTablesResponse => __isa(o, "ReloadTablesResponse");
 }
 
 /**
@@ -4198,8 +4119,7 @@ export interface ReplicationInstance {
 }
 
 export namespace ReplicationInstance {
-  export const isa = (o: any): o is ReplicationInstance =>
-    __isa(o, "ReplicationInstance");
+  export const isa = (o: any): o is ReplicationInstance => __isa(o, "ReplicationInstance");
 }
 
 /**
@@ -4297,8 +4217,7 @@ export interface ReplicationSubnetGroup {
 }
 
 export namespace ReplicationSubnetGroup {
-  export const isa = (o: any): o is ReplicationSubnetGroup =>
-    __isa(o, "ReplicationSubnetGroup");
+  export const isa = (o: any): o is ReplicationSubnetGroup => __isa(o, "ReplicationSubnetGroup");
 }
 
 /**
@@ -4418,8 +4337,7 @@ export interface ReplicationTask {
 }
 
 export namespace ReplicationTask {
-  export const isa = (o: any): o is ReplicationTask =>
-    __isa(o, "ReplicationTask");
+  export const isa = (o: any): o is ReplicationTask => __isa(o, "ReplicationTask");
 }
 
 /**
@@ -4532,8 +4450,7 @@ export interface ReplicationTaskStats {
 }
 
 export namespace ReplicationTaskStats {
-  export const isa = (o: any): o is ReplicationTaskStats =>
-    __isa(o, "ReplicationTaskStats");
+  export const isa = (o: any): o is ReplicationTaskStats => __isa(o, "ReplicationTaskStats");
 }
 
 /**
@@ -5070,8 +4987,7 @@ export interface SupportedEndpointType {
 }
 
 export namespace SupportedEndpointType {
-  export const isa = (o: any): o is SupportedEndpointType =>
-    __isa(o, "SupportedEndpointType");
+  export const isa = (o: any): o is SupportedEndpointType => __isa(o, "SupportedEndpointType");
 }
 
 /**
@@ -5197,8 +5113,7 @@ export interface TableStatistics {
 }
 
 export namespace TableStatistics {
-  export const isa = (o: any): o is TableStatistics =>
-    __isa(o, "TableStatistics");
+  export const isa = (o: any): o is TableStatistics => __isa(o, "TableStatistics");
 }
 
 /**
@@ -5264,8 +5179,7 @@ export interface TestConnectionMessage {
 }
 
 export namespace TestConnectionMessage {
-  export const isa = (o: any): o is TestConnectionMessage =>
-    __isa(o, "TestConnectionMessage");
+  export const isa = (o: any): o is TestConnectionMessage => __isa(o, "TestConnectionMessage");
 }
 
 /**
@@ -5280,8 +5194,7 @@ export interface TestConnectionResponse {
 }
 
 export namespace TestConnectionResponse {
-  export const isa = (o: any): o is TestConnectionResponse =>
-    __isa(o, "TestConnectionResponse");
+  export const isa = (o: any): o is TestConnectionResponse => __isa(o, "TestConnectionResponse");
 }
 
 /**

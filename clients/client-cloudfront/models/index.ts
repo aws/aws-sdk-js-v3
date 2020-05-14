@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -38,8 +35,7 @@ export interface ActiveTrustedSigners {
 }
 
 export namespace ActiveTrustedSigners {
-  export const isa = (o: any): o is ActiveTrustedSigners =>
-    __isa(o, "ActiveTrustedSigners");
+  export const isa = (o: any): o is ActiveTrustedSigners => __isa(o, "ActiveTrustedSigners");
 }
 
 /**
@@ -85,8 +81,7 @@ export interface AliasICPRecordal {
 }
 
 export namespace AliasICPRecordal {
-  export const isa = (o: any): o is AliasICPRecordal =>
-    __isa(o, "AliasICPRecordal");
+  export const isa = (o: any): o is AliasICPRecordal => __isa(o, "AliasICPRecordal");
 }
 
 /**
@@ -169,8 +164,7 @@ export interface AllowedMethods {
 }
 
 export namespace AllowedMethods {
-  export const isa = (o: any): o is AllowedMethods =>
-    __isa(o, "AllowedMethods");
+  export const isa = (o: any): o is AllowedMethods => __isa(o, "AllowedMethods");
 }
 
 /**
@@ -389,8 +383,7 @@ export interface CacheBehaviors {
 }
 
 export namespace CacheBehaviors {
-  export const isa = (o: any): o is CacheBehaviors =>
-    __isa(o, "CacheBehaviors");
+  export const isa = (o: any): o is CacheBehaviors => __isa(o, "CacheBehaviors");
 }
 
 /**
@@ -604,8 +597,7 @@ export interface ContentTypeProfile {
 }
 
 export namespace ContentTypeProfile {
-  export const isa = (o: any): o is ContentTypeProfile =>
-    __isa(o, "ContentTypeProfile");
+  export const isa = (o: any): o is ContentTypeProfile => __isa(o, "ContentTypeProfile");
 }
 
 /**
@@ -649,8 +641,7 @@ export interface ContentTypeProfiles {
 }
 
 export namespace ContentTypeProfiles {
-  export const isa = (o: any): o is ContentTypeProfiles =>
-    __isa(o, "ContentTypeProfiles");
+  export const isa = (o: any): o is ContentTypeProfiles => __isa(o, "ContentTypeProfiles");
 }
 
 /**
@@ -711,8 +702,7 @@ export interface CookiePreference {
 }
 
 export namespace CookiePreference {
-  export const isa = (o: any): o is CookiePreference =>
-    __isa(o, "CookiePreference");
+  export const isa = (o: any): o is CookiePreference => __isa(o, "CookiePreference");
 }
 
 /**
@@ -727,15 +717,11 @@ export interface CreateCloudFrontOriginAccessIdentityRequest {
   /**
    * <p>The current configuration information for the identity.</p>
    */
-  CloudFrontOriginAccessIdentityConfig:
-    | CloudFrontOriginAccessIdentityConfig
-    | undefined;
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
 }
 
 export namespace CreateCloudFrontOriginAccessIdentityRequest {
-  export const isa = (
-    o: any
-  ): o is CreateCloudFrontOriginAccessIdentityRequest =>
+  export const isa = (o: any): o is CreateCloudFrontOriginAccessIdentityRequest =>
     __isa(o, "CreateCloudFrontOriginAccessIdentityRequest");
 }
 
@@ -762,9 +748,7 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
 }
 
 export namespace CreateCloudFrontOriginAccessIdentityResult {
-  export const isa = (
-    o: any
-  ): o is CreateCloudFrontOriginAccessIdentityResult =>
+  export const isa = (o: any): o is CreateCloudFrontOriginAccessIdentityResult =>
     __isa(o, "CreateCloudFrontOriginAccessIdentityResult");
 }
 
@@ -897,9 +881,7 @@ export interface CreateFieldLevelEncryptionProfileRequest {
   /**
    * <p>The request to create a field-level encryption profile.</p>
    */
-  FieldLevelEncryptionProfileConfig:
-    | FieldLevelEncryptionProfileConfig
-    | undefined;
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
 export namespace CreateFieldLevelEncryptionProfileRequest {
@@ -983,8 +965,7 @@ export interface CreatePublicKeyRequest {
 }
 
 export namespace CreatePublicKeyRequest {
-  export const isa = (o: any): o is CreatePublicKeyRequest =>
-    __isa(o, "CreatePublicKeyRequest");
+  export const isa = (o: any): o is CreatePublicKeyRequest => __isa(o, "CreatePublicKeyRequest");
 }
 
 export interface CreatePublicKeyResult {
@@ -1007,8 +988,7 @@ export interface CreatePublicKeyResult {
 }
 
 export namespace CreatePublicKeyResult {
-  export const isa = (o: any): o is CreatePublicKeyResult =>
-    __isa(o, "CreatePublicKeyResult");
+  export const isa = (o: any): o is CreatePublicKeyResult => __isa(o, "CreatePublicKeyResult");
 }
 
 /**
@@ -1063,15 +1043,11 @@ export interface CreateStreamingDistributionWithTagsRequest {
   /**
    * <p> The streaming distribution's configuration information. </p>
    */
-  StreamingDistributionConfigWithTags:
-    | StreamingDistributionConfigWithTags
-    | undefined;
+  StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags | undefined;
 }
 
 export namespace CreateStreamingDistributionWithTagsRequest {
-  export const isa = (
-    o: any
-  ): o is CreateStreamingDistributionWithTagsRequest =>
+  export const isa = (o: any): o is CreateStreamingDistributionWithTagsRequest =>
     __isa(o, "CreateStreamingDistributionWithTagsRequest");
 }
 
@@ -1189,8 +1165,7 @@ export interface CustomErrorResponse {
 }
 
 export namespace CustomErrorResponse {
-  export const isa = (o: any): o is CustomErrorResponse =>
-    __isa(o, "CustomErrorResponse");
+  export const isa = (o: any): o is CustomErrorResponse => __isa(o, "CustomErrorResponse");
 }
 
 /**
@@ -1225,8 +1200,7 @@ export interface CustomErrorResponses {
 }
 
 export namespace CustomErrorResponses {
-  export const isa = (o: any): o is CustomErrorResponses =>
-    __isa(o, "CustomErrorResponses");
+  export const isa = (o: any): o is CustomErrorResponses => __isa(o, "CustomErrorResponses");
 }
 
 /**
@@ -1295,8 +1269,7 @@ export interface CustomOriginConfig {
 }
 
 export namespace CustomOriginConfig {
-  export const isa = (o: any): o is CustomOriginConfig =>
-    __isa(o, "CustomOriginConfig");
+  export const isa = (o: any): o is CustomOriginConfig => __isa(o, "CustomOriginConfig");
 }
 
 /**
@@ -1459,8 +1432,7 @@ export interface DefaultCacheBehavior {
 }
 
 export namespace DefaultCacheBehavior {
-  export const isa = (o: any): o is DefaultCacheBehavior =>
-    __isa(o, "DefaultCacheBehavior");
+  export const isa = (o: any): o is DefaultCacheBehavior => __isa(o, "DefaultCacheBehavior");
 }
 
 /**
@@ -1481,9 +1453,7 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
 }
 
 export namespace DeleteCloudFrontOriginAccessIdentityRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteCloudFrontOriginAccessIdentityRequest =>
+  export const isa = (o: any): o is DeleteCloudFrontOriginAccessIdentityRequest =>
     __isa(o, "DeleteCloudFrontOriginAccessIdentityRequest");
 }
 
@@ -1608,8 +1578,7 @@ export interface DeletePublicKeyRequest {
 }
 
 export namespace DeletePublicKeyRequest {
-  export const isa = (o: any): o is DeletePublicKeyRequest =>
-    __isa(o, "DeletePublicKeyRequest");
+  export const isa = (o: any): o is DeletePublicKeyRequest => __isa(o, "DeletePublicKeyRequest");
 }
 
 /**
@@ -1908,8 +1877,7 @@ export interface DistributionConfig {
 }
 
 export namespace DistributionConfig {
-  export const isa = (o: any): o is DistributionConfig =>
-    __isa(o, "DistributionConfig");
+  export const isa = (o: any): o is DistributionConfig => __isa(o, "DistributionConfig");
 }
 
 /**
@@ -1976,8 +1944,7 @@ export interface DistributionList {
 }
 
 export namespace DistributionList {
-  export const isa = (o: any): o is DistributionList =>
-    __isa(o, "DistributionList");
+  export const isa = (o: any): o is DistributionList => __isa(o, "DistributionList");
 }
 
 /**
@@ -2109,8 +2076,7 @@ export interface DistributionSummary {
 }
 
 export namespace DistributionSummary {
-  export const isa = (o: any): o is DistributionSummary =>
-    __isa(o, "DistributionSummary");
+  export const isa = (o: any): o is DistributionSummary => __isa(o, "DistributionSummary");
 }
 
 /**
@@ -2130,8 +2096,7 @@ export interface EncryptionEntities {
 }
 
 export namespace EncryptionEntities {
-  export const isa = (o: any): o is EncryptionEntities =>
-    __isa(o, "EncryptionEntities");
+  export const isa = (o: any): o is EncryptionEntities => __isa(o, "EncryptionEntities");
 }
 
 /**
@@ -2160,15 +2125,10 @@ export interface EncryptionEntity {
 }
 
 export namespace EncryptionEntity {
-  export const isa = (o: any): o is EncryptionEntity =>
-    __isa(o, "EncryptionEntity");
+  export const isa = (o: any): o is EncryptionEntity => __isa(o, "EncryptionEntity");
 }
 
-export type EventType =
-  | "origin-request"
-  | "origin-response"
-  | "viewer-request"
-  | "viewer-response";
+export type EventType = "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
 
 /**
  * <p>A complex data type that includes the profile configurations and other options specified for field-level encryption. </p>
@@ -2193,8 +2153,7 @@ export interface FieldLevelEncryption {
 }
 
 export namespace FieldLevelEncryption {
-  export const isa = (o: any): o is FieldLevelEncryption =>
-    __isa(o, "FieldLevelEncryption");
+  export const isa = (o: any): o is FieldLevelEncryption => __isa(o, "FieldLevelEncryption");
 }
 
 /**
@@ -2271,9 +2230,7 @@ export interface FieldLevelEncryptionProfile {
   /**
    * <p>A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.</p>
    */
-  FieldLevelEncryptionProfileConfig:
-    | FieldLevelEncryptionProfileConfig
-    | undefined;
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 
   /**
    * <p>The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain
@@ -2506,8 +2463,7 @@ export interface ForwardedValues {
 }
 
 export namespace ForwardedValues {
-  export const isa = (o: any): o is ForwardedValues =>
-    __isa(o, "ForwardedValues");
+  export const isa = (o: any): o is ForwardedValues => __isa(o, "ForwardedValues");
 }
 
 /**
@@ -2563,8 +2519,7 @@ export interface GeoRestriction {
 }
 
 export namespace GeoRestriction {
-  export const isa = (o: any): o is GeoRestriction =>
-    __isa(o, "GeoRestriction");
+  export const isa = (o: any): o is GeoRestriction => __isa(o, "GeoRestriction");
 }
 
 export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
@@ -2582,9 +2537,7 @@ export interface GetCloudFrontOriginAccessIdentityConfigRequest {
 }
 
 export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
-  export const isa = (
-    o: any
-  ): o is GetCloudFrontOriginAccessIdentityConfigRequest =>
+  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityConfigRequest =>
     __isa(o, "GetCloudFrontOriginAccessIdentityConfigRequest");
 }
 
@@ -2606,9 +2559,7 @@ export interface GetCloudFrontOriginAccessIdentityConfigResult {
 }
 
 export namespace GetCloudFrontOriginAccessIdentityConfigResult {
-  export const isa = (
-    o: any
-  ): o is GetCloudFrontOriginAccessIdentityConfigResult =>
+  export const isa = (o: any): o is GetCloudFrontOriginAccessIdentityConfigResult =>
     __isa(o, "GetCloudFrontOriginAccessIdentityConfigResult");
 }
 
@@ -2700,8 +2651,7 @@ export interface GetDistributionRequest {
 }
 
 export namespace GetDistributionRequest {
-  export const isa = (o: any): o is GetDistributionRequest =>
-    __isa(o, "GetDistributionRequest");
+  export const isa = (o: any): o is GetDistributionRequest => __isa(o, "GetDistributionRequest");
 }
 
 /**
@@ -2722,8 +2672,7 @@ export interface GetDistributionResult {
 }
 
 export namespace GetDistributionResult {
-  export const isa = (o: any): o is GetDistributionResult =>
-    __isa(o, "GetDistributionResult");
+  export const isa = (o: any): o is GetDistributionResult => __isa(o, "GetDistributionResult");
 }
 
 export interface GetFieldLevelEncryptionConfigRequest {
@@ -2766,9 +2715,7 @@ export interface GetFieldLevelEncryptionProfileConfigRequest {
 }
 
 export namespace GetFieldLevelEncryptionProfileConfigRequest {
-  export const isa = (
-    o: any
-  ): o is GetFieldLevelEncryptionProfileConfigRequest =>
+  export const isa = (o: any): o is GetFieldLevelEncryptionProfileConfigRequest =>
     __isa(o, "GetFieldLevelEncryptionProfileConfigRequest");
 }
 
@@ -2786,9 +2733,7 @@ export interface GetFieldLevelEncryptionProfileConfigResult {
 }
 
 export namespace GetFieldLevelEncryptionProfileConfigResult {
-  export const isa = (
-    o: any
-  ): o is GetFieldLevelEncryptionProfileConfigResult =>
+  export const isa = (o: any): o is GetFieldLevelEncryptionProfileConfigResult =>
     __isa(o, "GetFieldLevelEncryptionProfileConfigResult");
 }
 
@@ -2872,8 +2817,7 @@ export interface GetInvalidationRequest {
 }
 
 export namespace GetInvalidationRequest {
-  export const isa = (o: any): o is GetInvalidationRequest =>
-    __isa(o, "GetInvalidationRequest");
+  export const isa = (o: any): o is GetInvalidationRequest => __isa(o, "GetInvalidationRequest");
 }
 
 /**
@@ -2888,8 +2832,7 @@ export interface GetInvalidationResult {
 }
 
 export namespace GetInvalidationResult {
-  export const isa = (o: any): o is GetInvalidationResult =>
-    __isa(o, "GetInvalidationResult");
+  export const isa = (o: any): o is GetInvalidationResult => __isa(o, "GetInvalidationResult");
 }
 
 export interface GetPublicKeyConfigRequest {
@@ -2932,8 +2875,7 @@ export interface GetPublicKeyRequest {
 }
 
 export namespace GetPublicKeyRequest {
-  export const isa = (o: any): o is GetPublicKeyRequest =>
-    __isa(o, "GetPublicKeyRequest");
+  export const isa = (o: any): o is GetPublicKeyRequest => __isa(o, "GetPublicKeyRequest");
 }
 
 export interface GetPublicKeyResult {
@@ -2950,8 +2892,7 @@ export interface GetPublicKeyResult {
 }
 
 export namespace GetPublicKeyResult {
-  export const isa = (o: any): o is GetPublicKeyResult =>
-    __isa(o, "GetPublicKeyResult");
+  export const isa = (o: any): o is GetPublicKeyResult => __isa(o, "GetPublicKeyResult");
 }
 
 /**
@@ -3163,8 +3104,7 @@ export interface InvalidationBatch {
 }
 
 export namespace InvalidationBatch {
-  export const isa = (o: any): o is InvalidationBatch =>
-    __isa(o, "InvalidationBatch");
+  export const isa = (o: any): o is InvalidationBatch => __isa(o, "InvalidationBatch");
 }
 
 /**
@@ -3213,8 +3153,7 @@ export interface InvalidationList {
 }
 
 export namespace InvalidationList {
-  export const isa = (o: any): o is InvalidationList =>
-    __isa(o, "InvalidationList");
+  export const isa = (o: any): o is InvalidationList => __isa(o, "InvalidationList");
 }
 
 /**
@@ -3239,8 +3178,7 @@ export interface InvalidationSummary {
 }
 
 export namespace InvalidationSummary {
-  export const isa = (o: any): o is InvalidationSummary =>
-    __isa(o, "InvalidationSummary");
+  export const isa = (o: any): o is InvalidationSummary => __isa(o, "InvalidationSummary");
 }
 
 export type ItemSelection = "all" | "none" | "whitelist";
@@ -3380,9 +3318,7 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
 }
 
 export namespace ListCloudFrontOriginAccessIdentitiesRequest {
-  export const isa = (
-    o: any
-  ): o is ListCloudFrontOriginAccessIdentitiesRequest =>
+  export const isa = (o: any): o is ListCloudFrontOriginAccessIdentitiesRequest =>
     __isa(o, "ListCloudFrontOriginAccessIdentitiesRequest");
 }
 
@@ -3398,9 +3334,7 @@ export interface ListCloudFrontOriginAccessIdentitiesResult {
 }
 
 export namespace ListCloudFrontOriginAccessIdentitiesResult {
-  export const isa = (
-    o: any
-  ): o is ListCloudFrontOriginAccessIdentitiesResult =>
+  export const isa = (o: any): o is ListCloudFrontOriginAccessIdentitiesResult =>
     __isa(o, "ListCloudFrontOriginAccessIdentitiesResult");
 }
 
@@ -3492,8 +3426,7 @@ export interface ListDistributionsResult {
 }
 
 export namespace ListDistributionsResult {
-  export const isa = (o: any): o is ListDistributionsResult =>
-    __isa(o, "ListDistributionsResult");
+  export const isa = (o: any): o is ListDistributionsResult => __isa(o, "ListDistributionsResult");
 }
 
 export interface ListFieldLevelEncryptionConfigsRequest {
@@ -3606,8 +3539,7 @@ export interface ListInvalidationsResult {
 }
 
 export namespace ListInvalidationsResult {
-  export const isa = (o: any): o is ListInvalidationsResult =>
-    __isa(o, "ListInvalidationsResult");
+  export const isa = (o: any): o is ListInvalidationsResult => __isa(o, "ListInvalidationsResult");
 }
 
 export interface ListPublicKeysRequest {
@@ -3626,8 +3558,7 @@ export interface ListPublicKeysRequest {
 }
 
 export namespace ListPublicKeysRequest {
-  export const isa = (o: any): o is ListPublicKeysRequest =>
-    __isa(o, "ListPublicKeysRequest");
+  export const isa = (o: any): o is ListPublicKeysRequest => __isa(o, "ListPublicKeysRequest");
 }
 
 export interface ListPublicKeysResult {
@@ -3639,8 +3570,7 @@ export interface ListPublicKeysResult {
 }
 
 export namespace ListPublicKeysResult {
-  export const isa = (o: any): o is ListPublicKeysResult =>
-    __isa(o, "ListPublicKeysResult");
+  export const isa = (o: any): o is ListPublicKeysResult => __isa(o, "ListPublicKeysResult");
 }
 
 /**
@@ -3757,14 +3687,7 @@ export namespace LoggingConfig {
   export const isa = (o: any): o is LoggingConfig => __isa(o, "LoggingConfig");
 }
 
-export type Method =
-  | "DELETE"
-  | "GET"
-  | "HEAD"
-  | "OPTIONS"
-  | "PATCH"
-  | "POST"
-  | "PUT";
+export type Method = "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT";
 
 export type MinimumProtocolVersion =
   | "SSLv3"
@@ -3916,8 +3839,7 @@ export interface OriginCustomHeader {
 }
 
 export namespace OriginCustomHeader {
-  export const isa = (o: any): o is OriginCustomHeader =>
-    __isa(o, "OriginCustomHeader");
+  export const isa = (o: any): o is OriginCustomHeader => __isa(o, "OriginCustomHeader");
 }
 
 /**
@@ -3978,8 +3900,7 @@ export interface OriginGroupMember {
 }
 
 export namespace OriginGroupMember {
-  export const isa = (o: any): o is OriginGroupMember =>
-    __isa(o, "OriginGroupMember");
+  export const isa = (o: any): o is OriginGroupMember => __isa(o, "OriginGroupMember");
 }
 
 /**
@@ -3999,8 +3920,7 @@ export interface OriginGroupMembers {
 }
 
 export namespace OriginGroupMembers {
-  export const isa = (o: any): o is OriginGroupMembers =>
-    __isa(o, "OriginGroupMembers");
+  export const isa = (o: any): o is OriginGroupMembers => __isa(o, "OriginGroupMembers");
 }
 
 /**
@@ -4044,8 +3964,7 @@ export interface OriginSslProtocols {
 }
 
 export namespace OriginSslProtocols {
-  export const isa = (o: any): o is OriginSslProtocols =>
-    __isa(o, "OriginSslProtocols");
+  export const isa = (o: any): o is OriginSslProtocols => __isa(o, "OriginSslProtocols");
 }
 
 /**
@@ -4145,8 +4064,7 @@ export interface PublicKeyConfig {
 }
 
 export namespace PublicKeyConfig {
-  export const isa = (o: any): o is PublicKeyConfig =>
-    __isa(o, "PublicKeyConfig");
+  export const isa = (o: any): o is PublicKeyConfig => __isa(o, "PublicKeyConfig");
 }
 
 /**
@@ -4225,8 +4143,7 @@ export interface PublicKeySummary {
 }
 
 export namespace PublicKeySummary {
-  export const isa = (o: any): o is PublicKeySummary =>
-    __isa(o, "PublicKeySummary");
+  export const isa = (o: any): o is PublicKeySummary => __isa(o, "PublicKeySummary");
 }
 
 /**
@@ -4246,8 +4163,7 @@ export interface QueryArgProfile {
 }
 
 export namespace QueryArgProfile {
-  export const isa = (o: any): o is QueryArgProfile =>
-    __isa(o, "QueryArgProfile");
+  export const isa = (o: any): o is QueryArgProfile => __isa(o, "QueryArgProfile");
 }
 
 /**
@@ -4268,8 +4184,7 @@ export interface QueryArgProfileConfig {
 }
 
 export namespace QueryArgProfileConfig {
-  export const isa = (o: any): o is QueryArgProfileConfig =>
-    __isa(o, "QueryArgProfileConfig");
+  export const isa = (o: any): o is QueryArgProfileConfig => __isa(o, "QueryArgProfileConfig");
 }
 
 /**
@@ -4289,8 +4204,7 @@ export interface QueryArgProfiles {
 }
 
 export namespace QueryArgProfiles {
-  export const isa = (o: any): o is QueryArgProfiles =>
-    __isa(o, "QueryArgProfiles");
+  export const isa = (o: any): o is QueryArgProfiles => __isa(o, "QueryArgProfiles");
 }
 
 /**
@@ -4315,8 +4229,7 @@ export interface QueryStringCacheKeys {
 }
 
 export namespace QueryStringCacheKeys {
-  export const isa = (o: any): o is QueryStringCacheKeys =>
-    __isa(o, "QueryStringCacheKeys");
+  export const isa = (o: any): o is QueryStringCacheKeys => __isa(o, "QueryStringCacheKeys");
 }
 
 /**
@@ -4400,8 +4313,7 @@ export interface S3OriginConfig {
 }
 
 export namespace S3OriginConfig {
-  export const isa = (o: any): o is S3OriginConfig =>
-    __isa(o, "S3OriginConfig");
+  export const isa = (o: any): o is S3OriginConfig => __isa(o, "S3OriginConfig");
 }
 
 export type SSLSupportMethod = "sni-only" | "vip";
@@ -4517,8 +4429,7 @@ export interface StreamingDistribution {
 }
 
 export namespace StreamingDistribution {
-  export const isa = (o: any): o is StreamingDistribution =>
-    __isa(o, "StreamingDistribution");
+  export const isa = (o: any): o is StreamingDistribution => __isa(o, "StreamingDistribution");
 }
 
 /**
@@ -4770,8 +4681,7 @@ export interface StreamingLoggingConfig {
 }
 
 export namespace StreamingLoggingConfig {
-  export const isa = (o: any): o is StreamingLoggingConfig =>
-    __isa(o, "StreamingLoggingConfig");
+  export const isa = (o: any): o is StreamingLoggingConfig => __isa(o, "StreamingLoggingConfig");
 }
 
 /**
@@ -4832,8 +4742,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -4892,8 +4801,7 @@ export interface TrustedSigners {
 }
 
 export namespace TrustedSigners {
-  export const isa = (o: any): o is TrustedSigners =>
-    __isa(o, "TrustedSigners");
+  export const isa = (o: any): o is TrustedSigners => __isa(o, "TrustedSigners");
 }
 
 /**
@@ -4913,8 +4821,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -4925,9 +4832,7 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
   /**
    * <p>The identity's configuration information.</p>
    */
-  CloudFrontOriginAccessIdentityConfig:
-    | CloudFrontOriginAccessIdentityConfig
-    | undefined;
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
 
   /**
    * <p>The identity's id.</p>
@@ -4942,9 +4847,7 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateCloudFrontOriginAccessIdentityRequest =>
+  export const isa = (o: any): o is UpdateCloudFrontOriginAccessIdentityRequest =>
     __isa(o, "UpdateCloudFrontOriginAccessIdentityRequest");
 }
 
@@ -4966,9 +4869,7 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityResult {
-  export const isa = (
-    o: any
-  ): o is UpdateCloudFrontOriginAccessIdentityResult =>
+  export const isa = (o: any): o is UpdateCloudFrontOriginAccessIdentityResult =>
     __isa(o, "UpdateCloudFrontOriginAccessIdentityResult");
 }
 
@@ -5069,9 +4970,7 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
    * <p>Request to update a field-level encryption profile. </p>
    */
-  FieldLevelEncryptionProfileConfig:
-    | FieldLevelEncryptionProfileConfig
-    | undefined;
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 
   /**
    * <p>The ID of the field-level encryption profile request. </p>
@@ -5128,8 +5027,7 @@ export interface UpdatePublicKeyRequest {
 }
 
 export namespace UpdatePublicKeyRequest {
-  export const isa = (o: any): o is UpdatePublicKeyRequest =>
-    __isa(o, "UpdatePublicKeyRequest");
+  export const isa = (o: any): o is UpdatePublicKeyRequest => __isa(o, "UpdatePublicKeyRequest");
 }
 
 export interface UpdatePublicKeyResult {
@@ -5146,8 +5044,7 @@ export interface UpdatePublicKeyResult {
 }
 
 export namespace UpdatePublicKeyResult {
-  export const isa = (o: any): o is UpdatePublicKeyResult =>
-    __isa(o, "UpdatePublicKeyResult");
+  export const isa = (o: any): o is UpdatePublicKeyResult => __isa(o, "UpdatePublicKeyResult");
 }
 
 /**
@@ -5387,14 +5284,10 @@ export interface ViewerCertificate {
 }
 
 export namespace ViewerCertificate {
-  export const isa = (o: any): o is ViewerCertificate =>
-    __isa(o, "ViewerCertificate");
+  export const isa = (o: any): o is ViewerCertificate => __isa(o, "ViewerCertificate");
 }
 
-export type ViewerProtocolPolicy =
-  | "allow-all"
-  | "https-only"
-  | "redirect-to-https";
+export type ViewerProtocolPolicy = "allow-all" | "https-only" | "redirect-to-https";
 
 /**
  * <p>Access denied.</p>
@@ -5432,16 +5325,13 @@ export interface CNAMEAlreadyExists extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CNAMEAlreadyExists {
-  export const isa = (o: any): o is CNAMEAlreadyExists =>
-    __isa(o, "CNAMEAlreadyExists");
+  export const isa = (o: any): o is CNAMEAlreadyExists => __isa(o, "CNAMEAlreadyExists");
 }
 
 /**
  * <p>You can't change the value of a public key.</p>
  */
-export interface CannotChangeImmutablePublicKeyFields
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CannotChangeImmutablePublicKeyFields extends __SmithyException, $MetadataBearer {
   name: "CannotChangeImmutablePublicKeyFields";
   $fault: "client";
   Message?: string;
@@ -5466,18 +5356,14 @@ export interface CloudFrontOriginAccessIdentityAlreadyExists
 }
 
 export namespace CloudFrontOriginAccessIdentityAlreadyExists {
-  export const isa = (
-    o: any
-  ): o is CloudFrontOriginAccessIdentityAlreadyExists =>
+  export const isa = (o: any): o is CloudFrontOriginAccessIdentityAlreadyExists =>
     __isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
 }
 
 /**
  * <p>The Origin Access Identity specified is already in use.</p>
  */
-export interface CloudFrontOriginAccessIdentityInUse
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudFrontOriginAccessIdentityInUse extends __SmithyException, $MetadataBearer {
   name: "CloudFrontOriginAccessIdentityInUse";
   $fault: "client";
   Message?: string;
@@ -5491,9 +5377,7 @@ export namespace CloudFrontOriginAccessIdentityInUse {
 /**
  * <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
  */
-export interface DistributionAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DistributionAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "DistributionAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -5508,17 +5392,14 @@ export namespace DistributionAlreadyExists {
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
  */
-export interface DistributionNotDisabled
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DistributionNotDisabled extends __SmithyException, $MetadataBearer {
   name: "DistributionNotDisabled";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DistributionNotDisabled {
-  export const isa = (o: any): o is DistributionNotDisabled =>
-    __isa(o, "DistributionNotDisabled");
+  export const isa = (o: any): o is DistributionNotDisabled => __isa(o, "DistributionNotDisabled");
 }
 
 /**
@@ -5540,9 +5421,7 @@ export namespace FieldLevelEncryptionConfigAlreadyExists {
 /**
  * <p>The specified configuration for field-level encryption is in use.</p>
  */
-export interface FieldLevelEncryptionConfigInUse
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FieldLevelEncryptionConfigInUse extends __SmithyException, $MetadataBearer {
   name: "FieldLevelEncryptionConfigInUse";
   $fault: "client";
   Message?: string;
@@ -5572,9 +5451,7 @@ export namespace FieldLevelEncryptionProfileAlreadyExists {
 /**
  * <p>The specified profile for field-level encryption is in use.</p>
  */
-export interface FieldLevelEncryptionProfileInUse
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FieldLevelEncryptionProfileInUse extends __SmithyException, $MetadataBearer {
   name: "FieldLevelEncryptionProfileInUse";
   $fault: "client";
   Message?: string;
@@ -5613,9 +5490,7 @@ export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
 }
 
 export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
-  export const isa = (
-    o: any
-  ): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =>
+  export const isa = (o: any): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior =>
     __isa(o, "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior");
 }
 
@@ -5635,17 +5510,14 @@ export namespace IllegalUpdate {
 /**
  * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  */
-export interface InconsistentQuantities
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InconsistentQuantities extends __SmithyException, $MetadataBearer {
   name: "InconsistentQuantities";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InconsistentQuantities {
-  export const isa = (o: any): o is InconsistentQuantities =>
-    __isa(o, "InconsistentQuantities");
+  export const isa = (o: any): o is InconsistentQuantities => __isa(o, "InconsistentQuantities");
 }
 
 /**
@@ -5658,16 +5530,13 @@ export interface InvalidArgument extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidArgument {
-  export const isa = (o: any): o is InvalidArgument =>
-    __isa(o, "InvalidArgument");
+  export const isa = (o: any): o is InvalidArgument => __isa(o, "InvalidArgument");
 }
 
 /**
  * <p>The default root object file name is too big or contains an invalid character.</p>
  */
-export interface InvalidDefaultRootObject
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDefaultRootObject extends __SmithyException, $MetadataBearer {
   name: "InvalidDefaultRootObject";
   $fault: "client";
   Message?: string;
@@ -5688,33 +5557,27 @@ export interface InvalidErrorCode extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidErrorCode {
-  export const isa = (o: any): o is InvalidErrorCode =>
-    __isa(o, "InvalidErrorCode");
+  export const isa = (o: any): o is InvalidErrorCode => __isa(o, "InvalidErrorCode");
 }
 
 /**
  * <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
  * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
  */
-export interface InvalidForwardCookies
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidForwardCookies extends __SmithyException, $MetadataBearer {
   name: "InvalidForwardCookies";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidForwardCookies {
-  export const isa = (o: any): o is InvalidForwardCookies =>
-    __isa(o, "InvalidForwardCookies");
+  export const isa = (o: any): o is InvalidForwardCookies => __isa(o, "InvalidForwardCookies");
 }
 
 /**
  * <p>The specified geo restriction parameter is not valid.</p>
  */
-export interface InvalidGeoRestrictionParameter
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidGeoRestrictionParameter extends __SmithyException, $MetadataBearer {
   name: "InvalidGeoRestrictionParameter";
   $fault: "client";
   Message?: string;
@@ -5728,9 +5591,7 @@ export namespace InvalidGeoRestrictionParameter {
 /**
  * <p>The headers specified are not valid for an Amazon S3 origin.</p>
  */
-export interface InvalidHeadersForS3Origin
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidHeadersForS3Origin extends __SmithyException, $MetadataBearer {
   name: "InvalidHeadersForS3Origin";
   $fault: "client";
   Message?: string;
@@ -5744,25 +5605,20 @@ export namespace InvalidHeadersForS3Origin {
 /**
  * <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
  */
-export interface InvalidIfMatchVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIfMatchVersion extends __SmithyException, $MetadataBearer {
   name: "InvalidIfMatchVersion";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidIfMatchVersion {
-  export const isa = (o: any): o is InvalidIfMatchVersion =>
-    __isa(o, "InvalidIfMatchVersion");
+  export const isa = (o: any): o is InvalidIfMatchVersion => __isa(o, "InvalidIfMatchVersion");
 }
 
 /**
  * <p>The specified Lambda function association is invalid.</p>
  */
-export interface InvalidLambdaFunctionAssociation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLambdaFunctionAssociation extends __SmithyException, $MetadataBearer {
   name: "InvalidLambdaFunctionAssociation";
   $fault: "client";
   Message?: string;
@@ -5776,25 +5632,20 @@ export namespace InvalidLambdaFunctionAssociation {
 /**
  * <p>The location code specified is not valid.</p>
  */
-export interface InvalidLocationCode
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLocationCode extends __SmithyException, $MetadataBearer {
   name: "InvalidLocationCode";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidLocationCode {
-  export const isa = (o: any): o is InvalidLocationCode =>
-    __isa(o, "InvalidLocationCode");
+  export const isa = (o: any): o is InvalidLocationCode => __isa(o, "InvalidLocationCode");
 }
 
 /**
  * <p>The minimum protocol version specified is not valid.</p>
  */
-export interface InvalidMinimumProtocolVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMinimumProtocolVersion extends __SmithyException, $MetadataBearer {
   name: "InvalidMinimumProtocolVersion";
   $fault: "client";
   Message?: string;
@@ -5821,9 +5672,7 @@ export namespace InvalidOrigin {
 /**
  * <p>The origin access identity is not valid or doesn't exist.</p>
  */
-export interface InvalidOriginAccessIdentity
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOriginAccessIdentity extends __SmithyException, $MetadataBearer {
   name: "InvalidOriginAccessIdentity";
   $fault: "client";
   Message?: string;
@@ -5837,9 +5686,7 @@ export namespace InvalidOriginAccessIdentity {
 /**
  * <p>The keep alive timeout specified for the origin is not valid.</p>
  */
-export interface InvalidOriginKeepaliveTimeout
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOriginKeepaliveTimeout extends __SmithyException, $MetadataBearer {
   name: "InvalidOriginKeepaliveTimeout";
   $fault: "client";
   Message?: string;
@@ -5853,9 +5700,7 @@ export namespace InvalidOriginKeepaliveTimeout {
 /**
  * <p>The read timeout specified for the origin is not valid.</p>
  */
-export interface InvalidOriginReadTimeout
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOriginReadTimeout extends __SmithyException, $MetadataBearer {
   name: "InvalidOriginReadTimeout";
   $fault: "client";
   Message?: string;
@@ -5870,25 +5715,20 @@ export namespace InvalidOriginReadTimeout {
  * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
  * 			Server Name Indication (SNI).</p>
  */
-export interface InvalidProtocolSettings
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidProtocolSettings extends __SmithyException, $MetadataBearer {
   name: "InvalidProtocolSettings";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidProtocolSettings {
-  export const isa = (o: any): o is InvalidProtocolSettings =>
-    __isa(o, "InvalidProtocolSettings");
+  export const isa = (o: any): o is InvalidProtocolSettings => __isa(o, "InvalidProtocolSettings");
 }
 
 /**
  * <p>Query string parameters specified in the response body are not valid.</p>
  */
-export interface InvalidQueryStringParameters
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidQueryStringParameters extends __SmithyException, $MetadataBearer {
   name: "InvalidQueryStringParameters";
   $fault: "client";
   Message?: string;
@@ -5902,50 +5742,41 @@ export namespace InvalidQueryStringParameters {
 /**
  * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
  */
-export interface InvalidRelativePath
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRelativePath extends __SmithyException, $MetadataBearer {
   name: "InvalidRelativePath";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRelativePath {
-  export const isa = (o: any): o is InvalidRelativePath =>
-    __isa(o, "InvalidRelativePath");
+  export const isa = (o: any): o is InvalidRelativePath => __isa(o, "InvalidRelativePath");
 }
 
 /**
  * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
  * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
  */
-export interface InvalidRequiredProtocol
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequiredProtocol extends __SmithyException, $MetadataBearer {
   name: "InvalidRequiredProtocol";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequiredProtocol {
-  export const isa = (o: any): o is InvalidRequiredProtocol =>
-    __isa(o, "InvalidRequiredProtocol");
+  export const isa = (o: any): o is InvalidRequiredProtocol => __isa(o, "InvalidRequiredProtocol");
 }
 
 /**
  * <p>A response code specified in the response body is not valid.</p>
  */
-export interface InvalidResponseCode
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResponseCode extends __SmithyException, $MetadataBearer {
   name: "InvalidResponseCode";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidResponseCode {
-  export const isa = (o: any): o is InvalidResponseCode =>
-    __isa(o, "InvalidResponseCode");
+  export const isa = (o: any): o is InvalidResponseCode => __isa(o, "InvalidResponseCode");
 }
 
 /**
@@ -5958,8 +5789,7 @@ export interface InvalidTTLOrder extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidTTLOrder {
-  export const isa = (o: any): o is InvalidTTLOrder =>
-    __isa(o, "InvalidTTLOrder");
+  export const isa = (o: any): o is InvalidTTLOrder => __isa(o, "InvalidTTLOrder");
 }
 
 /**
@@ -5972,16 +5802,13 @@ export interface InvalidTagging extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidTagging {
-  export const isa = (o: any): o is InvalidTagging =>
-    __isa(o, "InvalidTagging");
+  export const isa = (o: any): o is InvalidTagging => __isa(o, "InvalidTagging");
 }
 
 /**
  * <p>A viewer certificate specified in the response body is not valid.</p>
  */
-export interface InvalidViewerCertificate
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidViewerCertificate extends __SmithyException, $MetadataBearer {
   name: "InvalidViewerCertificate";
   $fault: "client";
   Message?: string;
@@ -6006,8 +5833,7 @@ export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidWebACLId {
-  export const isa = (o: any): o is InvalidWebACLId =>
-    __isa(o, "InvalidWebACLId");
+  export const isa = (o: any): o is InvalidWebACLId => __isa(o, "InvalidWebACLId");
 }
 
 /**
@@ -6026,9 +5852,7 @@ export namespace MissingBody {
 /**
  * <p>The specified origin access identity does not exist.</p>
  */
-export interface NoSuchCloudFrontOriginAccessIdentity
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchCloudFrontOriginAccessIdentity extends __SmithyException, $MetadataBearer {
   name: "NoSuchCloudFrontOriginAccessIdentity";
   $fault: "client";
   Message?: string;
@@ -6049,16 +5873,13 @@ export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchDistribution {
-  export const isa = (o: any): o is NoSuchDistribution =>
-    __isa(o, "NoSuchDistribution");
+  export const isa = (o: any): o is NoSuchDistribution => __isa(o, "NoSuchDistribution");
 }
 
 /**
  * <p>The specified configuration for field-level encryption doesn't exist.</p>
  */
-export interface NoSuchFieldLevelEncryptionConfig
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchFieldLevelEncryptionConfig extends __SmithyException, $MetadataBearer {
   name: "NoSuchFieldLevelEncryptionConfig";
   $fault: "client";
   Message?: string;
@@ -6072,9 +5893,7 @@ export namespace NoSuchFieldLevelEncryptionConfig {
 /**
  * <p>The specified profile for field-level encryption doesn't exist.</p>
  */
-export interface NoSuchFieldLevelEncryptionProfile
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchFieldLevelEncryptionProfile extends __SmithyException, $MetadataBearer {
   name: "NoSuchFieldLevelEncryptionProfile";
   $fault: "client";
   Message?: string;
@@ -6095,8 +5914,7 @@ export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchInvalidation {
-  export const isa = (o: any): o is NoSuchInvalidation =>
-    __isa(o, "NoSuchInvalidation");
+  export const isa = (o: any): o is NoSuchInvalidation => __isa(o, "NoSuchInvalidation");
 }
 
 /**
@@ -6122,8 +5940,7 @@ export interface NoSuchPublicKey extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchPublicKey {
-  export const isa = (o: any): o is NoSuchPublicKey =>
-    __isa(o, "NoSuchPublicKey");
+  export const isa = (o: any): o is NoSuchPublicKey => __isa(o, "NoSuchPublicKey");
 }
 
 /**
@@ -6136,16 +5953,13 @@ export interface NoSuchResource extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchResource {
-  export const isa = (o: any): o is NoSuchResource =>
-    __isa(o, "NoSuchResource");
+  export const isa = (o: any): o is NoSuchResource => __isa(o, "NoSuchResource");
 }
 
 /**
  * <p>The specified streaming distribution does not exist.</p>
  */
-export interface NoSuchStreamingDistribution
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchStreamingDistribution extends __SmithyException, $MetadataBearer {
   name: "NoSuchStreamingDistribution";
   $fault: "client";
   Message?: string;
@@ -6166,24 +5980,20 @@ export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
 }
 
 export namespace PreconditionFailed {
-  export const isa = (o: any): o is PreconditionFailed =>
-    __isa(o, "PreconditionFailed");
+  export const isa = (o: any): o is PreconditionFailed => __isa(o, "PreconditionFailed");
 }
 
 /**
  * <p>The specified public key already exists.</p>
  */
-export interface PublicKeyAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PublicKeyAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "PublicKeyAlreadyExists";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PublicKeyAlreadyExists {
-  export const isa = (o: any): o is PublicKeyAlreadyExists =>
-    __isa(o, "PublicKeyAlreadyExists");
+  export const isa = (o: any): o is PublicKeyAlreadyExists => __isa(o, "PublicKeyAlreadyExists");
 }
 
 /**
@@ -6196,33 +6006,27 @@ export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace PublicKeyInUse {
-  export const isa = (o: any): o is PublicKeyInUse =>
-    __isa(o, "PublicKeyInUse");
+  export const isa = (o: any): o is PublicKeyInUse => __isa(o, "PublicKeyInUse");
 }
 
 /**
  * <p>No profile specified for the field-level encryption query argument.</p>
  */
-export interface QueryArgProfileEmpty
-  extends __SmithyException,
-    $MetadataBearer {
+export interface QueryArgProfileEmpty extends __SmithyException, $MetadataBearer {
   name: "QueryArgProfileEmpty";
   $fault: "client";
   Message?: string;
 }
 
 export namespace QueryArgProfileEmpty {
-  export const isa = (o: any): o is QueryArgProfileEmpty =>
-    __isa(o, "QueryArgProfileEmpty");
+  export const isa = (o: any): o is QueryArgProfileEmpty => __isa(o, "QueryArgProfileEmpty");
 }
 
 /**
  * <p>The caller reference you attempted to create the streaming distribution with
  * 			is associated with another distribution</p>
  */
-export interface StreamingDistributionAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StreamingDistributionAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "StreamingDistributionAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -6237,9 +6041,7 @@ export namespace StreamingDistributionAlreadyExists {
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
  */
-export interface StreamingDistributionNotDisabled
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StreamingDistributionNotDisabled extends __SmithyException, $MetadataBearer {
   name: "StreamingDistributionNotDisabled";
   $fault: "client";
   Message?: string;
@@ -6253,33 +6055,27 @@ export namespace StreamingDistributionNotDisabled {
 /**
  * <p>You cannot create more cache behaviors for the distribution.</p>
  */
-export interface TooManyCacheBehaviors
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyCacheBehaviors extends __SmithyException, $MetadataBearer {
   name: "TooManyCacheBehaviors";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyCacheBehaviors {
-  export const isa = (o: any): o is TooManyCacheBehaviors =>
-    __isa(o, "TooManyCacheBehaviors");
+  export const isa = (o: any): o is TooManyCacheBehaviors => __isa(o, "TooManyCacheBehaviors");
 }
 
 /**
  * <p>You cannot create anymore custom SSL/TLS certificates.</p>
  */
-export interface TooManyCertificates
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyCertificates extends __SmithyException, $MetadataBearer {
   name: "TooManyCertificates";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyCertificates {
-  export const isa = (o: any): o is TooManyCertificates =>
-    __isa(o, "TooManyCertificates");
+  export const isa = (o: any): o is TooManyCertificates => __isa(o, "TooManyCertificates");
 }
 
 /**
@@ -6301,9 +6097,7 @@ export namespace TooManyCloudFrontOriginAccessIdentities {
 /**
  * <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
  */
-export interface TooManyCookieNamesInWhiteList
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyCookieNamesInWhiteList extends __SmithyException, $MetadataBearer {
   name: "TooManyCookieNamesInWhiteList";
   $fault: "client";
   Message?: string;
@@ -6317,9 +6111,7 @@ export namespace TooManyCookieNamesInWhiteList {
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
-export interface TooManyDistributionCNAMEs
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyDistributionCNAMEs extends __SmithyException, $MetadataBearer {
   name: "TooManyDistributionCNAMEs";
   $fault: "client";
   Message?: string;
@@ -6333,17 +6125,14 @@ export namespace TooManyDistributionCNAMEs {
 /**
  * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
  */
-export interface TooManyDistributions
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyDistributions extends __SmithyException, $MetadataBearer {
   name: "TooManyDistributions";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyDistributions {
-  export const isa = (o: any): o is TooManyDistributions =>
-    __isa(o, "TooManyDistributions");
+  export const isa = (o: any): o is TooManyDistributions => __isa(o, "TooManyDistributions");
 }
 
 /**
@@ -6358,9 +6147,7 @@ export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
 }
 
 export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
-  export const isa = (
-    o: any
-  ): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =>
+  export const isa = (o: any): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig =>
     __isa(o, "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig");
 }
 
@@ -6377,18 +6164,14 @@ export interface TooManyDistributionsWithLambdaAssociations
 }
 
 export namespace TooManyDistributionsWithLambdaAssociations {
-  export const isa = (
-    o: any
-  ): o is TooManyDistributionsWithLambdaAssociations =>
+  export const isa = (o: any): o is TooManyDistributionsWithLambdaAssociations =>
     __isa(o, "TooManyDistributionsWithLambdaAssociations");
 }
 
 /**
  * <p>The maximum number of configurations for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionConfigs
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyFieldLevelEncryptionConfigs extends __SmithyException, $MetadataBearer {
   name: "TooManyFieldLevelEncryptionConfigs";
   $fault: "client";
   Message?: string;
@@ -6411,9 +6194,7 @@ export interface TooManyFieldLevelEncryptionContentTypeProfiles
 }
 
 export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionContentTypeProfiles =>
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionContentTypeProfiles =>
     __isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
 }
 
@@ -6429,9 +6210,7 @@ export interface TooManyFieldLevelEncryptionEncryptionEntities
 }
 
 export namespace TooManyFieldLevelEncryptionEncryptionEntities {
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionEncryptionEntities =>
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionEncryptionEntities =>
     __isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
 }
 
@@ -6454,9 +6233,7 @@ export namespace TooManyFieldLevelEncryptionFieldPatterns {
 /**
  * <p>The maximum number of profiles for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionProfiles
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyFieldLevelEncryptionProfiles extends __SmithyException, $MetadataBearer {
   name: "TooManyFieldLevelEncryptionProfiles";
   $fault: "client";
   Message?: string;
@@ -6479,18 +6256,14 @@ export interface TooManyFieldLevelEncryptionQueryArgProfiles
 }
 
 export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
-  export const isa = (
-    o: any
-  ): o is TooManyFieldLevelEncryptionQueryArgProfiles =>
+  export const isa = (o: any): o is TooManyFieldLevelEncryptionQueryArgProfiles =>
     __isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
 }
 
 /**
  * <p>Your request contains too many headers in forwarded values.</p>
  */
-export interface TooManyHeadersInForwardedValues
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyHeadersInForwardedValues extends __SmithyException, $MetadataBearer {
   name: "TooManyHeadersInForwardedValues";
   $fault: "client";
   Message?: string;
@@ -6504,9 +6277,7 @@ export namespace TooManyHeadersInForwardedValues {
 /**
  * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
  */
-export interface TooManyInvalidationsInProgress
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyInvalidationsInProgress extends __SmithyException, $MetadataBearer {
   name: "TooManyInvalidationsInProgress";
   $fault: "client";
   Message?: string;
@@ -6520,9 +6291,7 @@ export namespace TooManyInvalidationsInProgress {
 /**
  * <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
  */
-export interface TooManyLambdaFunctionAssociations
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyLambdaFunctionAssociations extends __SmithyException, $MetadataBearer {
   name: "TooManyLambdaFunctionAssociations";
   $fault: "client";
   Message?: string;
@@ -6536,9 +6305,7 @@ export namespace TooManyLambdaFunctionAssociations {
 /**
  * <p>Your request contains too many origin custom headers.</p>
  */
-export interface TooManyOriginCustomHeaders
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyOriginCustomHeaders extends __SmithyException, $MetadataBearer {
   name: "TooManyOriginCustomHeaders";
   $fault: "client";
   Message?: string;
@@ -6552,9 +6319,7 @@ export namespace TooManyOriginCustomHeaders {
 /**
  * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
  */
-export interface TooManyOriginGroupsPerDistribution
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyOriginGroupsPerDistribution extends __SmithyException, $MetadataBearer {
   name: "TooManyOriginGroupsPerDistribution";
   $fault: "client";
   Message?: string;
@@ -6575,8 +6340,7 @@ export interface TooManyOrigins extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyOrigins {
-  export const isa = (o: any): o is TooManyOrigins =>
-    __isa(o, "TooManyOrigins");
+  export const isa = (o: any): o is TooManyOrigins => __isa(o, "TooManyOrigins");
 }
 
 /**
@@ -6589,16 +6353,13 @@ export interface TooManyPublicKeys extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyPublicKeys {
-  export const isa = (o: any): o is TooManyPublicKeys =>
-    __isa(o, "TooManyPublicKeys");
+  export const isa = (o: any): o is TooManyPublicKeys => __isa(o, "TooManyPublicKeys");
 }
 
 /**
  * <p>Your request contains too many query string parameters.</p>
  */
-export interface TooManyQueryStringParameters
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyQueryStringParameters extends __SmithyException, $MetadataBearer {
   name: "TooManyQueryStringParameters";
   $fault: "client";
   Message?: string;
@@ -6612,9 +6373,7 @@ export namespace TooManyQueryStringParameters {
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
-export interface TooManyStreamingDistributionCNAMEs
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyStreamingDistributionCNAMEs extends __SmithyException, $MetadataBearer {
   name: "TooManyStreamingDistributionCNAMEs";
   $fault: "client";
   Message?: string;
@@ -6628,9 +6387,7 @@ export namespace TooManyStreamingDistributionCNAMEs {
 /**
  * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
  */
-export interface TooManyStreamingDistributions
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyStreamingDistributions extends __SmithyException, $MetadataBearer {
   name: "TooManyStreamingDistributions";
   $fault: "client";
   Message?: string;
@@ -6644,25 +6401,20 @@ export namespace TooManyStreamingDistributions {
 /**
  * <p>Your request contains more trusted signers than are allowed per distribution.</p>
  */
-export interface TooManyTrustedSigners
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTrustedSigners extends __SmithyException, $MetadataBearer {
   name: "TooManyTrustedSigners";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyTrustedSigners {
-  export const isa = (o: any): o is TooManyTrustedSigners =>
-    __isa(o, "TooManyTrustedSigners");
+  export const isa = (o: any): o is TooManyTrustedSigners => __isa(o, "TooManyTrustedSigners");
 }
 
 /**
  * <p>One or more of your trusted signers don't exist.</p>
  */
-export interface TrustedSignerDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrustedSignerDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "TrustedSignerDoesNotExist";
   $fault: "client";
   Message?: string;

@@ -49,13 +49,8 @@ export class CreateIntegrationResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateIntegrationResponseCommandInput,
-    CreateIntegrationResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateIntegrationResponseCommandInput, CreateIntegrationResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateIntegrationResponseCommand extends $Command<
     input: CreateIntegrationResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateIntegrationResponseCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateIntegrationResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1_1CreateIntegrationResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

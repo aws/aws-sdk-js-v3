@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddUploadBufferCommandInput = AddUploadBufferInput;
-export type AddUploadBufferCommandOutput = AddUploadBufferOutput &
-  __MetadataBearer;
+export type AddUploadBufferCommandOutput = AddUploadBufferOutput & __MetadataBearer;
 
 export class AddUploadBufferCommand extends $Command<
   AddUploadBufferCommandInput,
@@ -47,9 +46,7 @@ export class AddUploadBufferCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddUploadBufferCommandInput, AddUploadBufferCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

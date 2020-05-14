@@ -53,9 +53,7 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     ListPartnerEventSourceAccountsCommandInput,
     ListPartnerEventSourceAccountsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     input: ListPartnerEventSourceAccountsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

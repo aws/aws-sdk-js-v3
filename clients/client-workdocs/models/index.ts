@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AbortDocumentVersionUploadRequest {
@@ -43,8 +40,7 @@ export interface ActivateUserRequest {
 }
 
 export namespace ActivateUserRequest {
-  export const isa = (o: any): o is ActivateUserRequest =>
-    __isa(o, "ActivateUserRequest");
+  export const isa = (o: any): o is ActivateUserRequest => __isa(o, "ActivateUserRequest");
 }
 
 export interface ActivateUserResponse {
@@ -56,8 +52,7 @@ export interface ActivateUserResponse {
 }
 
 export namespace ActivateUserResponse {
-  export const isa = (o: any): o is ActivateUserResponse =>
-    __isa(o, "ActivateUserResponse");
+  export const isa = (o: any): o is ActivateUserResponse => __isa(o, "ActivateUserResponse");
 }
 
 /**
@@ -295,8 +290,7 @@ export interface CommentMetadata {
 }
 
 export namespace CommentMetadata {
-  export const isa = (o: any): o is CommentMetadata =>
-    __isa(o, "CommentMetadata");
+  export const isa = (o: any): o is CommentMetadata => __isa(o, "CommentMetadata");
 }
 
 export enum CommentStatusType {
@@ -313,9 +307,7 @@ export enum CommentVisibilityType {
 /**
  * <p>The resource hierarchy is changing.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -329,9 +321,7 @@ export namespace ConcurrentModificationException {
 /**
  * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
  */
-export interface ConflictingOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConflictingOperationException extends __SmithyException, $MetadataBearer {
   name: "ConflictingOperationException";
   $fault: "client";
   Message?: string;
@@ -390,8 +380,7 @@ export interface CreateCommentRequest {
 }
 
 export namespace CreateCommentRequest {
-  export const isa = (o: any): o is CreateCommentRequest =>
-    __isa(o, "CreateCommentRequest");
+  export const isa = (o: any): o is CreateCommentRequest => __isa(o, "CreateCommentRequest");
 }
 
 export interface CreateCommentResponse {
@@ -403,8 +392,7 @@ export interface CreateCommentResponse {
 }
 
 export namespace CreateCommentResponse {
-  export const isa = (o: any): o is CreateCommentResponse =>
-    __isa(o, "CreateCommentResponse");
+  export const isa = (o: any): o is CreateCommentResponse => __isa(o, "CreateCommentResponse");
 }
 
 export interface CreateCustomMetadataRequest {
@@ -466,8 +454,7 @@ export interface CreateFolderRequest {
 }
 
 export namespace CreateFolderRequest {
-  export const isa = (o: any): o is CreateFolderRequest =>
-    __isa(o, "CreateFolderRequest");
+  export const isa = (o: any): o is CreateFolderRequest => __isa(o, "CreateFolderRequest");
 }
 
 export interface CreateFolderResponse {
@@ -479,8 +466,7 @@ export interface CreateFolderResponse {
 }
 
 export namespace CreateFolderResponse {
-  export const isa = (o: any): o is CreateFolderResponse =>
-    __isa(o, "CreateFolderResponse");
+  export const isa = (o: any): o is CreateFolderResponse => __isa(o, "CreateFolderResponse");
 }
 
 export interface CreateLabelsRequest {
@@ -503,8 +489,7 @@ export interface CreateLabelsRequest {
 }
 
 export namespace CreateLabelsRequest {
-  export const isa = (o: any): o is CreateLabelsRequest =>
-    __isa(o, "CreateLabelsRequest");
+  export const isa = (o: any): o is CreateLabelsRequest => __isa(o, "CreateLabelsRequest");
 }
 
 export interface CreateLabelsResponse {
@@ -512,8 +497,7 @@ export interface CreateLabelsResponse {
 }
 
 export namespace CreateLabelsResponse {
-  export const isa = (o: any): o is CreateLabelsResponse =>
-    __isa(o, "CreateLabelsResponse");
+  export const isa = (o: any): o is CreateLabelsResponse => __isa(o, "CreateLabelsResponse");
 }
 
 export interface CreateNotificationSubscriptionRequest {
@@ -609,8 +593,7 @@ export interface CreateUserRequest {
 }
 
 export namespace CreateUserRequest {
-  export const isa = (o: any): o is CreateUserRequest =>
-    __isa(o, "CreateUserRequest");
+  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
@@ -622,17 +605,14 @@ export interface CreateUserResponse {
 }
 
 export namespace CreateUserResponse {
-  export const isa = (o: any): o is CreateUserResponse =>
-    __isa(o, "CreateUserResponse");
+  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 /**
  * <p>The limit has been reached on the number of custom properties for the specified
  *             resource.</p>
  */
-export interface CustomMetadataLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CustomMetadataLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "CustomMetadataLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -658,16 +638,13 @@ export interface DeactivateUserRequest {
 }
 
 export namespace DeactivateUserRequest {
-  export const isa = (o: any): o is DeactivateUserRequest =>
-    __isa(o, "DeactivateUserRequest");
+  export const isa = (o: any): o is DeactivateUserRequest => __isa(o, "DeactivateUserRequest");
 }
 
 /**
  * <p>The last user in the organization is being deactivated.</p>
  */
-export interface DeactivatingLastSystemUserException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeactivatingLastSystemUserException extends __SmithyException, $MetadataBearer {
   name: "DeactivatingLastSystemUserException";
   $fault: "client";
   Code?: string;
@@ -704,8 +681,7 @@ export interface DeleteCommentRequest {
 }
 
 export namespace DeleteCommentRequest {
-  export const isa = (o: any): o is DeleteCommentRequest =>
-    __isa(o, "DeleteCommentRequest");
+  export const isa = (o: any): o is DeleteCommentRequest => __isa(o, "DeleteCommentRequest");
 }
 
 export interface DeleteCustomMetadataRequest {
@@ -768,8 +744,7 @@ export interface DeleteDocumentRequest {
 }
 
 export namespace DeleteDocumentRequest {
-  export const isa = (o: any): o is DeleteDocumentRequest =>
-    __isa(o, "DeleteDocumentRequest");
+  export const isa = (o: any): o is DeleteDocumentRequest => __isa(o, "DeleteDocumentRequest");
 }
 
 export interface DeleteFolderContentsRequest {
@@ -806,8 +781,7 @@ export interface DeleteFolderRequest {
 }
 
 export namespace DeleteFolderRequest {
-  export const isa = (o: any): o is DeleteFolderRequest =>
-    __isa(o, "DeleteFolderRequest");
+  export const isa = (o: any): o is DeleteFolderRequest => __isa(o, "DeleteFolderRequest");
 }
 
 export interface DeleteLabelsRequest {
@@ -835,8 +809,7 @@ export interface DeleteLabelsRequest {
 }
 
 export namespace DeleteLabelsRequest {
-  export const isa = (o: any): o is DeleteLabelsRequest =>
-    __isa(o, "DeleteLabelsRequest");
+  export const isa = (o: any): o is DeleteLabelsRequest => __isa(o, "DeleteLabelsRequest");
 }
 
 export interface DeleteLabelsResponse {
@@ -844,8 +817,7 @@ export interface DeleteLabelsResponse {
 }
 
 export namespace DeleteLabelsResponse {
-  export const isa = (o: any): o is DeleteLabelsResponse =>
-    __isa(o, "DeleteLabelsResponse");
+  export const isa = (o: any): o is DeleteLabelsResponse => __isa(o, "DeleteLabelsResponse");
 }
 
 export interface DeleteNotificationSubscriptionRequest {
@@ -881,8 +853,7 @@ export interface DeleteUserRequest {
 }
 
 export namespace DeleteUserRequest {
-  export const isa = (o: any): o is DeleteUserRequest =>
-    __isa(o, "DeleteUserRequest");
+  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DescribeActivitiesRequest {
@@ -1002,8 +973,7 @@ export interface DescribeCommentsRequest {
 }
 
 export namespace DescribeCommentsRequest {
-  export const isa = (o: any): o is DescribeCommentsRequest =>
-    __isa(o, "DescribeCommentsRequest");
+  export const isa = (o: any): o is DescribeCommentsRequest => __isa(o, "DescribeCommentsRequest");
 }
 
 export interface DescribeCommentsResponse {
@@ -1192,8 +1162,7 @@ export interface DescribeGroupsRequest {
 }
 
 export namespace DescribeGroupsRequest {
-  export const isa = (o: any): o is DescribeGroupsRequest =>
-    __isa(o, "DescribeGroupsRequest");
+  export const isa = (o: any): o is DescribeGroupsRequest => __isa(o, "DescribeGroupsRequest");
 }
 
 export interface DescribeGroupsResponse {
@@ -1211,8 +1180,7 @@ export interface DescribeGroupsResponse {
 }
 
 export namespace DescribeGroupsResponse {
-  export const isa = (o: any): o is DescribeGroupsResponse =>
-    __isa(o, "DescribeGroupsResponse");
+  export const isa = (o: any): o is DescribeGroupsResponse => __isa(o, "DescribeGroupsResponse");
 }
 
 export interface DescribeNotificationSubscriptionsRequest {
@@ -1412,8 +1380,7 @@ export interface DescribeUsersRequest {
 }
 
 export namespace DescribeUsersRequest {
-  export const isa = (o: any): o is DescribeUsersRequest =>
-    __isa(o, "DescribeUsersRequest");
+  export const isa = (o: any): o is DescribeUsersRequest => __isa(o, "DescribeUsersRequest");
 }
 
 export interface DescribeUsersResponse {
@@ -1436,17 +1403,14 @@ export interface DescribeUsersResponse {
 }
 
 export namespace DescribeUsersResponse {
-  export const isa = (o: any): o is DescribeUsersResponse =>
-    __isa(o, "DescribeUsersResponse");
+  export const isa = (o: any): o is DescribeUsersResponse => __isa(o, "DescribeUsersResponse");
 }
 
 /**
  * <p>This exception is thrown when the document is locked for comments and user tries to
  *             create or delete a comment on that document.</p>
  */
-export interface DocumentLockedForCommentsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentLockedForCommentsException extends __SmithyException, $MetadataBearer {
   name: "DocumentLockedForCommentsException";
   $fault: "client";
   Message?: string;
@@ -1504,8 +1468,7 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
-  export const isa = (o: any): o is DocumentMetadata =>
-    __isa(o, "DocumentMetadata");
+  export const isa = (o: any): o is DocumentMetadata => __isa(o, "DocumentMetadata");
 }
 
 export enum DocumentSourceType {
@@ -1596,8 +1559,7 @@ export interface DocumentVersionMetadata {
 }
 
 export namespace DocumentVersionMetadata {
-  export const isa = (o: any): o is DocumentVersionMetadata =>
-    __isa(o, "DocumentVersionMetadata");
+  export const isa = (o: any): o is DocumentVersionMetadata => __isa(o, "DocumentVersionMetadata");
 }
 
 export enum DocumentVersionStatus {
@@ -1608,9 +1570,7 @@ export enum DocumentVersionStatus {
  * <p>This exception is thrown when a valid checkout ID is not presented on document
  *             version upload calls for a document that has been checked out from Web client.</p>
  */
-export interface DraftUploadOutOfSyncException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DraftUploadOutOfSyncException extends __SmithyException, $MetadataBearer {
   name: "DraftUploadOutOfSyncException";
   $fault: "client";
   Message?: string;
@@ -1624,9 +1584,7 @@ export namespace DraftUploadOutOfSyncException {
 /**
  * <p>The resource already exists.</p>
  */
-export interface EntityAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "EntityAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -1640,9 +1598,7 @@ export namespace EntityAlreadyExistsException {
 /**
  * <p>The resource does not exist.</p>
  */
-export interface EntityNotExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityNotExistsException extends __SmithyException, $MetadataBearer {
   name: "EntityNotExistsException";
   $fault: "client";
   EntityIds?: string[];
@@ -1659,9 +1615,7 @@ export namespace EntityNotExistsException {
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
  */
-export interface FailedDependencyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FailedDependencyException extends __SmithyException, $MetadataBearer {
   name: "FailedDependencyException";
   $fault: "client";
   Message?: string;
@@ -1741,8 +1695,7 @@ export interface FolderMetadata {
 }
 
 export namespace FolderMetadata {
-  export const isa = (o: any): o is FolderMetadata =>
-    __isa(o, "FolderMetadata");
+  export const isa = (o: any): o is FolderMetadata => __isa(o, "FolderMetadata");
 }
 
 export interface GetCurrentUserRequest {
@@ -1755,8 +1708,7 @@ export interface GetCurrentUserRequest {
 }
 
 export namespace GetCurrentUserRequest {
-  export const isa = (o: any): o is GetCurrentUserRequest =>
-    __isa(o, "GetCurrentUserRequest");
+  export const isa = (o: any): o is GetCurrentUserRequest => __isa(o, "GetCurrentUserRequest");
 }
 
 export interface GetCurrentUserResponse {
@@ -1768,8 +1720,7 @@ export interface GetCurrentUserResponse {
 }
 
 export namespace GetCurrentUserResponse {
-  export const isa = (o: any): o is GetCurrentUserResponse =>
-    __isa(o, "GetCurrentUserResponse");
+  export const isa = (o: any): o is GetCurrentUserResponse => __isa(o, "GetCurrentUserResponse");
 }
 
 export interface GetDocumentPathRequest {
@@ -1803,8 +1754,7 @@ export interface GetDocumentPathRequest {
 }
 
 export namespace GetDocumentPathRequest {
-  export const isa = (o: any): o is GetDocumentPathRequest =>
-    __isa(o, "GetDocumentPathRequest");
+  export const isa = (o: any): o is GetDocumentPathRequest => __isa(o, "GetDocumentPathRequest");
 }
 
 export interface GetDocumentPathResponse {
@@ -1816,8 +1766,7 @@ export interface GetDocumentPathResponse {
 }
 
 export namespace GetDocumentPathResponse {
-  export const isa = (o: any): o is GetDocumentPathResponse =>
-    __isa(o, "GetDocumentPathResponse");
+  export const isa = (o: any): o is GetDocumentPathResponse => __isa(o, "GetDocumentPathResponse");
 }
 
 export interface GetDocumentRequest {
@@ -1840,8 +1789,7 @@ export interface GetDocumentRequest {
 }
 
 export namespace GetDocumentRequest {
-  export const isa = (o: any): o is GetDocumentRequest =>
-    __isa(o, "GetDocumentRequest");
+  export const isa = (o: any): o is GetDocumentRequest => __isa(o, "GetDocumentRequest");
 }
 
 export interface GetDocumentResponse {
@@ -1858,8 +1806,7 @@ export interface GetDocumentResponse {
 }
 
 export namespace GetDocumentResponse {
-  export const isa = (o: any): o is GetDocumentResponse =>
-    __isa(o, "GetDocumentResponse");
+  export const isa = (o: any): o is GetDocumentResponse => __isa(o, "GetDocumentResponse");
 }
 
 export interface GetDocumentVersionRequest {
@@ -1946,8 +1893,7 @@ export interface GetFolderPathRequest {
 }
 
 export namespace GetFolderPathRequest {
-  export const isa = (o: any): o is GetFolderPathRequest =>
-    __isa(o, "GetFolderPathRequest");
+  export const isa = (o: any): o is GetFolderPathRequest => __isa(o, "GetFolderPathRequest");
 }
 
 export interface GetFolderPathResponse {
@@ -1959,8 +1905,7 @@ export interface GetFolderPathResponse {
 }
 
 export namespace GetFolderPathResponse {
-  export const isa = (o: any): o is GetFolderPathResponse =>
-    __isa(o, "GetFolderPathResponse");
+  export const isa = (o: any): o is GetFolderPathResponse => __isa(o, "GetFolderPathResponse");
 }
 
 export interface GetFolderRequest {
@@ -1983,8 +1928,7 @@ export interface GetFolderRequest {
 }
 
 export namespace GetFolderRequest {
-  export const isa = (o: any): o is GetFolderRequest =>
-    __isa(o, "GetFolderRequest");
+  export const isa = (o: any): o is GetFolderRequest => __isa(o, "GetFolderRequest");
 }
 
 export interface GetFolderResponse {
@@ -2001,8 +1945,7 @@ export interface GetFolderResponse {
 }
 
 export namespace GetFolderResponse {
-  export const isa = (o: any): o is GetFolderResponse =>
-    __isa(o, "GetFolderResponse");
+  export const isa = (o: any): o is GetFolderResponse => __isa(o, "GetFolderResponse");
 }
 
 export interface GetResourcesRequest {
@@ -2037,8 +1980,7 @@ export interface GetResourcesRequest {
 }
 
 export namespace GetResourcesRequest {
-  export const isa = (o: any): o is GetResourcesRequest =>
-    __isa(o, "GetResourcesRequest");
+  export const isa = (o: any): o is GetResourcesRequest => __isa(o, "GetResourcesRequest");
 }
 
 export interface GetResourcesResponse {
@@ -2060,8 +2002,7 @@ export interface GetResourcesResponse {
 }
 
 export namespace GetResourcesResponse {
-  export const isa = (o: any): o is GetResourcesResponse =>
-    __isa(o, "GetResourcesResponse");
+  export const isa = (o: any): o is GetResourcesResponse => __isa(o, "GetResourcesResponse");
 }
 
 /**
@@ -2087,9 +2028,7 @@ export namespace GroupMetadata {
 /**
  * <p>The user is undergoing transfer of ownership.</p>
  */
-export interface IllegalUserStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IllegalUserStateException extends __SmithyException, $MetadataBearer {
   name: "IllegalUserStateException";
   $fault: "client";
   Message?: string;
@@ -2170,9 +2109,7 @@ export namespace InitiateDocumentVersionUploadResponse {
 /**
  * <p>The pagination marker or limit fields are not valid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -2186,9 +2123,7 @@ export namespace InvalidArgumentException {
 /**
  * <p>The requested operation is not allowed on the specified comment object.</p>
  */
-export interface InvalidCommentOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCommentOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidCommentOperationException";
   $fault: "client";
   Message?: string;
@@ -2202,9 +2137,7 @@ export namespace InvalidCommentOperationException {
 /**
  * <p>The operation is invalid.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -2218,9 +2151,7 @@ export namespace InvalidOperationException {
 /**
  * <p>The password is invalid.</p>
  */
-export interface InvalidPasswordException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
   name: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
@@ -2234,17 +2165,14 @@ export namespace InvalidPasswordException {
 /**
  * <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum LocaleType {
@@ -2279,8 +2207,7 @@ export interface NotificationOptions {
 }
 
 export namespace NotificationOptions {
-  export const isa = (o: any): o is NotificationOptions =>
-    __isa(o, "NotificationOptions");
+  export const isa = (o: any): o is NotificationOptions => __isa(o, "NotificationOptions");
 }
 
 export enum OrderType {
@@ -2325,8 +2252,7 @@ export interface PermissionInfo {
 }
 
 export namespace PermissionInfo {
-  export const isa = (o: any): o is PermissionInfo =>
-    __isa(o, "PermissionInfo");
+  export const isa = (o: any): o is PermissionInfo => __isa(o, "PermissionInfo");
 }
 
 /**
@@ -2365,9 +2291,7 @@ export enum PrincipalType {
 /**
  * <p>The specified document version is not in the INITIALIZED state.</p>
  */
-export interface ProhibitedStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProhibitedStateException extends __SmithyException, $MetadataBearer {
   name: "ProhibitedStateException";
   $fault: "client";
   Message?: string;
@@ -2429,9 +2353,7 @@ export namespace RemoveResourcePermissionRequest {
 /**
  * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
  */
-export interface RequestedEntityTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestedEntityTooLargeException extends __SmithyException, $MetadataBearer {
   name: "RequestedEntityTooLargeException";
   $fault: "client";
   Message?: string;
@@ -2445,9 +2367,7 @@ export namespace RequestedEntityTooLargeException {
 /**
  * <p>The resource is already checked out.</p>
  */
-export interface ResourceAlreadyCheckedOutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyCheckedOutException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyCheckedOutException";
   $fault: "client";
   Message?: string;
@@ -2505,8 +2425,7 @@ export interface ResourceMetadata {
 }
 
 export namespace ResourceMetadata {
-  export const isa = (o: any): o is ResourceMetadata =>
-    __isa(o, "ResourceMetadata");
+  export const isa = (o: any): o is ResourceMetadata => __isa(o, "ResourceMetadata");
 }
 
 /**
@@ -2541,8 +2460,7 @@ export interface ResourcePathComponent {
 }
 
 export namespace ResourcePathComponent {
-  export const isa = (o: any): o is ResourcePathComponent =>
-    __isa(o, "ResourcePathComponent");
+  export const isa = (o: any): o is ResourcePathComponent => __isa(o, "ResourcePathComponent");
 }
 
 export enum ResourceSortType {
@@ -2577,9 +2495,7 @@ export enum RoleType {
 /**
  * <p>One or more of the dependencies is unavailable.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -2612,8 +2528,7 @@ export interface SharePrincipal {
 }
 
 export namespace SharePrincipal {
-  export const isa = (o: any): o is SharePrincipal =>
-    __isa(o, "SharePrincipal");
+  export const isa = (o: any): o is SharePrincipal => __isa(o, "SharePrincipal");
 }
 
 /**
@@ -2664,9 +2579,7 @@ export enum ShareStatusType {
 /**
  * <p>The storage limit has been exceeded.</p>
  */
-export interface StorageLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "StorageLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2680,9 +2593,7 @@ export namespace StorageLimitExceededException {
 /**
  * <p>The storage limit will be exceeded.</p>
  */
-export interface StorageLimitWillExceedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StorageLimitWillExceedException extends __SmithyException, $MetadataBearer {
   name: "StorageLimitWillExceedException";
   $fault: "client";
   Message?: string;
@@ -2710,8 +2621,7 @@ export interface StorageRuleType {
 }
 
 export namespace StorageRuleType {
-  export const isa = (o: any): o is StorageRuleType =>
-    __isa(o, "StorageRuleType");
+  export const isa = (o: any): o is StorageRuleType => __isa(o, "StorageRuleType");
 }
 
 export enum StorageType {
@@ -2756,26 +2666,21 @@ export enum SubscriptionType {
  * <p>The limit has been reached on the number of labels for the specified
  *             resource.</p>
  */
-export interface TooManyLabelsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyLabelsException extends __SmithyException, $MetadataBearer {
   name: "TooManyLabelsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyLabelsException {
-  export const isa = (o: any): o is TooManyLabelsException =>
-    __isa(o, "TooManyLabelsException");
+  export const isa = (o: any): o is TooManyLabelsException => __isa(o, "TooManyLabelsException");
 }
 
 /**
  * <p>You've reached the limit on the number of subscriptions for the WorkDocs
  *             instance.</p>
  */
-export interface TooManySubscriptionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManySubscriptionsException extends __SmithyException, $MetadataBearer {
   name: "TooManySubscriptionsException";
   $fault: "client";
   Message?: string;
@@ -2789,9 +2694,7 @@ export namespace TooManySubscriptionsException {
 /**
  * <p>The operation is not permitted.</p>
  */
-export interface UnauthorizedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedOperationException";
   $fault: "client";
   Code?: string;
@@ -2806,9 +2709,7 @@ export namespace UnauthorizedOperationException {
 /**
  * <p>The caller does not have access to perform the action on the resource.</p>
  */
-export interface UnauthorizedResourceAccessException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedResourceAccessException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedResourceAccessException";
   $fault: "client";
   Message?: string;
@@ -2850,8 +2751,7 @@ export interface UpdateDocumentRequest {
 }
 
 export namespace UpdateDocumentRequest {
-  export const isa = (o: any): o is UpdateDocumentRequest =>
-    __isa(o, "UpdateDocumentRequest");
+  export const isa = (o: any): o is UpdateDocumentRequest => __isa(o, "UpdateDocumentRequest");
 }
 
 export interface UpdateDocumentVersionRequest {
@@ -2914,8 +2814,7 @@ export interface UpdateFolderRequest {
 }
 
 export namespace UpdateFolderRequest {
-  export const isa = (o: any): o is UpdateFolderRequest =>
-    __isa(o, "UpdateFolderRequest");
+  export const isa = (o: any): o is UpdateFolderRequest => __isa(o, "UpdateFolderRequest");
 }
 
 export interface UpdateUserRequest {
@@ -2968,8 +2867,7 @@ export interface UpdateUserRequest {
 }
 
 export namespace UpdateUserRequest {
-  export const isa = (o: any): o is UpdateUserRequest =>
-    __isa(o, "UpdateUserRequest");
+  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 export interface UpdateUserResponse {
@@ -2981,8 +2879,7 @@ export interface UpdateUserResponse {
 }
 
 export namespace UpdateUserResponse {
-  export const isa = (o: any): o is UpdateUserResponse =>
-    __isa(o, "UpdateUserResponse");
+  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }
 
 /**
@@ -3002,8 +2899,7 @@ export interface UploadMetadata {
 }
 
 export namespace UploadMetadata {
-  export const isa = (o: any): o is UploadMetadata =>
-    __isa(o, "UploadMetadata");
+  export const isa = (o: any): o is UploadMetadata => __isa(o, "UploadMetadata");
 }
 
 /**
@@ -3162,8 +3058,7 @@ export interface UserStorageMetadata {
 }
 
 export namespace UserStorageMetadata {
-  export const isa = (o: any): o is UserStorageMetadata =>
-    __isa(o, "UserStorageMetadata");
+  export const isa = (o: any): o is UserStorageMetadata => __isa(o, "UserStorageMetadata");
 }
 
 export enum UserType {

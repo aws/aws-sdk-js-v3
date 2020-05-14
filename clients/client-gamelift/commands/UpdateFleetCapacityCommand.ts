@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  UpdateFleetCapacityInput,
-  UpdateFleetCapacityOutput
-} from "../models/index";
+import { UpdateFleetCapacityInput, UpdateFleetCapacityOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFleetCapacityCommand,
   serializeAws_json1_1UpdateFleetCapacityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFleetCapacityCommandInput = UpdateFleetCapacityInput;
-export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput &
-  __MetadataBearer;
+export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput & __MetadataBearer;
 
 export class UpdateFleetCapacityCommand extends $Command<
   UpdateFleetCapacityCommandInput,
@@ -49,13 +45,8 @@ export class UpdateFleetCapacityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFleetCapacityCommandInput,
-    UpdateFleetCapacityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFleetCapacityCommandInput, UpdateFleetCapacityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

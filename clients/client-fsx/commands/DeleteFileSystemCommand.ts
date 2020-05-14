@@ -1,12 +1,5 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
-import {
-  DeleteFileSystemRequest,
-  DeleteFileSystemResponse
-} from "../models/index";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteFileSystemCommand,
   serializeAws_json1_1DeleteFileSystemCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFileSystemCommandInput = DeleteFileSystemRequest;
-export type DeleteFileSystemCommandOutput = DeleteFileSystemResponse &
-  __MetadataBearer;
+export type DeleteFileSystemCommandOutput = DeleteFileSystemResponse & __MetadataBearer;
 
 export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandInput,
@@ -50,9 +42,7 @@ export class DeleteFileSystemCommand extends $Command<
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

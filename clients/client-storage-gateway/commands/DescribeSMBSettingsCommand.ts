@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeSMBSettingsInput,
-  DescribeSMBSettingsOutput
-} from "../models/index";
+import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSMBSettingsCommand,
   serializeAws_json1_1DescribeSMBSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSMBSettingsCommandInput = DescribeSMBSettingsInput;
-export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput &
-  __MetadataBearer;
+export type DescribeSMBSettingsCommandOutput = DescribeSMBSettingsOutput & __MetadataBearer;
 
 export class DescribeSMBSettingsCommand extends $Command<
   DescribeSMBSettingsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeSMBSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSMBSettingsCommandInput,
-    DescribeSMBSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSMBSettingsCommandInput, DescribeSMBSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

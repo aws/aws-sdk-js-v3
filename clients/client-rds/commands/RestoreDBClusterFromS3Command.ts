@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  RestoreDBClusterFromS3Message,
-  RestoreDBClusterFromS3Result
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/index";
 import {
   deserializeAws_queryRestoreDBClusterFromS3Command,
   serializeAws_queryRestoreDBClusterFromS3Command
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterFromS3CommandInput = RestoreDBClusterFromS3Message;
-export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result &
-  __MetadataBearer;
+export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result & __MetadataBearer;
 
 export class RestoreDBClusterFromS3Command extends $Command<
   RestoreDBClusterFromS3CommandInput,
@@ -49,13 +41,8 @@ export class RestoreDBClusterFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBClusterFromS3CommandInput,
-    RestoreDBClusterFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBClusterFromS3CommandInput, RestoreDBClusterFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  GetGameSessionLogUrlInput,
-  GetGameSessionLogUrlOutput
-} from "../models/index";
+import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetGameSessionLogUrlCommand,
   serializeAws_json1_1GetGameSessionLogUrlCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGameSessionLogUrlCommandInput = GetGameSessionLogUrlInput;
-export type GetGameSessionLogUrlCommandOutput = GetGameSessionLogUrlOutput &
-  __MetadataBearer;
+export type GetGameSessionLogUrlCommandOutput = GetGameSessionLogUrlOutput & __MetadataBearer;
 
 export class GetGameSessionLogUrlCommand extends $Command<
   GetGameSessionLogUrlCommandInput,
@@ -49,13 +45,8 @@ export class GetGameSessionLogUrlCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetGameSessionLogUrlCommandInput,
-    GetGameSessionLogUrlCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetGameSessionLogUrlCommandInput, GetGameSessionLogUrlCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

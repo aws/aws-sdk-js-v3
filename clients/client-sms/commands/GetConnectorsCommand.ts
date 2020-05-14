@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import { GetConnectorsRequest, GetConnectorsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetConnectorsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectorsCommandInput = GetConnectorsRequest;
-export type GetConnectorsCommandOutput = GetConnectorsResponse &
-  __MetadataBearer;
+export type GetConnectorsCommandOutput = GetConnectorsResponse & __MetadataBearer;
 
 export class GetConnectorsCommand extends $Command<
   GetConnectorsCommandInput,
@@ -47,9 +42,7 @@ export class GetConnectorsCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectorsCommandInput, GetConnectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

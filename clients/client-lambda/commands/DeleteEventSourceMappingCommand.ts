@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  DeleteEventSourceMappingRequest,
-  EventSourceMappingConfiguration
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteEventSourceMappingCommand,
   serializeAws_restJson1_1DeleteEventSourceMappingCommand
@@ -49,13 +42,8 @@ export class DeleteEventSourceMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEventSourceMappingCommandInput,
-    DeleteEventSourceMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEventSourceMappingCommandInput, DeleteEventSourceMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DeleteEventSourceMappingCommand extends $Command<
     input: DeleteEventSourceMappingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteEventSourceMappingCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteEventSourceMappingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventSourceMappingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEventSourceMappingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteEventSourceMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

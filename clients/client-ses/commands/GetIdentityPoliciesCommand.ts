@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  GetIdentityPoliciesRequest,
-  GetIdentityPoliciesResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { GetIdentityPoliciesRequest, GetIdentityPoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryGetIdentityPoliciesCommand,
   serializeAws_queryGetIdentityPoliciesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIdentityPoliciesCommandInput = GetIdentityPoliciesRequest;
-export type GetIdentityPoliciesCommandOutput = GetIdentityPoliciesResponse &
-  __MetadataBearer;
+export type GetIdentityPoliciesCommandOutput = GetIdentityPoliciesResponse & __MetadataBearer;
 
 export class GetIdentityPoliciesCommand extends $Command<
   GetIdentityPoliciesCommandInput,
@@ -49,13 +41,8 @@ export class GetIdentityPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityPoliciesCommandInput,
-    GetIdentityPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityPoliciesCommandInput, GetIdentityPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

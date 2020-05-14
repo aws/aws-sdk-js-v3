@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetMediaForFragmentListInput,
-  GetMediaForFragmentListOutput
-} from "../models/index";
+import { GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetMediaForFragmentListCommand,
   serializeAws_restJson1_1GetMediaForFragmentListCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMediaForFragmentListCommandInput = GetMediaForFragmentListInput;
-export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput &
-  __MetadataBearer;
+export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput & __MetadataBearer;
 
 export class GetMediaForFragmentListCommand extends $Command<
   GetMediaForFragmentListCommandInput,
@@ -49,13 +45,8 @@ export class GetMediaForFragmentListCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetMediaForFragmentListCommandInput,
-    GetMediaForFragmentListCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetMediaForFragmentListCommandInput, GetMediaForFragmentListCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetMediaForFragmentListCommand extends $Command<
     input: GetMediaForFragmentListCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetMediaForFragmentListCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetMediaForFragmentListCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMediaForFragmentListCommandOutput> {
-    return deserializeAws_restJson1_1GetMediaForFragmentListCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetMediaForFragmentListCommand(output, context);
   }
 
   // Start section: command_body_extra

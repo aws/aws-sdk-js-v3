@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMethodResponseCommandInput = UpdateMethodResponseRequest;
-export type UpdateMethodResponseCommandOutput = MethodResponse &
-  __MetadataBearer;
+export type UpdateMethodResponseCommandOutput = MethodResponse & __MetadataBearer;
 
 export class UpdateMethodResponseCommand extends $Command<
   UpdateMethodResponseCommandInput,
@@ -46,13 +45,8 @@ export class UpdateMethodResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMethodResponseCommandInput,
-    UpdateMethodResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMethodResponseCommandInput, UpdateMethodResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class UpdateMethodResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMethodResponseCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMethodResponseCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMethodResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

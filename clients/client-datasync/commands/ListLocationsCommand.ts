@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLocationsCommandInput = ListLocationsRequest;
-export type ListLocationsCommandOutput = ListLocationsResponse &
-  __MetadataBearer;
+export type ListLocationsCommandOutput = ListLocationsResponse & __MetadataBearer;
 
 export class ListLocationsCommand extends $Command<
   ListLocationsCommandInput,
@@ -47,9 +46,7 @@ export class ListLocationsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLocationsCommandInput, ListLocationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

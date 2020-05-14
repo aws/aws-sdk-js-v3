@@ -53,9 +53,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     DescribeElasticsearchDomainConfigCommandInput,
     DescribeElasticsearchDomainConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     input: DescribeElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
-    return deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeElasticsearchDomainConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterVersionsMessage,
-  DescribeClusterVersionsMessage
-} from "../models/index";
+import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterVersionsCommand,
   serializeAws_queryDescribeClusterVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterVersionsCommandInput = DescribeClusterVersionsMessage;
-export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage &
-  __MetadataBearer;
+export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage & __MetadataBearer;
 
 export class DescribeClusterVersionsCommand extends $Command<
   DescribeClusterVersionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeClusterVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterVersionsCommandInput,
-    DescribeClusterVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterVersionsCommandInput, DescribeClusterVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

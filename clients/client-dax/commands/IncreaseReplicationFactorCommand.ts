@@ -1,8 +1,4 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import {
   IncreaseReplicationFactorRequest,
   IncreaseReplicationFactorResponse
@@ -49,13 +45,8 @@ export class IncreaseReplicationFactorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IncreaseReplicationFactorCommandInput,
-    IncreaseReplicationFactorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IncreaseReplicationFactorCommandInput, IncreaseReplicationFactorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class IncreaseReplicationFactorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1IncreaseReplicationFactorCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1IncreaseReplicationFactorCommand(output, context);
   }
 
   // Start section: command_body_extra

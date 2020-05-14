@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetCardinalityRequest, GetCardinalityResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCardinalityCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCardinalityCommandInput = GetCardinalityRequest;
-export type GetCardinalityCommandOutput = GetCardinalityResponse &
-  __MetadataBearer;
+export type GetCardinalityCommandOutput = GetCardinalityResponse & __MetadataBearer;
 
 export class GetCardinalityCommand extends $Command<
   GetCardinalityCommandInput,
@@ -47,9 +42,7 @@ export class GetCardinalityCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCardinalityCommandInput, GetCardinalityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

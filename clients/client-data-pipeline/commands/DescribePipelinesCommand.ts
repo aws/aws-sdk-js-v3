@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient";
-import {
-  DescribePipelinesInput,
-  DescribePipelinesOutput
-} from "../models/index";
+import { DescribePipelinesInput, DescribePipelinesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribePipelinesCommand,
   serializeAws_json1_1DescribePipelinesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePipelinesCommandInput = DescribePipelinesInput;
-export type DescribePipelinesCommandOutput = DescribePipelinesOutput &
-  __MetadataBearer;
+export type DescribePipelinesCommandOutput = DescribePipelinesOutput & __MetadataBearer;
 
 export class DescribePipelinesCommand extends $Command<
   DescribePipelinesCommandInput,
@@ -50,9 +46,7 @@ export class DescribePipelinesCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePipelinesCommandInput, DescribePipelinesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

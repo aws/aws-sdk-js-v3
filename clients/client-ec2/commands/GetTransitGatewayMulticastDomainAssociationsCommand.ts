@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult
@@ -39,9 +35,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetTransitGatewayMulticastDomainAssociationsCommandInput
-  ) {
+  constructor(readonly input: GetTransitGatewayMulticastDomainAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     GetTransitGatewayMulticastDomainAssociationsCommandInput,
     GetTransitGatewayMulticastDomainAssociationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

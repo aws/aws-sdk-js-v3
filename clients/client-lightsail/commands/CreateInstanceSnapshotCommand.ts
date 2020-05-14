@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  CreateInstanceSnapshotRequest,
-  CreateInstanceSnapshotResult
-} from "../models/index";
+import { CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateInstanceSnapshotCommand,
   serializeAws_json1_1CreateInstanceSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInstanceSnapshotCommandInput = CreateInstanceSnapshotRequest;
-export type CreateInstanceSnapshotCommandOutput = CreateInstanceSnapshotResult &
-  __MetadataBearer;
+export type CreateInstanceSnapshotCommandOutput = CreateInstanceSnapshotResult & __MetadataBearer;
 
 export class CreateInstanceSnapshotCommand extends $Command<
   CreateInstanceSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class CreateInstanceSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceSnapshotCommandInput,
-    CreateInstanceSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceSnapshotCommandInput, CreateInstanceSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

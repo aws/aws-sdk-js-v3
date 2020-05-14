@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVolumesCommandInput = DescribeVolumesRequest;
-export type DescribeVolumesCommandOutput = DescribeVolumesResult &
-  __MetadataBearer;
+export type DescribeVolumesCommandOutput = DescribeVolumesResult & __MetadataBearer;
 
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,
@@ -47,9 +46,7 @@ export class DescribeVolumesCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVolumesCommandInput, DescribeVolumesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -138,9 +138,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public createPlacement(
     args: CreatePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePlacementCommandOutput) => void),
     cb?: (err: any, data?: CreatePlacementCommandOutput) => void
   ): Promise<CreatePlacementCommandOutput> | void {
     const command = new CreatePlacementCommand(args);
@@ -174,9 +172,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
@@ -213,9 +209,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public deletePlacement(
     args: DeletePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlacementCommandOutput) => void),
     cb?: (err: any, data?: DeletePlacementCommandOutput) => void
   ): Promise<DeletePlacementCommandOutput> | void {
     const command = new DeletePlacementCommand(args);
@@ -252,9 +246,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
@@ -322,9 +314,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public describeProject(
     args: DescribeProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectCommandOutput) => void
   ): Promise<DescribeProjectCommandOutput> | void {
     const command = new DescribeProjectCommand(args);
@@ -359,10 +349,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
     args: DisassociateDeviceFromPlacementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDeviceFromPlacementCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void),
     cb?: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
   ): Promise<DisassociateDeviceFromPlacementCommandOutput> | void {
     const command = new DisassociateDeviceFromPlacementCommand(args);
@@ -430,9 +417,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public listPlacements(
     args: ListPlacementsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPlacementsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlacementsCommandOutput) => void),
     cb?: (err: any, data?: ListPlacementsCommandOutput) => void
   ): Promise<ListPlacementsCommandOutput> | void {
     const command = new ListPlacementsCommand(args);
@@ -465,9 +450,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
@@ -537,9 +520,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -572,9 +553,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -608,9 +587,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public updatePlacement(
     args: UpdatePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePlacementCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePlacementCommandOutput) => void),
     cb?: (err: any, data?: UpdatePlacementCommandOutput) => void
   ): Promise<UpdatePlacementCommandOutput> | void {
     const command = new UpdatePlacementCommand(args);
@@ -646,9 +623,7 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);

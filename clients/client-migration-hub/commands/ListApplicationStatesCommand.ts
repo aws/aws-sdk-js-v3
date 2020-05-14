@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  ListApplicationStatesRequest,
-  ListApplicationStatesResult
-} from "../models/index";
+import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListApplicationStatesCommand,
   serializeAws_json1_1ListApplicationStatesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListApplicationStatesCommandInput = ListApplicationStatesRequest;
-export type ListApplicationStatesCommandOutput = ListApplicationStatesResult &
-  __MetadataBearer;
+export type ListApplicationStatesCommandOutput = ListApplicationStatesResult & __MetadataBearer;
 
 export class ListApplicationStatesCommand extends $Command<
   ListApplicationStatesCommandInput,
@@ -49,13 +45,8 @@ export class ListApplicationStatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApplicationStatesCommandInput,
-    ListApplicationStatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApplicationStatesCommandInput, ListApplicationStatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

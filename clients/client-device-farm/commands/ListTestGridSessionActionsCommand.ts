@@ -49,13 +49,8 @@ export class ListTestGridSessionActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTestGridSessionActionsCommandInput,
-    ListTestGridSessionActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTestGridSessionActionsCommandInput, ListTestGridSessionActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListTestGridSessionActionsCommand extends $Command<
     input: ListTestGridSessionActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListTestGridSessionActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionActionsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTestGridSessionActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

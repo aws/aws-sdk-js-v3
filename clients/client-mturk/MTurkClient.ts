@@ -14,10 +14,7 @@ import {
   CreateAdditionalAssignmentsForHITCommandInput,
   CreateAdditionalAssignmentsForHITCommandOutput
 } from "./commands/CreateAdditionalAssignmentsForHITCommand";
-import {
-  CreateHITCommandInput,
-  CreateHITCommandOutput
-} from "./commands/CreateHITCommand";
+import { CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand";
 import {
   CreateHITTypeCommandInput,
   CreateHITTypeCommandOutput
@@ -34,10 +31,7 @@ import {
   CreateWorkerBlockCommandInput,
   CreateWorkerBlockCommandOutput
 } from "./commands/CreateWorkerBlockCommand";
-import {
-  DeleteHITCommandInput,
-  DeleteHITCommandOutput
-} from "./commands/DeleteHITCommand";
+import { DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand";
 import {
   DeleteQualificationTypeCommandInput,
   DeleteQualificationTypeCommandOutput
@@ -62,10 +56,7 @@ import {
   GetFileUploadURLCommandInput,
   GetFileUploadURLCommandOutput
 } from "./commands/GetFileUploadURLCommand";
-import {
-  GetHITCommandInput,
-  GetHITCommandOutput
-} from "./commands/GetHITCommand";
+import { GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
 import {
   GetQualificationScoreCommandInput,
   GetQualificationScoreCommandOutput
@@ -82,10 +73,7 @@ import {
   ListBonusPaymentsCommandInput,
   ListBonusPaymentsCommandOutput
 } from "./commands/ListBonusPaymentsCommand";
-import {
-  ListHITsCommandInput,
-  ListHITsCommandOutput
-} from "./commands/ListHITsCommand";
+import { ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand";
 import {
   ListHITsForQualificationTypeCommandInput,
   ListHITsForQualificationTypeCommandOutput
@@ -126,10 +114,7 @@ import {
   RejectQualificationRequestCommandInput,
   RejectQualificationRequestCommandOutput
 } from "./commands/RejectQualificationRequestCommand";
-import {
-  SendBonusCommandInput,
-  SendBonusCommandOutput
-} from "./commands/SendBonusCommand";
+import { SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand";
 import {
   SendTestEventNotificationCommandInput,
   SendTestEventNotificationCommandOutput
@@ -373,9 +358,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MTurkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MTurkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -384,9 +367,7 @@ export type MTurkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

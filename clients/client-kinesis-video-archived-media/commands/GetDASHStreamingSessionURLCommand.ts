@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetDASHStreamingSessionURLInput,
-  GetDASHStreamingSessionURLOutput
-} from "../models/index";
+import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand,
   serializeAws_restJson1_1GetDASHStreamingSessionURLCommand
@@ -49,13 +46,8 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDASHStreamingSessionURLCommandInput,
-    GetDASHStreamingSessionURLCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDASHStreamingSessionURLCommandInput, GetDASHStreamingSessionURLCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     input: GetDASHStreamingSessionURLCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

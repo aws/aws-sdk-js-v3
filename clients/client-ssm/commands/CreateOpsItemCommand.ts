@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { CreateOpsItemRequest, CreateOpsItemResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateOpsItemCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateOpsItemCommandInput = CreateOpsItemRequest;
-export type CreateOpsItemCommandOutput = CreateOpsItemResponse &
-  __MetadataBearer;
+export type CreateOpsItemCommandOutput = CreateOpsItemResponse & __MetadataBearer;
 
 export class CreateOpsItemCommand extends $Command<
   CreateOpsItemCommandInput,
@@ -47,9 +42,7 @@ export class CreateOpsItemCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateOpsItemCommandInput, CreateOpsItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

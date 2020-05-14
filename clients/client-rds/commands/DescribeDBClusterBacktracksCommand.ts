@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBClusterBacktrackMessage,
-  DescribeDBClusterBacktracksMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBClusterBacktrackMessage, DescribeDBClusterBacktracksMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBClusterBacktracksCommand,
   serializeAws_queryDescribeDBClusterBacktracksCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterBacktracksCommandInput = DescribeDBClusterBacktracksMessage;
-export type DescribeDBClusterBacktracksCommandOutput = DBClusterBacktrackMessage &
-  __MetadataBearer;
+export type DescribeDBClusterBacktracksCommandOutput = DBClusterBacktrackMessage & __MetadataBearer;
 
 export class DescribeDBClusterBacktracksCommand extends $Command<
   DescribeDBClusterBacktracksCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBClusterBacktracksCommandInput,
-    DescribeDBClusterBacktracksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBClusterBacktracksCommandInput, DescribeDBClusterBacktracksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterBacktracksCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterBacktracksCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBClusterBacktracksCommand(output, context);
   }
 
   // Start section: command_body_extra

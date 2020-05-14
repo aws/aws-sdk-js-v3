@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTagOptionCommandInput = DeleteTagOptionInput;
-export type DeleteTagOptionCommandOutput = DeleteTagOptionOutput &
-  __MetadataBearer;
+export type DeleteTagOptionCommandOutput = DeleteTagOptionOutput & __MetadataBearer;
 
 export class DeleteTagOptionCommand extends $Command<
   DeleteTagOptionCommandInput,
@@ -47,9 +46,7 @@ export class DeleteTagOptionCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     DeleteRemediationConfigurationCommandInput,
     DeleteRemediationConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeleteRemediationConfigurationCommand extends $Command<
     input: DeleteRemediationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemediationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteRemediationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemediationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteRemediationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRemediationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  CreateBotVersionRequest,
-  CreateBotVersionResponse
-} from "../models/index";
+import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateBotVersionCommand,
   serializeAws_restJson1_1CreateBotVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateBotVersionCommandInput = CreateBotVersionRequest;
-export type CreateBotVersionCommandOutput = CreateBotVersionResponse &
-  __MetadataBearer;
+export type CreateBotVersionCommandOutput = CreateBotVersionResponse & __MetadataBearer;
 
 export class CreateBotVersionCommand extends $Command<
   CreateBotVersionCommandInput,
@@ -50,9 +46,7 @@ export class CreateBotVersionCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBotVersionCommandInput, CreateBotVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

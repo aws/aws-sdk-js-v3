@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AccessAnalyzerClient";
-import {
-  ListArchiveRulesRequest,
-  ListArchiveRulesResponse
-} from "../models/index";
+import { ListArchiveRulesRequest, ListArchiveRulesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListArchiveRulesCommand,
   serializeAws_restJson1_1ListArchiveRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListArchiveRulesCommandInput = ListArchiveRulesRequest;
-export type ListArchiveRulesCommandOutput = ListArchiveRulesResponse &
-  __MetadataBearer;
+export type ListArchiveRulesCommandOutput = ListArchiveRulesResponse & __MetadataBearer;
 
 export class ListArchiveRulesCommand extends $Command<
   ListArchiveRulesCommandInput,
@@ -50,9 +46,7 @@ export class ListArchiveRulesCommand extends $Command<
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

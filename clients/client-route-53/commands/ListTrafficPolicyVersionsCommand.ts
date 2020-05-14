@@ -50,13 +50,8 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTrafficPolicyVersionsCommandInput,
-    ListTrafficPolicyVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTrafficPolicyVersionsCommandInput, ListTrafficPolicyVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +78,7 @@ export class ListTrafficPolicyVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyVersionsCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListTrafficPolicyVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

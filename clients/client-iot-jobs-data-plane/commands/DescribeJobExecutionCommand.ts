@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTJobsDataPlaneClient";
-import {
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionResponse
-} from "../models/index";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeJobExecutionCommand,
   serializeAws_restJson1_1DescribeJobExecutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeJobExecutionCommandInput = DescribeJobExecutionRequest;
-export type DescribeJobExecutionCommandOutput = DescribeJobExecutionResponse &
-  __MetadataBearer;
+export type DescribeJobExecutionCommandOutput = DescribeJobExecutionResponse & __MetadataBearer;
 
 export class DescribeJobExecutionCommand extends $Command<
   DescribeJobExecutionCommandInput,
@@ -49,13 +45,8 @@ export class DescribeJobExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeJobExecutionCommandInput,
-    DescribeJobExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeJobExecutionCommandInput, DescribeJobExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeJobExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeJobExecutionCommandOutput> {
-    return deserializeAws_restJson1_1DescribeJobExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

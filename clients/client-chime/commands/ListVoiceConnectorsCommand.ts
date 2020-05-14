@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  ListVoiceConnectorsRequest,
-  ListVoiceConnectorsResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { ListVoiceConnectorsRequest, ListVoiceConnectorsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListVoiceConnectorsCommand,
   serializeAws_restJson1_1ListVoiceConnectorsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVoiceConnectorsCommandInput = ListVoiceConnectorsRequest;
-export type ListVoiceConnectorsCommandOutput = ListVoiceConnectorsResponse &
-  __MetadataBearer;
+export type ListVoiceConnectorsCommandOutput = ListVoiceConnectorsResponse & __MetadataBearer;
 
 export class ListVoiceConnectorsCommand extends $Command<
   ListVoiceConnectorsCommandInput,
@@ -49,13 +41,8 @@ export class ListVoiceConnectorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVoiceConnectorsCommandInput,
-    ListVoiceConnectorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVoiceConnectorsCommandInput, ListVoiceConnectorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListVoiceConnectorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVoiceConnectorsCommandOutput> {
-    return deserializeAws_restJson1_1ListVoiceConnectorsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVoiceConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

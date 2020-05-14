@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -91,16 +88,11 @@ export namespace ArrayValue {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: ArrayValue, visitor: Visitor<T>): T => {
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.booleanValues !== undefined)
-      return visitor.booleanValues(value.booleanValues);
-    if (value.doubleValues !== undefined)
-      return visitor.doubleValues(value.doubleValues);
-    if (value.longValues !== undefined)
-      return visitor.longValues(value.longValues);
-    if (value.stringValues !== undefined)
-      return visitor.stringValues(value.stringValues);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
+    if (value.doubleValues !== undefined) return visitor.doubleValues(value.doubleValues);
+    if (value.longValues !== undefined) return visitor.longValues(value.longValues);
+    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -108,9 +100,7 @@ export namespace ArrayValue {
 /**
  * <p>There is an error in the call or in a SQL statement.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -120,8 +110,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -220,8 +209,7 @@ export interface BeginTransactionRequest {
 }
 
 export namespace BeginTransactionRequest {
-  export const isa = (o: any): o is BeginTransactionRequest =>
-    __isa(o, "BeginTransactionRequest");
+  export const isa = (o: any): o is BeginTransactionRequest => __isa(o, "BeginTransactionRequest");
 }
 
 /**
@@ -318,8 +306,7 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
-  export const isa = (o: any): o is ColumnMetadata =>
-    __isa(o, "ColumnMetadata");
+  export const isa = (o: any): o is ColumnMetadata => __isa(o, "ColumnMetadata");
 }
 
 /**
@@ -400,8 +387,7 @@ export interface ExecuteSqlRequest {
 }
 
 export namespace ExecuteSqlRequest {
-  export const isa = (o: any): o is ExecuteSqlRequest =>
-    __isa(o, "ExecuteSqlRequest");
+  export const isa = (o: any): o is ExecuteSqlRequest => __isa(o, "ExecuteSqlRequest");
 }
 
 /**
@@ -417,8 +403,7 @@ export interface ExecuteSqlResponse {
 }
 
 export namespace ExecuteSqlResponse {
-  export const isa = (o: any): o is ExecuteSqlResponse =>
-    __isa(o, "ExecuteSqlResponse");
+  export const isa = (o: any): o is ExecuteSqlResponse => __isa(o, "ExecuteSqlResponse");
 }
 
 /**
@@ -484,8 +469,7 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
-  export const isa = (o: any): o is ExecuteStatementRequest =>
-    __isa(o, "ExecuteStatementRequest");
+  export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -649,19 +633,13 @@ export namespace Field {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: Field, visitor: Visitor<T>): T => {
-    if (value.arrayValue !== undefined)
-      return visitor.arrayValue(value.arrayValue);
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.booleanValue !== undefined)
-      return visitor.booleanValue(value.booleanValue);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
+    if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.longValue !== undefined)
-      return visitor.longValue(value.longValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
+    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -679,16 +657,13 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
 }
@@ -711,8 +686,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -767,8 +741,7 @@ export interface ResultSetMetadata {
 }
 
 export namespace ResultSetMetadata {
-  export const isa = (o: any): o is ResultSetMetadata =>
-    __isa(o, "ResultSetMetadata");
+  export const isa = (o: any): o is ResultSetMetadata => __isa(o, "ResultSetMetadata");
 }
 
 /**
@@ -819,16 +792,13 @@ export namespace RollbackTransactionResponse {
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
-export interface ServiceUnavailableError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableError extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
 }
 
 export namespace ServiceUnavailableError {
-  export const isa = (o: any): o is ServiceUnavailableError =>
-    __isa(o, "ServiceUnavailableError");
+  export const isa = (o: any): o is ServiceUnavailableError => __isa(o, "ServiceUnavailableError");
 }
 
 /**
@@ -868,16 +838,13 @@ export interface SqlStatementResult {
 }
 
 export namespace SqlStatementResult {
-  export const isa = (o: any): o is SqlStatementResult =>
-    __isa(o, "SqlStatementResult");
+  export const isa = (o: any): o is SqlStatementResult => __isa(o, "SqlStatementResult");
 }
 
 /**
  * <p>The execution of the SQL statement timed out.</p>
  */
-export interface StatementTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StatementTimeoutException extends __SmithyException, $MetadataBearer {
   name: "StatementTimeoutException";
   $fault: "client";
   /**
@@ -1133,23 +1100,16 @@ export namespace Value {
     _: (name: string, value: any) => T;
   }
   export const visit = <T>(value: Value, visitor: Visitor<T>): T => {
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.bigIntValue !== undefined)
-      return visitor.bigIntValue(value.bigIntValue);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
     if (value.bitValue !== undefined) return visitor.bitValue(value.bitValue);
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.intValue !== undefined) return visitor.intValue(value.intValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.realValue !== undefined)
-      return visitor.realValue(value.realValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
-    if (value.structValue !== undefined)
-      return visitor.structValue(value.structValue);
+    if (value.realValue !== undefined) return visitor.realValue(value.realValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

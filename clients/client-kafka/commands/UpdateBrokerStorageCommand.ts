@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  UpdateBrokerStorageRequest,
-  UpdateBrokerStorageResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { UpdateBrokerStorageRequest, UpdateBrokerStorageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateBrokerStorageCommand,
   serializeAws_restJson1_1UpdateBrokerStorageCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateBrokerStorageCommandInput = UpdateBrokerStorageRequest;
-export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse &
-  __MetadataBearer;
+export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse & __MetadataBearer;
 
 export class UpdateBrokerStorageCommand extends $Command<
   UpdateBrokerStorageCommandInput,
@@ -49,13 +41,8 @@ export class UpdateBrokerStorageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateBrokerStorageCommandInput,
-    UpdateBrokerStorageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateBrokerStorageCommandInput, UpdateBrokerStorageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class UpdateBrokerStorageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBrokerStorageCommandOutput> {
-    return deserializeAws_restJson1_1UpdateBrokerStorageCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateBrokerStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

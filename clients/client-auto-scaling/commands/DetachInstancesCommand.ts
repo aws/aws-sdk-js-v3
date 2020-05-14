@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachInstancesCommandInput = DetachInstancesQuery;
-export type DetachInstancesCommandOutput = DetachInstancesAnswer &
-  __MetadataBearer;
+export type DetachInstancesCommandOutput = DetachInstancesAnswer & __MetadataBearer;
 
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,
@@ -47,9 +46,7 @@ export class DetachInstancesCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachInstancesCommandInput, DetachInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

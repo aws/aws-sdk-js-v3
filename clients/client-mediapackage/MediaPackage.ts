@@ -113,9 +113,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public createChannel(
     args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
@@ -148,9 +146,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public createHarvestJob(
     args: CreateHarvestJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHarvestJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHarvestJobCommandOutput) => void),
     cb?: (err: any, data?: CreateHarvestJobCommandOutput) => void
   ): Promise<CreateHarvestJobCommandOutput> | void {
     const command = new CreateHarvestJobCommand(args);
@@ -218,9 +214,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public deleteChannel(
     args: DeleteChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteChannelCommandOutput) => void
   ): Promise<DeleteChannelCommandOutput> | void {
     const command = new DeleteChannelCommand(args);
@@ -288,9 +282,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public describeChannel(
     args: DescribeChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
@@ -393,9 +385,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public listChannels(
     args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
@@ -428,9 +418,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public listHarvestJobs(
     args: ListHarvestJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHarvestJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHarvestJobsCommandOutput) => void),
     cb?: (err: any, data?: ListHarvestJobsCommandOutput) => void
   ): Promise<ListHarvestJobsCommandOutput> | void {
     const command = new ListHarvestJobsCommand(args);
@@ -567,10 +555,7 @@ export class MediaPackage extends MediaPackageClient {
     args: RotateIngestEndpointCredentialsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RotateIngestEndpointCredentialsCommandOutput
-        ) => void),
+      | ((err: any, data?: RotateIngestEndpointCredentialsCommandOutput) => void),
     cb?: (err: any, data?: RotateIngestEndpointCredentialsCommandOutput) => void
   ): Promise<RotateIngestEndpointCredentialsCommandOutput> | void {
     const command = new RotateIngestEndpointCredentialsCommand(args);
@@ -600,9 +585,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -632,9 +615,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -667,9 +648,7 @@ export class MediaPackage extends MediaPackageClient {
   ): void;
   public updateChannel(
     args: UpdateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);

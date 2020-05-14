@@ -621,10 +621,7 @@ export class Inspector extends InspectorClient {
     args: DescribeCrossAccountAccessRoleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCrossAccountAccessRoleCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeCrossAccountAccessRoleCommandOutput) => void),
     cb?: (err: any, data?: DescribeCrossAccountAccessRoleCommandOutput) => void
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> | void {
     const command = new DescribeCrossAccountAccessRoleCommand(args);
@@ -692,9 +689,7 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeFindings(
     args: DescribeFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFindingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFindingsCommandOutput) => void
   ): Promise<DescribeFindingsCommandOutput> | void {
     const command = new DescribeFindingsCommand(args);
@@ -1089,9 +1084,7 @@ export class Inspector extends InspectorClient {
   ): void;
   public listExclusions(
     args: ListExclusionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExclusionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExclusionsCommandOutput) => void),
     cb?: (err: any, data?: ListExclusionsCommandOutput) => void
   ): Promise<ListExclusionsCommandOutput> | void {
     const command = new ListExclusionsCommand(args);
@@ -1125,9 +1118,7 @@ export class Inspector extends InspectorClient {
   ): void;
   public listFindings(
     args: ListFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingsCommandOutput) => void),
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
@@ -1231,9 +1222,7 @@ export class Inspector extends InspectorClient {
   ): void;
   public previewAgents(
     args: PreviewAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PreviewAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PreviewAgentsCommandOutput) => void),
     cb?: (err: any, data?: PreviewAgentsCommandOutput) => void
   ): Promise<PreviewAgentsCommandOutput> | void {
     const command = new PreviewAgentsCommand(args);
@@ -1269,10 +1258,7 @@ export class Inspector extends InspectorClient {
     args: RegisterCrossAccountAccessRoleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterCrossAccountAccessRoleCommandOutput
-        ) => void),
+      | ((err: any, data?: RegisterCrossAccountAccessRoleCommandOutput) => void),
     cb?: (err: any, data?: RegisterCrossAccountAccessRoleCommandOutput) => void
   ): Promise<RegisterCrossAccountAccessRoleCommandOutput> | void {
     const command = new RegisterCrossAccountAccessRoleCommand(args);
@@ -1451,9 +1437,7 @@ export class Inspector extends InspectorClient {
   ): void;
   public subscribeToEvent(
     args: SubscribeToEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeToEventCommandOutput) => void),
     cb?: (err: any, data?: SubscribeToEventCommandOutput) => void
   ): Promise<SubscribeToEventCommandOutput> | void {
     const command = new SubscribeToEventCommand(args);

@@ -1,12 +1,5 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
-import {
-  GetQueueAttributesRequest,
-  GetQueueAttributesResult
-} from "../models/index";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
+import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/index";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
   serializeAws_queryGetQueueAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
-export type GetQueueAttributesCommandOutput = GetQueueAttributesResult &
-  __MetadataBearer;
+export type GetQueueAttributesCommandOutput = GetQueueAttributesResult & __MetadataBearer;
 
 export class GetQueueAttributesCommand extends $Command<
   GetQueueAttributesCommandInput,
@@ -50,9 +42,7 @@ export class GetQueueAttributesCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

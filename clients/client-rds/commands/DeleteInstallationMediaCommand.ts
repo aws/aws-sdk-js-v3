@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeleteInstallationMediaMessage,
-  InstallationMedia
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeleteInstallationMediaMessage, InstallationMedia } from "../models/index";
 import {
   deserializeAws_queryDeleteInstallationMediaCommand,
   serializeAws_queryDeleteInstallationMediaCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
-export type DeleteInstallationMediaCommandOutput = InstallationMedia &
-  __MetadataBearer;
+export type DeleteInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
 
 export class DeleteInstallationMediaCommand extends $Command<
   DeleteInstallationMediaCommandInput,
@@ -49,13 +41,8 @@ export class DeleteInstallationMediaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteInstallationMediaCommandInput,
-    DeleteInstallationMediaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteInstallationMediaCommandInput, DeleteInstallationMediaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

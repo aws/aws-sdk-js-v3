@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMClient";
-import {
-  ListAvailableZonesRequest,
-  ListAvailableZonesResponse
-} from "../models/index";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
   serializeAws_json1_1ListAvailableZonesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
-export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse &
-  __MetadataBearer;
+export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse & __MetadataBearer;
 
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,
@@ -50,9 +46,7 @@ export class ListAvailableZonesCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAvailableZonesCommandInput, ListAvailableZonesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

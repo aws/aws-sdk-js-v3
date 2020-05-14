@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeCopyJobInput, DescribeCopyJobOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeCopyJobCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCopyJobCommandInput = DescribeCopyJobInput;
-export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput &
-  __MetadataBearer;
+export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput & __MetadataBearer;
 
 export class DescribeCopyJobCommand extends $Command<
   DescribeCopyJobCommandInput,
@@ -47,9 +42,7 @@ export class DescribeCopyJobCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

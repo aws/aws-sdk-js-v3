@@ -2,14 +2,8 @@ import {
   AddFlowOutputsCommandInput,
   AddFlowOutputsCommandOutput
 } from "../commands/AddFlowOutputsCommand";
-import {
-  CreateFlowCommandInput,
-  CreateFlowCommandOutput
-} from "../commands/CreateFlowCommand";
-import {
-  DeleteFlowCommandInput,
-  DeleteFlowCommandOutput
-} from "../commands/DeleteFlowCommand";
+import { CreateFlowCommandInput, CreateFlowCommandOutput } from "../commands/CreateFlowCommand";
+import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "../commands/DeleteFlowCommand";
 import {
   DescribeFlowCommandInput,
   DescribeFlowCommandOutput
@@ -22,10 +16,7 @@ import {
   ListEntitlementsCommandInput,
   ListEntitlementsCommandOutput
 } from "../commands/ListEntitlementsCommand";
-import {
-  ListFlowsCommandInput,
-  ListFlowsCommandOutput
-} from "../commands/ListFlowsCommand";
+import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -38,18 +29,9 @@ import {
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput
 } from "../commands/RevokeFlowEntitlementCommand";
-import {
-  StartFlowCommandInput,
-  StartFlowCommandOutput
-} from "../commands/StartFlowCommand";
-import {
-  StopFlowCommandInput,
-  StopFlowCommandOutput
-} from "../commands/StopFlowCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { StartFlowCommandInput, StartFlowCommandOutput } from "../commands/StartFlowCommand";
+import { StopFlowCommandInput, StopFlowCommandOutput } from "../commands/StopFlowCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -118,20 +100,14 @@ export const serializeAws_restJson1_1AddFlowOutputsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Outputs !== undefined && {
-      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(
-        input.Outputs,
-        context
-      )
+      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(input.Outputs, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -167,10 +143,7 @@ export const serializeAws_restJson1_1CreateFlowCommand = async (
     }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Outputs !== undefined && {
-      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(
-        input.Outputs,
-        context
-      )
+      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(input.Outputs, context)
     }),
     ...(input.Source !== undefined && {
       source: serializeAws_restJson1_1SetSourceRequest(input.Source, context)
@@ -201,10 +174,7 @@ export const serializeAws_restJson1_1DeleteFlowCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -234,10 +204,7 @@ export const serializeAws_restJson1_1DescribeFlowCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -267,10 +234,7 @@ export const serializeAws_restJson1_1GrantFlowEntitlementsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -362,14 +326,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -399,10 +358,7 @@ export const serializeAws_restJson1_1RemoveFlowOutputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -411,10 +367,7 @@ export const serializeAws_restJson1_1RemoveFlowOutputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutputArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OutputArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OutputArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
@@ -442,9 +395,7 @@ export const serializeAws_restJson1_1RevokeFlowEntitlementCommand = async (
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EntitlementArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
@@ -458,10 +409,7 @@ export const serializeAws_restJson1_1RevokeFlowEntitlementCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -491,10 +439,7 @@ export const serializeAws_restJson1_1StartFlowCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -524,10 +469,7 @@ export const serializeAws_restJson1_1StopFlowCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -555,14 +497,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -595,14 +532,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -636,9 +568,7 @@ export const serializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EntitlementArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
@@ -652,10 +582,7 @@ export const serializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -663,16 +590,10 @@ export const serializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1_1UpdateEncryption(
-        input.Encryption,
-        context
-      )
+      encryption: serializeAws_restJson1_1UpdateEncryption(input.Encryption, context)
     }),
     ...(input.Subscribers !== undefined && {
-      subscribers: serializeAws_restJson1_1__listOf__string(
-        input.Subscribers,
-        context
-      )
+      subscribers: serializeAws_restJson1_1__listOf__string(input.Subscribers, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -700,10 +621,7 @@ export const serializeAws_restJson1_1UpdateFlowOutputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -712,28 +630,19 @@ export const serializeAws_restJson1_1UpdateFlowOutputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutputArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{OutputArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{OutputArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.CidrAllowList !== undefined && {
-      cidrAllowList: serializeAws_restJson1_1__listOf__string(
-        input.CidrAllowList,
-        context
-      )
+      cidrAllowList: serializeAws_restJson1_1__listOf__string(input.CidrAllowList, context)
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Destination !== undefined && { destination: input.Destination }),
     ...(input.Encryption !== undefined && {
-      encryption: serializeAws_restJson1_1UpdateEncryption(
-        input.Encryption,
-        context
-      )
+      encryption: serializeAws_restJson1_1UpdateEncryption(input.Encryption, context)
     }),
     ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
     ...(input.Port !== undefined && { port: input.Port }),
@@ -769,10 +678,7 @@ export const serializeAws_restJson1_1UpdateFlowSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{FlowArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
@@ -781,20 +687,14 @@ export const serializeAws_restJson1_1UpdateFlowSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{SourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{SourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SourceArn.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Decryption !== undefined && {
-      decryption: serializeAws_restJson1_1UpdateEncryption(
-        input.Decryption,
-        context
-      )
+      decryption: serializeAws_restJson1_1UpdateEncryption(input.Decryption, context)
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.EntitlementArn !== undefined && {
@@ -826,10 +726,7 @@ export const deserializeAws_restJson1_1AddFlowOutputsCommand = async (
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AddFlowOutputsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AddFlowOutputsCommandError(output, context);
   }
   const contents: AddFlowOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -842,10 +739,7 @@ export const deserializeAws_restJson1_1AddFlowOutputsCommand = async (
     contents.FlowArn = data.flowArn;
   }
   if (data.outputs !== undefined && data.outputs !== null) {
-    contents.Outputs = deserializeAws_restJson1_1__listOfOutput(
-      data.outputs,
-      context
-    );
+    contents.Outputs = deserializeAws_restJson1_1__listOfOutput(data.outputs, context);
   }
   return Promise.resolve(contents);
 };
@@ -876,10 +770,7 @@ const deserializeAws_restJson1_1AddFlowOutputsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -887,10 +778,7 @@ const deserializeAws_restJson1_1AddFlowOutputsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -909,10 +797,7 @@ const deserializeAws_restJson1_1AddFlowOutputsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -990,10 +875,7 @@ const deserializeAws_restJson1_1CreateFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1001,10 +883,7 @@ const deserializeAws_restJson1_1CreateFlowCommandError = async (
     case "CreateFlow420Exception":
     case "com.amazonaws.mediaconnect#CreateFlow420Exception":
       response = {
-        ...(await deserializeAws_restJson1_1CreateFlow420ExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1CreateFlow420ExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1012,10 +891,7 @@ const deserializeAws_restJson1_1CreateFlowCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1108,10 +984,7 @@ const deserializeAws_restJson1_1DeleteFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1119,10 +992,7 @@ const deserializeAws_restJson1_1DeleteFlowCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1141,10 +1011,7 @@ const deserializeAws_restJson1_1DeleteFlowCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1206,10 +1073,7 @@ export const deserializeAws_restJson1_1DescribeFlowCommand = async (
     contents.Flow = deserializeAws_restJson1_1Flow(data.flow, context);
   }
   if (data.messages !== undefined && data.messages !== null) {
-    contents.Messages = deserializeAws_restJson1_1Messages(
-      data.messages,
-      context
-    );
+    contents.Messages = deserializeAws_restJson1_1Messages(data.messages, context);
   }
   return Promise.resolve(contents);
 };
@@ -1229,10 +1093,7 @@ const deserializeAws_restJson1_1DescribeFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1240,10 +1101,7 @@ const deserializeAws_restJson1_1DescribeFlowCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1262,10 +1120,7 @@ const deserializeAws_restJson1_1DescribeFlowCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1314,10 +1169,7 @@ export const deserializeAws_restJson1_1GrantFlowEntitlementsCommand = async (
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(output, context);
   }
   const contents: GrantFlowEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1353,10 +1205,7 @@ const deserializeAws_restJson1_1GrantFlowEntitlementsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1364,10 +1213,7 @@ const deserializeAws_restJson1_1GrantFlowEntitlementsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1397,10 +1243,7 @@ const deserializeAws_restJson1_1GrantFlowEntitlementsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1449,10 +1292,7 @@ export const deserializeAws_restJson1_1ListEntitlementsCommand = async (
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListEntitlementsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListEntitlementsCommandError(output, context);
   }
   const contents: ListEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1488,10 +1328,7 @@ const deserializeAws_restJson1_1ListEntitlementsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1561,10 +1398,7 @@ export const deserializeAws_restJson1_1ListFlowsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.flows !== undefined && data.flows !== null) {
-    contents.Flows = deserializeAws_restJson1_1__listOfListedFlow(
-      data.flows,
-      context
-    );
+    contents.Flows = deserializeAws_restJson1_1__listOfListedFlow(data.flows, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -1587,10 +1421,7 @@ const deserializeAws_restJson1_1ListFlowsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1650,10 +1481,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1662,10 +1490,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1685,10 +1510,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1707,10 +1529,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1737,10 +1556,7 @@ export const deserializeAws_restJson1_1RemoveFlowOutputCommand = async (
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RemoveFlowOutputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveFlowOutputCommandError(output, context);
   }
   const contents: RemoveFlowOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1773,10 +1589,7 @@ const deserializeAws_restJson1_1RemoveFlowOutputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1784,10 +1597,7 @@ const deserializeAws_restJson1_1RemoveFlowOutputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1806,10 +1616,7 @@ const deserializeAws_restJson1_1RemoveFlowOutputCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1858,10 +1665,7 @@ export const deserializeAws_restJson1_1RevokeFlowEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(output, context);
   }
   const contents: RevokeFlowEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1894,10 +1698,7 @@ const deserializeAws_restJson1_1RevokeFlowEntitlementCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1905,10 +1706,7 @@ const deserializeAws_restJson1_1RevokeFlowEntitlementCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1927,10 +1725,7 @@ const deserializeAws_restJson1_1RevokeFlowEntitlementCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2012,10 +1807,7 @@ const deserializeAws_restJson1_1StartFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2023,10 +1815,7 @@ const deserializeAws_restJson1_1StartFlowCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2045,10 +1834,7 @@ const deserializeAws_restJson1_1StartFlowCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2130,10 +1916,7 @@ const deserializeAws_restJson1_1StopFlowCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2141,10 +1924,7 @@ const deserializeAws_restJson1_1StopFlowCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2163,10 +1943,7 @@ const deserializeAws_restJson1_1StopFlowCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2239,10 +2016,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2261,10 +2035,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2315,10 +2086,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2337,10 +2105,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2367,10 +2132,7 @@ export const deserializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(output, context);
   }
   const contents: UpdateFlowEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2380,10 +2142,7 @@ export const deserializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.entitlement !== undefined && data.entitlement !== null) {
-    contents.Entitlement = deserializeAws_restJson1_1Entitlement(
-      data.entitlement,
-      context
-    );
+    contents.Entitlement = deserializeAws_restJson1_1Entitlement(data.entitlement, context);
   }
   if (data.flowArn !== undefined && data.flowArn !== null) {
     contents.FlowArn = data.flowArn;
@@ -2406,10 +2165,7 @@ const deserializeAws_restJson1_1UpdateFlowEntitlementCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2417,10 +2173,7 @@ const deserializeAws_restJson1_1UpdateFlowEntitlementCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2439,10 +2192,7 @@ const deserializeAws_restJson1_1UpdateFlowEntitlementCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2491,10 +2241,7 @@ export const deserializeAws_restJson1_1UpdateFlowOutputCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFlowOutputCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFlowOutputCommandError(output, context);
   }
   const contents: UpdateFlowOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2527,10 +2274,7 @@ const deserializeAws_restJson1_1UpdateFlowOutputCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2538,10 +2282,7 @@ const deserializeAws_restJson1_1UpdateFlowOutputCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2560,10 +2301,7 @@ const deserializeAws_restJson1_1UpdateFlowOutputCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2612,10 +2350,7 @@ export const deserializeAws_restJson1_1UpdateFlowSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFlowSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFlowSourceCommandError(output, context);
   }
   const contents: UpdateFlowSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2648,10 +2383,7 @@ const deserializeAws_restJson1_1UpdateFlowSourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2659,10 +2391,7 @@ const deserializeAws_restJson1_1UpdateFlowSourceCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2681,10 +2410,7 @@ const deserializeAws_restJson1_1UpdateFlowSourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2887,10 +2613,7 @@ const serializeAws_restJson1_1AddOutputRequest = (
 ): any => {
   return {
     ...(input.CidrAllowList !== undefined && {
-      cidrAllowList: serializeAws_restJson1_1__listOf__string(
-        input.CidrAllowList,
-        context
-      )
+      cidrAllowList: serializeAws_restJson1_1__listOf__string(input.CidrAllowList, context)
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.Destination !== undefined && { destination: input.Destination }),
@@ -2909,10 +2632,7 @@ const serializeAws_restJson1_1AddOutputRequest = (
   };
 };
 
-const serializeAws_restJson1_1Encryption = (
-  input: Encryption,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Encryption = (input: Encryption, context: __SerdeContext): any => {
   return {
     ...(input.Algorithm !== undefined && { algorithm: input.Algorithm }),
     ...(input.ConstantInitializationVector !== undefined && {
@@ -2942,10 +2662,7 @@ const serializeAws_restJson1_1GrantEntitlementRequest = (
     }),
     ...(input.Name !== undefined && { name: input.Name }),
     ...(input.Subscribers !== undefined && {
-      subscribers: serializeAws_restJson1_1__listOf__string(
-        input.Subscribers,
-        context
-      )
+      subscribers: serializeAws_restJson1_1__listOf__string(input.Subscribers, context)
     })
   };
 };
@@ -2997,18 +2714,14 @@ const serializeAws_restJson1_1__listOfAddOutputRequest = (
   input: AddOutputRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AddOutputRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AddOutputRequest(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfGrantEntitlementRequest = (
   input: GrantEntitlementRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1GrantEntitlementRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1GrantEntitlementRequest(entry, context));
 };
 
 const serializeAws_restJson1_1__listOf__string = (
@@ -3031,47 +2744,26 @@ const serializeAws_restJson1_1__mapOf__string = (
   );
 };
 
-const deserializeAws_restJson1_1Encryption = (
-  output: any,
-  context: __SerdeContext
-): Encryption => {
+const deserializeAws_restJson1_1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
     __type: "Encryption",
     Algorithm:
-      output.algorithm !== undefined && output.algorithm !== null
-        ? output.algorithm
-        : undefined,
+      output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
     ConstantInitializationVector:
       output.constantInitializationVector !== undefined &&
       output.constantInitializationVector !== null
         ? output.constantInitializationVector
         : undefined,
     DeviceId:
-      output.deviceId !== undefined && output.deviceId !== null
-        ? output.deviceId
-        : undefined,
-    KeyType:
-      output.keyType !== undefined && output.keyType !== null
-        ? output.keyType
-        : undefined,
-    Region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+      output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
+    KeyType: output.keyType !== undefined && output.keyType !== null ? output.keyType : undefined,
+    Region: output.region !== undefined && output.region !== null ? output.region : undefined,
     ResourceId:
-      output.resourceId !== undefined && output.resourceId !== null
-        ? output.resourceId
-        : undefined,
-    RoleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+      output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
+    RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     SecretArn:
-      output.secretArn !== undefined && output.secretArn !== null
-        ? output.secretArn
-        : undefined,
-    Url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+      output.secretArn !== undefined && output.secretArn !== null ? output.secretArn : undefined,
+    Url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
@@ -3098,24 +2790,15 @@ const deserializeAws_restJson1_1Entitlement = (
       output.entitlementArn !== undefined && output.entitlementArn !== null
         ? output.entitlementArn
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     Subscribers:
       output.subscribers !== undefined && output.subscribers !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.subscribers,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__string(output.subscribers, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Flow = (
-  output: any,
-  context: __SerdeContext
-): Flow => {
+const deserializeAws_restJson1_1Flow = (output: any, context: __SerdeContext): Flow => {
   return {
     __type: "Flow",
     AvailabilityZone:
@@ -3127,24 +2810,13 @@ const deserializeAws_restJson1_1Flow = (
         ? output.description
         : undefined,
     EgressIp:
-      output.egressIp !== undefined && output.egressIp !== null
-        ? output.egressIp
-        : undefined,
+      output.egressIp !== undefined && output.egressIp !== null ? output.egressIp : undefined,
     Entitlements:
       output.entitlements !== undefined && output.entitlements !== null
-        ? deserializeAws_restJson1_1__listOfEntitlement(
-            output.entitlements,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfEntitlement(output.entitlements, context)
         : undefined,
-    FlowArn:
-      output.flowArn !== undefined && output.flowArn !== null
-        ? output.flowArn
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    FlowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     Outputs:
       output.outputs !== undefined && output.outputs !== null
         ? deserializeAws_restJson1_1__listOfOutput(output.outputs, context)
@@ -3153,10 +2825,7 @@ const deserializeAws_restJson1_1Flow = (
       output.source !== undefined && output.source !== null
         ? deserializeAws_restJson1_1Source(output.source, context)
         : undefined,
-    Status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -3182,10 +2851,7 @@ const deserializeAws_restJson1_1ListedEntitlement = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ListedFlow = (
-  output: any,
-  context: __SerdeContext
-): ListedFlow => {
+const deserializeAws_restJson1_1ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
   return {
     __type: "ListedFlow",
     AvailabilityZone:
@@ -3196,29 +2862,15 @@ const deserializeAws_restJson1_1ListedFlow = (
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
-    FlowArn:
-      output.flowArn !== undefined && output.flowArn !== null
-        ? output.flowArn
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    FlowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SourceType:
-      output.sourceType !== undefined && output.sourceType !== null
-        ? output.sourceType
-        : undefined,
-    Status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+      output.sourceType !== undefined && output.sourceType !== null ? output.sourceType : undefined,
+    Status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Messages = (
-  output: any,
-  context: __SerdeContext
-): Messages => {
+const deserializeAws_restJson1_1Messages = (output: any, context: __SerdeContext): Messages => {
   return {
     __type: "Messages",
     Errors:
@@ -3228,10 +2880,7 @@ const deserializeAws_restJson1_1Messages = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Output = (
-  output: any,
-  context: __SerdeContext
-): Output => {
+const deserializeAws_restJson1_1Output = (output: any, context: __SerdeContext): Output => {
   return {
     __type: "Output",
     DataTransferSubscriberFeePercent:
@@ -3256,22 +2905,13 @@ const deserializeAws_restJson1_1Output = (
         ? output.entitlementArn
         : undefined,
     MediaLiveInputArn:
-      output.mediaLiveInputArn !== undefined &&
-      output.mediaLiveInputArn !== null
+      output.mediaLiveInputArn !== undefined && output.mediaLiveInputArn !== null
         ? output.mediaLiveInputArn
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OutputArn:
-      output.outputArn !== undefined && output.outputArn !== null
-        ? output.outputArn
-        : undefined,
-    Port:
-      output.port !== undefined && output.port !== null
-        ? output.port
-        : undefined,
+      output.outputArn !== undefined && output.outputArn !== null ? output.outputArn : undefined,
+    Port: output.port !== undefined && output.port !== null ? output.port : undefined,
     Transport:
       output.transport !== undefined && output.transport !== null
         ? deserializeAws_restJson1_1Transport(output.transport, context)
@@ -3279,10 +2919,7 @@ const deserializeAws_restJson1_1Output = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Source = (
-  output: any,
-  context: __SerdeContext
-): Source => {
+const deserializeAws_restJson1_1Source = (output: any, context: __SerdeContext): Source => {
   return {
     __type: "Source",
     DataTransferSubscriberFeePercent:
@@ -3303,21 +2940,12 @@ const deserializeAws_restJson1_1Source = (
         ? output.entitlementArn
         : undefined,
     IngestIp:
-      output.ingestIp !== undefined && output.ingestIp !== null
-        ? output.ingestIp
-        : undefined,
+      output.ingestIp !== undefined && output.ingestIp !== null ? output.ingestIp : undefined,
     IngestPort:
-      output.ingestPort !== undefined && output.ingestPort !== null
-        ? output.ingestPort
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.ingestPort !== undefined && output.ingestPort !== null ? output.ingestPort : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SourceArn:
-      output.sourceArn !== undefined && output.sourceArn !== null
-        ? output.sourceArn
-        : undefined,
+      output.sourceArn !== undefined && output.sourceArn !== null ? output.sourceArn : undefined,
     Transport:
       output.transport !== undefined && output.transport !== null
         ? deserializeAws_restJson1_1Transport(output.transport, context)
@@ -3329,43 +2957,27 @@ const deserializeAws_restJson1_1Source = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Transport = (
-  output: any,
-  context: __SerdeContext
-): Transport => {
+const deserializeAws_restJson1_1Transport = (output: any, context: __SerdeContext): Transport => {
   return {
     __type: "Transport",
     CidrAllowList:
       output.cidrAllowList !== undefined && output.cidrAllowList !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.cidrAllowList,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOf__string(output.cidrAllowList, context)
         : undefined,
     MaxBitrate:
-      output.maxBitrate !== undefined && output.maxBitrate !== null
-        ? output.maxBitrate
-        : undefined,
+      output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
     MaxLatency:
-      output.maxLatency !== undefined && output.maxLatency !== null
-        ? output.maxLatency
-        : undefined,
+      output.maxLatency !== undefined && output.maxLatency !== null ? output.maxLatency : undefined,
     Protocol:
-      output.protocol !== undefined && output.protocol !== null
-        ? output.protocol
-        : undefined,
+      output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     RemoteId:
-      output.remoteId !== undefined && output.remoteId !== null
-        ? output.remoteId
-        : undefined,
+      output.remoteId !== undefined && output.remoteId !== null ? output.remoteId : undefined,
     SmoothingLatency:
       output.smoothingLatency !== undefined && output.smoothingLatency !== null
         ? output.smoothingLatency
         : undefined,
     StreamId:
-      output.streamId !== undefined && output.streamId !== null
-        ? output.streamId
-        : undefined
+      output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined
   } as any;
 };
 
@@ -3373,9 +2985,7 @@ const deserializeAws_restJson1_1__listOfEntitlement = (
   output: any,
   context: __SerdeContext
 ): Entitlement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Entitlement(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Entitlement(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfListedEntitlement = (
@@ -3391,18 +3001,14 @@ const deserializeAws_restJson1_1__listOfListedFlow = (
   output: any,
   context: __SerdeContext
 ): ListedFlow[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ListedFlow(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ListedFlow(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfOutput = (
   output: any,
   context: __SerdeContext
 ): Output[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Output(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Output(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOf__string = (
@@ -3439,23 +3045,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

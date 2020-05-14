@@ -239,9 +239,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
@@ -313,9 +311,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
@@ -385,9 +381,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public describeProject(
     args: DescribeProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectCommandOutput) => void
   ): Promise<DescribeProjectCommandOutput> | void {
     const command = new DescribeProjectCommand(args);
@@ -493,9 +487,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
@@ -528,9 +520,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public listResources(
     args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesCommandOutput) => void
   ): Promise<ListResourcesCommandOutput> | void {
     const command = new ListResourcesCommand(args);
@@ -598,9 +588,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public listTeamMembers(
     args: ListTeamMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTeamMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTeamMembersCommandOutput) => void),
     cb?: (err: any, data?: ListTeamMembersCommandOutput) => void
   ): Promise<ListTeamMembersCommandOutput> | void {
     const command = new ListTeamMembersCommand(args);
@@ -633,9 +621,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListUserProfilesCommandOutput) => void
   ): Promise<ListUserProfilesCommandOutput> | void {
     const command = new ListUserProfilesCommand(args);
@@ -668,9 +654,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public tagProject(
     args: TagProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagProjectCommandOutput) => void),
     cb?: (err: any, data?: TagProjectCommandOutput) => void
   ): Promise<TagProjectCommandOutput> | void {
     const command = new TagProjectCommand(args);
@@ -703,9 +687,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public untagProject(
     args: UntagProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagProjectCommandOutput) => void),
     cb?: (err: any, data?: UntagProjectCommandOutput) => void
   ): Promise<UntagProjectCommandOutput> | void {
     const command = new UntagProjectCommand(args);
@@ -738,9 +720,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
@@ -775,9 +755,7 @@ export class CodeStar extends CodeStarClient {
   ): void;
   public updateTeamMember(
     args: UpdateTeamMemberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTeamMemberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTeamMemberCommandOutput) => void),
     cb?: (err: any, data?: UpdateTeamMemberCommandOutput) => void
   ): Promise<UpdateTeamMemberCommandOutput> | void {
     const command = new UpdateTeamMemberCommand(args);

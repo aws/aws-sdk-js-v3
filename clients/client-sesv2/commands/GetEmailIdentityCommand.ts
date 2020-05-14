@@ -1,12 +1,5 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  GetEmailIdentityRequest,
-  GetEmailIdentityResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { GetEmailIdentityRequest, GetEmailIdentityResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEmailIdentityCommand,
   serializeAws_restJson1_1GetEmailIdentityCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEmailIdentityCommandInput = GetEmailIdentityRequest;
-export type GetEmailIdentityCommandOutput = GetEmailIdentityResponse &
-  __MetadataBearer;
+export type GetEmailIdentityCommandOutput = GetEmailIdentityResponse & __MetadataBearer;
 
 export class GetEmailIdentityCommand extends $Command<
   GetEmailIdentityCommandInput,
@@ -50,9 +42,7 @@ export class GetEmailIdentityCommand extends $Command<
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

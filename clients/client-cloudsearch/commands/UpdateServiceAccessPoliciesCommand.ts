@@ -49,13 +49,8 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServiceAccessPoliciesCommandInput,
-    UpdateServiceAccessPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServiceAccessPoliciesCommandInput, UpdateServiceAccessPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceAccessPoliciesCommandOutput> {
-    return deserializeAws_queryUpdateServiceAccessPoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateServiceAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

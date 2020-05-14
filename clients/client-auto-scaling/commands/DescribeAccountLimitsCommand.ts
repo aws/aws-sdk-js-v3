@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountLimitsCommandInput = {};
-export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsAnswer &
-  __MetadataBearer;
+export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsAnswer & __MetadataBearer;
 
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,
@@ -46,13 +45,8 @@ export class DescribeAccountLimitsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountLimitsCommandInput,
-    DescribeAccountLimitsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountLimitsCommandInput, DescribeAccountLimitsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

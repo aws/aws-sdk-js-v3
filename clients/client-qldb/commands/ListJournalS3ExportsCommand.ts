@@ -1,12 +1,5 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
-import {
-  ListJournalS3ExportsRequest,
-  ListJournalS3ExportsResponse
-} from "../models/index";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListJournalS3ExportsCommand,
   serializeAws_restJson1_1ListJournalS3ExportsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListJournalS3ExportsCommandInput = ListJournalS3ExportsRequest;
-export type ListJournalS3ExportsCommandOutput = ListJournalS3ExportsResponse &
-  __MetadataBearer;
+export type ListJournalS3ExportsCommandOutput = ListJournalS3ExportsResponse & __MetadataBearer;
 
 export class ListJournalS3ExportsCommand extends $Command<
   ListJournalS3ExportsCommandInput,
@@ -49,13 +41,8 @@ export class ListJournalS3ExportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListJournalS3ExportsCommandInput,
-    ListJournalS3ExportsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListJournalS3ExportsCommandInput, ListJournalS3ExportsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListJournalS3ExportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListJournalS3ExportsCommandOutput> {
-    return deserializeAws_restJson1_1ListJournalS3ExportsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJournalS3ExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

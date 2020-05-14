@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   CreateDBInstanceReadReplicaMessage,
   CreateDBInstanceReadReplicaResult
@@ -50,13 +46,8 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBInstanceReadReplicaCommandInput,
-    CreateDBInstanceReadReplicaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBInstanceReadReplicaCommandInput, CreateDBInstanceReadReplicaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +74,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBInstanceReadReplicaCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceReadReplicaCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateDBInstanceReadReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

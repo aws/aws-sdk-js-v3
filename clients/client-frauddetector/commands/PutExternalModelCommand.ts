@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  PutExternalModelRequest,
-  PutExternalModelResult
-} from "../models/index";
+import { PutExternalModelRequest, PutExternalModelResult } from "../models/index";
 import {
   deserializeAws_json1_1PutExternalModelCommand,
   serializeAws_json1_1PutExternalModelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutExternalModelCommandInput = PutExternalModelRequest;
-export type PutExternalModelCommandOutput = PutExternalModelResult &
-  __MetadataBearer;
+export type PutExternalModelCommandOutput = PutExternalModelResult & __MetadataBearer;
 
 export class PutExternalModelCommand extends $Command<
   PutExternalModelCommandInput,
@@ -50,9 +46,7 @@ export class PutExternalModelCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutExternalModelCommandInput, PutExternalModelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

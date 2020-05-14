@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetServiceLinkedRoleDeletionStatusRequest,
   GetServiceLinkedRoleDeletionStatusResponse
@@ -53,9 +49,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     GetServiceLinkedRoleDeletionStatusCommandInput,
     GetServiceLinkedRoleDeletionStatusCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     input: GetServiceLinkedRoleDeletionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> {
-    return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

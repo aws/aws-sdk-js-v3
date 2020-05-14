@@ -46,9 +46,7 @@ export class DetectPHICommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectPHICommandInput, DetectPHICommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class DetectPHICommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectPHICommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectPHICommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectPHICommand(input, context);
   }
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DescribeAlarmHistoryInput,
-  DescribeAlarmHistoryOutput
-} from "../models/index";
+import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeAlarmHistoryCommand,
   serializeAws_queryDescribeAlarmHistoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlarmHistoryCommandInput = DescribeAlarmHistoryInput;
-export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput &
-  __MetadataBearer;
+export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput & __MetadataBearer;
 
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAlarmHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAlarmHistoryCommandInput,
-    DescribeAlarmHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAlarmHistoryCommandInput, DescribeAlarmHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

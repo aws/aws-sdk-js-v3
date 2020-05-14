@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateNFSFileShareInput,
-  UpdateNFSFileShareOutput
-} from "../models/index";
+import { UpdateNFSFileShareInput, UpdateNFSFileShareOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateNFSFileShareCommand,
   serializeAws_json1_1UpdateNFSFileShareCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNFSFileShareCommandInput = UpdateNFSFileShareInput;
-export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput &
-  __MetadataBearer;
+export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput & __MetadataBearer;
 
 export class UpdateNFSFileShareCommand extends $Command<
   UpdateNFSFileShareCommandInput,
@@ -50,9 +46,7 @@ export class UpdateNFSFileShareCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

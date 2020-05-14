@@ -419,11 +419,7 @@ import {
   SetUserSettingsCommandInput,
   SetUserSettingsCommandOutput
 } from "./commands/SetUserSettingsCommand";
-import {
-  SignUpCommand,
-  SignUpCommandInput,
-  SignUpCommandOutput
-} from "./commands/SignUpCommand";
+import { SignUpCommand, SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
 import {
   StartUserImportJobCommand,
   StartUserImportJobCommandInput,
@@ -648,9 +644,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminCreateUser(
     args: AdminCreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminCreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminCreateUserCommandOutput) => void),
     cb?: (err: any, data?: AdminCreateUserCommandOutput) => void
   ): Promise<AdminCreateUserCommandOutput> | void {
     const command = new AdminCreateUserCommand(args);
@@ -684,9 +678,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDeleteUser(
     args: AdminDeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDeleteUserCommandOutput) => void),
     cb?: (err: any, data?: AdminDeleteUserCommandOutput) => void
   ): Promise<AdminDeleteUserCommandOutput> | void {
     const command = new AdminDeleteUserCommand(args);
@@ -818,9 +810,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminDisableUser(
     args: AdminDisableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminDisableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminDisableUserCommandOutput) => void),
     cb?: (err: any, data?: AdminDisableUserCommandOutput) => void
   ): Promise<AdminDisableUserCommandOutput> | void {
     const command = new AdminDisableUserCommand(args);
@@ -854,9 +844,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminEnableUser(
     args: AdminEnableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminEnableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminEnableUserCommandOutput) => void),
     cb?: (err: any, data?: AdminEnableUserCommandOutput) => void
   ): Promise<AdminEnableUserCommandOutput> | void {
     const command = new AdminEnableUserCommand(args);
@@ -926,9 +914,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminGetDevice(
     args: AdminGetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminGetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminGetDeviceCommandOutput) => void),
     cb?: (err: any, data?: AdminGetDeviceCommandOutput) => void
   ): Promise<AdminGetDeviceCommandOutput> | void {
     const command = new AdminGetDeviceCommand(args);
@@ -963,9 +949,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminGetUser(
     args: AdminGetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminGetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminGetUserCommandOutput) => void),
     cb?: (err: any, data?: AdminGetUserCommandOutput) => void
   ): Promise<AdminGetUserCommandOutput> | void {
     const command = new AdminGetUserCommand(args);
@@ -1087,9 +1071,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public adminListDevices(
     args: AdminListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AdminListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AdminListDevicesCommandOutput) => void),
     cb?: (err: any, data?: AdminListDevicesCommandOutput) => void
   ): Promise<AdminListDevicesCommandOutput> | void {
     const command = new AdminListDevicesCommand(args);
@@ -1614,9 +1596,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public changePassword(
     args: ChangePasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ChangePasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangePasswordCommandOutput) => void),
     cb?: (err: any, data?: ChangePasswordCommandOutput) => void
   ): Promise<ChangePasswordCommandOutput> | void {
     const command = new ChangePasswordCommand(args);
@@ -1650,9 +1630,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public confirmDevice(
     args: ConfirmDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmDeviceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmDeviceCommandOutput) => void
   ): Promise<ConfirmDeviceCommandOutput> | void {
     const command = new ConfirmDeviceCommand(args);
@@ -1721,9 +1699,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public confirmSignUp(
     args: ConfirmSignUpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmSignUpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmSignUpCommandOutput) => void),
     cb?: (err: any, data?: ConfirmSignUpCommandOutput) => void
   ): Promise<ConfirmSignUpCommandOutput> | void {
     const command = new ConfirmSignUpCommand(args);
@@ -1757,9 +1733,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
@@ -1898,9 +1872,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public createUserPool(
     args: CreateUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserPoolCommandOutput) => void),
     cb?: (err: any, data?: CreateUserPoolCommandOutput) => void
   ): Promise<CreateUserPoolCommandOutput> | void {
     const command = new CreateUserPoolCommand(args);
@@ -2004,9 +1976,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
@@ -2109,9 +2079,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -2179,9 +2147,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public deleteUserPool(
     args: DeleteUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserPoolCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserPoolCommandOutput) => void
   ): Promise<DeleteUserPoolCommandOutput> | void {
     const command = new DeleteUserPoolCommand(args);
@@ -2424,9 +2390,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public describeUserPool(
     args: DescribeUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserPoolCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserPoolCommandOutput) => void
   ): Promise<DescribeUserPoolCommandOutput> | void {
     const command = new DescribeUserPoolCommand(args);
@@ -2530,9 +2494,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public forgetDevice(
     args: ForgetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ForgetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ForgetDeviceCommandOutput) => void),
     cb?: (err: any, data?: ForgetDeviceCommandOutput) => void
   ): Promise<ForgetDeviceCommandOutput> | void {
     const command = new ForgetDeviceCommand(args);
@@ -2571,9 +2533,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public forgotPassword(
     args: ForgotPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ForgotPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ForgotPasswordCommandOutput) => void),
     cb?: (err: any, data?: ForgotPasswordCommandOutput) => void
   ): Promise<ForgotPasswordCommandOutput> | void {
     const command = new ForgotPasswordCommand(args);
@@ -2607,9 +2567,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getCSVHeader(
     args: GetCSVHeaderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCSVHeaderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCSVHeaderCommandOutput) => void),
     cb?: (err: any, data?: GetCSVHeaderCommandOutput) => void
   ): Promise<GetCSVHeaderCommandOutput> | void {
     const command = new GetCSVHeaderCommand(args);
@@ -2642,9 +2600,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getDevice(
     args: GetDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeviceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeviceCommandOutput) => void),
     cb?: (err: any, data?: GetDeviceCommandOutput) => void
   ): Promise<GetDeviceCommandOutput> | void {
     const command = new GetDeviceCommand(args);
@@ -2678,9 +2634,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
@@ -2715,10 +2669,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: GetIdentityProviderByIdentifierCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetIdentityProviderByIdentifierCommandOutput
-        ) => void),
+      | ((err: any, data?: GetIdentityProviderByIdentifierCommandOutput) => void),
     cb?: (err: any, data?: GetIdentityProviderByIdentifierCommandOutput) => void
   ): Promise<GetIdentityProviderByIdentifierCommandOutput> | void {
     const command = new GetIdentityProviderByIdentifierCommand(args);
@@ -2824,9 +2775,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public getUser(
     args: GetUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
     cb?: (err: any, data?: GetUserCommandOutput) => void
   ): Promise<GetUserCommandOutput> | void {
     const command = new GetUserCommand(args);
@@ -2861,14 +2810,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: GetUserAttributeVerificationCodeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetUserAttributeVerificationCodeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetUserAttributeVerificationCodeCommandOutput
-    ) => void
+      | ((err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void),
+    cb?: (err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> | void {
     const command = new GetUserAttributeVerificationCodeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2935,9 +2878,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public globalSignOut(
     args: GlobalSignOutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GlobalSignOutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GlobalSignOutCommandOutput) => void),
     cb?: (err: any, data?: GlobalSignOutCommandOutput) => void
   ): Promise<GlobalSignOutCommandOutput> | void {
     const command = new GlobalSignOutCommand(args);
@@ -2970,9 +2911,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public initiateAuth(
     args: InitiateAuthCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InitiateAuthCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateAuthCommandOutput) => void),
     cb?: (err: any, data?: InitiateAuthCommandOutput) => void
   ): Promise<InitiateAuthCommandOutput> | void {
     const command = new InitiateAuthCommand(args);
@@ -3005,9 +2944,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listDevices(
     args: ListDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
     cb?: (err: any, data?: ListDevicesCommandOutput) => void
   ): Promise<ListDevicesCommandOutput> | void {
     const command = new ListDevicesCommand(args);
@@ -3041,9 +2978,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listGroups(
     args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListGroupsCommandOutput) => void
   ): Promise<ListGroupsCommandOutput> | void {
     const command = new ListGroupsCommand(args);
@@ -3254,9 +3189,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUserPools(
     args: ListUserPoolsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserPoolsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserPoolsCommandOutput) => void),
     cb?: (err: any, data?: ListUserPoolsCommandOutput) => void
   ): Promise<ListUserPoolsCommandOutput> | void {
     const command = new ListUserPoolsCommand(args);
@@ -3289,9 +3222,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
@@ -3325,9 +3256,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public listUsersInGroup(
     args: ListUsersInGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersInGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersInGroupCommandOutput) => void),
     cb?: (err: any, data?: ListUsersInGroupCommandOutput) => void
   ): Promise<ListUsersInGroupCommandOutput> | void {
     const command = new ListUsersInGroupCommand(args);
@@ -3590,9 +3519,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public setUserSettings(
     args: SetUserSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetUserSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetUserSettingsCommandOutput) => void),
     cb?: (err: any, data?: SetUserSettingsCommandOutput) => void
   ): Promise<SetUserSettingsCommandOutput> | void {
     const command = new SetUserSettingsCommand(args);
@@ -3615,10 +3542,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
     args: SignUpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SignUpCommandOutput>;
-  public signUp(
-    args: SignUpCommandInput,
-    cb: (err: any, data?: SignUpCommandOutput) => void
-  ): void;
+  public signUp(args: SignUpCommandInput, cb: (err: any, data?: SignUpCommandOutput) => void): void;
   public signUp(
     args: SignUpCommandInput,
     options: __HttpHandlerOptions,
@@ -3626,9 +3550,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public signUp(
     args: SignUpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignUpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignUpCommandOutput) => void),
     cb?: (err: any, data?: SignUpCommandOutput) => void
   ): Promise<SignUpCommandOutput> | void {
     const command = new SignUpCommand(args);
@@ -3744,9 +3666,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3780,9 +3700,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3891,9 +3809,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
@@ -4038,9 +3954,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   ): void;
   public updateUserPool(
     args: UpdateUserPoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserPoolCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserPoolCommandOutput) => void
   ): Promise<UpdateUserPoolCommandOutput> | void {
     const command = new UpdateUserPoolCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  CreateConferenceProviderRequest,
-  CreateConferenceProviderResponse
-} from "../models/index";
+import { CreateConferenceProviderRequest, CreateConferenceProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateConferenceProviderCommand,
   serializeAws_json1_1CreateConferenceProviderCommand
@@ -49,13 +46,8 @@ export class CreateConferenceProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConferenceProviderCommandInput,
-    CreateConferenceProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConferenceProviderCommandInput, CreateConferenceProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateConferenceProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConferenceProviderCommandOutput> {
-    return deserializeAws_json1_1CreateConferenceProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateConferenceProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

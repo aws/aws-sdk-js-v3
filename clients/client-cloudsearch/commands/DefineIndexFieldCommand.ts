@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DefineIndexFieldRequest,
-  DefineIndexFieldResponse
-} from "../models/index";
+import { DefineIndexFieldRequest, DefineIndexFieldResponse } from "../models/index";
 import {
   deserializeAws_queryDefineIndexFieldCommand,
   serializeAws_queryDefineIndexFieldCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DefineIndexFieldCommandInput = DefineIndexFieldRequest;
-export type DefineIndexFieldCommandOutput = DefineIndexFieldResponse &
-  __MetadataBearer;
+export type DefineIndexFieldCommandOutput = DefineIndexFieldResponse & __MetadataBearer;
 
 export class DefineIndexFieldCommand extends $Command<
   DefineIndexFieldCommandInput,
@@ -50,9 +46,7 @@ export class DefineIndexFieldCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DefineIndexFieldCommandInput, DefineIndexFieldCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

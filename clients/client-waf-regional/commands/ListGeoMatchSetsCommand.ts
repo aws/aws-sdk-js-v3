@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  ListGeoMatchSetsRequest,
-  ListGeoMatchSetsResponse
-} from "../models/index";
+import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListGeoMatchSetsCommand,
   serializeAws_json1_1ListGeoMatchSetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGeoMatchSetsCommandInput = ListGeoMatchSetsRequest;
-export type ListGeoMatchSetsCommandOutput = ListGeoMatchSetsResponse &
-  __MetadataBearer;
+export type ListGeoMatchSetsCommandOutput = ListGeoMatchSetsResponse & __MetadataBearer;
 
 export class ListGeoMatchSetsCommand extends $Command<
   ListGeoMatchSetsCommandInput,
@@ -50,9 +46,7 @@ export class ListGeoMatchSetsCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGeoMatchSetsCommandInput, ListGeoMatchSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  DescribeNamespaceRequest,
-  DescribeNamespaceResponse
-} from "../models/index";
+import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeNamespaceCommand,
   serializeAws_json1_1DescribeNamespaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeNamespaceCommandInput = DescribeNamespaceRequest;
-export type DescribeNamespaceCommandOutput = DescribeNamespaceResponse &
-  __MetadataBearer;
+export type DescribeNamespaceCommandOutput = DescribeNamespaceResponse & __MetadataBearer;
 
 export class DescribeNamespaceCommand extends $Command<
   DescribeNamespaceCommandInput,
@@ -50,9 +46,7 @@ export class DescribeNamespaceCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

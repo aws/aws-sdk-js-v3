@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  FunctionConfiguration,
-  UpdateFunctionCodeRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionConfiguration, UpdateFunctionCodeRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFunctionCodeCommand,
   serializeAws_restJson1_1UpdateFunctionCodeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFunctionCodeCommandInput = UpdateFunctionCodeRequest;
-export type UpdateFunctionCodeCommandOutput = FunctionConfiguration &
-  __MetadataBearer;
+export type UpdateFunctionCodeCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 export class UpdateFunctionCodeCommand extends $Command<
   UpdateFunctionCodeCommandInput,
@@ -50,9 +42,7 @@ export class UpdateFunctionCodeCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFunctionCodeCommandInput, UpdateFunctionCodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

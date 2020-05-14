@@ -603,9 +603,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   ): void;
   public listFragments(
     args: ListFragmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFragmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFragmentsCommandOutput) => void),
     cb?: (err: any, data?: ListFragmentsCommandOutput) => void
   ): Promise<ListFragmentsCommandOutput> | void {
     const command = new ListFragmentsCommand(args);

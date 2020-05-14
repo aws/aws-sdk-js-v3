@@ -49,13 +49,8 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePrivateDnsNamespaceCommandInput,
-    CreatePrivateDnsNamespaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePrivateDnsNamespaceCommandInput, CreatePrivateDnsNamespaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

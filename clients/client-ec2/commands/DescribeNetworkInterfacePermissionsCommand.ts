@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeNetworkInterfacePermissionsRequest,
   DescribeNetworkInterfacePermissionsResult
@@ -53,9 +49,7 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     DescribeNetworkInterfacePermissionsCommandInput,
     DescribeNetworkInterfacePermissionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     input: DescribeNetworkInterfacePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeNetworkInterfacePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

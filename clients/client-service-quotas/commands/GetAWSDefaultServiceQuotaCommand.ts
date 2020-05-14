@@ -49,13 +49,8 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAWSDefaultServiceQuotaCommandInput,
-    GetAWSDefaultServiceQuotaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAWSDefaultServiceQuotaCommandInput, GetAWSDefaultServiceQuotaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
-    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

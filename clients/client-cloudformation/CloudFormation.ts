@@ -414,9 +414,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createChangeSet(
     args: CreateChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CreateChangeSetCommandOutput) => void
   ): Promise<CreateChangeSetCommandOutput> | void {
     const command = new CreateChangeSetCommand(args);
@@ -450,9 +448,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
@@ -488,9 +484,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteChangeSet(
     args: DeleteChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChangeSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteChangeSetCommandOutput) => void
   ): Promise<DeleteChangeSetCommandOutput> | void {
     const command = new DeleteChangeSetCommand(args);
@@ -525,9 +519,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
@@ -562,9 +554,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deregisterType(
     args: DeregisterTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTypeCommandOutput) => void),
     cb?: (err: any, data?: DeregisterTypeCommandOutput) => void
   ): Promise<DeregisterTypeCommandOutput> | void {
     const command = new DeregisterTypeCommand(args);
@@ -675,31 +665,19 @@ export class CloudFormation extends CloudFormationClient {
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput>;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): void;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): void;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStackDriftDetectionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput> | void {
     const command = new DescribeStackDriftDetectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -912,9 +890,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
@@ -948,9 +924,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeType(
     args: DescribeTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTypeCommandOutput) => void),
     cb?: (err: any, data?: DescribeTypeCommandOutput) => void
   ): Promise<DescribeTypeCommandOutput> | void {
     const command = new DescribeTypeCommand(args);
@@ -1046,9 +1020,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public detectStackDrift(
     args: DetectStackDriftCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectStackDriftCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectStackDriftCommandOutput) => void),
     cb?: (err: any, data?: DetectStackDriftCommandOutput) => void
   ): Promise<DetectStackDriftCommandOutput> | void {
     const command = new DetectStackDriftCommand(args);
@@ -1172,9 +1144,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public executeChangeSet(
     args: ExecuteChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteChangeSetCommandOutput) => void),
     cb?: (err: any, data?: ExecuteChangeSetCommandOutput) => void
   ): Promise<ExecuteChangeSetCommandOutput> | void {
     const command = new ExecuteChangeSetCommand(args);
@@ -1208,9 +1178,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public getStackPolicy(
     args: GetStackPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStackPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStackPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetStackPolicyCommandOutput) => void
   ): Promise<GetStackPolicyCommandOutput> | void {
     const command = new GetStackPolicyCommand(args);
@@ -1250,9 +1218,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public getTemplate(
     args: GetTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetTemplateCommandOutput) => void
   ): Promise<GetTemplateCommandOutput> | void {
     const command = new GetTemplateCommand(args);
@@ -1330,9 +1296,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listChangeSets(
     args: ListChangeSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangeSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangeSetsCommandOutput) => void),
     cb?: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): Promise<ListChangeSetsCommandOutput> | void {
     const command = new ListChangeSetsCommand(args);
@@ -1371,9 +1335,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listExports(
     args: ListExportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
     cb?: (err: any, data?: ListExportsCommandOutput) => void
   ): Promise<ListExportsCommandOutput> | void {
     const command = new ListExportsCommand(args);
@@ -1411,9 +1373,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listImports(
     args: ListImportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
     cb?: (err: any, data?: ListImportsCommandOutput) => void
   ): Promise<ListImportsCommandOutput> | void {
     const command = new ListImportsCommand(args);
@@ -1487,9 +1447,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStacks(
     args: ListStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStacksCommandOutput) => void),
     cb?: (err: any, data?: ListStacksCommandOutput) => void
   ): Promise<ListStacksCommandOutput> | void {
     const command = new ListStacksCommand(args);
@@ -1557,9 +1515,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listTypeVersions(
     args: ListTypeVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListTypeVersionsCommandOutput) => void
   ): Promise<ListTypeVersionsCommandOutput> | void {
     const command = new ListTypeVersionsCommand(args);
@@ -1592,9 +1548,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listTypes(
     args: ListTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypesCommandOutput) => void),
     cb?: (err: any, data?: ListTypesCommandOutput) => void
   ): Promise<ListTypesCommandOutput> | void {
     const command = new ListTypesCommand(args);
@@ -1680,9 +1634,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public registerType(
     args: RegisterTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTypeCommandOutput) => void),
     cb?: (err: any, data?: RegisterTypeCommandOutput) => void
   ): Promise<RegisterTypeCommandOutput> | void {
     const command = new RegisterTypeCommand(args);
@@ -1715,9 +1667,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public setStackPolicy(
     args: SetStackPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetStackPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetStackPolicyCommandOutput) => void),
     cb?: (err: any, data?: SetStackPolicyCommandOutput) => void
   ): Promise<SetStackPolicyCommandOutput> | void {
     const command = new SetStackPolicyCommand(args);
@@ -1790,9 +1740,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public signalResource(
     args: SignalResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignalResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignalResourceCommandOutput) => void),
     cb?: (err: any, data?: SignalResourceCommandOutput) => void
   ): Promise<SignalResourceCommandOutput> | void {
     const command = new SignalResourceCommand(args);
@@ -1830,9 +1778,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
@@ -1908,9 +1854,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public validateTemplate(
     args: ValidateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateTemplateCommandOutput) => void),
     cb?: (err: any, data?: ValidateTemplateCommandOutput) => void
   ): Promise<ValidateTemplateCommandOutput> | void {
     const command = new ValidateTemplateCommand(args);
@@ -1981,9 +1925,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createStackSet(
     args: CreateStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackSetCommandOutput) => void),
     cb?: (err: any, data?: CreateStackSetCommandOutput) => void
   ): Promise<CreateStackSetCommandOutput> | void {
     const command = new CreateStackSetCommand(args);
@@ -2052,9 +1994,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteStackSet(
     args: DeleteStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackSetCommandOutput) => void
   ): Promise<DeleteStackSetCommandOutput> | void {
     const command = new DeleteStackSetCommand(args);
@@ -2125,9 +2065,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackSet(
     args: DescribeStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackSetCommandOutput) => void
   ): Promise<DescribeStackSetCommandOutput> | void {
     const command = new DescribeStackSetCommand(args);
@@ -2382,9 +2320,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackSets(
     args: ListStackSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackSetsCommandOutput) => void),
     cb?: (err: any, data?: ListStackSetsCommandOutput) => void
   ): Promise<ListStackSetsCommandOutput> | void {
     const command = new ListStackSetsCommand(args);
@@ -2504,9 +2440,7 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateStackSet(
     args: UpdateStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackSetCommandOutput) => void
   ): Promise<UpdateStackSetCommandOutput> | void {
     const command = new UpdateStackSetCommand(args);

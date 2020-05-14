@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  FunctionEventInvokeConfig,
-  UpdateFunctionEventInvokeConfigRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionEventInvokeConfig, UpdateFunctionEventInvokeConfigRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand,
   serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand
@@ -53,9 +46,7 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
     UpdateFunctionEventInvokeConfigCommandInput,
     UpdateFunctionEventInvokeConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
     input: UpdateFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

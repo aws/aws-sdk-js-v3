@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateBGPPeerCommandInput = CreateBGPPeerRequest;
-export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse &
-  __MetadataBearer;
+export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse & __MetadataBearer;
 
 export class CreateBGPPeerCommand extends $Command<
   CreateBGPPeerCommandInput,
@@ -47,9 +46,7 @@ export class CreateBGPPeerCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

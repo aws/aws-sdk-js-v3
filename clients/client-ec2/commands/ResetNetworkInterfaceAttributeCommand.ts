@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ResetNetworkInterfaceAttributeRequest } from "../models/index";
 import {
   deserializeAws_ec2ResetNetworkInterfaceAttributeCommand,
@@ -49,9 +45,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     ResetNetworkInterfaceAttributeCommandInput,
     ResetNetworkInterfaceAttributeCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
     input: ResetNetworkInterfaceAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetNetworkInterfaceAttributeCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ResetNetworkInterfaceAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetNetworkInterfaceAttributeCommandOutput> {
-    return deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

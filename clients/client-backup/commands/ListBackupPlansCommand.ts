@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupPlansInput, ListBackupPlansOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBackupPlansCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBackupPlansCommandInput = ListBackupPlansInput;
-export type ListBackupPlansCommandOutput = ListBackupPlansOutput &
-  __MetadataBearer;
+export type ListBackupPlansCommandOutput = ListBackupPlansOutput & __MetadataBearer;
 
 export class ListBackupPlansCommand extends $Command<
   ListBackupPlansCommandInput,
@@ -47,9 +42,7 @@ export class ListBackupPlansCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBackupPlansCommandInput, ListBackupPlansCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

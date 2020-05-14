@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DeregisterEventTopicRequest,
-  DeregisterEventTopicResult
-} from "../models/index";
+import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterEventTopicCommand,
   serializeAws_json1_1DeregisterEventTopicCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterEventTopicCommandInput = DeregisterEventTopicRequest;
-export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult &
-  __MetadataBearer;
+export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult & __MetadataBearer;
 
 export class DeregisterEventTopicCommand extends $Command<
   DeregisterEventTopicCommandInput,
@@ -49,13 +45,8 @@ export class DeregisterEventTopicCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterEventTopicCommandInput,
-    DeregisterEventTopicCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterEventTopicCommandInput, DeregisterEventTopicCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

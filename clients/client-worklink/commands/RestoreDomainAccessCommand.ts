@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  RestoreDomainAccessRequest,
-  RestoreDomainAccessResponse
-} from "../models/index";
+import { RestoreDomainAccessRequest, RestoreDomainAccessResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RestoreDomainAccessCommand,
   serializeAws_restJson1_1RestoreDomainAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDomainAccessCommandInput = RestoreDomainAccessRequest;
-export type RestoreDomainAccessCommandOutput = RestoreDomainAccessResponse &
-  __MetadataBearer;
+export type RestoreDomainAccessCommandOutput = RestoreDomainAccessResponse & __MetadataBearer;
 
 export class RestoreDomainAccessCommand extends $Command<
   RestoreDomainAccessCommandInput,
@@ -49,13 +45,8 @@ export class RestoreDomainAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDomainAccessCommandInput,
-    RestoreDomainAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDomainAccessCommandInput, RestoreDomainAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class RestoreDomainAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDomainAccessCommandOutput> {
-    return deserializeAws_restJson1_1RestoreDomainAccessCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RestoreDomainAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

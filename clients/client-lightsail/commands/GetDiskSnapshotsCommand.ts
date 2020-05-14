@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetDiskSnapshotsRequest,
-  GetDiskSnapshotsResult
-} from "../models/index";
+import { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetDiskSnapshotsCommand,
   serializeAws_json1_1GetDiskSnapshotsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDiskSnapshotsCommandInput = GetDiskSnapshotsRequest;
-export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult &
-  __MetadataBearer;
+export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult & __MetadataBearer;
 
 export class GetDiskSnapshotsCommand extends $Command<
   GetDiskSnapshotsCommandInput,
@@ -50,9 +46,7 @@ export class GetDiskSnapshotsCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

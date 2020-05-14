@@ -1,7 +1,4 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateCampaignCommandInput,
   CreateCampaignCommandOutput
@@ -58,10 +55,7 @@ import {
   DeleteApnsVoipSandboxChannelCommandInput,
   DeleteApnsVoipSandboxChannelCommandOutput
 } from "./commands/DeleteApnsVoipSandboxChannelCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteBaiduChannelCommandInput,
   DeleteBaiduChannelCommandOutput
@@ -142,10 +136,7 @@ import {
   GetApnsVoipSandboxChannelCommandInput,
   GetApnsVoipSandboxChannelCommandOutput
 } from "./commands/GetApnsVoipSandboxChannelCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetApplicationDateRangeKpiCommandInput,
   GetApplicationDateRangeKpiCommandOutput
@@ -154,10 +145,7 @@ import {
   GetApplicationSettingsCommandInput,
   GetApplicationSettingsCommandOutput
 } from "./commands/GetApplicationSettingsCommand";
-import {
-  GetAppsCommandInput,
-  GetAppsCommandOutput
-} from "./commands/GetAppsCommand";
+import { GetAppsCommandInput, GetAppsCommandOutput } from "./commands/GetAppsCommand";
 import {
   GetBaiduChannelCommandInput,
   GetBaiduChannelCommandOutput
@@ -166,10 +154,7 @@ import {
   GetCampaignActivitiesCommandInput,
   GetCampaignActivitiesCommandOutput
 } from "./commands/GetCampaignActivitiesCommand";
-import {
-  GetCampaignCommandInput,
-  GetCampaignCommandOutput
-} from "./commands/GetCampaignCommand";
+import { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
 import {
   GetCampaignDateRangeKpiCommandInput,
   GetCampaignDateRangeKpiCommandOutput
@@ -186,10 +171,7 @@ import {
   GetCampaignsCommandInput,
   GetCampaignsCommandOutput
 } from "./commands/GetCampaignsCommand";
-import {
-  GetChannelsCommandInput,
-  GetChannelsCommandOutput
-} from "./commands/GetChannelsCommand";
+import { GetChannelsCommandInput, GetChannelsCommandOutput } from "./commands/GetChannelsCommand";
 import {
   GetEmailChannelCommandInput,
   GetEmailChannelCommandOutput
@@ -198,10 +180,7 @@ import {
   GetEmailTemplateCommandInput,
   GetEmailTemplateCommandOutput
 } from "./commands/GetEmailTemplateCommand";
-import {
-  GetEndpointCommandInput,
-  GetEndpointCommandOutput
-} from "./commands/GetEndpointCommand";
+import { GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand";
 import {
   GetEventStreamCommandInput,
   GetEventStreamCommandOutput
@@ -226,10 +205,7 @@ import {
   GetImportJobsCommandInput,
   GetImportJobsCommandOutput
 } from "./commands/GetImportJobsCommand";
-import {
-  GetJourneyCommandInput,
-  GetJourneyCommandOutput
-} from "./commands/GetJourneyCommand";
+import { GetJourneyCommandInput, GetJourneyCommandOutput } from "./commands/GetJourneyCommand";
 import {
   GetJourneyDateRangeKpiCommandInput,
   GetJourneyDateRangeKpiCommandOutput
@@ -246,10 +222,7 @@ import {
   GetPushTemplateCommandInput,
   GetPushTemplateCommandOutput
 } from "./commands/GetPushTemplateCommand";
-import {
-  GetSegmentCommandInput,
-  GetSegmentCommandOutput
-} from "./commands/GetSegmentCommand";
+import { GetSegmentCommandInput, GetSegmentCommandOutput } from "./commands/GetSegmentCommand";
 import {
   GetSegmentExportJobsCommandInput,
   GetSegmentExportJobsCommandOutput
@@ -266,10 +239,7 @@ import {
   GetSegmentVersionsCommandInput,
   GetSegmentVersionsCommandOutput
 } from "./commands/GetSegmentVersionsCommand";
-import {
-  GetSegmentsCommandInput,
-  GetSegmentsCommandOutput
-} from "./commands/GetSegmentsCommand";
+import { GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand";
 import {
   GetSmsChannelCommandInput,
   GetSmsChannelCommandOutput
@@ -314,10 +284,7 @@ import {
   PutEventStreamCommandInput,
   PutEventStreamCommandOutput
 } from "./commands/PutEventStreamCommand";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import {
   RemoveAttributesCommandInput,
   RemoveAttributesCommandOutput
@@ -330,10 +297,7 @@ import {
   SendUsersMessagesCommandInput,
   SendUsersMessagesCommandOutput
 } from "./commands/SendUsersMessagesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -781,9 +745,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PinpointClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PinpointClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -792,9 +754,7 @@ export type PinpointClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

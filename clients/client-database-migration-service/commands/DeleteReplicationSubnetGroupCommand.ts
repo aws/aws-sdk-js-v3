@@ -49,13 +49,8 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationSubnetGroupCommandInput,
-    DeleteReplicationSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationSubnetGroupCommandInput, DeleteReplicationSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     input: DeleteReplicationSubnetGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationSubnetGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteReplicationSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationSubnetGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     AuthorizeCacheSecurityGroupIngressCommandInput,
     AuthorizeCacheSecurityGroupIngressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
     input: AuthorizeCacheSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
-      input,
-      context
-    );
+    return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

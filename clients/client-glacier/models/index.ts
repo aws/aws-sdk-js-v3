@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -307,8 +304,7 @@ export interface GlacierJobDescription {
 }
 
 export namespace GlacierJobDescription {
-  export const isa = (o: any): o is GlacierJobDescription =>
-    __isa(o, "GlacierJobDescription");
+  export const isa = (o: any): o is GlacierJobDescription => __isa(o, "GlacierJobDescription");
 }
 
 /**
@@ -378,8 +374,7 @@ export interface InputSerialization {
 }
 
 export namespace InputSerialization {
-  export const isa = (o: any): o is InputSerialization =>
-    __isa(o, "InputSerialization");
+  export const isa = (o: any): o is InputSerialization => __isa(o, "InputSerialization");
 }
 
 /**
@@ -440,8 +435,7 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
-  export const isa = (o: any): o is OutputLocation =>
-    __isa(o, "OutputLocation");
+  export const isa = (o: any): o is OutputLocation => __isa(o, "OutputLocation");
 }
 
 /**
@@ -456,8 +450,7 @@ export interface OutputSerialization {
 }
 
 export namespace OutputSerialization {
-  export const isa = (o: any): o is OutputSerialization =>
-    __isa(o, "OutputSerialization");
+  export const isa = (o: any): o is OutputSerialization => __isa(o, "OutputSerialization");
 }
 
 export enum Permission {
@@ -550,8 +543,7 @@ export interface SelectParameters {
 }
 
 export namespace SelectParameters {
-  export const isa = (o: any): o is SelectParameters =>
-    __isa(o, "SelectParameters");
+  export const isa = (o: any): o is SelectParameters => __isa(o, "SelectParameters");
 }
 
 export enum StatusCode {
@@ -627,8 +619,7 @@ export interface AbortVaultLockInput {
 }
 
 export namespace AbortVaultLockInput {
-  export const isa = (o: any): o is AbortVaultLockInput =>
-    __isa(o, "AbortVaultLockInput");
+  export const isa = (o: any): o is AbortVaultLockInput => __isa(o, "AbortVaultLockInput");
 }
 
 /**
@@ -658,8 +649,7 @@ export interface AddTagsToVaultInput {
 }
 
 export namespace AddTagsToVaultInput {
-  export const isa = (o: any): o is AddTagsToVaultInput =>
-    __isa(o, "AddTagsToVaultInput");
+  export const isa = (o: any): o is AddTagsToVaultInput => __isa(o, "AddTagsToVaultInput");
 }
 
 /**
@@ -687,8 +677,7 @@ export interface ArchiveCreationOutput {
 }
 
 export namespace ArchiveCreationOutput {
-  export const isa = (o: any): o is ArchiveCreationOutput =>
-    __isa(o, "ArchiveCreationOutput");
+  export const isa = (o: any): o is ArchiveCreationOutput => __isa(o, "ArchiveCreationOutput");
 }
 
 /**
@@ -764,8 +753,7 @@ export interface CompleteVaultLockInput {
 }
 
 export namespace CompleteVaultLockInput {
-  export const isa = (o: any): o is CompleteVaultLockInput =>
-    __isa(o, "CompleteVaultLockInput");
+  export const isa = (o: any): o is CompleteVaultLockInput => __isa(o, "CompleteVaultLockInput");
 }
 
 /**
@@ -789,8 +777,7 @@ export interface CreateVaultInput {
 }
 
 export namespace CreateVaultInput {
-  export const isa = (o: any): o is CreateVaultInput =>
-    __isa(o, "CreateVaultInput");
+  export const isa = (o: any): o is CreateVaultInput => __isa(o, "CreateVaultInput");
 }
 
 /**
@@ -805,8 +792,7 @@ export interface CreateVaultOutput {
 }
 
 export namespace CreateVaultOutput {
-  export const isa = (o: any): o is CreateVaultOutput =>
-    __isa(o, "CreateVaultOutput");
+  export const isa = (o: any): o is CreateVaultOutput => __isa(o, "CreateVaultOutput");
 }
 
 /**
@@ -822,8 +808,7 @@ export interface DataRetrievalPolicy {
 }
 
 export namespace DataRetrievalPolicy {
-  export const isa = (o: any): o is DataRetrievalPolicy =>
-    __isa(o, "DataRetrievalPolicy");
+  export const isa = (o: any): o is DataRetrievalPolicy => __isa(o, "DataRetrievalPolicy");
 }
 
 /**
@@ -847,8 +832,7 @@ export interface DataRetrievalRule {
 }
 
 export namespace DataRetrievalRule {
-  export const isa = (o: any): o is DataRetrievalRule =>
-    __isa(o, "DataRetrievalRule");
+  export const isa = (o: any): o is DataRetrievalRule => __isa(o, "DataRetrievalRule");
 }
 
 /**
@@ -877,8 +861,7 @@ export interface DeleteArchiveInput {
 }
 
 export namespace DeleteArchiveInput {
-  export const isa = (o: any): o is DeleteArchiveInput =>
-    __isa(o, "DeleteArchiveInput");
+  export const isa = (o: any): o is DeleteArchiveInput => __isa(o, "DeleteArchiveInput");
 }
 
 /**
@@ -927,8 +910,7 @@ export interface DeleteVaultInput {
 }
 
 export namespace DeleteVaultInput {
-  export const isa = (o: any): o is DeleteVaultInput =>
-    __isa(o, "DeleteVaultInput");
+  export const isa = (o: any): o is DeleteVaultInput => __isa(o, "DeleteVaultInput");
 }
 
 /**
@@ -983,8 +965,7 @@ export interface DescribeJobInput {
 }
 
 export namespace DescribeJobInput {
-  export const isa = (o: any): o is DescribeJobInput =>
-    __isa(o, "DescribeJobInput");
+  export const isa = (o: any): o is DescribeJobInput => __isa(o, "DescribeJobInput");
 }
 
 /**
@@ -1009,8 +990,7 @@ export interface DescribeVaultInput {
 }
 
 export namespace DescribeVaultInput {
-  export const isa = (o: any): o is DescribeVaultInput =>
-    __isa(o, "DescribeVaultInput");
+  export const isa = (o: any): o is DescribeVaultInput => __isa(o, "DescribeVaultInput");
 }
 
 /**
@@ -1058,8 +1038,7 @@ export interface DescribeVaultOutput {
 }
 
 export namespace DescribeVaultOutput {
-  export const isa = (o: any): o is DescribeVaultOutput =>
-    __isa(o, "DescribeVaultOutput");
+  export const isa = (o: any): o is DescribeVaultOutput => __isa(o, "DescribeVaultOutput");
 }
 
 /**
@@ -1165,8 +1144,7 @@ export interface GetJobOutputInput {
 }
 
 export namespace GetJobOutputInput {
-  export const isa = (o: any): o is GetJobOutputInput =>
-    __isa(o, "GetJobOutputInput");
+  export const isa = (o: any): o is GetJobOutputInput => __isa(o, "GetJobOutputInput");
 }
 
 /**
@@ -1231,8 +1209,7 @@ export interface GetJobOutputOutput {
 }
 
 export namespace GetJobOutputOutput {
-  export const isa = (o: any): o is GetJobOutputOutput =>
-    __isa(o, "GetJobOutputOutput");
+  export const isa = (o: any): o is GetJobOutputOutput => __isa(o, "GetJobOutputOutput");
 }
 
 /**
@@ -1297,8 +1274,7 @@ export interface GetVaultLockInput {
 }
 
 export namespace GetVaultLockInput {
-  export const isa = (o: any): o is GetVaultLockInput =>
-    __isa(o, "GetVaultLockInput");
+  export const isa = (o: any): o is GetVaultLockInput => __isa(o, "GetVaultLockInput");
 }
 
 /**
@@ -1332,8 +1308,7 @@ export interface GetVaultLockOutput {
 }
 
 export namespace GetVaultLockOutput {
-  export const isa = (o: any): o is GetVaultLockOutput =>
-    __isa(o, "GetVaultLockOutput");
+  export const isa = (o: any): o is GetVaultLockOutput => __isa(o, "GetVaultLockOutput");
 }
 
 /**
@@ -1404,8 +1379,7 @@ export interface InitiateJobInput {
 }
 
 export namespace InitiateJobInput {
-  export const isa = (o: any): o is InitiateJobInput =>
-    __isa(o, "InitiateJobInput");
+  export const isa = (o: any): o is InitiateJobInput => __isa(o, "InitiateJobInput");
 }
 
 /**
@@ -1430,8 +1404,7 @@ export interface InitiateJobOutput {
 }
 
 export namespace InitiateJobOutput {
-  export const isa = (o: any): o is InitiateJobOutput =>
-    __isa(o, "InitiateJobOutput");
+  export const isa = (o: any): o is InitiateJobOutput => __isa(o, "InitiateJobOutput");
 }
 
 /**
@@ -1523,8 +1496,7 @@ export interface InitiateVaultLockInput {
 }
 
 export namespace InitiateVaultLockInput {
-  export const isa = (o: any): o is InitiateVaultLockInput =>
-    __isa(o, "InitiateVaultLockInput");
+  export const isa = (o: any): o is InitiateVaultLockInput => __isa(o, "InitiateVaultLockInput");
 }
 
 /**
@@ -1539,8 +1511,7 @@ export interface InitiateVaultLockOutput {
 }
 
 export namespace InitiateVaultLockOutput {
-  export const isa = (o: any): o is InitiateVaultLockOutput =>
-    __isa(o, "InitiateVaultLockOutput");
+  export const isa = (o: any): o is InitiateVaultLockOutput => __isa(o, "InitiateVaultLockOutput");
 }
 
 /**
@@ -1548,9 +1519,7 @@ export namespace InitiateVaultLockOutput {
  *          error only applies to expedited retrievals and not to standard or bulk
  *          retrievals.</p>
  */
-export interface InsufficientCapacityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientCapacityException extends __SmithyException, $MetadataBearer {
   name: "InsufficientCapacityException";
   $fault: "client";
   code?: string;
@@ -1566,9 +1535,7 @@ export namespace InsufficientCapacityException {
 /**
  * <p>Returned if a parameter of the request is incorrectly specified.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -1716,9 +1683,7 @@ export namespace JobParameters {
 /**
  * <p>Returned if the request results in a vault or account limit being exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1738,8 +1703,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1815,8 +1779,7 @@ export interface ListJobsOutput {
 }
 
 export namespace ListJobsOutput {
-  export const isa = (o: any): o is ListJobsOutput =>
-    __isa(o, "ListJobsOutput");
+  export const isa = (o: any): o is ListJobsOutput => __isa(o, "ListJobsOutput");
 }
 
 /**
@@ -1924,8 +1887,7 @@ export interface ListPartsInput {
 }
 
 export namespace ListPartsInput {
-  export const isa = (o: any): o is ListPartsInput =>
-    __isa(o, "ListPartsInput");
+  export const isa = (o: any): o is ListPartsInput => __isa(o, "ListPartsInput");
 }
 
 /**
@@ -1977,8 +1939,7 @@ export interface ListPartsOutput {
 }
 
 export namespace ListPartsOutput {
-  export const isa = (o: any): o is ListPartsOutput =>
-    __isa(o, "ListPartsOutput");
+  export const isa = (o: any): o is ListPartsOutput => __isa(o, "ListPartsOutput");
 }
 
 export interface ListProvisionedCapacityInput {
@@ -2031,8 +1992,7 @@ export interface ListTagsForVaultInput {
 }
 
 export namespace ListTagsForVaultInput {
-  export const isa = (o: any): o is ListTagsForVaultInput =>
-    __isa(o, "ListTagsForVaultInput");
+  export const isa = (o: any): o is ListTagsForVaultInput => __isa(o, "ListTagsForVaultInput");
 }
 
 /**
@@ -2047,8 +2007,7 @@ export interface ListTagsForVaultOutput {
 }
 
 export namespace ListTagsForVaultOutput {
-  export const isa = (o: any): o is ListTagsForVaultOutput =>
-    __isa(o, "ListTagsForVaultOutput");
+  export const isa = (o: any): o is ListTagsForVaultOutput => __isa(o, "ListTagsForVaultOutput");
 }
 
 /**
@@ -2081,8 +2040,7 @@ export interface ListVaultsInput {
 }
 
 export namespace ListVaultsInput {
-  export const isa = (o: any): o is ListVaultsInput =>
-    __isa(o, "ListVaultsInput");
+  export const isa = (o: any): o is ListVaultsInput => __isa(o, "ListVaultsInput");
 }
 
 /**
@@ -2103,16 +2061,13 @@ export interface ListVaultsOutput {
 }
 
 export namespace ListVaultsOutput {
-  export const isa = (o: any): o is ListVaultsOutput =>
-    __isa(o, "ListVaultsOutput");
+  export const isa = (o: any): o is ListVaultsOutput => __isa(o, "ListVaultsOutput");
 }
 
 /**
  * <p>Returned if a required header or parameter is missing from the request.</p>
  */
-export interface MissingParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingParameterValueException extends __SmithyException, $MetadataBearer {
   name: "MissingParameterValueException";
   $fault: "client";
   /**
@@ -2154,17 +2109,14 @@ export interface PartListElement {
 }
 
 export namespace PartListElement {
-  export const isa = (o: any): o is PartListElement =>
-    __isa(o, "PartListElement");
+  export const isa = (o: any): o is PartListElement => __isa(o, "PartListElement");
 }
 
 /**
  * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>
  */
-export interface PolicyEnforcedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyEnforcedException extends __SmithyException, $MetadataBearer {
   name: "PolicyEnforcedException";
   $fault: "client";
   /**
@@ -2184,8 +2136,7 @@ export interface PolicyEnforcedException
 }
 
 export namespace PolicyEnforcedException {
-  export const isa = (o: any): o is PolicyEnforcedException =>
-    __isa(o, "PolicyEnforcedException");
+  export const isa = (o: any): o is PolicyEnforcedException => __isa(o, "PolicyEnforcedException");
 }
 
 /**
@@ -2277,9 +2228,7 @@ export namespace RemoveTagsFromVaultInput {
  * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
  *          upload.</p>
  */
-export interface RequestTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
   name: "RequestTimeoutException";
   $fault: "client";
   /**
@@ -2300,17 +2249,14 @@ export interface RequestTimeoutException
 }
 
 export namespace RequestTimeoutException {
-  export const isa = (o: any): o is RequestTimeoutException =>
-    __isa(o, "RequestTimeoutException");
+  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
  * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2338,9 +2284,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>Returned if the service cannot complete the request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -2486,8 +2430,7 @@ export interface UploadArchiveInput {
 }
 
 export namespace UploadArchiveInput {
-  export const isa = (o: any): o is UploadArchiveInput =>
-    __isa(o, "UploadArchiveInput");
+  export const isa = (o: any): o is UploadArchiveInput => __isa(o, "UploadArchiveInput");
 }
 
 /**
@@ -2525,8 +2468,7 @@ export interface UploadListElement {
 }
 
 export namespace UploadListElement {
-  export const isa = (o: any): o is UploadListElement =>
-    __isa(o, "UploadListElement");
+  export const isa = (o: any): o is UploadListElement => __isa(o, "UploadListElement");
 }
 
 /**
@@ -2606,8 +2548,7 @@ export interface VaultAccessPolicy {
 }
 
 export namespace VaultAccessPolicy {
-  export const isa = (o: any): o is VaultAccessPolicy =>
-    __isa(o, "VaultAccessPolicy");
+  export const isa = (o: any): o is VaultAccessPolicy => __isa(o, "VaultAccessPolicy");
 }
 
 /**
@@ -2622,8 +2563,7 @@ export interface VaultLockPolicy {
 }
 
 export namespace VaultLockPolicy {
-  export const isa = (o: any): o is VaultLockPolicy =>
-    __isa(o, "VaultLockPolicy");
+  export const isa = (o: any): o is VaultLockPolicy => __isa(o, "VaultLockPolicy");
 }
 
 /**
@@ -2645,6 +2585,5 @@ export interface VaultNotificationConfig {
 }
 
 export namespace VaultNotificationConfig {
-  export const isa = (o: any): o is VaultNotificationConfig =>
-    __isa(o, "VaultNotificationConfig");
+  export const isa = (o: any): o is VaultNotificationConfig => __isa(o, "VaultNotificationConfig");
 }

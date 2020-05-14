@@ -243,9 +243,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public deleteTarget(
     args: DeleteTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTargetCommandOutput) => void
   ): Promise<DeleteTargetCommandOutput> | void {
     const command = new DeleteTargetCommand(args);
@@ -313,9 +311,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listEventTypes(
     args: ListEventTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventTypesCommandOutput) => void),
     cb?: (err: any, data?: ListEventTypesCommandOutput) => void
   ): Promise<ListEventTypesCommandOutput> | void {
     const command = new ListEventTypesCommand(args);
@@ -418,9 +414,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listTargets(
     args: ListTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetsCommandOutput) => void),
     cb?: (err: any, data?: ListTargetsCommandOutput) => void
   ): Promise<ListTargetsCommandOutput> | void {
     const command = new ListTargetsCommand(args);
@@ -455,9 +449,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public subscribe(
     args: SubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeCommandOutput) => void),
     cb?: (err: any, data?: SubscribeCommandOutput) => void
   ): Promise<SubscribeCommandOutput> | void {
     const command = new SubscribeCommand(args);
@@ -490,9 +482,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -527,9 +517,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public unsubscribe(
     args: UnsubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeCommandOutput) => void
   ): Promise<UnsubscribeCommandOutput> | void {
     const command = new UnsubscribeCommand(args);
@@ -563,9 +551,7 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

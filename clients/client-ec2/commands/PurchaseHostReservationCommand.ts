@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  PurchaseHostReservationRequest,
-  PurchaseHostReservationResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/index";
 import {
   deserializeAws_ec2PurchaseHostReservationCommand,
   serializeAws_ec2PurchaseHostReservationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PurchaseHostReservationCommandInput = PurchaseHostReservationRequest;
-export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult &
-  __MetadataBearer;
+export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult & __MetadataBearer;
 
 export class PurchaseHostReservationCommand extends $Command<
   PurchaseHostReservationCommandInput,
@@ -49,13 +41,8 @@ export class PurchaseHostReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PurchaseHostReservationCommandInput,
-    PurchaseHostReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PurchaseHostReservationCommandInput, PurchaseHostReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

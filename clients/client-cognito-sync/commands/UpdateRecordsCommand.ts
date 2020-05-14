@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRecordsCommandInput = UpdateRecordsRequest;
-export type UpdateRecordsCommandOutput = UpdateRecordsResponse &
-  __MetadataBearer;
+export type UpdateRecordsCommandOutput = UpdateRecordsResponse & __MetadataBearer;
 
 export class UpdateRecordsCommand extends $Command<
   UpdateRecordsCommandInput,
@@ -47,9 +46,7 @@ export class UpdateRecordsCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRecordsCommandInput, UpdateRecordsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

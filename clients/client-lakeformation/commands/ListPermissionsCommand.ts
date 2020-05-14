@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  ListPermissionsRequest,
-  ListPermissionsResponse
-} from "../models/index";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListPermissionsCommand,
   serializeAws_json1_1ListPermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPermissionsCommandInput = ListPermissionsRequest;
-export type ListPermissionsCommandOutput = ListPermissionsResponse &
-  __MetadataBearer;
+export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
 
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,
@@ -50,9 +46,7 @@ export class ListPermissionsCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPermissionsCommandInput, ListPermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

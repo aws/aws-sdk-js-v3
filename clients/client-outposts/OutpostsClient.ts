@@ -2,10 +2,7 @@ import {
   CreateOutpostCommandInput,
   CreateOutpostCommandOutput
 } from "./commands/CreateOutpostCommand";
-import {
-  GetOutpostCommandInput,
-  GetOutpostCommandOutput
-} from "./commands/GetOutpostCommand";
+import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput
@@ -14,10 +11,7 @@ import {
   ListOutpostsCommandInput,
   ListOutpostsCommandOutput
 } from "./commands/ListOutpostsCommand";
-import {
-  ListSitesCommandInput,
-  ListSitesCommandOutput
-} from "./commands/ListSitesCommand";
+import { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -169,9 +163,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OutpostsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -180,9 +172,7 @@ export type OutpostsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DescribeDirectoryConfigsRequest,
-  DescribeDirectoryConfigsResult
-} from "../models/index";
+import { DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDirectoryConfigsCommand,
   serializeAws_json1_1DescribeDirectoryConfigsCommand
@@ -49,13 +46,8 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDirectoryConfigsCommandInput,
-    DescribeDirectoryConfigsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDirectoryConfigsCommandInput, DescribeDirectoryConfigsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectoryConfigsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectoryConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

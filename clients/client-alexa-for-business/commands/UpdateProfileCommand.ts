@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateProfileCommandInput = UpdateProfileRequest;
-export type UpdateProfileCommandOutput = UpdateProfileResponse &
-  __MetadataBearer;
+export type UpdateProfileCommandOutput = UpdateProfileResponse & __MetadataBearer;
 
 export class UpdateProfileCommand extends $Command<
   UpdateProfileCommandInput,
@@ -47,9 +46,7 @@ export class UpdateProfileCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateProfileCommandInput, UpdateProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

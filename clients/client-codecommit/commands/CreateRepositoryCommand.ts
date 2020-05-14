@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRepositoryCommandInput = CreateRepositoryInput;
-export type CreateRepositoryCommandOutput = CreateRepositoryOutput &
-  __MetadataBearer;
+export type CreateRepositoryCommandOutput = CreateRepositoryOutput & __MetadataBearer;
 
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,
@@ -47,9 +46,7 @@ export class CreateRepositoryCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRepositoryCommandInput, CreateRepositoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

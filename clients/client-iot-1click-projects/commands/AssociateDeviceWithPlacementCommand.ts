@@ -49,13 +49,8 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateDeviceWithPlacementCommandInput,
-    AssociateDeviceWithPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateDeviceWithPlacementCommandInput, AssociateDeviceWithPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     input: AssociateDeviceWithPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-    return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

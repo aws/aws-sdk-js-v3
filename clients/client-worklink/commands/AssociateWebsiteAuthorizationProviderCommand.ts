@@ -39,9 +39,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AssociateWebsiteAuthorizationProviderCommandInput
-  ) {
+  constructor(readonly input: AssociateWebsiteAuthorizationProviderCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     AssociateWebsiteAuthorizationProviderCommandInput,
     AssociateWebsiteAuthorizationProviderCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     input: AssociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
-    return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -45,13 +45,8 @@ export class SetVaultNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetVaultNotificationsCommandInput,
-    SetVaultNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetVaultNotificationsCommandInput, SetVaultNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class SetVaultNotificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1SetVaultNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

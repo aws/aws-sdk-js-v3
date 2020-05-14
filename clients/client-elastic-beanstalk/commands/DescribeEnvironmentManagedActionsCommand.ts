@@ -53,9 +53,7 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     DescribeEnvironmentManagedActionsCommandInput,
     DescribeEnvironmentManagedActionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     input: DescribeEnvironmentManagedActionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEnvironmentManagedActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEnvironmentManagedActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

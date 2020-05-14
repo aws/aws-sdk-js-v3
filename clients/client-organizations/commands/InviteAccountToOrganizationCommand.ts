@@ -49,13 +49,8 @@ export class InviteAccountToOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InviteAccountToOrganizationCommandInput,
-    InviteAccountToOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InviteAccountToOrganizationCommandInput, InviteAccountToOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class InviteAccountToOrganizationCommand extends $Command<
     input: InviteAccountToOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1InviteAccountToOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1InviteAccountToOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InviteAccountToOrganizationCommandOutput> {
-    return deserializeAws_json1_1InviteAccountToOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1InviteAccountToOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateHostedConnectionCommandInput = AssociateHostedConnectionRequest;
-export type AssociateHostedConnectionCommandOutput = Connection &
-  __MetadataBearer;
+export type AssociateHostedConnectionCommandOutput = Connection & __MetadataBearer;
 
 export class AssociateHostedConnectionCommand extends $Command<
   AssociateHostedConnectionCommandInput,
@@ -46,13 +45,8 @@ export class AssociateHostedConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateHostedConnectionCommandInput,
-    AssociateHostedConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateHostedConnectionCommandInput, AssociateHostedConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class AssociateHostedConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AssociateHostedConnectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

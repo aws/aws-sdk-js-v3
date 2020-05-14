@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeExportTasksRequest,
-  DescribeExportTasksResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeExportTasksRequest, DescribeExportTasksResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeExportTasksCommand,
   serializeAws_ec2DescribeExportTasksCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
-export type DescribeExportTasksCommandOutput = DescribeExportTasksResult &
-  __MetadataBearer;
+export type DescribeExportTasksCommandOutput = DescribeExportTasksResult & __MetadataBearer;
 
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,
@@ -49,13 +41,8 @@ export class DescribeExportTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeExportTasksCommandInput,
-    DescribeExportTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeExportTasksCommandInput, DescribeExportTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { UpdateClusterRequest, UpdateClusterResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateClusterCommandInput = UpdateClusterRequest;
-export type UpdateClusterCommandOutput = UpdateClusterResponse &
-  __MetadataBearer;
+export type UpdateClusterCommandOutput = UpdateClusterResponse & __MetadataBearer;
 
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,
@@ -47,9 +42,7 @@ export class UpdateClusterCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateClusterCommandInput, UpdateClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

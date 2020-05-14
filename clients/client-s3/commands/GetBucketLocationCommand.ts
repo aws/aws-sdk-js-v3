@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketLocationOutput,
-  GetBucketLocationRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketLocationOutput, GetBucketLocationRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketLocationCommand,
   serializeAws_restXmlGetBucketLocationCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketLocationCommandInput = GetBucketLocationRequest;
-export type GetBucketLocationCommandOutput = GetBucketLocationOutput &
-  __MetadataBearer;
+export type GetBucketLocationCommandOutput = GetBucketLocationOutput & __MetadataBearer;
 
 export class GetBucketLocationCommand extends $Command<
   GetBucketLocationCommandInput,
@@ -51,9 +43,7 @@ export class GetBucketLocationCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketLocationCommandInput, GetBucketLocationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

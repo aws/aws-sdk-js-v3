@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  CheckDomainAvailabilityRequest,
-  CheckDomainAvailabilityResponse
-} from "../models/index";
+import { CheckDomainAvailabilityRequest, CheckDomainAvailabilityResponse } from "../models/index";
 import {
   deserializeAws_json1_1CheckDomainAvailabilityCommand,
   serializeAws_json1_1CheckDomainAvailabilityCommand
@@ -49,13 +46,8 @@ export class CheckDomainAvailabilityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CheckDomainAvailabilityCommandInput,
-    CheckDomainAvailabilityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CheckDomainAvailabilityCommandInput, CheckDomainAvailabilityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CheckDomainAvailabilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckDomainAvailabilityCommandOutput> {
-    return deserializeAws_json1_1CheckDomainAvailabilityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CheckDomainAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

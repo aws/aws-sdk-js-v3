@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketLoggingOutput,
-  GetBucketLoggingRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketLoggingCommand,
   serializeAws_restXmlGetBucketLoggingCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketLoggingCommandInput = GetBucketLoggingRequest;
-export type GetBucketLoggingCommandOutput = GetBucketLoggingOutput &
-  __MetadataBearer;
+export type GetBucketLoggingCommandOutput = GetBucketLoggingOutput & __MetadataBearer;
 
 export class GetBucketLoggingCommand extends $Command<
   GetBucketLoggingCommandInput,
@@ -51,9 +43,7 @@ export class GetBucketLoggingCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

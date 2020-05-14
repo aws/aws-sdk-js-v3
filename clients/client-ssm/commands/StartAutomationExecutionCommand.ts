@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  StartAutomationExecutionRequest,
-  StartAutomationExecutionResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/index";
 import {
   deserializeAws_json1_1StartAutomationExecutionCommand,
   serializeAws_json1_1StartAutomationExecutionCommand
@@ -49,13 +42,8 @@ export class StartAutomationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartAutomationExecutionCommandInput,
-    StartAutomationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartAutomationExecutionCommandInput, StartAutomationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class StartAutomationExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1StartAutomationExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

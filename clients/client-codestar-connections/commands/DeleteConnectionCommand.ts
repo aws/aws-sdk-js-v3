@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConnectionCommandInput = DeleteConnectionInput;
-export type DeleteConnectionCommandOutput = DeleteConnectionOutput &
-  __MetadataBearer;
+export type DeleteConnectionCommandOutput = DeleteConnectionOutput & __MetadataBearer;
 
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
@@ -47,9 +46,7 @@ export class DeleteConnectionCommand extends $Command<
     configuration: CodeStarconnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribePlacementGroupsRequest,
-  DescribePlacementGroupsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribePlacementGroupsCommand,
   serializeAws_ec2DescribePlacementGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePlacementGroupsCommandInput = DescribePlacementGroupsRequest;
-export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult &
-  __MetadataBearer;
+export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult & __MetadataBearer;
 
 export class DescribePlacementGroupsCommand extends $Command<
   DescribePlacementGroupsCommandInput,
@@ -49,13 +41,8 @@ export class DescribePlacementGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePlacementGroupsCommandInput,
-    DescribePlacementGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePlacementGroupsCommandInput, DescribePlacementGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

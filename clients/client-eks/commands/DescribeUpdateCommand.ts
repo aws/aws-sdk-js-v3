@@ -1,8 +1,4 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeUpdateCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUpdateCommandInput = DescribeUpdateRequest;
-export type DescribeUpdateCommandOutput = DescribeUpdateResponse &
-  __MetadataBearer;
+export type DescribeUpdateCommandOutput = DescribeUpdateResponse & __MetadataBearer;
 
 export class DescribeUpdateCommand extends $Command<
   DescribeUpdateCommandInput,
@@ -47,9 +42,7 @@ export class DescribeUpdateCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeUpdateCommandInput, DescribeUpdateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

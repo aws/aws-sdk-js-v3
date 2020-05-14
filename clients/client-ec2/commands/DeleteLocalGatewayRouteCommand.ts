@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteLocalGatewayRouteRequest,
-  DeleteLocalGatewayRouteResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteLocalGatewayRouteCommand,
   serializeAws_ec2DeleteLocalGatewayRouteCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLocalGatewayRouteCommandInput = DeleteLocalGatewayRouteRequest;
-export type DeleteLocalGatewayRouteCommandOutput = DeleteLocalGatewayRouteResult &
-  __MetadataBearer;
+export type DeleteLocalGatewayRouteCommandOutput = DeleteLocalGatewayRouteResult & __MetadataBearer;
 
 export class DeleteLocalGatewayRouteCommand extends $Command<
   DeleteLocalGatewayRouteCommandInput,
@@ -49,13 +41,8 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLocalGatewayRouteCommandInput,
-    DeleteLocalGatewayRouteCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLocalGatewayRouteCommandInput, DeleteLocalGatewayRouteCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

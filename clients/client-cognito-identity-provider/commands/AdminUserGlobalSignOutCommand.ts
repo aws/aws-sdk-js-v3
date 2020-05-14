@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminUserGlobalSignOutRequest,
-  AdminUserGlobalSignOutResponse
-} from "../models/index";
+import { AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminUserGlobalSignOutCommand,
   serializeAws_json1_1AdminUserGlobalSignOutCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminUserGlobalSignOutCommandInput = AdminUserGlobalSignOutRequest;
-export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse &
-  __MetadataBearer;
+export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse & __MetadataBearer;
 
 export class AdminUserGlobalSignOutCommand extends $Command<
   AdminUserGlobalSignOutCommandInput,
@@ -49,13 +45,8 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminUserGlobalSignOutCommandInput,
-    AdminUserGlobalSignOutCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminUserGlobalSignOutCommandInput, AdminUserGlobalSignOutCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

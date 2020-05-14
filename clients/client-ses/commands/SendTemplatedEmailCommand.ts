@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  SendTemplatedEmailRequest,
-  SendTemplatedEmailResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/index";
 import {
   deserializeAws_querySendTemplatedEmailCommand,
   serializeAws_querySendTemplatedEmailCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendTemplatedEmailCommandInput = SendTemplatedEmailRequest;
-export type SendTemplatedEmailCommandOutput = SendTemplatedEmailResponse &
-  __MetadataBearer;
+export type SendTemplatedEmailCommandOutput = SendTemplatedEmailResponse & __MetadataBearer;
 
 export class SendTemplatedEmailCommand extends $Command<
   SendTemplatedEmailCommandInput,
@@ -50,9 +42,7 @@ export class SendTemplatedEmailCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendTemplatedEmailCommandInput, SendTemplatedEmailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

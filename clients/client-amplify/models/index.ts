@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -316,8 +313,7 @@ export interface BackendEnvironment {
 }
 
 export namespace BackendEnvironment {
-  export const isa = (o: any): o is BackendEnvironment =>
-    __isa(o, "BackendEnvironment");
+  export const isa = (o: any): o is BackendEnvironment => __isa(o, "BackendEnvironment");
 }
 
 /**
@@ -325,17 +321,14 @@ export namespace BackendEnvironment {
  *             Exception thrown when a request contains unexpected data.
  *         </p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -662,8 +655,7 @@ export interface CreateAppRequest {
 }
 
 export namespace CreateAppRequest {
-  export const isa = (o: any): o is CreateAppRequest =>
-    __isa(o, "CreateAppRequest");
+  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResult {
@@ -677,8 +669,7 @@ export interface CreateAppResult {
 }
 
 export namespace CreateAppResult {
-  export const isa = (o: any): o is CreateAppResult =>
-    __isa(o, "CreateAppResult");
+  export const isa = (o: any): o is CreateAppResult => __isa(o, "CreateAppResult");
 }
 
 /**
@@ -870,8 +861,7 @@ export interface CreateBranchRequest {
 }
 
 export namespace CreateBranchRequest {
-  export const isa = (o: any): o is CreateBranchRequest =>
-    __isa(o, "CreateBranchRequest");
+  export const isa = (o: any): o is CreateBranchRequest => __isa(o, "CreateBranchRequest");
 }
 
 /**
@@ -890,8 +880,7 @@ export interface CreateBranchResult {
 }
 
 export namespace CreateBranchResult {
-  export const isa = (o: any): o is CreateBranchResult =>
-    __isa(o, "CreateBranchResult");
+  export const isa = (o: any): o is CreateBranchResult => __isa(o, "CreateBranchResult");
 }
 
 /**
@@ -926,8 +915,7 @@ export interface CreateDeploymentRequest {
 }
 
 export namespace CreateDeploymentRequest {
-  export const isa = (o: any): o is CreateDeploymentRequest =>
-    __isa(o, "CreateDeploymentRequest");
+  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 /**
@@ -961,8 +949,7 @@ export interface CreateDeploymentResult {
 }
 
 export namespace CreateDeploymentResult {
-  export const isa = (o: any): o is CreateDeploymentResult =>
-    __isa(o, "CreateDeploymentResult");
+  export const isa = (o: any): o is CreateDeploymentResult => __isa(o, "CreateDeploymentResult");
 }
 
 /**
@@ -1056,8 +1043,7 @@ export interface CreateWebhookRequest {
 }
 
 export namespace CreateWebhookRequest {
-  export const isa = (o: any): o is CreateWebhookRequest =>
-    __isa(o, "CreateWebhookRequest");
+  export const isa = (o: any): o is CreateWebhookRequest => __isa(o, "CreateWebhookRequest");
 }
 
 /**
@@ -1076,8 +1062,7 @@ export interface CreateWebhookResult {
 }
 
 export namespace CreateWebhookResult {
-  export const isa = (o: any): o is CreateWebhookResult =>
-    __isa(o, "CreateWebhookResult");
+  export const isa = (o: any): o is CreateWebhookResult => __isa(o, "CreateWebhookResult");
 }
 
 /**
@@ -1136,8 +1121,7 @@ export interface DeleteAppRequest {
 }
 
 export namespace DeleteAppRequest {
-  export const isa = (o: any): o is DeleteAppRequest =>
-    __isa(o, "DeleteAppRequest");
+  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 /**
@@ -1156,8 +1140,7 @@ export interface DeleteAppResult {
 }
 
 export namespace DeleteAppResult {
-  export const isa = (o: any): o is DeleteAppResult =>
-    __isa(o, "DeleteAppResult");
+  export const isa = (o: any): o is DeleteAppResult => __isa(o, "DeleteAppResult");
 }
 
 /**
@@ -1230,8 +1213,7 @@ export interface DeleteBranchRequest {
 }
 
 export namespace DeleteBranchRequest {
-  export const isa = (o: any): o is DeleteBranchRequest =>
-    __isa(o, "DeleteBranchRequest");
+  export const isa = (o: any): o is DeleteBranchRequest => __isa(o, "DeleteBranchRequest");
 }
 
 /**
@@ -1250,8 +1232,7 @@ export interface DeleteBranchResult {
 }
 
 export namespace DeleteBranchResult {
-  export const isa = (o: any): o is DeleteBranchResult =>
-    __isa(o, "DeleteBranchResult");
+  export const isa = (o: any): o is DeleteBranchResult => __isa(o, "DeleteBranchResult");
 }
 
 /**
@@ -1326,8 +1307,7 @@ export interface DeleteJobRequest {
 }
 
 export namespace DeleteJobRequest {
-  export const isa = (o: any): o is DeleteJobRequest =>
-    __isa(o, "DeleteJobRequest");
+  export const isa = (o: any): o is DeleteJobRequest => __isa(o, "DeleteJobRequest");
 }
 
 /**
@@ -1346,8 +1326,7 @@ export interface DeleteJobResult {
 }
 
 export namespace DeleteJobResult {
-  export const isa = (o: any): o is DeleteJobResult =>
-    __isa(o, "DeleteJobResult");
+  export const isa = (o: any): o is DeleteJobResult => __isa(o, "DeleteJobResult");
 }
 
 /**
@@ -1366,8 +1345,7 @@ export interface DeleteWebhookRequest {
 }
 
 export namespace DeleteWebhookRequest {
-  export const isa = (o: any): o is DeleteWebhookRequest =>
-    __isa(o, "DeleteWebhookRequest");
+  export const isa = (o: any): o is DeleteWebhookRequest => __isa(o, "DeleteWebhookRequest");
 }
 
 /**
@@ -1386,8 +1364,7 @@ export interface DeleteWebhookResult {
 }
 
 export namespace DeleteWebhookResult {
-  export const isa = (o: any): o is DeleteWebhookResult =>
-    __isa(o, "DeleteWebhookResult");
+  export const isa = (o: any): o is DeleteWebhookResult => __isa(o, "DeleteWebhookResult");
 }
 
 /**
@@ -1395,9 +1372,7 @@ export namespace DeleteWebhookResult {
  *             Exception thrown when an operation fails due to a dependent service throwing an exception.
  *         </p>
  */
-export interface DependentServiceFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependentServiceFailureException extends __SmithyException, $MetadataBearer {
   name: "DependentServiceFailureException";
   $fault: "server";
   message?: string;
@@ -1466,8 +1441,7 @@ export interface DomainAssociation {
 }
 
 export namespace DomainAssociation {
-  export const isa = (o: any): o is DomainAssociation =>
-    __isa(o, "DomainAssociation");
+  export const isa = (o: any): o is DomainAssociation => __isa(o, "DomainAssociation");
 }
 
 export enum DomainStatus {
@@ -1591,8 +1565,7 @@ export interface GetArtifactUrlRequest {
 }
 
 export namespace GetArtifactUrlRequest {
-  export const isa = (o: any): o is GetArtifactUrlRequest =>
-    __isa(o, "GetArtifactUrlRequest");
+  export const isa = (o: any): o is GetArtifactUrlRequest => __isa(o, "GetArtifactUrlRequest");
 }
 
 /**
@@ -1618,8 +1591,7 @@ export interface GetArtifactUrlResult {
 }
 
 export namespace GetArtifactUrlResult {
-  export const isa = (o: any): o is GetArtifactUrlResult =>
-    __isa(o, "GetArtifactUrlResult");
+  export const isa = (o: any): o is GetArtifactUrlResult => __isa(o, "GetArtifactUrlResult");
 }
 
 /**
@@ -1692,8 +1664,7 @@ export interface GetBranchRequest {
 }
 
 export namespace GetBranchRequest {
-  export const isa = (o: any): o is GetBranchRequest =>
-    __isa(o, "GetBranchRequest");
+  export const isa = (o: any): o is GetBranchRequest => __isa(o, "GetBranchRequest");
 }
 
 export interface GetBranchResult {
@@ -1707,8 +1678,7 @@ export interface GetBranchResult {
 }
 
 export namespace GetBranchResult {
-  export const isa = (o: any): o is GetBranchResult =>
-    __isa(o, "GetBranchResult");
+  export const isa = (o: any): o is GetBranchResult => __isa(o, "GetBranchResult");
 }
 
 /**
@@ -1821,8 +1791,7 @@ export interface GetWebhookRequest {
 }
 
 export namespace GetWebhookRequest {
-  export const isa = (o: any): o is GetWebhookRequest =>
-    __isa(o, "GetWebhookRequest");
+  export const isa = (o: any): o is GetWebhookRequest => __isa(o, "GetWebhookRequest");
 }
 
 /**
@@ -1841,8 +1810,7 @@ export interface GetWebhookResult {
 }
 
 export namespace GetWebhookResult {
-  export const isa = (o: any): o is GetWebhookResult =>
-    __isa(o, "GetWebhookResult");
+  export const isa = (o: any): o is GetWebhookResult => __isa(o, "GetWebhookResult");
 }
 
 /**
@@ -1850,9 +1818,7 @@ export namespace GetWebhookResult {
  *             Exception thrown when the service fails to perform an operation due to an internal issue.
  *         </p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1989,17 +1955,14 @@ export enum JobType {
  *             Exception thrown when a resource could not be created because of service limits.
  *         </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2026,8 +1989,7 @@ export interface ListAppsRequest {
 }
 
 export namespace ListAppsRequest {
-  export const isa = (o: any): o is ListAppsRequest =>
-    __isa(o, "ListAppsRequest");
+  export const isa = (o: any): o is ListAppsRequest => __isa(o, "ListAppsRequest");
 }
 
 /**
@@ -2055,8 +2017,7 @@ export interface ListAppsResult {
 }
 
 export namespace ListAppsResult {
-  export const isa = (o: any): o is ListAppsResult =>
-    __isa(o, "ListAppsResult");
+  export const isa = (o: any): o is ListAppsResult => __isa(o, "ListAppsResult");
 }
 
 /**
@@ -2105,8 +2066,7 @@ export interface ListArtifactsRequest {
 }
 
 export namespace ListArtifactsRequest {
-  export const isa = (o: any): o is ListArtifactsRequest =>
-    __isa(o, "ListArtifactsRequest");
+  export const isa = (o: any): o is ListArtifactsRequest => __isa(o, "ListArtifactsRequest");
 }
 
 /**
@@ -2133,8 +2093,7 @@ export interface ListArtifactsResult {
 }
 
 export namespace ListArtifactsResult {
-  export const isa = (o: any): o is ListArtifactsResult =>
-    __isa(o, "ListArtifactsResult");
+  export const isa = (o: any): o is ListArtifactsResult => __isa(o, "ListArtifactsResult");
 }
 
 /**
@@ -2240,8 +2199,7 @@ export interface ListBranchesRequest {
 }
 
 export namespace ListBranchesRequest {
-  export const isa = (o: any): o is ListBranchesRequest =>
-    __isa(o, "ListBranchesRequest");
+  export const isa = (o: any): o is ListBranchesRequest => __isa(o, "ListBranchesRequest");
 }
 
 /**
@@ -2268,8 +2226,7 @@ export interface ListBranchesResult {
 }
 
 export namespace ListBranchesResult {
-  export const isa = (o: any): o is ListBranchesResult =>
-    __isa(o, "ListBranchesResult");
+  export const isa = (o: any): o is ListBranchesResult => __isa(o, "ListBranchesResult");
 }
 
 /**
@@ -2375,8 +2332,7 @@ export interface ListJobsRequest {
 }
 
 export namespace ListJobsRequest {
-  export const isa = (o: any): o is ListJobsRequest =>
-    __isa(o, "ListJobsRequest");
+  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 /**
@@ -2403,8 +2359,7 @@ export interface ListJobsResult {
 }
 
 export namespace ListJobsResult {
-  export const isa = (o: any): o is ListJobsResult =>
-    __isa(o, "ListJobsResult");
+  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 /**
@@ -2479,8 +2434,7 @@ export interface ListWebhooksRequest {
 }
 
 export namespace ListWebhooksRequest {
-  export const isa = (o: any): o is ListWebhooksRequest =>
-    __isa(o, "ListWebhooksRequest");
+  export const isa = (o: any): o is ListWebhooksRequest => __isa(o, "ListWebhooksRequest");
 }
 
 /**
@@ -2507,8 +2461,7 @@ export interface ListWebhooksResult {
 }
 
 export namespace ListWebhooksResult {
-  export const isa = (o: any): o is ListWebhooksResult =>
-    __isa(o, "ListWebhooksResult");
+  export const isa = (o: any): o is ListWebhooksResult => __isa(o, "ListWebhooksResult");
 }
 
 /**
@@ -2523,8 +2476,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Platform {
@@ -2568,8 +2520,7 @@ export interface ProductionBranch {
 }
 
 export namespace ProductionBranch {
-  export const isa = (o: any): o is ProductionBranch =>
-    __isa(o, "ProductionBranch");
+  export const isa = (o: any): o is ProductionBranch => __isa(o, "ProductionBranch");
 }
 
 /**
@@ -2577,9 +2528,7 @@ export namespace ProductionBranch {
  *             Exception thrown when an operation fails due to non-existent resource.
  *         </p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
@@ -2637,8 +2586,7 @@ export interface StartDeploymentRequest {
 }
 
 export namespace StartDeploymentRequest {
-  export const isa = (o: any): o is StartDeploymentRequest =>
-    __isa(o, "StartDeploymentRequest");
+  export const isa = (o: any): o is StartDeploymentRequest => __isa(o, "StartDeploymentRequest");
 }
 
 /**
@@ -2657,8 +2605,7 @@ export interface StartDeploymentResult {
 }
 
 export namespace StartDeploymentResult {
-  export const isa = (o: any): o is StartDeploymentResult =>
-    __isa(o, "StartDeploymentResult");
+  export const isa = (o: any): o is StartDeploymentResult => __isa(o, "StartDeploymentResult");
 }
 
 /**
@@ -2728,8 +2675,7 @@ export interface StartJobRequest {
 }
 
 export namespace StartJobRequest {
-  export const isa = (o: any): o is StartJobRequest =>
-    __isa(o, "StartJobRequest");
+  export const isa = (o: any): o is StartJobRequest => __isa(o, "StartJobRequest");
 }
 
 /**
@@ -2748,8 +2694,7 @@ export interface StartJobResult {
 }
 
 export namespace StartJobResult {
-  export const isa = (o: any): o is StartJobResult =>
-    __isa(o, "StartJobResult");
+  export const isa = (o: any): o is StartJobResult => __isa(o, "StartJobResult");
 }
 
 /**
@@ -2871,8 +2816,7 @@ export interface StopJobRequest {
 }
 
 export namespace StopJobRequest {
-  export const isa = (o: any): o is StopJobRequest =>
-    __isa(o, "StopJobRequest");
+  export const isa = (o: any): o is StopJobRequest => __isa(o, "StopJobRequest");
 }
 
 /**
@@ -2950,8 +2894,7 @@ export interface SubDomainSetting {
 }
 
 export namespace SubDomainSetting {
-  export const isa = (o: any): o is SubDomainSetting =>
-    __isa(o, "SubDomainSetting");
+  export const isa = (o: any): o is SubDomainSetting => __isa(o, "SubDomainSetting");
 }
 
 /**
@@ -2977,8 +2920,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -2991,8 +2933,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3000,17 +2941,14 @@ export namespace TagResourceResponse {
  *             Exception thrown when an operation fails due to a lack of access.
  *         </p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnauthorizedException {
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -3036,8 +2974,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -3050,8 +2987,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -3184,8 +3120,7 @@ export interface UpdateAppRequest {
 }
 
 export namespace UpdateAppRequest {
-  export const isa = (o: any): o is UpdateAppRequest =>
-    __isa(o, "UpdateAppRequest");
+  export const isa = (o: any): o is UpdateAppRequest => __isa(o, "UpdateAppRequest");
 }
 
 /**
@@ -3204,8 +3139,7 @@ export interface UpdateAppResult {
 }
 
 export namespace UpdateAppResult {
-  export const isa = (o: any): o is UpdateAppResult =>
-    __isa(o, "UpdateAppResult");
+  export const isa = (o: any): o is UpdateAppResult => __isa(o, "UpdateAppResult");
 }
 
 /**
@@ -3329,8 +3263,7 @@ export interface UpdateBranchRequest {
 }
 
 export namespace UpdateBranchRequest {
-  export const isa = (o: any): o is UpdateBranchRequest =>
-    __isa(o, "UpdateBranchRequest");
+  export const isa = (o: any): o is UpdateBranchRequest => __isa(o, "UpdateBranchRequest");
 }
 
 /**
@@ -3349,8 +3282,7 @@ export interface UpdateBranchResult {
 }
 
 export namespace UpdateBranchResult {
-  export const isa = (o: any): o is UpdateBranchResult =>
-    __isa(o, "UpdateBranchResult");
+  export const isa = (o: any): o is UpdateBranchResult => __isa(o, "UpdateBranchResult");
 }
 
 /**
@@ -3444,8 +3376,7 @@ export interface UpdateWebhookRequest {
 }
 
 export namespace UpdateWebhookRequest {
-  export const isa = (o: any): o is UpdateWebhookRequest =>
-    __isa(o, "UpdateWebhookRequest");
+  export const isa = (o: any): o is UpdateWebhookRequest => __isa(o, "UpdateWebhookRequest");
 }
 
 /**
@@ -3464,8 +3395,7 @@ export interface UpdateWebhookResult {
 }
 
 export namespace UpdateWebhookResult {
-  export const isa = (o: any): o is UpdateWebhookResult =>
-    __isa(o, "UpdateWebhookResult");
+  export const isa = (o: any): o is UpdateWebhookResult => __isa(o, "UpdateWebhookResult");
 }
 
 /**

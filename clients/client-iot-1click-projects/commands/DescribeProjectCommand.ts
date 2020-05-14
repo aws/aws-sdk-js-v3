@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickProjectsClient";
-import {
-  DescribeProjectRequest,
-  DescribeProjectResponse
-} from "../models/index";
+import { DescribeProjectRequest, DescribeProjectResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeProjectCommand,
   serializeAws_restJson1_1DescribeProjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProjectCommandInput = DescribeProjectRequest;
-export type DescribeProjectCommandOutput = DescribeProjectResponse &
-  __MetadataBearer;
+export type DescribeProjectCommandOutput = DescribeProjectResponse & __MetadataBearer;
 
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,
@@ -50,9 +46,7 @@ export class DescribeProjectCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProjectCommandInput, DescribeProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DeleteTargetGroupInput,
-  DeleteTargetGroupOutput
-} from "../models/index";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteTargetGroupCommand,
   serializeAws_queryDeleteTargetGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
-export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput &
-  __MetadataBearer;
+export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput & __MetadataBearer;
 
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,
@@ -50,9 +46,7 @@ export class DeleteTargetGroupCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

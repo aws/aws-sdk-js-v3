@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  ListVersionsByFunctionRequest,
-  ListVersionsByFunctionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { ListVersionsByFunctionRequest, ListVersionsByFunctionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListVersionsByFunctionCommand,
   serializeAws_restJson1_1ListVersionsByFunctionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVersionsByFunctionCommandInput = ListVersionsByFunctionRequest;
-export type ListVersionsByFunctionCommandOutput = ListVersionsByFunctionResponse &
-  __MetadataBearer;
+export type ListVersionsByFunctionCommandOutput = ListVersionsByFunctionResponse & __MetadataBearer;
 
 export class ListVersionsByFunctionCommand extends $Command<
   ListVersionsByFunctionCommandInput,
@@ -49,13 +41,8 @@ export class ListVersionsByFunctionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVersionsByFunctionCommandInput,
-    ListVersionsByFunctionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVersionsByFunctionCommandInput, ListVersionsByFunctionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class ListVersionsByFunctionCommand extends $Command<
     input: ListVersionsByFunctionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVersionsByFunctionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListVersionsByFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVersionsByFunctionCommandOutput> {
-    return deserializeAws_restJson1_1ListVersionsByFunctionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVersionsByFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -49,13 +49,8 @@ export class StartDocumentTextDetectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TextractClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartDocumentTextDetectionCommandInput,
-    StartDocumentTextDetectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartDocumentTextDetectionCommandInput, StartDocumentTextDetectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StartDocumentTextDetectionCommand extends $Command<
     input: StartDocumentTextDetectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentTextDetectionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartDocumentTextDetectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDocumentTextDetectionCommandOutput> {
-    return deserializeAws_json1_1StartDocumentTextDetectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartDocumentTextDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  UpdateNodegroupVersionRequest,
-  UpdateNodegroupVersionResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateNodegroupVersionCommand,
   serializeAws_restJson1_1UpdateNodegroupVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateNodegroupVersionCommandInput = UpdateNodegroupVersionRequest;
-export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse &
-  __MetadataBearer;
+export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse & __MetadataBearer;
 
 export class UpdateNodegroupVersionCommand extends $Command<
   UpdateNodegroupVersionCommandInput,
@@ -49,13 +41,8 @@ export class UpdateNodegroupVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateNodegroupVersionCommandInput,
-    UpdateNodegroupVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateNodegroupVersionCommandInput, UpdateNodegroupVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class UpdateNodegroupVersionCommand extends $Command<
     input: UpdateNodegroupVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateNodegroupVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateNodegroupVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNodegroupVersionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateNodegroupVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateNodegroupVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsClient";
-import {
-  StartApplicationRequest,
-  StartApplicationResponse
-} from "../models/index";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartApplicationCommand,
   serializeAws_json1_1StartApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartApplicationCommandInput = StartApplicationRequest;
-export type StartApplicationCommandOutput = StartApplicationResponse &
-  __MetadataBearer;
+export type StartApplicationCommandOutput = StartApplicationResponse & __MetadataBearer;
 
 export class StartApplicationCommand extends $Command<
   StartApplicationCommandInput,
@@ -50,9 +46,7 @@ export class StartApplicationCommand extends $Command<
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartApplicationCommandInput, StartApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

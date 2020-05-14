@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -28,17 +25,14 @@ export interface ComplianceDetails {
 }
 
 export namespace ComplianceDetails {
-  export const isa = (o: any): o is ComplianceDetails =>
-    __isa(o, "ComplianceDetails");
+  export const isa = (o: any): o is ComplianceDetails => __isa(o, "ComplianceDetails");
 }
 
 /**
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -71,9 +65,7 @@ export namespace ConcurrentModificationException {
  *             </li>
  *          </ul>
  */
-export interface ConstraintViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConstraintViolationException extends __SmithyException, $MetadataBearer {
   name: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -402,8 +394,7 @@ export interface GetResourcesInput {
 }
 
 export namespace GetResourcesInput {
-  export const isa = (o: any): o is GetResourcesInput =>
-    __isa(o, "GetResourcesInput");
+  export const isa = (o: any): o is GetResourcesInput => __isa(o, "GetResourcesInput");
 }
 
 export interface GetResourcesOutput {
@@ -422,8 +413,7 @@ export interface GetResourcesOutput {
 }
 
 export namespace GetResourcesOutput {
-  export const isa = (o: any): o is GetResourcesOutput =>
-    __isa(o, "GetResourcesOutput");
+  export const isa = (o: any): o is GetResourcesOutput => __isa(o, "GetResourcesOutput");
 }
 
 export interface GetTagKeysInput {
@@ -438,8 +428,7 @@ export interface GetTagKeysInput {
 }
 
 export namespace GetTagKeysInput {
-  export const isa = (o: any): o is GetTagKeysInput =>
-    __isa(o, "GetTagKeysInput");
+  export const isa = (o: any): o is GetTagKeysInput => __isa(o, "GetTagKeysInput");
 }
 
 export interface GetTagKeysOutput {
@@ -458,8 +447,7 @@ export interface GetTagKeysOutput {
 }
 
 export namespace GetTagKeysOutput {
-  export const isa = (o: any): o is GetTagKeysOutput =>
-    __isa(o, "GetTagKeysOutput");
+  export const isa = (o: any): o is GetTagKeysOutput => __isa(o, "GetTagKeysOutput");
 }
 
 export interface GetTagValuesInput {
@@ -480,8 +468,7 @@ export interface GetTagValuesInput {
 }
 
 export namespace GetTagValuesInput {
-  export const isa = (o: any): o is GetTagValuesInput =>
-    __isa(o, "GetTagValuesInput");
+  export const isa = (o: any): o is GetTagValuesInput => __isa(o, "GetTagValuesInput");
 }
 
 export interface GetTagValuesOutput {
@@ -500,8 +487,7 @@ export interface GetTagValuesOutput {
 }
 
 export namespace GetTagValuesOutput {
-  export const isa = (o: any): o is GetTagValuesOutput =>
-    __isa(o, "GetTagValuesOutput");
+  export const isa = (o: any): o is GetTagValuesOutput => __isa(o, "GetTagValuesOutput");
 }
 
 export enum GroupByAttribute {
@@ -514,9 +500,7 @@ export enum GroupByAttribute {
  * <p>The request processing failed because of an unknown error, exception, or failure. You
  *             can retry the request.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -550,9 +534,7 @@ export namespace InternalServiceException {
  *             </li>
  *          </ul>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -567,9 +549,7 @@ export namespace InvalidParameterException {
  * <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was
  *             denied because the specified <code>PaginationToken</code> has expired.</p>
  */
-export interface PaginationTokenExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PaginationTokenExpiredException extends __SmithyException, $MetadataBearer {
   name: "PaginationTokenExpiredException";
   $fault: "client";
   Message?: string;
@@ -604,8 +584,7 @@ export interface ResourceTagMapping {
 }
 
 export namespace ResourceTagMapping {
-  export const isa = (o: any): o is ResourceTagMapping =>
-    __isa(o, "ResourceTagMapping");
+  export const isa = (o: any): o is ResourceTagMapping => __isa(o, "ResourceTagMapping");
 }
 
 export interface StartReportCreationInput {
@@ -739,8 +718,7 @@ export interface TagResourcesInput {
 }
 
 export namespace TagResourcesInput {
-  export const isa = (o: any): o is TagResourcesInput =>
-    __isa(o, "TagResourcesInput");
+  export const isa = (o: any): o is TagResourcesInput => __isa(o, "TagResourcesInput");
 }
 
 export interface TagResourcesOutput {
@@ -753,8 +731,7 @@ export interface TagResourcesOutput {
 }
 
 export namespace TagResourcesOutput {
-  export const isa = (o: any): o is TagResourcesOutput =>
-    __isa(o, "TagResourcesOutput");
+  export const isa = (o: any): o is TagResourcesOutput => __isa(o, "TagResourcesOutput");
 }
 
 export enum TargetIdType {
@@ -773,8 +750,7 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
-  export const isa = (o: any): o is ThrottledException =>
-    __isa(o, "ThrottledException");
+  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 export interface UntagResourcesInput {
@@ -795,8 +771,7 @@ export interface UntagResourcesInput {
 }
 
 export namespace UntagResourcesInput {
-  export const isa = (o: any): o is UntagResourcesInput =>
-    __isa(o, "UntagResourcesInput");
+  export const isa = (o: any): o is UntagResourcesInput => __isa(o, "UntagResourcesInput");
 }
 
 export interface UntagResourcesOutput {
@@ -809,6 +784,5 @@ export interface UntagResourcesOutput {
 }
 
 export namespace UntagResourcesOutput {
-  export const isa = (o: any): o is UntagResourcesOutput =>
-    __isa(o, "UntagResourcesOutput");
+  export const isa = (o: any): o is UntagResourcesOutput => __isa(o, "UntagResourcesOutput");
 }

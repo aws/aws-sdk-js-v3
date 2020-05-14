@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  AutoScalingInstancesType,
-  DescribeAutoScalingInstancesType
-} from "../models/index";
+import { AutoScalingInstancesType, DescribeAutoScalingInstancesType } from "../models/index";
 import {
   deserializeAws_queryDescribeAutoScalingInstancesCommand,
   serializeAws_queryDescribeAutoScalingInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAutoScalingInstancesCommandInput = DescribeAutoScalingInstancesType;
-export type DescribeAutoScalingInstancesCommandOutput = AutoScalingInstancesType &
-  __MetadataBearer;
+export type DescribeAutoScalingInstancesCommandOutput = AutoScalingInstancesType & __MetadataBearer;
 
 export class DescribeAutoScalingInstancesCommand extends $Command<
   DescribeAutoScalingInstancesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAutoScalingInstancesCommandInput,
-    DescribeAutoScalingInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAutoScalingInstancesCommandInput, DescribeAutoScalingInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
     input: DescribeAutoScalingInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingInstancesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeAutoScalingInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingInstancesCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

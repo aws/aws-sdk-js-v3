@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmSignUpCommandInput = ConfirmSignUpRequest;
-export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse &
-  __MetadataBearer;
+export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse & __MetadataBearer;
 
 export class ConfirmSignUpCommand extends $Command<
   ConfirmSignUpCommandInput,
@@ -47,9 +46,7 @@ export class ConfirmSignUpCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

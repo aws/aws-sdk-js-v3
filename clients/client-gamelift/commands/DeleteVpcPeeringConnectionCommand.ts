@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DeleteVpcPeeringConnectionInput,
-  DeleteVpcPeeringConnectionOutput
-} from "../models/index";
+import { DeleteVpcPeeringConnectionInput, DeleteVpcPeeringConnectionOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteVpcPeeringConnectionCommand,
   serializeAws_json1_1DeleteVpcPeeringConnectionCommand
@@ -49,13 +46,8 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVpcPeeringConnectionCommandInput,
-    DeleteVpcPeeringConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVpcPeeringConnectionCommandInput, DeleteVpcPeeringConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     input: DeleteVpcPeeringConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVpcPeeringConnectionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteVpcPeeringConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_json1_1DeleteVpcPeeringConnectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

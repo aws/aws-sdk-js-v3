@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CacheSecurityGroupMessage,
-  DescribeCacheSecurityGroupsMessage
-} from "../models/index";
+import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeCacheSecurityGroupsCommand,
   serializeAws_queryDescribeCacheSecurityGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCacheSecurityGroupsCommandInput = DescribeCacheSecurityGroupsMessage;
-export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage &
-  __MetadataBearer;
+export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage & __MetadataBearer;
 
 export class DescribeCacheSecurityGroupsCommand extends $Command<
   DescribeCacheSecurityGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCacheSecurityGroupsCommandInput,
-    DescribeCacheSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCacheSecurityGroupsCommandInput, DescribeCacheSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeCacheSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeCacheSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

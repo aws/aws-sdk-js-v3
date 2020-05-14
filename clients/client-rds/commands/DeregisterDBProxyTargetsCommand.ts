@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeregisterDBProxyTargetsRequest,
-  DeregisterDBProxyTargetsResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse } from "../models/index";
 import {
   deserializeAws_queryDeregisterDBProxyTargetsCommand,
   serializeAws_queryDeregisterDBProxyTargetsCommand
@@ -49,13 +42,8 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterDBProxyTargetsCommandInput,
-    DeregisterDBProxyTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterDBProxyTargetsCommandInput, DeregisterDBProxyTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

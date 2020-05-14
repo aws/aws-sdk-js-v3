@@ -96,23 +96,18 @@ export const serializeAws_restJson1_1CreateConfigurationSetEventDestinationComma
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -149,18 +144,14 @@ export const serializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -187,34 +178,26 @@ export const serializeAws_restJson1_1DeleteConfigurationSetEventDestinationComma
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   if (input.EventDestinationName !== undefined) {
     const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EventDestinationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: EventDestinationName."
-    );
+    throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -236,23 +219,18 @@ export const serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -308,10 +286,7 @@ export const serializeAws_restJson1_1SendVoiceMessageCommand = async (
       ConfigurationSetName: input.ConfigurationSetName
     }),
     ...(input.Content !== undefined && {
-      Content: serializeAws_restJson1_1VoiceMessageContent(
-        input.Content,
-        context
-      )
+      Content: serializeAws_restJson1_1VoiceMessageContent(input.Content, context)
     }),
     ...(input.DestinationPhoneNumber !== undefined && {
       DestinationPhoneNumber: input.DestinationPhoneNumber
@@ -344,34 +319,26 @@ export const serializeAws_restJson1_1UpdateConfigurationSetEventDestinationComma
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   if (input.EventDestinationName !== undefined) {
     const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EventDestinationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: EventDestinationName."
-    );
+    throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -399,10 +366,7 @@ export const deserializeAws_restJson1_1CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateConfigurationSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationSetCommandError(output, context);
   }
   const contents: CreateConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -427,10 +391,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -438,10 +399,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -460,10 +418,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.pinpoint_sms_voice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -529,10 +484,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "AlreadyExistsException":
     case "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -540,10 +492,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -562,10 +511,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "LimitExceededException":
     case "com.amazonaws.pinpoint_sms_voice#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -573,10 +519,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazonaws.pinpoint_sms_voice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -614,10 +557,7 @@ export const deserializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(output, context);
   }
   const contents: DeleteConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -642,10 +582,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -664,10 +601,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.pinpoint_sms_voice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -733,10 +667,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -755,10 +686,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazonaws.pinpoint_sms_voice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -831,10 +759,7 @@ const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -853,10 +778,7 @@ const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError
     case "NotFoundException":
     case "com.amazonaws.pinpoint_sms_voice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -894,10 +816,7 @@ export const deserializeAws_restJson1_1ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListConfigurationSetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConfigurationSetsCommandError(output, context);
   }
   const contents: ListConfigurationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -933,10 +852,7 @@ const deserializeAws_restJson1_1ListConfigurationSetsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -985,10 +901,7 @@ export const deserializeAws_restJson1_1SendVoiceMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SendVoiceMessageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SendVoiceMessageCommandError(output, context);
   }
   const contents: SendVoiceMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1017,10 +930,7 @@ const deserializeAws_restJson1_1SendVoiceMessageCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1097,10 +1007,7 @@ const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1119,10 +1026,7 @@ const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazonaws.pinpoint_sms_voice#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1295,16 +1199,10 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       )
     }),
     ...(input.MatchingEventTypes !== undefined && {
-      MatchingEventTypes: serializeAws_restJson1_1EventTypes(
-        input.MatchingEventTypes,
-        context
-      )
+      MatchingEventTypes: serializeAws_restJson1_1EventTypes(input.MatchingEventTypes, context)
     }),
     ...(input.SnsDestination !== undefined && {
-      SnsDestination: serializeAws_restJson1_1SnsDestination(
-        input.SnsDestination,
-        context
-      )
+      SnsDestination: serializeAws_restJson1_1SnsDestination(input.SnsDestination, context)
     })
   };
 };
@@ -1381,10 +1279,7 @@ const serializeAws_restJson1_1VoiceMessageContent = (
       )
     }),
     ...(input.SSMLMessage !== undefined && {
-      SSMLMessage: serializeAws_restJson1_1SSMLMessageType(
-        input.SSMLMessage,
-        context
-      )
+      SSMLMessage: serializeAws_restJson1_1SSMLMessageType(input.SSMLMessage, context)
     })
   };
 };
@@ -1396,9 +1291,7 @@ const deserializeAws_restJson1_1CloudWatchLogsDestination = (
   return {
     __type: "CloudWatchLogsDestination",
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined,
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     LogGroupArn:
       output.LogGroupArn !== undefined && output.LogGroupArn !== null
         ? output.LogGroupArn
@@ -1420,43 +1313,28 @@ const deserializeAws_restJson1_1EventDestination = (
   return {
     __type: "EventDestination",
     CloudWatchLogsDestination:
-      output.CloudWatchLogsDestination !== undefined &&
-      output.CloudWatchLogsDestination !== null
+      output.CloudWatchLogsDestination !== undefined && output.CloudWatchLogsDestination !== null
         ? deserializeAws_restJson1_1CloudWatchLogsDestination(
             output.CloudWatchLogsDestination,
             context
           )
         : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination !== undefined &&
-      output.KinesisFirehoseDestination !== null
+      output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
         ? deserializeAws_restJson1_1KinesisFirehoseDestination(
             output.KinesisFirehoseDestination,
             context
           )
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes !== undefined &&
-      output.MatchingEventTypes !== null
-        ? deserializeAws_restJson1_1EventTypes(
-            output.MatchingEventTypes,
-            context
-          )
+      output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
+        ? deserializeAws_restJson1_1EventTypes(output.MatchingEventTypes, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SnsDestination:
       output.SnsDestination !== undefined && output.SnsDestination !== null
-        ? deserializeAws_restJson1_1SnsDestination(
-            output.SnsDestination,
-            context
-          )
+        ? deserializeAws_restJson1_1SnsDestination(output.SnsDestination, context)
         : undefined
   } as any;
 };
@@ -1484,14 +1362,11 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
   return {
     __type: "KinesisFirehoseDestination",
     DeliveryStreamArn:
-      output.DeliveryStreamArn !== undefined &&
-      output.DeliveryStreamArn !== null
+      output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
         ? output.DeliveryStreamArn
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined
   } as any;
 };
 
@@ -1502,9 +1377,7 @@ const deserializeAws_restJson1_1SnsDestination = (
   return {
     __type: "SnsDestination",
     TopicArn:
-      output.TopicArn !== undefined && output.TopicArn !== null
-        ? output.TopicArn
-        : undefined
+      output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined
   } as any;
 };
 
@@ -1522,23 +1395,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

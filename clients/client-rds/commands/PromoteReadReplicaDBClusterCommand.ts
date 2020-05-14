@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   PromoteReadReplicaDBClusterMessage,
   PromoteReadReplicaDBClusterResult
@@ -49,13 +45,8 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PromoteReadReplicaDBClusterCommandInput,
-    PromoteReadReplicaDBClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PromoteReadReplicaDBClusterCommandInput, PromoteReadReplicaDBClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
-    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPromoteReadReplicaDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

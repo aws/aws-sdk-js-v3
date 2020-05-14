@@ -1,7 +1,4 @@
-import {
-  ListDiscoverersRequest,
-  ListDiscoverersResponse
-} from "../models/index";
+import { ListDiscoverersRequest, ListDiscoverersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDiscoverersCommand,
   serializeAws_restJson1_1ListDiscoverersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDiscoverersCommandInput = ListDiscoverersRequest;
-export type ListDiscoverersCommandOutput = ListDiscoverersResponse &
-  __MetadataBearer;
+export type ListDiscoverersCommandOutput = ListDiscoverersResponse & __MetadataBearer;
 
 export class ListDiscoverersCommand extends $Command<
   ListDiscoverersCommandInput,
@@ -50,9 +46,7 @@ export class ListDiscoverersCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDiscoverersCommandInput, ListDiscoverersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

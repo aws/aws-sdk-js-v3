@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteAdmChannelRequest,
-  DeleteAdmChannelResponse
-} from "../models/index";
+import { DeleteAdmChannelRequest, DeleteAdmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteAdmChannelCommand,
   serializeAws_restJson1_1DeleteAdmChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAdmChannelCommandInput = DeleteAdmChannelRequest;
-export type DeleteAdmChannelCommandOutput = DeleteAdmChannelResponse &
-  __MetadataBearer;
+export type DeleteAdmChannelCommandOutput = DeleteAdmChannelResponse & __MetadataBearer;
 
 export class DeleteAdmChannelCommand extends $Command<
   DeleteAdmChannelCommandInput,
@@ -50,9 +46,7 @@ export class DeleteAdmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAdmChannelCommandInput, DeleteAdmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

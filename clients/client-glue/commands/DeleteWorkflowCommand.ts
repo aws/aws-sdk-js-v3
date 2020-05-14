@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteWorkflowCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteWorkflowCommandInput = DeleteWorkflowRequest;
-export type DeleteWorkflowCommandOutput = DeleteWorkflowResponse &
-  __MetadataBearer;
+export type DeleteWorkflowCommandOutput = DeleteWorkflowResponse & __MetadataBearer;
 
 export class DeleteWorkflowCommand extends $Command<
   DeleteWorkflowCommandInput,
@@ -47,9 +42,7 @@ export class DeleteWorkflowCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

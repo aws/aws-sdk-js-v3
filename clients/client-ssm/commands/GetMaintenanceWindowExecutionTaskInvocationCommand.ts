@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
   GetMaintenanceWindowExecutionTaskInvocationResult
@@ -39,9 +35,7 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetMaintenanceWindowExecutionTaskInvocationCommandInput
-  ) {
+  constructor(readonly input: GetMaintenanceWindowExecutionTaskInvocationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
     GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     GetMaintenanceWindowExecutionTaskInvocationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +68,7 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
     input: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand(input, context);
   }
 
   private deserialize(

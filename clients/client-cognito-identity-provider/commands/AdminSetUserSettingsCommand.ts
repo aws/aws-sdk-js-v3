@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminSetUserSettingsRequest,
-  AdminSetUserSettingsResponse
-} from "../models/index";
+import { AdminSetUserSettingsRequest, AdminSetUserSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminSetUserSettingsCommand,
   serializeAws_json1_1AdminSetUserSettingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminSetUserSettingsCommandInput = AdminSetUserSettingsRequest;
-export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse &
-  __MetadataBearer;
+export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse & __MetadataBearer;
 
 export class AdminSetUserSettingsCommand extends $Command<
   AdminSetUserSettingsCommandInput,
@@ -49,13 +45,8 @@ export class AdminSetUserSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminSetUserSettingsCommandInput,
-    AdminSetUserSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminSetUserSettingsCommandInput, AdminSetUserSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

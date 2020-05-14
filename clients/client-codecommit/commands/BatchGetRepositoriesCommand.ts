@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  BatchGetRepositoriesInput,
-  BatchGetRepositoriesOutput
-} from "../models/index";
+import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetRepositoriesCommand,
   serializeAws_json1_1BatchGetRepositoriesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetRepositoriesCommandInput = BatchGetRepositoriesInput;
-export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput &
-  __MetadataBearer;
+export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput & __MetadataBearer;
 
 export class BatchGetRepositoriesCommand extends $Command<
   BatchGetRepositoriesCommandInput,
@@ -49,13 +45,8 @@ export class BatchGetRepositoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetRepositoriesCommandInput,
-    BatchGetRepositoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetRepositoriesCommandInput, BatchGetRepositoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type JsonTimestampsCommandInput = JsonTimestampsInputOutput;
-export type JsonTimestampsCommandOutput = JsonTimestampsInputOutput &
-  __MetadataBearer;
+export type JsonTimestampsCommandOutput = JsonTimestampsInputOutput & __MetadataBearer;
 
 export class JsonTimestampsCommand extends $Command<
   JsonTimestampsCommandInput,
@@ -47,9 +46,7 @@ export class JsonTimestampsCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<JsonTimestampsCommandInput, JsonTimestampsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

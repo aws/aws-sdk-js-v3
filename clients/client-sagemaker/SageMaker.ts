@@ -539,11 +539,7 @@ import {
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput
 } from "./commands/RenderUiTemplateCommand";
-import {
-  SearchCommand,
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
+import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
@@ -704,9 +700,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -777,9 +771,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAlgorithmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: CreateAlgorithmCommandOutput) => void
   ): Promise<CreateAlgorithmCommandOutput> | void {
     const command = new CreateAlgorithmCommand(args);
@@ -817,9 +809,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
@@ -852,9 +842,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAutoMLJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: CreateAutoMLJobCommandOutput) => void
   ): Promise<CreateAutoMLJobCommandOutput> | void {
     const command = new CreateAutoMLJobCommand(args);
@@ -1002,9 +990,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
@@ -1064,9 +1050,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
@@ -1170,9 +1154,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createExperiment(
     args: CreateExperimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExperimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExperimentCommandOutput) => void),
     cb?: (err: any, data?: CreateExperimentCommandOutput) => void
   ): Promise<CreateExperimentCommandOutput> | void {
     const command = new CreateExperimentCommand(args);
@@ -1397,9 +1379,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createModel(
     args: CreateModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
     cb?: (err: any, data?: CreateModelCommandOutput) => void
   ): Promise<CreateModelCommandOutput> | void {
     const command = new CreateModelCommand(args);
@@ -1585,31 +1565,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput>;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    cb: (
-      err: any,
-      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateNotebookInstanceLifecycleConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+      | ((err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new CreateNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1686,31 +1654,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput>;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    cb: (
-      err: any,
-      data?: CreatePresignedNotebookInstanceUrlCommandOutput
-    ) => void
+    cb: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
   ): void;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreatePresignedNotebookInstanceUrlCommandOutput
-    ) => void
+    cb: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
   ): void;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreatePresignedNotebookInstanceUrlCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreatePresignedNotebookInstanceUrlCommandOutput
-    ) => void
+      | ((err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> | void {
     const command = new CreatePresignedNotebookInstanceUrlCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1956,9 +1912,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createTrial(
     args: CreateTrialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTrialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrialCommandOutput) => void),
     cb?: (err: any, data?: CreateTrialCommandOutput) => void
   ): Promise<CreateTrialCommandOutput> | void {
     const command = new CreateTrialCommand(args);
@@ -2084,9 +2038,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createWorkteam(
     args: CreateWorkteamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkteamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkteamCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkteamCommandOutput) => void
   ): Promise<CreateWorkteamCommandOutput> | void {
     const command = new CreateWorkteamCommand(args);
@@ -2119,9 +2071,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAlgorithmCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: DeleteAlgorithmCommandOutput) => void
   ): Promise<DeleteAlgorithmCommandOutput> | void {
     const command = new DeleteAlgorithmCommand(args);
@@ -2154,9 +2104,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
@@ -2227,9 +2175,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
@@ -2265,9 +2211,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
@@ -2339,9 +2283,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteExperiment(
     args: DeleteExperimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteExperimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExperimentCommandOutput) => void),
     cb?: (err: any, data?: DeleteExperimentCommandOutput) => void
   ): Promise<DeleteExperimentCommandOutput> | void {
     const command = new DeleteExperimentCommand(args);
@@ -2412,9 +2354,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteModel(
     args: DeleteModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelCommandOutput) => void
   ): Promise<DeleteModelCommandOutput> | void {
     const command = new DeleteModelCommand(args);
@@ -2552,31 +2492,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput>;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new DeleteNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2614,9 +2542,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -2651,9 +2577,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteTrial(
     args: DeleteTrialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTrialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrialCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrialCommandOutput) => void
   ): Promise<DeleteTrialCommandOutput> | void {
     const command = new DeleteTrialCommand(args);
@@ -2758,9 +2682,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteWorkteam(
     args: DeleteWorkteamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkteamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkteamCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkteamCommandOutput) => void
   ): Promise<DeleteWorkteamCommandOutput> | void {
     const command = new DeleteWorkteamCommand(args);
@@ -2828,9 +2750,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeApp(
     args: DescribeAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppCommandOutput) => void),
     cb?: (err: any, data?: DescribeAppCommandOutput) => void
   ): Promise<DescribeAppCommandOutput> | void {
     const command = new DescribeAppCommand(args);
@@ -2970,9 +2890,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
@@ -3005,9 +2923,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): Promise<DescribeEndpointCommandOutput> | void {
     const command = new DescribeEndpointCommand(args);
@@ -3184,10 +3100,7 @@ export class SageMaker extends SageMakerClient {
     args: DescribeHyperParameterTuningJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeHyperParameterTuningJobCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void
   ): Promise<DescribeHyperParameterTuningJobCommandOutput> | void {
     const command = new DescribeHyperParameterTuningJobCommand(args);
@@ -3256,9 +3169,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeModel(
     args: DescribeModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelCommandOutput) => void),
     cb?: (err: any, data?: DescribeModelCommandOutput) => void
   ): Promise<DescribeModelCommandOutput> | void {
     const command = new DescribeModelCommand(args);
@@ -3392,31 +3303,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput>;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new DescribeNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3589,9 +3488,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeTrial(
     args: DescribeTrialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTrialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrialCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrialCommandOutput) => void
   ): Promise<DescribeTrialCommandOutput> | void {
     const command = new DescribeTrialCommand(args);
@@ -3736,9 +3633,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeWorkteam(
     args: DescribeWorkteamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkteamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkteamCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkteamCommandOutput) => void
   ): Promise<DescribeWorkteamCommandOutput> | void {
     const command = new DescribeWorkteamCommand(args);
@@ -3847,9 +3742,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listAlgorithms(
     args: ListAlgorithmsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAlgorithmsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlgorithmsCommandOutput) => void),
     cb?: (err: any, data?: ListAlgorithmsCommandOutput) => void
   ): Promise<ListAlgorithmsCommandOutput> | void {
     const command = new ListAlgorithmsCommand(args);
@@ -3882,9 +3775,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listApps(
     args: ListAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsCommandOutput) => void),
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
@@ -3917,9 +3808,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAutoMLJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAutoMLJobsCommandOutput) => void),
     cb?: (err: any, data?: ListAutoMLJobsCommandOutput) => void
   ): Promise<ListAutoMLJobsCommandOutput> | void {
     const command = new ListAutoMLJobsCommand(args);
@@ -4059,9 +3948,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
@@ -4129,9 +4016,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listEndpoints(
     args: ListEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointsCommandOutput) => void
   ): Promise<ListEndpointsCommandOutput> | void {
     const command = new ListEndpointsCommand(args);
@@ -4166,9 +4051,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listExperiments(
     args: ListExperimentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExperimentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExperimentsCommandOutput) => void),
     cb?: (err: any, data?: ListExperimentsCommandOutput) => void
   ): Promise<ListExperimentsCommandOutput> | void {
     const command = new ListExperimentsCommand(args);
@@ -4236,9 +4119,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHumanTaskUisCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHumanTaskUisCommandOutput) => void),
     cb?: (err: any, data?: ListHumanTaskUisCommandOutput) => void
   ): Promise<ListHumanTaskUisCommandOutput> | void {
     const command = new ListHumanTaskUisCommand(args);
@@ -4308,9 +4189,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listLabelingJobs(
     args: ListLabelingJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLabelingJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLabelingJobsCommandOutput) => void),
     cb?: (err: any, data?: ListLabelingJobsCommandOutput) => void
   ): Promise<ListLabelingJobsCommandOutput> | void {
     const command = new ListLabelingJobsCommand(args);
@@ -4413,9 +4292,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listModels(
     args: ListModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelsCommandOutput) => void),
     cb?: (err: any, data?: ListModelsCommandOutput) => void
   ): Promise<ListModelsCommandOutput> | void {
     const command = new ListModelsCommand(args);
@@ -4509,31 +4386,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput>;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    cb: (
-      err: any,
-      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
   ): void;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
   ): void;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListNotebookInstanceLifecycleConfigsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
-    ) => void
+      | ((err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> | void {
     const command = new ListNotebookInstanceLifecycleConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4673,9 +4538,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -4708,9 +4571,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrainingJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrainingJobsCommandOutput) => void),
     cb?: (err: any, data?: ListTrainingJobsCommandOutput) => void
   ): Promise<ListTrainingJobsCommandOutput> | void {
     const command = new ListTrainingJobsCommand(args);
@@ -4735,31 +4596,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput>;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    cb: (
-      err: any,
-      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
   ): void;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
-    ) => void
+    cb: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
   ): void;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
-    ) => void
+      | ((err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void),
+    cb?: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> | void {
     const command = new ListTrainingJobsForHyperParameterTuningJobCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4883,9 +4732,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTrials(
     args: ListTrialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTrialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrialsCommandOutput) => void),
     cb?: (err: any, data?: ListTrialsCommandOutput) => void
   ): Promise<ListTrialsCommandOutput> | void {
     const command = new ListTrialsCommand(args);
@@ -4918,9 +4765,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserProfilesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListUserProfilesCommandOutput) => void
   ): Promise<ListUserProfilesCommandOutput> | void {
     const command = new ListUserProfilesCommand(args);
@@ -4955,9 +4800,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listWorkteams(
     args: ListWorkteamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkteamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkteamsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkteamsCommandOutput) => void
   ): Promise<ListWorkteamsCommandOutput> | void {
     const command = new ListWorkteamsCommand(args);
@@ -4990,9 +4833,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public renderUiTemplate(
     args: RenderUiTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenderUiTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenderUiTemplateCommandOutput) => void),
     cb?: (err: any, data?: RenderUiTemplateCommandOutput) => void
   ): Promise<RenderUiTemplateCommandOutput> | void {
     const command = new RenderUiTemplateCommand(args);
@@ -5018,10 +4859,7 @@ export class SageMaker extends SageMakerClient {
     args: SearchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchCommandOutput>;
-  public search(
-    args: SearchCommandInput,
-    cb: (err: any, data?: SearchCommandOutput) => void
-  ): void;
+  public search(args: SearchCommandInput, cb: (err: any, data?: SearchCommandOutput) => void): void;
   public search(
     args: SearchCommandInput,
     options: __HttpHandlerOptions,
@@ -5029,9 +4867,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public search(
     args: SearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchCommandOutput) => void),
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
@@ -5140,9 +4976,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopAutoMLJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: StopAutoMLJobCommandOutput) => void
   ): Promise<StopAutoMLJobCommandOutput> | void {
     const command = new StopAutoMLJobCommand(args);
@@ -5257,9 +5091,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopLabelingJob(
     args: StopLabelingJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopLabelingJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopLabelingJobCommandOutput) => void),
     cb?: (err: any, data?: StopLabelingJobCommandOutput) => void
   ): Promise<StopLabelingJobCommandOutput> | void {
     const command = new StopLabelingJobCommand(args);
@@ -5411,9 +5243,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopTrainingJob(
     args: StopTrainingJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTrainingJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingJobCommandOutput) => void),
     cb?: (err: any, data?: StopTrainingJobCommandOutput) => void
   ): Promise<StopTrainingJobCommandOutput> | void {
     const command = new StopTrainingJobCommand(args);
@@ -5451,9 +5281,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopTransformJob(
     args: StopTransformJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTransformJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTransformJobCommandOutput) => void),
     cb?: (err: any, data?: StopTransformJobCommandOutput) => void
   ): Promise<StopTransformJobCommandOutput> | void {
     const command = new StopTransformJobCommand(args);
@@ -5521,9 +5349,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateDomain(
     args: UpdateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainCommandOutput) => void
   ): Promise<UpdateDomainCommandOutput> | void {
     const command = new UpdateDomainCommand(args);
@@ -5569,9 +5395,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
@@ -5600,31 +5424,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput>;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
   ): void;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
   ): void;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> | void {
     const command = new UpdateEndpointWeightsAndCapacitiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5657,9 +5469,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateExperiment(
     args: UpdateExperimentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateExperimentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExperimentCommandOutput) => void),
     cb?: (err: any, data?: UpdateExperimentCommandOutput) => void
   ): Promise<UpdateExperimentCommandOutput> | void {
     const command = new UpdateExperimentCommand(args);
@@ -5755,31 +5565,19 @@ export class SageMaker extends SageMakerClient {
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput>;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new UpdateNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5811,9 +5609,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateTrial(
     args: UpdateTrialCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTrialCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrialCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrialCommandOutput) => void
   ): Promise<UpdateTrialCommandOutput> | void {
     const command = new UpdateTrialCommand(args);
@@ -5927,9 +5723,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateWorkforce(
     args: UpdateWorkforceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkforceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkforceCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkforceCommandOutput) => void
   ): Promise<UpdateWorkforceCommandOutput> | void {
     const command = new UpdateWorkforceCommand(args);
@@ -5962,9 +5756,7 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateWorkteam(
     args: UpdateWorkteamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkteamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkteamCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkteamCommandOutput) => void
   ): Promise<UpdateWorkteamCommandOutput> | void {
     const command = new UpdateWorkteamCommand(args);

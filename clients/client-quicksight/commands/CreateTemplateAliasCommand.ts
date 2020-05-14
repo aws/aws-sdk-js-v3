@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  CreateTemplateAliasRequest,
-  CreateTemplateAliasResponse
-} from "../models/index";
+import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateTemplateAliasCommand,
   serializeAws_restJson1_1CreateTemplateAliasCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTemplateAliasCommandInput = CreateTemplateAliasRequest;
-export type CreateTemplateAliasCommandOutput = CreateTemplateAliasResponse &
-  __MetadataBearer;
+export type CreateTemplateAliasCommandOutput = CreateTemplateAliasResponse & __MetadataBearer;
 
 export class CreateTemplateAliasCommand extends $Command<
   CreateTemplateAliasCommandInput,
@@ -49,13 +45,8 @@ export class CreateTemplateAliasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTemplateAliasCommandInput,
-    CreateTemplateAliasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTemplateAliasCommandInput, CreateTemplateAliasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateTemplateAliasCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1CreateTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

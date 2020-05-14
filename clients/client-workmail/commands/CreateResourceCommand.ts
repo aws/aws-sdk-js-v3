@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResourceCommandInput = CreateResourceRequest;
-export type CreateResourceCommandOutput = CreateResourceResponse &
-  __MetadataBearer;
+export type CreateResourceCommandOutput = CreateResourceResponse & __MetadataBearer;
 
 export class CreateResourceCommand extends $Command<
   CreateResourceCommandInput,
@@ -47,9 +46,7 @@ export class CreateResourceCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResourceCommandInput, CreateResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

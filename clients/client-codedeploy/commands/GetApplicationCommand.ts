@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApplicationCommandInput = GetApplicationInput;
-export type GetApplicationCommandOutput = GetApplicationOutput &
-  __MetadataBearer;
+export type GetApplicationCommandOutput = GetApplicationOutput & __MetadataBearer;
 
 export class GetApplicationCommand extends $Command<
   GetApplicationCommandInput,
@@ -47,9 +46,7 @@ export class GetApplicationCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApplicationCommandInput, GetApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

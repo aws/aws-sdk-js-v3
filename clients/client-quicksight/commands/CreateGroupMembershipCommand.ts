@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  CreateGroupMembershipRequest,
-  CreateGroupMembershipResponse
-} from "../models/index";
+import { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateGroupMembershipCommand,
   serializeAws_restJson1_1CreateGroupMembershipCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGroupMembershipCommandInput = CreateGroupMembershipRequest;
-export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse &
-  __MetadataBearer;
+export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse & __MetadataBearer;
 
 export class CreateGroupMembershipCommand extends $Command<
   CreateGroupMembershipCommandInput,
@@ -49,13 +45,8 @@ export class CreateGroupMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateGroupMembershipCommandInput,
-    CreateGroupMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateGroupMembershipCommandInput, CreateGroupMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreateGroupMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1_1CreateGroupMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

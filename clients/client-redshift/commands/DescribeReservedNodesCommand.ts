@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeReservedNodesMessage,
-  ReservedNodesMessage
-} from "../models/index";
+import { DescribeReservedNodesMessage, ReservedNodesMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReservedNodesCommand,
   serializeAws_queryDescribeReservedNodesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReservedNodesCommandInput = DescribeReservedNodesMessage;
-export type DescribeReservedNodesCommandOutput = ReservedNodesMessage &
-  __MetadataBearer;
+export type DescribeReservedNodesCommandOutput = ReservedNodesMessage & __MetadataBearer;
 
 export class DescribeReservedNodesCommand extends $Command<
   DescribeReservedNodesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeReservedNodesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedNodesCommandInput,
-    DescribeReservedNodesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedNodesCommandInput, DescribeReservedNodesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  AssociateRoleToGroupRequest,
-  AssociateRoleToGroupResponse
-} from "../models/index";
+import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateRoleToGroupCommand,
   serializeAws_restJson1_1AssociateRoleToGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateRoleToGroupCommandInput = AssociateRoleToGroupRequest;
-export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse &
-  __MetadataBearer;
+export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse & __MetadataBearer;
 
 export class AssociateRoleToGroupCommand extends $Command<
   AssociateRoleToGroupCommandInput,
@@ -49,13 +45,8 @@ export class AssociateRoleToGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRoleToGroupCommandInput,
-    AssociateRoleToGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRoleToGroupCommandInput, AssociateRoleToGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class AssociateRoleToGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateRoleToGroupCommandOutput> {
-    return deserializeAws_restJson1_1AssociateRoleToGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateRoleToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

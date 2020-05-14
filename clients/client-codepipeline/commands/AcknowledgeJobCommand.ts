@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AcknowledgeJobCommandInput = AcknowledgeJobInput;
-export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput &
-  __MetadataBearer;
+export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput & __MetadataBearer;
 
 export class AcknowledgeJobCommand extends $Command<
   AcknowledgeJobCommandInput,
@@ -47,9 +46,7 @@ export class AcknowledgeJobCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AcknowledgeJobCommandInput, AcknowledgeJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

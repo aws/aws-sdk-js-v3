@@ -51,8 +51,7 @@ export interface AwsAuthResolvedConfig {
 export function resolveAwsAuthConfig<T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
 ): T & AwsAuthResolvedConfig {
-  let credentials =
-    input.credentials || input.credentialDefaultProvider(input as any);
+  let credentials = input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const {
     signingEscapePath = true,
@@ -69,10 +68,7 @@ export function resolveAwsAuthConfig<T>(
       normalizeProvider(input.region)()
         .then(
           async region =>
-            [(await input.regionInfoProvider(region)) || {}, region] as [
-              RegionInfo,
-              string
-            ]
+            [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string]
         )
         .then(([regionInfo, region]) => {
           const {

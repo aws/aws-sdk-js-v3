@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import {
   ChangeMessageVisibilityBatchRequest,
   ChangeMessageVisibilityBatchResult
@@ -49,13 +45,8 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeMessageVisibilityBatchCommandInput,
-    ChangeMessageVisibilityBatchCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeMessageVisibilityBatchCommandInput, ChangeMessageVisibilityBatchCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     input: ChangeMessageVisibilityBatchCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryChangeMessageVisibilityBatchCommand(
-      input,
-      context
-    );
+    return serializeAws_queryChangeMessageVisibilityBatchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ChangeMessageVisibilityBatchCommandOutput> {
-    return deserializeAws_queryChangeMessageVisibilityBatchCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryChangeMessageVisibilityBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

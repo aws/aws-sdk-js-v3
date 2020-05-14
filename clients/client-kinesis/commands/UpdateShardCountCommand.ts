@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateShardCountCommandInput = UpdateShardCountInput;
-export type UpdateShardCountCommandOutput = UpdateShardCountOutput &
-  __MetadataBearer;
+export type UpdateShardCountCommandOutput = UpdateShardCountOutput & __MetadataBearer;
 
 export class UpdateShardCountCommand extends $Command<
   UpdateShardCountCommandInput,
@@ -47,9 +46,7 @@ export class UpdateShardCountCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateShardCountCommandInput, UpdateShardCountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

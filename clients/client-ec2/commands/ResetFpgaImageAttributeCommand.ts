@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ResetFpgaImageAttributeRequest,
-  ResetFpgaImageAttributeResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/index";
 import {
   deserializeAws_ec2ResetFpgaImageAttributeCommand,
   serializeAws_ec2ResetFpgaImageAttributeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetFpgaImageAttributeCommandInput = ResetFpgaImageAttributeRequest;
-export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult &
-  __MetadataBearer;
+export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult & __MetadataBearer;
 
 export class ResetFpgaImageAttributeCommand extends $Command<
   ResetFpgaImageAttributeCommandInput,
@@ -49,13 +41,8 @@ export class ResetFpgaImageAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetFpgaImageAttributeCommandInput,
-    ResetFpgaImageAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetFpgaImageAttributeCommandInput, ResetFpgaImageAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  ListApplicationVersionsRequest,
-  ListApplicationVersionsResponse
-} from "../models/index";
+import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListApplicationVersionsCommand,
   serializeAws_restJson1_1ListApplicationVersionsCommand
@@ -49,13 +46,8 @@ export class ListApplicationVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApplicationVersionsCommandInput,
-    ListApplicationVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApplicationVersionsCommandInput, ListApplicationVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListApplicationVersionsCommand extends $Command<
     input: ListApplicationVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListApplicationVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListApplicationVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListApplicationVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

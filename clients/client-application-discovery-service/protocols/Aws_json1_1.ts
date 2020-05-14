@@ -10,18 +10,12 @@ import {
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput
 } from "../commands/CreateApplicationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "../commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
   DeleteApplicationsCommandInput,
   DeleteApplicationsCommandOutput
 } from "../commands/DeleteApplicationsCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeAgentsCommandInput,
   DescribeAgentsCommandOutput
@@ -196,15 +190,11 @@ export const serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication"
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -218,9 +208,7 @@ export const serializeAws_json1_1BatchDeleteImportDataCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.BatchDeleteImportData"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDeleteImportDataRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDeleteImportDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -233,9 +221,7 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.CreateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -261,9 +247,7 @@ export const serializeAws_json1_1DeleteApplicationsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DeleteApplications"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteApplicationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteApplicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,9 +273,7 @@ export const serializeAws_json1_1DescribeAgentsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeAgents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAgentsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAgentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -304,9 +286,7 @@ export const serializeAws_json1_1DescribeConfigurationsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeConfigurationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,9 +299,7 @@ export const serializeAws_json1_1DescribeContinuousExportsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeContinuousExports"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeContinuousExportsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeContinuousExportsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,13 +309,10 @@ export const serializeAws_json1_1DescribeExportConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations"
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeExportConfigurationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeExportConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -350,9 +325,7 @@ export const serializeAws_json1_1DescribeExportTasksCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeExportTasks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeExportTasksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeExportTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -365,9 +338,7 @@ export const serializeAws_json1_1DescribeImportTasksCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeImportTasks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeImportTasksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeImportTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -380,9 +351,7 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DescribeTags"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTagsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -392,15 +361,11 @@ export const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication"
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication"
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -425,9 +390,7 @@ export const serializeAws_json1_1GetDiscoverySummaryCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.GetDiscoverySummary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDiscoverySummaryRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDiscoverySummaryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -440,9 +403,7 @@ export const serializeAws_json1_1ListConfigurationsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.ListConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListConfigurationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -455,9 +416,7 @@ export const serializeAws_json1_1ListServerNeighborsCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.ListServerNeighbors"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListServerNeighborsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListServerNeighborsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -470,9 +429,7 @@ export const serializeAws_json1_1StartContinuousExportCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartContinuousExport"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartContinuousExportRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartContinuousExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -482,13 +439,10 @@ export const serializeAws_json1_1StartDataCollectionByAgentIdsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds"
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -501,9 +455,7 @@ export const serializeAws_json1_1StartExportTaskCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartExportTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartExportTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartExportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -516,9 +468,7 @@ export const serializeAws_json1_1StartImportTaskCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StartImportTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartImportTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartImportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,9 +481,7 @@ export const serializeAws_json1_1StopContinuousExportCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StopContinuousExport"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopContinuousExportRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopContinuousExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -543,13 +491,10 @@ export const serializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds"
+    "X-Amz-Target": "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -562,9 +507,7 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
     "X-Amz-Target": "AWSPoseidonService_V2015_11_01.UpdateApplication"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateApplicationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -580,10 +523,7 @@ export const deserializeAws_json1_1AssociateConfigurationItemsToApplicationComma
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse(data, context);
   const response: AssociateConfigurationItemsToApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateConfigurationItemsToApplicationResponse",
@@ -603,16 +543,12 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -620,10 +556,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -631,10 +564,7 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -683,10 +613,7 @@ export const deserializeAws_json1_1BatchDeleteImportDataCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteImportDataCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDeleteImportDataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeleteImportDataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -710,16 +637,12 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -727,10 +650,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -738,10 +658,7 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -814,16 +731,12 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -831,10 +744,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -842,10 +752,7 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,16 +825,12 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -935,10 +838,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -946,10 +846,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -968,10 +865,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1009,10 +903,7 @@ export const deserializeAws_json1_1DeleteApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteApplicationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1036,16 +927,12 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1053,10 +940,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1064,10 +948,7 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1140,16 +1021,12 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1157,10 +1034,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1168,10 +1042,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1190,10 +1061,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1255,16 +1123,12 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1272,10 +1136,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1283,10 +1144,7 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1335,17 +1193,11 @@ export const deserializeAws_json1_1DescribeConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConfigurationsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeConfigurationsResponse(data, context);
   const response: DescribeConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeConfigurationsResponse",
@@ -1365,16 +1217,12 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1382,10 +1230,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1393,10 +1238,7 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,17 +1287,11 @@ export const deserializeAws_json1_1DescribeContinuousExportsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContinuousExportsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeContinuousExportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeContinuousExportsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeContinuousExportsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeContinuousExportsResponse(data, context);
   const response: DescribeContinuousExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeContinuousExportsResponse",
@@ -1475,16 +1311,12 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1492,10 +1324,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1503,10 +1332,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1536,10 +1362,7 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1577,17 +1400,11 @@ export const deserializeAws_json1_1DescribeExportConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeExportConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeExportConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExportConfigurationsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeExportConfigurationsResponse(data, context);
   const response: DescribeExportConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExportConfigurationsResponse",
@@ -1607,16 +1424,12 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1624,10 +1437,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1635,10 +1445,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1657,10 +1464,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1698,10 +1502,7 @@ export const deserializeAws_json1_1DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeExportTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeExportTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1725,16 +1526,12 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1742,10 +1539,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1753,10 +1547,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1805,10 +1596,7 @@ export const deserializeAws_json1_1DescribeImportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportTasksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeImportTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImportTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1832,16 +1620,12 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1849,10 +1633,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1860,10 +1641,7 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1936,16 +1714,12 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1953,10 +1727,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1964,10 +1735,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1986,10 +1754,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2057,16 +1822,12 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2074,10 +1835,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2085,10 +1843,7 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2137,10 +1892,7 @@ export const deserializeAws_json1_1ExportConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ExportConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ExportConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2164,16 +1916,12 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2181,10 +1929,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2192,10 +1937,7 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2255,10 +1997,7 @@ export const deserializeAws_json1_1GetDiscoverySummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetDiscoverySummaryCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDiscoverySummaryCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetDiscoverySummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2282,16 +2021,12 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2299,10 +2034,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2310,10 +2042,7 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2362,10 +2091,7 @@ export const deserializeAws_json1_1ListConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2389,16 +2115,12 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2406,10 +2128,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2417,10 +2136,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2439,10 +2155,7 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2480,10 +2193,7 @@ export const deserializeAws_json1_1ListServerNeighborsCommand = async (
   context: __SerdeContext
 ): Promise<ListServerNeighborsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListServerNeighborsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListServerNeighborsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2507,16 +2217,12 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2524,10 +2230,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2535,10 +2238,7 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2587,10 +2287,7 @@ export const deserializeAws_json1_1StartContinuousExportCommand = async (
   context: __SerdeContext
 ): Promise<StartContinuousExportCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartContinuousExportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartContinuousExportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2614,16 +2311,12 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2631,10 +2324,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     case "ConflictErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ConflictErrorException":
       response = {
-        ...(await deserializeAws_json1_1ConflictErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2642,10 +2332,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2653,10 +2340,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2686,10 +2370,7 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2727,17 +2408,11 @@ export const deserializeAws_json1_1StartDataCollectionByAgentIdsCommand = async 
   context: __SerdeContext
 ): Promise<StartDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDataCollectionByAgentIdsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartDataCollectionByAgentIdsResponse(data, context);
   const response: StartDataCollectionByAgentIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDataCollectionByAgentIdsResponse",
@@ -2757,16 +2432,12 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2774,10 +2445,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2785,10 +2453,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2861,16 +2526,12 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2878,10 +2539,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2889,10 +2547,7 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2976,16 +2631,12 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2993,10 +2644,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3004,10 +2652,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3026,10 +2671,7 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3067,10 +2709,7 @@ export const deserializeAws_json1_1StopContinuousExportCommand = async (
   context: __SerdeContext
 ): Promise<StopContinuousExportCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopContinuousExportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopContinuousExportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3094,16 +2733,12 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3111,10 +2746,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3122,10 +2754,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3155,10 +2784,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3166,10 +2792,7 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3207,17 +2830,11 @@ export const deserializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
   context: __SerdeContext
 ): Promise<StopDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopDataCollectionByAgentIdsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StopDataCollectionByAgentIdsResponse(data, context);
   const response: StopDataCollectionByAgentIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopDataCollectionByAgentIdsResponse",
@@ -3237,16 +2854,12 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3254,10 +2867,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3265,10 +2875,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3341,16 +2948,12 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.awsposeidon.V2015_11_01#AuthorizationErrorException":
       response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3358,10 +2961,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.awsposeidon.V2015_11_01#HomeRegionNotSetException":
       response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3369,10 +2969,7 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3421,10 +3018,7 @@ const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AuthorizationErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AuthorizationErrorException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AuthorizationErrorException(body, context);
   const contents: AuthorizationErrorException = {
     name: "AuthorizationErrorException",
     $fault: "client",
@@ -3439,10 +3033,7 @@ const deserializeAws_json1_1ConflictErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictErrorException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictErrorException(body, context);
   const contents: ConflictErrorException = {
     name: "ConflictErrorException",
     $fault: "client",
@@ -3457,10 +3048,7 @@ const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
   context: __SerdeContext
 ): Promise<HomeRegionNotSetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1HomeRegionNotSetException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1HomeRegionNotSetException(body, context);
   const contents: HomeRegionNotSetException = {
     name: "HomeRegionNotSetException",
     $fault: "client",
@@ -3475,10 +3063,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
@@ -3493,10 +3078,7 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(body, context);
   const contents: InvalidParameterValueException = {
     name: "InvalidParameterValueException",
     $fault: "client",
@@ -3511,10 +3093,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
   const contents: OperationNotPermittedException = {
     name: "OperationNotPermittedException",
     $fault: "client",
@@ -3529,10 +3108,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -3547,10 +3123,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -3565,10 +3138,7 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServerInternalErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServerInternalErrorException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServerInternalErrorException(body, context);
   const contents: ServerInternalErrorException = {
     name: "ServerInternalErrorException",
     $fault: "server",
@@ -3578,17 +3148,11 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AgentIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AgentIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ApplicationIdsList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ApplicationIdsList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3601,10 +3165,7 @@ const serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest = (
       applicationConfigurationId: input.applicationConfigurationId
     }),
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ConfigurationIdList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context)
     })
   };
 };
@@ -3615,25 +3176,16 @@ const serializeAws_json1_1BatchDeleteImportDataRequest = (
 ): any => {
   return {
     ...(input.importTaskIds !== undefined && {
-      importTaskIds: serializeAws_json1_1ToDeleteIdentifierList(
-        input.importTaskIds,
-        context
-      )
+      importTaskIds: serializeAws_json1_1ToDeleteIdentifierList(input.importTaskIds, context)
     })
   };
 };
 
-const serializeAws_json1_1ConfigurationIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ConfigurationIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ContinuousExportIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ContinuousExportIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -3653,10 +3205,7 @@ const serializeAws_json1_1CreateTagsRequest = (
 ): any => {
   return {
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ConfigurationIdList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_1TagSet(input.tags, context)
@@ -3670,10 +3219,7 @@ const serializeAws_json1_1DeleteApplicationsRequest = (
 ): any => {
   return {
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ApplicationIdsList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ApplicationIdsList(input.configurationIds, context)
     })
   };
 };
@@ -3684,10 +3230,7 @@ const serializeAws_json1_1DeleteTagsRequest = (
 ): any => {
   return {
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ConfigurationIdList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_json1_1TagSet(input.tags, context)
@@ -3717,10 +3260,7 @@ const serializeAws_json1_1DescribeConfigurationsRequest = (
 ): any => {
   return {
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ConfigurationIdList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context)
     })
   };
 };
@@ -3731,10 +3271,7 @@ const serializeAws_json1_1DescribeContinuousExportsRequest = (
 ): any => {
   return {
     ...(input.exportIds !== undefined && {
-      exportIds: serializeAws_json1_1ContinuousExportIds(
-        input.exportIds,
-        context
-      )
+      exportIds: serializeAws_json1_1ContinuousExportIds(input.exportIds, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -3774,9 +3311,7 @@ const serializeAws_json1_1DescribeImportTasksFilterList = (
   input: ImportTaskFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ImportTaskFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1ImportTaskFilter(entry, context));
 };
 
 const serializeAws_json1_1DescribeImportTasksRequest = (
@@ -3785,10 +3320,7 @@ const serializeAws_json1_1DescribeImportTasksRequest = (
 ): any => {
   return {
     ...(input.filters !== undefined && {
-      filters: serializeAws_json1_1DescribeImportTasksFilterList(
-        input.filters,
-        context
-      )
+      filters: serializeAws_json1_1DescribeImportTasksFilterList(input.filters, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -3817,10 +3349,7 @@ const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest =
       applicationConfigurationId: input.applicationConfigurationId
     }),
     ...(input.configurationIds !== undefined && {
-      configurationIds: serializeAws_json1_1ConfigurationIdList(
-        input.configurationIds,
-        context
-      )
+      configurationIds: serializeAws_json1_1ConfigurationIdList(input.configurationIds, context)
     })
   };
 };
@@ -3832,10 +3361,7 @@ const serializeAws_json1_1ExportDataFormats = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ExportFilter = (
-  input: ExportFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExportFilter = (input: ExportFilter, context: __SerdeContext): any => {
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
     ...(input.name !== undefined && { name: input.name }),
@@ -3845,24 +3371,15 @@ const serializeAws_json1_1ExportFilter = (
   };
 };
 
-const serializeAws_json1_1ExportFilters = (
-  input: ExportFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExportFilters = (input: ExportFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1ExportFilter(entry, context));
 };
 
-const serializeAws_json1_1ExportIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExportIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Filter = (
-  input: Filter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.condition !== undefined && { condition: input.condition }),
     ...(input.name !== undefined && { name: input.name }),
@@ -3872,17 +3389,11 @@ const serializeAws_json1_1Filter = (
   };
 };
 
-const serializeAws_json1_1FilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Filters = (
-  input: Filter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Filter(entry, context));
 };
 
@@ -3900,10 +3411,7 @@ const serializeAws_json1_1ImportTaskFilter = (
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.values !== undefined && {
-      values: serializeAws_json1_1ImportTaskFilterValueList(
-        input.values,
-        context
-      )
+      values: serializeAws_json1_1ImportTaskFilterValueList(input.values, context)
     })
   };
 };
@@ -3966,10 +3474,7 @@ const serializeAws_json1_1OrderByElement = (
   };
 };
 
-const serializeAws_json1_1OrderByList = (
-  input: OrderByElement[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1OrderByList = (input: OrderByElement[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1OrderByElement(entry, context));
 };
 
@@ -4000,10 +3505,7 @@ const serializeAws_json1_1StartExportTaskRequest = (
       endTime: Math.round(input.endTime.getTime() / 1000)
     }),
     ...(input.exportDataFormat !== undefined && {
-      exportDataFormat: serializeAws_json1_1ExportDataFormats(
-        input.exportDataFormat,
-        context
-      )
+      exportDataFormat: serializeAws_json1_1ExportDataFormats(input.exportDataFormat, context)
     }),
     ...(input.filters !== undefined && {
       filters: serializeAws_json1_1ExportFilters(input.filters, context)
@@ -4052,10 +3554,7 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagFilter = (
-  input: TagFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.values !== undefined && {
@@ -4064,17 +3563,11 @@ const serializeAws_json1_1TagFilter = (
   };
 };
 
-const serializeAws_json1_1TagFilters = (
-  input: TagFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilters = (input: TagFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
-const serializeAws_json1_1TagSet = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagSet = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -4104,17 +3597,13 @@ const deserializeAws_json1_1AgentConfigurationStatus = (
 ): AgentConfigurationStatus => {
   return {
     __type: "AgentConfigurationStatus",
-    agentId:
-      output.agentId !== undefined && output.agentId !== null
-        ? output.agentId
-        : undefined,
+    agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     description:
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
     operationSucceeded:
-      output.operationSucceeded !== undefined &&
-      output.operationSucceeded !== null
+      output.operationSucceeded !== undefined && output.operationSucceeded !== null
         ? output.operationSucceeded
         : undefined
   } as any;
@@ -4129,28 +3618,16 @@ const deserializeAws_json1_1AgentConfigurationStatusList = (
   );
 };
 
-const deserializeAws_json1_1AgentInfo = (
-  output: any,
-  context: __SerdeContext
-): AgentInfo => {
+const deserializeAws_json1_1AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return {
     __type: "AgentInfo",
-    agentId:
-      output.agentId !== undefined && output.agentId !== null
-        ? output.agentId
-        : undefined,
+    agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     agentNetworkInfoList:
-      output.agentNetworkInfoList !== undefined &&
-      output.agentNetworkInfoList !== null
-        ? deserializeAws_json1_1AgentNetworkInfoList(
-            output.agentNetworkInfoList,
-            context
-          )
+      output.agentNetworkInfoList !== undefined && output.agentNetworkInfoList !== null
+        ? deserializeAws_json1_1AgentNetworkInfoList(output.agentNetworkInfoList, context)
         : undefined,
     agentType:
-      output.agentType !== undefined && output.agentType !== null
-        ? output.agentType
-        : undefined,
+      output.agentType !== undefined && output.agentType !== null ? output.agentType : undefined,
     collectionStatus:
       output.collectionStatus !== undefined && output.collectionStatus !== null
         ? output.collectionStatus
@@ -4159,27 +3636,18 @@ const deserializeAws_json1_1AgentInfo = (
       output.connectorId !== undefined && output.connectorId !== null
         ? output.connectorId
         : undefined,
-    health:
-      output.health !== undefined && output.health !== null
-        ? output.health
-        : undefined,
+    health: output.health !== undefined && output.health !== null ? output.health : undefined,
     hostName:
-      output.hostName !== undefined && output.hostName !== null
-        ? output.hostName
-        : undefined,
+      output.hostName !== undefined && output.hostName !== null ? output.hostName : undefined,
     lastHealthPingTime:
-      output.lastHealthPingTime !== undefined &&
-      output.lastHealthPingTime !== null
+      output.lastHealthPingTime !== undefined && output.lastHealthPingTime !== null
         ? output.lastHealthPingTime
         : undefined,
     registeredTime:
       output.registeredTime !== undefined && output.registeredTime !== null
         ? output.registeredTime
         : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
@@ -4190,13 +3658,9 @@ const deserializeAws_json1_1AgentNetworkInfo = (
   return {
     __type: "AgentNetworkInfo",
     ipAddress:
-      output.ipAddress !== undefined && output.ipAddress !== null
-        ? output.ipAddress
-        : undefined,
+      output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined,
     macAddress:
-      output.macAddress !== undefined && output.macAddress !== null
-        ? output.macAddress
-        : undefined
+      output.macAddress !== undefined && output.macAddress !== null ? output.macAddress : undefined
   } as any;
 };
 
@@ -4204,18 +3668,11 @@ const deserializeAws_json1_1AgentNetworkInfoList = (
   output: any,
   context: __SerdeContext
 ): AgentNetworkInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AgentNetworkInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1AgentNetworkInfo(entry, context));
 };
 
-const deserializeAws_json1_1AgentsInfo = (
-  output: any,
-  context: __SerdeContext
-): AgentInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AgentInfo(entry, context)
-  );
+const deserializeAws_json1_1AgentsInfo = (output: any, context: __SerdeContext): AgentInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AgentInfo(entry, context));
 };
 
 const deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse = (
@@ -4233,10 +3690,7 @@ const deserializeAws_json1_1AuthorizationErrorException = (
 ): AuthorizationErrorException => {
   return {
     __type: "AuthorizationErrorException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4247,9 +3701,7 @@ const deserializeAws_json1_1BatchDeleteImportDataError = (
   return {
     __type: "BatchDeleteImportDataError",
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorDescription:
       output.errorDescription !== undefined && output.errorDescription !== null
         ? output.errorDescription
@@ -4278,10 +3730,7 @@ const deserializeAws_json1_1BatchDeleteImportDataResponse = (
     __type: "BatchDeleteImportDataResponse",
     errors:
       output.errors !== undefined && output.errors !== null
-        ? deserializeAws_json1_1BatchDeleteImportDataErrorList(
-            output.errors,
-            context
-          )
+        ? deserializeAws_json1_1BatchDeleteImportDataErrorList(output.errors, context)
         : undefined
   } as any;
 };
@@ -4310,20 +3759,15 @@ const deserializeAws_json1_1ConfigurationTag = (
         ? output.configurationId
         : undefined,
     configurationType:
-      output.configurationType !== undefined &&
-      output.configurationType !== null
+      output.configurationType !== undefined && output.configurationType !== null
         ? output.configurationType
         : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
     timeOfCreation:
       output.timeOfCreation !== undefined && output.timeOfCreation !== null
         ? new Date(Math.round(output.timeOfCreation * 1000))
         : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -4331,18 +3775,14 @@ const deserializeAws_json1_1ConfigurationTagSet = (
   output: any,
   context: __SerdeContext
 ): ConfigurationTag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ConfigurationTag(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ConfigurationTag(entry, context));
 };
 
 const deserializeAws_json1_1Configurations = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string }[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Configuration(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Configuration(entry, context));
 };
 
 const deserializeAws_json1_1ConflictErrorException = (
@@ -4351,10 +3791,7 @@ const deserializeAws_json1_1ConflictErrorException = (
 ): ConflictErrorException => {
   return {
     __type: "ConflictErrorException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4365,33 +3802,20 @@ const deserializeAws_json1_1ContinuousExportDescription = (
   return {
     __type: "ContinuousExportDescription",
     dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? output.dataSource
-        : undefined,
+      output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
     exportId:
-      output.exportId !== undefined && output.exportId !== null
-        ? output.exportId
-        : undefined,
+      output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
     s3Bucket:
-      output.s3Bucket !== undefined && output.s3Bucket !== null
-        ? output.s3Bucket
-        : undefined,
+      output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
     schemaStorageConfig:
-      output.schemaStorageConfig !== undefined &&
-      output.schemaStorageConfig !== null
-        ? deserializeAws_json1_1SchemaStorageConfig(
-            output.schemaStorageConfig,
-            context
-          )
+      output.schemaStorageConfig !== undefined && output.schemaStorageConfig !== null
+        ? deserializeAws_json1_1SchemaStorageConfig(output.schemaStorageConfig, context)
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusDetail:
       output.statusDetail !== undefined && output.statusDetail !== null
         ? output.statusDetail
@@ -4445,8 +3869,7 @@ const deserializeAws_json1_1CustomerAgentInfo = (
         ? output.activeAgents
         : undefined,
     blackListedAgents:
-      output.blackListedAgents !== undefined &&
-      output.blackListedAgents !== null
+      output.blackListedAgents !== undefined && output.blackListedAgents !== null
         ? output.blackListedAgents
         : undefined,
     healthyAgents:
@@ -4483,18 +3906,15 @@ const deserializeAws_json1_1CustomerConnectorInfo = (
         ? output.activeConnectors
         : undefined,
     blackListedConnectors:
-      output.blackListedConnectors !== undefined &&
-      output.blackListedConnectors !== null
+      output.blackListedConnectors !== undefined && output.blackListedConnectors !== null
         ? output.blackListedConnectors
         : undefined,
     healthyConnectors:
-      output.healthyConnectors !== undefined &&
-      output.healthyConnectors !== null
+      output.healthyConnectors !== undefined && output.healthyConnectors !== null
         ? output.healthyConnectors
         : undefined,
     shutdownConnectors:
-      output.shutdownConnectors !== undefined &&
-      output.shutdownConnectors !== null
+      output.shutdownConnectors !== undefined && output.shutdownConnectors !== null
         ? output.shutdownConnectors
         : undefined,
     totalConnectors:
@@ -4502,13 +3922,11 @@ const deserializeAws_json1_1CustomerConnectorInfo = (
         ? output.totalConnectors
         : undefined,
     unhealthyConnectors:
-      output.unhealthyConnectors !== undefined &&
-      output.unhealthyConnectors !== null
+      output.unhealthyConnectors !== undefined && output.unhealthyConnectors !== null
         ? output.unhealthyConnectors
         : undefined,
     unknownConnectors:
-      output.unknownConnectors !== undefined &&
-      output.unknownConnectors !== null
+      output.unknownConnectors !== undefined && output.unknownConnectors !== null
         ? output.unknownConnectors
         : undefined
   } as any;
@@ -4543,9 +3961,7 @@ const deserializeAws_json1_1DescribeAgentsResponse = (
         ? deserializeAws_json1_1AgentsInfo(output.agentsInfo, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4579,10 +3995,7 @@ const deserializeAws_json1_1DescribeConfigurationsResponse = (
     __type: "DescribeConfigurationsResponse",
     configurations:
       output.configurations !== undefined && output.configurations !== null
-        ? deserializeAws_json1_1DescribeConfigurationsAttributes(
-            output.configurations,
-            context
-          )
+        ? deserializeAws_json1_1DescribeConfigurationsAttributes(output.configurations, context)
         : undefined
   } as any;
 };
@@ -4595,15 +4008,10 @@ const deserializeAws_json1_1DescribeContinuousExportsResponse = (
     __type: "DescribeContinuousExportsResponse",
     descriptions:
       output.descriptions !== undefined && output.descriptions !== null
-        ? deserializeAws_json1_1ContinuousExportDescriptions(
-            output.descriptions,
-            context
-          )
+        ? deserializeAws_json1_1ContinuousExportDescriptions(output.descriptions, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4618,9 +4026,7 @@ const deserializeAws_json1_1DescribeExportConfigurationsResponse = (
         ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4635,9 +4041,7 @@ const deserializeAws_json1_1DescribeExportTasksResponse = (
         ? deserializeAws_json1_1ExportsInfo(output.exportsInfo, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4648,9 +4052,7 @@ const deserializeAws_json1_1DescribeImportTasksResponse = (
   return {
     __type: "DescribeImportTasksResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tasks:
       output.tasks !== undefined && output.tasks !== null
         ? deserializeAws_json1_1ImportTaskList(output.tasks, context)
@@ -4665,9 +4067,7 @@ const deserializeAws_json1_1DescribeTagsResponse = (
   return {
     __type: "DescribeTagsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1ConfigurationTagSet(output.tags, context)
@@ -4691,30 +4091,21 @@ const deserializeAws_json1_1ExportConfigurationsResponse = (
   return {
     __type: "ExportConfigurationsResponse",
     exportId:
-      output.exportId !== undefined && output.exportId !== null
-        ? output.exportId
-        : undefined
+      output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ExportInfo = (
-  output: any,
-  context: __SerdeContext
-): ExportInfo => {
+const deserializeAws_json1_1ExportInfo = (output: any, context: __SerdeContext): ExportInfo => {
   return {
     __type: "ExportInfo",
     configurationsDownloadUrl:
-      output.configurationsDownloadUrl !== undefined &&
-      output.configurationsDownloadUrl !== null
+      output.configurationsDownloadUrl !== undefined && output.configurationsDownloadUrl !== null
         ? output.configurationsDownloadUrl
         : undefined,
     exportId:
-      output.exportId !== undefined && output.exportId !== null
-        ? output.exportId
-        : undefined,
+      output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
     exportRequestTime:
-      output.exportRequestTime !== undefined &&
-      output.exportRequestTime !== null
+      output.exportRequestTime !== undefined && output.exportRequestTime !== null
         ? new Date(Math.round(output.exportRequestTime * 1000))
         : undefined,
     exportStatus:
@@ -4730,8 +4121,7 @@ const deserializeAws_json1_1ExportInfo = (
         ? new Date(Math.round(output.requestedEndTime * 1000))
         : undefined,
     requestedStartTime:
-      output.requestedStartTime !== undefined &&
-      output.requestedStartTime !== null
+      output.requestedStartTime !== undefined && output.requestedStartTime !== null
         ? new Date(Math.round(output.requestedStartTime * 1000))
         : undefined,
     statusMessage:
@@ -4741,13 +4131,8 @@ const deserializeAws_json1_1ExportInfo = (
   } as any;
 };
 
-const deserializeAws_json1_1ExportsInfo = (
-  output: any,
-  context: __SerdeContext
-): ExportInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ExportInfo(entry, context)
-  );
+const deserializeAws_json1_1ExportsInfo = (output: any, context: __SerdeContext): ExportInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ExportInfo(entry, context));
 };
 
 const deserializeAws_json1_1GetDiscoverySummaryResponse = (
@@ -4766,23 +4151,16 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
         : undefined,
     connectorSummary:
       output.connectorSummary !== undefined && output.connectorSummary !== null
-        ? deserializeAws_json1_1CustomerConnectorInfo(
-            output.connectorSummary,
-            context
-          )
+        ? deserializeAws_json1_1CustomerConnectorInfo(output.connectorSummary, context)
         : undefined,
-    servers:
-      output.servers !== undefined && output.servers !== null
-        ? output.servers
-        : undefined,
+    servers: output.servers !== undefined && output.servers !== null ? output.servers : undefined,
     serversMappedToApplications:
       output.serversMappedToApplications !== undefined &&
       output.serversMappedToApplications !== null
         ? output.serversMappedToApplications
         : undefined,
     serversMappedtoTags:
-      output.serversMappedtoTags !== undefined &&
-      output.serversMappedtoTags !== null
+      output.serversMappedtoTags !== undefined && output.serversMappedtoTags !== null
         ? output.serversMappedtoTags
         : undefined
   } as any;
@@ -4794,52 +4172,39 @@ const deserializeAws_json1_1HomeRegionNotSetException = (
 ): HomeRegionNotSetException => {
   return {
     __type: "HomeRegionNotSetException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ImportTask = (
-  output: any,
-  context: __SerdeContext
-): ImportTask => {
+const deserializeAws_json1_1ImportTask = (output: any, context: __SerdeContext): ImportTask => {
   return {
     __type: "ImportTask",
     applicationImportFailure:
-      output.applicationImportFailure !== undefined &&
-      output.applicationImportFailure !== null
+      output.applicationImportFailure !== undefined && output.applicationImportFailure !== null
         ? output.applicationImportFailure
         : undefined,
     applicationImportSuccess:
-      output.applicationImportSuccess !== undefined &&
-      output.applicationImportSuccess !== null
+      output.applicationImportSuccess !== undefined && output.applicationImportSuccess !== null
         ? output.applicationImportSuccess
         : undefined,
     clientRequestToken:
-      output.clientRequestToken !== undefined &&
-      output.clientRequestToken !== null
+      output.clientRequestToken !== undefined && output.clientRequestToken !== null
         ? output.clientRequestToken
         : undefined,
     errorsAndFailedEntriesZip:
-      output.errorsAndFailedEntriesZip !== undefined &&
-      output.errorsAndFailedEntriesZip !== null
+      output.errorsAndFailedEntriesZip !== undefined && output.errorsAndFailedEntriesZip !== null
         ? output.errorsAndFailedEntriesZip
         : undefined,
     importCompletionTime:
-      output.importCompletionTime !== undefined &&
-      output.importCompletionTime !== null
+      output.importCompletionTime !== undefined && output.importCompletionTime !== null
         ? new Date(Math.round(output.importCompletionTime * 1000))
         : undefined,
     importDeletedTime:
-      output.importDeletedTime !== undefined &&
-      output.importDeletedTime !== null
+      output.importDeletedTime !== undefined && output.importDeletedTime !== null
         ? new Date(Math.round(output.importDeletedTime * 1000))
         : undefined,
     importRequestTime:
-      output.importRequestTime !== undefined &&
-      output.importRequestTime !== null
+      output.importRequestTime !== undefined && output.importRequestTime !== null
         ? new Date(Math.round(output.importRequestTime * 1000))
         : undefined,
     importTaskId:
@@ -4847,27 +4212,17 @@ const deserializeAws_json1_1ImportTask = (
         ? output.importTaskId
         : undefined,
     importUrl:
-      output.importUrl !== undefined && output.importUrl !== null
-        ? output.importUrl
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.importUrl !== undefined && output.importUrl !== null ? output.importUrl : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     serverImportFailure:
-      output.serverImportFailure !== undefined &&
-      output.serverImportFailure !== null
+      output.serverImportFailure !== undefined && output.serverImportFailure !== null
         ? output.serverImportFailure
         : undefined,
     serverImportSuccess:
-      output.serverImportSuccess !== undefined &&
-      output.serverImportSuccess !== null
+      output.serverImportSuccess !== undefined && output.serverImportSuccess !== null
         ? output.serverImportSuccess
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -4875,9 +4230,7 @@ const deserializeAws_json1_1ImportTaskList = (
   output: any,
   context: __SerdeContext
 ): ImportTask[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ImportTask(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ImportTask(entry, context));
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
@@ -4886,10 +4239,7 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   return {
     __type: "InvalidParameterException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4899,10 +4249,7 @@ const deserializeAws_json1_1InvalidParameterValueException = (
 ): InvalidParameterValueException => {
   return {
     __type: "InvalidParameterValueException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4917,9 +4264,7 @@ const deserializeAws_json1_1ListConfigurationsResponse = (
         ? deserializeAws_json1_1Configurations(output.configurations, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4930,8 +4275,7 @@ const deserializeAws_json1_1ListServerNeighborsResponse = (
   return {
     __type: "ListServerNeighborsResponse",
     knownDependencyCount:
-      output.knownDependencyCount !== undefined &&
-      output.knownDependencyCount !== null
+      output.knownDependencyCount !== undefined && output.knownDependencyCount !== null
         ? output.knownDependencyCount
         : undefined,
     neighbors:
@@ -4939,9 +4283,7 @@ const deserializeAws_json1_1ListServerNeighborsResponse = (
         ? deserializeAws_json1_1NeighborDetailsList(output.neighbors, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -4960,8 +4302,7 @@ const deserializeAws_json1_1NeighborConnectionDetail = (
         ? output.destinationPort
         : undefined,
     destinationServerId:
-      output.destinationServerId !== undefined &&
-      output.destinationServerId !== null
+      output.destinationServerId !== undefined && output.destinationServerId !== null
         ? output.destinationServerId
         : undefined,
     sourceServerId:
@@ -4969,8 +4310,7 @@ const deserializeAws_json1_1NeighborConnectionDetail = (
         ? output.sourceServerId
         : undefined,
     transportProtocol:
-      output.transportProtocol !== undefined &&
-      output.transportProtocol !== null
+      output.transportProtocol !== undefined && output.transportProtocol !== null
         ? output.transportProtocol
         : undefined
   } as any;
@@ -4991,10 +4331,7 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 ): OperationNotPermittedException => {
   return {
     __type: "OperationNotPermittedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5004,10 +4341,7 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5017,10 +4351,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5043,10 +4374,7 @@ const deserializeAws_json1_1ServerInternalErrorException = (
 ): ServerInternalErrorException => {
   return {
     __type: "ServerInternalErrorException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5057,24 +4385,14 @@ const deserializeAws_json1_1StartContinuousExportResponse = (
   return {
     __type: "StartContinuousExportResponse",
     dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? output.dataSource
-        : undefined,
+      output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,
     exportId:
-      output.exportId !== undefined && output.exportId !== null
-        ? output.exportId
-        : undefined,
+      output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined,
     s3Bucket:
-      output.s3Bucket !== undefined && output.s3Bucket !== null
-        ? output.s3Bucket
-        : undefined,
+      output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
     schemaStorageConfig:
-      output.schemaStorageConfig !== undefined &&
-      output.schemaStorageConfig !== null
-        ? deserializeAws_json1_1SchemaStorageConfig(
-            output.schemaStorageConfig,
-            context
-          )
+      output.schemaStorageConfig !== undefined && output.schemaStorageConfig !== null
+        ? deserializeAws_json1_1SchemaStorageConfig(output.schemaStorageConfig, context)
         : undefined,
     startTime:
       output.startTime !== undefined && output.startTime !== null
@@ -5090,8 +4408,7 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsResponse = (
   return {
     __type: "StartDataCollectionByAgentIdsResponse",
     agentsConfigurationStatus:
-      output.agentsConfigurationStatus !== undefined &&
-      output.agentsConfigurationStatus !== null
+      output.agentsConfigurationStatus !== undefined && output.agentsConfigurationStatus !== null
         ? deserializeAws_json1_1AgentConfigurationStatusList(
             output.agentsConfigurationStatus,
             context
@@ -5107,9 +4424,7 @@ const deserializeAws_json1_1StartExportTaskResponse = (
   return {
     __type: "StartExportTaskResponse",
     exportId:
-      output.exportId !== undefined && output.exportId !== null
-        ? output.exportId
-        : undefined
+      output.exportId !== undefined && output.exportId !== null ? output.exportId : undefined
   } as any;
 };
 
@@ -5150,8 +4465,7 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsResponse = (
   return {
     __type: "StopDataCollectionByAgentIdsResponse",
     agentsConfigurationStatus:
-      output.agentsConfigurationStatus !== undefined &&
-      output.agentsConfigurationStatus !== null
+      output.agentsConfigurationStatus !== undefined && output.agentsConfigurationStatus !== null
         ? deserializeAws_json1_1AgentConfigurationStatusList(
             output.agentsConfigurationStatus,
             context
@@ -5183,16 +4497,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

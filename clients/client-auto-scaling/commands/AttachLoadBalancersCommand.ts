@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  AttachLoadBalancersResultType,
-  AttachLoadBalancersType
-} from "../models/index";
+import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/index";
 import {
   deserializeAws_queryAttachLoadBalancersCommand,
   serializeAws_queryAttachLoadBalancersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancersCommandInput = AttachLoadBalancersType;
-export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType &
-  __MetadataBearer;
+export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType & __MetadataBearer;
 
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,
@@ -49,13 +45,8 @@ export class AttachLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachLoadBalancersCommandInput,
-    AttachLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachLoadBalancersCommandInput, AttachLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

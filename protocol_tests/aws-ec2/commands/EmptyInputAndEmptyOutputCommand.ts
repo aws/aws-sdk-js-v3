@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../EC2ProtocolClient";
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput
-} from "../models/index";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/index";
 import {
   deserializeAws_ec2EmptyInputAndEmptyOutputCommand,
   serializeAws_ec2EmptyInputAndEmptyOutputCommand
@@ -49,13 +46,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EmptyInputAndEmptyOutputCommandInput,
-    EmptyInputAndEmptyOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EmptyInputAndEmptyOutputCommandInput, EmptyInputAndEmptyOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

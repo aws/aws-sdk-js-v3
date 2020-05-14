@@ -1,12 +1,5 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
-import {
-  ListMemberAccountsRequest,
-  ListMemberAccountsResult
-} from "../models/index";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
   serializeAws_json1_1ListMemberAccountsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResult &
-  __MetadataBearer;
+export type ListMemberAccountsCommandOutput = ListMemberAccountsResult & __MetadataBearer;
 
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,
@@ -50,9 +42,7 @@ export class ListMemberAccountsCommand extends $Command<
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

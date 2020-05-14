@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  GetTelemetryMetadataRequest,
-  GetTelemetryMetadataResponse
-} from "../models/index";
+import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetTelemetryMetadataCommand,
   serializeAws_json1_1GetTelemetryMetadataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTelemetryMetadataCommandInput = GetTelemetryMetadataRequest;
-export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse &
-  __MetadataBearer;
+export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse & __MetadataBearer;
 
 export class GetTelemetryMetadataCommand extends $Command<
   GetTelemetryMetadataCommandInput,
@@ -49,13 +45,8 @@ export class GetTelemetryMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTelemetryMetadataCommandInput,
-    GetTelemetryMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTelemetryMetadataCommandInput, GetTelemetryMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

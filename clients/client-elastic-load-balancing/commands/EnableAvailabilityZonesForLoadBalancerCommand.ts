@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  AddAvailabilityZonesInput,
-  AddAvailabilityZonesOutput
-} from "../models/index";
+import { AddAvailabilityZonesInput, AddAvailabilityZonesOutput } from "../models/index";
 import {
   deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
   serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
@@ -39,9 +36,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: EnableAvailabilityZonesForLoadBalancerCommandInput
-  ) {
+  constructor(readonly input: EnableAvailabilityZonesForLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +50,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     EnableAvailabilityZonesForLoadBalancerCommandInput,
     EnableAvailabilityZonesForLoadBalancerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +69,14 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
     input: EnableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
-    return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

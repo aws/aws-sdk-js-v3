@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachStaticIpCommandInput = AttachStaticIpRequest;
-export type AttachStaticIpCommandOutput = AttachStaticIpResult &
-  __MetadataBearer;
+export type AttachStaticIpCommandOutput = AttachStaticIpResult & __MetadataBearer;
 
 export class AttachStaticIpCommand extends $Command<
   AttachStaticIpCommandInput,
@@ -47,9 +46,7 @@ export class AttachStaticIpCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachStaticIpCommandInput, AttachStaticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

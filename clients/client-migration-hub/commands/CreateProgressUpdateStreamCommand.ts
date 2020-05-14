@@ -49,13 +49,8 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProgressUpdateStreamCommandInput,
-    CreateProgressUpdateStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProgressUpdateStreamCommandInput, CreateProgressUpdateStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     input: CreateProgressUpdateStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProgressUpdateStreamCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateProgressUpdateStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProgressUpdateStreamCommandOutput> {
-    return deserializeAws_json1_1CreateProgressUpdateStreamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateProgressUpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

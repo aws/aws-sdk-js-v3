@@ -34,11 +34,7 @@ describe("HashCalculator", () => {
     });
   };
 
-  const listOfBuffers: Buffer[] = [
-    Buffer.from("foo"),
-    Buffer.from("bar"),
-    Buffer.from("buzz")
-  ];
+  const listOfBuffers: Buffer[] = [Buffer.from("foo"), Buffer.from("bar"), Buffer.from("buzz")];
 
   it("updates a hash from upstream stream", async () => {
     const mockHash = createMockHash();

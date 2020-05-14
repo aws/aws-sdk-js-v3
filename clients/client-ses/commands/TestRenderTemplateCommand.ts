@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  TestRenderTemplateRequest,
-  TestRenderTemplateResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/index";
 import {
   deserializeAws_queryTestRenderTemplateCommand,
   serializeAws_queryTestRenderTemplateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestRenderTemplateCommandInput = TestRenderTemplateRequest;
-export type TestRenderTemplateCommandOutput = TestRenderTemplateResponse &
-  __MetadataBearer;
+export type TestRenderTemplateCommandOutput = TestRenderTemplateResponse & __MetadataBearer;
 
 export class TestRenderTemplateCommand extends $Command<
   TestRenderTemplateCommandInput,
@@ -50,9 +42,7 @@ export class TestRenderTemplateCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestRenderTemplateCommandInput, TestRenderTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

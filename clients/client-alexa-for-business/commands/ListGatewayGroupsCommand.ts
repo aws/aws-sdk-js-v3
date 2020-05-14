@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  ListGatewayGroupsRequest,
-  ListGatewayGroupsResponse
-} from "../models/index";
+import { ListGatewayGroupsRequest, ListGatewayGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListGatewayGroupsCommand,
   serializeAws_json1_1ListGatewayGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGatewayGroupsCommandInput = ListGatewayGroupsRequest;
-export type ListGatewayGroupsCommandOutput = ListGatewayGroupsResponse &
-  __MetadataBearer;
+export type ListGatewayGroupsCommandOutput = ListGatewayGroupsResponse & __MetadataBearer;
 
 export class ListGatewayGroupsCommand extends $Command<
   ListGatewayGroupsCommandInput,
@@ -50,9 +46,7 @@ export class ListGatewayGroupsCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGatewayGroupsCommandInput, ListGatewayGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

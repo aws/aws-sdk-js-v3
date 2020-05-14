@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DeleteUserByPrincipalIdRequest,
-  DeleteUserByPrincipalIdResponse
-} from "../models/index";
+import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteUserByPrincipalIdCommand,
   serializeAws_restJson1_1DeleteUserByPrincipalIdCommand
@@ -49,13 +46,8 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteUserByPrincipalIdCommandInput,
-    DeleteUserByPrincipalIdCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteUserByPrincipalIdCommandInput, DeleteUserByPrincipalIdCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     input: DeleteUserByPrincipalIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteUserByPrincipalIdCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteUserByPrincipalIdCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserByPrincipalIdCommandOutput> {
-    return deserializeAws_restJson1_1DeleteUserByPrincipalIdCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteUserByPrincipalIdCommand(output, context);
   }
 
   // Start section: command_body_extra

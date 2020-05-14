@@ -6,18 +6,9 @@ import {
   DescribeObjectCommandInput,
   DescribeObjectCommandOutput
 } from "../commands/DescribeObjectCommand";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "../commands/GetObjectCommand";
-import {
-  ListItemsCommandInput,
-  ListItemsCommandOutput
-} from "../commands/ListItemsCommand";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "../commands/PutObjectCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "../commands/GetObjectCommand";
+import { ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "../commands/PutObjectCommand";
 import {
   ContainerNotFoundException,
   InternalServerError,
@@ -268,10 +259,7 @@ const deserializeAws_restJson1_1DeleteObjectCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -279,10 +267,7 @@ const deserializeAws_restJson1_1DeleteObjectCommandError = async (
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -309,10 +294,7 @@ export const deserializeAws_restJson1_1DescribeObjectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeObjectCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeObjectCommandError(output, context);
   }
   const contents: DescribeObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -368,10 +350,7 @@ const deserializeAws_restJson1_1DescribeObjectCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -379,10 +358,7 @@ const deserializeAws_restJson1_1DescribeObjectCommandError = async (
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -471,10 +447,7 @@ const deserializeAws_restJson1_1GetObjectCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -482,10 +455,7 @@ const deserializeAws_restJson1_1GetObjectCommandError = async (
     case "ObjectNotFoundException":
     case "com.amazonaws.mediastore.object#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -567,10 +537,7 @@ const deserializeAws_restJson1_1ListItemsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -645,10 +612,7 @@ const deserializeAws_restJson1_1PutObjectCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore.object#InternalServerError":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -738,10 +702,7 @@ const deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse = 
   return contents;
 };
 
-const deserializeAws_restJson1_1Item = (
-  output: any,
-  context: __SerdeContext
-): Item => {
+const deserializeAws_restJson1_1Item = (output: any, context: __SerdeContext): Item => {
   return {
     __type: "Item",
     ContentLength:
@@ -752,32 +713,18 @@ const deserializeAws_restJson1_1Item = (
       output.ContentType !== undefined && output.ContentType !== null
         ? output.ContentType
         : undefined,
-    ETag:
-      output.ETag !== undefined && output.ETag !== null
-        ? output.ETag
-        : undefined,
+    ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ItemList = (
-  output: any,
-  context: __SerdeContext
-): Item[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Item(entry, context)
-  );
+const deserializeAws_restJson1_1ItemList = (output: any, context: __SerdeContext): Item[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Item(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -794,23 +741,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

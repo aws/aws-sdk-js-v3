@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  DescribeCampaignRequest,
-  DescribeCampaignResponse
-} from "../models/index";
+import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCampaignCommand,
   serializeAws_json1_1DescribeCampaignCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCampaignCommandInput = DescribeCampaignRequest;
-export type DescribeCampaignCommandOutput = DescribeCampaignResponse &
-  __MetadataBearer;
+export type DescribeCampaignCommandOutput = DescribeCampaignResponse & __MetadataBearer;
 
 export class DescribeCampaignCommand extends $Command<
   DescribeCampaignCommandInput,
@@ -50,9 +46,7 @@ export class DescribeCampaignCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCampaignCommandInput, DescribeCampaignCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

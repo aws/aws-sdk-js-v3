@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { GetPermissionRequest, GetPermissionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPermissionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPermissionCommandInput = GetPermissionRequest;
-export type GetPermissionCommandOutput = GetPermissionResponse &
-  __MetadataBearer;
+export type GetPermissionCommandOutput = GetPermissionResponse & __MetadataBearer;
 
 export class GetPermissionCommand extends $Command<
   GetPermissionCommandInput,
@@ -47,9 +42,7 @@ export class GetPermissionCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPermissionCommandInput, GetPermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

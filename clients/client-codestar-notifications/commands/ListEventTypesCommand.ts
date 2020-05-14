@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEventTypesCommandInput = ListEventTypesRequest;
-export type ListEventTypesCommandOutput = ListEventTypesResult &
-  __MetadataBearer;
+export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBearer;
 
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,
@@ -47,9 +46,7 @@ export class ListEventTypesCommand extends $Command<
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventTypesCommandInput, ListEventTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

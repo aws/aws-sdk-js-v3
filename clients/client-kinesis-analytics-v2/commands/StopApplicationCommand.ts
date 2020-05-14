@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsV2Client";
-import {
-  StopApplicationRequest,
-  StopApplicationResponse
-} from "../models/index";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopApplicationCommand,
   serializeAws_json1_1StopApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopApplicationCommandInput = StopApplicationRequest;
-export type StopApplicationCommandOutput = StopApplicationResponse &
-  __MetadataBearer;
+export type StopApplicationCommandOutput = StopApplicationResponse & __MetadataBearer;
 
 export class StopApplicationCommand extends $Command<
   StopApplicationCommandInput,
@@ -50,9 +46,7 @@ export class StopApplicationCommand extends $Command<
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopApplicationCommandInput, StopApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

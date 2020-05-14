@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteMitigationActionRequest,
-  DeleteMitigationActionResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteMitigationActionCommand,
   serializeAws_restJson1_1DeleteMitigationActionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMitigationActionCommandInput = DeleteMitigationActionRequest;
-export type DeleteMitigationActionCommandOutput = DeleteMitigationActionResponse &
-  __MetadataBearer;
+export type DeleteMitigationActionCommandOutput = DeleteMitigationActionResponse & __MetadataBearer;
 
 export class DeleteMitigationActionCommand extends $Command<
   DeleteMitigationActionCommandInput,
@@ -49,13 +41,8 @@ export class DeleteMitigationActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMitigationActionCommandInput,
-    DeleteMitigationActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMitigationActionCommandInput, DeleteMitigationActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class DeleteMitigationActionCommand extends $Command<
     input: DeleteMitigationActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMitigationActionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteMitigationActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMitigationActionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMitigationActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

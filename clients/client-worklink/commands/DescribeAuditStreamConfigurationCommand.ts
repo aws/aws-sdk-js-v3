@@ -53,9 +53,7 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     DescribeAuditStreamConfigurationCommandInput,
     DescribeAuditStreamConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     input: DescribeAuditStreamConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

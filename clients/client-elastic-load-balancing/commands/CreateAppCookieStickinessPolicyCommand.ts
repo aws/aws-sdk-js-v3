@@ -53,9 +53,7 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     CreateAppCookieStickinessPolicyCommandInput,
     CreateAppCookieStickinessPolicyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     input: CreateAppCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAppCookieStickinessPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_queryCreateAppCookieStickinessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -287,9 +287,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public acceptHandshake(
     args: AcceptHandshakeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptHandshakeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptHandshakeCommandOutput) => void),
     cb?: (err: any, data?: AcceptHandshakeCommandOutput) => void
   ): Promise<AcceptHandshakeCommandOutput> | void {
     const command = new AcceptHandshakeCommand(args);
@@ -336,9 +334,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachPolicyCommandOutput) => void
   ): Promise<AttachPolicyCommandOutput> | void {
     const command = new AttachPolicyCommand(args);
@@ -376,9 +372,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public cancelHandshake(
     args: CancelHandshakeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelHandshakeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelHandshakeCommandOutput) => void),
     cb?: (err: any, data?: CancelHandshakeCommandOutput) => void
   ): Promise<CancelHandshakeCommandOutput> | void {
     const command = new CancelHandshakeCommand(args);
@@ -485,9 +479,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createAccount(
     args: CreateAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountCommandOutput) => void),
     cb?: (err: any, data?: CreateAccountCommandOutput) => void
   ): Promise<CreateAccountCommandOutput> | void {
     const command = new CreateAccountCommand(args);
@@ -767,9 +759,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyCommandOutput) => void
   ): Promise<CreatePolicyCommandOutput> | void {
     const command = new CreatePolicyCommand(args);
@@ -808,9 +798,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public declineHandshake(
     args: DeclineHandshakeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeclineHandshakeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeclineHandshakeCommandOutput) => void),
     cb?: (err: any, data?: DeclineHandshakeCommandOutput) => void
   ): Promise<DeclineHandshakeCommandOutput> | void {
     const command = new DeclineHandshakeCommand(args);
@@ -919,9 +907,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
@@ -955,9 +941,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeAccount(
     args: DescribeAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountCommandOutput) => void
   ): Promise<DescribeAccountCommandOutput> | void {
     const command = new DescribeAccountCommand(args);
@@ -1185,9 +1169,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describePolicy(
     args: DescribePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePolicyCommandOutput) => void),
     cb?: (err: any, data?: DescribePolicyCommandOutput) => void
   ): Promise<DescribePolicyCommandOutput> | void {
     const command = new DescribePolicyCommand(args);
@@ -1233,9 +1215,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachPolicyCommandOutput) => void
   ): Promise<DetachPolicyCommandOutput> | void {
     const command = new DetachPolicyCommand(args);
@@ -1490,9 +1470,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public enablePolicyType(
     args: EnablePolicyTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnablePolicyTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnablePolicyTypeCommandOutput) => void),
     cb?: (err: any, data?: EnablePolicyTypeCommandOutput) => void
   ): Promise<EnablePolicyTypeCommandOutput> | void {
     const command = new EnablePolicyTypeCommand(args);
@@ -1649,31 +1627,19 @@ export class Organizations extends OrganizationsClient {
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAWSServiceAccessForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAWSServiceAccessForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> | void {
     const command = new ListAWSServiceAccessForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1716,9 +1682,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listAccounts(
     args: ListAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
@@ -1809,9 +1773,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listChildren(
     args: ListChildrenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChildrenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChildrenCommandOutput) => void),
     cb?: (err: any, data?: ListChildrenCommandOutput) => void
   ): Promise<ListChildrenCommandOutput> | void {
     const command = new ListChildrenCommand(args);
@@ -1997,14 +1959,8 @@ export class Organizations extends OrganizationsClient {
     args: ListOrganizationalUnitsForParentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListOrganizationalUnitsForParentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListOrganizationalUnitsForParentCommandOutput
-    ) => void
+      | ((err: any, data?: ListOrganizationalUnitsForParentCommandOutput) => void),
+    cb?: (err: any, data?: ListOrganizationalUnitsForParentCommandOutput) => void
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> | void {
     const command = new ListOrganizationalUnitsForParentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2050,9 +2006,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listParents(
     args: ListParentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListParentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListParentsCommandOutput) => void),
     cb?: (err: any, data?: ListParentsCommandOutput) => void
   ): Promise<ListParentsCommandOutput> | void {
     const command = new ListParentsCommand(args);
@@ -2094,9 +2048,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
@@ -2190,9 +2142,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listRoots(
     args: ListRootsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRootsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRootsCommandOutput) => void),
     cb?: (err: any, data?: ListRootsCommandOutput) => void
   ): Promise<ListRootsCommandOutput> | void {
     const command = new ListRootsCommand(args);
@@ -2310,9 +2260,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public moveAccount(
     args: MoveAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MoveAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveAccountCommandOutput) => void),
     cb?: (err: any, data?: MoveAccountCommandOutput) => void
   ): Promise<MoveAccountCommandOutput> | void {
     const command = new MoveAccountCommand(args);
@@ -2403,9 +2351,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2441,9 +2387,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2515,9 +2459,7 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public updatePolicy(
     args: UpdatePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePolicyCommandOutput) => void),
     cb?: (err: any, data?: UpdatePolicyCommandOutput) => void
   ): Promise<UpdatePolicyCommandOutput> | void {
     const command = new UpdatePolicyCommand(args);

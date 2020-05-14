@@ -1,12 +1,5 @@
-import {
-  DLMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DLMClient";
-import {
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyResponse
-} from "../models/index";
+import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
+import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLifecyclePolicyCommand,
   serializeAws_restJson1_1GetLifecyclePolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLifecyclePolicyCommandInput = GetLifecyclePolicyRequest;
-export type GetLifecyclePolicyCommandOutput = GetLifecyclePolicyResponse &
-  __MetadataBearer;
+export type GetLifecyclePolicyCommandOutput = GetLifecyclePolicyResponse & __MetadataBearer;
 
 export class GetLifecyclePolicyCommand extends $Command<
   GetLifecyclePolicyCommandInput,
@@ -50,9 +42,7 @@ export class GetLifecyclePolicyCommand extends $Command<
     configuration: DLMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

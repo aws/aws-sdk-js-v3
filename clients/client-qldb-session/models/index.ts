@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -12,8 +9,7 @@ export interface AbortTransactionRequest {
 }
 
 export namespace AbortTransactionRequest {
-  export const isa = (o: any): o is AbortTransactionRequest =>
-    __isa(o, "AbortTransactionRequest");
+  export const isa = (o: any): o is AbortTransactionRequest => __isa(o, "AbortTransactionRequest");
 }
 
 /**
@@ -24,16 +20,13 @@ export interface AbortTransactionResult {
 }
 
 export namespace AbortTransactionResult {
-  export const isa = (o: any): o is AbortTransactionResult =>
-    __isa(o, "AbortTransactionResult");
+  export const isa = (o: any): o is AbortTransactionResult => __isa(o, "AbortTransactionResult");
 }
 
 /**
  * <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Code?: string;
@@ -41,8 +34,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -86,8 +78,7 @@ export interface CommitTransactionResult {
 }
 
 export namespace CommitTransactionResult {
-  export const isa = (o: any): o is CommitTransactionResult =>
-    __isa(o, "CommitTransactionResult");
+  export const isa = (o: any): o is CommitTransactionResult => __isa(o, "CommitTransactionResult");
 }
 
 /**
@@ -98,8 +89,7 @@ export interface EndSessionRequest {
 }
 
 export namespace EndSessionRequest {
-  export const isa = (o: any): o is EndSessionRequest =>
-    __isa(o, "EndSessionRequest");
+  export const isa = (o: any): o is EndSessionRequest => __isa(o, "EndSessionRequest");
 }
 
 /**
@@ -110,8 +100,7 @@ export interface EndSessionResult {
 }
 
 export namespace EndSessionResult {
-  export const isa = (o: any): o is EndSessionResult =>
-    __isa(o, "EndSessionResult");
+  export const isa = (o: any): o is EndSessionResult => __isa(o, "EndSessionResult");
 }
 
 /**
@@ -136,8 +125,7 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
-  export const isa = (o: any): o is ExecuteStatementRequest =>
-    __isa(o, "ExecuteStatementRequest");
+  export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -152,8 +140,7 @@ export interface ExecuteStatementResult {
 }
 
 export namespace ExecuteStatementResult {
-  export const isa = (o: any): o is ExecuteStatementResult =>
-    __isa(o, "ExecuteStatementResult");
+  export const isa = (o: any): o is ExecuteStatementResult => __isa(o, "ExecuteStatementResult");
 }
 
 /**
@@ -173,8 +160,7 @@ export interface FetchPageRequest {
 }
 
 export namespace FetchPageRequest {
-  export const isa = (o: any): o is FetchPageRequest =>
-    __isa(o, "FetchPageRequest");
+  export const isa = (o: any): o is FetchPageRequest => __isa(o, "FetchPageRequest");
 }
 
 /**
@@ -189,16 +175,13 @@ export interface FetchPageResult {
 }
 
 export namespace FetchPageResult {
-  export const isa = (o: any): o is FetchPageResult =>
-    __isa(o, "FetchPageResult");
+  export const isa = (o: any): o is FetchPageResult => __isa(o, "FetchPageResult");
 }
 
 /**
  * <p>Returned if the session doesn't exist anymore because it timed-out or expired.</p>
  */
-export interface InvalidSessionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
   name: "InvalidSessionException";
   $fault: "client";
   Code?: string;
@@ -206,40 +189,33 @@ export interface InvalidSessionException
 }
 
 export namespace InvalidSessionException {
-  export const isa = (o: any): o is InvalidSessionException =>
-    __isa(o, "InvalidSessionException");
+  export const isa = (o: any): o is InvalidSessionException => __isa(o, "InvalidSessionException");
 }
 
 /**
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Returned when a transaction cannot be written to the journal due to a failure in the verification phase of Optimistic Concurrency Control.</p>
  */
-export interface OccConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OccConflictException extends __SmithyException, $MetadataBearer {
   name: "OccConflictException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace OccConflictException {
-  export const isa = (o: any): o is OccConflictException =>
-    __isa(o, "OccConflictException");
+  export const isa = (o: any): o is OccConflictException => __isa(o, "OccConflictException");
 }
 
 /**
@@ -265,17 +241,14 @@ export namespace Page {
 /**
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
-export interface RateExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RateExceededException extends __SmithyException, $MetadataBearer {
   name: "RateExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace RateExceededException {
-  export const isa = (o: any): o is RateExceededException =>
-    __isa(o, "RateExceededException");
+  export const isa = (o: any): o is RateExceededException => __isa(o, "RateExceededException");
 }
 
 export interface SendCommandRequest {
@@ -325,8 +298,7 @@ export interface SendCommandRequest {
 }
 
 export namespace SendCommandRequest {
-  export const isa = (o: any): o is SendCommandRequest =>
-    __isa(o, "SendCommandRequest");
+  export const isa = (o: any): o is SendCommandRequest => __isa(o, "SendCommandRequest");
 }
 
 export interface SendCommandResult {
@@ -369,8 +341,7 @@ export interface SendCommandResult {
 }
 
 export namespace SendCommandResult {
-  export const isa = (o: any): o is SendCommandResult =>
-    __isa(o, "SendCommandResult");
+  export const isa = (o: any): o is SendCommandResult => __isa(o, "SendCommandResult");
 }
 
 /**
@@ -385,8 +356,7 @@ export interface StartSessionRequest {
 }
 
 export namespace StartSessionRequest {
-  export const isa = (o: any): o is StartSessionRequest =>
-    __isa(o, "StartSessionRequest");
+  export const isa = (o: any): o is StartSessionRequest => __isa(o, "StartSessionRequest");
 }
 
 /**
@@ -402,8 +372,7 @@ export interface StartSessionResult {
 }
 
 export namespace StartSessionResult {
-  export const isa = (o: any): o is StartSessionResult =>
-    __isa(o, "StartSessionResult");
+  export const isa = (o: any): o is StartSessionResult => __isa(o, "StartSessionResult");
 }
 
 /**
@@ -414,8 +383,7 @@ export interface StartTransactionRequest {
 }
 
 export namespace StartTransactionRequest {
-  export const isa = (o: any): o is StartTransactionRequest =>
-    __isa(o, "StartTransactionRequest");
+  export const isa = (o: any): o is StartTransactionRequest => __isa(o, "StartTransactionRequest");
 }
 
 /**
@@ -430,8 +398,7 @@ export interface StartTransactionResult {
 }
 
 export namespace StartTransactionResult {
-  export const isa = (o: any): o is StartTransactionResult =>
-    __isa(o, "StartTransactionResult");
+  export const isa = (o: any): o is StartTransactionResult => __isa(o, "StartTransactionResult");
 }
 
 /**

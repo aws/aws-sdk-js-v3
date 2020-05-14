@@ -49,13 +49,8 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLoggerDefinitionVersionsCommandInput,
-    ListLoggerDefinitionVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLoggerDefinitionVersionsCommandInput, ListLoggerDefinitionVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     input: ListLoggerDefinitionVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListLoggerDefinitionVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListLoggerDefinitionVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggerDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

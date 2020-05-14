@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeleteVoiceTemplateRequest,
-  DeleteVoiceTemplateResponse
-} from "../models/index";
+import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceTemplateCommand,
   serializeAws_restJson1_1DeleteVoiceTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVoiceTemplateCommandInput = DeleteVoiceTemplateRequest;
-export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse &
-  __MetadataBearer;
+export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse & __MetadataBearer;
 
 export class DeleteVoiceTemplateCommand extends $Command<
   DeleteVoiceTemplateCommandInput,
@@ -49,13 +45,8 @@ export class DeleteVoiceTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVoiceTemplateCommandInput,
-    DeleteVoiceTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVoiceTemplateCommandInput, DeleteVoiceTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteVoiceTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

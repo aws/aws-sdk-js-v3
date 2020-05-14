@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  CreateClusterSubnetGroupMessage,
-  CreateClusterSubnetGroupResult
-} from "../models/index";
+import { CreateClusterSubnetGroupMessage, CreateClusterSubnetGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateClusterSubnetGroupCommand,
   serializeAws_queryCreateClusterSubnetGroupCommand
@@ -49,13 +46,8 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateClusterSubnetGroupCommandInput,
-    CreateClusterSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateClusterSubnetGroupCommandInput, CreateClusterSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

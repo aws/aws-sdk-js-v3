@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateClientVpnRouteRequest,
-  CreateClientVpnRouteResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateClientVpnRouteRequest, CreateClientVpnRouteResult } from "../models/index";
 import {
   deserializeAws_ec2CreateClientVpnRouteCommand,
   serializeAws_ec2CreateClientVpnRouteCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClientVpnRouteCommandInput = CreateClientVpnRouteRequest;
-export type CreateClientVpnRouteCommandOutput = CreateClientVpnRouteResult &
-  __MetadataBearer;
+export type CreateClientVpnRouteCommandOutput = CreateClientVpnRouteResult & __MetadataBearer;
 
 export class CreateClientVpnRouteCommand extends $Command<
   CreateClientVpnRouteCommandInput,
@@ -49,13 +41,8 @@ export class CreateClientVpnRouteCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateClientVpnRouteCommandInput,
-    CreateClientVpnRouteCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateClientVpnRouteCommandInput, CreateClientVpnRouteCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

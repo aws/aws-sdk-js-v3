@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateAccessPointInput,
-  CreateAccessPointOutput
-} from "../models/index";
+import { CreateAccessPointInput, CreateAccessPointOutput } from "../models/index";
 import {
   deserializeAws_queryCreateLoadBalancerCommand,
   serializeAws_queryCreateLoadBalancerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerCommandInput = CreateAccessPointInput;
-export type CreateLoadBalancerCommandOutput = CreateAccessPointOutput &
-  __MetadataBearer;
+export type CreateLoadBalancerCommandOutput = CreateAccessPointOutput & __MetadataBearer;
 
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
@@ -50,9 +46,7 @@ export class CreateLoadBalancerCommand extends $Command<
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopMultiplexCommandInput = StopMultiplexRequest;
-export type StopMultiplexCommandOutput = StopMultiplexResponse &
-  __MetadataBearer;
+export type StopMultiplexCommandOutput = StopMultiplexResponse & __MetadataBearer;
 
 export class StopMultiplexCommand extends $Command<
   StopMultiplexCommandInput,
@@ -47,9 +46,7 @@ export class StopMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopMultiplexCommandInput, StopMultiplexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

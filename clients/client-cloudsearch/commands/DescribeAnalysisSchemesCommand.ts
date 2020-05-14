@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DescribeAnalysisSchemesRequest,
-  DescribeAnalysisSchemesResponse
-} from "../models/index";
+import { DescribeAnalysisSchemesRequest, DescribeAnalysisSchemesResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeAnalysisSchemesCommand,
   serializeAws_queryDescribeAnalysisSchemesCommand
@@ -49,13 +46,8 @@ export class DescribeAnalysisSchemesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAnalysisSchemesCommandInput,
-    DescribeAnalysisSchemesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAnalysisSchemesCommandInput, DescribeAnalysisSchemesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

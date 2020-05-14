@@ -70,10 +70,7 @@ import {
   CreateDevEndpointCommandInput,
   CreateDevEndpointCommandOutput
 } from "../commands/CreateDevEndpointCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "../commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import {
   CreateMLTransformCommandInput,
   CreateMLTransformCommandOutput
@@ -90,10 +87,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput
 } from "../commands/CreateSecurityConfigurationCommand";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "../commands/CreateTableCommand";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
 import {
   CreateTriggerCommandInput,
   CreateTriggerCommandOutput
@@ -126,10 +120,7 @@ import {
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput
 } from "../commands/DeleteDevEndpointCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "../commands/DeleteJobCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import {
   DeleteMLTransformCommandInput,
   DeleteMLTransformCommandOutput
@@ -146,10 +137,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput
 } from "../commands/DeleteSecurityConfigurationCommand";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "../commands/DeleteTableCommand";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
 import {
   DeleteTableVersionCommandInput,
   DeleteTableVersionCommandOutput
@@ -186,26 +174,17 @@ import {
   GetConnectionsCommandInput,
   GetConnectionsCommandOutput
 } from "../commands/GetConnectionsCommand";
-import {
-  GetCrawlerCommandInput,
-  GetCrawlerCommandOutput
-} from "../commands/GetCrawlerCommand";
+import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "../commands/GetCrawlerCommand";
 import {
   GetCrawlerMetricsCommandInput,
   GetCrawlerMetricsCommandOutput
 } from "../commands/GetCrawlerMetricsCommand";
-import {
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput
-} from "../commands/GetCrawlersCommand";
+import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "../commands/GetCrawlersCommand";
 import {
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput
 } from "../commands/GetDataCatalogEncryptionSettingsCommand";
-import {
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput
-} from "../commands/GetDatabaseCommand";
+import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "../commands/GetDatabaseCommand";
 import {
   GetDatabasesCommandInput,
   GetDatabasesCommandOutput
@@ -226,22 +205,10 @@ import {
   GetJobBookmarkCommandInput,
   GetJobBookmarkCommandOutput
 } from "../commands/GetJobBookmarkCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "../commands/GetJobCommand";
-import {
-  GetJobRunCommandInput,
-  GetJobRunCommandOutput
-} from "../commands/GetJobRunCommand";
-import {
-  GetJobRunsCommandInput,
-  GetJobRunsCommandOutput
-} from "../commands/GetJobRunsCommand";
-import {
-  GetJobsCommandInput,
-  GetJobsCommandOutput
-} from "../commands/GetJobsCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
+import { GetJobRunCommandInput, GetJobRunCommandOutput } from "../commands/GetJobRunCommand";
+import { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "../commands/GetJobRunsCommand";
+import { GetJobsCommandInput, GetJobsCommandOutput } from "../commands/GetJobsCommand";
 import {
   GetMLTaskRunCommandInput,
   GetMLTaskRunCommandOutput
@@ -258,10 +225,7 @@ import {
   GetMLTransformsCommandInput,
   GetMLTransformsCommandOutput
 } from "../commands/GetMLTransformsCommand";
-import {
-  GetMappingCommandInput,
-  GetMappingCommandOutput
-} from "../commands/GetMappingCommand";
+import { GetMappingCommandInput, GetMappingCommandOutput } from "../commands/GetMappingCommand";
 import {
   GetPartitionCommandInput,
   GetPartitionCommandOutput
@@ -270,10 +234,7 @@ import {
   GetPartitionsCommandInput,
   GetPartitionsCommandOutput
 } from "../commands/GetPartitionsCommand";
-import {
-  GetPlanCommandInput,
-  GetPlanCommandOutput
-} from "../commands/GetPlanCommand";
+import { GetPlanCommandInput, GetPlanCommandOutput } from "../commands/GetPlanCommand";
 import {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput
@@ -286,10 +247,7 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput
 } from "../commands/GetSecurityConfigurationsCommand";
-import {
-  GetTableCommandInput,
-  GetTableCommandOutput
-} from "../commands/GetTableCommand";
+import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
 import {
   GetTableVersionCommandInput,
   GetTableVersionCommandOutput
@@ -298,22 +256,10 @@ import {
   GetTableVersionsCommandInput,
   GetTableVersionsCommandOutput
 } from "../commands/GetTableVersionsCommand";
-import {
-  GetTablesCommandInput,
-  GetTablesCommandOutput
-} from "../commands/GetTablesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "../commands/GetTagsCommand";
-import {
-  GetTriggerCommandInput,
-  GetTriggerCommandOutput
-} from "../commands/GetTriggerCommand";
-import {
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput
-} from "../commands/GetTriggersCommand";
+import { GetTablesCommandInput, GetTablesCommandOutput } from "../commands/GetTablesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
+import { GetTriggerCommandInput, GetTriggerCommandOutput } from "../commands/GetTriggerCommand";
+import { GetTriggersCommandInput, GetTriggersCommandOutput } from "../commands/GetTriggersCommand";
 import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput
@@ -322,10 +268,7 @@ import {
   GetUserDefinedFunctionsCommandInput,
   GetUserDefinedFunctionsCommandOutput
 } from "../commands/GetUserDefinedFunctionsCommand";
-import {
-  GetWorkflowCommandInput,
-  GetWorkflowCommandOutput
-} from "../commands/GetWorkflowCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import {
   GetWorkflowRunCommandInput,
   GetWorkflowRunCommandOutput
@@ -350,10 +293,7 @@ import {
   ListDevEndpointsCommandInput,
   ListDevEndpointsCommandOutput
 } from "../commands/ListDevEndpointsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "../commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListTriggersCommandInput,
   ListTriggersCommandOutput
@@ -398,10 +338,7 @@ import {
   StartImportLabelsTaskRunCommandInput,
   StartImportLabelsTaskRunCommandOutput
 } from "../commands/StartImportLabelsTaskRunCommand";
-import {
-  StartJobRunCommandInput,
-  StartJobRunCommandOutput
-} from "../commands/StartJobRunCommand";
+import { StartJobRunCommandInput, StartJobRunCommandOutput } from "../commands/StartJobRunCommand";
 import {
   StartMLEvaluationTaskRunCommandInput,
   StartMLEvaluationTaskRunCommandOutput
@@ -418,22 +355,13 @@ import {
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput
 } from "../commands/StartWorkflowRunCommand";
-import {
-  StopCrawlerCommandInput,
-  StopCrawlerCommandOutput
-} from "../commands/StopCrawlerCommand";
+import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "../commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput
 } from "../commands/StopCrawlerScheduleCommand";
-import {
-  StopTriggerCommandInput,
-  StopTriggerCommandOutput
-} from "../commands/StopTriggerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { StopTriggerCommandInput, StopTriggerCommandOutput } from "../commands/StopTriggerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -462,10 +390,7 @@ import {
   UpdateDevEndpointCommandInput,
   UpdateDevEndpointCommandOutput
 } from "../commands/UpdateDevEndpointCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "../commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import {
   UpdateMLTransformCommandInput,
   UpdateMLTransformCommandOutput
@@ -474,10 +399,7 @@ import {
   UpdatePartitionCommandInput,
   UpdatePartitionCommandOutput
 } from "../commands/UpdatePartitionCommand";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "../commands/UpdateTableCommand";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import {
   UpdateTriggerCommandInput,
   UpdateTriggerCommandOutput
@@ -923,9 +845,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "AWSGlue.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -938,9 +858,7 @@ export const serializeAws_json1_1BatchCreatePartitionCommand = async (
     "X-Amz-Target": "AWSGlue.BatchCreatePartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchCreatePartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchCreatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -953,9 +871,7 @@ export const serializeAws_json1_1BatchDeleteConnectionCommand = async (
     "X-Amz-Target": "AWSGlue.BatchDeleteConnection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDeleteConnectionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -968,9 +884,7 @@ export const serializeAws_json1_1BatchDeletePartitionCommand = async (
     "X-Amz-Target": "AWSGlue.BatchDeletePartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDeletePartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDeletePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -983,9 +897,7 @@ export const serializeAws_json1_1BatchDeleteTableCommand = async (
     "X-Amz-Target": "AWSGlue.BatchDeleteTable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDeleteTableRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDeleteTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -998,9 +910,7 @@ export const serializeAws_json1_1BatchDeleteTableVersionCommand = async (
     "X-Amz-Target": "AWSGlue.BatchDeleteTableVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDeleteTableVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchDeleteTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1013,9 +923,7 @@ export const serializeAws_json1_1BatchGetPartitionCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetPartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetPartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1028,9 +936,7 @@ export const serializeAws_json1_1CreateConnectionCommand = async (
     "X-Amz-Target": "AWSGlue.CreateConnection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateConnectionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1043,9 +949,7 @@ export const serializeAws_json1_1CreateDatabaseCommand = async (
     "X-Amz-Target": "AWSGlue.CreateDatabase"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDatabaseRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1058,9 +962,7 @@ export const serializeAws_json1_1CreatePartitionCommand = async (
     "X-Amz-Target": "AWSGlue.CreatePartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreatePartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1086,9 +988,7 @@ export const serializeAws_json1_1CreateUserDefinedFunctionCommand = async (
     "X-Amz-Target": "AWSGlue.CreateUserDefinedFunction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateUserDefinedFunctionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1101,9 +1001,7 @@ export const serializeAws_json1_1DeleteConnectionCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteConnection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteConnectionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1116,9 +1014,7 @@ export const serializeAws_json1_1DeleteDatabaseCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteDatabase"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDatabaseRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1131,9 +1027,7 @@ export const serializeAws_json1_1DeletePartitionCommand = async (
     "X-Amz-Target": "AWSGlue.DeletePartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeletePartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeletePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1146,9 +1040,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteResourcePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1174,9 +1066,7 @@ export const serializeAws_json1_1DeleteTableVersionCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteTableVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTableVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1189,9 +1079,7 @@ export const serializeAws_json1_1DeleteUserDefinedFunctionCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteUserDefinedFunction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteUserDefinedFunctionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1204,9 +1092,7 @@ export const serializeAws_json1_1GetCatalogImportStatusCommand = async (
     "X-Amz-Target": "AWSGlue.GetCatalogImportStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetCatalogImportStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetCatalogImportStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1219,9 +1105,7 @@ export const serializeAws_json1_1GetConnectionCommand = async (
     "X-Amz-Target": "AWSGlue.GetConnection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetConnectionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1234,9 +1118,7 @@ export const serializeAws_json1_1GetConnectionsCommand = async (
     "X-Amz-Target": "AWSGlue.GetConnections"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetConnectionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1277,9 +1159,7 @@ export const serializeAws_json1_1GetDatabasesCommand = async (
     "X-Amz-Target": "AWSGlue.GetDatabases"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDatabasesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDatabasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1292,9 +1172,7 @@ export const serializeAws_json1_1GetPartitionCommand = async (
     "X-Amz-Target": "AWSGlue.GetPartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetPartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetPartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1307,9 +1185,7 @@ export const serializeAws_json1_1GetPartitionsCommand = async (
     "X-Amz-Target": "AWSGlue.GetPartitions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetPartitionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetPartitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1322,9 +1198,7 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
     "X-Amz-Target": "AWSGlue.GetResourcePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetResourcePolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1350,9 +1224,7 @@ export const serializeAws_json1_1GetTableVersionCommand = async (
     "X-Amz-Target": "AWSGlue.GetTableVersion"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetTableVersionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetTableVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1365,9 +1237,7 @@ export const serializeAws_json1_1GetTableVersionsCommand = async (
     "X-Amz-Target": "AWSGlue.GetTableVersions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetTableVersionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetTableVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1393,9 +1263,7 @@ export const serializeAws_json1_1GetUserDefinedFunctionCommand = async (
     "X-Amz-Target": "AWSGlue.GetUserDefinedFunction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetUserDefinedFunctionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1408,9 +1276,7 @@ export const serializeAws_json1_1GetUserDefinedFunctionsCommand = async (
     "X-Amz-Target": "AWSGlue.GetUserDefinedFunctions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetUserDefinedFunctionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetUserDefinedFunctionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1423,9 +1289,7 @@ export const serializeAws_json1_1ImportCatalogToGlueCommand = async (
     "X-Amz-Target": "AWSGlue.ImportCatalogToGlue"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ImportCatalogToGlueRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ImportCatalogToGlueRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1453,9 +1317,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
     "X-Amz-Target": "AWSGlue.PutResourcePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutResourcePolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1468,9 +1330,7 @@ export const serializeAws_json1_1SearchTablesCommand = async (
     "X-Amz-Target": "AWSGlue.SearchTables"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchTablesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchTablesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1483,9 +1343,7 @@ export const serializeAws_json1_1UpdateConnectionCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateConnection"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateConnectionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1498,9 +1356,7 @@ export const serializeAws_json1_1UpdateDatabaseCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateDatabase"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDatabaseRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDatabaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1513,9 +1369,7 @@ export const serializeAws_json1_1UpdatePartitionCommand = async (
     "X-Amz-Target": "AWSGlue.UpdatePartition"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdatePartitionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1541,9 +1395,7 @@ export const serializeAws_json1_1UpdateUserDefinedFunctionCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateUserDefinedFunction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateUserDefinedFunctionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateUserDefinedFunctionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1556,9 +1408,7 @@ export const serializeAws_json1_1BatchGetDevEndpointsCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetDevEndpoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetDevEndpointsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1571,9 +1421,7 @@ export const serializeAws_json1_1CreateDevEndpointCommand = async (
     "X-Amz-Target": "AWSGlue.CreateDevEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDevEndpointRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1586,9 +1434,7 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
     "X-Amz-Target": "AWSGlue.CreateSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSecurityConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1601,9 +1447,7 @@ export const serializeAws_json1_1DeleteDevEndpointCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteDevEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDevEndpointRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1616,9 +1460,7 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1631,9 +1473,7 @@ export const serializeAws_json1_1GetDevEndpointCommand = async (
     "X-Amz-Target": "AWSGlue.GetDevEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDevEndpointRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1646,9 +1486,7 @@ export const serializeAws_json1_1GetDevEndpointsCommand = async (
     "X-Amz-Target": "AWSGlue.GetDevEndpoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDevEndpointsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1661,9 +1499,7 @@ export const serializeAws_json1_1GetJobBookmarkCommand = async (
     "X-Amz-Target": "AWSGlue.GetJobBookmark"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetJobBookmarkRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetJobBookmarkRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1676,9 +1512,7 @@ export const serializeAws_json1_1GetSecurityConfigurationCommand = async (
     "X-Amz-Target": "AWSGlue.GetSecurityConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetSecurityConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetSecurityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1691,9 +1525,7 @@ export const serializeAws_json1_1GetSecurityConfigurationsCommand = async (
     "X-Amz-Target": "AWSGlue.GetSecurityConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetSecurityConfigurationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetSecurityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1706,9 +1538,7 @@ export const serializeAws_json1_1ListDevEndpointsCommand = async (
     "X-Amz-Target": "AWSGlue.ListDevEndpoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDevEndpointsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListDevEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1721,9 +1551,7 @@ export const serializeAws_json1_1ResetJobBookmarkCommand = async (
     "X-Amz-Target": "AWSGlue.ResetJobBookmark"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ResetJobBookmarkRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ResetJobBookmarkRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1736,9 +1564,7 @@ export const serializeAws_json1_1UpdateDevEndpointCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateDevEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDevEndpointRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDevEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1751,9 +1577,7 @@ export const serializeAws_json1_1CancelMLTaskRunCommand = async (
     "X-Amz-Target": "AWSGlue.CancelMLTaskRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CancelMLTaskRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CancelMLTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1766,9 +1590,7 @@ export const serializeAws_json1_1CreateMLTransformCommand = async (
     "X-Amz-Target": "AWSGlue.CreateMLTransform"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateMLTransformRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1781,9 +1603,7 @@ export const serializeAws_json1_1DeleteMLTransformCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteMLTransform"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteMLTransformRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1796,9 +1616,7 @@ export const serializeAws_json1_1GetMLTaskRunCommand = async (
     "X-Amz-Target": "AWSGlue.GetMLTaskRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetMLTaskRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetMLTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1811,9 +1629,7 @@ export const serializeAws_json1_1GetMLTaskRunsCommand = async (
     "X-Amz-Target": "AWSGlue.GetMLTaskRuns"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetMLTaskRunsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetMLTaskRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1826,9 +1642,7 @@ export const serializeAws_json1_1GetMLTransformCommand = async (
     "X-Amz-Target": "AWSGlue.GetMLTransform"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetMLTransformRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1841,9 +1655,7 @@ export const serializeAws_json1_1GetMLTransformsCommand = async (
     "X-Amz-Target": "AWSGlue.GetMLTransforms"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetMLTransformsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetMLTransformsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1856,9 +1668,7 @@ export const serializeAws_json1_1StartExportLabelsTaskRunCommand = async (
     "X-Amz-Target": "AWSGlue.StartExportLabelsTaskRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartExportLabelsTaskRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartExportLabelsTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1871,9 +1681,7 @@ export const serializeAws_json1_1StartImportLabelsTaskRunCommand = async (
     "X-Amz-Target": "AWSGlue.StartImportLabelsTaskRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartImportLabelsTaskRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartImportLabelsTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1886,9 +1694,7 @@ export const serializeAws_json1_1StartMLEvaluationTaskRunCommand = async (
     "X-Amz-Target": "AWSGlue.StartMLEvaluationTaskRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartMLEvaluationTaskRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartMLEvaluationTaskRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1902,10 +1708,7 @@ export const serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand = as
   };
   let body: any;
   body = JSON.stringify(
-    serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(
-      input,
-      context
-    )
+    serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(input, context)
   );
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1919,9 +1722,7 @@ export const serializeAws_json1_1UpdateMLTransformCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateMLTransform"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateMLTransformRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateMLTransformRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1934,9 +1735,7 @@ export const serializeAws_json1_1BatchGetJobsCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetJobs"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetJobsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1949,9 +1748,7 @@ export const serializeAws_json1_1BatchGetTriggersCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetTriggers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetTriggersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1964,9 +1761,7 @@ export const serializeAws_json1_1BatchGetWorkflowsCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetWorkflows"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetWorkflowsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1979,9 +1774,7 @@ export const serializeAws_json1_1BatchStopJobRunCommand = async (
     "X-Amz-Target": "AWSGlue.BatchStopJobRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchStopJobRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchStopJobRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2007,9 +1800,7 @@ export const serializeAws_json1_1CreateTriggerCommand = async (
     "X-Amz-Target": "AWSGlue.CreateTrigger"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateTriggerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2022,9 +1813,7 @@ export const serializeAws_json1_1CreateWorkflowCommand = async (
     "X-Amz-Target": "AWSGlue.CreateWorkflow"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateWorkflowRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2050,9 +1839,7 @@ export const serializeAws_json1_1DeleteTriggerCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteTrigger"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTriggerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2065,9 +1852,7 @@ export const serializeAws_json1_1DeleteWorkflowCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteWorkflow"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteWorkflowRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2171,9 +1956,7 @@ export const serializeAws_json1_1GetWorkflowRunCommand = async (
     "X-Amz-Target": "AWSGlue.GetWorkflowRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetWorkflowRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2186,9 +1969,7 @@ export const serializeAws_json1_1GetWorkflowRunPropertiesCommand = async (
     "X-Amz-Target": "AWSGlue.GetWorkflowRunProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetWorkflowRunPropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetWorkflowRunPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2201,9 +1982,7 @@ export const serializeAws_json1_1GetWorkflowRunsCommand = async (
     "X-Amz-Target": "AWSGlue.GetWorkflowRuns"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetWorkflowRunsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetWorkflowRunsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2229,9 +2008,7 @@ export const serializeAws_json1_1ListTriggersCommand = async (
     "X-Amz-Target": "AWSGlue.ListTriggers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTriggersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTriggersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2244,9 +2021,7 @@ export const serializeAws_json1_1ListWorkflowsCommand = async (
     "X-Amz-Target": "AWSGlue.ListWorkflows"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListWorkflowsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2259,9 +2034,7 @@ export const serializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
     "X-Amz-Target": "AWSGlue.PutWorkflowRunProperties"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2287,9 +2060,7 @@ export const serializeAws_json1_1StartTriggerCommand = async (
     "X-Amz-Target": "AWSGlue.StartTrigger"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartTriggerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2302,9 +2073,7 @@ export const serializeAws_json1_1StartWorkflowRunCommand = async (
     "X-Amz-Target": "AWSGlue.StartWorkflowRun"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartWorkflowRunRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartWorkflowRunRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2343,9 +2112,7 @@ export const serializeAws_json1_1UpdateTriggerCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateTrigger"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateTriggerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateTriggerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2358,9 +2125,7 @@ export const serializeAws_json1_1UpdateWorkflowCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateWorkflow"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateWorkflowRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2373,9 +2138,7 @@ export const serializeAws_json1_1BatchGetCrawlersCommand = async (
     "X-Amz-Target": "AWSGlue.BatchGetCrawlers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchGetCrawlersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1BatchGetCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2388,9 +2151,7 @@ export const serializeAws_json1_1CreateClassifierCommand = async (
     "X-Amz-Target": "AWSGlue.CreateClassifier"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateClassifierRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2403,9 +2164,7 @@ export const serializeAws_json1_1CreateCrawlerCommand = async (
     "X-Amz-Target": "AWSGlue.CreateCrawler"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateCrawlerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2418,9 +2177,7 @@ export const serializeAws_json1_1CreateScriptCommand = async (
     "X-Amz-Target": "AWSGlue.CreateScript"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateScriptRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateScriptRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2433,9 +2190,7 @@ export const serializeAws_json1_1DeleteClassifierCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteClassifier"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteClassifierRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2448,9 +2203,7 @@ export const serializeAws_json1_1DeleteCrawlerCommand = async (
     "X-Amz-Target": "AWSGlue.DeleteCrawler"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteCrawlerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2463,9 +2216,7 @@ export const serializeAws_json1_1GetClassifierCommand = async (
     "X-Amz-Target": "AWSGlue.GetClassifier"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetClassifierRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2478,9 +2229,7 @@ export const serializeAws_json1_1GetClassifiersCommand = async (
     "X-Amz-Target": "AWSGlue.GetClassifiers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetClassifiersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetClassifiersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2506,9 +2255,7 @@ export const serializeAws_json1_1GetCrawlerMetricsCommand = async (
     "X-Amz-Target": "AWSGlue.GetCrawlerMetrics"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetCrawlerMetricsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetCrawlerMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2534,9 +2281,7 @@ export const serializeAws_json1_1GetDataflowGraphCommand = async (
     "X-Amz-Target": "AWSGlue.GetDataflowGraph"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDataflowGraphRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDataflowGraphRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2575,9 +2320,7 @@ export const serializeAws_json1_1ListCrawlersCommand = async (
     "X-Amz-Target": "AWSGlue.ListCrawlers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListCrawlersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListCrawlersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2590,9 +2333,7 @@ export const serializeAws_json1_1StartCrawlerCommand = async (
     "X-Amz-Target": "AWSGlue.StartCrawler"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartCrawlerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2605,9 +2346,7 @@ export const serializeAws_json1_1StartCrawlerScheduleCommand = async (
     "X-Amz-Target": "AWSGlue.StartCrawlerSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartCrawlerScheduleRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2633,9 +2372,7 @@ export const serializeAws_json1_1StopCrawlerScheduleCommand = async (
     "X-Amz-Target": "AWSGlue.StopCrawlerSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopCrawlerScheduleRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2648,9 +2385,7 @@ export const serializeAws_json1_1UpdateClassifierCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateClassifier"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateClassifierRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateClassifierRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2663,9 +2398,7 @@ export const serializeAws_json1_1UpdateCrawlerCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateCrawler"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateCrawlerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateCrawlerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2678,9 +2411,7 @@ export const serializeAws_json1_1UpdateCrawlerScheduleCommand = async (
     "X-Amz-Target": "AWSGlue.UpdateCrawlerSchedule"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateCrawlerScheduleRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateCrawlerScheduleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2713,16 +2444,12 @@ const deserializeAws_json1_1GetTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2730,10 +2457,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2741,10 +2465,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2752,10 +2473,7 @@ const deserializeAws_json1_1GetTagsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2806,16 +2524,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2823,10 +2537,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2834,10 +2545,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2845,10 +2553,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2899,16 +2604,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2916,10 +2617,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2927,10 +2625,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2938,10 +2633,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2968,10 +2660,7 @@ export const deserializeAws_json1_1BatchCreatePartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreatePartitionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchCreatePartitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchCreatePartitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2995,16 +2684,12 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3012,10 +2697,7 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3023,10 +2705,7 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3034,10 +2713,7 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3045,10 +2721,7 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3056,10 +2729,7 @@ const deserializeAws_json1_1BatchCreatePartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3097,10 +2767,7 @@ export const deserializeAws_json1_1BatchDeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteConnectionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDeleteConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeleteConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3124,16 +2791,12 @@ const deserializeAws_json1_1BatchDeleteConnectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3141,10 +2804,7 @@ const deserializeAws_json1_1BatchDeleteConnectionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3171,10 +2831,7 @@ export const deserializeAws_json1_1BatchDeletePartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeletePartitionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDeletePartitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeletePartitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3198,16 +2855,12 @@ const deserializeAws_json1_1BatchDeletePartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3215,10 +2868,7 @@ const deserializeAws_json1_1BatchDeletePartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3226,10 +2876,7 @@ const deserializeAws_json1_1BatchDeletePartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3237,10 +2884,7 @@ const deserializeAws_json1_1BatchDeletePartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3291,16 +2935,12 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3308,10 +2948,7 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3319,10 +2956,7 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3330,10 +2964,7 @@ const deserializeAws_json1_1BatchDeleteTableCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3360,17 +2991,11 @@ export const deserializeAws_json1_1BatchDeleteTableVersionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteTableVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDeleteTableVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeleteTableVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteTableVersionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteTableVersionResponse(data, context);
   const response: BatchDeleteTableVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteTableVersionResponse",
@@ -3390,16 +3015,12 @@ const deserializeAws_json1_1BatchDeleteTableVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3407,10 +3028,7 @@ const deserializeAws_json1_1BatchDeleteTableVersionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3418,10 +3036,7 @@ const deserializeAws_json1_1BatchDeleteTableVersionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3429,10 +3044,7 @@ const deserializeAws_json1_1BatchDeleteTableVersionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3483,16 +3095,12 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3500,10 +3108,7 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3511,10 +3116,7 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3522,10 +3124,7 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3533,10 +3132,7 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3587,16 +3183,12 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3604,10 +3196,7 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3615,10 +3204,7 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3626,10 +3212,7 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3691,16 +3274,12 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3708,10 +3287,7 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3719,10 +3295,7 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3730,10 +3303,7 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3741,10 +3311,7 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3806,16 +3373,12 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3823,10 +3386,7 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3834,10 +3394,7 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3845,10 +3402,7 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3856,10 +3410,7 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3867,10 +3418,7 @@ const deserializeAws_json1_1CreatePartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3932,16 +3480,12 @@ const deserializeAws_json1_1CreateTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3949,10 +3493,7 @@ const deserializeAws_json1_1CreateTableCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3960,10 +3501,7 @@ const deserializeAws_json1_1CreateTableCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3971,10 +3509,7 @@ const deserializeAws_json1_1CreateTableCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3982,10 +3517,7 @@ const deserializeAws_json1_1CreateTableCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3993,10 +3525,7 @@ const deserializeAws_json1_1CreateTableCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4034,17 +3563,11 @@ export const deserializeAws_json1_1CreateUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUserDefinedFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUserDefinedFunctionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserDefinedFunctionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserDefinedFunctionResponse(data, context);
   const response: CreateUserDefinedFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserDefinedFunctionResponse",
@@ -4064,16 +3587,12 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4081,10 +3600,7 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4092,10 +3608,7 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4103,10 +3616,7 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4114,10 +3624,7 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4125,10 +3632,7 @@ const deserializeAws_json1_1CreateUserDefinedFunctionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4190,16 +3694,12 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4207,10 +3707,7 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4261,16 +3758,12 @@ const deserializeAws_json1_1DeleteDatabaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4278,10 +3771,7 @@ const deserializeAws_json1_1DeleteDatabaseCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4289,10 +3779,7 @@ const deserializeAws_json1_1DeleteDatabaseCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4300,10 +3787,7 @@ const deserializeAws_json1_1DeleteDatabaseCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4354,16 +3838,12 @@ const deserializeAws_json1_1DeletePartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4371,10 +3851,7 @@ const deserializeAws_json1_1DeletePartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4382,10 +3859,7 @@ const deserializeAws_json1_1DeletePartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4393,10 +3867,7 @@ const deserializeAws_json1_1DeletePartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4423,10 +3894,7 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4450,8 +3918,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConditionCheckFailureException":
     case "com.amazonaws.glue.common.exceptions#ConditionCheckFailureException":
@@ -4467,10 +3934,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4478,10 +3942,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4489,10 +3950,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4500,10 +3958,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4554,16 +4009,12 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4571,10 +4022,7 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4582,10 +4030,7 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4593,10 +4038,7 @@ const deserializeAws_json1_1DeleteTableCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4623,10 +4065,7 @@ export const deserializeAws_json1_1DeleteTableVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTableVersionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteTableVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteTableVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4650,16 +4089,12 @@ const deserializeAws_json1_1DeleteTableVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4667,10 +4102,7 @@ const deserializeAws_json1_1DeleteTableVersionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4678,10 +4110,7 @@ const deserializeAws_json1_1DeleteTableVersionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4689,10 +4118,7 @@ const deserializeAws_json1_1DeleteTableVersionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4719,17 +4145,11 @@ export const deserializeAws_json1_1DeleteUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUserDefinedFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserDefinedFunctionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserDefinedFunctionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserDefinedFunctionResponse(data, context);
   const response: DeleteUserDefinedFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserDefinedFunctionResponse",
@@ -4749,16 +4169,12 @@ const deserializeAws_json1_1DeleteUserDefinedFunctionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4766,10 +4182,7 @@ const deserializeAws_json1_1DeleteUserDefinedFunctionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4777,10 +4190,7 @@ const deserializeAws_json1_1DeleteUserDefinedFunctionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4788,10 +4198,7 @@ const deserializeAws_json1_1DeleteUserDefinedFunctionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4818,17 +4225,11 @@ export const deserializeAws_json1_1GetCatalogImportStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetCatalogImportStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetCatalogImportStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetCatalogImportStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCatalogImportStatusResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetCatalogImportStatusResponse(data, context);
   const response: GetCatalogImportStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCatalogImportStatusResponse",
@@ -4848,16 +4249,12 @@ const deserializeAws_json1_1GetCatalogImportStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4865,10 +4262,7 @@ const deserializeAws_json1_1GetCatalogImportStatusCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4919,16 +4313,12 @@ const deserializeAws_json1_1GetConnectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4936,10 +4326,7 @@ const deserializeAws_json1_1GetConnectionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4947,10 +4334,7 @@ const deserializeAws_json1_1GetConnectionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4958,10 +4342,7 @@ const deserializeAws_json1_1GetConnectionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5012,16 +4393,12 @@ const deserializeAws_json1_1GetConnectionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5029,10 +4406,7 @@ const deserializeAws_json1_1GetConnectionsCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5040,10 +4414,7 @@ const deserializeAws_json1_1GetConnectionsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5051,10 +4422,7 @@ const deserializeAws_json1_1GetConnectionsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5081,17 +4449,11 @@ export const deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommand = asy
   context: __SerdeContext
 ): Promise<GetDataCatalogEncryptionSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDataCatalogEncryptionSettingsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetDataCatalogEncryptionSettingsResponse(data, context);
   const response: GetDataCatalogEncryptionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDataCatalogEncryptionSettingsResponse",
@@ -5111,16 +4473,12 @@ const deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError = async
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5128,10 +4486,7 @@ const deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError = async
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5139,10 +4494,7 @@ const deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError = async
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5193,16 +4545,12 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5210,10 +4558,7 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5221,10 +4566,7 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5232,10 +4574,7 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5243,10 +4582,7 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5297,16 +4633,12 @@ const deserializeAws_json1_1GetDatabasesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5314,10 +4646,7 @@ const deserializeAws_json1_1GetDatabasesCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5325,10 +4654,7 @@ const deserializeAws_json1_1GetDatabasesCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5336,10 +4662,7 @@ const deserializeAws_json1_1GetDatabasesCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5390,16 +4713,12 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5407,10 +4726,7 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5418,10 +4734,7 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5429,10 +4742,7 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5440,10 +4750,7 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5494,16 +4801,12 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5511,10 +4814,7 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5522,10 +4822,7 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5533,10 +4830,7 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5544,10 +4838,7 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5598,16 +4889,12 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5615,10 +4902,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5626,10 +4910,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5637,10 +4918,7 @@ const deserializeAws_json1_1GetResourcePolicyCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5691,16 +4969,12 @@ const deserializeAws_json1_1GetTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5708,10 +4982,7 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5719,10 +4990,7 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5730,10 +4998,7 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5741,10 +5006,7 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5795,16 +5057,12 @@ const deserializeAws_json1_1GetTableVersionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5812,10 +5070,7 @@ const deserializeAws_json1_1GetTableVersionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5823,10 +5078,7 @@ const deserializeAws_json1_1GetTableVersionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5834,10 +5086,7 @@ const deserializeAws_json1_1GetTableVersionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5845,10 +5094,7 @@ const deserializeAws_json1_1GetTableVersionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5899,16 +5145,12 @@ const deserializeAws_json1_1GetTableVersionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5916,10 +5158,7 @@ const deserializeAws_json1_1GetTableVersionsCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5927,10 +5166,7 @@ const deserializeAws_json1_1GetTableVersionsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5938,10 +5174,7 @@ const deserializeAws_json1_1GetTableVersionsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5949,10 +5182,7 @@ const deserializeAws_json1_1GetTableVersionsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6003,16 +5233,12 @@ const deserializeAws_json1_1GetTablesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6020,10 +5246,7 @@ const deserializeAws_json1_1GetTablesCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6031,10 +5254,7 @@ const deserializeAws_json1_1GetTablesCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6042,10 +5262,7 @@ const deserializeAws_json1_1GetTablesCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6053,10 +5270,7 @@ const deserializeAws_json1_1GetTablesCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6083,17 +5297,11 @@ export const deserializeAws_json1_1GetUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<GetUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetUserDefinedFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUserDefinedFunctionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserDefinedFunctionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetUserDefinedFunctionResponse(data, context);
   const response: GetUserDefinedFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserDefinedFunctionResponse",
@@ -6113,16 +5321,12 @@ const deserializeAws_json1_1GetUserDefinedFunctionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6130,10 +5334,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6141,10 +5342,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6152,10 +5350,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6163,10 +5358,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6193,17 +5385,11 @@ export const deserializeAws_json1_1GetUserDefinedFunctionsCommand = async (
   context: __SerdeContext
 ): Promise<GetUserDefinedFunctionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetUserDefinedFunctionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUserDefinedFunctionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserDefinedFunctionsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetUserDefinedFunctionsResponse(data, context);
   const response: GetUserDefinedFunctionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserDefinedFunctionsResponse",
@@ -6223,16 +5409,12 @@ const deserializeAws_json1_1GetUserDefinedFunctionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6240,10 +5422,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionsCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6251,10 +5430,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6262,10 +5438,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6273,10 +5446,7 @@ const deserializeAws_json1_1GetUserDefinedFunctionsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6303,10 +5473,7 @@ export const deserializeAws_json1_1ImportCatalogToGlueCommand = async (
   context: __SerdeContext
 ): Promise<ImportCatalogToGlueCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ImportCatalogToGlueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportCatalogToGlueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6330,16 +5497,12 @@ const deserializeAws_json1_1ImportCatalogToGlueCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6347,10 +5510,7 @@ const deserializeAws_json1_1ImportCatalogToGlueCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6377,17 +5537,11 @@ export const deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand = asy
   context: __SerdeContext
 ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutDataCatalogEncryptionSettingsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutDataCatalogEncryptionSettingsResponse(data, context);
   const response: PutDataCatalogEncryptionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutDataCatalogEncryptionSettingsResponse",
@@ -6407,16 +5561,12 @@ const deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError = async
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6424,10 +5574,7 @@ const deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError = async
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6435,10 +5582,7 @@ const deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError = async
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6489,8 +5633,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConditionCheckFailureException":
     case "com.amazonaws.glue.common.exceptions#ConditionCheckFailureException":
@@ -6506,10 +5649,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6517,10 +5657,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6528,10 +5665,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6539,10 +5673,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6593,16 +5724,12 @@ const deserializeAws_json1_1SearchTablesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6610,10 +5737,7 @@ const deserializeAws_json1_1SearchTablesCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6621,10 +5745,7 @@ const deserializeAws_json1_1SearchTablesCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6675,16 +5796,12 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6692,10 +5809,7 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6703,10 +5817,7 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6714,10 +5825,7 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6768,16 +5876,12 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6785,10 +5889,7 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6796,10 +5897,7 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6807,10 +5905,7 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6818,10 +5913,7 @@ const deserializeAws_json1_1UpdateDatabaseCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6872,16 +5964,12 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6889,10 +5977,7 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6900,10 +5985,7 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6911,10 +5993,7 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6922,10 +6001,7 @@ const deserializeAws_json1_1UpdatePartitionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6976,8 +6052,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -6993,10 +6068,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7004,10 +6076,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7015,10 +6084,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7026,10 +6092,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7037,10 +6100,7 @@ const deserializeAws_json1_1UpdateTableCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7078,17 +6138,11 @@ export const deserializeAws_json1_1UpdateUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateUserDefinedFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateUserDefinedFunctionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserDefinedFunctionResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserDefinedFunctionResponse(data, context);
   const response: UpdateUserDefinedFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserDefinedFunctionResponse",
@@ -7108,16 +6162,12 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7125,10 +6175,7 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionCommandError = async (
     case "GlueEncryptionException":
     case "com.amazonaws.glue.common.exceptions#GlueEncryptionException":
       response = {
-        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7136,10 +6183,7 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7147,10 +6191,7 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7158,10 +6199,7 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7188,10 +6226,7 @@ export const deserializeAws_json1_1BatchGetDevEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetDevEndpointsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchGetDevEndpointsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchGetDevEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7215,16 +6250,12 @@ const deserializeAws_json1_1BatchGetDevEndpointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.glue.common.exceptions#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7232,10 +6263,7 @@ const deserializeAws_json1_1BatchGetDevEndpointsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7243,10 +6271,7 @@ const deserializeAws_json1_1BatchGetDevEndpointsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7254,10 +6279,7 @@ const deserializeAws_json1_1BatchGetDevEndpointsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7308,16 +6330,12 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.glue.common.exceptions#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7325,10 +6343,7 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7347,10 +6362,7 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7358,10 +6370,7 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7369,10 +6378,7 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7391,10 +6397,7 @@ const deserializeAws_json1_1CreateDevEndpointCommandError = async (
     case "ValidationException":
     case "com.amazonaws.glue.common.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7421,17 +6424,11 @@ export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSecurityConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSecurityConfigurationResponse(data, context);
   const response: CreateSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSecurityConfigurationResponse",
@@ -7451,16 +6448,12 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7468,10 +6461,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7479,10 +6469,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7490,10 +6477,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7555,16 +6539,12 @@ const deserializeAws_json1_1DeleteDevEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7572,10 +6552,7 @@ const deserializeAws_json1_1DeleteDevEndpointCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7583,10 +6560,7 @@ const deserializeAws_json1_1DeleteDevEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7594,10 +6568,7 @@ const deserializeAws_json1_1DeleteDevEndpointCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7624,17 +6595,11 @@ export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSecurityConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSecurityConfigurationResponse(data, context);
   const response: DeleteSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSecurityConfigurationResponse",
@@ -7654,16 +6619,12 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7671,10 +6632,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7682,10 +6640,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7693,10 +6648,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7747,16 +6699,12 @@ const deserializeAws_json1_1GetDevEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7764,10 +6712,7 @@ const deserializeAws_json1_1GetDevEndpointCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7775,10 +6720,7 @@ const deserializeAws_json1_1GetDevEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7786,10 +6728,7 @@ const deserializeAws_json1_1GetDevEndpointCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7840,16 +6779,12 @@ const deserializeAws_json1_1GetDevEndpointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7857,10 +6792,7 @@ const deserializeAws_json1_1GetDevEndpointsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7868,10 +6800,7 @@ const deserializeAws_json1_1GetDevEndpointsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7879,10 +6808,7 @@ const deserializeAws_json1_1GetDevEndpointsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7933,16 +6859,12 @@ const deserializeAws_json1_1GetJobBookmarkCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7950,10 +6872,7 @@ const deserializeAws_json1_1GetJobBookmarkCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7961,10 +6880,7 @@ const deserializeAws_json1_1GetJobBookmarkCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7972,10 +6888,7 @@ const deserializeAws_json1_1GetJobBookmarkCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7983,10 +6896,7 @@ const deserializeAws_json1_1GetJobBookmarkCommandError = async (
     case "ValidationException":
     case "com.amazonaws.glue.common.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8013,17 +6923,11 @@ export const deserializeAws_json1_1GetSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSecurityConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSecurityConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetSecurityConfigurationResponse(data, context);
   const response: GetSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSecurityConfigurationResponse",
@@ -8043,16 +6947,12 @@ const deserializeAws_json1_1GetSecurityConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8060,10 +6960,7 @@ const deserializeAws_json1_1GetSecurityConfigurationCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8071,10 +6968,7 @@ const deserializeAws_json1_1GetSecurityConfigurationCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8082,10 +6976,7 @@ const deserializeAws_json1_1GetSecurityConfigurationCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8112,17 +7003,11 @@ export const deserializeAws_json1_1GetSecurityConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSecurityConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSecurityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSecurityConfigurationsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetSecurityConfigurationsResponse(data, context);
   const response: GetSecurityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSecurityConfigurationsResponse",
@@ -8142,16 +7027,12 @@ const deserializeAws_json1_1GetSecurityConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8159,10 +7040,7 @@ const deserializeAws_json1_1GetSecurityConfigurationsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8170,10 +7048,7 @@ const deserializeAws_json1_1GetSecurityConfigurationsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8181,10 +7056,7 @@ const deserializeAws_json1_1GetSecurityConfigurationsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8235,16 +7107,12 @@ const deserializeAws_json1_1ListDevEndpointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8252,10 +7120,7 @@ const deserializeAws_json1_1ListDevEndpointsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8263,10 +7128,7 @@ const deserializeAws_json1_1ListDevEndpointsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8274,10 +7136,7 @@ const deserializeAws_json1_1ListDevEndpointsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8328,16 +7187,12 @@ const deserializeAws_json1_1ResetJobBookmarkCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8345,10 +7200,7 @@ const deserializeAws_json1_1ResetJobBookmarkCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8356,10 +7208,7 @@ const deserializeAws_json1_1ResetJobBookmarkCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8367,10 +7216,7 @@ const deserializeAws_json1_1ResetJobBookmarkCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8421,16 +7267,12 @@ const deserializeAws_json1_1UpdateDevEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8438,10 +7280,7 @@ const deserializeAws_json1_1UpdateDevEndpointCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8449,10 +7288,7 @@ const deserializeAws_json1_1UpdateDevEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8460,10 +7296,7 @@ const deserializeAws_json1_1UpdateDevEndpointCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8471,10 +7304,7 @@ const deserializeAws_json1_1UpdateDevEndpointCommandError = async (
     case "ValidationException":
     case "com.amazonaws.glue.common.exceptions#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8525,16 +7355,12 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8542,10 +7368,7 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8553,10 +7376,7 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8564,10 +7384,7 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8618,16 +7435,12 @@ const deserializeAws_json1_1CreateMLTransformCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.glue.common.exceptions#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8635,10 +7448,7 @@ const deserializeAws_json1_1CreateMLTransformCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8657,10 +7467,7 @@ const deserializeAws_json1_1CreateMLTransformCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8668,10 +7475,7 @@ const deserializeAws_json1_1CreateMLTransformCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8679,10 +7483,7 @@ const deserializeAws_json1_1CreateMLTransformCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8744,16 +7545,12 @@ const deserializeAws_json1_1DeleteMLTransformCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8761,10 +7558,7 @@ const deserializeAws_json1_1DeleteMLTransformCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8772,10 +7566,7 @@ const deserializeAws_json1_1DeleteMLTransformCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8783,10 +7574,7 @@ const deserializeAws_json1_1DeleteMLTransformCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8837,16 +7625,12 @@ const deserializeAws_json1_1GetMLTaskRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8854,10 +7638,7 @@ const deserializeAws_json1_1GetMLTaskRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8865,10 +7646,7 @@ const deserializeAws_json1_1GetMLTaskRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8876,10 +7654,7 @@ const deserializeAws_json1_1GetMLTaskRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8930,16 +7705,12 @@ const deserializeAws_json1_1GetMLTaskRunsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8947,10 +7718,7 @@ const deserializeAws_json1_1GetMLTaskRunsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8958,10 +7726,7 @@ const deserializeAws_json1_1GetMLTaskRunsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8969,10 +7734,7 @@ const deserializeAws_json1_1GetMLTaskRunsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9023,16 +7785,12 @@ const deserializeAws_json1_1GetMLTransformCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9040,10 +7798,7 @@ const deserializeAws_json1_1GetMLTransformCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9051,10 +7806,7 @@ const deserializeAws_json1_1GetMLTransformCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9062,10 +7814,7 @@ const deserializeAws_json1_1GetMLTransformCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9116,16 +7865,12 @@ const deserializeAws_json1_1GetMLTransformsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9133,10 +7878,7 @@ const deserializeAws_json1_1GetMLTransformsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9144,10 +7886,7 @@ const deserializeAws_json1_1GetMLTransformsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9155,10 +7894,7 @@ const deserializeAws_json1_1GetMLTransformsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9185,17 +7921,11 @@ export const deserializeAws_json1_1StartExportLabelsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartExportLabelsTaskRunCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartExportLabelsTaskRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartExportLabelsTaskRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartExportLabelsTaskRunResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartExportLabelsTaskRunResponse(data, context);
   const response: StartExportLabelsTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExportLabelsTaskRunResponse",
@@ -9215,16 +7945,12 @@ const deserializeAws_json1_1StartExportLabelsTaskRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9232,10 +7958,7 @@ const deserializeAws_json1_1StartExportLabelsTaskRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9243,10 +7966,7 @@ const deserializeAws_json1_1StartExportLabelsTaskRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9254,10 +7974,7 @@ const deserializeAws_json1_1StartExportLabelsTaskRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9284,17 +8001,11 @@ export const deserializeAws_json1_1StartImportLabelsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartImportLabelsTaskRunCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartImportLabelsTaskRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartImportLabelsTaskRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImportLabelsTaskRunResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartImportLabelsTaskRunResponse(data, context);
   const response: StartImportLabelsTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImportLabelsTaskRunResponse",
@@ -9314,16 +8025,12 @@ const deserializeAws_json1_1StartImportLabelsTaskRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9331,10 +8038,7 @@ const deserializeAws_json1_1StartImportLabelsTaskRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9342,10 +8046,7 @@ const deserializeAws_json1_1StartImportLabelsTaskRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9353,10 +8054,7 @@ const deserializeAws_json1_1StartImportLabelsTaskRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9394,17 +8092,11 @@ export const deserializeAws_json1_1StartMLEvaluationTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartMLEvaluationTaskRunCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartMLEvaluationTaskRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartMLEvaluationTaskRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMLEvaluationTaskRunResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartMLEvaluationTaskRunResponse(data, context);
   const response: StartMLEvaluationTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartMLEvaluationTaskRunResponse",
@@ -9424,8 +8116,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentRunsExceededException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentRunsExceededException":
@@ -9441,10 +8132,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9452,10 +8140,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9463,10 +8148,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9474,10 +8156,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9515,17 +8194,11 @@ export const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand = 
   context: __SerdeContext
 ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunResponse(data, context);
   const response: StartMLLabelingSetGenerationTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartMLLabelingSetGenerationTaskRunResponse",
@@ -9545,8 +8218,7 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError = as
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentRunsExceededException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentRunsExceededException":
@@ -9562,10 +8234,7 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError = as
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9573,10 +8242,7 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError = as
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9584,10 +8250,7 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError = as
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9595,10 +8258,7 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError = as
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9649,16 +8309,12 @@ const deserializeAws_json1_1UpdateMLTransformCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.glue.common.exceptions#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9666,10 +8322,7 @@ const deserializeAws_json1_1UpdateMLTransformCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9677,10 +8330,7 @@ const deserializeAws_json1_1UpdateMLTransformCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9688,10 +8338,7 @@ const deserializeAws_json1_1UpdateMLTransformCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9699,10 +8346,7 @@ const deserializeAws_json1_1UpdateMLTransformCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9753,16 +8397,12 @@ const deserializeAws_json1_1BatchGetJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9770,10 +8410,7 @@ const deserializeAws_json1_1BatchGetJobsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9781,10 +8418,7 @@ const deserializeAws_json1_1BatchGetJobsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9835,16 +8469,12 @@ const deserializeAws_json1_1BatchGetTriggersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9852,10 +8482,7 @@ const deserializeAws_json1_1BatchGetTriggersCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9863,10 +8490,7 @@ const deserializeAws_json1_1BatchGetTriggersCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9917,16 +8541,12 @@ const deserializeAws_json1_1BatchGetWorkflowsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9934,10 +8554,7 @@ const deserializeAws_json1_1BatchGetWorkflowsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9945,10 +8562,7 @@ const deserializeAws_json1_1BatchGetWorkflowsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9999,16 +8613,12 @@ const deserializeAws_json1_1BatchStopJobRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10016,10 +8626,7 @@ const deserializeAws_json1_1BatchStopJobRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10027,10 +8634,7 @@ const deserializeAws_json1_1BatchStopJobRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10081,16 +8685,12 @@ const deserializeAws_json1_1CreateJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10120,10 +8720,7 @@ const deserializeAws_json1_1CreateJobCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10131,10 +8728,7 @@ const deserializeAws_json1_1CreateJobCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10142,10 +8736,7 @@ const deserializeAws_json1_1CreateJobCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10207,16 +8798,12 @@ const deserializeAws_json1_1CreateTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10235,10 +8822,7 @@ const deserializeAws_json1_1CreateTriggerCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10257,10 +8841,7 @@ const deserializeAws_json1_1CreateTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10268,10 +8849,7 @@ const deserializeAws_json1_1CreateTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10279,10 +8857,7 @@ const deserializeAws_json1_1CreateTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10344,16 +8919,12 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10372,10 +8943,7 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10383,10 +8951,7 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10394,10 +8959,7 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10459,16 +9021,12 @@ const deserializeAws_json1_1DeleteJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10476,10 +9034,7 @@ const deserializeAws_json1_1DeleteJobCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10487,10 +9042,7 @@ const deserializeAws_json1_1DeleteJobCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10541,8 +9093,7 @@ const deserializeAws_json1_1DeleteTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -10558,10 +9109,7 @@ const deserializeAws_json1_1DeleteTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10569,10 +9117,7 @@ const deserializeAws_json1_1DeleteTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10580,10 +9125,7 @@ const deserializeAws_json1_1DeleteTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10634,8 +9176,7 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -10651,10 +9192,7 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10662,10 +9200,7 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10673,10 +9208,7 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10727,16 +9259,12 @@ const deserializeAws_json1_1GetJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10744,10 +9272,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10755,10 +9280,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10766,10 +9288,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10820,16 +9339,12 @@ const deserializeAws_json1_1GetJobRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10837,10 +9352,7 @@ const deserializeAws_json1_1GetJobRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10848,10 +9360,7 @@ const deserializeAws_json1_1GetJobRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10859,10 +9368,7 @@ const deserializeAws_json1_1GetJobRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10913,16 +9419,12 @@ const deserializeAws_json1_1GetJobRunsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10930,10 +9432,7 @@ const deserializeAws_json1_1GetJobRunsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10941,10 +9440,7 @@ const deserializeAws_json1_1GetJobRunsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10952,10 +9448,7 @@ const deserializeAws_json1_1GetJobRunsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11006,16 +9499,12 @@ const deserializeAws_json1_1GetJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11023,10 +9512,7 @@ const deserializeAws_json1_1GetJobsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11034,10 +9520,7 @@ const deserializeAws_json1_1GetJobsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11045,10 +9528,7 @@ const deserializeAws_json1_1GetJobsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11099,16 +9579,12 @@ const deserializeAws_json1_1GetTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11116,10 +9592,7 @@ const deserializeAws_json1_1GetTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11127,10 +9600,7 @@ const deserializeAws_json1_1GetTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11138,10 +9608,7 @@ const deserializeAws_json1_1GetTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11192,16 +9659,12 @@ const deserializeAws_json1_1GetTriggersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11209,10 +9672,7 @@ const deserializeAws_json1_1GetTriggersCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11220,10 +9680,7 @@ const deserializeAws_json1_1GetTriggersCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11231,10 +9688,7 @@ const deserializeAws_json1_1GetTriggersCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11285,16 +9739,12 @@ const deserializeAws_json1_1GetWorkflowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11302,10 +9752,7 @@ const deserializeAws_json1_1GetWorkflowCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11313,10 +9760,7 @@ const deserializeAws_json1_1GetWorkflowCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11324,10 +9768,7 @@ const deserializeAws_json1_1GetWorkflowCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11378,16 +9819,12 @@ const deserializeAws_json1_1GetWorkflowRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11395,10 +9832,7 @@ const deserializeAws_json1_1GetWorkflowRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11406,10 +9840,7 @@ const deserializeAws_json1_1GetWorkflowRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11417,10 +9848,7 @@ const deserializeAws_json1_1GetWorkflowRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11447,17 +9875,11 @@ export const deserializeAws_json1_1GetWorkflowRunPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowRunPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetWorkflowRunPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetWorkflowRunPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkflowRunPropertiesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkflowRunPropertiesResponse(data, context);
   const response: GetWorkflowRunPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkflowRunPropertiesResponse",
@@ -11477,16 +9899,12 @@ const deserializeAws_json1_1GetWorkflowRunPropertiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11494,10 +9912,7 @@ const deserializeAws_json1_1GetWorkflowRunPropertiesCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11505,10 +9920,7 @@ const deserializeAws_json1_1GetWorkflowRunPropertiesCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11516,10 +9928,7 @@ const deserializeAws_json1_1GetWorkflowRunPropertiesCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11570,16 +9979,12 @@ const deserializeAws_json1_1GetWorkflowRunsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11587,10 +9992,7 @@ const deserializeAws_json1_1GetWorkflowRunsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11598,10 +10000,7 @@ const deserializeAws_json1_1GetWorkflowRunsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11609,10 +10008,7 @@ const deserializeAws_json1_1GetWorkflowRunsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11663,16 +10059,12 @@ const deserializeAws_json1_1ListJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11680,10 +10072,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11691,10 +10080,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11702,10 +10088,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11756,16 +10139,12 @@ const deserializeAws_json1_1ListTriggersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11773,10 +10152,7 @@ const deserializeAws_json1_1ListTriggersCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11784,10 +10160,7 @@ const deserializeAws_json1_1ListTriggersCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11795,10 +10168,7 @@ const deserializeAws_json1_1ListTriggersCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11849,16 +10219,12 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11866,10 +10232,7 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11877,10 +10240,7 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11907,17 +10267,11 @@ export const deserializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<PutWorkflowRunPropertiesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutWorkflowRunPropertiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutWorkflowRunPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutWorkflowRunPropertiesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1PutWorkflowRunPropertiesResponse(data, context);
   const response: PutWorkflowRunPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutWorkflowRunPropertiesResponse",
@@ -11937,16 +10291,12 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11965,10 +10315,7 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11976,10 +10323,7 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11987,10 +10331,7 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11998,10 +10339,7 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12063,8 +10401,7 @@ const deserializeAws_json1_1StartJobRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentRunsExceededException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentRunsExceededException":
@@ -12080,10 +10417,7 @@ const deserializeAws_json1_1StartJobRunCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12091,10 +10425,7 @@ const deserializeAws_json1_1StartJobRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12102,10 +10433,7 @@ const deserializeAws_json1_1StartJobRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12113,10 +10441,7 @@ const deserializeAws_json1_1StartJobRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12178,8 +10503,7 @@ const deserializeAws_json1_1StartTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentRunsExceededException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentRunsExceededException":
@@ -12195,10 +10519,7 @@ const deserializeAws_json1_1StartTriggerCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12206,10 +10527,7 @@ const deserializeAws_json1_1StartTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12217,10 +10535,7 @@ const deserializeAws_json1_1StartTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12228,10 +10543,7 @@ const deserializeAws_json1_1StartTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12293,8 +10605,7 @@ const deserializeAws_json1_1StartWorkflowRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentRunsExceededException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentRunsExceededException":
@@ -12310,10 +10621,7 @@ const deserializeAws_json1_1StartWorkflowRunCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12321,10 +10629,7 @@ const deserializeAws_json1_1StartWorkflowRunCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12332,10 +10637,7 @@ const deserializeAws_json1_1StartWorkflowRunCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12343,10 +10645,7 @@ const deserializeAws_json1_1StartWorkflowRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12408,8 +10707,7 @@ const deserializeAws_json1_1StopTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -12425,10 +10723,7 @@ const deserializeAws_json1_1StopTriggerCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12436,10 +10731,7 @@ const deserializeAws_json1_1StopTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12447,10 +10739,7 @@ const deserializeAws_json1_1StopTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12458,10 +10747,7 @@ const deserializeAws_json1_1StopTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12512,8 +10798,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -12529,10 +10814,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12540,10 +10822,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12551,10 +10830,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12562,10 +10838,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12616,8 +10889,7 @@ const deserializeAws_json1_1UpdateTriggerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -12633,10 +10905,7 @@ const deserializeAws_json1_1UpdateTriggerCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12644,10 +10913,7 @@ const deserializeAws_json1_1UpdateTriggerCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12655,10 +10921,7 @@ const deserializeAws_json1_1UpdateTriggerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12666,10 +10929,7 @@ const deserializeAws_json1_1UpdateTriggerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12720,8 +10980,7 @@ const deserializeAws_json1_1UpdateWorkflowCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.glue.common.exceptions#ConcurrentModificationException":
@@ -12737,10 +10996,7 @@ const deserializeAws_json1_1UpdateWorkflowCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12748,10 +11004,7 @@ const deserializeAws_json1_1UpdateWorkflowCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12759,10 +11012,7 @@ const deserializeAws_json1_1UpdateWorkflowCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12770,10 +11020,7 @@ const deserializeAws_json1_1UpdateWorkflowCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12824,16 +11071,12 @@ const deserializeAws_json1_1BatchGetCrawlersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12841,10 +11084,7 @@ const deserializeAws_json1_1BatchGetCrawlersCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12895,16 +11135,12 @@ const deserializeAws_json1_1CreateClassifierCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12912,10 +11148,7 @@ const deserializeAws_json1_1CreateClassifierCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12923,10 +11156,7 @@ const deserializeAws_json1_1CreateClassifierCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12977,16 +11207,12 @@ const deserializeAws_json1_1CreateCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.glue.common.exceptions#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12994,10 +11220,7 @@ const deserializeAws_json1_1CreateCrawlerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13005,10 +11228,7 @@ const deserializeAws_json1_1CreateCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13070,16 +11290,12 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13087,10 +11303,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13098,10 +11311,7 @@ const deserializeAws_json1_1CreateScriptCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13152,16 +11362,12 @@ const deserializeAws_json1_1DeleteClassifierCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13169,10 +11375,7 @@ const deserializeAws_json1_1DeleteClassifierCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13223,16 +11426,12 @@ const deserializeAws_json1_1DeleteCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13240,10 +11439,7 @@ const deserializeAws_json1_1DeleteCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13251,10 +11447,7 @@ const deserializeAws_json1_1DeleteCrawlerCommandError = async (
     case "CrawlerRunningException":
     case "com.amazonaws.gluedataplane.coral#CrawlerRunningException":
       response = {
-        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13316,16 +11509,12 @@ const deserializeAws_json1_1GetClassifierCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13333,10 +11522,7 @@ const deserializeAws_json1_1GetClassifierCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13387,16 +11573,12 @@ const deserializeAws_json1_1GetClassifiersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13447,16 +11629,12 @@ const deserializeAws_json1_1GetCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13464,10 +11642,7 @@ const deserializeAws_json1_1GetCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13518,16 +11693,12 @@ const deserializeAws_json1_1GetCrawlerMetricsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13578,16 +11749,12 @@ const deserializeAws_json1_1GetCrawlersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13638,16 +11805,12 @@ const deserializeAws_json1_1GetDataflowGraphCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13655,10 +11818,7 @@ const deserializeAws_json1_1GetDataflowGraphCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13666,10 +11826,7 @@ const deserializeAws_json1_1GetDataflowGraphCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13720,16 +11877,12 @@ const deserializeAws_json1_1GetMappingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13737,10 +11890,7 @@ const deserializeAws_json1_1GetMappingCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13748,10 +11898,7 @@ const deserializeAws_json1_1GetMappingCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13759,10 +11906,7 @@ const deserializeAws_json1_1GetMappingCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13813,16 +11957,12 @@ const deserializeAws_json1_1GetPlanCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.glue.common.exceptions#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13830,10 +11970,7 @@ const deserializeAws_json1_1GetPlanCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13841,10 +11978,7 @@ const deserializeAws_json1_1GetPlanCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13895,16 +12029,12 @@ const deserializeAws_json1_1ListCrawlersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13955,16 +12085,12 @@ const deserializeAws_json1_1StartCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13972,10 +12098,7 @@ const deserializeAws_json1_1StartCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13983,10 +12106,7 @@ const deserializeAws_json1_1StartCrawlerCommandError = async (
     case "CrawlerRunningException":
     case "com.amazonaws.gluedataplane.coral#CrawlerRunningException":
       response = {
-        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14013,10 +12133,7 @@ export const deserializeAws_json1_1StartCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StartCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartCrawlerScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartCrawlerScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14040,16 +12157,12 @@ const deserializeAws_json1_1StartCrawlerScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14057,10 +12170,7 @@ const deserializeAws_json1_1StartCrawlerScheduleCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14068,10 +12178,7 @@ const deserializeAws_json1_1StartCrawlerScheduleCommandError = async (
     case "NoScheduleException":
     case "com.amazonaws.gluedataplane.coral#NoScheduleException":
       response = {
-        ...(await deserializeAws_json1_1NoScheduleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NoScheduleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14079,10 +12186,7 @@ const deserializeAws_json1_1StartCrawlerScheduleCommandError = async (
     case "SchedulerRunningException":
     case "com.amazonaws.gluedataplane.coral#SchedulerRunningException":
       response = {
-        ...(await deserializeAws_json1_1SchedulerRunningExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1SchedulerRunningExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14144,16 +12248,12 @@ const deserializeAws_json1_1StopCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14161,10 +12261,7 @@ const deserializeAws_json1_1StopCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14172,10 +12269,7 @@ const deserializeAws_json1_1StopCrawlerCommandError = async (
     case "CrawlerNotRunningException":
     case "com.amazonaws.gluedataplane.coral#CrawlerNotRunningException":
       response = {
-        ...(await deserializeAws_json1_1CrawlerNotRunningExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CrawlerNotRunningExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14183,10 +12277,7 @@ const deserializeAws_json1_1StopCrawlerCommandError = async (
     case "CrawlerStoppingException":
     case "com.amazonaws.gluedataplane.coral#CrawlerStoppingException":
       response = {
-        ...(await deserializeAws_json1_1CrawlerStoppingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CrawlerStoppingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14213,10 +12304,7 @@ export const deserializeAws_json1_1StopCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StopCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopCrawlerScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopCrawlerScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14240,16 +12328,12 @@ const deserializeAws_json1_1StopCrawlerScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14257,10 +12341,7 @@ const deserializeAws_json1_1StopCrawlerScheduleCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14333,16 +12414,12 @@ const deserializeAws_json1_1UpdateClassifierCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14350,10 +12427,7 @@ const deserializeAws_json1_1UpdateClassifierCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14361,10 +12435,7 @@ const deserializeAws_json1_1UpdateClassifierCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14372,10 +12443,7 @@ const deserializeAws_json1_1UpdateClassifierCommandError = async (
     case "VersionMismatchException":
     case "com.amazonaws.glue.common.exceptions#VersionMismatchException":
       response = {
-        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14426,16 +12494,12 @@ const deserializeAws_json1_1UpdateCrawlerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14443,10 +12507,7 @@ const deserializeAws_json1_1UpdateCrawlerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14454,10 +12515,7 @@ const deserializeAws_json1_1UpdateCrawlerCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14465,10 +12523,7 @@ const deserializeAws_json1_1UpdateCrawlerCommandError = async (
     case "VersionMismatchException":
     case "com.amazonaws.glue.common.exceptions#VersionMismatchException":
       response = {
-        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14476,10 +12531,7 @@ const deserializeAws_json1_1UpdateCrawlerCommandError = async (
     case "CrawlerRunningException":
     case "com.amazonaws.gluedataplane.coral#CrawlerRunningException":
       response = {
-        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CrawlerRunningExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14506,10 +12558,7 @@ export const deserializeAws_json1_1UpdateCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateCrawlerScheduleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateCrawlerScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14533,16 +12582,12 @@ const deserializeAws_json1_1UpdateCrawlerScheduleCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.glue.common.exceptions#EntityNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14550,10 +12595,7 @@ const deserializeAws_json1_1UpdateCrawlerScheduleCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.glue.common.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14561,10 +12603,7 @@ const deserializeAws_json1_1UpdateCrawlerScheduleCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue.common.exceptions#OperationTimeoutException":
       response = {
-        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14572,10 +12611,7 @@ const deserializeAws_json1_1UpdateCrawlerScheduleCommandError = async (
     case "VersionMismatchException":
     case "com.amazonaws.glue.common.exceptions#VersionMismatchException":
       response = {
-        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1VersionMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -14613,10 +12649,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
@@ -14631,10 +12664,7 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AlreadyExistsException(body, context);
   const contents: AlreadyExistsException = {
     name: "AlreadyExistsException",
     $fault: "client",
@@ -14649,10 +12679,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
     $fault: "client",
@@ -14667,10 +12694,7 @@ const deserializeAws_json1_1ConcurrentRunsExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentRunsExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentRunsExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentRunsExceededException(body, context);
   const contents: ConcurrentRunsExceededException = {
     name: "ConcurrentRunsExceededException",
     $fault: "client",
@@ -14685,10 +12709,7 @@ const deserializeAws_json1_1ConditionCheckFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConditionCheckFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConditionCheckFailureException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConditionCheckFailureException(body, context);
   const contents: ConditionCheckFailureException = {
     name: "ConditionCheckFailureException",
     $fault: "client",
@@ -14703,10 +12724,7 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EntityNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntityNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EntityNotFoundException(body, context);
   const contents: EntityNotFoundException = {
     name: "EntityNotFoundException",
     $fault: "client",
@@ -14721,10 +12739,7 @@ const deserializeAws_json1_1GlueEncryptionExceptionResponse = async (
   context: __SerdeContext
 ): Promise<GlueEncryptionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1GlueEncryptionException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1GlueEncryptionException(body, context);
   const contents: GlueEncryptionException = {
     name: "GlueEncryptionException",
     $fault: "client",
@@ -14757,10 +12772,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
   const contents: InternalServiceException = {
     name: "InternalServiceException",
     $fault: "server",
@@ -14775,10 +12787,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
   const contents: InvalidInputException = {
     name: "InvalidInputException",
     $fault: "client",
@@ -14793,10 +12802,7 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationTimeoutException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationTimeoutException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationTimeoutException(body, context);
   const contents: OperationTimeoutException = {
     name: "OperationTimeoutException",
     $fault: "client",
@@ -14829,10 +12835,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
@@ -14847,10 +12850,7 @@ const deserializeAws_json1_1VersionMismatchExceptionResponse = async (
   context: __SerdeContext
 ): Promise<VersionMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1VersionMismatchException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1VersionMismatchException(body, context);
   const contents: VersionMismatchException = {
     name: "VersionMismatchException",
     $fault: "client",
@@ -14865,10 +12865,7 @@ const deserializeAws_json1_1MLTransformNotReadyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<MLTransformNotReadyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MLTransformNotReadyException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MLTransformNotReadyException(body, context);
   const contents: MLTransformNotReadyException = {
     name: "MLTransformNotReadyException",
     $fault: "client",
@@ -14883,10 +12880,7 @@ const deserializeAws_json1_1CrawlerNotRunningExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CrawlerNotRunningException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CrawlerNotRunningException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CrawlerNotRunningException(body, context);
   const contents: CrawlerNotRunningException = {
     name: "CrawlerNotRunningException",
     $fault: "client",
@@ -14901,10 +12895,7 @@ const deserializeAws_json1_1CrawlerRunningExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CrawlerRunningException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CrawlerRunningException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CrawlerRunningException(body, context);
   const contents: CrawlerRunningException = {
     name: "CrawlerRunningException",
     $fault: "client",
@@ -14919,10 +12910,7 @@ const deserializeAws_json1_1CrawlerStoppingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CrawlerStoppingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CrawlerStoppingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CrawlerStoppingException(body, context);
   const contents: CrawlerStoppingException = {
     name: "CrawlerStoppingException",
     $fault: "client",
@@ -14937,10 +12925,7 @@ const deserializeAws_json1_1NoScheduleExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NoScheduleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoScheduleException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NoScheduleException(body, context);
   const contents: NoScheduleException = {
     name: "NoScheduleException",
     $fault: "client",
@@ -14955,10 +12940,7 @@ const deserializeAws_json1_1SchedulerNotRunningExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SchedulerNotRunningException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SchedulerNotRunningException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1SchedulerNotRunningException(body, context);
   const contents: SchedulerNotRunningException = {
     name: "SchedulerNotRunningException",
     $fault: "client",
@@ -14973,10 +12955,7 @@ const deserializeAws_json1_1SchedulerRunningExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SchedulerRunningException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SchedulerRunningException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1SchedulerRunningException(body, context);
   const contents: SchedulerRunningException = {
     name: "SchedulerRunningException",
     $fault: "client",
@@ -14991,10 +12970,7 @@ const deserializeAws_json1_1SchedulerTransitioningExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SchedulerTransitioningException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SchedulerTransitioningException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1SchedulerTransitioningException(body, context);
   const contents: SchedulerTransitioningException = {
     name: "SchedulerTransitioningException",
     $fault: "client",
@@ -15037,17 +13013,11 @@ const serializeAws_json1_1UntagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1NameStringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1NameStringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagKeysList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeysList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -15074,10 +13044,7 @@ const serializeAws_json1_1BatchCreatePartitionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.PartitionInputList !== undefined && {
-      PartitionInputList: serializeAws_json1_1PartitionInputList(
-        input.PartitionInputList,
-        context
-      )
+      PartitionInputList: serializeAws_json1_1PartitionInputList(input.PartitionInputList, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -15121,9 +13088,7 @@ const serializeAws_json1_1BatchDeletePartitionValueList = (
   input: PartitionValueList[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PartitionValueList(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PartitionValueList(entry, context));
 };
 
 const serializeAws_json1_1BatchDeleteTableNameList = (
@@ -15143,10 +13108,7 @@ const serializeAws_json1_1BatchDeleteTableRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.TablesToDelete !== undefined && {
-      TablesToDelete: serializeAws_json1_1BatchDeleteTableNameList(
-        input.TablesToDelete,
-        context
-      )
+      TablesToDelete: serializeAws_json1_1BatchDeleteTableNameList(input.TablesToDelete, context)
     })
   };
 };
@@ -15169,10 +13131,7 @@ const serializeAws_json1_1BatchDeleteTableVersionRequest = (
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.VersionIds !== undefined && {
-      VersionIds: serializeAws_json1_1BatchDeleteTableVersionList(
-        input.VersionIds,
-        context
-      )
+      VersionIds: serializeAws_json1_1BatchDeleteTableVersionList(input.VersionIds, context)
     })
   };
 };
@@ -15200,9 +13159,7 @@ const serializeAws_json1_1BatchGetPartitionValueList = (
   input: PartitionValueList[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PartitionValueList(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PartitionValueList(entry, context));
 };
 
 const serializeAws_json1_1BoundedPartitionValueList = (
@@ -15212,10 +13169,7 @@ const serializeAws_json1_1BoundedPartitionValueList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Column = (
-  input: Column,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Column = (input: Column, context: __SerdeContext): any => {
   return {
     ...(input.Comment !== undefined && { Comment: input.Comment }),
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -15226,10 +13180,7 @@ const serializeAws_json1_1Column = (
   };
 };
 
-const serializeAws_json1_1ColumnList = (
-  input: Column[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ColumnList = (input: Column[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Column(entry, context));
 };
 
@@ -15256,10 +13207,7 @@ const serializeAws_json1_1ConnectionInput = (
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.MatchCriteria !== undefined && {
-      MatchCriteria: serializeAws_json1_1MatchCriteria(
-        input.MatchCriteria,
-        context
-      )
+      MatchCriteria: serializeAws_json1_1MatchCriteria(input.MatchCriteria, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.PhysicalConnectionRequirements !== undefined && {
@@ -15288,10 +13236,7 @@ const serializeAws_json1_1ConnectionProperties = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [ConnectionPropertyKey | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [ConnectionPropertyKey | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -15306,10 +13251,7 @@ const serializeAws_json1_1CreateConnectionRequest = (
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.ConnectionInput !== undefined && {
-      ConnectionInput: serializeAws_json1_1ConnectionInput(
-        input.ConnectionInput,
-        context
-      )
+      ConnectionInput: serializeAws_json1_1ConnectionInput(input.ConnectionInput, context)
     })
   };
 };
@@ -15321,10 +13263,7 @@ const serializeAws_json1_1CreateDatabaseRequest = (
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.DatabaseInput !== undefined && {
-      DatabaseInput: serializeAws_json1_1DatabaseInput(
-        input.DatabaseInput,
-        context
-      )
+      DatabaseInput: serializeAws_json1_1DatabaseInput(input.DatabaseInput, context)
     })
   };
 };
@@ -15339,10 +13278,7 @@ const serializeAws_json1_1CreatePartitionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.PartitionInput !== undefined && {
-      PartitionInput: serializeAws_json1_1PartitionInput(
-        input.PartitionInput,
-        context
-      )
+      PartitionInput: serializeAws_json1_1PartitionInput(input.PartitionInput, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -15373,10 +13309,7 @@ const serializeAws_json1_1CreateUserDefinedFunctionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.FunctionInput !== undefined && {
-      FunctionInput: serializeAws_json1_1UserDefinedFunctionInput(
-        input.FunctionInput,
-        context
-      )
+      FunctionInput: serializeAws_json1_1UserDefinedFunctionInput(input.FunctionInput, context)
     })
   };
 };
@@ -15393,10 +13326,7 @@ const serializeAws_json1_1DataCatalogEncryptionSettings = (
       )
     }),
     ...(input.EncryptionAtRest !== undefined && {
-      EncryptionAtRest: serializeAws_json1_1EncryptionAtRest(
-        input.EncryptionAtRest,
-        context
-      )
+      EncryptionAtRest: serializeAws_json1_1EncryptionAtRest(input.EncryptionAtRest, context)
     })
   };
 };
@@ -15412,10 +13342,7 @@ const serializeAws_json1_1DataLakePrincipal = (
   };
 };
 
-const serializeAws_json1_1DatabaseInput = (
-  input: DatabaseInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DatabaseInput = (input: DatabaseInput, context: __SerdeContext): any => {
   return {
     ...(input.CreateTableDefaultPermissions !== undefined && {
       CreateTableDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
@@ -15471,10 +13398,7 @@ const serializeAws_json1_1DeletePartitionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.PartitionValues !== undefined && {
-      PartitionValues: serializeAws_json1_1ValueStringList(
-        input.PartitionValues,
-        context
-      )
+      PartitionValues: serializeAws_json1_1ValueStringList(input.PartitionValues, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -15578,10 +13502,7 @@ const serializeAws_json1_1GetConnectionsFilter = (
       ConnectionType: input.ConnectionType
     }),
     ...(input.MatchCriteria !== undefined && {
-      MatchCriteria: serializeAws_json1_1MatchCriteria(
-        input.MatchCriteria,
-        context
-      )
+      MatchCriteria: serializeAws_json1_1MatchCriteria(input.MatchCriteria, context)
     })
   };
 };
@@ -15643,10 +13564,7 @@ const serializeAws_json1_1GetPartitionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.PartitionValues !== undefined && {
-      PartitionValues: serializeAws_json1_1ValueStringList(
-        input.PartitionValues,
-        context
-      )
+      PartitionValues: serializeAws_json1_1ValueStringList(input.PartitionValues, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -15787,27 +13705,18 @@ const serializeAws_json1_1LocationMap = (
   );
 };
 
-const serializeAws_json1_1MatchCriteria = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1MatchCriteria = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Order = (
-  input: Order,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Order = (input: Order, context: __SerdeContext): any => {
   return {
     ...(input.Column !== undefined && { Column: input.Column }),
     ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
   };
 };
 
-const serializeAws_json1_1OrderList = (
-  input: Order[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1OrderList = (input: Order[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Order(entry, context));
 };
 
@@ -15839,10 +13748,7 @@ const serializeAws_json1_1PartitionInput = (
       Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context)
     }),
     ...(input.StorageDescriptor !== undefined && {
-      StorageDescriptor: serializeAws_json1_1StorageDescriptor(
-        input.StorageDescriptor,
-        context
-      )
+      StorageDescriptor: serializeAws_json1_1StorageDescriptor(input.StorageDescriptor, context)
     }),
     ...(input.Values !== undefined && {
       Values: serializeAws_json1_1ValueStringList(input.Values, context)
@@ -15899,10 +13805,7 @@ const serializeAws_json1_1PrincipalPermissions = (
 ): any => {
   return {
     ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_json1_1PermissionList(
-        input.Permissions,
-        context
-      )
+      Permissions: serializeAws_json1_1PermissionList(input.Permissions, context)
     }),
     ...(input.Principal !== undefined && {
       Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
@@ -15914,9 +13817,7 @@ const serializeAws_json1_1PrincipalPermissionsList = (
   input: PrincipalPermissions[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PrincipalPermissions(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PrincipalPermissions(entry, context));
 };
 
 const serializeAws_json1_1PropertyPredicate = (
@@ -15962,10 +13863,7 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   };
 };
 
-const serializeAws_json1_1ResourceUri = (
-  input: ResourceUri,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ResourceUri = (input: ResourceUri, context: __SerdeContext): any => {
   return {
     ...(input.ResourceType !== undefined && {
       ResourceType: input.ResourceType
@@ -15985,9 +13883,7 @@ const serializeAws_json1_1SearchPropertyPredicates = (
   input: PropertyPredicate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1PropertyPredicate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1PropertyPredicate(entry, context));
 };
 
 const serializeAws_json1_1SearchTablesRequest = (
@@ -15997,34 +13893,22 @@ const serializeAws_json1_1SearchTablesRequest = (
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.Filters !== undefined && {
-      Filters: serializeAws_json1_1SearchPropertyPredicates(
-        input.Filters,
-        context
-      )
+      Filters: serializeAws_json1_1SearchPropertyPredicates(input.Filters, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SearchText !== undefined && { SearchText: input.SearchText }),
     ...(input.SortCriteria !== undefined && {
-      SortCriteria: serializeAws_json1_1SortCriteria(
-        input.SortCriteria,
-        context
-      )
+      SortCriteria: serializeAws_json1_1SortCriteria(input.SortCriteria, context)
     })
   };
 };
 
-const serializeAws_json1_1SecurityGroupIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Segment = (
-  input: Segment,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Segment = (input: Segment, context: __SerdeContext): any => {
   return {
     ...(input.SegmentNumber !== undefined && {
       SegmentNumber: input.SegmentNumber
@@ -16035,10 +13919,7 @@ const serializeAws_json1_1Segment = (
   };
 };
 
-const serializeAws_json1_1SerDeInfo = (
-  input: SerDeInfo,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SerDeInfo = (input: SerDeInfo, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Parameters !== undefined && {
@@ -16050,16 +13931,10 @@ const serializeAws_json1_1SerDeInfo = (
   };
 };
 
-const serializeAws_json1_1SkewedInfo = (
-  input: SkewedInfo,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SkewedInfo = (input: SkewedInfo, context: __SerdeContext): any => {
   return {
     ...(input.SkewedColumnNames !== undefined && {
-      SkewedColumnNames: serializeAws_json1_1NameStringList(
-        input.SkewedColumnNames,
-        context
-      )
+      SkewedColumnNames: serializeAws_json1_1NameStringList(input.SkewedColumnNames, context)
     }),
     ...(input.SkewedColumnValueLocationMaps !== undefined && {
       SkewedColumnValueLocationMaps: serializeAws_json1_1LocationMap(
@@ -16076,17 +13951,11 @@ const serializeAws_json1_1SkewedInfo = (
   };
 };
 
-const serializeAws_json1_1SortCriteria = (
-  input: SortCriterion[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SortCriteria = (input: SortCriterion[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1SortCriterion(entry, context));
 };
 
-const serializeAws_json1_1SortCriterion = (
-  input: SortCriterion,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SortCriterion = (input: SortCriterion, context: __SerdeContext): any => {
   return {
     ...(input.FieldName !== undefined && { FieldName: input.FieldName }),
     ...(input.Sort !== undefined && { Sort: input.Sort })
@@ -16099,10 +13968,7 @@ const serializeAws_json1_1StorageDescriptor = (
 ): any => {
   return {
     ...(input.BucketColumns !== undefined && {
-      BucketColumns: serializeAws_json1_1NameStringList(
-        input.BucketColumns,
-        context
-      )
+      BucketColumns: serializeAws_json1_1NameStringList(input.BucketColumns, context)
     }),
     ...(input.Columns !== undefined && {
       Columns: serializeAws_json1_1ColumnList(input.Columns, context)
@@ -16134,10 +14000,7 @@ const serializeAws_json1_1StorageDescriptor = (
   };
 };
 
-const serializeAws_json1_1TableInput = (
-  input: TableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TableInput = (input: TableInput, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.LastAccessTime !== undefined && {
@@ -16152,17 +14015,11 @@ const serializeAws_json1_1TableInput = (
       Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context)
     }),
     ...(input.PartitionKeys !== undefined && {
-      PartitionKeys: serializeAws_json1_1ColumnList(
-        input.PartitionKeys,
-        context
-      )
+      PartitionKeys: serializeAws_json1_1ColumnList(input.PartitionKeys, context)
     }),
     ...(input.Retention !== undefined && { Retention: input.Retention }),
     ...(input.StorageDescriptor !== undefined && {
-      StorageDescriptor: serializeAws_json1_1StorageDescriptor(
-        input.StorageDescriptor,
-        context
-      )
+      StorageDescriptor: serializeAws_json1_1StorageDescriptor(input.StorageDescriptor, context)
     }),
     ...(input.TableType !== undefined && { TableType: input.TableType }),
     ...(input.ViewExpandedText !== undefined && {
@@ -16181,10 +14038,7 @@ const serializeAws_json1_1UpdateConnectionRequest = (
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.ConnectionInput !== undefined && {
-      ConnectionInput: serializeAws_json1_1ConnectionInput(
-        input.ConnectionInput,
-        context
-      )
+      ConnectionInput: serializeAws_json1_1ConnectionInput(input.ConnectionInput, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name })
   };
@@ -16197,10 +14051,7 @@ const serializeAws_json1_1UpdateDatabaseRequest = (
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.DatabaseInput !== undefined && {
-      DatabaseInput: serializeAws_json1_1DatabaseInput(
-        input.DatabaseInput,
-        context
-      )
+      DatabaseInput: serializeAws_json1_1DatabaseInput(input.DatabaseInput, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name })
   };
@@ -16216,10 +14067,7 @@ const serializeAws_json1_1UpdatePartitionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.PartitionInput !== undefined && {
-      PartitionInput: serializeAws_json1_1PartitionInput(
-        input.PartitionInput,
-        context
-      )
+      PartitionInput: serializeAws_json1_1PartitionInput(input.PartitionInput, context)
     }),
     ...(input.PartitionValueList !== undefined && {
       PartitionValueList: serializeAws_json1_1BoundedPartitionValueList(
@@ -16257,10 +14105,7 @@ const serializeAws_json1_1UpdateUserDefinedFunctionRequest = (
       DatabaseName: input.DatabaseName
     }),
     ...(input.FunctionInput !== undefined && {
-      FunctionInput: serializeAws_json1_1UserDefinedFunctionInput(
-        input.FunctionInput,
-        context
-      )
+      FunctionInput: serializeAws_json1_1UserDefinedFunctionInput(input.FunctionInput, context)
     }),
     ...(input.FunctionName !== undefined && {
       FunctionName: input.FunctionName
@@ -16280,18 +14125,12 @@ const serializeAws_json1_1UserDefinedFunctionInput = (
     ...(input.OwnerName !== undefined && { OwnerName: input.OwnerName }),
     ...(input.OwnerType !== undefined && { OwnerType: input.OwnerType }),
     ...(input.ResourceUris !== undefined && {
-      ResourceUris: serializeAws_json1_1ResourceUriList(
-        input.ResourceUris,
-        context
-      )
+      ResourceUris: serializeAws_json1_1ResourceUriList(input.ResourceUris, context)
     })
   };
 };
 
-const serializeAws_json1_1ValueStringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ValueStringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -16301,10 +14140,7 @@ const serializeAws_json1_1BatchGetDevEndpointsRequest = (
 ): any => {
   return {
     ...(input.DevEndpointNames !== undefined && {
-      DevEndpointNames: serializeAws_json1_1DevEndpointNames(
-        input.DevEndpointNames,
-        context
-      )
+      DevEndpointNames: serializeAws_json1_1DevEndpointNames(input.DevEndpointNames, context)
     })
   };
 };
@@ -16354,10 +14190,7 @@ const serializeAws_json1_1CreateDevEndpointRequest = (
       SecurityConfiguration: input.SecurityConfiguration
     }),
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1StringList(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1StringList(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
     ...(input.Tags !== undefined && {
@@ -16416,10 +14249,7 @@ const serializeAws_json1_1DevEndpointCustomLibraries = (
   };
 };
 
-const serializeAws_json1_1DevEndpointNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DevEndpointNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -16441,10 +14271,7 @@ const serializeAws_json1_1EncryptionConfiguration = (
       )
     }),
     ...(input.S3Encryption !== undefined && {
-      S3Encryption: serializeAws_json1_1S3EncryptionList(
-        input.S3Encryption,
-        context
-      )
+      S3Encryption: serializeAws_json1_1S3EncryptionList(input.S3Encryption, context)
     })
   };
 };
@@ -16537,10 +14364,7 @@ const serializeAws_json1_1MapValue = (
   );
 };
 
-const serializeAws_json1_1PublicKeysList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PublicKeysList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -16554,10 +14378,7 @@ const serializeAws_json1_1ResetJobBookmarkRequest = (
   };
 };
 
-const serializeAws_json1_1S3Encryption = (
-  input: S3Encryption,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1S3Encryption = (input: S3Encryption, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
     ...(input.S3EncryptionMode !== undefined && {
@@ -16573,10 +14394,7 @@ const serializeAws_json1_1S3EncryptionList = (
   return input.map(entry => serializeAws_json1_1S3Encryption(entry, context));
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -16589,10 +14407,7 @@ const serializeAws_json1_1UpdateDevEndpointRequest = (
       AddArguments: serializeAws_json1_1MapValue(input.AddArguments, context)
     }),
     ...(input.AddPublicKeys !== undefined && {
-      AddPublicKeys: serializeAws_json1_1PublicKeysList(
-        input.AddPublicKeys,
-        context
-      )
+      AddPublicKeys: serializeAws_json1_1PublicKeysList(input.AddPublicKeys, context)
     }),
     ...(input.CustomLibraries !== undefined && {
       CustomLibraries: serializeAws_json1_1DevEndpointCustomLibraries(
@@ -16601,16 +14416,10 @@ const serializeAws_json1_1UpdateDevEndpointRequest = (
       )
     }),
     ...(input.DeleteArguments !== undefined && {
-      DeleteArguments: serializeAws_json1_1StringList(
-        input.DeleteArguments,
-        context
-      )
+      DeleteArguments: serializeAws_json1_1StringList(input.DeleteArguments, context)
     }),
     ...(input.DeletePublicKeys !== undefined && {
-      DeletePublicKeys: serializeAws_json1_1PublicKeysList(
-        input.DeletePublicKeys,
-        context
-      )
+      DeletePublicKeys: serializeAws_json1_1PublicKeysList(input.DeletePublicKeys, context)
     }),
     ...(input.EndpointName !== undefined && {
       EndpointName: input.EndpointName
@@ -16640,10 +14449,7 @@ const serializeAws_json1_1CreateMLTransformRequest = (
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.GlueVersion !== undefined && { GlueVersion: input.GlueVersion }),
     ...(input.InputRecordTables !== undefined && {
-      InputRecordTables: serializeAws_json1_1GlueTables(
-        input.InputRecordTables,
-        context
-      )
+      InputRecordTables: serializeAws_json1_1GlueTables(input.InputRecordTables, context)
     }),
     ...(input.MaxCapacity !== undefined && { MaxCapacity: input.MaxCapacity }),
     ...(input.MaxRetries !== undefined && { MaxRetries: input.MaxRetries }),
@@ -16652,10 +14458,7 @@ const serializeAws_json1_1CreateMLTransformRequest = (
       NumberOfWorkers: input.NumberOfWorkers
     }),
     ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1TransformParameters(
-        input.Parameters,
-        context
-      )
+      Parameters: serializeAws_json1_1TransformParameters(input.Parameters, context)
     }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
@@ -16744,10 +14547,7 @@ const serializeAws_json1_1GetMLTransformsRequest = (
   };
 };
 
-const serializeAws_json1_1GlueTable = (
-  input: GlueTable,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GlueTable = (input: GlueTable, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.ConnectionName !== undefined && {
@@ -16760,17 +14560,11 @@ const serializeAws_json1_1GlueTable = (
   };
 };
 
-const serializeAws_json1_1GlueTables = (
-  input: GlueTable[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GlueTables = (input: GlueTable[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1GlueTable(entry, context));
 };
 
-const serializeAws_json1_1SchemaColumn = (
-  input: SchemaColumn,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SchemaColumn = (input: SchemaColumn, context: __SerdeContext): any => {
   return {
     ...(input.DataType !== undefined && { DataType: input.DataType }),
     ...(input.Name !== undefined && { Name: input.Name })
@@ -16930,10 +14724,7 @@ const serializeAws_json1_1UpdateMLTransformRequest = (
       NumberOfWorkers: input.NumberOfWorkers
     }),
     ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1TransformParameters(
-        input.Parameters,
-        context
-      )
+      Parameters: serializeAws_json1_1TransformParameters(input.Parameters, context)
     }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
@@ -16942,10 +14733,7 @@ const serializeAws_json1_1UpdateMLTransformRequest = (
   };
 };
 
-const serializeAws_json1_1Action = (
-  input: Action,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Action = (input: Action, context: __SerdeContext): any => {
   return {
     ...(input.Arguments !== undefined && {
       Arguments: serializeAws_json1_1GenericMap(input.Arguments, context)
@@ -16965,10 +14753,7 @@ const serializeAws_json1_1Action = (
   };
 };
 
-const serializeAws_json1_1ActionList = (
-  input: Action[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ActionList = (input: Action[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Action(entry, context));
 };
 
@@ -16989,10 +14774,7 @@ const serializeAws_json1_1BatchGetTriggersRequest = (
 ): any => {
   return {
     ...(input.TriggerNames !== undefined && {
-      TriggerNames: serializeAws_json1_1TriggerNameList(
-        input.TriggerNames,
-        context
-      )
+      TriggerNames: serializeAws_json1_1TriggerNameList(input.TriggerNames, context)
     })
   };
 };
@@ -17025,18 +14807,12 @@ const serializeAws_json1_1BatchStopJobRunRequest = (
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
     ...(input.JobRunIds !== undefined && {
-      JobRunIds: serializeAws_json1_1BatchStopJobRunJobRunIdList(
-        input.JobRunIds,
-        context
-      )
+      JobRunIds: serializeAws_json1_1BatchStopJobRunJobRunIdList(input.JobRunIds, context)
     })
   };
 };
 
-const serializeAws_json1_1Condition = (
-  input: Condition,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.CrawlState !== undefined && { CrawlState: input.CrawlState }),
     ...(input.CrawlerName !== undefined && { CrawlerName: input.CrawlerName }),
@@ -17048,10 +14824,7 @@ const serializeAws_json1_1Condition = (
   };
 };
 
-const serializeAws_json1_1ConditionList = (
-  input: Condition[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ConditionList = (input: Condition[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Condition(entry, context));
 };
 
@@ -17061,10 +14834,7 @@ const serializeAws_json1_1ConnectionsList = (
 ): any => {
   return {
     ...(input.Connections !== undefined && {
-      Connections: serializeAws_json1_1OrchestrationStringList(
-        input.Connections,
-        context
-      )
+      Connections: serializeAws_json1_1OrchestrationStringList(input.Connections, context)
     })
   };
 };
@@ -17081,23 +14851,14 @@ const serializeAws_json1_1CreateJobRequest = (
       Command: serializeAws_json1_1JobCommand(input.Command, context)
     }),
     ...(input.Connections !== undefined && {
-      Connections: serializeAws_json1_1ConnectionsList(
-        input.Connections,
-        context
-      )
+      Connections: serializeAws_json1_1ConnectionsList(input.Connections, context)
     }),
     ...(input.DefaultArguments !== undefined && {
-      DefaultArguments: serializeAws_json1_1GenericMap(
-        input.DefaultArguments,
-        context
-      )
+      DefaultArguments: serializeAws_json1_1GenericMap(input.DefaultArguments, context)
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.ExecutionProperty !== undefined && {
-      ExecutionProperty: serializeAws_json1_1ExecutionProperty(
-        input.ExecutionProperty,
-        context
-      )
+      ExecutionProperty: serializeAws_json1_1ExecutionProperty(input.ExecutionProperty, context)
     }),
     ...(input.GlueVersion !== undefined && { GlueVersion: input.GlueVersion }),
     ...(input.LogUri !== undefined && { LogUri: input.LogUri }),
@@ -17222,10 +14983,7 @@ const serializeAws_json1_1GenericMap = (
   );
 };
 
-const serializeAws_json1_1GetJobRequest = (
-  input: GetJobRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetJobRequest = (input: GetJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName })
   };
@@ -17336,10 +15094,7 @@ const serializeAws_json1_1GetWorkflowRunsRequest = (
   };
 };
 
-const serializeAws_json1_1JobCommand = (
-  input: JobCommand,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JobCommand = (input: JobCommand, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.PythonVersion !== undefined && {
@@ -17351,17 +15106,11 @@ const serializeAws_json1_1JobCommand = (
   };
 };
 
-const serializeAws_json1_1JobNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JobNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1JobUpdate = (
-  input: JobUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext): any => {
   return {
     ...(input.AllocatedCapacity !== undefined && {
       AllocatedCapacity: input.AllocatedCapacity
@@ -17370,23 +15119,14 @@ const serializeAws_json1_1JobUpdate = (
       Command: serializeAws_json1_1JobCommand(input.Command, context)
     }),
     ...(input.Connections !== undefined && {
-      Connections: serializeAws_json1_1ConnectionsList(
-        input.Connections,
-        context
-      )
+      Connections: serializeAws_json1_1ConnectionsList(input.Connections, context)
     }),
     ...(input.DefaultArguments !== undefined && {
-      DefaultArguments: serializeAws_json1_1GenericMap(
-        input.DefaultArguments,
-        context
-      )
+      DefaultArguments: serializeAws_json1_1GenericMap(input.DefaultArguments, context)
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.ExecutionProperty !== undefined && {
-      ExecutionProperty: serializeAws_json1_1ExecutionProperty(
-        input.ExecutionProperty,
-        context
-      )
+      ExecutionProperty: serializeAws_json1_1ExecutionProperty(input.ExecutionProperty, context)
     }),
     ...(input.GlueVersion !== undefined && { GlueVersion: input.GlueVersion }),
     ...(input.LogUri !== undefined && { LogUri: input.LogUri }),
@@ -17467,10 +15207,7 @@ const serializeAws_json1_1OrchestrationStringList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Predicate = (
-  input: Predicate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Predicate = (input: Predicate, context: __SerdeContext): any => {
   return {
     ...(input.Conditions !== undefined && {
       Conditions: serializeAws_json1_1ConditionList(input.Conditions, context)
@@ -17487,10 +15224,7 @@ const serializeAws_json1_1PutWorkflowRunPropertiesRequest = (
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RunId !== undefined && { RunId: input.RunId }),
     ...(input.RunProperties !== undefined && {
-      RunProperties: serializeAws_json1_1WorkflowRunProperties(
-        input.RunProperties,
-        context
-      )
+      RunProperties: serializeAws_json1_1WorkflowRunProperties(input.RunProperties, context)
     })
   };
 };
@@ -17553,17 +15287,11 @@ const serializeAws_json1_1StopTriggerRequest = (
   };
 };
 
-const serializeAws_json1_1TriggerNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TriggerNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TriggerUpdate = (
-  input: TriggerUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TriggerUpdate = (input: TriggerUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Actions !== undefined && {
       Actions: serializeAws_json1_1ActionList(input.Actions, context)
@@ -17596,10 +15324,7 @@ const serializeAws_json1_1UpdateTriggerRequest = (
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.TriggerUpdate !== undefined && {
-      TriggerUpdate: serializeAws_json1_1TriggerUpdate(
-        input.TriggerUpdate,
-        context
-      )
+      TriggerUpdate: serializeAws_json1_1TriggerUpdate(input.TriggerUpdate, context)
     })
   };
 };
@@ -17620,10 +15345,7 @@ const serializeAws_json1_1UpdateWorkflowRequest = (
   };
 };
 
-const serializeAws_json1_1WorkflowNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1WorkflowNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -17646,10 +15368,7 @@ const serializeAws_json1_1BatchGetCrawlersRequest = (
 ): any => {
   return {
     ...(input.CrawlerNames !== undefined && {
-      CrawlerNames: serializeAws_json1_1CrawlerNameList(
-        input.CrawlerNames,
-        context
-      )
+      CrawlerNames: serializeAws_json1_1CrawlerNameList(input.CrawlerNames, context)
     })
   };
 };
@@ -17661,10 +15380,7 @@ const serializeAws_json1_1CatalogEntries = (
   return input.map(entry => serializeAws_json1_1CatalogEntry(entry, context));
 };
 
-const serializeAws_json1_1CatalogEntry = (
-  input: CatalogEntry,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CatalogEntry = (input: CatalogEntry, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName !== undefined && {
       DatabaseName: input.DatabaseName
@@ -17673,17 +15389,11 @@ const serializeAws_json1_1CatalogEntry = (
   };
 };
 
-const serializeAws_json1_1CatalogTablesList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CatalogTablesList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CatalogTarget = (
-  input: CatalogTarget,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CatalogTarget = (input: CatalogTarget, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName !== undefined && {
       DatabaseName: input.DatabaseName
@@ -17701,17 +15411,11 @@ const serializeAws_json1_1CatalogTargetList = (
   return input.map(entry => serializeAws_json1_1CatalogTarget(entry, context));
 };
 
-const serializeAws_json1_1ClassifierNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ClassifierNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CodeGenEdge = (
-  input: CodeGenEdge,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CodeGenEdge = (input: CodeGenEdge, context: __SerdeContext): any => {
   return {
     ...(input.Source !== undefined && { Source: input.Source }),
     ...(input.Target !== undefined && { Target: input.Target }),
@@ -17721,10 +15425,7 @@ const serializeAws_json1_1CodeGenEdge = (
   };
 };
 
-const serializeAws_json1_1CodeGenNode = (
-  input: CodeGenNode,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CodeGenNode = (input: CodeGenNode, context: __SerdeContext): any => {
   return {
     ...(input.Args !== undefined && {
       Args: serializeAws_json1_1CodeGenNodeArgs(input.Args, context)
@@ -17753,10 +15454,7 @@ const serializeAws_json1_1CodeGenNodeArgs = (
   return input.map(entry => serializeAws_json1_1CodeGenNodeArg(entry, context));
 };
 
-const serializeAws_json1_1CrawlerNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CrawlerNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -17766,22 +15464,13 @@ const serializeAws_json1_1CrawlerTargets = (
 ): any => {
   return {
     ...(input.CatalogTargets !== undefined && {
-      CatalogTargets: serializeAws_json1_1CatalogTargetList(
-        input.CatalogTargets,
-        context
-      )
+      CatalogTargets: serializeAws_json1_1CatalogTargetList(input.CatalogTargets, context)
     }),
     ...(input.DynamoDBTargets !== undefined && {
-      DynamoDBTargets: serializeAws_json1_1DynamoDBTargetList(
-        input.DynamoDBTargets,
-        context
-      )
+      DynamoDBTargets: serializeAws_json1_1DynamoDBTargetList(input.DynamoDBTargets, context)
     }),
     ...(input.JdbcTargets !== undefined && {
-      JdbcTargets: serializeAws_json1_1JdbcTargetList(
-        input.JdbcTargets,
-        context
-      )
+      JdbcTargets: serializeAws_json1_1JdbcTargetList(input.JdbcTargets, context)
     }),
     ...(input.S3Targets !== undefined && {
       S3Targets: serializeAws_json1_1S3TargetList(input.S3Targets, context)
@@ -17795,28 +15484,16 @@ const serializeAws_json1_1CreateClassifierRequest = (
 ): any => {
   return {
     ...(input.CsvClassifier !== undefined && {
-      CsvClassifier: serializeAws_json1_1CreateCsvClassifierRequest(
-        input.CsvClassifier,
-        context
-      )
+      CsvClassifier: serializeAws_json1_1CreateCsvClassifierRequest(input.CsvClassifier, context)
     }),
     ...(input.GrokClassifier !== undefined && {
-      GrokClassifier: serializeAws_json1_1CreateGrokClassifierRequest(
-        input.GrokClassifier,
-        context
-      )
+      GrokClassifier: serializeAws_json1_1CreateGrokClassifierRequest(input.GrokClassifier, context)
     }),
     ...(input.JsonClassifier !== undefined && {
-      JsonClassifier: serializeAws_json1_1CreateJsonClassifierRequest(
-        input.JsonClassifier,
-        context
-      )
+      JsonClassifier: serializeAws_json1_1CreateJsonClassifierRequest(input.JsonClassifier, context)
     }),
     ...(input.XMLClassifier !== undefined && {
-      XMLClassifier: serializeAws_json1_1CreateXMLClassifierRequest(
-        input.XMLClassifier,
-        context
-      )
+      XMLClassifier: serializeAws_json1_1CreateXMLClassifierRequest(input.XMLClassifier, context)
     })
   };
 };
@@ -17827,10 +15504,7 @@ const serializeAws_json1_1CreateCrawlerRequest = (
 ): any => {
   return {
     ...(input.Classifiers !== undefined && {
-      Classifiers: serializeAws_json1_1ClassifierNameList(
-        input.Classifiers,
-        context
-      )
+      Classifiers: serializeAws_json1_1ClassifierNameList(input.Classifiers, context)
     }),
     ...(input.Configuration !== undefined && {
       Configuration: input.Configuration
@@ -17846,10 +15520,7 @@ const serializeAws_json1_1CreateCrawlerRequest = (
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
     ...(input.SchemaChangePolicy !== undefined && {
-      SchemaChangePolicy: serializeAws_json1_1SchemaChangePolicy(
-        input.SchemaChangePolicy,
-        context
-      )
+      SchemaChangePolicy: serializeAws_json1_1SchemaChangePolicy(input.SchemaChangePolicy, context)
     }),
     ...(input.TablePrefix !== undefined && { TablePrefix: input.TablePrefix }),
     ...(input.Tags !== undefined && {
@@ -17938,24 +15609,15 @@ const serializeAws_json1_1CreateXMLClassifierRequest = (
   };
 };
 
-const serializeAws_json1_1CsvHeader = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CsvHeader = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1DagEdges = (
-  input: CodeGenEdge[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DagEdges = (input: CodeGenEdge[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1CodeGenEdge(entry, context));
 };
 
-const serializeAws_json1_1DagNodes = (
-  input: CodeGenNode[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DagNodes = (input: CodeGenNode[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1CodeGenNode(entry, context));
 };
 
@@ -18018,10 +15680,7 @@ const serializeAws_json1_1GetCrawlerMetricsRequest = (
 ): any => {
   return {
     ...(input.CrawlerNameList !== undefined && {
-      CrawlerNameList: serializeAws_json1_1CrawlerNameList(
-        input.CrawlerNameList,
-        context
-      )
+      CrawlerNameList: serializeAws_json1_1CrawlerNameList(input.CrawlerNameList, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -18096,10 +15755,7 @@ const serializeAws_json1_1GetPlanRequest = (
   };
 };
 
-const serializeAws_json1_1JdbcTarget = (
-  input: JdbcTarget,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JdbcTarget = (input: JdbcTarget, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName !== undefined && {
       ConnectionName: input.ConnectionName
@@ -18111,10 +15767,7 @@ const serializeAws_json1_1JdbcTarget = (
   };
 };
 
-const serializeAws_json1_1JdbcTargetList = (
-  input: JdbcTarget[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JdbcTargetList = (input: JdbcTarget[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1JdbcTarget(entry, context));
 };
 
@@ -18131,10 +15784,7 @@ const serializeAws_json1_1ListCrawlersRequest = (
   };
 };
 
-const serializeAws_json1_1Location = (
-  input: Location,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
     ...(input.DynamoDB !== undefined && {
       DynamoDB: serializeAws_json1_1CodeGenNodeArgs(input.DynamoDB, context)
@@ -18148,10 +15798,7 @@ const serializeAws_json1_1Location = (
   };
 };
 
-const serializeAws_json1_1MappingEntry = (
-  input: MappingEntry,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1MappingEntry = (input: MappingEntry, context: __SerdeContext): any => {
   return {
     ...(input.SourcePath !== undefined && { SourcePath: input.SourcePath }),
     ...(input.SourceTable !== undefined && { SourceTable: input.SourceTable }),
@@ -18162,24 +15809,15 @@ const serializeAws_json1_1MappingEntry = (
   };
 };
 
-const serializeAws_json1_1MappingList = (
-  input: MappingEntry[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1MappingList = (input: MappingEntry[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1MappingEntry(entry, context));
 };
 
-const serializeAws_json1_1PathList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PathList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1S3Target = (
-  input: S3Target,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1S3Target = (input: S3Target, context: __SerdeContext): any => {
   return {
     ...(input.Exclusions !== undefined && {
       Exclusions: serializeAws_json1_1PathList(input.Exclusions, context)
@@ -18188,10 +15826,7 @@ const serializeAws_json1_1S3Target = (
   };
 };
 
-const serializeAws_json1_1S3TargetList = (
-  input: S3Target[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1S3TargetList = (input: S3Target[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1S3Target(entry, context));
 };
 
@@ -18251,28 +15886,16 @@ const serializeAws_json1_1UpdateClassifierRequest = (
 ): any => {
   return {
     ...(input.CsvClassifier !== undefined && {
-      CsvClassifier: serializeAws_json1_1UpdateCsvClassifierRequest(
-        input.CsvClassifier,
-        context
-      )
+      CsvClassifier: serializeAws_json1_1UpdateCsvClassifierRequest(input.CsvClassifier, context)
     }),
     ...(input.GrokClassifier !== undefined && {
-      GrokClassifier: serializeAws_json1_1UpdateGrokClassifierRequest(
-        input.GrokClassifier,
-        context
-      )
+      GrokClassifier: serializeAws_json1_1UpdateGrokClassifierRequest(input.GrokClassifier, context)
     }),
     ...(input.JsonClassifier !== undefined && {
-      JsonClassifier: serializeAws_json1_1UpdateJsonClassifierRequest(
-        input.JsonClassifier,
-        context
-      )
+      JsonClassifier: serializeAws_json1_1UpdateJsonClassifierRequest(input.JsonClassifier, context)
     }),
     ...(input.XMLClassifier !== undefined && {
-      XMLClassifier: serializeAws_json1_1UpdateXMLClassifierRequest(
-        input.XMLClassifier,
-        context
-      )
+      XMLClassifier: serializeAws_json1_1UpdateXMLClassifierRequest(input.XMLClassifier, context)
     })
   };
 };
@@ -18283,10 +15906,7 @@ const serializeAws_json1_1UpdateCrawlerRequest = (
 ): any => {
   return {
     ...(input.Classifiers !== undefined && {
-      Classifiers: serializeAws_json1_1ClassifierNameList(
-        input.Classifiers,
-        context
-      )
+      Classifiers: serializeAws_json1_1ClassifierNameList(input.Classifiers, context)
     }),
     ...(input.Configuration !== undefined && {
       Configuration: input.Configuration
@@ -18302,10 +15922,7 @@ const serializeAws_json1_1UpdateCrawlerRequest = (
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
     ...(input.SchemaChangePolicy !== undefined && {
-      SchemaChangePolicy: serializeAws_json1_1SchemaChangePolicy(
-        input.SchemaChangePolicy,
-        context
-      )
+      SchemaChangePolicy: serializeAws_json1_1SchemaChangePolicy(input.SchemaChangePolicy, context)
     }),
     ...(input.TablePrefix !== undefined && { TablePrefix: input.TablePrefix }),
     ...(input.Targets !== undefined && {
@@ -18417,10 +16034,7 @@ const deserializeAws_json1_1UntagResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1NameStringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1NameStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -18443,10 +16057,7 @@ const deserializeAws_json1_1AccessDeniedException = (
 ): AccessDeniedException => {
   return {
     __type: "AccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18456,10 +16067,7 @@ const deserializeAws_json1_1AlreadyExistsException = (
 ): AlreadyExistsException => {
   return {
     __type: "AlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18469,10 +16077,7 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   return {
     __type: "ConcurrentModificationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18482,10 +16087,7 @@ const deserializeAws_json1_1ConcurrentRunsExceededException = (
 ): ConcurrentRunsExceededException => {
   return {
     __type: "ConcurrentRunsExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18495,10 +16097,7 @@ const deserializeAws_json1_1ConditionCheckFailureException = (
 ): ConditionCheckFailureException => {
   return {
     __type: "ConditionCheckFailureException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18508,23 +16107,15 @@ const deserializeAws_json1_1EntityNotFoundException = (
 ): EntityNotFoundException => {
   return {
     __type: "EntityNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ErrorDetail = (
-  output: any,
-  context: __SerdeContext
-): ErrorDetail => {
+const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
     __type: "ErrorDetail",
     ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+      output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage:
       output.ErrorMessage !== undefined && output.ErrorMessage !== null
         ? output.ErrorMessage
@@ -18538,10 +16129,7 @@ const deserializeAws_json1_1GlueEncryptionException = (
 ): GlueEncryptionException => {
   return {
     __type: "GlueEncryptionException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18551,10 +16139,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 ): IdempotentParameterMismatchException => {
   return {
     __type: "IdempotentParameterMismatchException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18564,10 +16149,7 @@ const deserializeAws_json1_1InternalServiceException = (
 ): InternalServiceException => {
   return {
     __type: "InternalServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18577,10 +16159,7 @@ const deserializeAws_json1_1InvalidInputException = (
 ): InvalidInputException => {
   return {
     __type: "InvalidInputException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18590,10 +16169,7 @@ const deserializeAws_json1_1OperationTimeoutException = (
 ): OperationTimeoutException => {
   return {
     __type: "OperationTimeoutException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18603,10 +16179,7 @@ const deserializeAws_json1_1ResourceNumberLimitExceededException = (
 ): ResourceNumberLimitExceededException => {
   return {
     __type: "ResourceNumberLimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18616,10 +16189,7 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   return {
     __type: "ValidationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18629,10 +16199,7 @@ const deserializeAws_json1_1VersionMismatchException = (
 ): VersionMismatchException => {
   return {
     __type: "VersionMismatchException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -18717,10 +16284,7 @@ const deserializeAws_json1_1BatchGetPartitionResponse = (
         : undefined,
     UnprocessedKeys:
       output.UnprocessedKeys !== undefined && output.UnprocessedKeys !== null
-        ? deserializeAws_json1_1BatchGetPartitionValueList(
-            output.UnprocessedKeys,
-            context
-          )
+        ? deserializeAws_json1_1BatchGetPartitionValueList(output.UnprocessedKeys, context)
         : undefined
   } as any;
 };
@@ -18749,44 +16313,25 @@ const deserializeAws_json1_1CatalogImportStatus = (
         ? new Date(Math.round(output.ImportTime * 1000))
         : undefined,
     ImportedBy:
-      output.ImportedBy !== undefined && output.ImportedBy !== null
-        ? output.ImportedBy
-        : undefined
+      output.ImportedBy !== undefined && output.ImportedBy !== null ? output.ImportedBy : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Column = (
-  output: any,
-  context: __SerdeContext
-): Column => {
+const deserializeAws_json1_1Column = (output: any, context: __SerdeContext): Column => {
   return {
     __type: "Column",
-    Comment:
-      output.Comment !== undefined && output.Comment !== null
-        ? output.Comment
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Comment: output.Comment !== undefined && output.Comment !== null ? output.Comment : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ColumnList = (
-  output: any,
-  context: __SerdeContext
-): Column[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Column(entry, context)
-  );
+const deserializeAws_json1_1ColumnList = (output: any, context: __SerdeContext): Column[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Column(entry, context));
 };
 
 const deserializeAws_json1_1ColumnValueStringList = (
@@ -18796,19 +16341,12 @@ const deserializeAws_json1_1ColumnValueStringList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Connection = (
-  output: any,
-  context: __SerdeContext
-): Connection => {
+const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
     __type: "Connection",
     ConnectionProperties:
-      output.ConnectionProperties !== undefined &&
-      output.ConnectionProperties !== null
-        ? deserializeAws_json1_1ConnectionProperties(
-            output.ConnectionProperties,
-            context
-          )
+      output.ConnectionProperties !== undefined && output.ConnectionProperties !== null
+        ? deserializeAws_json1_1ConnectionProperties(output.ConnectionProperties, context)
         : undefined,
     ConnectionType:
       output.ConnectionType !== undefined && output.ConnectionType !== null
@@ -18834,10 +16372,7 @@ const deserializeAws_json1_1Connection = (
       output.MatchCriteria !== undefined && output.MatchCriteria !== null
         ? deserializeAws_json1_1MatchCriteria(output.MatchCriteria, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PhysicalConnectionRequirements:
       output.PhysicalConnectionRequirements !== undefined &&
       output.PhysicalConnectionRequirements !== null
@@ -18853,9 +16388,7 @@ const deserializeAws_json1_1ConnectionList = (
   output: any,
   context: __SerdeContext
 ): Connection[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Connection(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Connection(entry, context));
 };
 
 const deserializeAws_json1_1ConnectionPasswordEncryption = (
@@ -18881,10 +16414,7 @@ const deserializeAws_json1_1ConnectionProperties = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [ConnectionPropertyKey | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [ConnectionPropertyKey | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -18953,10 +16483,7 @@ const deserializeAws_json1_1DataCatalogEncryptionSettings = (
         : undefined,
     EncryptionAtRest:
       output.EncryptionAtRest !== undefined && output.EncryptionAtRest !== null
-        ? deserializeAws_json1_1EncryptionAtRest(
-            output.EncryptionAtRest,
-            context
-          )
+        ? deserializeAws_json1_1EncryptionAtRest(output.EncryptionAtRest, context)
         : undefined
   } as any;
 };
@@ -18975,10 +16502,7 @@ const deserializeAws_json1_1DataLakePrincipal = (
   } as any;
 };
 
-const deserializeAws_json1_1Database = (
-  output: any,
-  context: __SerdeContext
-): Database => {
+const deserializeAws_json1_1Database = (output: any, context: __SerdeContext): Database => {
   return {
     __type: "Database",
     CreateTableDefaultPermissions:
@@ -19001,10 +16525,7 @@ const deserializeAws_json1_1Database = (
       output.LocationUri !== undefined && output.LocationUri !== null
         ? output.LocationUri
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
@@ -19012,13 +16533,8 @@ const deserializeAws_json1_1Database = (
   } as any;
 };
 
-const deserializeAws_json1_1DatabaseList = (
-  output: any,
-  context: __SerdeContext
-): Database[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Database(entry, context)
-  );
+const deserializeAws_json1_1DatabaseList = (output: any, context: __SerdeContext): Database[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Database(entry, context));
 };
 
 const deserializeAws_json1_1DeleteConnectionResponse = (
@@ -19091,8 +16607,7 @@ const deserializeAws_json1_1EncryptionAtRest = (
   return {
     __type: "EncryptionAtRest",
     CatalogEncryptionMode:
-      output.CatalogEncryptionMode !== undefined &&
-      output.CatalogEncryptionMode !== null
+      output.CatalogEncryptionMode !== undefined && output.CatalogEncryptionMode !== null
         ? output.CatalogEncryptionMode
         : undefined,
     SseAwsKmsKeyId:
@@ -19123,10 +16638,7 @@ const deserializeAws_json1_1GetCatalogImportStatusResponse = (
     __type: "GetCatalogImportStatusResponse",
     ImportStatus:
       output.ImportStatus !== undefined && output.ImportStatus !== null
-        ? deserializeAws_json1_1CatalogImportStatus(
-            output.ImportStatus,
-            context
-          )
+        ? deserializeAws_json1_1CatalogImportStatus(output.ImportStatus, context)
         : undefined
   } as any;
 };
@@ -19155,9 +16667,7 @@ const deserializeAws_json1_1GetConnectionsResponse = (
         ? deserializeAws_json1_1ConnectionList(output.ConnectionList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -19202,9 +16712,7 @@ const deserializeAws_json1_1GetDatabasesResponse = (
         ? deserializeAws_json1_1DatabaseList(output.DatabaseList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -19228,9 +16736,7 @@ const deserializeAws_json1_1GetPartitionsResponse = (
   return {
     __type: "GetPartitionsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Partitions:
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1PartitionList(output.Partitions, context)
@@ -19249,9 +16755,7 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
         ? new Date(Math.round(output.CreateTime * 1000))
         : undefined,
     PolicyHash:
-      output.PolicyHash !== undefined && output.PolicyHash !== null
-        ? output.PolicyHash
-        : undefined,
+      output.PolicyHash !== undefined && output.PolicyHash !== null ? output.PolicyHash : undefined,
     PolicyInJson:
       output.PolicyInJson !== undefined && output.PolicyInJson !== null
         ? output.PolicyInJson
@@ -19293,9 +16797,7 @@ const deserializeAws_json1_1GetTableVersionsList = (
   output: any,
   context: __SerdeContext
 ): TableVersion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TableVersion(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TableVersion(entry, context));
 };
 
 const deserializeAws_json1_1GetTableVersionsResponse = (
@@ -19305,15 +16807,10 @@ const deserializeAws_json1_1GetTableVersionsResponse = (
   return {
     __type: "GetTableVersionsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TableVersions:
       output.TableVersions !== undefined && output.TableVersions !== null
-        ? deserializeAws_json1_1GetTableVersionsList(
-            output.TableVersions,
-            context
-          )
+        ? deserializeAws_json1_1GetTableVersionsList(output.TableVersions, context)
         : undefined
   } as any;
 };
@@ -19325,9 +16822,7 @@ const deserializeAws_json1_1GetTablesResponse = (
   return {
     __type: "GetTablesResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TableList:
       output.TableList !== undefined && output.TableList !== null
         ? deserializeAws_json1_1TableList(output.TableList, context)
@@ -19342,12 +16837,8 @@ const deserializeAws_json1_1GetUserDefinedFunctionResponse = (
   return {
     __type: "GetUserDefinedFunctionResponse",
     UserDefinedFunction:
-      output.UserDefinedFunction !== undefined &&
-      output.UserDefinedFunction !== null
-        ? deserializeAws_json1_1UserDefinedFunction(
-            output.UserDefinedFunction,
-            context
-          )
+      output.UserDefinedFunction !== undefined && output.UserDefinedFunction !== null
+        ? deserializeAws_json1_1UserDefinedFunction(output.UserDefinedFunction, context)
         : undefined
   } as any;
 };
@@ -19359,16 +16850,10 @@ const deserializeAws_json1_1GetUserDefinedFunctionsResponse = (
   return {
     __type: "GetUserDefinedFunctionsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UserDefinedFunctions:
-      output.UserDefinedFunctions !== undefined &&
-      output.UserDefinedFunctions !== null
-        ? deserializeAws_json1_1UserDefinedFunctionList(
-            output.UserDefinedFunctions,
-            context
-          )
+      output.UserDefinedFunctions !== undefined && output.UserDefinedFunctions !== null
+        ? deserializeAws_json1_1UserDefinedFunctionList(output.UserDefinedFunctions, context)
         : undefined
   } as any;
 };
@@ -19395,37 +16880,21 @@ const deserializeAws_json1_1LocationMap = (
   );
 };
 
-const deserializeAws_json1_1MatchCriteria = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1MatchCriteria = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Order = (
-  output: any,
-  context: __SerdeContext
-): Order => {
+const deserializeAws_json1_1Order = (output: any, context: __SerdeContext): Order => {
   return {
     __type: "Order",
-    Column:
-      output.Column !== undefined && output.Column !== null
-        ? output.Column
-        : undefined,
+    Column: output.Column !== undefined && output.Column !== null ? output.Column : undefined,
     SortOrder:
-      output.SortOrder !== undefined && output.SortOrder !== null
-        ? output.SortOrder
-        : undefined
+      output.SortOrder !== undefined && output.SortOrder !== null ? output.SortOrder : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OrderList = (
-  output: any,
-  context: __SerdeContext
-): Order[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Order(entry, context)
-  );
+const deserializeAws_json1_1OrderList = (output: any, context: __SerdeContext): Order[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Order(entry, context));
 };
 
 const deserializeAws_json1_1ParametersMap = (
@@ -19441,10 +16910,7 @@ const deserializeAws_json1_1ParametersMap = (
   );
 };
 
-const deserializeAws_json1_1Partition = (
-  output: any,
-  context: __SerdeContext
-): Partition => {
+const deserializeAws_json1_1Partition = (output: any, context: __SerdeContext): Partition => {
   return {
     __type: "Partition",
     CreationTime:
@@ -19468,17 +16934,11 @@ const deserializeAws_json1_1Partition = (
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
         : undefined,
     StorageDescriptor:
-      output.StorageDescriptor !== undefined &&
-      output.StorageDescriptor !== null
-        ? deserializeAws_json1_1StorageDescriptor(
-            output.StorageDescriptor,
-            context
-          )
+      output.StorageDescriptor !== undefined && output.StorageDescriptor !== null
+        ? deserializeAws_json1_1StorageDescriptor(output.StorageDescriptor, context)
         : undefined,
     TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
+      output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1ValueStringList(output.Values, context)
@@ -19507,18 +16967,11 @@ const deserializeAws_json1_1PartitionErrors = (
   output: any,
   context: __SerdeContext
 ): PartitionError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PartitionError(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1PartitionError(entry, context));
 };
 
-const deserializeAws_json1_1PartitionList = (
-  output: any,
-  context: __SerdeContext
-): Partition[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Partition(entry, context)
-  );
+const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContext): Partition[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Partition(entry, context));
 };
 
 const deserializeAws_json1_1PartitionValueList = (
@@ -19552,17 +17005,11 @@ const deserializeAws_json1_1PhysicalConnectionRequirements = (
         ? output.AvailabilityZone
         : undefined,
     SecurityGroupIdList:
-      output.SecurityGroupIdList !== undefined &&
-      output.SecurityGroupIdList !== null
-        ? deserializeAws_json1_1SecurityGroupIdList(
-            output.SecurityGroupIdList,
-            context
-          )
+      output.SecurityGroupIdList !== undefined && output.SecurityGroupIdList !== null
+        ? deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIdList, context)
         : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined
   } as any;
 };
 
@@ -19608,24 +17055,18 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
   return {
     __type: "PutResourcePolicyResponse",
     PolicyHash:
-      output.PolicyHash !== undefined && output.PolicyHash !== null
-        ? output.PolicyHash
-        : undefined
+      output.PolicyHash !== undefined && output.PolicyHash !== null ? output.PolicyHash : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ResourceUri = (
-  output: any,
-  context: __SerdeContext
-): ResourceUri => {
+const deserializeAws_json1_1ResourceUri = (output: any, context: __SerdeContext): ResourceUri => {
   return {
     __type: "ResourceUri",
     ResourceType:
       output.ResourceType !== undefined && output.ResourceType !== null
         ? output.ResourceType
         : undefined,
-    Uri:
-      output.Uri !== undefined && output.Uri !== null ? output.Uri : undefined
+    Uri: output.Uri !== undefined && output.Uri !== null ? output.Uri : undefined
   } as any;
 };
 
@@ -19633,9 +17074,7 @@ const deserializeAws_json1_1ResourceUriList = (
   output: any,
   context: __SerdeContext
 ): ResourceUri[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResourceUri(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceUri(entry, context));
 };
 
 const deserializeAws_json1_1SearchTablesResponse = (
@@ -19645,9 +17084,7 @@ const deserializeAws_json1_1SearchTablesResponse = (
   return {
     __type: "SearchTablesResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TableList:
       output.TableList !== undefined && output.TableList !== null
         ? deserializeAws_json1_1TableList(output.TableList, context)
@@ -19662,57 +17099,36 @@ const deserializeAws_json1_1SecurityGroupIdList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1SerDeInfo = (
-  output: any,
-  context: __SerdeContext
-): SerDeInfo => {
+const deserializeAws_json1_1SerDeInfo = (output: any, context: __SerdeContext): SerDeInfo => {
   return {
     __type: "SerDeInfo",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
         : undefined,
     SerializationLibrary:
-      output.SerializationLibrary !== undefined &&
-      output.SerializationLibrary !== null
+      output.SerializationLibrary !== undefined && output.SerializationLibrary !== null
         ? output.SerializationLibrary
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SkewedInfo = (
-  output: any,
-  context: __SerdeContext
-): SkewedInfo => {
+const deserializeAws_json1_1SkewedInfo = (output: any, context: __SerdeContext): SkewedInfo => {
   return {
     __type: "SkewedInfo",
     SkewedColumnNames:
-      output.SkewedColumnNames !== undefined &&
-      output.SkewedColumnNames !== null
-        ? deserializeAws_json1_1NameStringList(
-            output.SkewedColumnNames,
-            context
-          )
+      output.SkewedColumnNames !== undefined && output.SkewedColumnNames !== null
+        ? deserializeAws_json1_1NameStringList(output.SkewedColumnNames, context)
         : undefined,
     SkewedColumnValueLocationMaps:
       output.SkewedColumnValueLocationMaps !== undefined &&
       output.SkewedColumnValueLocationMaps !== null
-        ? deserializeAws_json1_1LocationMap(
-            output.SkewedColumnValueLocationMaps,
-            context
-          )
+        ? deserializeAws_json1_1LocationMap(output.SkewedColumnValueLocationMaps, context)
         : undefined,
     SkewedColumnValues:
-      output.SkewedColumnValues !== undefined &&
-      output.SkewedColumnValues !== null
-        ? deserializeAws_json1_1ColumnValueStringList(
-            output.SkewedColumnValues,
-            context
-          )
+      output.SkewedColumnValues !== undefined && output.SkewedColumnValues !== null
+        ? deserializeAws_json1_1ColumnValueStringList(output.SkewedColumnValues, context)
         : undefined
   } as any;
 };
@@ -19732,17 +17148,13 @@ const deserializeAws_json1_1StorageDescriptor = (
         ? deserializeAws_json1_1ColumnList(output.Columns, context)
         : undefined,
     Compressed:
-      output.Compressed !== undefined && output.Compressed !== null
-        ? output.Compressed
-        : undefined,
+      output.Compressed !== undefined && output.Compressed !== null ? output.Compressed : undefined,
     InputFormat:
       output.InputFormat !== undefined && output.InputFormat !== null
         ? output.InputFormat
         : undefined,
     Location:
-      output.Location !== undefined && output.Location !== null
-        ? output.Location
-        : undefined,
+      output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     NumberOfBuckets:
       output.NumberOfBuckets !== undefined && output.NumberOfBuckets !== null
         ? output.NumberOfBuckets
@@ -19768,17 +17180,13 @@ const deserializeAws_json1_1StorageDescriptor = (
         ? deserializeAws_json1_1OrderList(output.SortColumns, context)
         : undefined,
     StoredAsSubDirectories:
-      output.StoredAsSubDirectories !== undefined &&
-      output.StoredAsSubDirectories !== null
+      output.StoredAsSubDirectories !== undefined && output.StoredAsSubDirectories !== null
         ? output.StoredAsSubDirectories
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Table = (
-  output: any,
-  context: __SerdeContext
-): Table => {
+const deserializeAws_json1_1Table = (output: any, context: __SerdeContext): Table => {
   return {
     __type: "Table",
     CreateTime:
@@ -19786,9 +17194,7 @@ const deserializeAws_json1_1Table = (
         ? new Date(Math.round(output.CreateTime * 1000))
         : undefined,
     CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? output.CreatedBy
-        : undefined,
+      output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     DatabaseName:
       output.DatabaseName !== undefined && output.DatabaseName !== null
         ? output.DatabaseName
@@ -19810,14 +17216,8 @@ const deserializeAws_json1_1Table = (
       output.LastAnalyzedTime !== undefined && output.LastAnalyzedTime !== null
         ? new Date(Math.round(output.LastAnalyzedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Owner:
-      output.Owner !== undefined && output.Owner !== null
-        ? output.Owner
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1ParametersMap(output.Parameters, context)
@@ -19827,21 +17227,13 @@ const deserializeAws_json1_1Table = (
         ? deserializeAws_json1_1ColumnList(output.PartitionKeys, context)
         : undefined,
     Retention:
-      output.Retention !== undefined && output.Retention !== null
-        ? output.Retention
-        : undefined,
+      output.Retention !== undefined && output.Retention !== null ? output.Retention : undefined,
     StorageDescriptor:
-      output.StorageDescriptor !== undefined &&
-      output.StorageDescriptor !== null
-        ? deserializeAws_json1_1StorageDescriptor(
-            output.StorageDescriptor,
-            context
-          )
+      output.StorageDescriptor !== undefined && output.StorageDescriptor !== null
+        ? deserializeAws_json1_1StorageDescriptor(output.StorageDescriptor, context)
         : undefined,
     TableType:
-      output.TableType !== undefined && output.TableType !== null
-        ? output.TableType
-        : undefined,
+      output.TableType !== undefined && output.TableType !== null ? output.TableType : undefined,
     UpdateTime:
       output.UpdateTime !== undefined && output.UpdateTime !== null
         ? new Date(Math.round(output.UpdateTime * 1000))
@@ -19857,10 +17249,7 @@ const deserializeAws_json1_1Table = (
   } as any;
 };
 
-const deserializeAws_json1_1TableError = (
-  output: any,
-  context: __SerdeContext
-): TableError => {
+const deserializeAws_json1_1TableError = (output: any, context: __SerdeContext): TableError => {
   return {
     __type: "TableError",
     ErrorDetail:
@@ -19868,34 +17257,19 @@ const deserializeAws_json1_1TableError = (
         ? deserializeAws_json1_1ErrorDetail(output.ErrorDetail, context)
         : undefined,
     TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+      output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TableErrors = (
-  output: any,
-  context: __SerdeContext
-): TableError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TableError(entry, context)
-  );
+const deserializeAws_json1_1TableErrors = (output: any, context: __SerdeContext): TableError[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TableError(entry, context));
 };
 
-const deserializeAws_json1_1TableList = (
-  output: any,
-  context: __SerdeContext
-): Table[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Table(entry, context)
-  );
+const deserializeAws_json1_1TableList = (output: any, context: __SerdeContext): Table[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Table(entry, context));
 };
 
-const deserializeAws_json1_1TableVersion = (
-  output: any,
-  context: __SerdeContext
-): TableVersion => {
+const deserializeAws_json1_1TableVersion = (output: any, context: __SerdeContext): TableVersion => {
   return {
     __type: "TableVersion",
     Table:
@@ -19903,9 +17277,7 @@ const deserializeAws_json1_1TableVersion = (
         ? deserializeAws_json1_1Table(output.Table, context)
         : undefined,
     VersionId:
-      output.VersionId !== undefined && output.VersionId !== null
-        ? output.VersionId
-        : undefined
+      output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined
   } as any;
 };
 
@@ -19920,13 +17292,9 @@ const deserializeAws_json1_1TableVersionError = (
         ? deserializeAws_json1_1ErrorDetail(output.ErrorDetail, context)
         : undefined,
     TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
+      output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
     VersionId:
-      output.VersionId !== undefined && output.VersionId !== null
-        ? output.VersionId
-        : undefined
+      output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined
   } as any;
 };
 
@@ -19991,9 +17359,7 @@ const deserializeAws_json1_1UserDefinedFunction = (
   return {
     __type: "UserDefinedFunction",
     ClassName:
-      output.ClassName !== undefined && output.ClassName !== null
-        ? output.ClassName
-        : undefined,
+      output.ClassName !== undefined && output.ClassName !== null ? output.ClassName : undefined,
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
         ? new Date(Math.round(output.CreateTime * 1000))
@@ -20003,13 +17369,9 @@ const deserializeAws_json1_1UserDefinedFunction = (
         ? output.FunctionName
         : undefined,
     OwnerName:
-      output.OwnerName !== undefined && output.OwnerName !== null
-        ? output.OwnerName
-        : undefined,
+      output.OwnerName !== undefined && output.OwnerName !== null ? output.OwnerName : undefined,
     OwnerType:
-      output.OwnerType !== undefined && output.OwnerType !== null
-        ? output.OwnerType
-        : undefined,
+      output.OwnerType !== undefined && output.OwnerType !== null ? output.OwnerType : undefined,
     ResourceUris:
       output.ResourceUris !== undefined && output.ResourceUris !== null
         ? deserializeAws_json1_1ResourceUriList(output.ResourceUris, context)
@@ -20026,10 +17388,7 @@ const deserializeAws_json1_1UserDefinedFunctionList = (
   );
 };
 
-const deserializeAws_json1_1ValueStringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1ValueStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -20044,12 +17403,8 @@ const deserializeAws_json1_1BatchGetDevEndpointsResponse = (
         ? deserializeAws_json1_1DevEndpointList(output.DevEndpoints, context)
         : undefined,
     DevEndpointsNotFound:
-      output.DevEndpointsNotFound !== undefined &&
-      output.DevEndpointsNotFound !== null
-        ? deserializeAws_json1_1DevEndpointNames(
-            output.DevEndpointsNotFound,
-            context
-          )
+      output.DevEndpointsNotFound !== undefined && output.DevEndpointsNotFound !== null
+        ? deserializeAws_json1_1DevEndpointNames(output.DevEndpointsNotFound, context)
         : undefined
   } as any;
 };
@@ -20061,14 +17416,11 @@ const deserializeAws_json1_1CloudWatchEncryption = (
   return {
     __type: "CloudWatchEncryption",
     CloudWatchEncryptionMode:
-      output.CloudWatchEncryptionMode !== undefined &&
-      output.CloudWatchEncryptionMode !== null
+      output.CloudWatchEncryptionMode !== undefined && output.CloudWatchEncryptionMode !== null
         ? output.CloudWatchEncryptionMode
         : undefined,
     KmsKeyArn:
-      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null
-        ? output.KmsKeyArn
-        : undefined
+      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined
   } as any;
 };
 
@@ -20099,8 +17451,7 @@ const deserializeAws_json1_1CreateDevEndpointResponse = (
         ? output.ExtraJarsS3Path
         : undefined,
     ExtraPythonLibsS3Path:
-      output.ExtraPythonLibsS3Path !== undefined &&
-      output.ExtraPythonLibsS3Path !== null
+      output.ExtraPythonLibsS3Path !== undefined && output.ExtraPythonLibsS3Path !== null
         ? output.ExtraPythonLibsS3Path
         : undefined,
     FailureReason:
@@ -20119,38 +17470,23 @@ const deserializeAws_json1_1CreateDevEndpointResponse = (
       output.NumberOfWorkers !== undefined && output.NumberOfWorkers !== null
         ? output.NumberOfWorkers
         : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_json1_1StringList(output.SecurityGroupIds, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined,
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined,
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined,
     YarnEndpointAddress:
-      output.YarnEndpointAddress !== undefined &&
-      output.YarnEndpointAddress !== null
+      output.YarnEndpointAddress !== undefined && output.YarnEndpointAddress !== null
         ? output.YarnEndpointAddress
         : undefined,
     ZeppelinRemoteSparkInterpreterPort:
@@ -20171,10 +17507,7 @@ const deserializeAws_json1_1CreateSecurityConfigurationResponse = (
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -20196,10 +17529,7 @@ const deserializeAws_json1_1DeleteSecurityConfigurationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DevEndpoint = (
-  output: any,
-  context: __SerdeContext
-): DevEndpoint => {
+const deserializeAws_json1_1DevEndpoint = (output: any, context: __SerdeContext): DevEndpoint => {
   return {
     __type: "DevEndpoint",
     Arguments:
@@ -20223,8 +17553,7 @@ const deserializeAws_json1_1DevEndpoint = (
         ? output.ExtraJarsS3Path
         : undefined,
     ExtraPythonLibsS3Path:
-      output.ExtraPythonLibsS3Path !== undefined &&
-      output.ExtraPythonLibsS3Path !== null
+      output.ExtraPythonLibsS3Path !== undefined && output.ExtraPythonLibsS3Path !== null
         ? output.ExtraPythonLibsS3Path
         : undefined,
     FailureReason:
@@ -20236,8 +17565,7 @@ const deserializeAws_json1_1DevEndpoint = (
         ? output.GlueVersion
         : undefined,
     LastModifiedTimestamp:
-      output.LastModifiedTimestamp !== undefined &&
-      output.LastModifiedTimestamp !== null
+      output.LastModifiedTimestamp !== undefined && output.LastModifiedTimestamp !== null
         ? new Date(Math.round(output.LastModifiedTimestamp * 1000))
         : undefined,
     LastUpdateStatus:
@@ -20261,45 +17589,28 @@ const deserializeAws_json1_1DevEndpoint = (
         ? output.PublicAddress
         : undefined,
     PublicKey:
-      output.PublicKey !== undefined && output.PublicKey !== null
-        ? output.PublicKey
-        : undefined,
+      output.PublicKey !== undefined && output.PublicKey !== null ? output.PublicKey : undefined,
     PublicKeys:
       output.PublicKeys !== undefined && output.PublicKeys !== null
         ? deserializeAws_json1_1PublicKeysList(output.PublicKeys, context)
         : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_json1_1StringList(output.SecurityGroupIds, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     SubnetId:
-      output.SubnetId !== undefined && output.SubnetId !== null
-        ? output.SubnetId
-        : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined,
+      output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined,
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined,
     YarnEndpointAddress:
-      output.YarnEndpointAddress !== undefined &&
-      output.YarnEndpointAddress !== null
+      output.YarnEndpointAddress !== undefined && output.YarnEndpointAddress !== null
         ? output.YarnEndpointAddress
         : undefined,
     ZeppelinRemoteSparkInterpreterPort:
@@ -20314,9 +17625,7 @@ const deserializeAws_json1_1DevEndpointList = (
   output: any,
   context: __SerdeContext
 ): DevEndpoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DevEndpoint(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1DevEndpoint(entry, context));
 };
 
 const deserializeAws_json1_1DevEndpointNameList = (
@@ -20326,10 +17635,7 @@ const deserializeAws_json1_1DevEndpointNameList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1DevEndpointNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DevEndpointNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -20340,20 +17646,12 @@ const deserializeAws_json1_1EncryptionConfiguration = (
   return {
     __type: "EncryptionConfiguration",
     CloudWatchEncryption:
-      output.CloudWatchEncryption !== undefined &&
-      output.CloudWatchEncryption !== null
-        ? deserializeAws_json1_1CloudWatchEncryption(
-            output.CloudWatchEncryption,
-            context
-          )
+      output.CloudWatchEncryption !== undefined && output.CloudWatchEncryption !== null
+        ? deserializeAws_json1_1CloudWatchEncryption(output.CloudWatchEncryption, context)
         : undefined,
     JobBookmarksEncryption:
-      output.JobBookmarksEncryption !== undefined &&
-      output.JobBookmarksEncryption !== null
-        ? deserializeAws_json1_1JobBookmarksEncryption(
-            output.JobBookmarksEncryption,
-            context
-          )
+      output.JobBookmarksEncryption !== undefined && output.JobBookmarksEncryption !== null
+        ? deserializeAws_json1_1JobBookmarksEncryption(output.JobBookmarksEncryption, context)
         : undefined,
     S3Encryption:
       output.S3Encryption !== undefined && output.S3Encryption !== null
@@ -20386,9 +17684,7 @@ const deserializeAws_json1_1GetDevEndpointsResponse = (
         ? deserializeAws_json1_1DevEndpointList(output.DevEndpoints, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -20400,10 +17696,7 @@ const deserializeAws_json1_1GetJobBookmarkResponse = (
     __type: "GetJobBookmarkResponse",
     JobBookmarkEntry:
       output.JobBookmarkEntry !== undefined && output.JobBookmarkEntry !== null
-        ? deserializeAws_json1_1JobBookmarkEntry(
-            output.JobBookmarkEntry,
-            context
-          )
+        ? deserializeAws_json1_1JobBookmarkEntry(output.JobBookmarkEntry, context)
         : undefined
   } as any;
 };
@@ -20415,12 +17708,8 @@ const deserializeAws_json1_1GetSecurityConfigurationResponse = (
   return {
     __type: "GetSecurityConfigurationResponse",
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
-        ? deserializeAws_json1_1SecurityConfiguration(
-            output.SecurityConfiguration,
-            context
-          )
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
+        ? deserializeAws_json1_1SecurityConfiguration(output.SecurityConfiguration, context)
         : undefined
   } as any;
 };
@@ -20432,16 +17721,10 @@ const deserializeAws_json1_1GetSecurityConfigurationsResponse = (
   return {
     __type: "GetSecurityConfigurationsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SecurityConfigurations:
-      output.SecurityConfigurations !== undefined &&
-      output.SecurityConfigurations !== null
-        ? deserializeAws_json1_1SecurityConfigurationList(
-            output.SecurityConfigurations,
-            context
-          )
+      output.SecurityConfigurations !== undefined && output.SecurityConfigurations !== null
+        ? deserializeAws_json1_1SecurityConfigurationList(output.SecurityConfigurations, context)
         : undefined
   } as any;
 };
@@ -20452,32 +17735,19 @@ const deserializeAws_json1_1JobBookmarkEntry = (
 ): JobBookmarkEntry => {
   return {
     __type: "JobBookmarkEntry",
-    Attempt:
-      output.Attempt !== undefined && output.Attempt !== null
-        ? output.Attempt
-        : undefined,
+    Attempt: output.Attempt !== undefined && output.Attempt !== null ? output.Attempt : undefined,
     JobBookmark:
       output.JobBookmark !== undefined && output.JobBookmark !== null
         ? output.JobBookmark
         : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     PreviousRunId:
       output.PreviousRunId !== undefined && output.PreviousRunId !== null
         ? output.PreviousRunId
         : undefined,
-    Run:
-      output.Run !== undefined && output.Run !== null ? output.Run : undefined,
-    RunId:
-      output.RunId !== undefined && output.RunId !== null
-        ? output.RunId
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Run: output.Run !== undefined && output.Run !== null ? output.Run : undefined,
+    RunId: output.RunId !== undefined && output.RunId !== null ? output.RunId : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
@@ -20488,14 +17758,11 @@ const deserializeAws_json1_1JobBookmarksEncryption = (
   return {
     __type: "JobBookmarksEncryption",
     JobBookmarksEncryptionMode:
-      output.JobBookmarksEncryptionMode !== undefined &&
-      output.JobBookmarksEncryptionMode !== null
+      output.JobBookmarksEncryptionMode !== undefined && output.JobBookmarksEncryptionMode !== null
         ? output.JobBookmarksEncryptionMode
         : undefined,
     KmsKeyArn:
-      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null
-        ? output.KmsKeyArn
-        : undefined
+      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined
   } as any;
 };
 
@@ -20507,15 +17774,10 @@ const deserializeAws_json1_1ListDevEndpointsResponse = (
     __type: "ListDevEndpointsResponse",
     DevEndpointNames:
       output.DevEndpointNames !== undefined && output.DevEndpointNames !== null
-        ? deserializeAws_json1_1DevEndpointNameList(
-            output.DevEndpointNames,
-            context
-          )
+        ? deserializeAws_json1_1DevEndpointNameList(output.DevEndpointNames, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -20532,10 +17794,7 @@ const deserializeAws_json1_1MapValue = (
   );
 };
 
-const deserializeAws_json1_1PublicKeysList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1PublicKeysList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -20547,24 +17806,16 @@ const deserializeAws_json1_1ResetJobBookmarkResponse = (
     __type: "ResetJobBookmarkResponse",
     JobBookmarkEntry:
       output.JobBookmarkEntry !== undefined && output.JobBookmarkEntry !== null
-        ? deserializeAws_json1_1JobBookmarkEntry(
-            output.JobBookmarkEntry,
-            context
-          )
+        ? deserializeAws_json1_1JobBookmarkEntry(output.JobBookmarkEntry, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1S3Encryption = (
-  output: any,
-  context: __SerdeContext
-): S3Encryption => {
+const deserializeAws_json1_1S3Encryption = (output: any, context: __SerdeContext): S3Encryption => {
   return {
     __type: "S3Encryption",
     KmsKeyArn:
-      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null
-        ? output.KmsKeyArn
-        : undefined,
+      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
     S3EncryptionMode:
       output.S3EncryptionMode !== undefined && output.S3EncryptionMode !== null
         ? output.S3EncryptionMode
@@ -20576,9 +17827,7 @@ const deserializeAws_json1_1S3EncryptionList = (
   output: any,
   context: __SerdeContext
 ): S3Encryption[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1S3Encryption(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1S3Encryption(entry, context));
 };
 
 const deserializeAws_json1_1SecurityConfiguration = (
@@ -20592,17 +17841,10 @@ const deserializeAws_json1_1SecurityConfiguration = (
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
         : undefined,
     EncryptionConfiguration:
-      output.EncryptionConfiguration !== undefined &&
-      output.EncryptionConfiguration !== null
-        ? deserializeAws_json1_1EncryptionConfiguration(
-            output.EncryptionConfiguration,
-            context
-          )
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -20615,10 +17857,7 @@ const deserializeAws_json1_1SecurityConfigurationList = (
   );
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -20637,14 +17876,9 @@ const deserializeAws_json1_1CancelMLTaskRunResponse = (
 ): CancelMLTaskRunResponse => {
   return {
     __type: "CancelMLTaskRunResponse",
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined,
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined,
     TransformId:
       output.TransformId !== undefined && output.TransformId !== null
         ? output.TransformId
@@ -20659,13 +17893,11 @@ const deserializeAws_json1_1ConfusionMatrix = (
   return {
     __type: "ConfusionMatrix",
     NumFalseNegatives:
-      output.NumFalseNegatives !== undefined &&
-      output.NumFalseNegatives !== null
+      output.NumFalseNegatives !== undefined && output.NumFalseNegatives !== null
         ? output.NumFalseNegatives
         : undefined,
     NumFalsePositives:
-      output.NumFalsePositives !== undefined &&
-      output.NumFalsePositives !== null
+      output.NumFalsePositives !== undefined && output.NumFalsePositives !== null
         ? output.NumFalsePositives
         : undefined,
     NumTrueNegatives:
@@ -20712,12 +17944,8 @@ const deserializeAws_json1_1EvaluationMetrics = (
   return {
     __type: "EvaluationMetrics",
     FindMatchesMetrics:
-      output.FindMatchesMetrics !== undefined &&
-      output.FindMatchesMetrics !== null
-        ? deserializeAws_json1_1FindMatchesMetrics(
-            output.FindMatchesMetrics,
-            context
-          )
+      output.FindMatchesMetrics !== undefined && output.FindMatchesMetrics !== null
+        ? deserializeAws_json1_1FindMatchesMetrics(output.FindMatchesMetrics, context)
         : undefined,
     TransformType:
       output.TransformType !== undefined && output.TransformType !== null
@@ -20755,13 +17983,8 @@ const deserializeAws_json1_1FindMatchesMetrics = (
         : undefined,
     F1: output.F1 !== undefined && output.F1 !== null ? output.F1 : undefined,
     Precision:
-      output.Precision !== undefined && output.Precision !== null
-        ? output.Precision
-        : undefined,
-    Recall:
-      output.Recall !== undefined && output.Recall !== null
-        ? output.Recall
-        : undefined
+      output.Precision !== undefined && output.Precision !== null ? output.Precision : undefined,
+    Recall: output.Recall !== undefined && output.Recall !== null ? output.Recall : undefined
   } as any;
 };
 
@@ -20772,23 +17995,19 @@ const deserializeAws_json1_1FindMatchesParameters = (
   return {
     __type: "FindMatchesParameters",
     AccuracyCostTradeoff:
-      output.AccuracyCostTradeoff !== undefined &&
-      output.AccuracyCostTradeoff !== null
+      output.AccuracyCostTradeoff !== undefined && output.AccuracyCostTradeoff !== null
         ? output.AccuracyCostTradeoff
         : undefined,
     EnforceProvidedLabels:
-      output.EnforceProvidedLabels !== undefined &&
-      output.EnforceProvidedLabels !== null
+      output.EnforceProvidedLabels !== undefined && output.EnforceProvidedLabels !== null
         ? output.EnforceProvidedLabels
         : undefined,
     PrecisionRecallTradeoff:
-      output.PrecisionRecallTradeoff !== undefined &&
-      output.PrecisionRecallTradeoff !== null
+      output.PrecisionRecallTradeoff !== undefined && output.PrecisionRecallTradeoff !== null
         ? output.PrecisionRecallTradeoff
         : undefined,
     PrimaryKeyColumnName:
-      output.PrimaryKeyColumnName !== undefined &&
-      output.PrimaryKeyColumnName !== null
+      output.PrimaryKeyColumnName !== undefined && output.PrimaryKeyColumnName !== null
         ? output.PrimaryKeyColumnName
         : undefined
   } as any;
@@ -20800,18 +18019,10 @@ const deserializeAws_json1_1FindMatchesTaskRunProperties = (
 ): FindMatchesTaskRunProperties => {
   return {
     __type: "FindMatchesTaskRunProperties",
-    JobId:
-      output.JobId !== undefined && output.JobId !== null
-        ? output.JobId
-        : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     JobRunId:
-      output.JobRunId !== undefined && output.JobRunId !== null
-        ? output.JobRunId
-        : undefined
+      output.JobRunId !== undefined && output.JobRunId !== null ? output.JobRunId : undefined
   } as any;
 };
 
@@ -20849,14 +18060,9 @@ const deserializeAws_json1_1GetMLTaskRunResponse = (
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined,
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined,
     TransformId:
       output.TransformId !== undefined && output.TransformId !== null
         ? output.TransformId
@@ -20871,9 +18077,7 @@ const deserializeAws_json1_1GetMLTaskRunsResponse = (
   return {
     __type: "GetMLTaskRunsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TaskRuns:
       output.TaskRuns !== undefined && output.TaskRuns !== null
         ? deserializeAws_json1_1TaskRunList(output.TaskRuns, context)
@@ -20896,26 +18100,19 @@ const deserializeAws_json1_1GetMLTransformResponse = (
         ? output.Description
         : undefined,
     EvaluationMetrics:
-      output.EvaluationMetrics !== undefined &&
-      output.EvaluationMetrics !== null
-        ? deserializeAws_json1_1EvaluationMetrics(
-            output.EvaluationMetrics,
-            context
-          )
+      output.EvaluationMetrics !== undefined && output.EvaluationMetrics !== null
+        ? deserializeAws_json1_1EvaluationMetrics(output.EvaluationMetrics, context)
         : undefined,
     GlueVersion:
       output.GlueVersion !== undefined && output.GlueVersion !== null
         ? output.GlueVersion
         : undefined,
     InputRecordTables:
-      output.InputRecordTables !== undefined &&
-      output.InputRecordTables !== null
+      output.InputRecordTables !== undefined && output.InputRecordTables !== null
         ? deserializeAws_json1_1GlueTables(output.InputRecordTables, context)
         : undefined,
     LabelCount:
-      output.LabelCount !== undefined && output.LabelCount !== null
-        ? output.LabelCount
-        : undefined,
+      output.LabelCount !== undefined && output.LabelCount !== null ? output.LabelCount : undefined,
     LastModifiedOn:
       output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
         ? new Date(Math.round(output.LastModifiedOn * 1000))
@@ -20925,13 +18122,8 @@ const deserializeAws_json1_1GetMLTransformResponse = (
         ? output.MaxCapacity
         : undefined,
     MaxRetries:
-      output.MaxRetries !== undefined && output.MaxRetries !== null
-        ? output.MaxRetries
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+      output.MaxRetries !== undefined && output.MaxRetries !== null ? output.MaxRetries : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfWorkers:
       output.NumberOfWorkers !== undefined && output.NumberOfWorkers !== null
         ? output.NumberOfWorkers
@@ -20940,30 +18132,19 @@ const deserializeAws_json1_1GetMLTransformResponse = (
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1TransformParameters(output.Parameters, context)
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Schema:
       output.Schema !== undefined && output.Schema !== null
         ? deserializeAws_json1_1TransformSchema(output.Schema, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
     TransformId:
       output.TransformId !== undefined && output.TransformId !== null
         ? output.TransformId
         : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined
   } as any;
 };
 
@@ -20974,9 +18155,7 @@ const deserializeAws_json1_1GetMLTransformsResponse = (
   return {
     __type: "GetMLTransformsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Transforms:
       output.Transforms !== undefined && output.Transforms !== null
         ? deserializeAws_json1_1TransformList(output.Transforms, context)
@@ -20984,16 +18163,11 @@ const deserializeAws_json1_1GetMLTransformsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GlueTable = (
-  output: any,
-  context: __SerdeContext
-): GlueTable => {
+const deserializeAws_json1_1GlueTable = (output: any, context: __SerdeContext): GlueTable => {
   return {
     __type: "GlueTable",
     CatalogId:
-      output.CatalogId !== undefined && output.CatalogId !== null
-        ? output.CatalogId
-        : undefined,
+      output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
     ConnectionName:
       output.ConnectionName !== undefined && output.ConnectionName !== null
         ? output.ConnectionName
@@ -21003,19 +18177,12 @@ const deserializeAws_json1_1GlueTable = (
         ? output.DatabaseName
         : undefined,
     TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+      output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GlueTables = (
-  output: any,
-  context: __SerdeContext
-): GlueTable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1GlueTable(entry, context)
-  );
+const deserializeAws_json1_1GlueTables = (output: any, context: __SerdeContext): GlueTable[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1GlueTable(entry, context));
 };
 
 const deserializeAws_json1_1ImportLabelsTaskRunProperties = (
@@ -21028,10 +18195,7 @@ const deserializeAws_json1_1ImportLabelsTaskRunProperties = (
       output.InputS3Path !== undefined && output.InputS3Path !== null
         ? output.InputS3Path
         : undefined,
-    Replace:
-      output.Replace !== undefined && output.Replace !== null
-        ? output.Replace
-        : undefined
+    Replace: output.Replace !== undefined && output.Replace !== null ? output.Replace : undefined
   } as any;
 };
 
@@ -21048,10 +18212,7 @@ const deserializeAws_json1_1LabelingSetGenerationTaskRunProperties = (
   } as any;
 };
 
-const deserializeAws_json1_1MLTransform = (
-  output: any,
-  context: __SerdeContext
-): MLTransform => {
+const deserializeAws_json1_1MLTransform = (output: any, context: __SerdeContext): MLTransform => {
   return {
     __type: "MLTransform",
     CreatedOn:
@@ -21063,26 +18224,19 @@ const deserializeAws_json1_1MLTransform = (
         ? output.Description
         : undefined,
     EvaluationMetrics:
-      output.EvaluationMetrics !== undefined &&
-      output.EvaluationMetrics !== null
-        ? deserializeAws_json1_1EvaluationMetrics(
-            output.EvaluationMetrics,
-            context
-          )
+      output.EvaluationMetrics !== undefined && output.EvaluationMetrics !== null
+        ? deserializeAws_json1_1EvaluationMetrics(output.EvaluationMetrics, context)
         : undefined,
     GlueVersion:
       output.GlueVersion !== undefined && output.GlueVersion !== null
         ? output.GlueVersion
         : undefined,
     InputRecordTables:
-      output.InputRecordTables !== undefined &&
-      output.InputRecordTables !== null
+      output.InputRecordTables !== undefined && output.InputRecordTables !== null
         ? deserializeAws_json1_1GlueTables(output.InputRecordTables, context)
         : undefined,
     LabelCount:
-      output.LabelCount !== undefined && output.LabelCount !== null
-        ? output.LabelCount
-        : undefined,
+      output.LabelCount !== undefined && output.LabelCount !== null ? output.LabelCount : undefined,
     LastModifiedOn:
       output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
         ? new Date(Math.round(output.LastModifiedOn * 1000))
@@ -21092,13 +18246,8 @@ const deserializeAws_json1_1MLTransform = (
         ? output.MaxCapacity
         : undefined,
     MaxRetries:
-      output.MaxRetries !== undefined && output.MaxRetries !== null
-        ? output.MaxRetries
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+      output.MaxRetries !== undefined && output.MaxRetries !== null ? output.MaxRetries : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfWorkers:
       output.NumberOfWorkers !== undefined && output.NumberOfWorkers !== null
         ? output.NumberOfWorkers
@@ -21107,30 +18256,19 @@ const deserializeAws_json1_1MLTransform = (
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1TransformParameters(output.Parameters, context)
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Schema:
       output.Schema !== undefined && output.Schema !== null
         ? deserializeAws_json1_1TransformSchema(output.Schema, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
     TransformId:
       output.TransformId !== undefined && output.TransformId !== null
         ? output.TransformId
         : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined
   } as any;
 };
 
@@ -21140,27 +18278,16 @@ const deserializeAws_json1_1MLTransformNotReadyException = (
 ): MLTransformNotReadyException => {
   return {
     __type: "MLTransformNotReadyException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SchemaColumn = (
-  output: any,
-  context: __SerdeContext
-): SchemaColumn => {
+const deserializeAws_json1_1SchemaColumn = (output: any, context: __SerdeContext): SchemaColumn => {
   return {
     __type: "SchemaColumn",
     DataType:
-      output.DataType !== undefined && output.DataType !== null
-        ? output.DataType
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+      output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -21171,9 +18298,7 @@ const deserializeAws_json1_1StartExportLabelsTaskRunResponse = (
   return {
     __type: "StartExportLabelsTaskRunResponse",
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined
   } as any;
 };
 
@@ -21184,9 +18309,7 @@ const deserializeAws_json1_1StartImportLabelsTaskRunResponse = (
   return {
     __type: "StartImportLabelsTaskRunResponse",
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined
   } as any;
 };
 
@@ -21197,9 +18320,7 @@ const deserializeAws_json1_1StartMLEvaluationTaskRunResponse = (
   return {
     __type: "StartMLEvaluationTaskRunResponse",
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined
   } as any;
 };
 
@@ -21210,16 +18331,11 @@ const deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunResponse = (
   return {
     __type: "StartMLLabelingSetGenerationTaskRunResponse",
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TaskRun = (
-  output: any,
-  context: __SerdeContext
-): TaskRun => {
+const deserializeAws_json1_1TaskRun = (output: any, context: __SerdeContext): TaskRun => {
   return {
     __type: "TaskRun",
     CompletedOn:
@@ -21250,14 +18366,9 @@ const deserializeAws_json1_1TaskRun = (
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TaskRunId:
-      output.TaskRunId !== undefined && output.TaskRunId !== null
-        ? output.TaskRunId
-        : undefined,
+      output.TaskRunId !== undefined && output.TaskRunId !== null ? output.TaskRunId : undefined,
     TransformId:
       output.TransformId !== undefined && output.TransformId !== null
         ? output.TransformId
@@ -21265,13 +18376,8 @@ const deserializeAws_json1_1TaskRun = (
   } as any;
 };
 
-const deserializeAws_json1_1TaskRunList = (
-  output: any,
-  context: __SerdeContext
-): TaskRun[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TaskRun(entry, context)
-  );
+const deserializeAws_json1_1TaskRunList = (output: any, context: __SerdeContext): TaskRun[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TaskRun(entry, context));
 };
 
 const deserializeAws_json1_1TaskRunProperties = (
@@ -21313,9 +18419,7 @@ const deserializeAws_json1_1TaskRunProperties = (
           )
         : undefined,
     TaskType:
-      output.TaskType !== undefined && output.TaskType !== null
-        ? output.TaskType
-        : undefined
+      output.TaskType !== undefined && output.TaskType !== null ? output.TaskType : undefined
   } as any;
 };
 
@@ -21323,9 +18427,7 @@ const deserializeAws_json1_1TransformList = (
   output: any,
   context: __SerdeContext
 ): MLTransform[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MLTransform(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1MLTransform(entry, context));
 };
 
 const deserializeAws_json1_1TransformParameters = (
@@ -21335,12 +18437,8 @@ const deserializeAws_json1_1TransformParameters = (
   return {
     __type: "TransformParameters",
     FindMatchesParameters:
-      output.FindMatchesParameters !== undefined &&
-      output.FindMatchesParameters !== null
-        ? deserializeAws_json1_1FindMatchesParameters(
-            output.FindMatchesParameters,
-            context
-          )
+      output.FindMatchesParameters !== undefined && output.FindMatchesParameters !== null
+        ? deserializeAws_json1_1FindMatchesParameters(output.FindMatchesParameters, context)
         : undefined,
     TransformType:
       output.TransformType !== undefined && output.TransformType !== null
@@ -21353,9 +18451,7 @@ const deserializeAws_json1_1TransformSchema = (
   output: any,
   context: __SerdeContext
 ): SchemaColumn[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SchemaColumn(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaColumn(entry, context));
 };
 
 const deserializeAws_json1_1UpdateMLTransformResponse = (
@@ -21371,10 +18467,7 @@ const deserializeAws_json1_1UpdateMLTransformResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Action = (
-  output: any,
-  context: __SerdeContext
-): Action => {
+const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Action => {
   return {
     __type: "Action",
     Arguments:
@@ -21385,37 +18478,21 @@ const deserializeAws_json1_1Action = (
       output.CrawlerName !== undefined && output.CrawlerName !== null
         ? output.CrawlerName
         : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     NotificationProperty:
-      output.NotificationProperty !== undefined &&
-      output.NotificationProperty !== null
-        ? deserializeAws_json1_1NotificationProperty(
-            output.NotificationProperty,
-            context
-          )
+      output.NotificationProperty !== undefined && output.NotificationProperty !== null
+        ? deserializeAws_json1_1NotificationProperty(output.NotificationProperty, context)
         : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ActionList = (
-  output: any,
-  context: __SerdeContext
-): Action[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Action(entry, context)
-  );
+const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext): Action[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Action(entry, context));
 };
 
 const deserializeAws_json1_1BatchGetJobsResponse = (
@@ -21447,10 +18524,7 @@ const deserializeAws_json1_1BatchGetTriggersResponse = (
         : undefined,
     TriggersNotFound:
       output.TriggersNotFound !== undefined && output.TriggersNotFound !== null
-        ? deserializeAws_json1_1TriggerNameList(
-            output.TriggersNotFound,
-            context
-          )
+        ? deserializeAws_json1_1TriggerNameList(output.TriggersNotFound, context)
         : undefined
   } as any;
 };
@@ -21482,14 +18556,9 @@ const deserializeAws_json1_1BatchStopJobRunError = (
       output.ErrorDetail !== undefined && output.ErrorDetail !== null
         ? deserializeAws_json1_1ErrorDetail(output.ErrorDetail, context)
         : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     JobRunId:
-      output.JobRunId !== undefined && output.JobRunId !== null
-        ? output.JobRunId
-        : undefined
+      output.JobRunId !== undefined && output.JobRunId !== null ? output.JobRunId : undefined
   } as any;
 };
 
@@ -21513,8 +18582,7 @@ const deserializeAws_json1_1BatchStopJobRunResponse = (
         ? deserializeAws_json1_1BatchStopJobRunErrorList(output.Errors, context)
         : undefined,
     SuccessfulSubmissions:
-      output.SuccessfulSubmissions !== undefined &&
-      output.SuccessfulSubmissions !== null
+      output.SuccessfulSubmissions !== undefined && output.SuccessfulSubmissions !== null
         ? deserializeAws_json1_1BatchStopJobRunSuccessfulSubmissionList(
             output.SuccessfulSubmissions,
             context
@@ -21529,14 +18597,9 @@ const deserializeAws_json1_1BatchStopJobRunSuccessfulSubmission = (
 ): BatchStopJobRunSuccessfulSubmission => {
   return {
     __type: "BatchStopJobRunSuccessfulSubmission",
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     JobRunId:
-      output.JobRunId !== undefined && output.JobRunId !== null
-        ? output.JobRunId
-        : undefined
+      output.JobRunId !== undefined && output.JobRunId !== null ? output.JobRunId : undefined
   } as any;
 };
 
@@ -21549,42 +18612,26 @@ const deserializeAws_json1_1BatchStopJobRunSuccessfulSubmissionList = (
   );
 };
 
-const deserializeAws_json1_1Condition = (
-  output: any,
-  context: __SerdeContext
-): Condition => {
+const deserializeAws_json1_1Condition = (output: any, context: __SerdeContext): Condition => {
   return {
     __type: "Condition",
     CrawlState:
-      output.CrawlState !== undefined && output.CrawlState !== null
-        ? output.CrawlState
-        : undefined,
+      output.CrawlState !== undefined && output.CrawlState !== null ? output.CrawlState : undefined,
     CrawlerName:
       output.CrawlerName !== undefined && output.CrawlerName !== null
         ? output.CrawlerName
         : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     LogicalOperator:
       output.LogicalOperator !== undefined && output.LogicalOperator !== null
         ? output.LogicalOperator
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ConditionList = (
-  output: any,
-  context: __SerdeContext
-): Condition[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Condition(entry, context)
-  );
+const deserializeAws_json1_1ConditionList = (output: any, context: __SerdeContext): Condition[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Condition(entry, context));
 };
 
 const deserializeAws_json1_1ConnectionsList = (
@@ -21595,18 +18642,12 @@ const deserializeAws_json1_1ConnectionsList = (
     __type: "ConnectionsList",
     Connections:
       output.Connections !== undefined && output.Connections !== null
-        ? deserializeAws_json1_1OrchestrationStringList(
-            output.Connections,
-            context
-          )
+        ? deserializeAws_json1_1OrchestrationStringList(output.Connections, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Crawl = (
-  output: any,
-  context: __SerdeContext
-): Crawl => {
+const deserializeAws_json1_1Crawl = (output: any, context: __SerdeContext): Crawl => {
   return {
     __type: "Crawl",
     CompletedOn:
@@ -21618,31 +18659,19 @@ const deserializeAws_json1_1Crawl = (
         ? output.ErrorMessage
         : undefined,
     LogGroup:
-      output.LogGroup !== undefined && output.LogGroup !== null
-        ? output.LogGroup
-        : undefined,
+      output.LogGroup !== undefined && output.LogGroup !== null ? output.LogGroup : undefined,
     LogStream:
-      output.LogStream !== undefined && output.LogStream !== null
-        ? output.LogStream
-        : undefined,
+      output.LogStream !== undefined && output.LogStream !== null ? output.LogStream : undefined,
     StartedOn:
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CrawlList = (
-  output: any,
-  context: __SerdeContext
-): Crawl[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Crawl(entry, context)
-  );
+const deserializeAws_json1_1CrawlList = (output: any, context: __SerdeContext): Crawl[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Crawl(entry, context));
 };
 
 const deserializeAws_json1_1CrawlerNodeDetails = (
@@ -21664,10 +18693,7 @@ const deserializeAws_json1_1CreateJobResponse = (
 ): CreateJobResponse => {
   return {
     __type: "CreateJobResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -21677,10 +18703,7 @@ const deserializeAws_json1_1CreateTriggerResponse = (
 ): CreateTriggerResponse => {
   return {
     __type: "CreateTriggerResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -21690,10 +18713,7 @@ const deserializeAws_json1_1CreateWorkflowResponse = (
 ): CreateWorkflowResponse => {
   return {
     __type: "CreateWorkflowResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -21703,10 +18723,7 @@ const deserializeAws_json1_1DeleteJobResponse = (
 ): DeleteJobResponse => {
   return {
     __type: "DeleteJobResponse",
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined
   } as any;
 };
 
@@ -21716,10 +18733,7 @@ const deserializeAws_json1_1DeleteTriggerResponse = (
 ): DeleteTriggerResponse => {
   return {
     __type: "DeleteTriggerResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -21729,17 +18743,11 @@ const deserializeAws_json1_1DeleteWorkflowResponse = (
 ): DeleteWorkflowResponse => {
   return {
     __type: "DeleteWorkflowResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Edge = (
-  output: any,
-  context: __SerdeContext
-): Edge => {
+const deserializeAws_json1_1Edge = (output: any, context: __SerdeContext): Edge => {
   return {
     __type: "Edge",
     DestinationId:
@@ -21747,19 +18755,12 @@ const deserializeAws_json1_1Edge = (
         ? output.DestinationId
         : undefined,
     SourceId:
-      output.SourceId !== undefined && output.SourceId !== null
-        ? output.SourceId
-        : undefined
+      output.SourceId !== undefined && output.SourceId !== null ? output.SourceId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EdgeList = (
-  output: any,
-  context: __SerdeContext
-): Edge[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Edge(entry, context)
-  );
+const deserializeAws_json1_1EdgeList = (output: any, context: __SerdeContext): Edge[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Edge(entry, context));
 };
 
 const deserializeAws_json1_1ExecutionProperty = (
@@ -21769,8 +18770,7 @@ const deserializeAws_json1_1ExecutionProperty = (
   return {
     __type: "ExecutionProperty",
     MaxConcurrentRuns:
-      output.MaxConcurrentRuns !== undefined &&
-      output.MaxConcurrentRuns !== null
+      output.MaxConcurrentRuns !== undefined && output.MaxConcurrentRuns !== null
         ? output.MaxConcurrentRuns
         : undefined
   } as any;
@@ -21826,9 +18826,7 @@ const deserializeAws_json1_1GetJobRunsResponse = (
         ? deserializeAws_json1_1JobRunList(output.JobRuns, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -21843,9 +18841,7 @@ const deserializeAws_json1_1GetJobsResponse = (
         ? deserializeAws_json1_1JobList(output.Jobs, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -21869,9 +18865,7 @@ const deserializeAws_json1_1GetTriggersResponse = (
   return {
     __type: "GetTriggersResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Triggers:
       output.Triggers !== undefined && output.Triggers !== null
         ? deserializeAws_json1_1TriggerList(output.Triggers, context)
@@ -21900,10 +18894,7 @@ const deserializeAws_json1_1GetWorkflowRunPropertiesResponse = (
     __type: "GetWorkflowRunPropertiesResponse",
     RunProperties:
       output.RunProperties !== undefined && output.RunProperties !== null
-        ? deserializeAws_json1_1WorkflowRunProperties(
-            output.RunProperties,
-            context
-          )
+        ? deserializeAws_json1_1WorkflowRunProperties(output.RunProperties, context)
         : undefined
   } as any;
 };
@@ -21928,9 +18919,7 @@ const deserializeAws_json1_1GetWorkflowRunsResponse = (
   return {
     __type: "GetWorkflowRunsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Runs:
       output.Runs !== undefined && output.Runs !== null
         ? deserializeAws_json1_1WorkflowRuns(output.Runs, context)
@@ -21938,15 +18927,11 @@ const deserializeAws_json1_1GetWorkflowRunsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Job = (
-  output: any,
-  context: __SerdeContext
-): Job => {
+const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     __type: "Job",
     AllocatedCapacity:
-      output.AllocatedCapacity !== undefined &&
-      output.AllocatedCapacity !== null
+      output.AllocatedCapacity !== undefined && output.AllocatedCapacity !== null
         ? output.AllocatedCapacity
         : undefined,
     Command:
@@ -21970,12 +18955,8 @@ const deserializeAws_json1_1Job = (
         ? output.Description
         : undefined,
     ExecutionProperty:
-      output.ExecutionProperty !== undefined &&
-      output.ExecutionProperty !== null
-        ? deserializeAws_json1_1ExecutionProperty(
-            output.ExecutionProperty,
-            context
-          )
+      output.ExecutionProperty !== undefined && output.ExecutionProperty !== null
+        ? deserializeAws_json1_1ExecutionProperty(output.ExecutionProperty, context)
         : undefined,
     GlueVersion:
       output.GlueVersion !== undefined && output.GlueVersion !== null
@@ -21985,64 +18966,37 @@ const deserializeAws_json1_1Job = (
       output.LastModifiedOn !== undefined && output.LastModifiedOn !== null
         ? new Date(Math.round(output.LastModifiedOn * 1000))
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
     MaxCapacity:
       output.MaxCapacity !== undefined && output.MaxCapacity !== null
         ? output.MaxCapacity
         : undefined,
     MaxRetries:
-      output.MaxRetries !== undefined && output.MaxRetries !== null
-        ? output.MaxRetries
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+      output.MaxRetries !== undefined && output.MaxRetries !== null ? output.MaxRetries : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NotificationProperty:
-      output.NotificationProperty !== undefined &&
-      output.NotificationProperty !== null
-        ? deserializeAws_json1_1NotificationProperty(
-            output.NotificationProperty,
-            context
-          )
+      output.NotificationProperty !== undefined && output.NotificationProperty !== null
+        ? deserializeAws_json1_1NotificationProperty(output.NotificationProperty, context)
         : undefined,
     NumberOfWorkers:
       output.NumberOfWorkers !== undefined && output.NumberOfWorkers !== null
         ? output.NumberOfWorkers
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1JobCommand = (
-  output: any,
-  context: __SerdeContext
-): JobCommand => {
+const deserializeAws_json1_1JobCommand = (output: any, context: __SerdeContext): JobCommand => {
   return {
     __type: "JobCommand",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PythonVersion:
       output.PythonVersion !== undefined && output.PythonVersion !== null
         ? output.PythonVersion
@@ -22054,19 +19008,11 @@ const deserializeAws_json1_1JobCommand = (
   } as any;
 };
 
-const deserializeAws_json1_1JobList = (
-  output: any,
-  context: __SerdeContext
-): Job[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Job(entry, context)
-  );
+const deserializeAws_json1_1JobList = (output: any, context: __SerdeContext): Job[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Job(entry, context));
 };
 
-const deserializeAws_json1_1JobNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1JobNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22083,25 +19029,18 @@ const deserializeAws_json1_1JobNodeDetails = (
   } as any;
 };
 
-const deserializeAws_json1_1JobRun = (
-  output: any,
-  context: __SerdeContext
-): JobRun => {
+const deserializeAws_json1_1JobRun = (output: any, context: __SerdeContext): JobRun => {
   return {
     __type: "JobRun",
     AllocatedCapacity:
-      output.AllocatedCapacity !== undefined &&
-      output.AllocatedCapacity !== null
+      output.AllocatedCapacity !== undefined && output.AllocatedCapacity !== null
         ? output.AllocatedCapacity
         : undefined,
     Arguments:
       output.Arguments !== undefined && output.Arguments !== null
         ? deserializeAws_json1_1GenericMap(output.Arguments, context)
         : undefined,
-    Attempt:
-      output.Attempt !== undefined && output.Attempt !== null
-        ? output.Attempt
-        : undefined,
+    Attempt: output.Attempt !== undefined && output.Attempt !== null ? output.Attempt : undefined,
     CompletedOn:
       output.CompletedOn !== undefined && output.CompletedOn !== null
         ? new Date(Math.round(output.CompletedOn * 1000))
@@ -22119,10 +19058,7 @@ const deserializeAws_json1_1JobRun = (
         ? output.GlueVersion
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
     JobRunState:
       output.JobRunState !== undefined && output.JobRunState !== null
         ? output.JobRunState
@@ -22140,12 +19076,8 @@ const deserializeAws_json1_1JobRun = (
         ? output.MaxCapacity
         : undefined,
     NotificationProperty:
-      output.NotificationProperty !== undefined &&
-      output.NotificationProperty !== null
-        ? deserializeAws_json1_1NotificationProperty(
-            output.NotificationProperty,
-            context
-          )
+      output.NotificationProperty !== undefined && output.NotificationProperty !== null
+        ? deserializeAws_json1_1NotificationProperty(output.NotificationProperty, context)
         : undefined,
     NumberOfWorkers:
       output.NumberOfWorkers !== undefined && output.NumberOfWorkers !== null
@@ -22160,36 +19092,25 @@ const deserializeAws_json1_1JobRun = (
         ? output.PreviousRunId
         : undefined,
     SecurityConfiguration:
-      output.SecurityConfiguration !== undefined &&
-      output.SecurityConfiguration !== null
+      output.SecurityConfiguration !== undefined && output.SecurityConfiguration !== null
         ? output.SecurityConfiguration
         : undefined,
     StartedOn:
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
         : undefined,
-    Timeout:
-      output.Timeout !== undefined && output.Timeout !== null
-        ? output.Timeout
-        : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
     TriggerName:
       output.TriggerName !== undefined && output.TriggerName !== null
         ? output.TriggerName
         : undefined,
     WorkerType:
-      output.WorkerType !== undefined && output.WorkerType !== null
-        ? output.WorkerType
-        : undefined
+      output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1JobRunList = (
-  output: any,
-  context: __SerdeContext
-): JobRun[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1JobRun(entry, context)
-  );
+const deserializeAws_json1_1JobRunList = (output: any, context: __SerdeContext): JobRun[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1JobRun(entry, context));
 };
 
 const deserializeAws_json1_1ListJobsResponse = (
@@ -22203,9 +19124,7 @@ const deserializeAws_json1_1ListJobsResponse = (
         ? deserializeAws_json1_1JobNameList(output.JobNames, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -22216,9 +19135,7 @@ const deserializeAws_json1_1ListTriggersResponse = (
   return {
     __type: "ListTriggersResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TriggerNames:
       output.TriggerNames !== undefined && output.TriggerNames !== null
         ? deserializeAws_json1_1TriggerNameList(output.TriggerNames, context)
@@ -22233,9 +19150,7 @@ const deserializeAws_json1_1ListWorkflowsResponse = (
   return {
     __type: "ListWorkflowsResponse",
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Workflows:
       output.Workflows !== undefined && output.Workflows !== null
         ? deserializeAws_json1_1WorkflowNames(output.Workflows, context)
@@ -22243,52 +19158,30 @@ const deserializeAws_json1_1ListWorkflowsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Node = (
-  output: any,
-  context: __SerdeContext
-): Node => {
+const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node => {
   return {
     __type: "Node",
     CrawlerDetails:
       output.CrawlerDetails !== undefined && output.CrawlerDetails !== null
-        ? deserializeAws_json1_1CrawlerNodeDetails(
-            output.CrawlerDetails,
-            context
-          )
+        ? deserializeAws_json1_1CrawlerNodeDetails(output.CrawlerDetails, context)
         : undefined,
     JobDetails:
       output.JobDetails !== undefined && output.JobDetails !== null
         ? deserializeAws_json1_1JobNodeDetails(output.JobDetails, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     TriggerDetails:
       output.TriggerDetails !== undefined && output.TriggerDetails !== null
-        ? deserializeAws_json1_1TriggerNodeDetails(
-            output.TriggerDetails,
-            context
-          )
+        ? deserializeAws_json1_1TriggerNodeDetails(output.TriggerDetails, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     UniqueId:
-      output.UniqueId !== undefined && output.UniqueId !== null
-        ? output.UniqueId
-        : undefined
+      output.UniqueId !== undefined && output.UniqueId !== null ? output.UniqueId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NodeList = (
-  output: any,
-  context: __SerdeContext
-): Node[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Node(entry, context)
-  );
+const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): Node[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Node(entry, context));
 };
 
 const deserializeAws_json1_1NotificationProperty = (
@@ -22311,20 +19204,11 @@ const deserializeAws_json1_1OrchestrationStringList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Predecessor = (
-  output: any,
-  context: __SerdeContext
-): Predecessor => {
+const deserializeAws_json1_1Predecessor = (output: any, context: __SerdeContext): Predecessor => {
   return {
     __type: "Predecessor",
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined,
-    RunId:
-      output.RunId !== undefined && output.RunId !== null
-        ? output.RunId
-        : undefined
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
+    RunId: output.RunId !== undefined && output.RunId !== null ? output.RunId : undefined
   } as any;
 };
 
@@ -22332,25 +19216,17 @@ const deserializeAws_json1_1PredecessorList = (
   output: any,
   context: __SerdeContext
 ): Predecessor[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Predecessor(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Predecessor(entry, context));
 };
 
-const deserializeAws_json1_1Predicate = (
-  output: any,
-  context: __SerdeContext
-): Predicate => {
+const deserializeAws_json1_1Predicate = (output: any, context: __SerdeContext): Predicate => {
   return {
     __type: "Predicate",
     Conditions:
       output.Conditions !== undefined && output.Conditions !== null
         ? deserializeAws_json1_1ConditionList(output.Conditions, context)
         : undefined,
-    Logical:
-      output.Logical !== undefined && output.Logical !== null
-        ? output.Logical
-        : undefined
+    Logical: output.Logical !== undefined && output.Logical !== null ? output.Logical : undefined
   } as any;
 };
 
@@ -22370,9 +19246,7 @@ const deserializeAws_json1_1StartJobRunResponse = (
   return {
     __type: "StartJobRunResponse",
     JobRunId:
-      output.JobRunId !== undefined && output.JobRunId !== null
-        ? output.JobRunId
-        : undefined
+      output.JobRunId !== undefined && output.JobRunId !== null ? output.JobRunId : undefined
   } as any;
 };
 
@@ -22382,10 +19256,7 @@ const deserializeAws_json1_1StartTriggerResponse = (
 ): StartTriggerResponse => {
   return {
     __type: "StartTriggerResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -22395,10 +19266,7 @@ const deserializeAws_json1_1StartWorkflowRunResponse = (
 ): StartWorkflowRunResponse => {
   return {
     __type: "StartWorkflowRunResponse",
-    RunId:
-      output.RunId !== undefined && output.RunId !== null
-        ? output.RunId
-        : undefined
+    RunId: output.RunId !== undefined && output.RunId !== null ? output.RunId : undefined
   } as any;
 };
 
@@ -22408,17 +19276,11 @@ const deserializeAws_json1_1StopTriggerResponse = (
 ): StopTriggerResponse => {
   return {
     __type: "StopTriggerResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Trigger = (
-  output: any,
-  context: __SerdeContext
-): Trigger => {
+const deserializeAws_json1_1Trigger = (output: any, context: __SerdeContext): Trigger => {
   return {
     __type: "Trigger",
     Actions:
@@ -22430,26 +19292,15 @@ const deserializeAws_json1_1Trigger = (
         ? output.Description
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Predicate:
       output.Predicate !== undefined && output.Predicate !== null
         ? deserializeAws_json1_1Predicate(output.Predicate, context)
         : undefined,
     Schedule:
-      output.Schedule !== undefined && output.Schedule !== null
-        ? output.Schedule
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined,
+      output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     WorkflowName:
       output.WorkflowName !== undefined && output.WorkflowName !== null
         ? output.WorkflowName
@@ -22457,19 +19308,11 @@ const deserializeAws_json1_1Trigger = (
   } as any;
 };
 
-const deserializeAws_json1_1TriggerList = (
-  output: any,
-  context: __SerdeContext
-): Trigger[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Trigger(entry, context)
-  );
+const deserializeAws_json1_1TriggerList = (output: any, context: __SerdeContext): Trigger[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Trigger(entry, context));
 };
 
-const deserializeAws_json1_1TriggerNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1TriggerNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -22492,10 +19335,7 @@ const deserializeAws_json1_1UpdateJobResponse = (
 ): UpdateJobResponse => {
   return {
     __type: "UpdateJobResponse",
-    JobName:
-      output.JobName !== undefined && output.JobName !== null
-        ? output.JobName
-        : undefined
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined
   } as any;
 };
 
@@ -22518,17 +19358,11 @@ const deserializeAws_json1_1UpdateWorkflowResponse = (
 ): UpdateWorkflowResponse => {
   return {
     __type: "UpdateWorkflowResponse",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Workflow = (
-  output: any,
-  context: __SerdeContext
-): Workflow => {
+const deserializeAws_json1_1Workflow = (output: any, context: __SerdeContext): Workflow => {
   return {
     __type: "Workflow",
     CreatedOn:
@@ -22536,12 +19370,8 @@ const deserializeAws_json1_1Workflow = (
         ? new Date(Math.round(output.CreatedOn * 1000))
         : undefined,
     DefaultRunProperties:
-      output.DefaultRunProperties !== undefined &&
-      output.DefaultRunProperties !== null
-        ? deserializeAws_json1_1WorkflowRunProperties(
-            output.DefaultRunProperties,
-            context
-          )
+      output.DefaultRunProperties !== undefined && output.DefaultRunProperties !== null
+        ? deserializeAws_json1_1WorkflowRunProperties(output.DefaultRunProperties, context)
         : undefined,
     Description:
       output.Description !== undefined && output.Description !== null
@@ -22559,10 +19389,7 @@ const deserializeAws_json1_1Workflow = (
       output.LastRun !== undefined && output.LastRun !== null
         ? deserializeAws_json1_1WorkflowRun(output.LastRun, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -22583,17 +19410,11 @@ const deserializeAws_json1_1WorkflowGraph = (
   } as any;
 };
 
-const deserializeAws_json1_1WorkflowNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1WorkflowNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1WorkflowRun = (
-  output: any,
-  context: __SerdeContext
-): WorkflowRun => {
+const deserializeAws_json1_1WorkflowRun = (output: any, context: __SerdeContext): WorkflowRun => {
   return {
     __type: "WorkflowRun",
     CompletedOn:
@@ -22604,36 +19425,23 @@ const deserializeAws_json1_1WorkflowRun = (
       output.Graph !== undefined && output.Graph !== null
         ? deserializeAws_json1_1WorkflowGraph(output.Graph, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     StartedOn:
       output.StartedOn !== undefined && output.StartedOn !== null
         ? new Date(Math.round(output.StartedOn * 1000))
         : undefined,
     Statistics:
       output.Statistics !== undefined && output.Statistics !== null
-        ? deserializeAws_json1_1WorkflowRunStatistics(
-            output.Statistics,
-            context
-          )
+        ? deserializeAws_json1_1WorkflowRunStatistics(output.Statistics, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     WorkflowRunId:
       output.WorkflowRunId !== undefined && output.WorkflowRunId !== null
         ? output.WorkflowRunId
         : undefined,
     WorkflowRunProperties:
-      output.WorkflowRunProperties !== undefined &&
-      output.WorkflowRunProperties !== null
-        ? deserializeAws_json1_1WorkflowRunProperties(
-            output.WorkflowRunProperties,
-            context
-          )
+      output.WorkflowRunProperties !== undefined && output.WorkflowRunProperties !== null
+        ? deserializeAws_json1_1WorkflowRunProperties(output.WorkflowRunProperties, context)
         : undefined
   } as any;
 };
@@ -22688,18 +19496,11 @@ const deserializeAws_json1_1WorkflowRuns = (
   output: any,
   context: __SerdeContext
 ): WorkflowRun[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1WorkflowRun(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1WorkflowRun(entry, context));
 };
 
-const deserializeAws_json1_1Workflows = (
-  output: any,
-  context: __SerdeContext
-): Workflow[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Workflow(entry, context)
-  );
+const deserializeAws_json1_1Workflows = (output: any, context: __SerdeContext): Workflow[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Workflow(entry, context));
 };
 
 const deserializeAws_json1_1BatchGetCrawlersResponse = (
@@ -22714,10 +19515,7 @@ const deserializeAws_json1_1BatchGetCrawlersResponse = (
         : undefined,
     CrawlersNotFound:
       output.CrawlersNotFound !== undefined && output.CrawlersNotFound !== null
-        ? deserializeAws_json1_1CrawlerNameList(
-            output.CrawlersNotFound,
-            context
-          )
+        ? deserializeAws_json1_1CrawlerNameList(output.CrawlersNotFound, context)
         : undefined
   } as any;
 };
@@ -22750,15 +19548,10 @@ const deserializeAws_json1_1CatalogTargetList = (
   output: any,
   context: __SerdeContext
 ): CatalogTarget[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CatalogTarget(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1CatalogTarget(entry, context));
 };
 
-const deserializeAws_json1_1Classifier = (
-  output: any,
-  context: __SerdeContext
-): Classifier => {
+const deserializeAws_json1_1Classifier = (output: any, context: __SerdeContext): Classifier => {
   return {
     __type: "Classifier",
     CsvClassifier:
@@ -22784,9 +19577,7 @@ const deserializeAws_json1_1ClassifierList = (
   output: any,
   context: __SerdeContext
 ): Classifier[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Classifier(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Classifier(entry, context));
 };
 
 const deserializeAws_json1_1ClassifierNameList = (
@@ -22796,20 +19587,11 @@ const deserializeAws_json1_1ClassifierNameList = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1CodeGenEdge = (
-  output: any,
-  context: __SerdeContext
-): CodeGenEdge => {
+const deserializeAws_json1_1CodeGenEdge = (output: any, context: __SerdeContext): CodeGenEdge => {
   return {
     __type: "CodeGenEdge",
-    Source:
-      output.Source !== undefined && output.Source !== null
-        ? output.Source
-        : undefined,
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? output.Target
-        : undefined,
+    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
     TargetParameter:
       output.TargetParameter !== undefined && output.TargetParameter !== null
         ? output.TargetParameter
@@ -22817,10 +19599,7 @@ const deserializeAws_json1_1CodeGenEdge = (
   } as any;
 };
 
-const deserializeAws_json1_1CodeGenNode = (
-  output: any,
-  context: __SerdeContext
-): CodeGenNode => {
+const deserializeAws_json1_1CodeGenNode = (output: any, context: __SerdeContext): CodeGenNode => {
   return {
     __type: "CodeGenNode",
     Args:
@@ -22829,13 +19608,9 @@ const deserializeAws_json1_1CodeGenNode = (
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     LineNumber:
-      output.LineNumber !== undefined && output.LineNumber !== null
-        ? output.LineNumber
-        : undefined,
+      output.LineNumber !== undefined && output.LineNumber !== null ? output.LineNumber : undefined,
     NodeType:
-      output.NodeType !== undefined && output.NodeType !== null
-        ? output.NodeType
-        : undefined
+      output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined
   } as any;
 };
 
@@ -22845,18 +19620,9 @@ const deserializeAws_json1_1CodeGenNodeArg = (
 ): CodeGenNodeArg => {
   return {
     __type: "CodeGenNodeArg",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Param:
-      output.Param !== undefined && output.Param !== null
-        ? output.Param
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Param: output.Param !== undefined && output.Param !== null ? output.Param : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -22864,15 +19630,10 @@ const deserializeAws_json1_1CodeGenNodeArgs = (
   output: any,
   context: __SerdeContext
 ): CodeGenNodeArg[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CodeGenNodeArg(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1CodeGenNodeArg(entry, context));
 };
 
-const deserializeAws_json1_1Crawler = (
-  output: any,
-  context: __SerdeContext
-): Crawler => {
+const deserializeAws_json1_1Crawler = (output: any, context: __SerdeContext): Crawler => {
   return {
     __type: "Crawler",
     Classifiers:
@@ -22912,30 +19673,17 @@ const deserializeAws_json1_1Crawler = (
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Schedule:
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_json1_1Schedule(output.Schedule, context)
         : undefined,
     SchemaChangePolicy:
-      output.SchemaChangePolicy !== undefined &&
-      output.SchemaChangePolicy !== null
-        ? deserializeAws_json1_1SchemaChangePolicy(
-            output.SchemaChangePolicy,
-            context
-          )
+      output.SchemaChangePolicy !== undefined && output.SchemaChangePolicy !== null
+        ? deserializeAws_json1_1SchemaChangePolicy(output.SchemaChangePolicy, context)
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     TablePrefix:
       output.TablePrefix !== undefined && output.TablePrefix !== null
         ? output.TablePrefix
@@ -22944,20 +19692,12 @@ const deserializeAws_json1_1Crawler = (
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1CrawlerTargets(output.Targets, context)
         : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CrawlerList = (
-  output: any,
-  context: __SerdeContext
-): Crawler[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Crawler(entry, context)
-  );
+const deserializeAws_json1_1CrawlerList = (output: any, context: __SerdeContext): Crawler[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Crawler(entry, context));
 };
 
 const deserializeAws_json1_1CrawlerMetrics = (
@@ -22971,13 +19711,11 @@ const deserializeAws_json1_1CrawlerMetrics = (
         ? output.CrawlerName
         : undefined,
     LastRuntimeSeconds:
-      output.LastRuntimeSeconds !== undefined &&
-      output.LastRuntimeSeconds !== null
+      output.LastRuntimeSeconds !== undefined && output.LastRuntimeSeconds !== null
         ? output.LastRuntimeSeconds
         : undefined,
     MedianRuntimeSeconds:
-      output.MedianRuntimeSeconds !== undefined &&
-      output.MedianRuntimeSeconds !== null
+      output.MedianRuntimeSeconds !== undefined && output.MedianRuntimeSeconds !== null
         ? output.MedianRuntimeSeconds
         : undefined,
     StillEstimating:
@@ -23007,15 +19745,10 @@ const deserializeAws_json1_1CrawlerMetricsList = (
   output: any,
   context: __SerdeContext
 ): CrawlerMetrics[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CrawlerMetrics(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1CrawlerMetrics(entry, context));
 };
 
-const deserializeAws_json1_1CrawlerNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1CrawlerNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -23025,10 +19758,7 @@ const deserializeAws_json1_1CrawlerNotRunningException = (
 ): CrawlerNotRunningException => {
   return {
     __type: "CrawlerNotRunningException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23038,10 +19768,7 @@ const deserializeAws_json1_1CrawlerRunningException = (
 ): CrawlerRunningException => {
   return {
     __type: "CrawlerRunningException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23051,10 +19778,7 @@ const deserializeAws_json1_1CrawlerStoppingException = (
 ): CrawlerStoppingException => {
   return {
     __type: "CrawlerStoppingException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23066,17 +19790,11 @@ const deserializeAws_json1_1CrawlerTargets = (
     __type: "CrawlerTargets",
     CatalogTargets:
       output.CatalogTargets !== undefined && output.CatalogTargets !== null
-        ? deserializeAws_json1_1CatalogTargetList(
-            output.CatalogTargets,
-            context
-          )
+        ? deserializeAws_json1_1CatalogTargetList(output.CatalogTargets, context)
         : undefined,
     DynamoDBTargets:
       output.DynamoDBTargets !== undefined && output.DynamoDBTargets !== null
-        ? deserializeAws_json1_1DynamoDBTargetList(
-            output.DynamoDBTargets,
-            context
-          )
+        ? deserializeAws_json1_1DynamoDBTargetList(output.DynamoDBTargets, context)
         : undefined,
     JdbcTargets:
       output.JdbcTargets !== undefined && output.JdbcTargets !== null
@@ -23118,9 +19836,7 @@ const deserializeAws_json1_1CreateScriptResponse = (
         ? output.PythonScript
         : undefined,
     ScalaCode:
-      output.ScalaCode !== undefined && output.ScalaCode !== null
-        ? output.ScalaCode
-        : undefined
+      output.ScalaCode !== undefined && output.ScalaCode !== null ? output.ScalaCode : undefined
   } as any;
 };
 
@@ -23131,8 +19847,7 @@ const deserializeAws_json1_1CsvClassifier = (
   return {
     __type: "CsvClassifier",
     AllowSingleColumn:
-      output.AllowSingleColumn !== undefined &&
-      output.AllowSingleColumn !== null
+      output.AllowSingleColumn !== undefined && output.AllowSingleColumn !== null
         ? output.AllowSingleColumn
         : undefined,
     ContainsHeader:
@@ -23144,12 +19859,9 @@ const deserializeAws_json1_1CsvClassifier = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     Delimiter:
-      output.Delimiter !== undefined && output.Delimiter !== null
-        ? output.Delimiter
-        : undefined,
+      output.Delimiter !== undefined && output.Delimiter !== null ? output.Delimiter : undefined,
     DisableValueTrimming:
-      output.DisableValueTrimming !== undefined &&
-      output.DisableValueTrimming !== null
+      output.DisableValueTrimming !== undefined && output.DisableValueTrimming !== null
         ? output.DisableValueTrimming
         : undefined,
     Header:
@@ -23160,44 +19872,25 @@ const deserializeAws_json1_1CsvClassifier = (
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     QuoteSymbol:
       output.QuoteSymbol !== undefined && output.QuoteSymbol !== null
         ? output.QuoteSymbol
         : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CsvHeader = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1CsvHeader = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1DagEdges = (
-  output: any,
-  context: __SerdeContext
-): CodeGenEdge[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CodeGenEdge(entry, context)
-  );
+const deserializeAws_json1_1DagEdges = (output: any, context: __SerdeContext): CodeGenEdge[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CodeGenEdge(entry, context));
 };
 
-const deserializeAws_json1_1DagNodes = (
-  output: any,
-  context: __SerdeContext
-): CodeGenNode[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CodeGenNode(entry, context)
-  );
+const deserializeAws_json1_1DagNodes = (output: any, context: __SerdeContext): CodeGenNode[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CodeGenNode(entry, context));
 };
 
 const deserializeAws_json1_1DeleteClassifierResponse = (
@@ -23224,10 +19917,7 @@ const deserializeAws_json1_1DynamoDBTarget = (
 ): DynamoDBTarget => {
   return {
     __type: "DynamoDBTarget",
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined
   } as any;
 };
 
@@ -23235,9 +19925,7 @@ const deserializeAws_json1_1DynamoDBTargetList = (
   output: any,
   context: __SerdeContext
 ): DynamoDBTarget[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DynamoDBTarget(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1DynamoDBTarget(entry, context));
 };
 
 const deserializeAws_json1_1GetClassifierResponse = (
@@ -23264,9 +19952,7 @@ const deserializeAws_json1_1GetClassifiersResponse = (
         ? deserializeAws_json1_1ClassifierList(output.Classifiers, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -23277,17 +19963,11 @@ const deserializeAws_json1_1GetCrawlerMetricsResponse = (
   return {
     __type: "GetCrawlerMetricsResponse",
     CrawlerMetricsList:
-      output.CrawlerMetricsList !== undefined &&
-      output.CrawlerMetricsList !== null
-        ? deserializeAws_json1_1CrawlerMetricsList(
-            output.CrawlerMetricsList,
-            context
-          )
+      output.CrawlerMetricsList !== undefined && output.CrawlerMetricsList !== null
+        ? deserializeAws_json1_1CrawlerMetricsList(output.CrawlerMetricsList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -23315,9 +19995,7 @@ const deserializeAws_json1_1GetCrawlersResponse = (
         ? deserializeAws_json1_1CrawlerList(output.Crawlers, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -23362,9 +20040,7 @@ const deserializeAws_json1_1GetPlanResponse = (
         ? output.PythonScript
         : undefined,
     ScalaCode:
-      output.ScalaCode !== undefined && output.ScalaCode !== null
-        ? output.ScalaCode
-        : undefined
+      output.ScalaCode !== undefined && output.ScalaCode !== null ? output.ScalaCode : undefined
   } as any;
 };
 
@@ -23394,21 +20070,12 @@ const deserializeAws_json1_1GrokClassifier = (
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
-const deserializeAws_json1_1JdbcTarget = (
-  output: any,
-  context: __SerdeContext
-): JdbcTarget => {
+const deserializeAws_json1_1JdbcTarget = (output: any, context: __SerdeContext): JdbcTarget => {
   return {
     __type: "JdbcTarget",
     ConnectionName:
@@ -23419,10 +20086,7 @@ const deserializeAws_json1_1JdbcTarget = (
       output.Exclusions !== undefined && output.Exclusions !== null
         ? deserializeAws_json1_1PathList(output.Exclusions, context)
         : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined
   } as any;
 };
 
@@ -23430,9 +20094,7 @@ const deserializeAws_json1_1JdbcTargetList = (
   output: any,
   context: __SerdeContext
 ): JdbcTarget[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1JdbcTarget(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1JdbcTarget(entry, context));
 };
 
 const deserializeAws_json1_1JsonClassifier = (
@@ -23446,21 +20108,13 @@ const deserializeAws_json1_1JsonClassifier = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     JsonPath:
-      output.JsonPath !== undefined && output.JsonPath !== null
-        ? output.JsonPath
-        : undefined,
+      output.JsonPath !== undefined && output.JsonPath !== null ? output.JsonPath : undefined,
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
@@ -23475,13 +20129,9 @@ const deserializeAws_json1_1LastCrawlInfo = (
         ? output.ErrorMessage
         : undefined,
     LogGroup:
-      output.LogGroup !== undefined && output.LogGroup !== null
-        ? output.LogGroup
-        : undefined,
+      output.LogGroup !== undefined && output.LogGroup !== null ? output.LogGroup : undefined,
     LogStream:
-      output.LogStream !== undefined && output.LogStream !== null
-        ? output.LogStream
-        : undefined,
+      output.LogStream !== undefined && output.LogStream !== null ? output.LogStream : undefined,
     MessagePrefix:
       output.MessagePrefix !== undefined && output.MessagePrefix !== null
         ? output.MessagePrefix
@@ -23490,10 +20140,7 @@ const deserializeAws_json1_1LastCrawlInfo = (
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -23508,42 +20155,29 @@ const deserializeAws_json1_1ListCrawlersResponse = (
         ? deserializeAws_json1_1CrawlerNameList(output.CrawlerNames, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MappingEntry = (
-  output: any,
-  context: __SerdeContext
-): MappingEntry => {
+const deserializeAws_json1_1MappingEntry = (output: any, context: __SerdeContext): MappingEntry => {
   return {
     __type: "MappingEntry",
     SourcePath:
-      output.SourcePath !== undefined && output.SourcePath !== null
-        ? output.SourcePath
-        : undefined,
+      output.SourcePath !== undefined && output.SourcePath !== null ? output.SourcePath : undefined,
     SourceTable:
       output.SourceTable !== undefined && output.SourceTable !== null
         ? output.SourceTable
         : undefined,
     SourceType:
-      output.SourceType !== undefined && output.SourceType !== null
-        ? output.SourceType
-        : undefined,
+      output.SourceType !== undefined && output.SourceType !== null ? output.SourceType : undefined,
     TargetPath:
-      output.TargetPath !== undefined && output.TargetPath !== null
-        ? output.TargetPath
-        : undefined,
+      output.TargetPath !== undefined && output.TargetPath !== null ? output.TargetPath : undefined,
     TargetTable:
       output.TargetTable !== undefined && output.TargetTable !== null
         ? output.TargetTable
         : undefined,
     TargetType:
-      output.TargetType !== undefined && output.TargetType !== null
-        ? output.TargetType
-        : undefined
+      output.TargetType !== undefined && output.TargetType !== null ? output.TargetType : undefined
   } as any;
 };
 
@@ -23551,9 +20185,7 @@ const deserializeAws_json1_1MappingList = (
   output: any,
   context: __SerdeContext
 ): MappingEntry[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MappingEntry(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1MappingEntry(entry, context));
 };
 
 const deserializeAws_json1_1NoScheduleException = (
@@ -23562,61 +20194,37 @@ const deserializeAws_json1_1NoScheduleException = (
 ): NoScheduleException => {
   return {
     __type: "NoScheduleException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1PathList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1PathList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1S3Target = (
-  output: any,
-  context: __SerdeContext
-): S3Target => {
+const deserializeAws_json1_1S3Target = (output: any, context: __SerdeContext): S3Target => {
   return {
     __type: "S3Target",
     Exclusions:
       output.Exclusions !== undefined && output.Exclusions !== null
         ? deserializeAws_json1_1PathList(output.Exclusions, context)
         : undefined,
-    Path:
-      output.Path !== undefined && output.Path !== null
-        ? output.Path
-        : undefined
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined
   } as any;
 };
 
-const deserializeAws_json1_1S3TargetList = (
-  output: any,
-  context: __SerdeContext
-): S3Target[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1S3Target(entry, context)
-  );
+const deserializeAws_json1_1S3TargetList = (output: any, context: __SerdeContext): S3Target[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1S3Target(entry, context));
 };
 
-const deserializeAws_json1_1Schedule = (
-  output: any,
-  context: __SerdeContext
-): Schedule => {
+const deserializeAws_json1_1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
     __type: "Schedule",
     ScheduleExpression:
-      output.ScheduleExpression !== undefined &&
-      output.ScheduleExpression !== null
+      output.ScheduleExpression !== undefined && output.ScheduleExpression !== null
         ? output.ScheduleExpression
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined
+    State: output.State !== undefined && output.State !== null ? output.State : undefined
   } as any;
 };
 
@@ -23626,10 +20234,7 @@ const deserializeAws_json1_1SchedulerNotRunningException = (
 ): SchedulerNotRunningException => {
   return {
     __type: "SchedulerNotRunningException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23639,10 +20244,7 @@ const deserializeAws_json1_1SchedulerRunningException = (
 ): SchedulerRunningException => {
   return {
     __type: "SchedulerRunningException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23652,10 +20254,7 @@ const deserializeAws_json1_1SchedulerTransitioningException = (
 ): SchedulerTransitioningException => {
   return {
     __type: "SchedulerTransitioningException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -23757,18 +20356,9 @@ const deserializeAws_json1_1XMLClassifier = (
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    RowTag:
-      output.RowTag !== undefined && output.RowTag !== null
-        ? output.RowTag
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RowTag: output.RowTag !== undefined && output.RowTag !== null ? output.RowTag : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
@@ -23786,16 +20376,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

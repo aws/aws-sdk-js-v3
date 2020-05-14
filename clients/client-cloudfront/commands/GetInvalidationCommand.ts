@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInvalidationCommandInput = GetInvalidationRequest;
-export type GetInvalidationCommandOutput = GetInvalidationResult &
-  __MetadataBearer;
+export type GetInvalidationCommandOutput = GetInvalidationResult & __MetadataBearer;
 
 export class GetInvalidationCommand extends $Command<
   GetInvalidationCommandInput,
@@ -47,9 +46,7 @@ export class GetInvalidationCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInvalidationCommandInput, GetInvalidationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

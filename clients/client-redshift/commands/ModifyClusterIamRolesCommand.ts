@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ModifyClusterIamRolesMessage,
-  ModifyClusterIamRolesResult
-} from "../models/index";
+import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterIamRolesCommand,
   serializeAws_queryModifyClusterIamRolesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterIamRolesCommandInput = ModifyClusterIamRolesMessage;
-export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult &
-  __MetadataBearer;
+export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult & __MetadataBearer;
 
 export class ModifyClusterIamRolesCommand extends $Command<
   ModifyClusterIamRolesCommandInput,
@@ -49,13 +45,8 @@ export class ModifyClusterIamRolesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterIamRolesCommandInput,
-    ModifyClusterIamRolesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterIamRolesCommandInput, ModifyClusterIamRolesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

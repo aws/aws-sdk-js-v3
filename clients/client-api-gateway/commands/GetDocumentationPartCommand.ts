@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  DocumentationPart,
-  GetDocumentationPartRequest
-} from "../models/index";
+import { DocumentationPart, GetDocumentationPartRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDocumentationPartCommand,
   serializeAws_restJson1_1GetDocumentationPartCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDocumentationPartCommandInput = GetDocumentationPartRequest;
-export type GetDocumentationPartCommandOutput = DocumentationPart &
-  __MetadataBearer;
+export type GetDocumentationPartCommandOutput = DocumentationPart & __MetadataBearer;
 
 export class GetDocumentationPartCommand extends $Command<
   GetDocumentationPartCommandInput,
@@ -49,13 +45,8 @@ export class GetDocumentationPartCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDocumentationPartCommandInput,
-    GetDocumentationPartCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDocumentationPartCommandInput, GetDocumentationPartCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDocumentationPartCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1_1GetDocumentationPartCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDocumentationPartCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetVoiceConnectorRequest,
-  GetVoiceConnectorResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceConnectorCommand,
   serializeAws_restJson1_1GetVoiceConnectorCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorCommandInput = GetVoiceConnectorRequest;
-export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse &
-  __MetadataBearer;
+export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse & __MetadataBearer;
 
 export class GetVoiceConnectorCommand extends $Command<
   GetVoiceConnectorCommandInput,
@@ -50,9 +42,7 @@ export class GetVoiceConnectorCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

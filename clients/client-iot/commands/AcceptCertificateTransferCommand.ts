@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { AcceptCertificateTransferRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1AcceptCertificateTransferCommand,
@@ -45,13 +41,8 @@ export class AcceptCertificateTransferCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AcceptCertificateTransferCommandInput,
-    AcceptCertificateTransferCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AcceptCertificateTransferCommandInput, AcceptCertificateTransferCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class AcceptCertificateTransferCommand extends $Command<
     input: AcceptCertificateTransferCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AcceptCertificateTransferCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AcceptCertificateTransferCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1_1AcceptCertificateTransferCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AcceptCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

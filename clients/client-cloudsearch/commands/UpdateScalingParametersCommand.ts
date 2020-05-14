@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  UpdateScalingParametersRequest,
-  UpdateScalingParametersResponse
-} from "../models/index";
+import { UpdateScalingParametersRequest, UpdateScalingParametersResponse } from "../models/index";
 import {
   deserializeAws_queryUpdateScalingParametersCommand,
   serializeAws_queryUpdateScalingParametersCommand
@@ -49,13 +46,8 @@ export class UpdateScalingParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateScalingParametersCommandInput,
-    UpdateScalingParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateScalingParametersCommandInput, UpdateScalingParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

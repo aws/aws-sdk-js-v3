@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  RejectSharedDirectoryRequest,
-  RejectSharedDirectoryResult
-} from "../models/index";
+import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/index";
 import {
   deserializeAws_json1_1RejectSharedDirectoryCommand,
   serializeAws_json1_1RejectSharedDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RejectSharedDirectoryCommandInput = RejectSharedDirectoryRequest;
-export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult &
-  __MetadataBearer;
+export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult & __MetadataBearer;
 
 export class RejectSharedDirectoryCommand extends $Command<
   RejectSharedDirectoryCommandInput,
@@ -49,13 +45,8 @@ export class RejectSharedDirectoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectSharedDirectoryCommandInput,
-    RejectSharedDirectoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectSharedDirectoryCommandInput, RejectSharedDirectoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

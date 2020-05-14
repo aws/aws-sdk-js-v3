@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  DeleteImageRecipeRequest,
-  DeleteImageRecipeResponse
-} from "../models/index";
+import { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteImageRecipeCommand,
   serializeAws_restJson1_1DeleteImageRecipeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteImageRecipeCommandInput = DeleteImageRecipeRequest;
-export type DeleteImageRecipeCommandOutput = DeleteImageRecipeResponse &
-  __MetadataBearer;
+export type DeleteImageRecipeCommandOutput = DeleteImageRecipeResponse & __MetadataBearer;
 
 export class DeleteImageRecipeCommand extends $Command<
   DeleteImageRecipeCommandInput,
@@ -50,9 +46,7 @@ export class DeleteImageRecipeCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteImageRecipeCommandInput, DeleteImageRecipeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

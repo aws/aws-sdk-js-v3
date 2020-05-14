@@ -49,13 +49,8 @@ export class CreateClusterParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateClusterParameterGroupCommandInput,
-    CreateClusterParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateClusterParameterGroupCommandInput, CreateClusterParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreateClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateClusterParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

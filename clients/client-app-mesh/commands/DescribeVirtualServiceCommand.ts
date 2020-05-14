@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  DescribeVirtualServiceInput,
-  DescribeVirtualServiceOutput
-} from "../models/index";
+import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeVirtualServiceCommand,
   serializeAws_restJson1_1DescribeVirtualServiceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVirtualServiceCommandInput = DescribeVirtualServiceInput;
-export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput &
-  __MetadataBearer;
+export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput & __MetadataBearer;
 
 export class DescribeVirtualServiceCommand extends $Command<
   DescribeVirtualServiceCommandInput,
@@ -49,13 +45,8 @@ export class DescribeVirtualServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVirtualServiceCommandInput,
-    DescribeVirtualServiceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVirtualServiceCommandInput, DescribeVirtualServiceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeVirtualServiceCommand extends $Command<
     input: DescribeVirtualServiceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeVirtualServiceCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeVirtualServiceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVirtualServiceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

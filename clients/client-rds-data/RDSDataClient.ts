@@ -10,10 +10,7 @@ import {
   CommitTransactionCommandInput,
   CommitTransactionCommandOutput
 } from "./commands/CommitTransactionCommand";
-import {
-  ExecuteSqlCommandInput,
-  ExecuteSqlCommandOutput
-} from "./commands/ExecuteSqlCommand";
+import { ExecuteSqlCommandInput, ExecuteSqlCommandOutput } from "./commands/ExecuteSqlCommand";
 import {
   ExecuteStatementCommandInput,
   ExecuteStatementCommandOutput
@@ -175,9 +172,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RDSDataClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RDSDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -186,9 +181,7 @@ export type RDSDataClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

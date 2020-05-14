@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeCACertificateRequest,
-  DescribeCACertificateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeCACertificateRequest, DescribeCACertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeCACertificateCommand,
   serializeAws_restJson1_1DescribeCACertificateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCACertificateCommandInput = DescribeCACertificateRequest;
-export type DescribeCACertificateCommandOutput = DescribeCACertificateResponse &
-  __MetadataBearer;
+export type DescribeCACertificateCommandOutput = DescribeCACertificateResponse & __MetadataBearer;
 
 export class DescribeCACertificateCommand extends $Command<
   DescribeCACertificateCommandInput,
@@ -49,13 +41,8 @@ export class DescribeCACertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCACertificateCommandInput,
-    DescribeCACertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCACertificateCommandInput, DescribeCACertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeCACertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCACertificateCommandOutput> {
-    return deserializeAws_restJson1_1DescribeCACertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeCACertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

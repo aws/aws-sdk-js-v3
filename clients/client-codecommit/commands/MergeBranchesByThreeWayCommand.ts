@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  MergeBranchesByThreeWayInput,
-  MergeBranchesByThreeWayOutput
-} from "../models/index";
+import { MergeBranchesByThreeWayInput, MergeBranchesByThreeWayOutput } from "../models/index";
 import {
   deserializeAws_json1_1MergeBranchesByThreeWayCommand,
   serializeAws_json1_1MergeBranchesByThreeWayCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type MergeBranchesByThreeWayCommandInput = MergeBranchesByThreeWayInput;
-export type MergeBranchesByThreeWayCommandOutput = MergeBranchesByThreeWayOutput &
-  __MetadataBearer;
+export type MergeBranchesByThreeWayCommandOutput = MergeBranchesByThreeWayOutput & __MetadataBearer;
 
 export class MergeBranchesByThreeWayCommand extends $Command<
   MergeBranchesByThreeWayCommandInput,
@@ -49,13 +45,8 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergeBranchesByThreeWayCommandInput,
-    MergeBranchesByThreeWayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergeBranchesByThreeWayCommandInput, MergeBranchesByThreeWayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class MergeBranchesByThreeWayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergeBranchesByThreeWayCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesByThreeWayCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergeBranchesByThreeWayCommand(output, context);
   }
 
   // Start section: command_body_extra

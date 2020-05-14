@@ -53,9 +53,7 @@ export class Outposts extends OutpostsClient {
   ): void;
   public createOutpost(
     args: CreateOutpostCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateOutpostCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOutpostCommandOutput) => void),
     cb?: (err: any, data?: CreateOutpostCommandOutput) => void
   ): Promise<CreateOutpostCommandOutput> | void {
     const command = new CreateOutpostCommand(args);
@@ -88,9 +86,7 @@ export class Outposts extends OutpostsClient {
   ): void;
   public getOutpost(
     args: GetOutpostCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOutpostCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutpostCommandOutput) => void),
     cb?: (err: any, data?: GetOutpostCommandOutput) => void
   ): Promise<GetOutpostCommandOutput> | void {
     const command = new GetOutpostCommand(args);
@@ -158,9 +154,7 @@ export class Outposts extends OutpostsClient {
   ): void;
   public listOutposts(
     args: ListOutpostsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOutpostsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOutpostsCommandOutput) => void),
     cb?: (err: any, data?: ListOutpostsCommandOutput) => void
   ): Promise<ListOutpostsCommandOutput> | void {
     const command = new ListOutpostsCommand(args);
@@ -193,9 +187,7 @@ export class Outposts extends OutpostsClient {
   ): void;
   public listSites(
     args: ListSitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSitesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSitesCommandOutput) => void),
     cb?: (err: any, data?: ListSitesCommandOutput) => void
   ): Promise<ListSitesCommandOutput> | void {
     const command = new ListSitesCommand(args);

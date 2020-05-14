@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  ListBackupSelectionsInput,
-  ListBackupSelectionsOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { ListBackupSelectionsInput, ListBackupSelectionsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBackupSelectionsCommand,
   serializeAws_restJson1_1ListBackupSelectionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBackupSelectionsCommandInput = ListBackupSelectionsInput;
-export type ListBackupSelectionsCommandOutput = ListBackupSelectionsOutput &
-  __MetadataBearer;
+export type ListBackupSelectionsCommandOutput = ListBackupSelectionsOutput & __MetadataBearer;
 
 export class ListBackupSelectionsCommand extends $Command<
   ListBackupSelectionsCommandInput,
@@ -49,13 +41,8 @@ export class ListBackupSelectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBackupSelectionsCommandInput,
-    ListBackupSelectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBackupSelectionsCommandInput, ListBackupSelectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListBackupSelectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBackupSelectionsCommandOutput> {
-    return deserializeAws_restJson1_1ListBackupSelectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListBackupSelectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

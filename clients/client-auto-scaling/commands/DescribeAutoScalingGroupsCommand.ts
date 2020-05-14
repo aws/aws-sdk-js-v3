@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  AutoScalingGroupNamesType,
-  AutoScalingGroupsType
-} from "../models/index";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/index";
 import {
   deserializeAws_queryDescribeAutoScalingGroupsCommand,
   serializeAws_queryDescribeAutoScalingGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
-export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType &
-  __MetadataBearer;
+export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType & __MetadataBearer;
 
 export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAutoScalingGroupsCommandInput,
-    DescribeAutoScalingGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAutoScalingGroupsCommandInput, DescribeAutoScalingGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingGroupsCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

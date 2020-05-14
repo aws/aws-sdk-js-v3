@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteCertificateMessage,
-  DeleteCertificateResponse
-} from "../models/index";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
-export type DeleteCertificateCommandOutput = DeleteCertificateResponse &
-  __MetadataBearer;
+export type DeleteCertificateCommandOutput = DeleteCertificateResponse & __MetadataBearer;
 
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
@@ -50,9 +46,7 @@ export class DeleteCertificateCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCertificateCommandInput, DeleteCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

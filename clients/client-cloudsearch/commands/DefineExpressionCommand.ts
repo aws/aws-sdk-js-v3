@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DefineExpressionRequest,
-  DefineExpressionResponse
-} from "../models/index";
+import { DefineExpressionRequest, DefineExpressionResponse } from "../models/index";
 import {
   deserializeAws_queryDefineExpressionCommand,
   serializeAws_queryDefineExpressionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DefineExpressionCommandInput = DefineExpressionRequest;
-export type DefineExpressionCommandOutput = DefineExpressionResponse &
-  __MetadataBearer;
+export type DefineExpressionCommandOutput = DefineExpressionResponse & __MetadataBearer;
 
 export class DefineExpressionCommand extends $Command<
   DefineExpressionCommandInput,
@@ -50,9 +46,7 @@ export class DefineExpressionCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DefineExpressionCommandInput, DefineExpressionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

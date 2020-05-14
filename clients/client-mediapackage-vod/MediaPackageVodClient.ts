@@ -1,7 +1,4 @@
-import {
-  CreateAssetCommandInput,
-  CreateAssetCommandOutput
-} from "./commands/CreateAssetCommand";
+import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommandInput,
   CreatePackagingConfigurationCommandOutput
@@ -10,10 +7,7 @@ import {
   CreatePackagingGroupCommandInput,
   CreatePackagingGroupCommandOutput
 } from "./commands/CreatePackagingGroupCommand";
-import {
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput
-} from "./commands/DeleteAssetCommand";
+import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
   DeletePackagingConfigurationCommandInput,
   DeletePackagingConfigurationCommandOutput
@@ -34,10 +28,7 @@ import {
   DescribePackagingGroupCommandInput,
   DescribePackagingGroupCommandOutput
 } from "./commands/DescribePackagingGroupCommand";
-import {
-  ListAssetsCommandInput,
-  ListAssetsCommandOutput
-} from "./commands/ListAssetsCommand";
+import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
   ListPackagingConfigurationsCommandInput,
   ListPackagingConfigurationsCommandOutput
@@ -211,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaPackageVodClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaPackageVodClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutUserPermissionsBoundaryRequest } from "../models/index";
 import {
   deserializeAws_queryPutUserPermissionsBoundaryCommand,
@@ -45,13 +41,8 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutUserPermissionsBoundaryCommandInput,
-    PutUserPermissionsBoundaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutUserPermissionsBoundaryCommandInput, PutUserPermissionsBoundaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryPutUserPermissionsBoundaryCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPutUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

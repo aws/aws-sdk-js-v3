@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListResourcesForTagOptionInput,
-  ListResourcesForTagOptionOutput
-} from "../models/index";
+import { ListResourcesForTagOptionInput, ListResourcesForTagOptionOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListResourcesForTagOptionCommand,
   serializeAws_json1_1ListResourcesForTagOptionCommand
@@ -49,13 +46,8 @@ export class ListResourcesForTagOptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourcesForTagOptionCommandInput,
-    ListResourcesForTagOptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourcesForTagOptionCommandInput, ListResourcesForTagOptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListResourcesForTagOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesForTagOptionCommandOutput> {
-    return deserializeAws_json1_1ListResourcesForTagOptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListResourcesForTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  DeleteServiceLinkedRoleRequest,
-  DeleteServiceLinkedRoleResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteServiceLinkedRoleCommand,
   serializeAws_queryDeleteServiceLinkedRoleCommand
@@ -49,13 +42,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteServiceLinkedRoleCommandInput,
-    DeleteServiceLinkedRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteServiceLinkedRoleCommandInput, DeleteServiceLinkedRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

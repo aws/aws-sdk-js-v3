@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeGuruProfilerClient";
-import {
-  UpdateProfilingGroupRequest,
-  UpdateProfilingGroupResponse
-} from "../models/index";
+import { UpdateProfilingGroupRequest, UpdateProfilingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateProfilingGroupCommand,
   serializeAws_restJson1_1UpdateProfilingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateProfilingGroupCommandInput = UpdateProfilingGroupRequest;
-export type UpdateProfilingGroupCommandOutput = UpdateProfilingGroupResponse &
-  __MetadataBearer;
+export type UpdateProfilingGroupCommandOutput = UpdateProfilingGroupResponse & __MetadataBearer;
 
 export class UpdateProfilingGroupCommand extends $Command<
   UpdateProfilingGroupCommandInput,
@@ -49,13 +45,8 @@ export class UpdateProfilingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateProfilingGroupCommandInput,
-    UpdateProfilingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateProfilingGroupCommandInput, UpdateProfilingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateProfilingGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1_1UpdateProfilingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

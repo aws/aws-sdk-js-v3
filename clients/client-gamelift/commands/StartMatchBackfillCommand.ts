@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  StartMatchBackfillInput,
-  StartMatchBackfillOutput
-} from "../models/index";
+import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/index";
 import {
   deserializeAws_json1_1StartMatchBackfillCommand,
   serializeAws_json1_1StartMatchBackfillCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartMatchBackfillCommandInput = StartMatchBackfillInput;
-export type StartMatchBackfillCommandOutput = StartMatchBackfillOutput &
-  __MetadataBearer;
+export type StartMatchBackfillCommandOutput = StartMatchBackfillOutput & __MetadataBearer;
 
 export class StartMatchBackfillCommand extends $Command<
   StartMatchBackfillCommandInput,
@@ -50,9 +46,7 @@ export class StartMatchBackfillCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMatchBackfillCommandInput, StartMatchBackfillCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

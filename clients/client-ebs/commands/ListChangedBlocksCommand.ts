@@ -1,12 +1,5 @@
-import {
-  EBSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EBSClient";
-import {
-  ListChangedBlocksRequest,
-  ListChangedBlocksResponse
-} from "../models/index";
+import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
+import { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListChangedBlocksCommand,
   serializeAws_restJson1_1ListChangedBlocksCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListChangedBlocksCommandInput = ListChangedBlocksRequest;
-export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse &
-  __MetadataBearer;
+export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse & __MetadataBearer;
 
 export class ListChangedBlocksCommand extends $Command<
   ListChangedBlocksCommandInput,
@@ -50,9 +42,7 @@ export class ListChangedBlocksCommand extends $Command<
     configuration: EBSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListChangedBlocksCommandInput, ListChangedBlocksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

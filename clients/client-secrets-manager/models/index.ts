@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CancelRotateSecretRequest {
@@ -223,8 +220,7 @@ export interface CreateSecretRequest {
 }
 
 export namespace CreateSecretRequest {
-  export const isa = (o: any): o is CreateSecretRequest =>
-    __isa(o, "CreateSecretRequest");
+  export const isa = (o: any): o is CreateSecretRequest => __isa(o, "CreateSecretRequest");
 }
 
 export interface CreateSecretResponse {
@@ -254,8 +250,7 @@ export interface CreateSecretResponse {
 }
 
 export namespace CreateSecretResponse {
-  export const isa = (o: any): o is CreateSecretResponse =>
-    __isa(o, "CreateSecretResponse");
+  export const isa = (o: any): o is CreateSecretResponse => __isa(o, "CreateSecretResponse");
 }
 
 /**
@@ -268,8 +263,7 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DecryptionFailure {
-  export const isa = (o: any): o is DecryptionFailure =>
-    __isa(o, "DecryptionFailure");
+  export const isa = (o: any): o is DecryptionFailure => __isa(o, "DecryptionFailure");
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -362,8 +356,7 @@ export interface DeleteSecretRequest {
 }
 
 export namespace DeleteSecretRequest {
-  export const isa = (o: any): o is DeleteSecretRequest =>
-    __isa(o, "DeleteSecretRequest");
+  export const isa = (o: any): o is DeleteSecretRequest => __isa(o, "DeleteSecretRequest");
 }
 
 export interface DeleteSecretResponse {
@@ -387,8 +380,7 @@ export interface DeleteSecretResponse {
 }
 
 export namespace DeleteSecretResponse {
-  export const isa = (o: any): o is DeleteSecretResponse =>
-    __isa(o, "DeleteSecretResponse");
+  export const isa = (o: any): o is DeleteSecretResponse => __isa(o, "DeleteSecretResponse");
 }
 
 export interface DescribeSecretRequest {
@@ -412,8 +404,7 @@ export interface DescribeSecretRequest {
 }
 
 export namespace DescribeSecretRequest {
-  export const isa = (o: any): o is DescribeSecretRequest =>
-    __isa(o, "DescribeSecretRequest");
+  export const isa = (o: any): o is DescribeSecretRequest => __isa(o, "DescribeSecretRequest");
 }
 
 export interface DescribeSecretResponse {
@@ -506,8 +497,7 @@ export interface DescribeSecretResponse {
 }
 
 export namespace DescribeSecretResponse {
-  export const isa = (o: any): o is DescribeSecretResponse =>
-    __isa(o, "DescribeSecretResponse");
+  export const isa = (o: any): o is DescribeSecretResponse => __isa(o, "DescribeSecretResponse");
 }
 
 /**
@@ -523,8 +513,7 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EncryptionFailure {
-  export const isa = (o: any): o is EncryptionFailure =>
-    __isa(o, "EncryptionFailure");
+  export const isa = (o: any): o is EncryptionFailure => __isa(o, "EncryptionFailure");
 }
 
 export interface GetRandomPasswordRequest {
@@ -700,8 +689,7 @@ export interface GetSecretValueRequest {
 }
 
 export namespace GetSecretValueRequest {
-  export const isa = (o: any): o is GetSecretValueRequest =>
-    __isa(o, "GetSecretValueRequest");
+  export const isa = (o: any): o is GetSecretValueRequest => __isa(o, "GetSecretValueRequest");
 }
 
 export interface GetSecretValueResponse {
@@ -760,32 +748,26 @@ export interface GetSecretValueResponse {
 }
 
 export namespace GetSecretValueResponse {
-  export const isa = (o: any): o is GetSecretValueResponse =>
-    __isa(o, "GetSecretValueResponse");
+  export const isa = (o: any): o is GetSecretValueResponse => __isa(o, "GetSecretValueResponse");
 }
 
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServiceError {
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>You provided an invalid <code>NextToken</code> value.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -799,9 +781,7 @@ export namespace InvalidNextTokenException {
 /**
  * <p>You provided an invalid value for a parameter.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -826,33 +806,27 @@ export namespace InvalidParameterException {
  *             </li>
  *          </ul>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>The request failed because it would exceed one of the Secrets Manager internal limits.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListSecretVersionIdsRequest {
@@ -972,8 +946,7 @@ export interface ListSecretsRequest {
 }
 
 export namespace ListSecretsRequest {
-  export const isa = (o: any): o is ListSecretsRequest =>
-    __isa(o, "ListSecretsRequest");
+  export const isa = (o: any): o is ListSecretsRequest => __isa(o, "ListSecretsRequest");
 }
 
 export interface ListSecretsResponse {
@@ -996,16 +969,13 @@ export interface ListSecretsResponse {
 }
 
 export namespace ListSecretsResponse {
-  export const isa = (o: any): o is ListSecretsResponse =>
-    __isa(o, "ListSecretsResponse");
+  export const isa = (o: any): o is ListSecretsResponse => __isa(o, "ListSecretsResponse");
 }
 
 /**
  * <p>The policy document that you provided isn't valid.</p>
  */
-export interface MalformedPolicyDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
   name: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
@@ -1019,9 +989,7 @@ export namespace MalformedPolicyDocumentException {
 /**
  * <p>The request failed because you did not complete all the prerequisite steps.</p>
  */
-export interface PreconditionNotMetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreconditionNotMetException extends __SmithyException, $MetadataBearer {
   name: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
@@ -1186,8 +1154,7 @@ export interface PutSecretValueRequest {
 }
 
 export namespace PutSecretValueRequest {
-  export const isa = (o: any): o is PutSecretValueRequest =>
-    __isa(o, "PutSecretValueRequest");
+  export const isa = (o: any): o is PutSecretValueRequest => __isa(o, "PutSecretValueRequest");
 }
 
 export interface PutSecretValueResponse {
@@ -1216,32 +1183,26 @@ export interface PutSecretValueResponse {
 }
 
 export namespace PutSecretValueResponse {
-  export const isa = (o: any): o is PutSecretValueResponse =>
-    __isa(o, "PutSecretValueResponse");
+  export const isa = (o: any): o is PutSecretValueResponse => __isa(o, "PutSecretValueResponse");
 }
 
 /**
  * <p>A resource with the ID you requested already exists.</p>
  */
-export interface ResourceExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceExistsException {
-  export const isa = (o: any): o is ResourceExistsException =>
-    __isa(o, "ResourceExistsException");
+  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
  * <p>We can't find the resource that you asked for.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1273,8 +1234,7 @@ export interface RestoreSecretRequest {
 }
 
 export namespace RestoreSecretRequest {
-  export const isa = (o: any): o is RestoreSecretRequest =>
-    __isa(o, "RestoreSecretRequest");
+  export const isa = (o: any): o is RestoreSecretRequest => __isa(o, "RestoreSecretRequest");
 }
 
 export interface RestoreSecretResponse {
@@ -1291,8 +1251,7 @@ export interface RestoreSecretResponse {
 }
 
 export namespace RestoreSecretResponse {
-  export const isa = (o: any): o is RestoreSecretResponse =>
-    __isa(o, "RestoreSecretResponse");
+  export const isa = (o: any): o is RestoreSecretResponse => __isa(o, "RestoreSecretResponse");
 }
 
 export interface RotateSecretRequest {
@@ -1345,8 +1304,7 @@ export interface RotateSecretRequest {
 }
 
 export namespace RotateSecretRequest {
-  export const isa = (o: any): o is RotateSecretRequest =>
-    __isa(o, "RotateSecretRequest");
+  export const isa = (o: any): o is RotateSecretRequest => __isa(o, "RotateSecretRequest");
 }
 
 export interface RotateSecretResponse {
@@ -1369,8 +1327,7 @@ export interface RotateSecretResponse {
 }
 
 export namespace RotateSecretResponse {
-  export const isa = (o: any): o is RotateSecretResponse =>
-    __isa(o, "RotateSecretResponse");
+  export const isa = (o: any): o is RotateSecretResponse => __isa(o, "RotateSecretResponse");
 }
 
 /**
@@ -1390,8 +1347,7 @@ export interface RotationRulesType {
 }
 
 export namespace RotationRulesType {
-  export const isa = (o: any): o is RotationRulesType =>
-    __isa(o, "RotationRulesType");
+  export const isa = (o: any): o is RotationRulesType => __isa(o, "RotationRulesType");
 }
 
 /**
@@ -1488,8 +1444,7 @@ export interface SecretListEntry {
 }
 
 export namespace SecretListEntry {
-  export const isa = (o: any): o is SecretListEntry =>
-    __isa(o, "SecretListEntry");
+  export const isa = (o: any): o is SecretListEntry => __isa(o, "SecretListEntry");
 }
 
 /**
@@ -1521,8 +1476,7 @@ export interface SecretVersionsListEntry {
 }
 
 export namespace SecretVersionsListEntry {
-  export const isa = (o: any): o is SecretVersionsListEntry =>
-    __isa(o, "SecretVersionsListEntry");
+  export const isa = (o: any): o is SecretVersionsListEntry => __isa(o, "SecretVersionsListEntry");
 }
 
 /**
@@ -1577,8 +1531,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -1610,8 +1563,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateSecretRequest {
@@ -1724,8 +1676,7 @@ export interface UpdateSecretRequest {
 }
 
 export namespace UpdateSecretRequest {
-  export const isa = (o: any): o is UpdateSecretRequest =>
-    __isa(o, "UpdateSecretRequest");
+  export const isa = (o: any): o is UpdateSecretRequest => __isa(o, "UpdateSecretRequest");
 }
 
 export interface UpdateSecretResponse {
@@ -1755,8 +1706,7 @@ export interface UpdateSecretResponse {
 }
 
 export namespace UpdateSecretResponse {
-  export const isa = (o: any): o is UpdateSecretResponse =>
-    __isa(o, "UpdateSecretResponse");
+  export const isa = (o: any): o is UpdateSecretResponse => __isa(o, "UpdateSecretResponse");
 }
 
 export interface UpdateSecretVersionStageRequest {

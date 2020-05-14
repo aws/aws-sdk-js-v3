@@ -467,9 +467,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public activateGateway(
     args: ActivateGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivateGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateGatewayCommandOutput) => void),
     cb?: (err: any, data?: ActivateGatewayCommandOutput) => void
   ): Promise<ActivateGatewayCommandOutput> | void {
     const command = new ActivateGatewayCommand(args);
@@ -505,9 +503,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addCache(
     args: AddCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddCacheCommandOutput) => void),
     cb?: (err: any, data?: AddCacheCommandOutput) => void
   ): Promise<AddCacheCommandOutput> | void {
     const command = new AddCacheCommand(args);
@@ -601,9 +597,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addUploadBuffer(
     args: AddUploadBufferCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddUploadBufferCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddUploadBufferCommandOutput) => void),
     cb?: (err: any, data?: AddUploadBufferCommandOutput) => void
   ): Promise<AddUploadBufferCommandOutput> | void {
     const command = new AddUploadBufferCommand(args);
@@ -685,9 +679,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public assignTapePool(
     args: AssignTapePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignTapePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignTapePoolCommandOutput) => void),
     cb?: (err: any, data?: AssignTapePoolCommandOutput) => void
   ): Promise<AssignTapePoolCommandOutput> | void {
     const command = new AssignTapePoolCommand(args);
@@ -724,9 +716,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public attachVolume(
     args: AttachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVolumeCommandOutput) => void),
     cb?: (err: any, data?: AttachVolumeCommandOutput) => void
   ): Promise<AttachVolumeCommandOutput> | void {
     const command = new AttachVolumeCommand(args);
@@ -761,9 +751,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public cancelArchival(
     args: CancelArchivalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelArchivalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelArchivalCommandOutput) => void),
     cb?: (err: any, data?: CancelArchivalCommandOutput) => void
   ): Promise<CancelArchivalCommandOutput> | void {
     const command = new CancelArchivalCommand(args);
@@ -798,9 +786,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public cancelRetrieval(
     args: CancelRetrievalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelRetrievalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelRetrievalCommandOutput) => void),
     cb?: (err: any, data?: CancelRetrievalCommandOutput) => void
   ): Promise<CancelRetrievalCommandOutput> | void {
     const command = new CancelRetrievalCommand(args);
@@ -1005,9 +991,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
@@ -1047,31 +1031,19 @@ export class StorageGateway extends StorageGatewayClient {
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput>;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): void;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): void;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+      | ((err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void),
+    cb?: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> | void {
     const command = new CreateSnapshotFromVolumeRecoveryPointCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1196,9 +1168,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createTapes(
     args: CreateTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTapesCommandOutput) => void),
     cb?: (err: any, data?: CreateTapesCommandOutput) => void
   ): Promise<CreateTapesCommandOutput> | void {
     const command = new CreateTapesCommand(args);
@@ -1306,9 +1276,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteFileShare(
     args: DeleteFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileShareCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileShareCommandOutput) => void
   ): Promise<DeleteFileShareCommandOutput> | void {
     const command = new DeleteFileShareCommand(args);
@@ -1356,9 +1324,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteGateway(
     args: DeleteGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteGatewayCommandOutput) => void
   ): Promise<DeleteGatewayCommandOutput> | void {
     const command = new DeleteGatewayCommand(args);
@@ -1437,9 +1403,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteTape(
     args: DeleteTapeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTapeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTapeCommandOutput) => void),
     cb?: (err: any, data?: DeleteTapeCommandOutput) => void
   ): Promise<DeleteTapeCommandOutput> | void {
     const command = new DeleteTapeCommand(args);
@@ -1518,9 +1482,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): Promise<DeleteVolumeCommandOutput> | void {
     const command = new DeleteVolumeCommand(args);
@@ -1557,10 +1519,7 @@ export class StorageGateway extends StorageGatewayClient {
     args: DescribeAvailabilityMonitorTestCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAvailabilityMonitorTestCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeAvailabilityMonitorTestCommandOutput) => void),
     cb?: (err: any, data?: DescribeAvailabilityMonitorTestCommandOutput) => void
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> | void {
     const command = new DescribeAvailabilityMonitorTestCommand(args);
@@ -1636,9 +1595,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeCache(
     args: DescribeCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheCommandOutput) => void
   ): Promise<DescribeCacheCommandOutput> | void {
     const command = new DescribeCacheCommand(args);
@@ -2085,9 +2042,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeTapes(
     args: DescribeTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTapesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTapesCommandOutput) => void
   ): Promise<DescribeTapesCommandOutput> | void {
     const command = new DescribeTapesCommand(args);
@@ -2243,9 +2198,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public detachVolume(
     args: DetachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVolumeCommandOutput) => void),
     cb?: (err: any, data?: DetachVolumeCommandOutput) => void
   ): Promise<DetachVolumeCommandOutput> | void {
     const command = new DetachVolumeCommand(args);
@@ -2285,9 +2238,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public disableGateway(
     args: DisableGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableGatewayCommandOutput) => void),
     cb?: (err: any, data?: DisableGatewayCommandOutput) => void
   ): Promise<DisableGatewayCommandOutput> | void {
     const command = new DisableGatewayCommand(args);
@@ -2321,9 +2272,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public joinDomain(
     args: JoinDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JoinDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JoinDomainCommandOutput) => void),
     cb?: (err: any, data?: JoinDomainCommandOutput) => void
   ): Promise<JoinDomainCommandOutput> | void {
     const command = new JoinDomainCommand(args);
@@ -2358,9 +2307,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listFileShares(
     args: ListFileSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFileSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFileSharesCommandOutput) => void),
     cb?: (err: any, data?: ListFileSharesCommandOutput) => void
   ): Promise<ListFileSharesCommandOutput> | void {
     const command = new ListFileSharesCommand(args);
@@ -2400,9 +2347,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listGateways(
     args: ListGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewaysCommandOutput) => void),
     cb?: (err: any, data?: ListGatewaysCommandOutput) => void
   ): Promise<ListGatewaysCommandOutput> | void {
     const command = new ListGatewaysCommand(args);
@@ -2442,9 +2387,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listLocalDisks(
     args: ListLocalDisksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLocalDisksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLocalDisksCommandOutput) => void),
     cb?: (err: any, data?: ListLocalDisksCommandOutput) => void
   ): Promise<ListLocalDisksCommandOutput> | void {
     const command = new ListLocalDisksCommand(args);
@@ -2522,9 +2465,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listTapes(
     args: ListTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTapesCommandOutput) => void),
     cb?: (err: any, data?: ListTapesCommandOutput) => void
   ): Promise<ListTapesCommandOutput> | void {
     const command = new ListTapesCommand(args);
@@ -2642,9 +2583,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listVolumes(
     args: ListVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVolumesCommandOutput) => void),
     cb?: (err: any, data?: ListVolumesCommandOutput) => void
   ): Promise<ListVolumesCommandOutput> | void {
     const command = new ListVolumesCommand(args);
@@ -2746,9 +2685,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public refreshCache(
     args: RefreshCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RefreshCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RefreshCacheCommandOutput) => void),
     cb?: (err: any, data?: RefreshCacheCommandOutput) => void
   ): Promise<RefreshCacheCommandOutput> | void {
     const command = new RefreshCacheCommand(args);
@@ -2828,9 +2765,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public resetCache(
     args: ResetCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetCacheCommandOutput) => void),
     cb?: (err: any, data?: ResetCacheCommandOutput) => void
   ): Promise<ResetCacheCommandOutput> | void {
     const command = new ResetCacheCommand(args);
@@ -3042,9 +2977,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public shutdownGateway(
     args: ShutdownGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ShutdownGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ShutdownGatewayCommandOutput) => void),
     cb?: (err: any, data?: ShutdownGatewayCommandOutput) => void
   ): Promise<ShutdownGatewayCommandOutput> | void {
     const command = new ShutdownGatewayCommand(args);
@@ -3128,9 +3061,7 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public startGateway(
     args: StartGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGatewayCommandOutput) => void),
     cb?: (err: any, data?: StartGatewayCommandOutput) => void
   ): Promise<StartGatewayCommandOutput> | void {
     const command = new StartGatewayCommand(args);

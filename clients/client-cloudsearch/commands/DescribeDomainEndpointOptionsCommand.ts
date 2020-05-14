@@ -53,9 +53,7 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     DescribeDomainEndpointOptionsCommandInput,
     DescribeDomainEndpointOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     input: DescribeDomainEndpointOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDomainEndpointOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDomainEndpointOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainEndpointOptionsCommandOutput> {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

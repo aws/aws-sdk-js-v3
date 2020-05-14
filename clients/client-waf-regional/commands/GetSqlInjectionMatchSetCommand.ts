@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  GetSqlInjectionMatchSetRequest,
-  GetSqlInjectionMatchSetResponse
-} from "../models/index";
+import { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSqlInjectionMatchSetCommand,
   serializeAws_json1_1GetSqlInjectionMatchSetCommand
@@ -49,13 +46,8 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSqlInjectionMatchSetCommandInput,
-    GetSqlInjectionMatchSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSqlInjectionMatchSetCommandInput, GetSqlInjectionMatchSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetSqlInjectionMatchSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

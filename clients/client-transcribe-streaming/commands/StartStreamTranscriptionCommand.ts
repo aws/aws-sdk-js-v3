@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig
 } from "../TranscribeStreamingClient";
-import {
-  StartStreamTranscriptionRequest,
-  StartStreamTranscriptionResponse
-} from "../models/index";
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartStreamTranscriptionCommand,
   serializeAws_restJson1_1StartStreamTranscriptionCommand
@@ -50,13 +47,8 @@ export class StartStreamTranscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartStreamTranscriptionCommandInput,
-    StartStreamTranscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartStreamTranscriptionCommandInput, StartStreamTranscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,20 +67,14 @@ export class StartStreamTranscriptionCommand extends $Command<
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartStreamTranscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartStreamTranscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1_1StartStreamTranscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

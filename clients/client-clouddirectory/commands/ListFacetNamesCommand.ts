@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFacetNamesCommandInput = ListFacetNamesRequest;
-export type ListFacetNamesCommandOutput = ListFacetNamesResponse &
-  __MetadataBearer;
+export type ListFacetNamesCommandOutput = ListFacetNamesResponse & __MetadataBearer;
 
 export class ListFacetNamesCommand extends $Command<
   ListFacetNamesCommandInput,
@@ -47,9 +46,7 @@ export class ListFacetNamesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFacetNamesCommandInput, ListFacetNamesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

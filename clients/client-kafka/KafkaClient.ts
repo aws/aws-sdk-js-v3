@@ -46,18 +46,12 @@ import {
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput
 } from "./commands/ListConfigurationsCommand";
-import {
-  ListNodesCommandInput,
-  ListNodesCommandOutput
-} from "./commands/ListNodesCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -259,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KafkaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KafkaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -270,9 +262,7 @@ export type KafkaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KafkaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KafkaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  ListMailboxPermissionsRequest,
-  ListMailboxPermissionsResponse
-} from "../models/index";
+import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListMailboxPermissionsCommand,
   serializeAws_json1_1ListMailboxPermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMailboxPermissionsCommandInput = ListMailboxPermissionsRequest;
-export type ListMailboxPermissionsCommandOutput = ListMailboxPermissionsResponse &
-  __MetadataBearer;
+export type ListMailboxPermissionsCommandOutput = ListMailboxPermissionsResponse & __MetadataBearer;
 
 export class ListMailboxPermissionsCommand extends $Command<
   ListMailboxPermissionsCommandInput,
@@ -49,13 +45,8 @@ export class ListMailboxPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMailboxPermissionsCommandInput,
-    ListMailboxPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMailboxPermissionsCommandInput, ListMailboxPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

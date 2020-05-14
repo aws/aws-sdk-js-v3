@@ -1,27 +1,18 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import {
-  RequestHandler,
-  MetadataBearer,
-  Command,
-  Client as IClient
-} from "@aws-sdk/types";
+import { RequestHandler, MetadataBearer, Command, Client as IClient } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
   readonly apiVersion: string;
 }
 
-export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
-  HandlerOptions
->;
+export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<HandlerOptions>;
 
 export class Client<
   HandlerOptions,
   ClientInput extends object,
   ClientOutput extends MetadataBearer,
-  ResolvedClientConfiguration extends SmithyResolvedConfiguration<
-    HandlerOptions
-  >
+  ResolvedClientConfiguration extends SmithyResolvedConfiguration<HandlerOptions>
 > implements IClient<ClientInput, ClientOutput, ResolvedClientConfiguration> {
   public middlewareStack = new MiddlewareStack<ClientInput, ClientOutput>();
   readonly config: ResolvedClientConfiguration;
@@ -75,11 +66,7 @@ export class Client<
       typeof optionsOrCb === "function"
         ? (optionsOrCb as (err: any, data?: OutputType) => void)
         : cb;
-    const handler = command.resolveMiddleware(
-      this.middlewareStack as any,
-      this.config,
-      options
-    );
+    const handler = command.resolveMiddleware(this.middlewareStack as any, this.config, options);
     if (callback) {
       handler(command)
         .then(
@@ -97,7 +84,6 @@ export class Client<
   }
 
   destroy() {
-    if (this.config.requestHandler.destroy)
-      this.config.requestHandler.destroy();
+    if (this.config.requestHandler.destroy) this.config.requestHandler.destroy();
   }
 }

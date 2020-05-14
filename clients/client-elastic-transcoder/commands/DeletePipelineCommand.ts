@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePipelineCommandInput = DeletePipelineRequest;
-export type DeletePipelineCommandOutput = DeletePipelineResponse &
-  __MetadataBearer;
+export type DeletePipelineCommandOutput = DeletePipelineResponse & __MetadataBearer;
 
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,
@@ -47,9 +46,7 @@ export class DeletePipelineCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePipelineCommandInput, DeletePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

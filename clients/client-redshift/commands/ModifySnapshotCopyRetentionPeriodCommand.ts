@@ -53,9 +53,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     ModifySnapshotCopyRetentionPeriodCommandInput,
     ModifySnapshotCopyRetentionPeriodCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     input: ModifySnapshotCopyRetentionPeriodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(
-      input,
-      context
-    );
+    return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
-    return deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

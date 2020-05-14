@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePublicKeyCommandInput = UpdatePublicKeyRequest;
-export type UpdatePublicKeyCommandOutput = UpdatePublicKeyResult &
-  __MetadataBearer;
+export type UpdatePublicKeyCommandOutput = UpdatePublicKeyResult & __MetadataBearer;
 
 export class UpdatePublicKeyCommand extends $Command<
   UpdatePublicKeyCommandInput,
@@ -47,9 +46,7 @@ export class UpdatePublicKeyCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

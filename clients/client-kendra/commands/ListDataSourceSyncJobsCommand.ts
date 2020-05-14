@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
-import {
-  ListDataSourceSyncJobsRequest,
-  ListDataSourceSyncJobsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListDataSourceSyncJobsCommand,
   serializeAws_json1_1ListDataSourceSyncJobsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDataSourceSyncJobsCommandInput = ListDataSourceSyncJobsRequest;
-export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse &
-  __MetadataBearer;
+export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse & __MetadataBearer;
 
 export class ListDataSourceSyncJobsCommand extends $Command<
   ListDataSourceSyncJobsCommandInput,
@@ -49,13 +41,8 @@ export class ListDataSourceSyncJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDataSourceSyncJobsCommandInput,
-    ListDataSourceSyncJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDataSourceSyncJobsCommandInput, ListDataSourceSyncJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  VerifyUserAttributeRequest,
-  VerifyUserAttributeResponse
-} from "../models/index";
+import { VerifyUserAttributeRequest, VerifyUserAttributeResponse } from "../models/index";
 import {
   deserializeAws_json1_1VerifyUserAttributeCommand,
   serializeAws_json1_1VerifyUserAttributeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type VerifyUserAttributeCommandInput = VerifyUserAttributeRequest;
-export type VerifyUserAttributeCommandOutput = VerifyUserAttributeResponse &
-  __MetadataBearer;
+export type VerifyUserAttributeCommandOutput = VerifyUserAttributeResponse & __MetadataBearer;
 
 export class VerifyUserAttributeCommand extends $Command<
   VerifyUserAttributeCommandInput,
@@ -49,13 +45,8 @@ export class VerifyUserAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    VerifyUserAttributeCommandInput,
-    VerifyUserAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<VerifyUserAttributeCommandInput, VerifyUserAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

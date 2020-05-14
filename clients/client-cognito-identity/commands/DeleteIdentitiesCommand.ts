@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityClient";
-import {
-  DeleteIdentitiesInput,
-  DeleteIdentitiesResponse
-} from "../models/index";
+import { DeleteIdentitiesInput, DeleteIdentitiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteIdentitiesCommand,
   serializeAws_json1_1DeleteIdentitiesCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteIdentitiesCommandInput = DeleteIdentitiesInput;
-export type DeleteIdentitiesCommandOutput = DeleteIdentitiesResponse &
-  __MetadataBearer;
+export type DeleteIdentitiesCommandOutput = DeleteIdentitiesResponse & __MetadataBearer;
 
 export class DeleteIdentitiesCommand extends $Command<
   DeleteIdentitiesCommandInput,
@@ -51,9 +47,7 @@ export class DeleteIdentitiesCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteIdentitiesCommandInput, DeleteIdentitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

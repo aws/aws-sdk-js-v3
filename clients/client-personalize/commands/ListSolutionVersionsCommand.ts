@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  ListSolutionVersionsRequest,
-  ListSolutionVersionsResponse
-} from "../models/index";
+import { ListSolutionVersionsRequest, ListSolutionVersionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSolutionVersionsCommand,
   serializeAws_json1_1ListSolutionVersionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSolutionVersionsCommandInput = ListSolutionVersionsRequest;
-export type ListSolutionVersionsCommandOutput = ListSolutionVersionsResponse &
-  __MetadataBearer;
+export type ListSolutionVersionsCommandOutput = ListSolutionVersionsResponse & __MetadataBearer;
 
 export class ListSolutionVersionsCommand extends $Command<
   ListSolutionVersionsCommandInput,
@@ -49,13 +45,8 @@ export class ListSolutionVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSolutionVersionsCommandInput,
-    ListSolutionVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSolutionVersionsCommandInput, ListSolutionVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

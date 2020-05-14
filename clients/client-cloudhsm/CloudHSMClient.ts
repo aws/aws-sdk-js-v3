@@ -2,26 +2,14 @@ import {
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput
 } from "./commands/AddTagsToResourceCommand";
-import {
-  CreateHapgCommandInput,
-  CreateHapgCommandOutput
-} from "./commands/CreateHapgCommand";
-import {
-  CreateHsmCommandInput,
-  CreateHsmCommandOutput
-} from "./commands/CreateHsmCommand";
+import { CreateHapgCommandInput, CreateHapgCommandOutput } from "./commands/CreateHapgCommand";
+import { CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand";
 import {
   CreateLunaClientCommandInput,
   CreateLunaClientCommandOutput
 } from "./commands/CreateLunaClientCommand";
-import {
-  DeleteHapgCommandInput,
-  DeleteHapgCommandOutput
-} from "./commands/DeleteHapgCommand";
-import {
-  DeleteHsmCommandInput,
-  DeleteHsmCommandOutput
-} from "./commands/DeleteHsmCommand";
+import { DeleteHapgCommandInput, DeleteHapgCommandOutput } from "./commands/DeleteHapgCommand";
+import { DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
 import {
   DeleteLunaClientCommandInput,
   DeleteLunaClientCommandOutput
@@ -30,30 +18,18 @@ import {
   DescribeHapgCommandInput,
   DescribeHapgCommandOutput
 } from "./commands/DescribeHapgCommand";
-import {
-  DescribeHsmCommandInput,
-  DescribeHsmCommandOutput
-} from "./commands/DescribeHsmCommand";
+import { DescribeHsmCommandInput, DescribeHsmCommandOutput } from "./commands/DescribeHsmCommand";
 import {
   DescribeLunaClientCommandInput,
   DescribeLunaClientCommandOutput
 } from "./commands/DescribeLunaClientCommand";
-import {
-  GetConfigCommandInput,
-  GetConfigCommandOutput
-} from "./commands/GetConfigCommand";
+import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   ListAvailableZonesCommandInput,
   ListAvailableZonesCommandOutput
 } from "./commands/ListAvailableZonesCommand";
-import {
-  ListHapgsCommandInput,
-  ListHapgsCommandOutput
-} from "./commands/ListHapgsCommand";
-import {
-  ListHsmsCommandInput,
-  ListHsmsCommandOutput
-} from "./commands/ListHsmsCommand";
+import { ListHapgsCommandInput, ListHapgsCommandOutput } from "./commands/ListHapgsCommand";
+import { ListHsmsCommandInput, ListHsmsCommandOutput } from "./commands/ListHsmsCommand";
 import {
   ListLunaClientsCommandInput,
   ListLunaClientsCommandOutput
@@ -62,14 +38,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyHapgCommandInput,
-  ModifyHapgCommandOutput
-} from "./commands/ModifyHapgCommand";
-import {
-  ModifyHsmCommandInput,
-  ModifyHsmCommandOutput
-} from "./commands/ModifyHsmCommand";
+import { ModifyHapgCommandInput, ModifyHapgCommandOutput } from "./commands/ModifyHapgCommand";
+import { ModifyHsmCommandInput, ModifyHsmCommandOutput } from "./commands/ModifyHsmCommand";
 import {
   ModifyLunaClientCommandInput,
   ModifyLunaClientCommandOutput
@@ -259,9 +229,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudHSMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudHSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -270,9 +238,7 @@ export type CloudHSMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

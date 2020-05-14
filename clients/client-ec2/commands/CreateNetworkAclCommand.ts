@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateNetworkAclRequest,
-  CreateNetworkAclResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/index";
 import {
   deserializeAws_ec2CreateNetworkAclCommand,
   serializeAws_ec2CreateNetworkAclCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNetworkAclCommandInput = CreateNetworkAclRequest;
-export type CreateNetworkAclCommandOutput = CreateNetworkAclResult &
-  __MetadataBearer;
+export type CreateNetworkAclCommandOutput = CreateNetworkAclResult & __MetadataBearer;
 
 export class CreateNetworkAclCommand extends $Command<
   CreateNetworkAclCommandInput,
@@ -50,9 +42,7 @@ export class CreateNetworkAclCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

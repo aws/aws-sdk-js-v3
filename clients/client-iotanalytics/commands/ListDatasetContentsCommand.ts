@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  ListDatasetContentsRequest,
-  ListDatasetContentsResponse
-} from "../models/index";
+import { ListDatasetContentsRequest, ListDatasetContentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDatasetContentsCommand,
   serializeAws_restJson1_1ListDatasetContentsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDatasetContentsCommandInput = ListDatasetContentsRequest;
-export type ListDatasetContentsCommandOutput = ListDatasetContentsResponse &
-  __MetadataBearer;
+export type ListDatasetContentsCommandOutput = ListDatasetContentsResponse & __MetadataBearer;
 
 export class ListDatasetContentsCommand extends $Command<
   ListDatasetContentsCommandInput,
@@ -49,13 +45,8 @@ export class ListDatasetContentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDatasetContentsCommandInput,
-    ListDatasetContentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDatasetContentsCommandInput, ListDatasetContentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDatasetContentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDatasetContentsCommandOutput> {
-    return deserializeAws_restJson1_1ListDatasetContentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDatasetContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

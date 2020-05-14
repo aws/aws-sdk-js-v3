@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccessDeniedErrorCode {
@@ -18,9 +15,7 @@ export enum AccessDeniedErrorCode {
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -40,8 +35,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AddAttributesToFindingsRequest {
@@ -362,8 +356,7 @@ export interface AssessmentRunAgent {
 }
 
 export namespace AssessmentRunAgent {
-  export const isa = (o: any): o is AssessmentRunAgent =>
-    __isa(o, "AssessmentRunAgent");
+  export const isa = (o: any): o is AssessmentRunAgent => __isa(o, "AssessmentRunAgent");
 }
 
 /**
@@ -423,17 +416,14 @@ export interface AssessmentRunFilter {
 }
 
 export namespace AssessmentRunFilter {
-  export const isa = (o: any): o is AssessmentRunFilter =>
-    __isa(o, "AssessmentRunFilter");
+  export const isa = (o: any): o is AssessmentRunFilter => __isa(o, "AssessmentRunFilter");
 }
 
 /**
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
  */
-export interface AssessmentRunInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssessmentRunInProgressException extends __SmithyException, $MetadataBearer {
   name: "AssessmentRunInProgressException";
   $fault: "client";
   /**
@@ -585,8 +575,7 @@ export interface AssessmentTarget {
 }
 
 export namespace AssessmentTarget {
-  export const isa = (o: any): o is AssessmentTarget =>
-    __isa(o, "AssessmentTarget");
+  export const isa = (o: any): o is AssessmentTarget => __isa(o, "AssessmentTarget");
 }
 
 /**
@@ -604,8 +593,7 @@ export interface AssessmentTargetFilter {
 }
 
 export namespace AssessmentTargetFilter {
-  export const isa = (o: any): o is AssessmentTargetFilter =>
-    __isa(o, "AssessmentTargetFilter");
+  export const isa = (o: any): o is AssessmentTargetFilter => __isa(o, "AssessmentTargetFilter");
 }
 
 /**
@@ -668,8 +656,7 @@ export interface AssessmentTemplate {
 }
 
 export namespace AssessmentTemplate {
-  export const isa = (o: any): o is AssessmentTemplate =>
-    __isa(o, "AssessmentTemplate");
+  export const isa = (o: any): o is AssessmentTemplate => __isa(o, "AssessmentTemplate");
 }
 
 /**
@@ -756,8 +743,7 @@ export interface AssetAttributes {
 }
 
 export namespace AssetAttributes {
-  export const isa = (o: any): o is AssetAttributes =>
-    __isa(o, "AssetAttributes");
+  export const isa = (o: any): o is AssetAttributes => __isa(o, "AssetAttributes");
 }
 
 export enum AssetType {
@@ -1140,8 +1126,7 @@ export interface DescribeFindingsRequest {
 }
 
 export namespace DescribeFindingsRequest {
-  export const isa = (o: any): o is DescribeFindingsRequest =>
-    __isa(o, "DescribeFindingsRequest");
+  export const isa = (o: any): o is DescribeFindingsRequest => __isa(o, "DescribeFindingsRequest");
 }
 
 export interface DescribeFindingsResponse {
@@ -1272,8 +1257,7 @@ export interface EventSubscription {
 }
 
 export namespace EventSubscription {
-  export const isa = (o: any): o is EventSubscription =>
-    __isa(o, "EventSubscription");
+  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -1349,8 +1333,7 @@ export interface ExclusionPreview {
 }
 
 export namespace ExclusionPreview {
-  export const isa = (o: any): o is ExclusionPreview =>
-    __isa(o, "ExclusionPreview");
+  export const isa = (o: any): o is ExclusionPreview => __isa(o, "ExclusionPreview");
 }
 
 /**
@@ -1371,8 +1354,7 @@ export interface FailedItemDetails {
 }
 
 export namespace FailedItemDetails {
-  export const isa = (o: any): o is FailedItemDetails =>
-    __isa(o, "FailedItemDetails");
+  export const isa = (o: any): o is FailedItemDetails => __isa(o, "FailedItemDetails");
 }
 
 export enum FailedItemErrorCode {
@@ -1737,8 +1719,7 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalException {
-  export const isa = (o: any): o is InternalException =>
-    __isa(o, "InternalException");
+  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 export enum InvalidCrossAccountRoleErrorCode {
@@ -1750,9 +1731,7 @@ export enum InvalidCrossAccountRoleErrorCode {
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
  */
-export interface InvalidCrossAccountRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCrossAccountRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidCrossAccountRoleException";
   $fault: "client";
   /**
@@ -1837,9 +1816,7 @@ export enum InvalidInputErrorCode {
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -1859,8 +1836,7 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum LimitExceededErrorCode {
@@ -1875,9 +1851,7 @@ export enum LimitExceededErrorCode {
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1897,8 +1871,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAssessmentRunAgentsRequest {
@@ -2202,8 +2175,7 @@ export interface ListExclusionsRequest {
 }
 
 export namespace ListExclusionsRequest {
-  export const isa = (o: any): o is ListExclusionsRequest =>
-    __isa(o, "ListExclusionsRequest");
+  export const isa = (o: any): o is ListExclusionsRequest => __isa(o, "ListExclusionsRequest");
 }
 
 export interface ListExclusionsResponse {
@@ -2223,8 +2195,7 @@ export interface ListExclusionsResponse {
 }
 
 export namespace ListExclusionsResponse {
-  export const isa = (o: any): o is ListExclusionsResponse =>
-    __isa(o, "ListExclusionsResponse");
+  export const isa = (o: any): o is ListExclusionsResponse => __isa(o, "ListExclusionsResponse");
 }
 
 export interface ListFindingsRequest {
@@ -2261,8 +2232,7 @@ export interface ListFindingsRequest {
 }
 
 export namespace ListFindingsRequest {
-  export const isa = (o: any): o is ListFindingsRequest =>
-    __isa(o, "ListFindingsRequest");
+  export const isa = (o: any): o is ListFindingsRequest => __isa(o, "ListFindingsRequest");
 }
 
 export interface ListFindingsResponse {
@@ -2281,8 +2251,7 @@ export interface ListFindingsResponse {
 }
 
 export namespace ListFindingsResponse {
-  export const isa = (o: any): o is ListFindingsResponse =>
-    __isa(o, "ListFindingsResponse");
+  export const isa = (o: any): o is ListFindingsResponse => __isa(o, "ListFindingsResponse");
 }
 
 export interface ListRulesPackagesRequest {
@@ -2419,8 +2388,7 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
+  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 export enum NoSuchEntityErrorCode {
@@ -2438,9 +2406,7 @@ export enum NoSuchEntityErrorCode {
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  */
-export interface NoSuchEntityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchEntityException extends __SmithyException, $MetadataBearer {
   name: "NoSuchEntityException";
   $fault: "client";
   /**
@@ -2460,8 +2426,7 @@ export interface NoSuchEntityException
 }
 
 export namespace NoSuchEntityException {
-  export const isa = (o: any): o is NoSuchEntityException =>
-    __isa(o, "NoSuchEntityException");
+  export const isa = (o: any): o is NoSuchEntityException => __isa(o, "NoSuchEntityException");
 }
 
 export interface PreviewAgentsRequest {
@@ -2488,8 +2453,7 @@ export interface PreviewAgentsRequest {
 }
 
 export namespace PreviewAgentsRequest {
-  export const isa = (o: any): o is PreviewAgentsRequest =>
-    __isa(o, "PreviewAgentsRequest");
+  export const isa = (o: any): o is PreviewAgentsRequest => __isa(o, "PreviewAgentsRequest");
 }
 
 export interface PreviewAgentsResponse {
@@ -2508,17 +2472,14 @@ export interface PreviewAgentsResponse {
 }
 
 export namespace PreviewAgentsResponse {
-  export const isa = (o: any): o is PreviewAgentsResponse =>
-    __isa(o, "PreviewAgentsResponse");
+  export const isa = (o: any): o is PreviewAgentsResponse => __isa(o, "PreviewAgentsResponse");
 }
 
 /**
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
  */
-export interface PreviewGenerationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreviewGenerationInProgressException extends __SmithyException, $MetadataBearer {
   name: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
@@ -2666,8 +2627,7 @@ export interface ResourceGroupTag {
 }
 
 export namespace ResourceGroupTag {
-  export const isa = (o: any): o is ResourceGroupTag =>
-    __isa(o, "ResourceGroupTag");
+  export const isa = (o: any): o is ResourceGroupTag => __isa(o, "ResourceGroupTag");
 }
 
 /**
@@ -2757,9 +2717,7 @@ export namespace SecurityGroup {
 /**
  * <p>The serice is temporary unavailable.</p>
  */
-export interface ServiceTemporarilyUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceTemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
@@ -2884,8 +2842,7 @@ export interface SubscribeToEventRequest {
 }
 
 export namespace SubscribeToEventRequest {
-  export const isa = (o: any): o is SubscribeToEventRequest =>
-    __isa(o, "SubscribeToEventRequest");
+  export const isa = (o: any): o is SubscribeToEventRequest => __isa(o, "SubscribeToEventRequest");
 }
 
 /**
@@ -2959,8 +2916,7 @@ export interface TelemetryMetadata {
 }
 
 export namespace TelemetryMetadata {
-  export const isa = (o: any): o is TelemetryMetadata =>
-    __isa(o, "TelemetryMetadata");
+  export const isa = (o: any): o is TelemetryMetadata => __isa(o, "TelemetryMetadata");
 }
 
 /**
@@ -2981,8 +2937,7 @@ export interface TimestampRange {
 }
 
 export namespace TimestampRange {
-  export const isa = (o: any): o is TimestampRange =>
-    __isa(o, "TimestampRange");
+  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 export interface UnsubscribeFromEventRequest {
@@ -3016,9 +2971,7 @@ export namespace UnsubscribeFromEventRequest {
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
  */
-export interface UnsupportedFeatureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedFeatureException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedFeatureException";
   $fault: "client";
   canRetry: boolean | undefined;

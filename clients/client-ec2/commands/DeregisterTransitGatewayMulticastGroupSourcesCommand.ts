@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult
@@ -39,9 +35,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput
-  ) {
+  constructor(readonly input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
     input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> {
-    return deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

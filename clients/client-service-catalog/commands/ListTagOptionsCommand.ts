@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagOptionsCommandInput = ListTagOptionsInput;
-export type ListTagOptionsCommandOutput = ListTagOptionsOutput &
-  __MetadataBearer;
+export type ListTagOptionsCommandOutput = ListTagOptionsOutput & __MetadataBearer;
 
 export class ListTagOptionsCommand extends $Command<
   ListTagOptionsCommandInput,
@@ -47,9 +46,7 @@ export class ListTagOptionsCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagOptionsCommandInput, ListTagOptionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

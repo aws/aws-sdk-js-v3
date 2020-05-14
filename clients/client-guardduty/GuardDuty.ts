@@ -285,9 +285,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
@@ -324,9 +322,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public archiveFindings(
     args: ArchiveFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ArchiveFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ArchiveFindingsCommandOutput) => void),
     cb?: (err: any, data?: ArchiveFindingsCommandOutput) => void
   ): Promise<ArchiveFindingsCommandOutput> | void {
     const command = new ArchiveFindingsCommand(args);
@@ -361,9 +357,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createDetector(
     args: CreateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDetectorCommandOutput) => void),
     cb?: (err: any, data?: CreateDetectorCommandOutput) => void
   ): Promise<CreateDetectorCommandOutput> | void {
     const command = new CreateDetectorCommand(args);
@@ -396,9 +390,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createFilter(
     args: CreateFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFilterCommandOutput) => void),
     cb?: (err: any, data?: CreateFilterCommandOutput) => void
   ): Promise<CreateFilterCommandOutput> | void {
     const command = new CreateFilterCommand(args);
@@ -434,9 +426,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
@@ -471,9 +461,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
@@ -651,9 +639,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteDetector(
     args: DeleteDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorCommandOutput) => void),
     cb?: (err: any, data?: DeleteDetectorCommandOutput) => void
   ): Promise<DeleteDetectorCommandOutput> | void {
     const command = new DeleteDetectorCommand(args);
@@ -686,9 +672,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteFilter(
     args: DeleteFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFilterCommandOutput) => void),
     cb?: (err: any, data?: DeleteFilterCommandOutput) => void
   ): Promise<DeleteFilterCommandOutput> | void {
     const command = new DeleteFilterCommand(args);
@@ -721,9 +705,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
@@ -793,9 +775,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
@@ -1005,9 +985,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getDetector(
     args: GetDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorCommandOutput) => void),
     cb?: (err: any, data?: GetDetectorCommandOutput) => void
   ): Promise<GetDetectorCommandOutput> | void {
     const command = new GetDetectorCommand(args);
@@ -1040,9 +1018,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getFilter(
     args: GetFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFilterCommandOutput) => void),
     cb?: (err: any, data?: GetFilterCommandOutput) => void
   ): Promise<GetFilterCommandOutput> | void {
     const command = new GetFilterCommand(args);
@@ -1075,9 +1051,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getFindings(
     args: GetFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsCommandOutput) => void),
     cb?: (err: any, data?: GetFindingsCommandOutput) => void
   ): Promise<GetFindingsCommandOutput> | void {
     const command = new GetFindingsCommand(args);
@@ -1145,9 +1119,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
@@ -1217,9 +1189,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMasterAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: GetMasterAccountCommandOutput) => void
   ): Promise<GetMasterAccountCommandOutput> | void {
     const command = new GetMasterAccountCommand(args);
@@ -1253,9 +1223,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
@@ -1325,9 +1293,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public inviteMembers(
     args: InviteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InviteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteMembersCommandOutput) => void),
     cb?: (err: any, data?: InviteMembersCommandOutput) => void
   ): Promise<InviteMembersCommandOutput> | void {
     const command = new InviteMembersCommand(args);
@@ -1360,9 +1326,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listDetectors(
     args: ListDetectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorsCommandOutput) => void
   ): Promise<ListDetectorsCommandOutput> | void {
     const command = new ListDetectorsCommand(args);
@@ -1395,9 +1359,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listFilters(
     args: ListFiltersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFiltersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFiltersCommandOutput) => void),
     cb?: (err: any, data?: ListFiltersCommandOutput) => void
   ): Promise<ListFiltersCommandOutput> | void {
     const command = new ListFiltersCommand(args);
@@ -1430,9 +1392,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listFindings(
     args: ListFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingsCommandOutput) => void),
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
@@ -1466,9 +1426,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
@@ -1502,9 +1460,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
@@ -1537,9 +1493,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
@@ -1752,9 +1706,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1822,9 +1774,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1857,9 +1807,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateDetector(
     args: UpdateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDetectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorCommandOutput) => void
   ): Promise<UpdateDetectorCommandOutput> | void {
     const command = new UpdateDetectorCommand(args);
@@ -1892,9 +1840,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateFilter(
     args: UpdateFilterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFilterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFilterCommandOutput) => void),
     cb?: (err: any, data?: UpdateFilterCommandOutput) => void
   ): Promise<UpdateFilterCommandOutput> | void {
     const command = new UpdateFilterCommand(args);
@@ -1962,9 +1908,7 @@ export class GuardDuty extends GuardDutyClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);

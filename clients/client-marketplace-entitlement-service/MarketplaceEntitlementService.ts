@@ -45,9 +45,7 @@ export class MarketplaceEntitlementService extends MarketplaceEntitlementService
   ): void;
   public getEntitlements(
     args: GetEntitlementsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEntitlementsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntitlementsCommandOutput) => void),
     cb?: (err: any, data?: GetEntitlementsCommandOutput) => void
   ): Promise<GetEntitlementsCommandOutput> | void {
     const command = new GetEntitlementsCommand(args);

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePipelineCommandInput = CreatePipelineInput;
-export type CreatePipelineCommandOutput = CreatePipelineOutput &
-  __MetadataBearer;
+export type CreatePipelineCommandOutput = CreatePipelineOutput & __MetadataBearer;
 
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,
@@ -47,9 +46,7 @@ export class CreatePipelineCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePipelineCommandInput, CreatePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

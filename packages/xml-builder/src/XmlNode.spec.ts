@@ -13,24 +13,17 @@ describe("XmlNode", () => {
   });
 
   it("nests elements deeply", () => {
-    const node = new XmlNode("xml", [
-      new XmlNode("a", [new XmlNode("b", [new XmlNode("c")])])
-    ]);
+    const node = new XmlNode("xml", [new XmlNode("a", [new XmlNode("b", [new XmlNode("c")])])]);
     expect(node.toString()).toBe("<xml><a><b><c/></b></a></xml>");
   });
 
   it("supports flat elements with nested elements", () => {
-    const node = new XmlNode("xml", [
-      new XmlNode("a", [new XmlNode("b")]),
-      new XmlNode("c")
-    ]);
+    const node = new XmlNode("xml", [new XmlNode("a", [new XmlNode("b")]), new XmlNode("c")]);
     expect(node.toString()).toBe("<xml><a><b/></a><c/></xml>");
   });
 
   it("accepts element values", () => {
-    const node = new XmlNode("xml", [
-      new XmlNode("element", [new XmlText("value")])
-    ]);
+    const node = new XmlNode("xml", [new XmlNode("element", [new XmlText("value")])]);
     expect(node.toString()).toBe("<xml><element>value</element></xml>");
   });
 
@@ -52,9 +45,7 @@ describe("XmlNode", () => {
     const node = new XmlNode("xml", [
       new XmlNode("out", [new XmlNode("c")]).addAttribute("a", "b")
     ]).addAttribute("xmlns", "abc");
-    expect(node.toString()).toBe(
-      '<xml xmlns="abc"><out a="b"><c/></out></xml>'
-    );
+    expect(node.toString()).toBe('<xml xmlns="abc"><out a="b"><c/></out></xml>');
   });
 
   it("ignores null and undefined attributes", () => {
@@ -68,10 +59,7 @@ describe("XmlNode", () => {
   });
 
   it("escapes attribute values and element text", () => {
-    const node = new XmlNode("xml", [new XmlNode("this & that")]).addAttribute(
-      "xmlns",
-      'a"b'
-    );
+    const node = new XmlNode("xml", [new XmlNode("this & that")]).addAttribute("xmlns", 'a"b');
     expect(node.toString()).toBe('<xml xmlns="a&quot;b"><this & that/></xml>');
   });
 

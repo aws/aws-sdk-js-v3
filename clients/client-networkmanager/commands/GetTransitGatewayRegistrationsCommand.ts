@@ -53,9 +53,7 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     GetTransitGatewayRegistrationsCommandInput,
     GetTransitGatewayRegistrationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     input: GetTransitGatewayRegistrationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRegistrationsCommandOutput> {
-    return deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TransferClientResolvedConfig
 } from "../TransferClient";
-import {
-  TestIdentityProviderRequest,
-  TestIdentityProviderResponse
-} from "../models/index";
+import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/index";
 import {
   deserializeAws_json1_1TestIdentityProviderCommand,
   serializeAws_json1_1TestIdentityProviderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestIdentityProviderCommandInput = TestIdentityProviderRequest;
-export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse &
-  __MetadataBearer;
+export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse & __MetadataBearer;
 
 export class TestIdentityProviderCommand extends $Command<
   TestIdentityProviderCommandInput,
@@ -49,13 +45,8 @@ export class TestIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TestIdentityProviderCommandInput,
-    TestIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TestIdentityProviderCommandInput, TestIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

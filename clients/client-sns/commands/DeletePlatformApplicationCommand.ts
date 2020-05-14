@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { DeletePlatformApplicationInput } from "../models/index";
 import {
   deserializeAws_queryDeletePlatformApplicationCommand,
@@ -45,13 +41,8 @@ export class DeletePlatformApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeletePlatformApplicationCommandInput,
-    DeletePlatformApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeletePlatformApplicationCommandInput, DeletePlatformApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DeletePlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePlatformApplicationCommandOutput> {
-    return deserializeAws_queryDeletePlatformApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeletePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

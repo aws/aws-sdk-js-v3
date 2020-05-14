@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  CreateResourceGroupRequest,
-  CreateResourceGroupResponse
-} from "../models/index";
+import { CreateResourceGroupRequest, CreateResourceGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateResourceGroupCommand,
   serializeAws_json1_1CreateResourceGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResourceGroupCommandInput = CreateResourceGroupRequest;
-export type CreateResourceGroupCommandOutput = CreateResourceGroupResponse &
-  __MetadataBearer;
+export type CreateResourceGroupCommandOutput = CreateResourceGroupResponse & __MetadataBearer;
 
 export class CreateResourceGroupCommand extends $Command<
   CreateResourceGroupCommandInput,
@@ -49,13 +45,8 @@ export class CreateResourceGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateResourceGroupCommandInput,
-    CreateResourceGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateResourceGroupCommandInput, CreateResourceGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

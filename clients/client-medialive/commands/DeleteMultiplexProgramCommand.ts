@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DeleteMultiplexProgramRequest,
-  DeleteMultiplexProgramResponse
-} from "../models/index";
+import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteMultiplexProgramCommand,
   serializeAws_restJson1_1DeleteMultiplexProgramCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMultiplexProgramCommandInput = DeleteMultiplexProgramRequest;
-export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse &
-  __MetadataBearer;
+export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse & __MetadataBearer;
 
 export class DeleteMultiplexProgramCommand extends $Command<
   DeleteMultiplexProgramCommandInput,
@@ -49,13 +45,8 @@ export class DeleteMultiplexProgramCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMultiplexProgramCommandInput,
-    DeleteMultiplexProgramCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMultiplexProgramCommandInput, DeleteMultiplexProgramCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeleteMultiplexProgramCommand extends $Command<
     input: DeleteMultiplexProgramCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMultiplexProgramCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteMultiplexProgramCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMultiplexProgramCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

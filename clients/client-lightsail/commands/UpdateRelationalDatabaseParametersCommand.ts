@@ -53,9 +53,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     UpdateRelationalDatabaseParametersCommandInput,
     UpdateRelationalDatabaseParametersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     input: UpdateRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

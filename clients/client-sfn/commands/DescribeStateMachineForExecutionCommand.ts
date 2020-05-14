@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import {
   DescribeStateMachineForExecutionInput,
   DescribeStateMachineForExecutionOutput
@@ -53,9 +49,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     DescribeStateMachineForExecutionCommandInput,
     DescribeStateMachineForExecutionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     input: DescribeStateMachineForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStateMachineForExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

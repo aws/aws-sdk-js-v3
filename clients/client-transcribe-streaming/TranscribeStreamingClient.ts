@@ -154,9 +154,7 @@ export interface ClientDefaults
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type TranscribeStreamingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TranscribeStreamingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

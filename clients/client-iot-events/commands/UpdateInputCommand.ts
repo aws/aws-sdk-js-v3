@@ -46,9 +46,7 @@ export class UpdateInputCommand extends $Command<
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateInputCommandInput, UpdateInputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

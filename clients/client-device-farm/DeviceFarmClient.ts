@@ -54,10 +54,7 @@ import {
   DeleteRemoteAccessSessionCommandInput,
   DeleteRemoteAccessSessionCommandOutput
 } from "./commands/DeleteRemoteAccessSessionCommand";
-import {
-  DeleteRunCommandInput,
-  DeleteRunCommandOutput
-} from "./commands/DeleteRunCommand";
+import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import {
   DeleteTestGridProjectCommandInput,
   DeleteTestGridProjectCommandOutput
@@ -74,10 +71,7 @@ import {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput
 } from "./commands/GetAccountSettingsCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
 import {
   GetDeviceInstanceCommandInput,
   GetDeviceInstanceCommandOutput
@@ -94,10 +88,7 @@ import {
   GetInstanceProfileCommandInput,
   GetInstanceProfileCommandOutput
 } from "./commands/GetInstanceProfileCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetNetworkProfileCommandInput,
   GetNetworkProfileCommandOutput
@@ -106,26 +97,14 @@ import {
   GetOfferingStatusCommandInput,
   GetOfferingStatusCommandOutput
 } from "./commands/GetOfferingStatusCommand";
-import {
-  GetProjectCommandInput,
-  GetProjectCommandOutput
-} from "./commands/GetProjectCommand";
+import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput
 } from "./commands/GetRemoteAccessSessionCommand";
-import {
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "./commands/GetRunCommand";
-import {
-  GetSuiteCommandInput,
-  GetSuiteCommandOutput
-} from "./commands/GetSuiteCommand";
-import {
-  GetTestCommandInput,
-  GetTestCommandOutput
-} from "./commands/GetTestCommand";
+import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
+import { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand";
+import { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
 import {
   GetTestGridProjectCommandInput,
   GetTestGridProjectCommandOutput
@@ -134,10 +113,7 @@ import {
   GetTestGridSessionCommandInput,
   GetTestGridSessionCommandOutput
 } from "./commands/GetTestGridSessionCommand";
-import {
-  GetUploadCommandInput,
-  GetUploadCommandOutput
-} from "./commands/GetUploadCommand";
+import { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand";
 import {
   GetVPCEConfigurationCommandInput,
   GetVPCEConfigurationCommandOutput
@@ -158,18 +134,12 @@ import {
   ListDevicePoolsCommandInput,
   ListDevicePoolsCommandOutput
 } from "./commands/ListDevicePoolsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput
 } from "./commands/ListInstanceProfilesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListNetworkProfilesCommandInput,
   ListNetworkProfilesCommandOutput
@@ -194,18 +164,9 @@ import {
   ListRemoteAccessSessionsCommandInput,
   ListRemoteAccessSessionsCommandOutput
 } from "./commands/ListRemoteAccessSessionsCommand";
-import {
-  ListRunsCommandInput,
-  ListRunsCommandOutput
-} from "./commands/ListRunsCommand";
-import {
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput
-} from "./commands/ListSamplesCommand";
-import {
-  ListSuitesCommandInput,
-  ListSuitesCommandOutput
-} from "./commands/ListSuitesCommand";
+import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import { ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand";
+import { ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -226,18 +187,12 @@ import {
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput
 } from "./commands/ListTestGridSessionsCommand";
-import {
-  ListTestsCommandInput,
-  ListTestsCommandOutput
-} from "./commands/ListTestsCommand";
+import { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
 import {
   ListUniqueProblemsCommandInput,
   ListUniqueProblemsCommandOutput
 } from "./commands/ListUniqueProblemsCommand";
-import {
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput
-} from "./commands/ListUploadsCommand";
+import { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand";
 import {
   ListVPCEConfigurationsCommandInput,
   ListVPCEConfigurationsCommandOutput
@@ -250,26 +205,14 @@ import {
   RenewOfferingCommandInput,
   RenewOfferingCommandOutput
 } from "./commands/RenewOfferingCommand";
-import {
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput
-} from "./commands/ScheduleRunCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand";
+import { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
 import {
   StopRemoteAccessSessionCommandInput,
   StopRemoteAccessSessionCommandOutput
 } from "./commands/StopRemoteAccessSessionCommand";
-import {
-  StopRunCommandInput,
-  StopRunCommandOutput
-} from "./commands/StopRunCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -601,9 +544,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DeviceFarmClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DeviceFarmClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -612,9 +553,7 @@ export type DeviceFarmClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

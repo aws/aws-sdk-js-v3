@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  PutInstancePublicPortsRequest,
-  PutInstancePublicPortsResult
-} from "../models/index";
+import { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/index";
 import {
   deserializeAws_json1_1PutInstancePublicPortsCommand,
   serializeAws_json1_1PutInstancePublicPortsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutInstancePublicPortsCommandInput = PutInstancePublicPortsRequest;
-export type PutInstancePublicPortsCommandOutput = PutInstancePublicPortsResult &
-  __MetadataBearer;
+export type PutInstancePublicPortsCommandOutput = PutInstancePublicPortsResult & __MetadataBearer;
 
 export class PutInstancePublicPortsCommand extends $Command<
   PutInstancePublicPortsCommandInput,
@@ -49,13 +45,8 @@ export class PutInstancePublicPortsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutInstancePublicPortsCommandInput,
-    PutInstancePublicPortsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutInstancePublicPortsCommandInput, PutInstancePublicPortsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

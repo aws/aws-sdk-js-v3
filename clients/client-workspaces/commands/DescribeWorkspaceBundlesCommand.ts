@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  DescribeWorkspaceBundlesRequest,
-  DescribeWorkspaceBundlesResult
-} from "../models/index";
+import { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeWorkspaceBundlesCommand,
   serializeAws_json1_1DescribeWorkspaceBundlesCommand
@@ -49,13 +46,8 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkspaceBundlesCommandInput,
-    DescribeWorkspaceBundlesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkspaceBundlesCommandInput, DescribeWorkspaceBundlesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceBundlesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceBundlesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

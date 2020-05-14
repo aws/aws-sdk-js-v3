@@ -127,9 +127,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
@@ -174,9 +172,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public createGraph(
     args: CreateGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGraphCommandOutput) => void),
     cb?: (err: any, data?: CreateGraphCommandOutput) => void
   ): Promise<CreateGraphCommandOutput> | void {
     const command = new CreateGraphCommand(args);
@@ -231,9 +227,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
@@ -272,9 +266,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public deleteGraph(
     args: DeleteGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGraphCommandOutput) => void),
     cb?: (err: any, data?: DeleteGraphCommandOutput) => void
   ): Promise<DeleteGraphCommandOutput> | void {
     const command = new DeleteGraphCommand(args);
@@ -313,9 +305,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
@@ -389,9 +379,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
@@ -429,9 +417,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public listGraphs(
     args: ListGraphsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGraphsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGraphsCommandOutput) => void),
     cb?: (err: any, data?: ListGraphsCommandOutput) => void
   ): Promise<ListGraphsCommandOutput> | void {
     const command = new ListGraphsCommand(args);
@@ -471,9 +457,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
@@ -509,9 +493,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
@@ -547,9 +529,7 @@ export class Detective extends DetectiveClient {
   ): void;
   public rejectInvitation(
     args: RejectInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectInvitationCommandOutput) => void),
     cb?: (err: any, data?: RejectInvitationCommandOutput) => void
   ): Promise<RejectInvitationCommandOutput> | void {
     const command = new RejectInvitationCommand(args);

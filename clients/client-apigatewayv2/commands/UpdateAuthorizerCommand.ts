@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerResponse
-} from "../models/index";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAuthorizerCommand,
   serializeAws_restJson1_1UpdateAuthorizerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAuthorizerCommandInput = UpdateAuthorizerRequest;
-export type UpdateAuthorizerCommandOutput = UpdateAuthorizerResponse &
-  __MetadataBearer;
+export type UpdateAuthorizerCommandOutput = UpdateAuthorizerResponse & __MetadataBearer;
 
 export class UpdateAuthorizerCommand extends $Command<
   UpdateAuthorizerCommandInput,
@@ -50,9 +46,7 @@ export class UpdateAuthorizerCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

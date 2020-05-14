@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient";
-import {
-  CreateLocationEfsRequest,
-  CreateLocationEfsResponse
-} from "../models/index";
+import { CreateLocationEfsRequest, CreateLocationEfsResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateLocationEfsCommand,
   serializeAws_json1_1CreateLocationEfsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLocationEfsCommandInput = CreateLocationEfsRequest;
-export type CreateLocationEfsCommandOutput = CreateLocationEfsResponse &
-  __MetadataBearer;
+export type CreateLocationEfsCommandOutput = CreateLocationEfsResponse & __MetadataBearer;
 
 export class CreateLocationEfsCommand extends $Command<
   CreateLocationEfsCommandInput,
@@ -50,9 +46,7 @@ export class CreateLocationEfsCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

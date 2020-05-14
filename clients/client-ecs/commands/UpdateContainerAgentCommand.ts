@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  UpdateContainerAgentRequest,
-  UpdateContainerAgentResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateContainerAgentCommand,
   serializeAws_json1_1UpdateContainerAgentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateContainerAgentCommandInput = UpdateContainerAgentRequest;
-export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse &
-  __MetadataBearer;
+export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse & __MetadataBearer;
 
 export class UpdateContainerAgentCommand extends $Command<
   UpdateContainerAgentCommandInput,
@@ -49,13 +41,8 @@ export class UpdateContainerAgentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateContainerAgentCommandInput,
-    UpdateContainerAgentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateContainerAgentCommandInput, UpdateContainerAgentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

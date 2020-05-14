@@ -73,10 +73,7 @@ export interface FromIniInit extends SharedConfigInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumer?: (
-    sourceCreds: Credentials,
-    params: AssumeRoleParams
-  ) => Promise<Credentials>;
+  roleAssumer?: (sourceCreds: Credentials, params: AssumeRoleParams) => Promise<Credentials>;
 }
 
 interface StaticCredsProfile extends Profile {
@@ -202,8 +199,7 @@ async function resolveProfileData(
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
   throw new ProviderError(
-    `Profile ${profileName} could not be found or parsed in shared` +
-      ` credentials file.`
+    `Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`
   );
 }
 
@@ -219,9 +215,7 @@ export function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
   });
 }
 
-function resolveStaticCredentials(
-  profile: StaticCredsProfile
-): Promise<Credentials> {
+function resolveStaticCredentials(profile: StaticCredsProfile): Promise<Credentials> {
   return Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,

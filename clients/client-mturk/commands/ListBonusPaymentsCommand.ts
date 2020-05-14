@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ListBonusPaymentsRequest,
-  ListBonusPaymentsResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListBonusPaymentsCommand,
   serializeAws_json1_1ListBonusPaymentsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBonusPaymentsCommandInput = ListBonusPaymentsRequest;
-export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse &
-  __MetadataBearer;
+export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse & __MetadataBearer;
 
 export class ListBonusPaymentsCommand extends $Command<
   ListBonusPaymentsCommandInput,
@@ -50,9 +42,7 @@ export class ListBonusPaymentsCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -39,9 +39,7 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AssociateWebsiteCertificateAuthorityCommandInput
-  ) {
+  constructor(readonly input: AssociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     AssociateWebsiteCertificateAuthorityCommandInput,
     AssociateWebsiteCertificateAuthorityCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
     input: AssociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

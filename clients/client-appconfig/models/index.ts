@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface Application {
@@ -47,17 +44,14 @@ export namespace Applications {
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface Configuration {
@@ -123,8 +117,7 @@ export interface ConfigurationProfile {
 }
 
 export namespace ConfigurationProfile {
-  export const isa = (o: any): o is ConfigurationProfile =>
-    __isa(o, "ConfigurationProfile");
+  export const isa = (o: any): o is ConfigurationProfile => __isa(o, "ConfigurationProfile");
 }
 
 /**
@@ -178,8 +171,7 @@ export interface ConfigurationProfiles {
 }
 
 export namespace ConfigurationProfiles {
-  export const isa = (o: any): o is ConfigurationProfiles =>
-    __isa(o, "ConfigurationProfiles");
+  export const isa = (o: any): o is ConfigurationProfiles => __isa(o, "ConfigurationProfiles");
 }
 
 /**
@@ -193,8 +185,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
@@ -535,8 +526,7 @@ export interface DeploymentStrategies {
 }
 
 export namespace DeploymentStrategies {
-  export const isa = (o: any): o is DeploymentStrategies =>
-    __isa(o, "DeploymentStrategies");
+  export const isa = (o: any): o is DeploymentStrategies => __isa(o, "DeploymentStrategies");
 }
 
 export interface DeploymentStrategy {
@@ -585,8 +575,7 @@ export interface DeploymentStrategy {
 }
 
 export namespace DeploymentStrategy {
-  export const isa = (o: any): o is DeploymentStrategy =>
-    __isa(o, "DeploymentStrategy");
+  export const isa = (o: any): o is DeploymentStrategy => __isa(o, "DeploymentStrategy");
 }
 
 /**
@@ -653,8 +642,7 @@ export interface DeploymentSummary {
 }
 
 export namespace DeploymentSummary {
-  export const isa = (o: any): o is DeploymentSummary =>
-    __isa(o, "DeploymentSummary");
+  export const isa = (o: any): o is DeploymentSummary => __isa(o, "DeploymentSummary");
 }
 
 export interface Deployments {
@@ -749,8 +737,7 @@ export interface GetApplicationRequest {
 }
 
 export namespace GetApplicationRequest {
-  export const isa = (o: any): o is GetApplicationRequest =>
-    __isa(o, "GetApplicationRequest");
+  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetConfigurationProfileRequest {
@@ -802,8 +789,7 @@ export interface GetConfigurationRequest {
 }
 
 export namespace GetConfigurationRequest {
-  export const isa = (o: any): o is GetConfigurationRequest =>
-    __isa(o, "GetConfigurationRequest");
+  export const isa = (o: any): o is GetConfigurationRequest => __isa(o, "GetConfigurationRequest");
 }
 
 export interface GetDeploymentRequest {
@@ -825,8 +811,7 @@ export interface GetDeploymentRequest {
 }
 
 export namespace GetDeploymentRequest {
-  export const isa = (o: any): o is GetDeploymentRequest =>
-    __isa(o, "GetDeploymentRequest");
+  export const isa = (o: any): o is GetDeploymentRequest => __isa(o, "GetDeploymentRequest");
 }
 
 export interface GetDeploymentStrategyRequest {
@@ -856,8 +841,7 @@ export interface GetEnvironmentRequest {
 }
 
 export namespace GetEnvironmentRequest {
-  export const isa = (o: any): o is GetEnvironmentRequest =>
-    __isa(o, "GetEnvironmentRequest");
+  export const isa = (o: any): o is GetEnvironmentRequest => __isa(o, "GetEnvironmentRequest");
 }
 
 export enum GrowthType {
@@ -867,17 +851,14 @@ export enum GrowthType {
 /**
  * <p>There was an internal failure in the AppConfig service.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListApplicationsRequest {
@@ -895,8 +876,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListConfigurationProfilesRequest {
@@ -967,8 +947,7 @@ export interface ListDeploymentsRequest {
 }
 
 export namespace ListDeploymentsRequest {
-  export const isa = (o: any): o is ListDeploymentsRequest =>
-    __isa(o, "ListDeploymentsRequest");
+  export const isa = (o: any): o is ListDeploymentsRequest => __isa(o, "ListDeploymentsRequest");
 }
 
 export interface ListEnvironmentsRequest {
@@ -991,8 +970,7 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
-  export const isa = (o: any): o is ListEnvironmentsRequest =>
-    __isa(o, "ListEnvironmentsRequest");
+  export const isa = (o: any): o is ListEnvironmentsRequest => __isa(o, "ListEnvironmentsRequest");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1036,9 +1014,7 @@ export enum ReplicateTo {
 /**
  * <p>The requested resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1105,8 +1081,7 @@ export interface StartDeploymentRequest {
 }
 
 export namespace StartDeploymentRequest {
-  export const isa = (o: any): o is StartDeploymentRequest =>
-    __isa(o, "StartDeploymentRequest");
+  export const isa = (o: any): o is StartDeploymentRequest => __isa(o, "StartDeploymentRequest");
 }
 
 export interface StopDeploymentRequest {
@@ -1128,8 +1103,7 @@ export interface StopDeploymentRequest {
 }
 
 export namespace StopDeploymentRequest {
-  export const isa = (o: any): o is StopDeploymentRequest =>
-    __isa(o, "StopDeploymentRequest");
+  export const isa = (o: any): o is StopDeploymentRequest => __isa(o, "StopDeploymentRequest");
 }
 
 export interface TagResourceRequest {
@@ -1148,8 +1122,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UntagResourceRequest {
@@ -1166,8 +1139,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateApplicationRequest {

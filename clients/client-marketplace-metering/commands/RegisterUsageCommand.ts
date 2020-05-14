@@ -46,9 +46,7 @@ export class RegisterUsageCommand extends $Command<
     configuration: MarketplaceMeteringClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterUsageCommandInput, RegisterUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

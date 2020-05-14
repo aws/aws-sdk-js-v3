@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  AssociateVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { AssociateVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1AssociateVirtualInterfaceCommand,
   serializeAws_json1_1AssociateVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateVirtualInterfaceCommandInput = AssociateVirtualInterfaceRequest;
-export type AssociateVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type AssociateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class AssociateVirtualInterfaceCommand extends $Command<
   AssociateVirtualInterfaceCommandInput,
@@ -49,13 +45,8 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateVirtualInterfaceCommandInput,
-    AssociateVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateVirtualInterfaceCommandInput, AssociateVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AssociateVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

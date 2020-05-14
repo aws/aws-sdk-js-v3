@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateFleetCommandInput = AssociateFleetRequest;
-export type AssociateFleetCommandOutput = AssociateFleetResult &
-  __MetadataBearer;
+export type AssociateFleetCommandOutput = AssociateFleetResult & __MetadataBearer;
 
 export class AssociateFleetCommand extends $Command<
   AssociateFleetCommandInput,
@@ -47,9 +46,7 @@ export class AssociateFleetCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateFleetCommandInput, AssociateFleetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

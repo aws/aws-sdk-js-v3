@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  DeleteTagsForDomainRequest,
-  DeleteTagsForDomainResponse
-} from "../models/index";
+import { DeleteTagsForDomainRequest, DeleteTagsForDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTagsForDomainCommand,
   serializeAws_json1_1DeleteTagsForDomainCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTagsForDomainCommandInput = DeleteTagsForDomainRequest;
-export type DeleteTagsForDomainCommandOutput = DeleteTagsForDomainResponse &
-  __MetadataBearer;
+export type DeleteTagsForDomainCommandOutput = DeleteTagsForDomainResponse & __MetadataBearer;
 
 export class DeleteTagsForDomainCommand extends $Command<
   DeleteTagsForDomainCommandInput,
@@ -49,13 +45,8 @@ export class DeleteTagsForDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTagsForDomainCommandInput,
-    DeleteTagsForDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTagsForDomainCommandInput, DeleteTagsForDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

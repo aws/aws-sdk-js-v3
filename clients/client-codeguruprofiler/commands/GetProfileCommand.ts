@@ -46,9 +46,7 @@ export class GetProfileCommand extends $Command<
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetProfileCommandInput, GetProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  DeleteLoadBalancerListenerInput,
-  DeleteLoadBalancerListenerOutput
-} from "../models/index";
+import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteLoadBalancerListenersCommand,
   serializeAws_queryDeleteLoadBalancerListenersCommand
@@ -49,13 +46,8 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLoadBalancerListenersCommandInput,
-    DeleteLoadBalancerListenersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLoadBalancerListenersCommandInput, DeleteLoadBalancerListenersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerListenersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteAuthorizerRequest,
-  DeleteAuthorizerResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteAuthorizerCommand,
   serializeAws_restJson1_1DeleteAuthorizerCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAuthorizerCommandInput = DeleteAuthorizerRequest;
-export type DeleteAuthorizerCommandOutput = DeleteAuthorizerResponse &
-  __MetadataBearer;
+export type DeleteAuthorizerCommandOutput = DeleteAuthorizerResponse & __MetadataBearer;
 
 export class DeleteAuthorizerCommand extends $Command<
   DeleteAuthorizerCommandInput,
@@ -50,9 +42,7 @@ export class DeleteAuthorizerCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

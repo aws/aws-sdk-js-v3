@@ -46,9 +46,7 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
   ): void;
   public invokeEndpoint(
     args: InvokeEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InvokeEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeEndpointCommandOutput) => void),
     cb?: (err: any, data?: InvokeEndpointCommandOutput) => void
   ): Promise<InvokeEndpointCommandOutput> | void {
     const command = new InvokeEndpointCommand(args);

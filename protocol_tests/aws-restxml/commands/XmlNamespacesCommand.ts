@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type XmlNamespacesCommandInput = XmlNamespacesInputOutput;
-export type XmlNamespacesCommandOutput = XmlNamespacesInputOutput &
-  __MetadataBearer;
+export type XmlNamespacesCommandOutput = XmlNamespacesInputOutput & __MetadataBearer;
 
 export class XmlNamespacesCommand extends $Command<
   XmlNamespacesCommandInput,
@@ -47,9 +46,7 @@ export class XmlNamespacesCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlNamespacesCommandInput, XmlNamespacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

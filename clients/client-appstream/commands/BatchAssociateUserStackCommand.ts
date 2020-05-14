@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  BatchAssociateUserStackRequest,
-  BatchAssociateUserStackResult
-} from "../models/index";
+import { BatchAssociateUserStackRequest, BatchAssociateUserStackResult } from "../models/index";
 import {
   deserializeAws_json1_1BatchAssociateUserStackCommand,
   serializeAws_json1_1BatchAssociateUserStackCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchAssociateUserStackCommandInput = BatchAssociateUserStackRequest;
-export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult &
-  __MetadataBearer;
+export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult & __MetadataBearer;
 
 export class BatchAssociateUserStackCommand extends $Command<
   BatchAssociateUserStackCommandInput,
@@ -49,13 +45,8 @@ export class BatchAssociateUserStackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchAssociateUserStackCommandInput,
-    BatchAssociateUserStackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchAssociateUserStackCommandInput, BatchAssociateUserStackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class BatchAssociateUserStackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateUserStackCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateUserStackCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchAssociateUserStackCommand(output, context);
   }
 
   // Start section: command_body_extra

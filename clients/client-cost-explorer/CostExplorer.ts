@@ -225,10 +225,7 @@ export class CostExplorer extends CostExplorerClient {
     args: DescribeCostCategoryDefinitionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCostCategoryDefinitionCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
   ): Promise<DescribeCostCategoryDefinitionCommandOutput> | void {
     const command = new DescribeCostCategoryDefinitionCommand(args);
@@ -266,9 +263,7 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getCostAndUsage(
     args: GetCostAndUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCostAndUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostAndUsageCommandOutput) => void),
     cb?: (err: any, data?: GetCostAndUsageCommandOutput) => void
   ): Promise<GetCostAndUsageCommandOutput> | void {
     const command = new GetCostAndUsageCommand(args);
@@ -344,9 +339,7 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getCostForecast(
     args: GetCostForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCostForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostForecastCommandOutput) => void),
     cb?: (err: any, data?: GetCostForecastCommandOutput) => void
   ): Promise<GetCostForecastCommandOutput> | void {
     const command = new GetCostForecastCommand(args);
@@ -490,31 +483,19 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetReservationPurchaseRecommendationCommandOutput>;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
-    cb: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): void;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): void;
   public getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetReservationPurchaseRecommendationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetReservationPurchaseRecommendationCommandOutput
-    ) => void
+      | ((err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): Promise<GetReservationPurchaseRecommendationCommandOutput> | void {
     const command = new GetReservationPurchaseRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -670,31 +651,19 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput>;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): void;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): void;
   public getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSavingsPlansPurchaseRecommendationCommandOutput
-    ) => void
+      | ((err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void),
+    cb?: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> | void {
     const command = new GetSavingsPlansPurchaseRecommendationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -759,31 +728,19 @@ export class CostExplorer extends CostExplorerClient {
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput>;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): void;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): void;
   public getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetSavingsPlansUtilizationDetailsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetSavingsPlansUtilizationDetailsCommandOutput
-    ) => void
+      | ((err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> | void {
     const command = new GetSavingsPlansUtilizationDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -815,9 +772,7 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
@@ -850,9 +805,7 @@ export class CostExplorer extends CostExplorerClient {
   ): void;
   public getUsageForecast(
     args: GetUsageForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsageForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsageForecastCommandOutput) => void),
     cb?: (err: any, data?: GetUsageForecastCommandOutput) => void
   ): Promise<GetUsageForecastCommandOutput> | void {
     const command = new GetUsageForecastCommand(args);

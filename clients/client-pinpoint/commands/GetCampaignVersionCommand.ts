@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetCampaignVersionRequest,
-  GetCampaignVersionResponse
-} from "../models/index";
+import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCampaignVersionCommand,
   serializeAws_restJson1_1GetCampaignVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCampaignVersionCommandInput = GetCampaignVersionRequest;
-export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse &
-  __MetadataBearer;
+export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse & __MetadataBearer;
 
 export class GetCampaignVersionCommand extends $Command<
   GetCampaignVersionCommandInput,
@@ -50,9 +46,7 @@ export class GetCampaignVersionCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCampaignVersionCommandInput, GetCampaignVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

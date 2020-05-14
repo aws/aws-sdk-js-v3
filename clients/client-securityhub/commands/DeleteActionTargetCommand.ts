@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  DeleteActionTargetRequest,
-  DeleteActionTargetResponse
-} from "../models/index";
+import { DeleteActionTargetRequest, DeleteActionTargetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteActionTargetCommand,
   serializeAws_restJson1_1DeleteActionTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteActionTargetCommandInput = DeleteActionTargetRequest;
-export type DeleteActionTargetCommandOutput = DeleteActionTargetResponse &
-  __MetadataBearer;
+export type DeleteActionTargetCommandOutput = DeleteActionTargetResponse & __MetadataBearer;
 
 export class DeleteActionTargetCommand extends $Command<
   DeleteActionTargetCommandInput,
@@ -50,9 +46,7 @@ export class DeleteActionTargetCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

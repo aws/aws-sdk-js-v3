@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  CreateVoiceConnectorRequest,
-  CreateVoiceConnectorResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { CreateVoiceConnectorRequest, CreateVoiceConnectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVoiceConnectorCommand,
   serializeAws_restJson1_1CreateVoiceConnectorCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVoiceConnectorCommandInput = CreateVoiceConnectorRequest;
-export type CreateVoiceConnectorCommandOutput = CreateVoiceConnectorResponse &
-  __MetadataBearer;
+export type CreateVoiceConnectorCommandOutput = CreateVoiceConnectorResponse & __MetadataBearer;
 
 export class CreateVoiceConnectorCommand extends $Command<
   CreateVoiceConnectorCommandInput,
@@ -49,13 +41,8 @@ export class CreateVoiceConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVoiceConnectorCommandInput,
-    CreateVoiceConnectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVoiceConnectorCommandInput, CreateVoiceConnectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class CreateVoiceConnectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1_1CreateVoiceConnectorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

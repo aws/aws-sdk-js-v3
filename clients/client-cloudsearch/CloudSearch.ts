@@ -159,9 +159,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public buildSuggesters(
     args: BuildSuggestersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BuildSuggestersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BuildSuggestersCommandOutput) => void),
     cb?: (err: any, data?: BuildSuggestersCommandOutput) => void
   ): Promise<BuildSuggestersCommandOutput> | void {
     const command = new BuildSuggestersCommand(args);
@@ -195,9 +193,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
@@ -265,9 +261,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineExpression(
     args: DefineExpressionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineExpressionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineExpressionCommandOutput) => void),
     cb?: (err: any, data?: DefineExpressionCommandOutput) => void
   ): Promise<DefineExpressionCommandOutput> | void {
     const command = new DefineExpressionCommand(args);
@@ -300,9 +294,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineIndexField(
     args: DefineIndexFieldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineIndexFieldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineIndexFieldCommandOutput) => void),
     cb?: (err: any, data?: DefineIndexFieldCommandOutput) => void
   ): Promise<DefineIndexFieldCommandOutput> | void {
     const command = new DefineIndexFieldCommand(args);
@@ -335,9 +327,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public defineSuggester(
     args: DefineSuggesterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DefineSuggesterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DefineSuggesterCommandOutput) => void),
     cb?: (err: any, data?: DefineSuggesterCommandOutput) => void
   ): Promise<DefineSuggesterCommandOutput> | void {
     const command = new DefineSuggesterCommand(args);
@@ -406,9 +396,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
@@ -441,9 +429,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteExpression(
     args: DeleteExpressionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteExpressionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExpressionCommandOutput) => void),
     cb?: (err: any, data?: DeleteExpressionCommandOutput) => void
   ): Promise<DeleteExpressionCommandOutput> | void {
     const command = new DeleteExpressionCommand(args);
@@ -476,9 +462,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteIndexField(
     args: DeleteIndexFieldCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIndexFieldCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIndexFieldCommandOutput) => void),
     cb?: (err: any, data?: DeleteIndexFieldCommandOutput) => void
   ): Promise<DeleteIndexFieldCommandOutput> | void {
     const command = new DeleteIndexFieldCommand(args);
@@ -511,9 +495,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public deleteSuggester(
     args: DeleteSuggesterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSuggesterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSuggesterCommandOutput) => void),
     cb?: (err: any, data?: DeleteSuggesterCommandOutput) => void
   ): Promise<DeleteSuggesterCommandOutput> | void {
     const command = new DeleteSuggesterCommand(args);
@@ -653,9 +635,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public describeDomains(
     args: DescribeDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): Promise<DescribeDomainsCommandOutput> | void {
     const command = new DescribeDomainsCommand(args);
@@ -866,9 +846,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public indexDocuments(
     args: IndexDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IndexDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IndexDocumentsCommandOutput) => void),
     cb?: (err: any, data?: IndexDocumentsCommandOutput) => void
   ): Promise<IndexDocumentsCommandOutput> | void {
     const command = new IndexDocumentsCommand(args);
@@ -901,9 +879,7 @@ export class CloudSearch extends CloudSearchClient {
   ): void;
   public listDomainNames(
     args: ListDomainNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): Promise<ListDomainNamesCommandOutput> | void {
     const command = new ListDomainNamesCommand(args);

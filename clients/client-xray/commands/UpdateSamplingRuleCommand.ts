@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  UpdateSamplingRuleRequest,
-  UpdateSamplingRuleResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { UpdateSamplingRuleRequest, UpdateSamplingRuleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateSamplingRuleCommand,
   serializeAws_restJson1_1UpdateSamplingRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSamplingRuleCommandInput = UpdateSamplingRuleRequest;
-export type UpdateSamplingRuleCommandOutput = UpdateSamplingRuleResult &
-  __MetadataBearer;
+export type UpdateSamplingRuleCommandOutput = UpdateSamplingRuleResult & __MetadataBearer;
 
 export class UpdateSamplingRuleCommand extends $Command<
   UpdateSamplingRuleCommandInput,
@@ -50,9 +42,7 @@ export class UpdateSamplingRuleCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

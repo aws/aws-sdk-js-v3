@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  GetRepositoryPolicyRequest,
-  GetRepositoryPolicyResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { GetRepositoryPolicyRequest, GetRepositoryPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetRepositoryPolicyCommand,
   serializeAws_json1_1GetRepositoryPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRepositoryPolicyCommandInput = GetRepositoryPolicyRequest;
-export type GetRepositoryPolicyCommandOutput = GetRepositoryPolicyResponse &
-  __MetadataBearer;
+export type GetRepositoryPolicyCommandOutput = GetRepositoryPolicyResponse & __MetadataBearer;
 
 export class GetRepositoryPolicyCommand extends $Command<
   GetRepositoryPolicyCommandInput,
@@ -49,13 +41,8 @@ export class GetRepositoryPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRepositoryPolicyCommandInput,
-    GetRepositoryPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRepositoryPolicyCommandInput, GetRepositoryPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

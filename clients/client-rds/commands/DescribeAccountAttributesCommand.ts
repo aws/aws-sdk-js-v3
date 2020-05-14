@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  AccountAttributesMessage,
-  DescribeAccountAttributesMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { AccountAttributesMessage, DescribeAccountAttributesMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeAccountAttributesCommand,
   serializeAws_queryDescribeAccountAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
-export type DescribeAccountAttributesCommandOutput = AccountAttributesMessage &
-  __MetadataBearer;
+export type DescribeAccountAttributesCommandOutput = AccountAttributesMessage & __MetadataBearer;
 
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeAccountAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountAttributesCommandInput,
-    DescribeAccountAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountAttributesCommandInput, DescribeAccountAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_queryDescribeAccountAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

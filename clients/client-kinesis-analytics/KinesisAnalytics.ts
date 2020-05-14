@@ -129,31 +129,19 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput>;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+      | ((err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> | void {
     const command = new AddApplicationCloudWatchLoggingOptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -232,31 +220,19 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput>;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationInputProcessingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> | void {
     const command = new AddApplicationInputProcessingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -346,31 +322,19 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<AddApplicationReferenceDataSourceCommandOutput>;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
-    cb: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddApplicationReferenceDataSourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddApplicationReferenceDataSourceCommandOutput
-    ) => void
+      | ((err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> | void {
     const command = new AddApplicationReferenceDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -499,31 +463,19 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput>;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
   public deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> | void {
     const command = new DeleteApplicationCloudWatchLoggingOptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -549,37 +501,21 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput>;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
   public deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationInputProcessingConfigurationCommandOutput
-    ) => void
-  ): Promise<
-    DeleteApplicationInputProcessingConfigurationCommandOutput
-  > | void {
-    const command = new DeleteApplicationInputProcessingConfigurationCommand(
-      args
-    );
+      | ((err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
+  ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> | void {
+    const command = new DeleteApplicationInputProcessingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -648,31 +584,19 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput>;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): void;
   public deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteApplicationReferenceDataSourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteApplicationReferenceDataSourceCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> | void {
     const command = new DeleteApplicationReferenceDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -813,9 +737,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
@@ -894,9 +816,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): void;
   public startApplication(
     args: StartApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartApplicationCommandOutput) => void),
     cb?: (err: any, data?: StartApplicationCommandOutput) => void
   ): Promise<StartApplicationCommandOutput> | void {
     const command = new StartApplicationCommand(args);
@@ -939,9 +859,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): void;
   public stopApplication(
     args: StopApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopApplicationCommandOutput) => void),
     cb?: (err: any, data?: StopApplicationCommandOutput) => void
   ): Promise<StopApplicationCommandOutput> | void {
     const command = new StopApplicationCommand(args);
@@ -975,9 +893,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1010,9 +926,7 @@ export class KinesisAnalytics extends KinesisAnalyticsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

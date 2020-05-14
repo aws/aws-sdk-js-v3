@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDedicatedIpCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpCommandInput = GetDedicatedIpRequest;
-export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse &
-  __MetadataBearer;
+export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse & __MetadataBearer;
 
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,
@@ -47,9 +42,7 @@ export class GetDedicatedIpCommand extends $Command<
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

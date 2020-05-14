@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListChangeSetsCommandInput = ListChangeSetsInput;
-export type ListChangeSetsCommandOutput = ListChangeSetsOutput &
-  __MetadataBearer;
+export type ListChangeSetsCommandOutput = ListChangeSetsOutput & __MetadataBearer;
 
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,
@@ -47,9 +46,7 @@ export class ListChangeSetsCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListChangeSetsCommandInput, ListChangeSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeSnapshotCopyGrantsMessage,
-  SnapshotCopyGrantMessage
-} from "../models/index";
+import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
   serializeAws_queryDescribeSnapshotCopyGrantsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotCopyGrantsCommandInput = DescribeSnapshotCopyGrantsMessage;
-export type DescribeSnapshotCopyGrantsCommandOutput = SnapshotCopyGrantMessage &
-  __MetadataBearer;
+export type DescribeSnapshotCopyGrantsCommandOutput = SnapshotCopyGrantMessage & __MetadataBearer;
 
 export class DescribeSnapshotCopyGrantsCommand extends $Command<
   DescribeSnapshotCopyGrantsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSnapshotCopyGrantsCommandInput,
-    DescribeSnapshotCopyGrantsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSnapshotCopyGrantsCommandInput, DescribeSnapshotCopyGrantsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotCopyGrantsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeSnapshotCopyGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

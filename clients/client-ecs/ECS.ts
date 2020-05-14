@@ -329,9 +329,7 @@ export class ECS extends ECSClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
@@ -467,9 +465,7 @@ export class ECS extends ECSClient {
   ): void;
   public createService(
     args: CreateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceCommandOutput) => void
   ): Promise<CreateServiceCommandOutput> | void {
     const command = new CreateServiceCommand(args);
@@ -505,9 +501,7 @@ export class ECS extends ECSClient {
   ): void;
   public createTaskSet(
     args: CreateTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskSetCommandOutput) => void),
     cb?: (err: any, data?: CreateTaskSetCommandOutput) => void
   ): Promise<CreateTaskSetCommandOutput> | void {
     const command = new CreateTaskSetCommand(args);
@@ -576,9 +570,7 @@ export class ECS extends ECSClient {
   ): void;
   public deleteAttributes(
     args: DeleteAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAttributesCommandOutput) => void),
     cb?: (err: any, data?: DeleteAttributesCommandOutput) => void
   ): Promise<DeleteAttributesCommandOutput> | void {
     const command = new DeleteAttributesCommand(args);
@@ -617,9 +609,7 @@ export class ECS extends ECSClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
@@ -672,9 +662,7 @@ export class ECS extends ECSClient {
   ): void;
   public deleteService(
     args: DeleteServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceCommandOutput) => void
   ): Promise<DeleteServiceCommandOutput> | void {
     const command = new DeleteServiceCommand(args);
@@ -708,9 +696,7 @@ export class ECS extends ECSClient {
   ): void;
   public deleteTaskSet(
     args: DeleteTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTaskSetCommandOutput) => void
   ): Promise<DeleteTaskSetCommandOutput> | void {
     const command = new DeleteTaskSetCommand(args);
@@ -875,9 +861,7 @@ export class ECS extends ECSClient {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
@@ -946,9 +930,7 @@ export class ECS extends ECSClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
@@ -1026,9 +1008,7 @@ export class ECS extends ECSClient {
   ): void;
   public describeTaskSets(
     args: DescribeTaskSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskSetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskSetsCommandOutput) => void
   ): Promise<DescribeTaskSetsCommandOutput> | void {
     const command = new DescribeTaskSetsCommand(args);
@@ -1061,9 +1041,7 @@ export class ECS extends ECSClient {
   ): void;
   public describeTasks(
     args: DescribeTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeTasksCommandOutput) => void
   ): Promise<DescribeTasksCommandOutput> | void {
     const command = new DescribeTasksCommand(args);
@@ -1176,9 +1154,7 @@ export class ECS extends ECSClient {
   ): void;
   public listAttributes(
     args: ListAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttributesCommandOutput) => void),
     cb?: (err: any, data?: ListAttributesCommandOutput) => void
   ): Promise<ListAttributesCommandOutput> | void {
     const command = new ListAttributesCommand(args);
@@ -1211,9 +1187,7 @@ export class ECS extends ECSClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
@@ -1284,9 +1258,7 @@ export class ECS extends ECSClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
@@ -1437,9 +1409,7 @@ export class ECS extends ECSClient {
   ): void;
   public listTasks(
     args: ListTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTasksCommandOutput) => void),
     cb?: (err: any, data?: ListTasksCommandOutput) => void
   ): Promise<ListTasksCommandOutput> | void {
     const command = new ListTasksCommand(args);
@@ -1571,9 +1541,7 @@ export class ECS extends ECSClient {
   ): void;
   public putAttributes(
     args: PutAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAttributesCommandOutput) => void
   ): Promise<PutAttributesCommandOutput> | void {
     const command = new PutAttributesCommand(args);
@@ -1774,9 +1742,7 @@ export class ECS extends ECSClient {
   ): void;
   public runTask(
     args: RunTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunTaskCommandOutput) => void),
     cb?: (err: any, data?: RunTaskCommandOutput) => void
   ): Promise<RunTaskCommandOutput> | void {
     const command = new RunTaskCommand(args);
@@ -1813,9 +1779,7 @@ export class ECS extends ECSClient {
   ): void;
   public startTask(
     args: StartTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTaskCommandOutput) => void),
     cb?: (err: any, data?: StartTaskCommandOutput) => void
   ): Promise<StartTaskCommandOutput> | void {
     const command = new StartTaskCommand(args);
@@ -1860,9 +1824,7 @@ export class ECS extends ECSClient {
   ): void;
   public stopTask(
     args: StopTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTaskCommandOutput) => void),
     cb?: (err: any, data?: StopTaskCommandOutput) => void
   ): Promise<StopTaskCommandOutput> | void {
     const command = new StopTaskCommand(args);
@@ -2015,9 +1977,7 @@ export class ECS extends ECSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2050,9 +2010,7 @@ export class ECS extends ECSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2347,9 +2305,7 @@ export class ECS extends ECSClient {
   ): void;
   public updateService(
     args: UpdateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceCommandOutput) => void
   ): Promise<UpdateServiceCommandOutput> | void {
     const command = new UpdateServiceCommand(args);
@@ -2423,9 +2379,7 @@ export class ECS extends ECSClient {
   ): void;
   public updateTaskSet(
     args: UpdateTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateTaskSetCommandOutput) => void
   ): Promise<UpdateTaskSetCommandOutput> | void {
     const command = new UpdateTaskSetCommand(args);

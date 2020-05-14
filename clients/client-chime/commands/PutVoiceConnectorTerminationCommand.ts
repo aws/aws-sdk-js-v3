@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   PutVoiceConnectorTerminationRequest,
   PutVoiceConnectorTerminationResponse
@@ -49,13 +45,8 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutVoiceConnectorTerminationCommandInput,
-    PutVoiceConnectorTerminationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutVoiceConnectorTerminationCommandInput, PutVoiceConnectorTerminationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class PutVoiceConnectorTerminationCommand extends $Command<
     input: PutVoiceConnectorTerminationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutVoiceConnectorTerminationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutVoiceConnectorTerminationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorTerminationCommandOutput> {
-    return deserializeAws_restJson1_1PutVoiceConnectorTerminationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutVoiceConnectorTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

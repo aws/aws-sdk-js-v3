@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InputAndOutputWithHeadersCommandInput = InputAndOutputWithHeadersIO;
-export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO &
-  __MetadataBearer;
+export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO & __MetadataBearer;
 
 export class InputAndOutputWithHeadersCommand extends $Command<
   InputAndOutputWithHeadersCommandInput,
@@ -46,13 +45,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InputAndOutputWithHeadersCommandInput,
-    InputAndOutputWithHeadersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InputAndOutputWithHeadersCommandInput, InputAndOutputWithHeadersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restXmlInputAndOutputWithHeadersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlInputAndOutputWithHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

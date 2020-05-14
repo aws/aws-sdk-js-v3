@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectionCommandInput = GetConnectionRequest;
-export type GetConnectionCommandOutput = GetConnectionResponse &
-  __MetadataBearer;
+export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
 
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
@@ -47,9 +46,7 @@ export class GetConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

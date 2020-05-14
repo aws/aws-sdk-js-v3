@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  PutActionRevisionInput,
-  PutActionRevisionOutput
-} from "../models/index";
+import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutActionRevisionCommand,
   serializeAws_json1_1PutActionRevisionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutActionRevisionCommandInput = PutActionRevisionInput;
-export type PutActionRevisionCommandOutput = PutActionRevisionOutput &
-  __MetadataBearer;
+export type PutActionRevisionCommandOutput = PutActionRevisionOutput & __MetadataBearer;
 
 export class PutActionRevisionCommand extends $Command<
   PutActionRevisionCommandInput,
@@ -50,9 +46,7 @@ export class PutActionRevisionCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutActionRevisionCommandInput, PutActionRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -39,9 +39,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
-  ) {
+  constructor(readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,10 +72,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
   private deserialize(

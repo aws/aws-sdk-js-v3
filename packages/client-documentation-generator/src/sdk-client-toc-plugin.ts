@@ -1,8 +1,5 @@
 import * as ts from "typescript";
-import {
-  Component,
-  RendererComponent
-} from "typedoc/dist/lib/output/components";
+import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import {
   Reflection,
   ProjectReflection,
@@ -52,16 +49,8 @@ export class SdkClientTocPlugin extends RendererComponent {
     page.toc = new NavigationItem(model.name);
 
     if (!model.parent && !trail.length) {
-      this.commandsNavigationItem = new NavigationItem(
-        "Commands",
-        void 0,
-        page.toc
-      );
-      this.exceptionsNavigationItem = new NavigationItem(
-        "Exceptions",
-        void 0,
-        page.toc
-      );
+      this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
+      this.exceptionsNavigationItem = new NavigationItem("Exceptions", void 0, page.toc);
     }
 
     this.buildToc(model, trail, page.toc, tocRestriction);
@@ -103,12 +92,7 @@ export class SdkClientTocPlugin extends RendererComponent {
    * @param parent  The parent [[NavigationItem]] the toc should be appended to.
    * @param restriction  The restricted table of contents.
    */
-  buildToc(
-    model: Reflection,
-    trail: Reflection[],
-    parent: NavigationItem,
-    restriction?: string[]
-  ) {
+  buildToc(model: Reflection, trail: Reflection[], parent: NavigationItem, restriction?: string[]) {
     const index = trail.indexOf(model);
     const children = model["children"] || [];
 
@@ -120,11 +104,7 @@ export class SdkClientTocPlugin extends RendererComponent {
       this.buildToc(child, trail, item);
     } else {
       children.forEach((child: DeclarationReflection) => {
-        if (
-          restriction &&
-          restriction.length > 0 &&
-          restriction.indexOf(child.name) === -1
-        ) {
+        if (restriction && restriction.length > 0 && restriction.indexOf(child.name) === -1) {
           return;
         }
 
@@ -143,34 +123,22 @@ export class SdkClientTocPlugin extends RendererComponent {
         }
 
         if (this.isCommand(child)) {
-          const item = NavigationItem.create(
-            child,
-            this.commandsNavigationItem,
-            true
-          );
+          const item = NavigationItem.create(child, this.commandsNavigationItem, true);
           // create an entry for the command
           const commandName = child.name.toLowerCase();
           if (!this.commandToNavigationItems.get(commandName)) {
             this.commandToNavigationItems.set(commandName, item);
           }
         } else if (this.isException(child)) {
-          const item = NavigationItem.create(
-            child,
-            this.exceptionsNavigationItem,
-            true
-          );
+          const item = NavigationItem.create(child, this.exceptionsNavigationItem, true);
         } else if (
           this.isUnion(child) &&
           (child as any).type.types.every((type: ReferenceType) => {
-            return (
-              type.reflection &&
-              this.isException(type.reflection as DeclarationReflection)
-            );
+            return type.reflection && this.isException(type.reflection as DeclarationReflection);
           })
         ) {
           // get command from name
-          const commandName =
-            child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
+          const commandName = child.name.replace("ExceptionsUnion", "").toLowerCase() + "command";
           const item = NavigationItem.create(
             child,
             this.commandToNavigationItems.get(commandName),
@@ -178,8 +146,7 @@ export class SdkClientTocPlugin extends RendererComponent {
           );
         } else if (this.isInputOrOutput(child)) {
           // get command from name
-          const commandName =
-            child.name.replace(/Input|Output/, "").toLowerCase() + "command";
+          const commandName = child.name.replace(/Input|Output/, "").toLowerCase() + "command";
           const item = NavigationItem.create(
             child,
             this.commandToNavigationItems.get(commandName),

@@ -14,10 +14,7 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput
 } from "./commands/CreateDataSourceCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommandInput,
   CreateGroupMembershipCommandOutput
@@ -50,10 +47,7 @@ import {
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput
 } from "./commands/DeleteDataSourceCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommandInput,
   DeleteGroupMembershipCommandOutput
@@ -74,10 +68,7 @@ import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput
 } from "./commands/DeleteUserByPrincipalIdCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput
@@ -154,10 +145,7 @@ import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput
 } from "./commands/ListGroupMembershipsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListIAMPolicyAssignmentsCommandInput,
   ListIAMPolicyAssignmentsCommandOutput
@@ -190,18 +178,12 @@ import {
   ListUserGroupsCommandInput,
   ListUserGroupsCommandOutput
 } from "./commands/ListUserGroupsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   RegisterUserCommandInput,
   RegisterUserCommandOutput
 } from "./commands/RegisterUserCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -234,10 +216,7 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput
 } from "./commands/UpdateDataSourcePermissionsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommandInput,
   UpdateIAMPolicyAssignmentCommandOutput
@@ -254,10 +233,7 @@ import {
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput
 } from "./commands/UpdateTemplatePermissionsCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -529,9 +505,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QuickSightClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QuickSightClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -540,9 +514,7 @@ export type QuickSightClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  ListFunctionDefinitionsRequest,
-  ListFunctionDefinitionsResponse
-} from "../models/index";
+import { ListFunctionDefinitionsRequest, ListFunctionDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFunctionDefinitionsCommand,
   serializeAws_restJson1_1ListFunctionDefinitionsCommand
@@ -49,13 +46,8 @@ export class ListFunctionDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListFunctionDefinitionsCommandInput,
-    ListFunctionDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListFunctionDefinitionsCommandInput, ListFunctionDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListFunctionDefinitionsCommand extends $Command<
     input: ListFunctionDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFunctionDefinitionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListFunctionDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFunctionDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListFunctionDefinitionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListFunctionDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

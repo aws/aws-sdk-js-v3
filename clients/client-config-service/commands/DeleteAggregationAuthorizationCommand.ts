@@ -49,9 +49,7 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     DeleteAggregationAuthorizationCommandInput,
     DeleteAggregationAuthorizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     input: DeleteAggregationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAggregationAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteAggregationAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAggregationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteAggregationAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAggregationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

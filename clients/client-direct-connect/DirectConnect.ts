@@ -284,37 +284,21 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput>;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    AcceptDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new AcceptDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+      | ((err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new AcceptDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -351,14 +335,8 @@ export class DirectConnect extends DirectConnectClient {
     args: AllocateConnectionOnInterconnectCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocateConnectionOnInterconnectCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AllocateConnectionOnInterconnectCommandOutput
-    ) => void
+      | ((err: any, data?: AllocateConnectionOnInterconnectCommandOutput) => void),
+    cb?: (err: any, data?: AllocateConnectionOnInterconnectCommandOutput) => void
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> | void {
     const command = new AllocateConnectionOnInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -433,10 +411,7 @@ export class DirectConnect extends DirectConnectClient {
     args: AllocatePrivateVirtualInterfaceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocatePrivateVirtualInterfaceCommandOutput
-        ) => void),
+      | ((err: any, data?: AllocatePrivateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocatePrivateVirtualInterfaceCommandOutput) => void
   ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> | void {
     const command = new AllocatePrivateVirtualInterfaceCommand(args);
@@ -476,10 +451,7 @@ export class DirectConnect extends DirectConnectClient {
     args: AllocatePublicVirtualInterfaceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocatePublicVirtualInterfaceCommandOutput
-        ) => void),
+      | ((err: any, data?: AllocatePublicVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocatePublicVirtualInterfaceCommandOutput) => void
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> | void {
     const command = new AllocatePublicVirtualInterfaceCommand(args);
@@ -516,10 +488,7 @@ export class DirectConnect extends DirectConnectClient {
     args: AllocateTransitVirtualInterfaceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocateTransitVirtualInterfaceCommandOutput
-        ) => void),
+      | ((err: any, data?: AllocateTransitVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocateTransitVirtualInterfaceCommandOutput) => void
   ): Promise<AllocateTransitVirtualInterfaceCommandOutput> | void {
     const command = new AllocateTransitVirtualInterfaceCommand(args);
@@ -728,10 +697,7 @@ export class DirectConnect extends DirectConnectClient {
     args: ConfirmPrivateVirtualInterfaceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConfirmPrivateVirtualInterfaceCommandOutput
-        ) => void),
+      | ((err: any, data?: ConfirmPrivateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmPrivateVirtualInterfaceCommandOutput) => void
   ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> | void {
     const command = new ConfirmPrivateVirtualInterfaceCommand(args);
@@ -805,10 +771,7 @@ export class DirectConnect extends DirectConnectClient {
     args: ConfirmTransitVirtualInterfaceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConfirmTransitVirtualInterfaceCommandOutput
-        ) => void),
+      | ((err: any, data?: ConfirmTransitVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmTransitVirtualInterfaceCommandOutput) => void
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> | void {
     const command = new ConfirmTransitVirtualInterfaceCommand(args);
@@ -847,9 +810,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createBGPPeer(
     args: CreateBGPPeerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBGPPeerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBGPPeerCommandOutput) => void),
     cb?: (err: any, data?: CreateBGPPeerCommandOutput) => void
   ): Promise<CreateBGPPeerCommandOutput> | void {
     const command = new CreateBGPPeerCommand(args);
@@ -890,9 +851,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
@@ -957,31 +916,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput>;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new CreateDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1005,37 +952,21 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput>;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    CreateDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new CreateDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+      | ((err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new CreateDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1132,9 +1063,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createLag(
     args: CreateLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLagCommandOutput) => void),
     cb?: (err: any, data?: CreateLagCommandOutput) => void
   ): Promise<CreateLagCommandOutput> | void {
     const command = new CreateLagCommand(args);
@@ -1283,9 +1212,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteBGPPeer(
     args: DeleteBGPPeerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBGPPeerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBGPPeerCommandOutput) => void),
     cb?: (err: any, data?: DeleteBGPPeerCommandOutput) => void
   ): Promise<DeleteBGPPeerCommandOutput> | void {
     const command = new DeleteBGPPeerCommand(args);
@@ -1321,9 +1248,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
@@ -1385,31 +1310,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput>;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new DeleteDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1432,37 +1345,21 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput>;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    DeleteDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new DeleteDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+      | ((err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new DeleteDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1532,9 +1429,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteLag(
     args: DeleteLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLagCommandOutput) => void),
     cb?: (err: any, data?: DeleteLagCommandOutput) => void
   ): Promise<DeleteLagCommandOutput> | void {
     const command = new DeleteLagCommand(args);
@@ -1672,31 +1567,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput>;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): void;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): void;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConnectionsOnInterconnectCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput> | void {
     const command = new DescribeConnectionsOnInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1719,37 +1602,21 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput>;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-  > | void {
-    const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
+  ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> | void {
+    const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1776,31 +1643,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput>;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> | void {
     const command = new DescribeDirectConnectGatewayAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1827,31 +1682,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput>;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> | void {
     const command = new DescribeDirectConnectGatewayAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2031,9 +1874,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeLags(
     args: DescribeLagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLagsCommandOutput) => void
   ): Promise<DescribeLagsCommandOutput> | void {
     const command = new DescribeLagsCommand(args);
@@ -2069,9 +1910,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeLoa(
     args: DescribeLoaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoaCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoaCommandOutput) => void
   ): Promise<DescribeLoaCommandOutput> | void {
     const command = new DescribeLoaCommand(args);
@@ -2140,9 +1979,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -2295,9 +2132,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2330,9 +2165,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2357,31 +2190,19 @@ export class DirectConnect extends DirectConnectClient {
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput>;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new UpdateDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2429,9 +2250,7 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public updateLag(
     args: UpdateLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLagCommandOutput) => void),
     cb?: (err: any, data?: UpdateLagCommandOutput) => void
   ): Promise<UpdateLagCommandOutput> | void {
     const command = new UpdateLagCommand(args);
@@ -2472,14 +2291,8 @@ export class DirectConnect extends DirectConnectClient {
     args: UpdateVirtualInterfaceAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateVirtualInterfaceAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateVirtualInterfaceAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateVirtualInterfaceAttributesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVirtualInterfaceAttributesCommandOutput) => void
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> | void {
     const command = new UpdateVirtualInterfaceAttributesCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SupportClientResolvedConfig
 } from "../SupportClient";
-import {
-  AddAttachmentsToSetRequest,
-  AddAttachmentsToSetResponse
-} from "../models/index";
+import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddAttachmentsToSetCommand,
   serializeAws_json1_1AddAttachmentsToSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddAttachmentsToSetCommandInput = AddAttachmentsToSetRequest;
-export type AddAttachmentsToSetCommandOutput = AddAttachmentsToSetResponse &
-  __MetadataBearer;
+export type AddAttachmentsToSetCommandOutput = AddAttachmentsToSetResponse & __MetadataBearer;
 
 export class AddAttachmentsToSetCommand extends $Command<
   AddAttachmentsToSetCommandInput,
@@ -49,13 +45,8 @@ export class AddAttachmentsToSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddAttachmentsToSetCommandInput,
-    AddAttachmentsToSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddAttachmentsToSetCommandInput, AddAttachmentsToSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

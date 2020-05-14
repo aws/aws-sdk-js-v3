@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  ListUserHierarchyGroupsRequest,
-  ListUserHierarchyGroupsResponse
-} from "../models/index";
+import { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListUserHierarchyGroupsCommand,
   serializeAws_restJson1_1ListUserHierarchyGroupsCommand
@@ -49,13 +46,8 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListUserHierarchyGroupsCommandInput,
-    ListUserHierarchyGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListUserHierarchyGroupsCommandInput, ListUserHierarchyGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListUserHierarchyGroupsCommand extends $Command<
     input: ListUserHierarchyGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListUserHierarchyGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUserHierarchyGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListUserHierarchyGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListUserHierarchyGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

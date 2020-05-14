@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -27,8 +24,7 @@ export interface AppliedTerminology {
 }
 
 export namespace AppliedTerminology {
-  export const isa = (o: any): o is AppliedTerminology =>
-    __isa(o, "AppliedTerminology");
+  export const isa = (o: any): o is AppliedTerminology => __isa(o, "AppliedTerminology");
 }
 
 export interface DeleteTerminologyRequest {
@@ -78,9 +74,7 @@ export namespace DescribeTextTranslationJobResponse {
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
  *         Guide</i>. </p>
  */
-export interface DetectedLanguageLowConfidenceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
   /**
@@ -135,8 +129,7 @@ export interface GetTerminologyRequest {
 }
 
 export namespace GetTerminologyRequest {
-  export const isa = (o: any): o is GetTerminologyRequest =>
-    __isa(o, "GetTerminologyRequest");
+  export const isa = (o: any): o is GetTerminologyRequest => __isa(o, "GetTerminologyRequest");
 }
 
 export interface GetTerminologyResponse {
@@ -154,8 +147,7 @@ export interface GetTerminologyResponse {
 }
 
 export namespace GetTerminologyResponse {
-  export const isa = (o: any): o is GetTerminologyResponse =>
-    __isa(o, "GetTerminologyResponse");
+  export const isa = (o: any): o is GetTerminologyResponse => __isa(o, "GetTerminologyResponse");
 }
 
 export interface ImportTerminologyRequest {
@@ -226,49 +218,40 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
-  export const isa = (o: any): o is InputDataConfig =>
-    __isa(o, "InputDataConfig");
+  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
  */
-export interface InvalidFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidFilterException {
-  export const isa = (o: any): o is InvalidFilterException =>
-    __isa(o, "InvalidFilterException");
+  export const isa = (o: any): o is InvalidFilterException => __isa(o, "InvalidFilterException");
 }
 
 /**
  * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
  *       correct it, and then retry your operation.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
@@ -283,17 +266,14 @@ export namespace InvalidParameterValueException {
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request. </p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -336,17 +316,14 @@ export enum JobStatus {
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTerminologiesRequest {
@@ -447,8 +424,7 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -456,9 +432,7 @@ export namespace OutputDataConfig {
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -473,9 +447,7 @@ export namespace ResourceNotFoundException {
  * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
  *       request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -667,8 +639,7 @@ export interface TerminologyData {
 }
 
 export namespace TerminologyData {
-  export const isa = (o: any): o is TerminologyData =>
-    __isa(o, "TerminologyData");
+  export const isa = (o: any): o is TerminologyData => __isa(o, "TerminologyData");
 }
 
 export enum TerminologyDataFormat {
@@ -693,8 +664,7 @@ export interface TerminologyDataLocation {
 }
 
 export namespace TerminologyDataLocation {
-  export const isa = (o: any): o is TerminologyDataLocation =>
-    __isa(o, "TerminologyDataLocation");
+  export const isa = (o: any): o is TerminologyDataLocation => __isa(o, "TerminologyDataLocation");
 }
 
 /**
@@ -756,17 +726,14 @@ export interface TerminologyProperties {
 }
 
 export namespace TerminologyProperties {
-  export const isa = (o: any): o is TerminologyProperties =>
-    __isa(o, "TerminologyProperties");
+  export const isa = (o: any): o is TerminologyProperties => __isa(o, "TerminologyProperties");
 }
 
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -899,9 +866,7 @@ export namespace TextTranslationJobProperties {
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -945,8 +910,7 @@ export interface TranslateTextRequest {
 }
 
 export namespace TranslateTextRequest {
-  export const isa = (o: any): o is TranslateTextRequest =>
-    __isa(o, "TranslateTextRequest");
+  export const isa = (o: any): o is TranslateTextRequest => __isa(o, "TranslateTextRequest");
 }
 
 export interface TranslateTextResponse {
@@ -974,17 +938,14 @@ export interface TranslateTextResponse {
 }
 
 export namespace TranslateTextResponse {
-  export const isa = (o: any): o is TranslateTextResponse =>
-    __isa(o, "TranslateTextResponse");
+  export const isa = (o: any): o is TranslateTextResponse => __isa(o, "TranslateTextResponse");
 }
 
 /**
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
  */
-export interface UnsupportedLanguagePairException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLanguagePairException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLanguagePairException";
   $fault: "client";
   Message?: string;

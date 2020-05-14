@@ -50,10 +50,7 @@ import {
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput
 } from "../commands/DissociateEntityFromThingCommand";
-import {
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput
-} from "../commands/GetEntitiesCommand";
+import { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "../commands/GetEntitiesCommand";
 import {
   GetFlowTemplateCommandInput,
   GetFlowTemplateCommandOutput
@@ -114,10 +111,7 @@ import {
   SearchThingsCommandInput,
   SearchThingsCommandOutput
 } from "../commands/SearchThingsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UndeploySystemInstanceCommandInput,
   UndeploySystemInstanceCommandOutput
@@ -258,9 +252,7 @@ export const serializeAws_json1_1AssociateEntityToThingCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.AssociateEntityToThing"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssociateEntityToThingRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssociateEntityToThingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,9 +265,7 @@ export const serializeAws_json1_1CreateFlowTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateFlowTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateFlowTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -288,9 +278,7 @@ export const serializeAws_json1_1CreateSystemInstanceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSystemInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,9 +291,7 @@ export const serializeAws_json1_1CreateSystemTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.CreateSystemTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateSystemTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -318,9 +304,7 @@ export const serializeAws_json1_1DeleteFlowTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteFlowTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteFlowTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -333,9 +317,7 @@ export const serializeAws_json1_1DeleteNamespaceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteNamespace"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteNamespaceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -348,9 +330,7 @@ export const serializeAws_json1_1DeleteSystemInstanceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSystemInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -363,9 +343,7 @@ export const serializeAws_json1_1DeleteSystemTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeleteSystemTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSystemTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -378,9 +356,7 @@ export const serializeAws_json1_1DeploySystemInstanceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeploySystemInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeploySystemInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeploySystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -393,9 +369,7 @@ export const serializeAws_json1_1DeprecateFlowTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateFlowTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeprecateFlowTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeprecateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -408,9 +382,7 @@ export const serializeAws_json1_1DeprecateSystemTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DeprecateSystemTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeprecateSystemTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeprecateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,9 +395,7 @@ export const serializeAws_json1_1DescribeNamespaceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DescribeNamespace"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeNamespaceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -438,9 +408,7 @@ export const serializeAws_json1_1DissociateEntityFromThingCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.DissociateEntityFromThing"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DissociateEntityFromThingRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DissociateEntityFromThingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,9 +434,7 @@ export const serializeAws_json1_1GetFlowTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetFlowTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,9 +447,7 @@ export const serializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetFlowTemplateRevisions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetFlowTemplateRevisionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetFlowTemplateRevisionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -496,9 +460,7 @@ export const serializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetNamespaceDeletionStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetNamespaceDeletionStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,9 +473,7 @@ export const serializeAws_json1_1GetSystemInstanceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetSystemInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetSystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,9 +486,7 @@ export const serializeAws_json1_1GetSystemTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetSystemTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,9 +499,7 @@ export const serializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetSystemTemplateRevisions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetSystemTemplateRevisionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetSystemTemplateRevisionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,9 +512,7 @@ export const serializeAws_json1_1GetUploadStatusCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.GetUploadStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetUploadStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetUploadStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -571,9 +525,7 @@ export const serializeAws_json1_1ListFlowExecutionMessagesCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.ListFlowExecutionMessages"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListFlowExecutionMessagesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListFlowExecutionMessagesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -586,9 +538,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,9 +551,7 @@ export const serializeAws_json1_1SearchEntitiesCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchEntities"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchEntitiesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -616,9 +564,7 @@ export const serializeAws_json1_1SearchFlowExecutionsCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowExecutions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchFlowExecutionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchFlowExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -631,9 +577,7 @@ export const serializeAws_json1_1SearchFlowTemplatesCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchFlowTemplates"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchFlowTemplatesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchFlowTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -646,9 +590,7 @@ export const serializeAws_json1_1SearchSystemInstancesCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemInstances"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchSystemInstancesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchSystemInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,9 +603,7 @@ export const serializeAws_json1_1SearchSystemTemplatesCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchSystemTemplates"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchSystemTemplatesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchSystemTemplatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -676,9 +616,7 @@ export const serializeAws_json1_1SearchThingsCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.SearchThings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1SearchThingsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1SearchThingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -704,9 +642,7 @@ export const serializeAws_json1_1UndeploySystemInstanceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.UndeploySystemInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UndeploySystemInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UndeploySystemInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -719,9 +655,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -734,9 +668,7 @@ export const serializeAws_json1_1UpdateFlowTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateFlowTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateFlowTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateFlowTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -749,9 +681,7 @@ export const serializeAws_json1_1UpdateSystemTemplateCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.UpdateSystemTemplate"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateSystemTemplateRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateSystemTemplateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -764,9 +694,7 @@ export const serializeAws_json1_1UploadEntityDefinitionsCommand = async (
     "X-Amz-Target": "IotThingsGraphFrontEndService.UploadEntityDefinitions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UploadEntityDefinitionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UploadEntityDefinitionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -775,17 +703,11 @@ export const deserializeAws_json1_1AssociateEntityToThingCommand = async (
   context: __SerdeContext
 ): Promise<AssociateEntityToThingCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AssociateEntityToThingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateEntityToThingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateEntityToThingResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateEntityToThingResponse(data, context);
   const response: AssociateEntityToThingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateEntityToThingResponse",
@@ -805,16 +727,12 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -822,10 +740,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -833,10 +748,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -844,10 +756,7 @@ const deserializeAws_json1_1AssociateEntityToThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -874,10 +783,7 @@ export const deserializeAws_json1_1CreateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateFlowTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -901,16 +807,12 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,10 +820,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -929,10 +828,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.thingsgraph.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -951,10 +847,7 @@ const deserializeAws_json1_1CreateFlowTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -981,10 +874,7 @@ export const deserializeAws_json1_1CreateSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateSystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSystemInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1008,16 +898,12 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1025,10 +911,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1036,10 +919,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.iot.thingsgraph.types#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1058,10 +938,7 @@ const deserializeAws_json1_1CreateSystemInstanceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1088,10 +965,7 @@ export const deserializeAws_json1_1CreateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSystemTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1115,16 +989,12 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1132,10 +1002,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1154,10 +1021,7 @@ const deserializeAws_json1_1CreateSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1184,10 +1048,7 @@ export const deserializeAws_json1_1DeleteFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteFlowTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1211,16 +1072,12 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1228,10 +1085,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1239,10 +1093,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1250,10 +1101,7 @@ const deserializeAws_json1_1DeleteFlowTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1304,16 +1152,12 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1321,10 +1165,7 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1351,10 +1192,7 @@ export const deserializeAws_json1_1DeleteSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSystemInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1378,16 +1216,12 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1395,10 +1229,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1406,10 +1237,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1417,10 +1245,7 @@ const deserializeAws_json1_1DeleteSystemInstanceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1447,10 +1272,7 @@ export const deserializeAws_json1_1DeleteSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSystemTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1474,16 +1296,12 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1491,10 +1309,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1502,10 +1317,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1513,10 +1325,7 @@ const deserializeAws_json1_1DeleteSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1543,10 +1352,7 @@ export const deserializeAws_json1_1DeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeploySystemInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeploySystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1570,16 +1376,12 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1587,10 +1389,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1598,10 +1397,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1609,10 +1405,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1620,10 +1413,7 @@ const deserializeAws_json1_1DeploySystemInstanceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1650,10 +1440,7 @@ export const deserializeAws_json1_1DeprecateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeprecateFlowTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeprecateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1677,16 +1464,12 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1694,10 +1477,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1705,10 +1485,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1716,10 +1493,7 @@ const deserializeAws_json1_1DeprecateFlowTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1746,17 +1520,11 @@ export const deserializeAws_json1_1DeprecateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeprecateSystemTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeprecateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeprecateSystemTemplateResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeprecateSystemTemplateResponse(data, context);
   const response: DeprecateSystemTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeprecateSystemTemplateResponse",
@@ -1776,16 +1544,12 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1793,10 +1557,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1804,10 +1565,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1815,10 +1573,7 @@ const deserializeAws_json1_1DeprecateSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1869,16 +1624,12 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1886,10 +1637,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1897,10 +1645,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1908,10 +1653,7 @@ const deserializeAws_json1_1DescribeNamespaceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1938,17 +1680,11 @@ export const deserializeAws_json1_1DissociateEntityFromThingCommand = async (
   context: __SerdeContext
 ): Promise<DissociateEntityFromThingCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DissociateEntityFromThingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DissociateEntityFromThingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DissociateEntityFromThingResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DissociateEntityFromThingResponse(data, context);
   const response: DissociateEntityFromThingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DissociateEntityFromThingResponse",
@@ -1968,16 +1704,12 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1985,10 +1717,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1996,10 +1725,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2007,10 +1733,7 @@ const deserializeAws_json1_1DissociateEntityFromThingCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2061,16 +1784,12 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2078,10 +1797,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2089,10 +1805,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2100,10 +1813,7 @@ const deserializeAws_json1_1GetEntitiesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2154,16 +1864,12 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2171,10 +1877,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2182,10 +1885,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2193,10 +1893,7 @@ const deserializeAws_json1_1GetFlowTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2223,17 +1920,11 @@ export const deserializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<GetFlowTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFlowTemplateRevisionsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetFlowTemplateRevisionsResponse(data, context);
   const response: GetFlowTemplateRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFlowTemplateRevisionsResponse",
@@ -2253,16 +1944,12 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2270,10 +1957,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2281,10 +1965,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2292,10 +1973,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2322,17 +2000,11 @@ export const deserializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetNamespaceDeletionStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamespaceDeletionStatusResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetNamespaceDeletionStatusResponse(data, context);
   const response: GetNamespaceDeletionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNamespaceDeletionStatusResponse",
@@ -2352,16 +2024,12 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2369,10 +2037,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2380,10 +2045,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2434,16 +2096,12 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2451,10 +2109,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2462,10 +2117,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2473,10 +2125,7 @@ const deserializeAws_json1_1GetSystemInstanceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2527,16 +2176,12 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2544,10 +2189,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2555,10 +2197,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2566,10 +2205,7 @@ const deserializeAws_json1_1GetSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2596,17 +2232,11 @@ export const deserializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<GetSystemTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSystemTemplateRevisionsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetSystemTemplateRevisionsResponse(data, context);
   const response: GetSystemTemplateRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSystemTemplateRevisionsResponse",
@@ -2626,16 +2256,12 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2643,10 +2269,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2654,10 +2277,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2665,10 +2285,7 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2719,16 +2336,12 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2736,10 +2349,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2747,10 +2357,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2758,10 +2365,7 @@ const deserializeAws_json1_1GetUploadStatusCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2788,17 +2392,11 @@ export const deserializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   context: __SerdeContext
 ): Promise<ListFlowExecutionMessagesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListFlowExecutionMessagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFlowExecutionMessagesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListFlowExecutionMessagesResponse(data, context);
   const response: ListFlowExecutionMessagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFlowExecutionMessagesResponse",
@@ -2818,16 +2416,12 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2835,10 +2429,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2846,10 +2437,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2857,10 +2445,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2887,10 +2472,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2914,16 +2496,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2931,10 +2509,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2953,10 +2528,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3007,16 +2579,12 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3024,10 +2592,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3035,10 +2600,7 @@ const deserializeAws_json1_1SearchEntitiesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3065,10 +2627,7 @@ export const deserializeAws_json1_1SearchFlowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<SearchFlowExecutionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SearchFlowExecutionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchFlowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3092,16 +2651,12 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3109,10 +2664,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3120,10 +2672,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3131,10 +2680,7 @@ const deserializeAws_json1_1SearchFlowExecutionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3161,10 +2707,7 @@ export const deserializeAws_json1_1SearchFlowTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<SearchFlowTemplatesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SearchFlowTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchFlowTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3188,16 +2731,12 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3205,10 +2744,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3216,10 +2752,7 @@ const deserializeAws_json1_1SearchFlowTemplatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3246,10 +2779,7 @@ export const deserializeAws_json1_1SearchSystemInstancesCommand = async (
   context: __SerdeContext
 ): Promise<SearchSystemInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SearchSystemInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchSystemInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3273,16 +2803,12 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3290,10 +2816,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3301,10 +2824,7 @@ const deserializeAws_json1_1SearchSystemInstancesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3331,10 +2851,7 @@ export const deserializeAws_json1_1SearchSystemTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<SearchSystemTemplatesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SearchSystemTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchSystemTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3358,16 +2875,12 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3375,10 +2888,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3386,10 +2896,7 @@ const deserializeAws_json1_1SearchSystemTemplatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3440,16 +2947,12 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3457,10 +2960,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3468,10 +2968,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3479,10 +2976,7 @@ const deserializeAws_json1_1SearchThingsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3533,16 +3027,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3550,10 +3040,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3572,10 +3059,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3602,17 +3086,11 @@ export const deserializeAws_json1_1UndeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UndeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UndeploySystemInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UndeploySystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UndeploySystemInstanceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UndeploySystemInstanceResponse(data, context);
   const response: UndeploySystemInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UndeploySystemInstanceResponse",
@@ -3632,16 +3110,12 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3649,10 +3123,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3660,10 +3131,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3671,10 +3139,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3682,10 +3147,7 @@ const deserializeAws_json1_1UndeploySystemInstanceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3736,16 +3198,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3753,10 +3211,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3775,10 +3230,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3805,10 +3257,7 @@ export const deserializeAws_json1_1UpdateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateFlowTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3832,16 +3281,12 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3849,10 +3294,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3860,10 +3302,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3871,10 +3310,7 @@ const deserializeAws_json1_1UpdateFlowTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3901,10 +3337,7 @@ export const deserializeAws_json1_1UpdateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSystemTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3928,16 +3361,12 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3945,10 +3374,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3956,10 +3382,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3967,10 +3390,7 @@ const deserializeAws_json1_1UpdateSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3997,17 +3417,11 @@ export const deserializeAws_json1_1UploadEntityDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<UploadEntityDefinitionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UploadEntityDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UploadEntityDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UploadEntityDefinitionsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UploadEntityDefinitionsResponse(data, context);
   const response: UploadEntityDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UploadEntityDefinitionsResponse",
@@ -4027,16 +3441,12 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.thingsgraph.types#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4044,10 +3454,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.thingsgraph.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4055,10 +3462,7 @@ const deserializeAws_json1_1UploadEntityDefinitionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.thingsgraph.types#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4085,10 +3489,7 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalFailureException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalFailureException(body, context);
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
@@ -4103,10 +3504,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
@@ -4121,10 +3519,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -4139,10 +3534,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
@@ -4157,10 +3549,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -4175,10 +3564,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -4193,10 +3579,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
@@ -4228,10 +3611,7 @@ const serializeAws_json1_1CreateFlowTemplateRequest = (
       compatibleNamespaceVersion: input.compatibleNamespaceVersion
     }),
     ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(
-        input.definition,
-        context
-      )
+      definition: serializeAws_json1_1DefinitionDocument(input.definition, context)
     })
   };
 };
@@ -4242,10 +3622,7 @@ const serializeAws_json1_1CreateSystemInstanceRequest = (
 ): any => {
   return {
     ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(
-        input.definition,
-        context
-      )
+      definition: serializeAws_json1_1DefinitionDocument(input.definition, context)
     }),
     ...(input.flowActionsRoleArn !== undefined && {
       flowActionsRoleArn: input.flowActionsRoleArn
@@ -4278,10 +3655,7 @@ const serializeAws_json1_1CreateSystemTemplateRequest = (
       compatibleNamespaceVersion: input.compatibleNamespaceVersion
     }),
     ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(
-        input.definition,
-        context
-      )
+      definition: serializeAws_json1_1DefinitionDocument(input.definition, context)
     })
   };
 };
@@ -4613,10 +3987,7 @@ const serializeAws_json1_1UpdateFlowTemplateRequest = (
       compatibleNamespaceVersion: input.compatibleNamespaceVersion
     }),
     ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(
-        input.definition,
-        context
-      )
+      definition: serializeAws_json1_1DefinitionDocument(input.definition, context)
     }),
     ...(input.id !== undefined && { id: input.id })
   };
@@ -4631,10 +4002,7 @@ const serializeAws_json1_1UpdateSystemTemplateRequest = (
       compatibleNamespaceVersion: input.compatibleNamespaceVersion
     }),
     ...(input.definition !== undefined && {
-      definition: serializeAws_json1_1DefinitionDocument(
-        input.definition,
-        context
-      )
+      definition: serializeAws_json1_1DefinitionDocument(input.definition, context)
     }),
     ...(input.id !== undefined && { id: input.id })
   };
@@ -4664,17 +4032,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -4688,17 +4050,11 @@ const serializeAws_json1_1DefinitionDocument = (
   };
 };
 
-const serializeAws_json1_1Urns = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Urns = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1EntityFilter = (
-  input: EntityFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EntityFilter = (input: EntityFilter, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.value !== undefined && {
@@ -4707,17 +4063,11 @@ const serializeAws_json1_1EntityFilter = (
   };
 };
 
-const serializeAws_json1_1EntityFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EntityFilterValues = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1EntityFilters = (
-  input: EntityFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EntityFilters = (input: EntityFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1EntityFilter(entry, context));
 };
 
@@ -4751,9 +4101,7 @@ const serializeAws_json1_1FlowTemplateFilters = (
   input: FlowTemplateFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1FlowTemplateFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1FlowTemplateFilter(entry, context));
 };
 
 const serializeAws_json1_1MetricsConfiguration = (
@@ -4777,10 +4125,7 @@ const serializeAws_json1_1SystemInstanceFilter = (
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.value !== undefined && {
-      value: serializeAws_json1_1SystemInstanceFilterValues(
-        input.value,
-        context
-      )
+      value: serializeAws_json1_1SystemInstanceFilterValues(input.value, context)
     })
   };
 };
@@ -4796,9 +4141,7 @@ const serializeAws_json1_1SystemInstanceFilters = (
   input: SystemInstanceFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SystemInstanceFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1SystemInstanceFilter(entry, context));
 };
 
 const serializeAws_json1_1SystemTemplateFilter = (
@@ -4808,10 +4151,7 @@ const serializeAws_json1_1SystemTemplateFilter = (
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.value !== undefined && {
-      value: serializeAws_json1_1SystemTemplateFilterValues(
-        input.value,
-        context
-      )
+      value: serializeAws_json1_1SystemTemplateFilterValues(input.value, context)
     })
   };
 };
@@ -4827,9 +4167,7 @@ const serializeAws_json1_1SystemTemplateFilters = (
   input: SystemTemplateFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1SystemTemplateFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1SystemTemplateFilter(entry, context));
 };
 
 const deserializeAws_json1_1AssociateEntityToThingResponse = (
@@ -4931,8 +4269,7 @@ const deserializeAws_json1_1DeploySystemInstanceResponse = (
   return {
     __type: "DeploySystemInstanceResponse",
     greengrassDeploymentId:
-      output.greengrassDeploymentId !== undefined &&
-      output.greengrassDeploymentId !== null
+      output.greengrassDeploymentId !== undefined && output.greengrassDeploymentId !== null
         ? output.greengrassDeploymentId
         : undefined,
     summary:
@@ -4979,13 +4316,11 @@ const deserializeAws_json1_1DescribeNamespaceResponse = (
         ? output.namespaceVersion
         : undefined,
     trackingNamespaceName:
-      output.trackingNamespaceName !== undefined &&
-      output.trackingNamespaceName !== null
+      output.trackingNamespaceName !== undefined && output.trackingNamespaceName !== null
         ? output.trackingNamespaceName
         : undefined,
     trackingNamespaceVersion:
-      output.trackingNamespaceVersion !== undefined &&
-      output.trackingNamespaceVersion !== null
+      output.trackingNamespaceVersion !== undefined && output.trackingNamespaceVersion !== null
         ? output.trackingNamespaceVersion
         : undefined
   } as any;
@@ -5021,10 +4356,7 @@ const deserializeAws_json1_1GetFlowTemplateResponse = (
     __type: "GetFlowTemplateResponse",
     description:
       output.description !== undefined && output.description !== null
-        ? deserializeAws_json1_1FlowTemplateDescription(
-            output.description,
-            context
-          )
+        ? deserializeAws_json1_1FlowTemplateDescription(output.description, context)
         : undefined
   } as any;
 };
@@ -5036,9 +4368,7 @@ const deserializeAws_json1_1GetFlowTemplateRevisionsResponse = (
   return {
     __type: "GetFlowTemplateRevisionsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
         ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
@@ -5053,9 +4383,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusResponse = (
   return {
     __type: "GetNamespaceDeletionStatusResponse",
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage:
       output.errorMessage !== undefined && output.errorMessage !== null
         ? output.errorMessage
@@ -5068,10 +4396,7 @@ const deserializeAws_json1_1GetNamespaceDeletionStatusResponse = (
       output.namespaceName !== undefined && output.namespaceName !== null
         ? output.namespaceName
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -5083,10 +4408,7 @@ const deserializeAws_json1_1GetSystemInstanceResponse = (
     __type: "GetSystemInstanceResponse",
     description:
       output.description !== undefined && output.description !== null
-        ? deserializeAws_json1_1SystemInstanceDescription(
-            output.description,
-            context
-          )
+        ? deserializeAws_json1_1SystemInstanceDescription(output.description, context)
         : undefined
   } as any;
 };
@@ -5099,10 +4421,7 @@ const deserializeAws_json1_1GetSystemTemplateResponse = (
     __type: "GetSystemTemplateResponse",
     description:
       output.description !== undefined && output.description !== null
-        ? deserializeAws_json1_1SystemTemplateDescription(
-            output.description,
-            context
-          )
+        ? deserializeAws_json1_1SystemTemplateDescription(output.description, context)
         : undefined
   } as any;
 };
@@ -5114,15 +4433,10 @@ const deserializeAws_json1_1GetSystemTemplateRevisionsResponse = (
   return {
     __type: "GetSystemTemplateRevisionsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1SystemTemplateSummaries(
-            output.summaries,
-            context
-          )
+        ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context)
         : undefined
   } as any;
 };
@@ -5154,9 +4468,7 @@ const deserializeAws_json1_1GetUploadStatusResponse = (
         ? output.namespaceVersion
         : undefined,
     uploadId:
-      output.uploadId !== undefined && output.uploadId !== null
-        ? output.uploadId
-        : undefined,
+      output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined,
     uploadStatus:
       output.uploadStatus !== undefined && output.uploadStatus !== null
         ? output.uploadStatus
@@ -5175,9 +4487,7 @@ const deserializeAws_json1_1ListFlowExecutionMessagesResponse = (
         ? deserializeAws_json1_1FlowExecutionMessages(output.messages, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5188,9 +4498,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   return {
     __type: "ListTagsForResourceResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -5209,9 +4517,7 @@ const deserializeAws_json1_1SearchEntitiesResponse = (
         ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5222,15 +4528,10 @@ const deserializeAws_json1_1SearchFlowExecutionsResponse = (
   return {
     __type: "SearchFlowExecutionsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1FlowExecutionSummaries(
-            output.summaries,
-            context
-          )
+        ? deserializeAws_json1_1FlowExecutionSummaries(output.summaries, context)
         : undefined
   } as any;
 };
@@ -5242,9 +4543,7 @@ const deserializeAws_json1_1SearchFlowTemplatesResponse = (
   return {
     __type: "SearchFlowTemplatesResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
         ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
@@ -5259,15 +4558,10 @@ const deserializeAws_json1_1SearchSystemInstancesResponse = (
   return {
     __type: "SearchSystemInstancesResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1SystemInstanceSummaries(
-            output.summaries,
-            context
-          )
+        ? deserializeAws_json1_1SystemInstanceSummaries(output.summaries, context)
         : undefined
   } as any;
 };
@@ -5279,15 +4573,10 @@ const deserializeAws_json1_1SearchSystemTemplatesResponse = (
   return {
     __type: "SearchSystemTemplatesResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     summaries:
       output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1SystemTemplateSummaries(
-            output.summaries,
-            context
-          )
+        ? deserializeAws_json1_1SystemTemplateSummaries(output.summaries, context)
         : undefined
   } as any;
 };
@@ -5299,9 +4588,7 @@ const deserializeAws_json1_1SearchThingsResponse = (
   return {
     __type: "SearchThingsResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     things:
       output.things !== undefined && output.things !== null
         ? deserializeAws_json1_1Things(output.things, context)
@@ -5373,34 +4660,20 @@ const deserializeAws_json1_1UploadEntityDefinitionsResponse = (
   return {
     __type: "UploadEntityDefinitionsResponse",
     uploadId:
-      output.uploadId !== undefined && output.uploadId !== null
-        ? output.uploadId
-        : undefined
+      output.uploadId !== undefined && output.uploadId !== null ? output.uploadId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1DefinitionDocument = (
@@ -5410,13 +4683,8 @@ const deserializeAws_json1_1DefinitionDocument = (
   return {
     __type: "DefinitionDocument",
     language:
-      output.language !== undefined && output.language !== null
-        ? output.language
-        : undefined,
-    text:
-      output.text !== undefined && output.text !== null
-        ? output.text
-        : undefined
+      output.language !== undefined && output.language !== null ? output.language : undefined,
+    text: output.text !== undefined && output.text !== null ? output.text : undefined
   } as any;
 };
 
@@ -5426,10 +4694,7 @@ const deserializeAws_json1_1InternalFailureException = (
 ): InternalFailureException => {
   return {
     __type: "InternalFailureException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5439,10 +4704,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   return {
     __type: "InvalidRequestException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5452,10 +4714,7 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5465,10 +4724,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5478,10 +4734,7 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5491,17 +4744,11 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -5511,10 +4758,7 @@ const deserializeAws_json1_1ThrottlingException = (
 ): ThrottlingException => {
   return {
     __type: "ThrottlingException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5524,8 +4768,7 @@ const deserializeAws_json1_1EntityDescription = (
 ): EntityDescription => {
   return {
     __type: "EntityDescription",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -5535,10 +4778,7 @@ const deserializeAws_json1_1EntityDescription = (
         ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
         : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -5551,30 +4791,18 @@ const deserializeAws_json1_1EntityDescriptions = (
   );
 };
 
-const deserializeAws_json1_1Thing = (
-  output: any,
-  context: __SerdeContext
-): Thing => {
+const deserializeAws_json1_1Thing = (output: any, context: __SerdeContext): Thing => {
   return {
     __type: "Thing",
     thingArn:
-      output.thingArn !== undefined && output.thingArn !== null
-        ? output.thingArn
-        : undefined,
+      output.thingArn !== undefined && output.thingArn !== null ? output.thingArn : undefined,
     thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined
+      output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Things = (
-  output: any,
-  context: __SerdeContext
-): Thing[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Thing(entry, context)
-  );
+const deserializeAws_json1_1Things = (output: any, context: __SerdeContext): Thing[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Thing(entry, context));
 };
 
 const deserializeAws_json1_1DependencyRevision = (
@@ -5607,17 +4835,10 @@ const deserializeAws_json1_1FlowExecutionMessage = (
   return {
     __type: "FlowExecutionMessage",
     eventType:
-      output.eventType !== undefined && output.eventType !== null
-        ? output.eventType
-        : undefined,
+      output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
     messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined,
-    payload:
-      output.payload !== undefined && output.payload !== null
-        ? output.payload
-        : undefined,
+      output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
+    payload: output.payload !== undefined && output.payload !== null ? output.payload : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -5661,10 +4882,7 @@ const deserializeAws_json1_1FlowExecutionSummary = (
       output.flowTemplateId !== undefined && output.flowTemplateId !== null
         ? output.flowTemplateId
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     systemInstanceId:
       output.systemInstanceId !== undefined && output.systemInstanceId !== null
         ? output.systemInstanceId
@@ -5691,8 +4909,7 @@ const deserializeAws_json1_1FlowTemplateDescription = (
         ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
         : undefined,
     validatedNamespaceVersion:
-      output.validatedNamespaceVersion !== undefined &&
-      output.validatedNamespaceVersion !== null
+      output.validatedNamespaceVersion !== undefined && output.validatedNamespaceVersion !== null
         ? output.validatedNamespaceVersion
         : undefined
   } as any;
@@ -5713,8 +4930,7 @@ const deserializeAws_json1_1FlowTemplateSummary = (
 ): FlowTemplateSummary => {
   return {
     __type: "FlowTemplateSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -5734,13 +4950,11 @@ const deserializeAws_json1_1MetricsConfiguration = (
   return {
     __type: "MetricsConfiguration",
     cloudMetricEnabled:
-      output.cloudMetricEnabled !== undefined &&
-      output.cloudMetricEnabled !== null
+      output.cloudMetricEnabled !== undefined && output.cloudMetricEnabled !== null
         ? output.cloudMetricEnabled
         : undefined,
     metricRuleRoleArn:
-      output.metricRuleRoleArn !== undefined &&
-      output.metricRuleRoleArn !== null
+      output.metricRuleRoleArn !== undefined && output.metricRuleRoleArn !== null
         ? output.metricRuleRoleArn
         : undefined
   } as any;
@@ -5757,17 +4971,12 @@ const deserializeAws_json1_1SystemInstanceDescription = (
         ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
         : undefined,
     flowActionsRoleArn:
-      output.flowActionsRoleArn !== undefined &&
-      output.flowActionsRoleArn !== null
+      output.flowActionsRoleArn !== undefined && output.flowActionsRoleArn !== null
         ? output.flowActionsRoleArn
         : undefined,
     metricsConfiguration:
-      output.metricsConfiguration !== undefined &&
-      output.metricsConfiguration !== null
-        ? deserializeAws_json1_1MetricsConfiguration(
-            output.metricsConfiguration,
-            context
-          )
+      output.metricsConfiguration !== undefined && output.metricsConfiguration !== null
+        ? deserializeAws_json1_1MetricsConfiguration(output.metricsConfiguration, context)
         : undefined,
     s3BucketName:
       output.s3BucketName !== undefined && output.s3BucketName !== null
@@ -5780,14 +4989,10 @@ const deserializeAws_json1_1SystemInstanceDescription = (
     validatedDependencyRevisions:
       output.validatedDependencyRevisions !== undefined &&
       output.validatedDependencyRevisions !== null
-        ? deserializeAws_json1_1DependencyRevisions(
-            output.validatedDependencyRevisions,
-            context
-          )
+        ? deserializeAws_json1_1DependencyRevisions(output.validatedDependencyRevisions, context)
         : undefined,
     validatedNamespaceVersion:
-      output.validatedNamespaceVersion !== undefined &&
-      output.validatedNamespaceVersion !== null
+      output.validatedNamespaceVersion !== undefined && output.validatedNamespaceVersion !== null
         ? output.validatedNamespaceVersion
         : undefined
   } as any;
@@ -5808,36 +5013,26 @@ const deserializeAws_json1_1SystemInstanceSummary = (
 ): SystemInstanceSummary => {
   return {
     __type: "SystemInstanceSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
     greengrassGroupId:
-      output.greengrassGroupId !== undefined &&
-      output.greengrassGroupId !== null
+      output.greengrassGroupId !== undefined && output.greengrassGroupId !== null
         ? output.greengrassGroupId
         : undefined,
     greengrassGroupName:
-      output.greengrassGroupName !== undefined &&
-      output.greengrassGroupName !== null
+      output.greengrassGroupName !== undefined && output.greengrassGroupName !== null
         ? output.greengrassGroupName
         : undefined,
     greengrassGroupVersionId:
-      output.greengrassGroupVersionId !== undefined &&
-      output.greengrassGroupVersionId !== null
+      output.greengrassGroupVersionId !== undefined && output.greengrassGroupVersionId !== null
         ? output.greengrassGroupVersionId
         : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    target:
-      output.target !== undefined && output.target !== null
-        ? output.target
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    target: output.target !== undefined && output.target !== null ? output.target : undefined,
     updatedAt:
       output.updatedAt !== undefined && output.updatedAt !== null
         ? new Date(Math.round(output.updatedAt * 1000))
@@ -5860,8 +5055,7 @@ const deserializeAws_json1_1SystemTemplateDescription = (
         ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
         : undefined,
     validatedNamespaceVersion:
-      output.validatedNamespaceVersion !== undefined &&
-      output.validatedNamespaceVersion !== null
+      output.validatedNamespaceVersion !== undefined && output.validatedNamespaceVersion !== null
         ? output.validatedNamespaceVersion
         : undefined
   } as any;
@@ -5882,8 +5076,7 @@ const deserializeAws_json1_1SystemTemplateSummary = (
 ): SystemTemplateSummary => {
   return {
     __type: "SystemTemplateSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -5910,16 +5103,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

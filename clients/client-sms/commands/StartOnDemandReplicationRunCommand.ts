@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import {
   StartOnDemandReplicationRunRequest,
   StartOnDemandReplicationRunResponse
@@ -49,13 +45,8 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartOnDemandReplicationRunCommandInput,
-    StartOnDemandReplicationRunCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartOnDemandReplicationRunCommandInput, StartOnDemandReplicationRunCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     input: StartOnDemandReplicationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandReplicationRunCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartOnDemandReplicationRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOnDemandReplicationRunCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53ResolverClient";
-import {
-  ListResolverEndpointsRequest,
-  ListResolverEndpointsResponse
-} from "../models/index";
+import { ListResolverEndpointsRequest, ListResolverEndpointsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResolverEndpointsCommand,
   serializeAws_json1_1ListResolverEndpointsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResolverEndpointsCommandInput = ListResolverEndpointsRequest;
-export type ListResolverEndpointsCommandOutput = ListResolverEndpointsResponse &
-  __MetadataBearer;
+export type ListResolverEndpointsCommandOutput = ListResolverEndpointsResponse & __MetadataBearer;
 
 export class ListResolverEndpointsCommand extends $Command<
   ListResolverEndpointsCommandInput,
@@ -49,13 +45,8 @@ export class ListResolverEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResolverEndpointsCommandInput,
-    ListResolverEndpointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResolverEndpointsCommandInput, ListResolverEndpointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

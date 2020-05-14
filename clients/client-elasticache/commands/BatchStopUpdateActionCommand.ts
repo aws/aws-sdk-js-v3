@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  BatchStopUpdateActionMessage,
-  UpdateActionResultsMessage
-} from "../models/index";
+import { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/index";
 import {
   deserializeAws_queryBatchStopUpdateActionCommand,
   serializeAws_queryBatchStopUpdateActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchStopUpdateActionCommandInput = BatchStopUpdateActionMessage;
-export type BatchStopUpdateActionCommandOutput = UpdateActionResultsMessage &
-  __MetadataBearer;
+export type BatchStopUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
 
 export class BatchStopUpdateActionCommand extends $Command<
   BatchStopUpdateActionCommandInput,
@@ -49,13 +45,8 @@ export class BatchStopUpdateActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchStopUpdateActionCommandInput,
-    BatchStopUpdateActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchStopUpdateActionCommandInput, BatchStopUpdateActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

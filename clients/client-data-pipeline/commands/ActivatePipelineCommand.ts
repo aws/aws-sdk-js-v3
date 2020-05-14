@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ActivatePipelineCommandInput = ActivatePipelineInput;
-export type ActivatePipelineCommandOutput = ActivatePipelineOutput &
-  __MetadataBearer;
+export type ActivatePipelineCommandOutput = ActivatePipelineOutput & __MetadataBearer;
 
 export class ActivatePipelineCommand extends $Command<
   ActivatePipelineCommandInput,
@@ -47,9 +46,7 @@ export class ActivatePipelineCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ActivatePipelineCommandInput, ActivatePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

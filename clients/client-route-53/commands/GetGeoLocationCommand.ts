@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGeoLocationCommandInput = GetGeoLocationRequest;
-export type GetGeoLocationCommandOutput = GetGeoLocationResponse &
-  __MetadataBearer;
+export type GetGeoLocationCommandOutput = GetGeoLocationResponse & __MetadataBearer;
 
 export class GetGeoLocationCommand extends $Command<
   GetGeoLocationCommandInput,
@@ -47,9 +46,7 @@ export class GetGeoLocationCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoLocationCommandInput, GetGeoLocationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

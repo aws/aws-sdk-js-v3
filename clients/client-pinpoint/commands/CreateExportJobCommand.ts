@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  CreateExportJobRequest,
-  CreateExportJobResponse
-} from "../models/index";
+import { CreateExportJobRequest, CreateExportJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateExportJobCommand,
   serializeAws_restJson1_1CreateExportJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateExportJobCommandInput = CreateExportJobRequest;
-export type CreateExportJobCommandOutput = CreateExportJobResponse &
-  __MetadataBearer;
+export type CreateExportJobCommandOutput = CreateExportJobResponse & __MetadataBearer;
 
 export class CreateExportJobCommand extends $Command<
   CreateExportJobCommandInput,
@@ -50,9 +46,7 @@ export class CreateExportJobCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateExportJobCommandInput, CreateExportJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

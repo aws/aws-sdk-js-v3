@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ListGeoLocationsRequest,
-  ListGeoLocationsResponse
-} from "../models/index";
+import { ListGeoLocationsRequest, ListGeoLocationsResponse } from "../models/index";
 import {
   deserializeAws_restXmlListGeoLocationsCommand,
   serializeAws_restXmlListGeoLocationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGeoLocationsCommandInput = ListGeoLocationsRequest;
-export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse &
-  __MetadataBearer;
+export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse & __MetadataBearer;
 
 export class ListGeoLocationsCommand extends $Command<
   ListGeoLocationsCommandInput,
@@ -50,9 +46,7 @@ export class ListGeoLocationsCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGeoLocationsCommandInput, ListGeoLocationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

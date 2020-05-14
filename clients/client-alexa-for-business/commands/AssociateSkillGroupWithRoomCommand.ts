@@ -49,13 +49,8 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSkillGroupWithRoomCommandInput,
-    AssociateSkillGroupWithRoomCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSkillGroupWithRoomCommandInput, AssociateSkillGroupWithRoomCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
     input: AssociateSkillGroupWithRoomCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillGroupWithRoomCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateSkillGroupWithRoomCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillGroupWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeElasticIpsRequest,
-  DescribeElasticIpsResult
-} from "../models/index";
+import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeElasticIpsCommand,
   serializeAws_json1_1DescribeElasticIpsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeElasticIpsCommandInput = DescribeElasticIpsRequest;
-export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult &
-  __MetadataBearer;
+export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult & __MetadataBearer;
 
 export class DescribeElasticIpsCommand extends $Command<
   DescribeElasticIpsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeElasticIpsCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeElasticIpsCommandInput, DescribeElasticIpsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

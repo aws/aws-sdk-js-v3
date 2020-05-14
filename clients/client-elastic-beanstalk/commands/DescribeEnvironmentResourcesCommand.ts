@@ -49,13 +49,8 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEnvironmentResourcesCommandInput,
-    DescribeEnvironmentResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEnvironmentResourcesCommandInput, DescribeEnvironmentResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     input: DescribeEnvironmentResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentResourcesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEnvironmentResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentResourcesCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEnvironmentResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

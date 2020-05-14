@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DeleteProvisioningArtifactInput,
-  DeleteProvisioningArtifactOutput
-} from "../models/index";
+import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteProvisioningArtifactCommand,
   serializeAws_json1_1DeleteProvisioningArtifactCommand
@@ -49,13 +46,8 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteProvisioningArtifactCommandInput,
-    DeleteProvisioningArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteProvisioningArtifactCommandInput, DeleteProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     input: DeleteProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

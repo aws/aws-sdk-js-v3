@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53ResolverClient";
-import {
-  GetResolverRulePolicyRequest,
-  GetResolverRulePolicyResponse
-} from "../models/index";
+import { GetResolverRulePolicyRequest, GetResolverRulePolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetResolverRulePolicyCommand,
   serializeAws_json1_1GetResolverRulePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetResolverRulePolicyCommandInput = GetResolverRulePolicyRequest;
-export type GetResolverRulePolicyCommandOutput = GetResolverRulePolicyResponse &
-  __MetadataBearer;
+export type GetResolverRulePolicyCommandOutput = GetResolverRulePolicyResponse & __MetadataBearer;
 
 export class GetResolverRulePolicyCommand extends $Command<
   GetResolverRulePolicyCommandInput,
@@ -49,13 +45,8 @@ export class GetResolverRulePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetResolverRulePolicyCommandInput,
-    GetResolverRulePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetResolverRulePolicyCommandInput, GetResolverRulePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

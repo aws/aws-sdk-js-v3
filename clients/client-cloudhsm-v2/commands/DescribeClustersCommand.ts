@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMV2Client";
-import {
-  DescribeClustersRequest,
-  DescribeClustersResponse
-} from "../models/index";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeClustersCommand,
   serializeAws_json1_1DescribeClustersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClustersCommandInput = DescribeClustersRequest;
-export type DescribeClustersCommandOutput = DescribeClustersResponse &
-  __MetadataBearer;
+export type DescribeClustersCommandOutput = DescribeClustersResponse & __MetadataBearer;
 
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,
@@ -50,9 +46,7 @@ export class DescribeClustersCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeClustersCommandInput, DescribeClustersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

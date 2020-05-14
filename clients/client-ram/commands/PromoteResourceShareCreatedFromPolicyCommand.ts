@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
   PromoteResourceShareCreatedFromPolicyResponse
@@ -39,9 +35,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PromoteResourceShareCreatedFromPolicyCommandInput
-  ) {
+  constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     PromoteResourceShareCreatedFromPolicyCommandInput,
     PromoteResourceShareCreatedFromPolicyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

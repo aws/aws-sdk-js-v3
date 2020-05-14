@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLocationCommandInput = DeleteLocationRequest;
-export type DeleteLocationCommandOutput = DeleteLocationResponse &
-  __MetadataBearer;
+export type DeleteLocationCommandOutput = DeleteLocationResponse & __MetadataBearer;
 
 export class DeleteLocationCommand extends $Command<
   DeleteLocationCommandInput,
@@ -47,9 +46,7 @@ export class DeleteLocationCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLocationCommandInput, DeleteLocationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

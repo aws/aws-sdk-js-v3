@@ -23,9 +23,7 @@ describe("format url", () => {
   });
 
   it("should use currect hostname", () => {
-    expect(formatUrl(requestTemplate)).toEqual(
-      "https://foo.mock-region.awsamazon.com/"
-    );
+    expect(formatUrl(requestTemplate)).toEqual("https://foo.mock-region.awsamazon.com/");
   });
 
   it("should append port number to hostname", () => {
@@ -33,9 +31,7 @@ describe("format url", () => {
       ...requestTemplate,
       port: 80
     };
-    expect(formatUrl(request)).toEqual(
-      "https://foo.mock-region.awsamazon.com:80/"
-    );
+    expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com:80/");
   });
 
   describe("path string", () => {
@@ -44,16 +40,12 @@ describe("format url", () => {
         ...requestTemplate,
         path: "/foo"
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/foo"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/foo");
       request = {
         ...requestTemplate,
         path: "/b/c/d"
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/b/c/d"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/b/c/d");
     });
 
     it("should not uri encode the path(input should be already encoded)", () => {
@@ -61,9 +53,7 @@ describe("format url", () => {
         ...requestTemplate,
         path: "%3Ba/b/c"
       };
-      expect(formatUrl(request)).toEqual(
-        "https://foo.mock-region.awsamazon.com/%3Ba/b/c"
-      );
+      expect(formatUrl(request)).toEqual("https://foo.mock-region.awsamazon.com/%3Ba/b/c");
     });
   });
 
@@ -76,9 +66,7 @@ describe("format url", () => {
           bar: "bar"
         }
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?bar=bar&foo=foo"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?bar=bar&foo=foo");
       request = {
         ...requestTemplate,
         query: {
@@ -86,9 +74,7 @@ describe("format url", () => {
           bar: ""
         }
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?bar=&foo=foo"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?bar=&foo=foo");
     });
 
     it("should encode query with value as array", () => {
@@ -110,9 +96,7 @@ describe("format url", () => {
           query: null
         }
       };
-      expect(formatUrl(request)).toBe(
-        "https://foo.mock-region.awsamazon.com/?query"
-      );
+      expect(formatUrl(request)).toBe("https://foo.mock-region.awsamazon.com/?query");
       let queryLikePath = {
         ...requestTemplate,
         query: {

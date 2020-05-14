@@ -1,12 +1,5 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsResponse
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFileSystemsCommand,
   serializeAws_restJson1_1DescribeFileSystemsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFileSystemsCommandInput = DescribeFileSystemsRequest;
-export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse &
-  __MetadataBearer;
+export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse & __MetadataBearer;
 
 export class DescribeFileSystemsCommand extends $Command<
   DescribeFileSystemsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeFileSystemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFileSystemsCommandInput,
-    DescribeFileSystemsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFileSystemsCommandInput, DescribeFileSystemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeFileSystemsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFileSystemsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

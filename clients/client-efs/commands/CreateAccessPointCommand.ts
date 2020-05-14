@@ -1,12 +1,5 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  AccessPointDescription,
-  CreateAccessPointRequest
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { AccessPointDescription, CreateAccessPointRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateAccessPointCommand,
   serializeAws_restJson1_1CreateAccessPointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = AccessPointDescription &
-  __MetadataBearer;
+export type CreateAccessPointCommandOutput = AccessPointDescription & __MetadataBearer;
 
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,
@@ -50,9 +42,7 @@ export class CreateAccessPointCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

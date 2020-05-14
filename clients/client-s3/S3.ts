@@ -912,9 +912,7 @@ export class S3 extends S3Client {
   ): void;
   public copyObject(
     args: CopyObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyObjectCommandOutput) => void),
     cb?: (err: any, data?: CopyObjectCommandOutput) => void
   ): Promise<CopyObjectCommandOutput> | void {
     const command = new CopyObjectCommand(args);
@@ -1020,9 +1018,7 @@ export class S3 extends S3Client {
   ): void;
   public createBucket(
     args: CreateBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBucketCommandOutput) => void),
     cb?: (err: any, data?: CreateBucketCommandOutput) => void
   ): Promise<CreateBucketCommandOutput> | void {
     const command = new CreateBucketCommand(args);
@@ -1293,9 +1289,7 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucket(
     args: DeleteBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketCommandOutput) => void
   ): Promise<DeleteBucketCommandOutput> | void {
     const command = new DeleteBucketCommand(args);
@@ -1345,31 +1339,19 @@ export class S3 extends S3Client {
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput>;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
   public deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketAnalyticsConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketAnalyticsConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new DeleteBucketAnalyticsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1421,9 +1403,7 @@ export class S3 extends S3Client {
   ): void;
   public deleteBucketCors(
     args: DeleteBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: DeleteBucketCorsCommandOutput) => void
   ): Promise<DeleteBucketCorsCommandOutput> | void {
     const command = new DeleteBucketCorsCommand(args);
@@ -1525,31 +1505,19 @@ export class S3 extends S3Client {
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput>;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): void;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): void;
   public deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketInventoryConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketInventoryConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> | void {
     const command = new DeleteBucketInventoryConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1665,14 +1633,8 @@ export class S3 extends S3Client {
     args: DeleteBucketMetricsConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBucketMetricsConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteBucketMetricsConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteBucketMetricsConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketMetricsConfigurationCommandOutput) => void
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> | void {
     const command = new DeleteBucketMetricsConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1962,9 +1924,7 @@ export class S3 extends S3Client {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
@@ -2108,9 +2068,7 @@ export class S3 extends S3Client {
   ): void;
   public deleteObjects(
     args: DeleteObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectsCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectsCommandOutput) => void
   ): Promise<DeleteObjectsCommandOutput> | void {
     const command = new DeleteObjectsCommand(args);
@@ -2229,14 +2187,8 @@ export class S3 extends S3Client {
     args: GetBucketAccelerateConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketAccelerateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetBucketAccelerateConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetBucketAccelerateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketAccelerateConfigurationCommandOutput) => void
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> | void {
     const command = new GetBucketAccelerateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2281,9 +2233,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketAcl(
     args: GetBucketAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketAclCommandOutput) => void),
     cb?: (err: any, data?: GetBucketAclCommandOutput) => void
   ): Promise<GetBucketAclCommandOutput> | void {
     const command = new GetBucketAclCommand(args);
@@ -2347,10 +2297,7 @@ export class S3 extends S3Client {
     args: GetBucketAnalyticsConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketAnalyticsConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: GetBucketAnalyticsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new GetBucketAnalyticsConfigurationCommand(args);
@@ -2402,9 +2349,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketCors(
     args: GetBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: GetBucketCorsCommandOutput) => void
   ): Promise<GetBucketCorsCommandOutput> | void {
     const command = new GetBucketCorsCommand(args);
@@ -2512,10 +2457,7 @@ export class S3 extends S3Client {
     args: GetBucketInventoryConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketInventoryConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: GetBucketInventoryConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketInventoryConfigurationCommandOutput) => void
   ): Promise<GetBucketInventoryConfigurationCommandOutput> | void {
     const command = new GetBucketInventoryConfigurationCommand(args);
@@ -2594,10 +2536,7 @@ export class S3 extends S3Client {
     args: GetBucketLifecycleConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketLifecycleConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> | void {
     const command = new GetBucketLifecycleConfigurationCommand(args);
@@ -2697,9 +2636,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketLogging(
     args: GetBucketLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketLoggingCommandOutput) => void),
     cb?: (err: any, data?: GetBucketLoggingCommandOutput) => void
   ): Promise<GetBucketLoggingCommandOutput> | void {
     const command = new GetBucketLoggingCommand(args);
@@ -2800,31 +2737,19 @@ export class S3 extends S3Client {
   ): Promise<GetBucketNotificationConfigurationCommandOutput>;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetBucketNotificationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetBucketNotificationConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): Promise<GetBucketNotificationConfigurationCommandOutput> | void {
     const command = new GetBucketNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2873,9 +2798,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetBucketPolicyCommandOutput) => void
   ): Promise<GetBucketPolicyCommandOutput> | void {
     const command = new GetBucketPolicyCommand(args);
@@ -3108,9 +3031,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketTaggingCommandOutput) => void),
     cb?: (err: any, data?: GetBucketTaggingCommandOutput) => void
   ): Promise<GetBucketTaggingCommandOutput> | void {
     const command = new GetBucketTaggingCommand(args);
@@ -3217,9 +3138,7 @@ export class S3 extends S3Client {
   ): void;
   public getBucketWebsite(
     args: GetBucketWebsiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBucketWebsiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketWebsiteCommandOutput) => void),
     cb?: (err: any, data?: GetBucketWebsiteCommandOutput) => void
   ): Promise<GetBucketWebsiteCommandOutput> | void {
     const command = new GetBucketWebsiteCommand(args);
@@ -3377,9 +3296,7 @@ export class S3 extends S3Client {
   ): void;
   public getObject(
     args: GetObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectCommandOutput) => void),
     cb?: (err: any, data?: GetObjectCommandOutput) => void
   ): Promise<GetObjectCommandOutput> | void {
     const command = new GetObjectCommand(args);
@@ -3436,9 +3353,7 @@ export class S3 extends S3Client {
   ): void;
   public getObjectAcl(
     args: GetObjectAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectAclCommandOutput) => void),
     cb?: (err: any, data?: GetObjectAclCommandOutput) => void
   ): Promise<GetObjectAclCommandOutput> | void {
     const command = new GetObjectAclCommand(args);
@@ -3592,9 +3507,7 @@ export class S3 extends S3Client {
   ): void;
   public getObjectTagging(
     args: GetObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectTaggingCommandOutput) => void),
     cb?: (err: any, data?: GetObjectTaggingCommandOutput) => void
   ): Promise<GetObjectTaggingCommandOutput> | void {
     const command = new GetObjectTaggingCommand(args);
@@ -3644,9 +3557,7 @@ export class S3 extends S3Client {
   ): void;
   public getObjectTorrent(
     args: GetObjectTorrentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetObjectTorrentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectTorrentCommandOutput) => void),
     cb?: (err: any, data?: GetObjectTorrentCommandOutput) => void
   ): Promise<GetObjectTorrentCommandOutput> | void {
     const command = new GetObjectTorrentCommand(args);
@@ -3748,9 +3659,7 @@ export class S3 extends S3Client {
   ): void;
   public headBucket(
     args: HeadBucketCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: HeadBucketCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HeadBucketCommandOutput) => void),
     cb?: (err: any, data?: HeadBucketCommandOutput) => void
   ): Promise<HeadBucketCommandOutput> | void {
     const command = new HeadBucketCommand(args);
@@ -3868,9 +3777,7 @@ export class S3 extends S3Client {
   ): void;
   public headObject(
     args: HeadObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: HeadObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HeadObjectCommandOutput) => void),
     cb?: (err: any, data?: HeadObjectCommandOutput) => void
   ): Promise<HeadObjectCommandOutput> | void {
     const command = new HeadObjectCommand(args);
@@ -3919,31 +3826,19 @@ export class S3 extends S3Client {
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput>;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): void;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): void;
   public listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketAnalyticsConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBucketAnalyticsConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> | void {
     const command = new ListBucketAnalyticsConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3992,31 +3887,19 @@ export class S3 extends S3Client {
   ): Promise<ListBucketInventoryConfigurationsCommandOutput>;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): void;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): void;
   public listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketInventoryConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListBucketInventoryConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): Promise<ListBucketInventoryConfigurationsCommandOutput> | void {
     const command = new ListBucketInventoryConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4075,10 +3958,7 @@ export class S3 extends S3Client {
     args: ListBucketMetricsConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListBucketMetricsConfigurationsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListBucketMetricsConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListBucketMetricsConfigurationsCommandOutput) => void
   ): Promise<ListBucketMetricsConfigurationsCommandOutput> | void {
     const command = new ListBucketMetricsConfigurationsCommand(args);
@@ -4111,9 +3991,7 @@ export class S3 extends S3Client {
   ): void;
   public listBuckets(
     args: ListBucketsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBucketsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBucketsCommandOutput) => void),
     cb?: (err: any, data?: ListBucketsCommandOutput) => void
   ): Promise<ListBucketsCommandOutput> | void {
     const command = new ListBucketsCommand(args);
@@ -4318,9 +4196,7 @@ export class S3 extends S3Client {
   ): void;
   public listObjects(
     args: ListObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectsCommandOutput) => void),
     cb?: (err: any, data?: ListObjectsCommandOutput) => void
   ): Promise<ListObjectsCommandOutput> | void {
     const command = new ListObjectsCommand(args);
@@ -4381,9 +4257,7 @@ export class S3 extends S3Client {
   ): void;
   public listObjectsV2(
     args: ListObjectsV2CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListObjectsV2CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectsV2CommandOutput) => void),
     cb?: (err: any, data?: ListObjectsV2CommandOutput) => void
   ): Promise<ListObjectsV2CommandOutput> | void {
     const command = new ListObjectsV2Command(args);
@@ -4449,9 +4323,7 @@ export class S3 extends S3Client {
   ): void;
   public listParts(
     args: ListPartsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPartsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartsCommandOutput) => void),
     cb?: (err: any, data?: ListPartsCommandOutput) => void
   ): Promise<ListPartsCommandOutput> | void {
     const command = new ListPartsCommand(args);
@@ -4521,14 +4393,8 @@ export class S3 extends S3Client {
     args: PutBucketAccelerateConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketAccelerateConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutBucketAccelerateConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: PutBucketAccelerateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketAccelerateConfigurationCommandOutput) => void
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> | void {
     const command = new PutBucketAccelerateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4678,9 +4544,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketAcl(
     args: PutBucketAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketAclCommandOutput) => void),
     cb?: (err: any, data?: PutBucketAclCommandOutput) => void
   ): Promise<PutBucketAclCommandOutput> | void {
     const command = new PutBucketAclCommand(args);
@@ -4819,10 +4683,7 @@ export class S3 extends S3Client {
     args: PutBucketAnalyticsConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketAnalyticsConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: PutBucketAnalyticsConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketAnalyticsConfigurationCommandOutput) => void
   ): Promise<PutBucketAnalyticsConfigurationCommandOutput> | void {
     const command = new PutBucketAnalyticsConfigurationCommand(args);
@@ -4906,9 +4767,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketCors(
     args: PutBucketCorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketCorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketCorsCommandOutput) => void),
     cb?: (err: any, data?: PutBucketCorsCommandOutput) => void
   ): Promise<PutBucketCorsCommandOutput> | void {
     const command = new PutBucketCorsCommand(args);
@@ -5104,10 +4963,7 @@ export class S3 extends S3Client {
     args: PutBucketInventoryConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketInventoryConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: PutBucketInventoryConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketInventoryConfigurationCommandOutput) => void
   ): Promise<PutBucketInventoryConfigurationCommandOutput> | void {
     const command = new PutBucketInventoryConfigurationCommand(args);
@@ -5210,10 +5066,7 @@ export class S3 extends S3Client {
     args: PutBucketLifecycleConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketLifecycleConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> | void {
     const command = new PutBucketLifecycleConfigurationCommand(args);
@@ -5315,9 +5168,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketLogging(
     args: PutBucketLoggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketLoggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketLoggingCommandOutput) => void),
     cb?: (err: any, data?: PutBucketLoggingCommandOutput) => void
   ): Promise<PutBucketLoggingCommandOutput> | void {
     const command = new PutBucketLoggingCommand(args);
@@ -5467,31 +5318,19 @@ export class S3 extends S3Client {
   ): Promise<PutBucketNotificationConfigurationCommandOutput>;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): void;
   public putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutBucketNotificationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutBucketNotificationConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): Promise<PutBucketNotificationConfigurationCommandOutput> | void {
     const command = new PutBucketNotificationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5547,9 +5386,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutBucketPolicyCommandOutput) => void
   ): Promise<PutBucketPolicyCommandOutput> | void {
     const command = new PutBucketPolicyCommand(args);
@@ -5768,9 +5605,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketTaggingCommandOutput) => void),
     cb?: (err: any, data?: PutBucketTaggingCommandOutput) => void
   ): Promise<PutBucketTaggingCommandOutput> | void {
     const command = new PutBucketTaggingCommand(args);
@@ -5987,9 +5822,7 @@ export class S3 extends S3Client {
   ): void;
   public putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutBucketWebsiteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketWebsiteCommandOutput) => void),
     cb?: (err: any, data?: PutBucketWebsiteCommandOutput) => void
   ): Promise<PutBucketWebsiteCommandOutput> | void {
     const command = new PutBucketWebsiteCommand(args);
@@ -6280,9 +6113,7 @@ export class S3 extends S3Client {
   ): void;
   public putObject(
     args: PutObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectCommandOutput) => void),
     cb?: (err: any, data?: PutObjectCommandOutput) => void
   ): Promise<PutObjectCommandOutput> | void {
     const command = new PutObjectCommand(args);
@@ -6418,9 +6249,7 @@ export class S3 extends S3Client {
   ): void;
   public putObjectAcl(
     args: PutObjectAclCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectAclCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectAclCommandOutput) => void),
     cb?: (err: any, data?: PutObjectAclCommandOutput) => void
   ): Promise<PutObjectAclCommandOutput> | void {
     const command = new PutObjectAclCommand(args);
@@ -6686,9 +6515,7 @@ export class S3 extends S3Client {
   ): void;
   public putObjectTagging(
     args: PutObjectTaggingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectTaggingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectTaggingCommandOutput) => void),
     cb?: (err: any, data?: PutObjectTaggingCommandOutput) => void
   ): Promise<PutObjectTaggingCommandOutput> | void {
     const command = new PutObjectTaggingCommand(args);
@@ -7093,9 +6920,7 @@ export class S3 extends S3Client {
   ): void;
   public restoreObject(
     args: RestoreObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreObjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreObjectCommandOutput) => void),
     cb?: (err: any, data?: RestoreObjectCommandOutput) => void
   ): Promise<RestoreObjectCommandOutput> | void {
     const command = new RestoreObjectCommand(args);
@@ -7409,9 +7234,7 @@ export class S3 extends S3Client {
   ): void;
   public uploadPart(
     args: UploadPartCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadPartCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadPartCommandOutput) => void),
     cb?: (err: any, data?: UploadPartCommandOutput) => void
   ): Promise<UploadPartCommandOutput> | void {
     const command = new UploadPartCommand(args);
@@ -7626,9 +7449,7 @@ export class S3 extends S3Client {
   ): void;
   public uploadPartCopy(
     args: UploadPartCopyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadPartCopyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadPartCopyCommandOutput) => void),
     cb?: (err: any, data?: UploadPartCopyCommandOutput) => void
   ): Promise<UploadPartCopyCommandOutput> | void {
     const command = new UploadPartCopyCommand(args);

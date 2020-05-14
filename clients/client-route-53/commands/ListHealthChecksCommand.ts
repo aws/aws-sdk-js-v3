@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ListHealthChecksRequest,
-  ListHealthChecksResponse
-} from "../models/index";
+import { ListHealthChecksRequest, ListHealthChecksResponse } from "../models/index";
 import {
   deserializeAws_restXmlListHealthChecksCommand,
   serializeAws_restXmlListHealthChecksCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHealthChecksCommandInput = ListHealthChecksRequest;
-export type ListHealthChecksCommandOutput = ListHealthChecksResponse &
-  __MetadataBearer;
+export type ListHealthChecksCommandOutput = ListHealthChecksResponse & __MetadataBearer;
 
 export class ListHealthChecksCommand extends $Command<
   ListHealthChecksCommandInput,
@@ -50,9 +46,7 @@ export class ListHealthChecksCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHealthChecksCommandInput, ListHealthChecksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

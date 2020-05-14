@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  PutSchemaFromJsonRequest,
-  PutSchemaFromJsonResponse
-} from "../models/index";
+import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutSchemaFromJsonCommand,
   serializeAws_restJson1_1PutSchemaFromJsonCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutSchemaFromJsonCommandInput = PutSchemaFromJsonRequest;
-export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse &
-  __MetadataBearer;
+export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse & __MetadataBearer;
 
 export class PutSchemaFromJsonCommand extends $Command<
   PutSchemaFromJsonCommandInput,
@@ -50,9 +46,7 @@ export class PutSchemaFromJsonCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutSchemaFromJsonCommandInput, PutSchemaFromJsonCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

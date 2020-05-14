@@ -783,35 +783,21 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput>;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): void;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): void;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> | void {
-    const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(
-      args
-    );
+    const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -832,18 +818,12 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput>;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    cb: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
   ): void;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
   ): void;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
@@ -853,16 +833,9 @@ export class CodeCommit extends CodeCommitClient {
           err: any,
           data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
         ) => void),
-    cb?: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
-  ): Promise<
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-  > | void {
-    const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
-      args
-    );
+    cb?: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
+  ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> | void {
+    const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -915,9 +888,7 @@ export class CodeCommit extends CodeCommitClient {
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  >;
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput>;
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     cb: (
@@ -945,12 +916,8 @@ export class CodeCommit extends CodeCommitClient {
       err: any,
       data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
     ) => void
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  > | void {
-    const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
-      args
-    );
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> | void {
+    const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -980,9 +947,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public batchGetCommits(
     args: BatchGetCommitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetCommitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCommitsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetCommitsCommandOutput) => void
   ): Promise<BatchGetCommitsCommandOutput> | void {
     const command = new BatchGetCommitsCommand(args);
@@ -1099,9 +1064,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createBranch(
     args: CreateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBranchCommandOutput) => void),
     cb?: (err: any, data?: CreateBranchCommandOutput) => void
   ): Promise<CreateBranchCommandOutput> | void {
     const command = new CreateBranchCommand(args);
@@ -1134,9 +1097,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createCommit(
     args: CreateCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCommitCommandOutput) => void),
     cb?: (err: any, data?: CreateCommitCommandOutput) => void
   ): Promise<CreateCommitCommandOutput> | void {
     const command = new CreateCommitCommand(args);
@@ -1239,9 +1200,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createRepository(
     args: CreateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): Promise<CreateRepositoryCommandOutput> | void {
     const command = new CreateRepositoryCommand(args);
@@ -1351,9 +1310,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteBranch(
     args: DeleteBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBranchCommandOutput) => void),
     cb?: (err: any, data?: DeleteBranchCommandOutput) => void
   ): Promise<DeleteBranchCommandOutput> | void {
     const command = new DeleteBranchCommand(args);
@@ -1423,9 +1380,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteFile(
     args: DeleteFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileCommandOutput) => void
   ): Promise<DeleteFileCommandOutput> | void {
     const command = new DeleteFileCommand(args);
@@ -1500,9 +1455,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): Promise<DeleteRepositoryCommandOutput> | void {
     const command = new DeleteRepositoryCommand(args);
@@ -1601,37 +1554,21 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput>;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
   ): void;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
   ): void;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-  > | void {
-    const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(
-      args
-    );
+      | ((err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
+  ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> | void {
+    const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1663,14 +1600,8 @@ export class CodeCommit extends CodeCommitClient {
     args: EvaluatePullRequestApprovalRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EvaluatePullRequestApprovalRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EvaluatePullRequestApprovalRulesCommandOutput
-    ) => void
+      | ((err: any, data?: EvaluatePullRequestApprovalRulesCommandOutput) => void),
+    cb?: (err: any, data?: EvaluatePullRequestApprovalRulesCommandOutput) => void
   ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> | void {
     const command = new EvaluatePullRequestApprovalRulesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1737,9 +1668,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getBlob(
     args: GetBlobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlobCommandOutput) => void),
     cb?: (err: any, data?: GetBlobCommandOutput) => void
   ): Promise<GetBlobCommandOutput> | void {
     const command = new GetBlobCommand(args);
@@ -1772,9 +1701,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getBranch(
     args: GetBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBranchCommandOutput) => void),
     cb?: (err: any, data?: GetBranchCommandOutput) => void
   ): Promise<GetBranchCommandOutput> | void {
     const command = new GetBranchCommand(args);
@@ -1807,9 +1734,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getComment(
     args: GetCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommentCommandOutput) => void),
     cb?: (err: any, data?: GetCommentCommandOutput) => void
   ): Promise<GetCommentCommandOutput> | void {
     const command = new GetCommentCommand(args);
@@ -1912,9 +1837,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getCommit(
     args: GetCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommitCommandOutput) => void),
     cb?: (err: any, data?: GetCommitCommandOutput) => void
   ): Promise<GetCommitCommandOutput> | void {
     const command = new GetCommitCommand(args);
@@ -1949,9 +1872,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getDifferences(
     args: GetDifferencesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDifferencesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDifferencesCommandOutput) => void),
     cb?: (err: any, data?: GetDifferencesCommandOutput) => void
   ): Promise<GetDifferencesCommandOutput> | void {
     const command = new GetDifferencesCommand(args);
@@ -1984,9 +1905,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getFile(
     args: GetFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFileCommandOutput) => void),
     cb?: (err: any, data?: GetFileCommandOutput) => void
   ): Promise<GetFileCommandOutput> | void {
     const command = new GetFileCommand(args);
@@ -2019,9 +1938,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getFolder(
     args: GetFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderCommandOutput) => void),
     cb?: (err: any, data?: GetFolderCommandOutput) => void
   ): Promise<GetFolderCommandOutput> | void {
     const command = new GetFolderCommand(args);
@@ -2054,9 +1971,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getMergeCommit(
     args: GetMergeCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMergeCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMergeCommitCommandOutput) => void),
     cb?: (err: any, data?: GetMergeCommitCommandOutput) => void
   ): Promise<GetMergeCommitCommandOutput> | void {
     const command = new GetMergeCommitCommand(args);
@@ -2126,9 +2041,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getMergeOptions(
     args: GetMergeOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMergeOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMergeOptionsCommandOutput) => void),
     cb?: (err: any, data?: GetMergeOptionsCommandOutput) => void
   ): Promise<GetMergeOptionsCommandOutput> | void {
     const command = new GetMergeOptionsCommand(args);
@@ -2161,9 +2074,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getPullRequest(
     args: GetPullRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPullRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPullRequestCommandOutput) => void),
     cb?: (err: any, data?: GetPullRequestCommandOutput) => void
   ): Promise<GetPullRequestCommandOutput> | void {
     const command = new GetPullRequestCommand(args);
@@ -2276,9 +2187,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getRepository(
     args: GetRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositoryCommandOutput) => void),
     cb?: (err: any, data?: GetRepositoryCommandOutput) => void
   ): Promise<GetRepositoryCommandOutput> | void {
     const command = new GetRepositoryCommand(args);
@@ -2373,37 +2282,21 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput>;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
   ): void;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
   ): void;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
-  ): Promise<
-    ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-  > | void {
-    const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(
-      args
-    );
+      | ((err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
+  ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> | void {
+    const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2433,9 +2326,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listBranches(
     args: ListBranchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBranchesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBranchesCommandOutput) => void),
     cb?: (err: any, data?: ListBranchesCommandOutput) => void
   ): Promise<ListBranchesCommandOutput> | void {
     const command = new ListBranchesCommand(args);
@@ -2469,9 +2360,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listPullRequests(
     args: ListPullRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPullRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPullRequestsCommandOutput) => void),
     cb?: (err: any, data?: ListPullRequestsCommandOutput) => void
   ): Promise<ListPullRequestsCommandOutput> | void {
     const command = new ListPullRequestsCommand(args);
@@ -2504,9 +2393,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listRepositories(
     args: ListRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRepositoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositoriesCommandOutput) => void),
     cb?: (err: any, data?: ListRepositoriesCommandOutput) => void
   ): Promise<ListRepositoriesCommandOutput> | void {
     const command = new ListRepositoriesCommand(args);
@@ -2530,31 +2417,19 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput>;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): void;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): void;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+      | ((err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void),
+    cb?: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> | void {
     const command = new ListRepositoriesForApprovalRuleTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2838,14 +2713,8 @@ export class CodeCommit extends CodeCommitClient {
     args: OverridePullRequestApprovalRulesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: OverridePullRequestApprovalRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: OverridePullRequestApprovalRulesCommandOutput
-    ) => void
+      | ((err: any, data?: OverridePullRequestApprovalRulesCommandOutput) => void),
+    cb?: (err: any, data?: OverridePullRequestApprovalRulesCommandOutput) => void
   ): Promise<OverridePullRequestApprovalRulesCommandOutput> | void {
     const command = new OverridePullRequestApprovalRulesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2947,9 +2816,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public postCommentReply(
     args: PostCommentReplyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostCommentReplyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostCommentReplyCommandOutput) => void),
     cb?: (err: any, data?: PostCommentReplyCommandOutput) => void
   ): Promise<PostCommentReplyCommandOutput> | void {
     const command = new PostCommentReplyCommand(args);
@@ -2982,9 +2849,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public putFile(
     args: PutFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFileCommandOutput) => void),
     cb?: (err: any, data?: PutFileCommandOutput) => void
   ): Promise<PutFileCommandOutput> | void {
     const command = new PutFileCommand(args);
@@ -3054,9 +2919,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3128,9 +2991,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -3156,31 +3017,19 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<UpdateApprovalRuleTemplateContentCommandOutput>;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateContentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateContentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3203,31 +3052,19 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput>;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3261,10 +3098,7 @@ export class CodeCommit extends CodeCommitClient {
     args: UpdateApprovalRuleTemplateNameCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateNameCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateApprovalRuleTemplateNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateApprovalRuleTemplateNameCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateNameCommand(args);
@@ -3297,9 +3131,7 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateComment(
     args: UpdateCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateCommentCommandOutput) => void
   ): Promise<UpdateCommentCommandOutput> | void {
     const command = new UpdateCommentCommand(args);
@@ -3362,31 +3194,19 @@ export class CodeCommit extends CodeCommitClient {
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput>;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
-    cb: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): void;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): void;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdatePullRequestApprovalRuleContentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+      | ((err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> | void {
     const command = new UpdatePullRequestApprovalRuleContentCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3420,10 +3240,7 @@ export class CodeCommit extends CodeCommitClient {
     args: UpdatePullRequestApprovalStateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdatePullRequestApprovalStateCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdatePullRequestApprovalStateCommandOutput) => void),
     cb?: (err: any, data?: UpdatePullRequestApprovalStateCommandOutput) => void
   ): Promise<UpdatePullRequestApprovalStateCommandOutput> | void {
     const command = new UpdatePullRequestApprovalStateCommand(args);

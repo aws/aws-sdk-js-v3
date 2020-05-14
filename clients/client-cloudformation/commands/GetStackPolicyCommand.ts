@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetStackPolicyCommandInput = GetStackPolicyInput;
-export type GetStackPolicyCommandOutput = GetStackPolicyOutput &
-  __MetadataBearer;
+export type GetStackPolicyCommandOutput = GetStackPolicyOutput & __MetadataBearer;
 
 export class GetStackPolicyCommand extends $Command<
   GetStackPolicyCommandInput,
@@ -47,9 +46,7 @@ export class GetStackPolicyCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetStackPolicyCommandInput, GetStackPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

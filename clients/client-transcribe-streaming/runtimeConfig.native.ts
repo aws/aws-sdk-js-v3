@@ -13,9 +13,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
   eventStreamSerdeProvider: () => ({
     serialize: invalidFunction("event stream is not supported in ReactNative."),
-    deserialize: invalidFunction(
-      "event stream is not supported in ReactNative."
-    )
+    deserialize: invalidFunction("event stream is not supported in ReactNative.")
   }),
   requestHandler: new FetchHttpHandler({ bufferBody: true }),
   sha256: Sha256,

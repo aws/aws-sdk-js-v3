@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
-import {
-  DescribeFleetMetadataRequest,
-  DescribeFleetMetadataResponse
-} from "../models/index";
+import { DescribeFleetMetadataRequest, DescribeFleetMetadataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFleetMetadataCommand,
   serializeAws_restJson1_1DescribeFleetMetadataCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFleetMetadataCommandInput = DescribeFleetMetadataRequest;
-export type DescribeFleetMetadataCommandOutput = DescribeFleetMetadataResponse &
-  __MetadataBearer;
+export type DescribeFleetMetadataCommandOutput = DescribeFleetMetadataResponse & __MetadataBearer;
 
 export class DescribeFleetMetadataCommand extends $Command<
   DescribeFleetMetadataCommandInput,
@@ -49,13 +45,8 @@ export class DescribeFleetMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetMetadataCommandInput,
-    DescribeFleetMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetMetadataCommandInput, DescribeFleetMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeFleetMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetMetadataCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFleetMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFleetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  PIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PIClient";
-import {
-  DescribeDimensionKeysRequest,
-  DescribeDimensionKeysResponse
-} from "../models/index";
+import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
+import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDimensionKeysCommand,
   serializeAws_json1_1DescribeDimensionKeysCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDimensionKeysCommandInput = DescribeDimensionKeysRequest;
-export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse &
-  __MetadataBearer;
+export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse & __MetadataBearer;
 
 export class DescribeDimensionKeysCommand extends $Command<
   DescribeDimensionKeysCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDimensionKeysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PIClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDimensionKeysCommandInput,
-    DescribeDimensionKeysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDimensionKeysCommandInput, DescribeDimensionKeysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

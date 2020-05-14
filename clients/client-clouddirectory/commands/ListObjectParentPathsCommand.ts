@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListObjectParentPathsRequest,
-  ListObjectParentPathsResponse
-} from "../models/index";
+import { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectParentPathsCommand,
   serializeAws_restJson1_1ListObjectParentPathsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectParentPathsCommandInput = ListObjectParentPathsRequest;
-export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse &
-  __MetadataBearer;
+export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse & __MetadataBearer;
 
 export class ListObjectParentPathsCommand extends $Command<
   ListObjectParentPathsCommandInput,
@@ -49,13 +45,8 @@ export class ListObjectParentPathsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListObjectParentPathsCommandInput,
-    ListObjectParentPathsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListObjectParentPathsCommandInput, ListObjectParentPathsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListObjectParentPathsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListObjectParentPathsCommandOutput> {
-    return deserializeAws_restJson1_1ListObjectParentPathsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListObjectParentPathsCommand(output, context);
   }
 
   // Start section: command_body_extra

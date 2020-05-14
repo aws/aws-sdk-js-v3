@@ -1,33 +1,25 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
  *       permissions.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>AWS CodeStar Notifications can't complete the request because the resource is being modified by
  *       another process. Wait a few minutes and try again.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -41,17 +33,14 @@ export namespace ConcurrentModificationException {
 /**
  * <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  */
-export interface ConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConfigurationException extends __SmithyException, $MetadataBearer {
   name: "ConfigurationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ConfigurationException {
-  export const isa = (o: any): o is ConfigurationException =>
-    __isa(o, "ConfigurationException");
+  export const isa = (o: any): o is ConfigurationException => __isa(o, "ConfigurationException");
 }
 
 export interface CreateNotificationRuleRequest {
@@ -171,8 +160,7 @@ export interface DeleteTargetRequest {
 }
 
 export namespace DeleteTargetRequest {
-  export const isa = (o: any): o is DeleteTargetRequest =>
-    __isa(o, "DeleteTargetRequest");
+  export const isa = (o: any): o is DeleteTargetRequest => __isa(o, "DeleteTargetRequest");
 }
 
 export interface DeleteTargetResult {
@@ -180,8 +168,7 @@ export interface DeleteTargetResult {
 }
 
 export namespace DeleteTargetResult {
-  export const isa = (o: any): o is DeleteTargetResult =>
-    __isa(o, "DeleteTargetResult");
+  export const isa = (o: any): o is DeleteTargetResult => __isa(o, "DeleteTargetResult");
 }
 
 export interface DescribeNotificationRuleRequest {
@@ -297,16 +284,13 @@ export interface EventTypeSummary {
 }
 
 export namespace EventTypeSummary {
-  export const isa = (o: any): o is EventTypeSummary =>
-    __isa(o, "EventTypeSummary");
+  export const isa = (o: any): o is EventTypeSummary => __isa(o, "EventTypeSummary");
 }
 
 /**
  * <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -322,17 +306,14 @@ export namespace InvalidNextTokenException {
  *             accounts, notification rules, notifications, resources, and targets. For more
  *             information, see Limits.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -354,8 +335,7 @@ export interface ListEventTypesFilter {
 }
 
 export namespace ListEventTypesFilter {
-  export const isa = (o: any): o is ListEventTypesFilter =>
-    __isa(o, "ListEventTypesFilter");
+  export const isa = (o: any): o is ListEventTypesFilter => __isa(o, "ListEventTypesFilter");
 }
 
 export enum ListEventTypesFilterName {
@@ -384,8 +364,7 @@ export interface ListEventTypesRequest {
 }
 
 export namespace ListEventTypesRequest {
-  export const isa = (o: any): o is ListEventTypesRequest =>
-    __isa(o, "ListEventTypesRequest");
+  export const isa = (o: any): o is ListEventTypesRequest => __isa(o, "ListEventTypesRequest");
 }
 
 export interface ListEventTypesResult {
@@ -403,8 +382,7 @@ export interface ListEventTypesResult {
 }
 
 export namespace ListEventTypesResult {
-  export const isa = (o: any): o is ListEventTypesResult =>
-    __isa(o, "ListEventTypesResult");
+  export const isa = (o: any): o is ListEventTypesResult => __isa(o, "ListEventTypesResult");
 }
 
 /**
@@ -533,8 +511,7 @@ export interface ListTargetsFilter {
 }
 
 export namespace ListTargetsFilter {
-  export const isa = (o: any): o is ListTargetsFilter =>
-    __isa(o, "ListTargetsFilter");
+  export const isa = (o: any): o is ListTargetsFilter => __isa(o, "ListTargetsFilter");
 }
 
 export enum ListTargetsFilterName {
@@ -568,8 +545,7 @@ export interface ListTargetsRequest {
 }
 
 export namespace ListTargetsRequest {
-  export const isa = (o: any): o is ListTargetsRequest =>
-    __isa(o, "ListTargetsRequest");
+  export const isa = (o: any): o is ListTargetsRequest => __isa(o, "ListTargetsRequest");
 }
 
 export interface ListTargetsResult {
@@ -587,8 +563,7 @@ export interface ListTargetsResult {
 }
 
 export namespace ListTargetsResult {
-  export const isa = (o: any): o is ListTargetsResult =>
-    __isa(o, "ListTargetsResult");
+  export const isa = (o: any): o is ListTargetsResult => __isa(o, "ListTargetsResult");
 }
 
 export enum NotificationRuleStatus {
@@ -613,17 +588,14 @@ export interface NotificationRuleSummary {
 }
 
 export namespace NotificationRuleSummary {
-  export const isa = (o: any): o is NotificationRuleSummary =>
-    __isa(o, "NotificationRuleSummary");
+  export const isa = (o: any): o is NotificationRuleSummary => __isa(o, "NotificationRuleSummary");
 }
 
 /**
  * <p>A resource with the same name or ID already exists. Notification rule names must be
  *             unique in your AWS account.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -637,9 +609,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -670,8 +640,7 @@ export interface SubscribeRequest {
 }
 
 export namespace SubscribeRequest {
-  export const isa = (o: any): o is SubscribeRequest =>
-    __isa(o, "SubscribeRequest");
+  export const isa = (o: any): o is SubscribeRequest => __isa(o, "SubscribeRequest");
 }
 
 export interface SubscribeResult {
@@ -683,8 +652,7 @@ export interface SubscribeResult {
 }
 
 export namespace SubscribeResult {
-  export const isa = (o: any): o is SubscribeResult =>
-    __isa(o, "SubscribeResult");
+  export const isa = (o: any): o is SubscribeResult => __isa(o, "SubscribeResult");
 }
 
 export interface TagResourceRequest {
@@ -701,8 +669,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResult {
@@ -714,8 +681,7 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
-  export const isa = (o: any): o is TagResourceResult =>
-    __isa(o, "TagResourceResult");
+  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 /**
@@ -785,8 +751,7 @@ export interface UnsubscribeRequest {
 }
 
 export namespace UnsubscribeRequest {
-  export const isa = (o: any): o is UnsubscribeRequest =>
-    __isa(o, "UnsubscribeRequest");
+  export const isa = (o: any): o is UnsubscribeRequest => __isa(o, "UnsubscribeRequest");
 }
 
 export interface UnsubscribeResult {
@@ -798,8 +763,7 @@ export interface UnsubscribeResult {
 }
 
 export namespace UnsubscribeResult {
-  export const isa = (o: any): o is UnsubscribeResult =>
-    __isa(o, "UnsubscribeResult");
+  export const isa = (o: any): o is UnsubscribeResult => __isa(o, "UnsubscribeResult");
 }
 
 export interface UntagResourceRequest {
@@ -817,8 +781,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResult {
@@ -826,8 +789,7 @@ export interface UntagResourceResult {
 }
 
 export namespace UntagResourceResult {
-  export const isa = (o: any): o is UntagResourceResult =>
-    __isa(o, "UntagResourceResult");
+  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateNotificationRuleRequest {
@@ -884,15 +846,12 @@ export namespace UpdateNotificationRuleResult {
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

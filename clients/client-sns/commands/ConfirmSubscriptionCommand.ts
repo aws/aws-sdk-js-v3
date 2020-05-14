@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  ConfirmSubscriptionInput,
-  ConfirmSubscriptionResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/index";
 import {
   deserializeAws_queryConfirmSubscriptionCommand,
   serializeAws_queryConfirmSubscriptionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmSubscriptionCommandInput = ConfirmSubscriptionInput;
-export type ConfirmSubscriptionCommandOutput = ConfirmSubscriptionResponse &
-  __MetadataBearer;
+export type ConfirmSubscriptionCommandOutput = ConfirmSubscriptionResponse & __MetadataBearer;
 
 export class ConfirmSubscriptionCommand extends $Command<
   ConfirmSubscriptionCommandInput,
@@ -49,13 +41,8 @@ export class ConfirmSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfirmSubscriptionCommandInput,
-    ConfirmSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfirmSubscriptionCommandInput, ConfirmSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

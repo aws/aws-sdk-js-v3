@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetTrafficPolicyInstanceRequest,
-  GetTrafficPolicyInstanceResponse
-} from "../models/index";
+import { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetTrafficPolicyInstanceCommand,
   serializeAws_restXmlGetTrafficPolicyInstanceCommand
@@ -50,13 +47,8 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTrafficPolicyInstanceCommandInput,
-    GetTrafficPolicyInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTrafficPolicyInstanceCommandInput, GetTrafficPolicyInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

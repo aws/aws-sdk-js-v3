@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -33,8 +30,7 @@ export interface SuppressionAttributes {
 }
 
 export namespace SuppressionAttributes {
-  export const isa = (o: any): o is SuppressionAttributes =>
-    __isa(o, "SuppressionAttributes");
+  export const isa = (o: any): o is SuppressionAttributes => __isa(o, "SuppressionAttributes");
 }
 
 export enum SuppressionListReason {
@@ -71,8 +67,7 @@ export interface SuppressionOptions {
 }
 
 export namespace SuppressionOptions {
-  export const isa = (o: any): o is SuppressionOptions =>
-    __isa(o, "SuppressionOptions");
+  export const isa = (o: any): o is SuppressionOptions => __isa(o, "SuppressionOptions");
 }
 
 /**
@@ -135,9 +130,7 @@ export namespace Tag {
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
-export interface AccountSuspendedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountSuspendedException extends __SmithyException, $MetadataBearer {
   name: "AccountSuspendedException";
   $fault: "client";
   message?: string;
@@ -151,33 +144,27 @@ export namespace AccountSuspendedException {
 /**
  * <p>The resource specified in your request already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>The input you provided is invalid.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BehaviorOnMxFailure {
@@ -209,8 +196,7 @@ export interface BlacklistEntry {
 }
 
 export namespace BlacklistEntry {
-  export const isa = (o: any): o is BlacklistEntry =>
-    __isa(o, "BlacklistEntry");
+  export const isa = (o: any): o is BlacklistEntry => __isa(o, "BlacklistEntry");
 }
 
 /**
@@ -251,8 +237,7 @@ export interface CloudWatchDestination {
 }
 
 export namespace CloudWatchDestination {
-  export const isa = (o: any): o is CloudWatchDestination =>
-    __isa(o, "CloudWatchDestination");
+  export const isa = (o: any): o is CloudWatchDestination => __isa(o, "CloudWatchDestination");
 }
 
 /**
@@ -311,9 +296,7 @@ export namespace CloudWatchDimensionConfiguration {
 /**
  * <p>The resource is being modified by another operation or thread.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
@@ -370,9 +353,7 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
     __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
@@ -385,9 +366,7 @@ export interface CreateConfigurationSetEventDestinationResponse {
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is CreateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
     __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
@@ -711,9 +690,7 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
     __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
@@ -726,9 +703,7 @@ export interface DeleteConfigurationSetEventDestinationResponse {
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
     __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
@@ -927,8 +902,7 @@ export interface DeliveryOptions {
 }
 
 export namespace DeliveryOptions {
-  export const isa = (o: any): o is DeliveryOptions =>
-    __isa(o, "DeliveryOptions");
+  export const isa = (o: any): o is DeliveryOptions => __isa(o, "DeliveryOptions");
 }
 
 /**
@@ -1053,8 +1027,7 @@ export interface DkimAttributes {
 }
 
 export namespace DkimAttributes {
-  export const isa = (o: any): o is DkimAttributes =>
-    __isa(o, "DkimAttributes");
+  export const isa = (o: any): o is DkimAttributes => __isa(o, "DkimAttributes");
 }
 
 /**
@@ -1078,8 +1051,7 @@ export interface DkimSigningAttributes {
 }
 
 export namespace DkimSigningAttributes {
-  export const isa = (o: any): o is DkimSigningAttributes =>
-    __isa(o, "DkimSigningAttributes");
+  export const isa = (o: any): o is DkimSigningAttributes => __isa(o, "DkimSigningAttributes");
 }
 
 export enum DkimSigningAttributesOrigin {
@@ -1261,8 +1233,7 @@ export interface DomainIspPlacement {
 }
 
 export namespace DomainIspPlacement {
-  export const isa = (o: any): o is DomainIspPlacement =>
-    __isa(o, "DomainIspPlacement");
+  export const isa = (o: any): o is DomainIspPlacement => __isa(o, "DomainIspPlacement");
 }
 
 /**
@@ -1379,8 +1350,7 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
-  export const isa = (o: any): o is EventDestination =>
-    __isa(o, "EventDestination");
+  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
@@ -1458,8 +1428,7 @@ export interface GetAccountRequest {
 }
 
 export namespace GetAccountRequest {
-  export const isa = (o: any): o is GetAccountRequest =>
-    __isa(o, "GetAccountRequest");
+  export const isa = (o: any): o is GetAccountRequest => __isa(o, "GetAccountRequest");
 }
 
 /**
@@ -1534,8 +1503,7 @@ export interface GetAccountResponse {
 }
 
 export namespace GetAccountResponse {
-  export const isa = (o: any): o is GetAccountResponse =>
-    __isa(o, "GetAccountResponse");
+  export const isa = (o: any): o is GetAccountResponse => __isa(o, "GetAccountResponse");
 }
 
 /**
@@ -1587,9 +1555,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsRequest =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsRequest =>
     __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
@@ -1606,9 +1572,7 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export const isa = (
-    o: any
-  ): o is GetConfigurationSetEventDestinationsResponse =>
+  export const isa = (o: any): o is GetConfigurationSetEventDestinationsResponse =>
     __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
@@ -1694,8 +1658,7 @@ export interface GetDedicatedIpRequest {
 }
 
 export namespace GetDedicatedIpRequest {
-  export const isa = (o: any): o is GetDedicatedIpRequest =>
-    __isa(o, "GetDedicatedIpRequest");
+  export const isa = (o: any): o is GetDedicatedIpRequest => __isa(o, "GetDedicatedIpRequest");
 }
 
 /**
@@ -1710,8 +1673,7 @@ export interface GetDedicatedIpResponse {
 }
 
 export namespace GetDedicatedIpResponse {
-  export const isa = (o: any): o is GetDedicatedIpResponse =>
-    __isa(o, "GetDedicatedIpResponse");
+  export const isa = (o: any): o is GetDedicatedIpResponse => __isa(o, "GetDedicatedIpResponse");
 }
 
 /**
@@ -1740,8 +1702,7 @@ export interface GetDedicatedIpsRequest {
 }
 
 export namespace GetDedicatedIpsRequest {
-  export const isa = (o: any): o is GetDedicatedIpsRequest =>
-    __isa(o, "GetDedicatedIpsRequest");
+  export const isa = (o: any): o is GetDedicatedIpsRequest => __isa(o, "GetDedicatedIpsRequest");
 }
 
 /**
@@ -1764,8 +1725,7 @@ export interface GetDedicatedIpsResponse {
 }
 
 export namespace GetDedicatedIpsResponse {
-  export const isa = (o: any): o is GetDedicatedIpsResponse =>
-    __isa(o, "GetDedicatedIpsResponse");
+  export const isa = (o: any): o is GetDedicatedIpsResponse => __isa(o, "GetDedicatedIpsResponse");
 }
 
 /**
@@ -1994,8 +1954,7 @@ export interface GetEmailIdentityRequest {
 }
 
 export namespace GetEmailIdentityRequest {
-  export const isa = (o: any): o is GetEmailIdentityRequest =>
-    __isa(o, "GetEmailIdentityRequest");
+  export const isa = (o: any): o is GetEmailIdentityRequest => __isa(o, "GetEmailIdentityRequest");
 }
 
 /**
@@ -2159,9 +2118,7 @@ export namespace InboxPlacementTrackingOption {
 /**
  * <p>The specified request includes an invalid or expired token.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -2220,17 +2177,14 @@ export namespace KinesisFirehoseDestination {
 /**
  * <p>There are too many instances of the specified resource type.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2663,16 +2617,13 @@ export interface MailFromAttributes {
 }
 
 export namespace MailFromAttributes {
-  export const isa = (o: any): o is MailFromAttributes =>
-    __isa(o, "MailFromAttributes");
+  export const isa = (o: any): o is MailFromAttributes => __isa(o, "MailFromAttributes");
 }
 
 /**
  * <p>The message can't be sent because the sending domain isn't verified.</p>
  */
-export interface MailFromDomainNotVerifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
   name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
@@ -2724,8 +2675,7 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageRejected {
-  export const isa = (o: any): o is MessageRejected =>
-    __isa(o, "MessageRejected");
+  export const isa = (o: any): o is MessageRejected => __isa(o, "MessageRejected");
 }
 
 /**
@@ -2780,8 +2730,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -2829,8 +2778,7 @@ export interface PinpointDestination {
 }
 
 export namespace PinpointDestination {
-  export const isa = (o: any): o is PinpointDestination =>
-    __isa(o, "PinpointDestination");
+  export const isa = (o: any): o is PinpointDestination => __isa(o, "PinpointDestination");
 }
 
 /**
@@ -2869,8 +2817,7 @@ export interface PlacementStatistics {
 }
 
 export namespace PlacementStatistics {
-  export const isa = (o: any): o is PlacementStatistics =>
-    __isa(o, "PlacementStatistics");
+  export const isa = (o: any): o is PlacementStatistics => __isa(o, "PlacementStatistics");
 }
 
 /**
@@ -2888,9 +2835,7 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesRequest {
-  export const isa = (
-    o: any
-  ): o is PutAccountDedicatedIpWarmupAttributesRequest =>
+  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesRequest =>
     __isa(o, "PutAccountDedicatedIpWarmupAttributesRequest");
 }
 
@@ -2903,9 +2848,7 @@ export interface PutAccountDedicatedIpWarmupAttributesResponse {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesResponse {
-  export const isa = (
-    o: any
-  ): o is PutAccountDedicatedIpWarmupAttributesResponse =>
+  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesResponse =>
     __isa(o, "PutAccountDedicatedIpWarmupAttributesResponse");
 }
 
@@ -3028,9 +2971,7 @@ export interface PutConfigurationSetDeliveryOptionsResponse {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetDeliveryOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsResponse =>
     __isa(o, "PutConfigurationSetDeliveryOptionsResponse");
 }
 
@@ -3055,9 +2996,7 @@ export interface PutConfigurationSetReputationOptionsRequest {
 }
 
 export namespace PutConfigurationSetReputationOptionsRequest {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetReputationOptionsRequest =>
+  export const isa = (o: any): o is PutConfigurationSetReputationOptionsRequest =>
     __isa(o, "PutConfigurationSetReputationOptionsRequest");
 }
 
@@ -3070,9 +3009,7 @@ export interface PutConfigurationSetReputationOptionsResponse {
 }
 
 export namespace PutConfigurationSetReputationOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetReputationOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetReputationOptionsResponse =>
     __isa(o, "PutConfigurationSetReputationOptionsResponse");
 }
 
@@ -3148,9 +3085,7 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
 }
 
 export namespace PutConfigurationSetSuppressionOptionsRequest {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetSuppressionOptionsRequest =>
+  export const isa = (o: any): o is PutConfigurationSetSuppressionOptionsRequest =>
     __isa(o, "PutConfigurationSetSuppressionOptionsRequest");
 }
 
@@ -3163,9 +3098,7 @@ export interface PutConfigurationSetSuppressionOptionsResponse {
 }
 
 export namespace PutConfigurationSetSuppressionOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetSuppressionOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetSuppressionOptionsResponse =>
     __isa(o, "PutConfigurationSetSuppressionOptionsResponse");
 }
 
@@ -3201,9 +3134,7 @@ export interface PutConfigurationSetTrackingOptionsResponse {
 }
 
 export namespace PutConfigurationSetTrackingOptionsResponse {
-  export const isa = (
-    o: any
-  ): o is PutConfigurationSetTrackingOptionsResponse =>
+  export const isa = (o: any): o is PutConfigurationSetTrackingOptionsResponse =>
     __isa(o, "PutConfigurationSetTrackingOptionsResponse");
 }
 
@@ -3394,9 +3325,7 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 }
 
 export namespace PutEmailIdentityDkimSigningAttributesRequest {
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityDkimSigningAttributesRequest =>
+  export const isa = (o: any): o is PutEmailIdentityDkimSigningAttributesRequest =>
     __isa(o, "PutEmailIdentityDkimSigningAttributesRequest");
 }
 
@@ -3464,9 +3393,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
 }
 
 export namespace PutEmailIdentityDkimSigningAttributesResponse {
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityDkimSigningAttributesResponse =>
+  export const isa = (o: any): o is PutEmailIdentityDkimSigningAttributesResponse =>
     __isa(o, "PutEmailIdentityDkimSigningAttributesResponse");
 }
 
@@ -3509,9 +3436,7 @@ export interface PutEmailIdentityFeedbackAttributesResponse {
 }
 
 export namespace PutEmailIdentityFeedbackAttributesResponse {
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityFeedbackAttributesResponse =>
+  export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesResponse =>
     __isa(o, "PutEmailIdentityFeedbackAttributesResponse");
 }
 
@@ -3572,9 +3497,7 @@ export interface PutEmailIdentityMailFromAttributesResponse {
 }
 
 export namespace PutEmailIdentityMailFromAttributesResponse {
-  export const isa = (
-    o: any
-  ): o is PutEmailIdentityMailFromAttributesResponse =>
+  export const isa = (o: any): o is PutEmailIdentityMailFromAttributesResponse =>
     __isa(o, "PutEmailIdentityMailFromAttributesResponse");
 }
 
@@ -3678,8 +3601,7 @@ export interface ReputationOptions {
 }
 
 export namespace ReputationOptions {
-  export const isa = (o: any): o is ReputationOptions =>
-    __isa(o, "ReputationOptions");
+  export const isa = (o: any): o is ReputationOptions => __isa(o, "ReputationOptions");
 }
 
 /**
@@ -3730,8 +3652,7 @@ export interface SendEmailRequest {
 }
 
 export namespace SendEmailRequest {
-  export const isa = (o: any): o is SendEmailRequest =>
-    __isa(o, "SendEmailRequest");
+  export const isa = (o: any): o is SendEmailRequest => __isa(o, "SendEmailRequest");
 }
 
 /**
@@ -3753,8 +3674,7 @@ export interface SendEmailResponse {
 }
 
 export namespace SendEmailResponse {
-  export const isa = (o: any): o is SendEmailResponse =>
-    __isa(o, "SendEmailResponse");
+  export const isa = (o: any): o is SendEmailResponse => __isa(o, "SendEmailResponse");
 }
 
 /**
@@ -3802,25 +3722,21 @@ export interface SendingOptions {
 }
 
 export namespace SendingOptions {
-  export const isa = (o: any): o is SendingOptions =>
-    __isa(o, "SendingOptions");
+  export const isa = (o: any): o is SendingOptions => __isa(o, "SendingOptions");
 }
 
 /**
  * <p>The message can't be sent because the account's ability to send email is currently
  *             paused.</p>
  */
-export interface SendingPausedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SendingPausedException extends __SmithyException, $MetadataBearer {
   name: "SendingPausedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace SendingPausedException {
-  export const isa = (o: any): o is SendingPausedException =>
-    __isa(o, "SendingPausedException");
+  export const isa = (o: any): o is SendingPausedException => __isa(o, "SendingPausedException");
 }
 
 /**
@@ -3838,8 +3754,7 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
-  export const isa = (o: any): o is SnsDestination =>
-    __isa(o, "SnsDestination");
+  export const isa = (o: any): o is SnsDestination => __isa(o, "SnsDestination");
 }
 
 /**
@@ -3872,8 +3787,7 @@ export interface SuppressedDestination {
 }
 
 export namespace SuppressedDestination {
-  export const isa = (o: any): o is SuppressedDestination =>
-    __isa(o, "SuppressedDestination");
+  export const isa = (o: any): o is SuppressedDestination => __isa(o, "SuppressedDestination");
 }
 
 /**
@@ -3945,8 +3859,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -3954,8 +3867,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3991,9 +3903,7 @@ export enum TlsPolicy {
 /**
  * <p>Too many requests have been made to the operation.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -4022,8 +3932,7 @@ export interface TrackingOptions {
 }
 
 export namespace TrackingOptions {
-  export const isa = (o: any): o is TrackingOptions =>
-    __isa(o, "TrackingOptions");
+  export const isa = (o: any): o is TrackingOptions => __isa(o, "TrackingOptions");
 }
 
 export interface UntagResourceRequest {
@@ -4047,8 +3956,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -4056,8 +3964,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -4084,9 +3991,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
     __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
@@ -4099,9 +4004,7 @@ export interface UpdateConfigurationSetEventDestinationResponse {
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export const isa = (
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse =>
+  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
     __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
@@ -4136,8 +4039,7 @@ export interface VolumeStatistics {
 }
 
 export namespace VolumeStatistics {
-  export const isa = (o: any): o is VolumeStatistics =>
-    __isa(o, "VolumeStatistics");
+  export const isa = (o: any): o is VolumeStatistics => __isa(o, "VolumeStatistics");
 }
 
 export enum WarmupStatus {

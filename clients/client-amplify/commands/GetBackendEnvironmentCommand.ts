@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  GetBackendEnvironmentRequest,
-  GetBackendEnvironmentResult
-} from "../models/index";
+import { GetBackendEnvironmentRequest, GetBackendEnvironmentResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackendEnvironmentCommand,
   serializeAws_restJson1_1GetBackendEnvironmentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBackendEnvironmentCommandInput = GetBackendEnvironmentRequest;
-export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult &
-  __MetadataBearer;
+export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult & __MetadataBearer;
 
 export class GetBackendEnvironmentCommand extends $Command<
   GetBackendEnvironmentCommandInput,
@@ -49,13 +45,8 @@ export class GetBackendEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackendEnvironmentCommandInput,
-    GetBackendEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackendEnvironmentCommandInput, GetBackendEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetBackendEnvironmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1_1GetBackendEnvironmentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

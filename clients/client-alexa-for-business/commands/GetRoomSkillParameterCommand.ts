@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetRoomSkillParameterRequest,
-  GetRoomSkillParameterResponse
-} from "../models/index";
+import { GetRoomSkillParameterRequest, GetRoomSkillParameterResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetRoomSkillParameterCommand,
   serializeAws_json1_1GetRoomSkillParameterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRoomSkillParameterCommandInput = GetRoomSkillParameterRequest;
-export type GetRoomSkillParameterCommandOutput = GetRoomSkillParameterResponse &
-  __MetadataBearer;
+export type GetRoomSkillParameterCommandOutput = GetRoomSkillParameterResponse & __MetadataBearer;
 
 export class GetRoomSkillParameterCommand extends $Command<
   GetRoomSkillParameterCommandInput,
@@ -49,13 +45,8 @@ export class GetRoomSkillParameterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRoomSkillParameterCommandInput,
-    GetRoomSkillParameterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRoomSkillParameterCommandInput, GetRoomSkillParameterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

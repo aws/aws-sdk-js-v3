@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAdjustmentTypesCommandInput = {};
-export type DescribeAdjustmentTypesCommandOutput = DescribeAdjustmentTypesAnswer &
-  __MetadataBearer;
+export type DescribeAdjustmentTypesCommandOutput = DescribeAdjustmentTypesAnswer & __MetadataBearer;
 
 export class DescribeAdjustmentTypesCommand extends $Command<
   DescribeAdjustmentTypesCommandInput,
@@ -46,13 +45,8 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAdjustmentTypesCommandInput,
-    DescribeAdjustmentTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAdjustmentTypesCommandInput, DescribeAdjustmentTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  DisassociateLinkRequest,
-  DisassociateLinkResponse
-} from "../models/index";
+import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateLinkCommand,
   serializeAws_restJson1_1DisassociateLinkCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateLinkCommandInput = DisassociateLinkRequest;
-export type DisassociateLinkCommandOutput = DisassociateLinkResponse &
-  __MetadataBearer;
+export type DisassociateLinkCommandOutput = DisassociateLinkResponse & __MetadataBearer;
 
 export class DisassociateLinkCommand extends $Command<
   DisassociateLinkCommandInput,
@@ -50,9 +46,7 @@ export class DisassociateLinkCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateLinkCommandInput, DisassociateLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

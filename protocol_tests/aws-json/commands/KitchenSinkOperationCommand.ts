@@ -45,13 +45,8 @@ export class KitchenSinkOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: JsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    KitchenSinkOperationCommandInput,
-    KitchenSinkOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<KitchenSinkOperationCommandInput, KitchenSinkOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

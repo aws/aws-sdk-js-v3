@@ -1,8 +1,4 @@
-import {
-  Cloud9ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Cloud9Client";
+import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   CreateEnvironmentMembershipRequest,
   CreateEnvironmentMembershipResult
@@ -49,13 +45,8 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEnvironmentMembershipCommandInput,
-    CreateEnvironmentMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEnvironmentMembershipCommandInput, CreateEnvironmentMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateEnvironmentMembershipCommand extends $Command<
     input: CreateEnvironmentMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEnvironmentMembershipCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateEnvironmentMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentMembershipCommandOutput> {
-    return deserializeAws_json1_1CreateEnvironmentMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEnvironmentMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

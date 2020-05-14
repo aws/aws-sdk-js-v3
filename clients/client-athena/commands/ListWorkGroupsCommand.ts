@@ -1,8 +1,4 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListWorkGroupsInput, ListWorkGroupsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListWorkGroupsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListWorkGroupsCommandInput = ListWorkGroupsInput;
-export type ListWorkGroupsCommandOutput = ListWorkGroupsOutput &
-  __MetadataBearer;
+export type ListWorkGroupsCommandOutput = ListWorkGroupsOutput & __MetadataBearer;
 
 export class ListWorkGroupsCommand extends $Command<
   ListWorkGroupsCommandInput,
@@ -47,9 +42,7 @@ export class ListWorkGroupsCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

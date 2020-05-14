@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  DescribeReservedCacheNodesMessage,
-  ReservedCacheNodeMessage
-} from "../models/index";
+import { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReservedCacheNodesCommand,
   serializeAws_queryDescribeReservedCacheNodesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReservedCacheNodesCommandInput = DescribeReservedCacheNodesMessage;
-export type DescribeReservedCacheNodesCommandOutput = ReservedCacheNodeMessage &
-  __MetadataBearer;
+export type DescribeReservedCacheNodesCommandOutput = ReservedCacheNodeMessage & __MetadataBearer;
 
 export class DescribeReservedCacheNodesCommand extends $Command<
   DescribeReservedCacheNodesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeReservedCacheNodesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedCacheNodesCommandInput,
-    DescribeReservedCacheNodesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedCacheNodesCommandInput, DescribeReservedCacheNodesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeReservedCacheNodesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedCacheNodesCommandOutput> {
-    return deserializeAws_queryDescribeReservedCacheNodesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReservedCacheNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

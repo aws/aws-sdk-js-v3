@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDatabaseCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatabaseCommandInput = CreateDatabaseRequest;
-export type CreateDatabaseCommandOutput = CreateDatabaseResponse &
-  __MetadataBearer;
+export type CreateDatabaseCommandOutput = CreateDatabaseResponse & __MetadataBearer;
 
 export class CreateDatabaseCommand extends $Command<
   CreateDatabaseCommandInput,
@@ -47,9 +42,7 @@ export class CreateDatabaseCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatabaseCommandInput, CreateDatabaseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FlushApiCacheCommandInput = FlushApiCacheRequest;
-export type FlushApiCacheCommandOutput = FlushApiCacheResponse &
-  __MetadataBearer;
+export type FlushApiCacheCommandOutput = FlushApiCacheResponse & __MetadataBearer;
 
 export class FlushApiCacheCommand extends $Command<
   FlushApiCacheCommandInput,
@@ -47,9 +46,7 @@ export class FlushApiCacheCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FlushApiCacheCommandInput, FlushApiCacheCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

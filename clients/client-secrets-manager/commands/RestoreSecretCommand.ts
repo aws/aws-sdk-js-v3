@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreSecretCommandInput = RestoreSecretRequest;
-export type RestoreSecretCommandOutput = RestoreSecretResponse &
-  __MetadataBearer;
+export type RestoreSecretCommandOutput = RestoreSecretResponse & __MetadataBearer;
 
 export class RestoreSecretCommand extends $Command<
   RestoreSecretCommandInput,
@@ -47,9 +46,7 @@ export class RestoreSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreSecretCommandInput, RestoreSecretCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

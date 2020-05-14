@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  UnmonitorInstancesRequest,
-  UnmonitorInstancesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/index";
 import {
   deserializeAws_ec2UnmonitorInstancesCommand,
   serializeAws_ec2UnmonitorInstancesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UnmonitorInstancesCommandInput = UnmonitorInstancesRequest;
-export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult &
-  __MetadataBearer;
+export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult & __MetadataBearer;
 
 export class UnmonitorInstancesCommand extends $Command<
   UnmonitorInstancesCommandInput,
@@ -50,9 +42,7 @@ export class UnmonitorInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  BatchDeleteScheduledActionAnswer,
-  BatchDeleteScheduledActionType
-} from "../models/index";
+import { BatchDeleteScheduledActionAnswer, BatchDeleteScheduledActionType } from "../models/index";
 import {
   deserializeAws_queryBatchDeleteScheduledActionCommand,
   serializeAws_queryBatchDeleteScheduledActionCommand
@@ -49,13 +46,8 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteScheduledActionCommandInput,
-    BatchDeleteScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteScheduledActionCommandInput, BatchDeleteScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryBatchDeleteScheduledActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchDeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

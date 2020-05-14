@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  AssociateDeviceWithRoomRequest,
-  AssociateDeviceWithRoomResponse
-} from "../models/index";
+import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateDeviceWithRoomCommand,
   serializeAws_json1_1AssociateDeviceWithRoomCommand
@@ -49,13 +46,8 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateDeviceWithRoomCommandInput,
-    AssociateDeviceWithRoomCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateDeviceWithRoomCommandInput, AssociateDeviceWithRoomCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateDeviceWithRoomCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateDeviceWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

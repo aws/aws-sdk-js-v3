@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsClient";
-import {
-  AddApplicationInputRequest,
-  AddApplicationInputResponse
-} from "../models/index";
+import { AddApplicationInputRequest, AddApplicationInputResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddApplicationInputCommand,
   serializeAws_json1_1AddApplicationInputCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddApplicationInputCommandInput = AddApplicationInputRequest;
-export type AddApplicationInputCommandOutput = AddApplicationInputResponse &
-  __MetadataBearer;
+export type AddApplicationInputCommandOutput = AddApplicationInputResponse & __MetadataBearer;
 
 export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandInput,
@@ -49,13 +45,8 @@ export class AddApplicationInputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddApplicationInputCommandInput,
-    AddApplicationInputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddApplicationInputCommandInput, AddApplicationInputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

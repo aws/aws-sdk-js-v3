@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  DescribeConfigurationRequest,
-  DescribeConfigurationResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeConfigurationCommand,
   serializeAws_restJson1_1DescribeConfigurationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationCommandInput = DescribeConfigurationRequest;
-export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse &
-  __MetadataBearer;
+export type DescribeConfigurationCommandOutput = DescribeConfigurationResponse & __MetadataBearer;
 
 export class DescribeConfigurationCommand extends $Command<
   DescribeConfigurationCommandInput,
@@ -49,13 +41,8 @@ export class DescribeConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationCommandInput,
-    DescribeConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationCommandInput, DescribeConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

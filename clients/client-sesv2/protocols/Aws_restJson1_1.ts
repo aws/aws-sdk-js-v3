@@ -38,10 +38,7 @@ import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput
 } from "../commands/DeleteSuppressedDestinationCommand";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "../commands/GetAccountCommand";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "../commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommandInput,
   GetBlacklistReportsCommandOutput
@@ -178,14 +175,8 @@ import {
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput
 } from "../commands/PutSuppressedDestinationCommand";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "../commands/SendEmailCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "../commands/SendEmailCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -280,22 +271,13 @@ export const serializeAws_restJson1_1CreateConfigurationSetCommand = async (
       ConfigurationSetName: input.ConfigurationSetName
     }),
     ...(input.DeliveryOptions !== undefined && {
-      DeliveryOptions: serializeAws_restJson1_1DeliveryOptions(
-        input.DeliveryOptions,
-        context
-      )
+      DeliveryOptions: serializeAws_restJson1_1DeliveryOptions(input.DeliveryOptions, context)
     }),
     ...(input.ReputationOptions !== undefined && {
-      ReputationOptions: serializeAws_restJson1_1ReputationOptions(
-        input.ReputationOptions,
-        context
-      )
+      ReputationOptions: serializeAws_restJson1_1ReputationOptions(input.ReputationOptions, context)
     }),
     ...(input.SendingOptions !== undefined && {
-      SendingOptions: serializeAws_restJson1_1SendingOptions(
-        input.SendingOptions,
-        context
-      )
+      SendingOptions: serializeAws_restJson1_1SendingOptions(input.SendingOptions, context)
     }),
     ...(input.SuppressionOptions !== undefined && {
       SuppressionOptions: serializeAws_restJson1_1SuppressionOptions(
@@ -307,10 +289,7 @@ export const serializeAws_restJson1_1CreateConfigurationSetCommand = async (
       Tags: serializeAws_restJson1_1TagList(input.Tags, context)
     }),
     ...(input.TrackingOptions !== undefined && {
-      TrackingOptions: serializeAws_restJson1_1TrackingOptions(
-        input.TrackingOptions,
-        context
-      )
+      TrackingOptions: serializeAws_restJson1_1TrackingOptions(input.TrackingOptions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -332,23 +311,18 @@ export const serializeAws_restJson1_1CreateConfigurationSetEventDestinationComma
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -480,18 +454,14 @@ export const serializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -518,34 +488,26 @@ export const serializeAws_restJson1_1DeleteConfigurationSetEventDestinationComma
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   if (input.EventDestinationName !== undefined) {
     const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EventDestinationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: EventDestinationName."
-    );
+    throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -573,10 +535,7 @@ export const serializeAws_restJson1_1DeleteDedicatedIpPoolCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PoolName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PoolName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PoolName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PoolName.");
   }
@@ -604,9 +563,7 @@ export const serializeAws_restJson1_1DeleteEmailIdentityCommand = async (
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -639,14 +596,9 @@ export const serializeAws_restJson1_1DeleteSuppressedDestinationCommand = async 
   if (input.EmailAddress !== undefined) {
     const labelValue: string = input.EmailAddress;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailAddress."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{EmailAddress}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
@@ -723,18 +675,14 @@ export const serializeAws_restJson1_1GetConfigurationSetCommand = async (
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -756,23 +704,18 @@ export const serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -800,10 +743,7 @@ export const serializeAws_restJson1_1GetDedicatedIpCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -878,17 +818,13 @@ export const serializeAws_restJson1_1GetDeliverabilityTestReportCommand = async 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/email/deliverability-dashboard/test-reports/{ReportId}";
+  let resolvedPath = "/v2/email/deliverability-dashboard/test-reports/{ReportId}";
   if (input.ReportId !== undefined) {
     const labelValue: string = input.ReportId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ReportId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ReportId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ReportId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ReportId.");
   }
@@ -912,17 +848,13 @@ export const serializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand = as
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/email/deliverability-dashboard/campaigns/{CampaignId}";
+  let resolvedPath = "/v2/email/deliverability-dashboard/campaigns/{CampaignId}";
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CampaignId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{CampaignId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{CampaignId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
@@ -946,17 +878,13 @@ export const serializeAws_restJson1_1GetDomainStatisticsReportCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/email/deliverability-dashboard/statistics-report/{Domain}";
+  let resolvedPath = "/v2/email/deliverability-dashboard/statistics-report/{Domain}";
   if (input.Domain !== undefined) {
     const labelValue: string = input.Domain;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Domain.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Domain}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Domain}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Domain.");
   }
@@ -993,9 +921,7 @@ export const serializeAws_restJson1_1GetEmailIdentityCommand = async (
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -1028,14 +954,9 @@ export const serializeAws_restJson1_1GetSuppressedDestinationCommand = async (
   if (input.EmailAddress !== undefined) {
     const labelValue: string = input.EmailAddress;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailAddress."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailAddress.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{EmailAddress}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{EmailAddress}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
   }
@@ -1137,23 +1058,18 @@ export const serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand = 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
+  let resolvedPath = "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
   if (input.SubscribedDomain !== undefined) {
     const labelValue: string = input.SubscribedDomain;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SubscribedDomain."
-      );
+      throw new Error("Empty value provided for input HTTP label: SubscribedDomain.");
     }
     resolvedPath = resolvedPath.replace(
       "{SubscribedDomain}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: SubscribedDomain."
-    );
+    throw new Error("No value provided for input HTTP label: SubscribedDomain.");
   }
   const query: any = {
     ...(input.EndDate !== undefined && {
@@ -1357,23 +1273,18 @@ export const serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand =
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1401,23 +1312,18 @@ export const serializeAws_restJson1_1PutConfigurationSetReputationOptionsCommand
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1444,23 +1350,18 @@ export const serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand = 
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/sending";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/sending";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1487,23 +1388,18 @@ export const serializeAws_restJson1_1PutConfigurationSetSuppressionOptionsComman
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1533,23 +1429,18 @@ export const serializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommand =
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options";
+  let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1582,10 +1473,7 @@ export const serializeAws_restJson1_1PutDedicatedIpInPoolCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1620,10 +1508,7 @@ export const serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand = asy
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Ip}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Ip}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1688,9 +1573,7 @@ export const serializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand = asy
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -1728,9 +1611,7 @@ export const serializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesComman
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -1774,9 +1655,7 @@ export const serializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommand =
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -1814,9 +1693,7 @@ export const serializeAws_restJson1_1PutEmailIdentityMailFromAttributesCommand =
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EmailIdentity."
-      );
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
@@ -1890,16 +1767,10 @@ export const serializeAws_restJson1_1SendEmailCommand = async (
       Content: serializeAws_restJson1_1EmailContent(input.Content, context)
     }),
     ...(input.Destination !== undefined && {
-      Destination: serializeAws_restJson1_1Destination(
-        input.Destination,
-        context
-      )
+      Destination: serializeAws_restJson1_1Destination(input.Destination, context)
     }),
     ...(input.EmailTags !== undefined && {
-      EmailTags: serializeAws_restJson1_1MessageTagList(
-        input.EmailTags,
-        context
-      )
+      EmailTags: serializeAws_restJson1_1MessageTagList(input.EmailTags, context)
     }),
     ...(input.FeedbackForwardingEmailAddress !== undefined && {
       FeedbackForwardingEmailAddress: input.FeedbackForwardingEmailAddress
@@ -1908,10 +1779,7 @@ export const serializeAws_restJson1_1SendEmailCommand = async (
       FromEmailAddress: input.FromEmailAddress
     }),
     ...(input.ReplyToAddresses !== undefined && {
-      ReplyToAddresses: serializeAws_restJson1_1EmailAddressList(
-        input.ReplyToAddresses,
-        context
-      )
+      ReplyToAddresses: serializeAws_restJson1_1EmailAddressList(input.ReplyToAddresses, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1993,34 +1861,26 @@ export const serializeAws_restJson1_1UpdateConfigurationSetEventDestinationComma
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationSetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationSetName."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   if (input.EventDestinationName !== undefined) {
     const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EventDestinationName."
-      );
+      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: EventDestinationName."
-    );
+    throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2048,10 +1908,7 @@ export const deserializeAws_restJson1_1CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateConfigurationSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationSetCommandError(output, context);
   }
   const contents: CreateConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2076,10 +1933,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2087,10 +1941,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2109,10 +1960,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2120,10 +1968,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2189,10 +2034,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2200,10 +2042,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2211,10 +2050,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2222,10 +2058,7 @@ const deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2263,10 +2096,7 @@ export const deserializeAws_restJson1_1CreateDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(output, context);
   }
   const contents: CreateDedicatedIpPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2291,10 +2121,7 @@ const deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError = async (
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2302,10 +2129,7 @@ const deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2324,10 +2148,7 @@ const deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError = async (
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2365,10 +2186,7 @@ export const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand = a
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError(output, context);
   }
   const contents: CreateDeliverabilityTestReportCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2377,10 +2195,7 @@ export const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand = a
     ReportId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DeliverabilityTestStatus !== undefined &&
-    data.DeliverabilityTestStatus !== null
-  ) {
+  if (data.DeliverabilityTestStatus !== undefined && data.DeliverabilityTestStatus !== null) {
     contents.DeliverabilityTestStatus = data.DeliverabilityTestStatus;
   }
   if (data.ReportId !== undefined && data.ReportId !== null) {
@@ -2415,10 +2230,7 @@ const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError = asy
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2437,10 +2249,7 @@ const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError = asy
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2459,10 +2268,7 @@ const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError = asy
     case "MessageRejected":
     case "com.amazon.bacon.pinpoint.frontend.svc#MessageRejected":
       response = {
-        ...(await deserializeAws_restJson1_1MessageRejectedResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MessageRejectedResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2470,10 +2276,7 @@ const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError = asy
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2481,10 +2284,7 @@ const deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandError = asy
     case "SendingPausedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#SendingPausedException":
       response = {
-        ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2522,10 +2322,7 @@ export const deserializeAws_restJson1_1CreateEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateEmailIdentityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateEmailIdentityCommandError(output, context);
   }
   const contents: CreateEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2544,10 +2341,7 @@ export const deserializeAws_restJson1_1CreateEmailIdentityCommand = async (
   if (data.IdentityType !== undefined && data.IdentityType !== null) {
     contents.IdentityType = data.IdentityType;
   }
-  if (
-    data.VerifiedForSendingStatus !== undefined &&
-    data.VerifiedForSendingStatus !== null
-  ) {
+  if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
     contents.VerifiedForSendingStatus = data.VerifiedForSendingStatus;
   }
   return Promise.resolve(contents);
@@ -2568,10 +2362,7 @@ const deserializeAws_restJson1_1CreateEmailIdentityCommandError = async (
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2579,10 +2370,7 @@ const deserializeAws_restJson1_1CreateEmailIdentityCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2601,10 +2389,7 @@ const deserializeAws_restJson1_1CreateEmailIdentityCommandError = async (
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2642,10 +2427,7 @@ export const deserializeAws_restJson1_1DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(output, context);
   }
   const contents: DeleteConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2670,10 +2452,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2692,10 +2471,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2761,10 +2537,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2772,10 +2545,7 @@ const deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2813,10 +2583,7 @@ export const deserializeAws_restJson1_1DeleteDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(output, context);
   }
   const contents: DeleteDedicatedIpPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2841,10 +2608,7 @@ const deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2863,10 +2627,7 @@ const deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2904,10 +2665,7 @@ export const deserializeAws_restJson1_1DeleteEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteEmailIdentityCommandError(output, context);
   }
   const contents: DeleteEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2932,10 +2690,7 @@ const deserializeAws_restJson1_1DeleteEmailIdentityCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2954,10 +2709,7 @@ const deserializeAws_restJson1_1DeleteEmailIdentityCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2995,10 +2747,7 @@ export const deserializeAws_restJson1_1DeleteSuppressedDestinationCommand = asyn
   context: __SerdeContext
 ): Promise<DeleteSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError(output, context);
   }
   const contents: DeleteSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3023,10 +2772,7 @@ const deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError = async 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3034,10 +2780,7 @@ const deserializeAws_restJson1_1DeleteSuppressedDestinationCommandError = async 
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3097,25 +2840,16 @@ export const deserializeAws_restJson1_1GetAccountCommand = async (
   if (data.EnforcementStatus !== undefined && data.EnforcementStatus !== null) {
     contents.EnforcementStatus = data.EnforcementStatus;
   }
-  if (
-    data.ProductionAccessEnabled !== undefined &&
-    data.ProductionAccessEnabled !== null
-  ) {
+  if (data.ProductionAccessEnabled !== undefined && data.ProductionAccessEnabled !== null) {
     contents.ProductionAccessEnabled = data.ProductionAccessEnabled;
   }
   if (data.SendQuota !== undefined && data.SendQuota !== null) {
-    contents.SendQuota = deserializeAws_restJson1_1SendQuota(
-      data.SendQuota,
-      context
-    );
+    contents.SendQuota = deserializeAws_restJson1_1SendQuota(data.SendQuota, context);
   }
   if (data.SendingEnabled !== undefined && data.SendingEnabled !== null) {
     contents.SendingEnabled = data.SendingEnabled;
   }
-  if (
-    data.SuppressionAttributes !== undefined &&
-    data.SuppressionAttributes !== null
-  ) {
+  if (data.SuppressionAttributes !== undefined && data.SuppressionAttributes !== null) {
     contents.SuppressionAttributes = deserializeAws_restJson1_1SuppressionAttributes(
       data.SuppressionAttributes,
       context
@@ -3139,10 +2873,7 @@ const deserializeAws_restJson1_1GetAccountCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3180,10 +2911,7 @@ export const deserializeAws_restJson1_1GetBlacklistReportsCommand = async (
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBlacklistReportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBlacklistReportsCommandError(output, context);
   }
   const contents: GetBlacklistReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3215,10 +2943,7 @@ const deserializeAws_restJson1_1GetBlacklistReportsCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3226,10 +2951,7 @@ const deserializeAws_restJson1_1GetBlacklistReportsCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3267,10 +2989,7 @@ export const deserializeAws_restJson1_1GetConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetConfigurationSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetConfigurationSetCommandError(output, context);
   }
   const contents: GetConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3284,10 +3003,7 @@ export const deserializeAws_restJson1_1GetConfigurationSetCommand = async (
     TrackingOptions: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ConfigurationSetName !== undefined &&
-    data.ConfigurationSetName !== null
-  ) {
+  if (data.ConfigurationSetName !== undefined && data.ConfigurationSetName !== null) {
     contents.ConfigurationSetName = data.ConfigurationSetName;
   }
   if (data.DeliveryOptions !== undefined && data.DeliveryOptions !== null) {
@@ -3308,10 +3024,7 @@ export const deserializeAws_restJson1_1GetConfigurationSetCommand = async (
       context
     );
   }
-  if (
-    data.SuppressionOptions !== undefined &&
-    data.SuppressionOptions !== null
-  ) {
+  if (data.SuppressionOptions !== undefined && data.SuppressionOptions !== null) {
     contents.SuppressionOptions = deserializeAws_restJson1_1SuppressionOptions(
       data.SuppressionOptions,
       context
@@ -3344,10 +3057,7 @@ const deserializeAws_restJson1_1GetConfigurationSetCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3355,10 +3065,7 @@ const deserializeAws_restJson1_1GetConfigurationSetCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3431,10 +3138,7 @@ const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3442,10 +3146,7 @@ const deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3483,10 +3184,7 @@ export const deserializeAws_restJson1_1GetDedicatedIpCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDedicatedIpCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDedicatedIpCommandError(output, context);
   }
   const contents: GetDedicatedIpCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3495,10 +3193,7 @@ export const deserializeAws_restJson1_1GetDedicatedIpCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DedicatedIp !== undefined && data.DedicatedIp !== null) {
-    contents.DedicatedIp = deserializeAws_restJson1_1DedicatedIp(
-      data.DedicatedIp,
-      context
-    );
+    contents.DedicatedIp = deserializeAws_restJson1_1DedicatedIp(data.DedicatedIp, context);
   }
   return Promise.resolve(contents);
 };
@@ -3518,10 +3213,7 @@ const deserializeAws_restJson1_1GetDedicatedIpCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3529,10 +3221,7 @@ const deserializeAws_restJson1_1GetDedicatedIpCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3570,10 +3259,7 @@ export const deserializeAws_restJson1_1GetDedicatedIpsCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDedicatedIpsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDedicatedIpsCommandError(output, context);
   }
   const contents: GetDedicatedIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3583,10 +3269,7 @@ export const deserializeAws_restJson1_1GetDedicatedIpsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DedicatedIps !== undefined && data.DedicatedIps !== null) {
-    contents.DedicatedIps = deserializeAws_restJson1_1DedicatedIpList(
-      data.DedicatedIps,
-      context
-    );
+    contents.DedicatedIps = deserializeAws_restJson1_1DedicatedIpList(data.DedicatedIps, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -3609,10 +3292,7 @@ const deserializeAws_restJson1_1GetDedicatedIpsCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3620,10 +3300,7 @@ const deserializeAws_restJson1_1GetDedicatedIpsCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3661,10 +3338,7 @@ export const deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand 
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommandError(output, context);
   }
   const contents: GetDeliverabilityDashboardOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3679,10 +3353,7 @@ export const deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand 
   if (data.AccountStatus !== undefined && data.AccountStatus !== null) {
     contents.AccountStatus = data.AccountStatus;
   }
-  if (
-    data.ActiveSubscribedDomains !== undefined &&
-    data.ActiveSubscribedDomains !== null
-  ) {
+  if (data.ActiveSubscribedDomains !== undefined && data.ActiveSubscribedDomains !== null) {
     contents.ActiveSubscribedDomains = deserializeAws_restJson1_1DomainDeliverabilityTrackingOptions(
       data.ActiveSubscribedDomains,
       context
@@ -3700,13 +3371,8 @@ export const deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommand 
       context
     );
   }
-  if (
-    data.SubscriptionExpiryDate !== undefined &&
-    data.SubscriptionExpiryDate !== null
-  ) {
-    contents.SubscriptionExpiryDate = new Date(
-      Math.round(data.SubscriptionExpiryDate * 1000)
-    );
+  if (data.SubscriptionExpiryDate !== undefined && data.SubscriptionExpiryDate !== null) {
+    contents.SubscriptionExpiryDate = new Date(Math.round(data.SubscriptionExpiryDate * 1000));
   }
   return Promise.resolve(contents);
 };
@@ -3726,10 +3392,7 @@ const deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommandError = 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3737,10 +3400,7 @@ const deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsCommandError = 
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3778,10 +3438,7 @@ export const deserializeAws_restJson1_1GetDeliverabilityTestReportCommand = asyn
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError(output, context);
   }
   const contents: GetDeliverabilityTestReportCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3793,20 +3450,14 @@ export const deserializeAws_restJson1_1GetDeliverabilityTestReportCommand = asyn
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DeliverabilityTestReport !== undefined &&
-    data.DeliverabilityTestReport !== null
-  ) {
+  if (data.DeliverabilityTestReport !== undefined && data.DeliverabilityTestReport !== null) {
     contents.DeliverabilityTestReport = deserializeAws_restJson1_1DeliverabilityTestReport(
       data.DeliverabilityTestReport,
       context
     );
   }
   if (data.IspPlacements !== undefined && data.IspPlacements !== null) {
-    contents.IspPlacements = deserializeAws_restJson1_1IspPlacements(
-      data.IspPlacements,
-      context
-    );
+    contents.IspPlacements = deserializeAws_restJson1_1IspPlacements(data.IspPlacements, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
@@ -3838,10 +3489,7 @@ const deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError = async 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3849,10 +3497,7 @@ const deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError = async 
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3890,10 +3535,7 @@ export const deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommand = 
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandError(output, context);
   }
   const contents: GetDomainDeliverabilityCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3928,10 +3570,7 @@ const deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandError = as
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3939,10 +3578,7 @@ const deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandError = as
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3980,10 +3616,7 @@ export const deserializeAws_restJson1_1GetDomainStatisticsReportCommand = async 
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(output, context);
   }
   const contents: GetDomainStatisticsReportCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3993,16 +3626,10 @@ export const deserializeAws_restJson1_1GetDomainStatisticsReportCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.DailyVolumes !== undefined && data.DailyVolumes !== null) {
-    contents.DailyVolumes = deserializeAws_restJson1_1DailyVolumes(
-      data.DailyVolumes,
-      context
-    );
+    contents.DailyVolumes = deserializeAws_restJson1_1DailyVolumes(data.DailyVolumes, context);
   }
   if (data.OverallVolume !== undefined && data.OverallVolume !== null) {
-    contents.OverallVolume = deserializeAws_restJson1_1OverallVolume(
-      data.OverallVolume,
-      context
-    );
+    contents.OverallVolume = deserializeAws_restJson1_1OverallVolume(data.OverallVolume, context);
   }
   return Promise.resolve(contents);
 };
@@ -4022,10 +3649,7 @@ const deserializeAws_restJson1_1GetDomainStatisticsReportCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4033,10 +3657,7 @@ const deserializeAws_restJson1_1GetDomainStatisticsReportCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4074,10 +3695,7 @@ export const deserializeAws_restJson1_1GetEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetEmailIdentityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEmailIdentityCommandError(output, context);
   }
   const contents: GetEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4096,19 +3714,13 @@ export const deserializeAws_restJson1_1GetEmailIdentityCommand = async (
       context
     );
   }
-  if (
-    data.FeedbackForwardingStatus !== undefined &&
-    data.FeedbackForwardingStatus !== null
-  ) {
+  if (data.FeedbackForwardingStatus !== undefined && data.FeedbackForwardingStatus !== null) {
     contents.FeedbackForwardingStatus = data.FeedbackForwardingStatus;
   }
   if (data.IdentityType !== undefined && data.IdentityType !== null) {
     contents.IdentityType = data.IdentityType;
   }
-  if (
-    data.MailFromAttributes !== undefined &&
-    data.MailFromAttributes !== null
-  ) {
+  if (data.MailFromAttributes !== undefined && data.MailFromAttributes !== null) {
     contents.MailFromAttributes = deserializeAws_restJson1_1MailFromAttributes(
       data.MailFromAttributes,
       context
@@ -4117,10 +3729,7 @@ export const deserializeAws_restJson1_1GetEmailIdentityCommand = async (
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1_1TagList(data.Tags, context);
   }
-  if (
-    data.VerifiedForSendingStatus !== undefined &&
-    data.VerifiedForSendingStatus !== null
-  ) {
+  if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
     contents.VerifiedForSendingStatus = data.VerifiedForSendingStatus;
   }
   return Promise.resolve(contents);
@@ -4141,10 +3750,7 @@ const deserializeAws_restJson1_1GetEmailIdentityCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4152,10 +3758,7 @@ const deserializeAws_restJson1_1GetEmailIdentityCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4193,10 +3796,7 @@ export const deserializeAws_restJson1_1GetSuppressedDestinationCommand = async (
   context: __SerdeContext
 ): Promise<GetSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSuppressedDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSuppressedDestinationCommandError(output, context);
   }
   const contents: GetSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4204,10 +3804,7 @@ export const deserializeAws_restJson1_1GetSuppressedDestinationCommand = async (
     SuppressedDestination: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.SuppressedDestination !== undefined &&
-    data.SuppressedDestination !== null
-  ) {
+  if (data.SuppressedDestination !== undefined && data.SuppressedDestination !== null) {
     contents.SuppressedDestination = deserializeAws_restJson1_1SuppressedDestination(
       data.SuppressedDestination,
       context
@@ -4231,10 +3828,7 @@ const deserializeAws_restJson1_1GetSuppressedDestinationCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4242,10 +3836,7 @@ const deserializeAws_restJson1_1GetSuppressedDestinationCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4283,10 +3874,7 @@ export const deserializeAws_restJson1_1ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListConfigurationSetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConfigurationSetsCommandError(output, context);
   }
   const contents: ListConfigurationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4322,10 +3910,7 @@ const deserializeAws_restJson1_1ListConfigurationSetsCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4363,10 +3948,7 @@ export const deserializeAws_restJson1_1ListDedicatedIpPoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(output, context);
   }
   const contents: ListDedicatedIpPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4402,10 +3984,7 @@ const deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4443,10 +4022,7 @@ export const deserializeAws_restJson1_1ListDeliverabilityTestReportsCommand = as
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandError(output, context);
   }
   const contents: ListDeliverabilityTestReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4455,10 +4031,7 @@ export const deserializeAws_restJson1_1ListDeliverabilityTestReportsCommand = as
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DeliverabilityTestReports !== undefined &&
-    data.DeliverabilityTestReports !== null
-  ) {
+  if (data.DeliverabilityTestReports !== undefined && data.DeliverabilityTestReports !== null) {
     contents.DeliverabilityTestReports = deserializeAws_restJson1_1DeliverabilityTestReports(
       data.DeliverabilityTestReports,
       context
@@ -4485,10 +4058,7 @@ const deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandError = asyn
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4496,10 +4066,7 @@ const deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandError = asyn
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4537,10 +4104,7 @@ export const deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand 
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommandError(output, context);
   }
   const contents: ListDomainDeliverabilityCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4579,10 +4143,7 @@ const deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommandError = 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4590,10 +4151,7 @@ const deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommandError = 
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4631,10 +4189,7 @@ export const deserializeAws_restJson1_1ListEmailIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListEmailIdentitiesCommandError(output, context);
   }
   const contents: ListEmailIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4670,10 +4225,7 @@ const deserializeAws_restJson1_1ListEmailIdentitiesCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4711,10 +4263,7 @@ export const deserializeAws_restJson1_1ListSuppressedDestinationsCommand = async
   context: __SerdeContext
 ): Promise<ListSuppressedDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSuppressedDestinationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSuppressedDestinationsCommandError(output, context);
   }
   const contents: ListSuppressedDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4753,10 +4302,7 @@ const deserializeAws_restJson1_1ListSuppressedDestinationsCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4805,10 +4351,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4837,10 +4380,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4848,10 +4388,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4917,10 +4454,7 @@ const deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCommandErro
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4958,10 +4492,7 @@ export const deserializeAws_restJson1_1PutAccountSendingAttributesCommand = asyn
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutAccountSendingAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutAccountSendingAttributesCommandError(output, context);
   }
   const contents: PutAccountSendingAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4986,10 +4517,7 @@ const deserializeAws_restJson1_1PutAccountSendingAttributesCommandError = async 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5027,10 +4555,7 @@ export const deserializeAws_restJson1_1PutAccountSuppressionAttributesCommand = 
   context: __SerdeContext
 ): Promise<PutAccountSuppressionAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutAccountSuppressionAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutAccountSuppressionAttributesCommandError(output, context);
   }
   const contents: PutAccountSuppressionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5055,10 +4580,7 @@ const deserializeAws_restJson1_1PutAccountSuppressionAttributesCommandError = as
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5124,10 +4646,7 @@ const deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommandError =
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5135,10 +4654,7 @@ const deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommandError =
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5204,10 +4720,7 @@ const deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommandError
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5215,10 +4728,7 @@ const deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCommandError
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5256,10 +4766,7 @@ export const deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand 
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetSendingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5284,10 +4791,7 @@ const deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommandError = 
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5295,10 +4799,7 @@ const deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommandError = 
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5364,10 +4865,7 @@ const deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommandErro
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5375,10 +4873,7 @@ const deserializeAws_restJson1_1PutConfigurationSetSuppressionOptionsCommandErro
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5444,10 +4939,7 @@ const deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommandError =
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5455,10 +4947,7 @@ const deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsCommandError =
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5496,10 +4985,7 @@ export const deserializeAws_restJson1_1PutDedicatedIpInPoolCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(output, context);
   }
   const contents: PutDedicatedIpInPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5524,10 +5010,7 @@ const deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5535,10 +5018,7 @@ const deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5576,10 +5056,7 @@ export const deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand = a
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandError(output, context);
   }
   const contents: PutDedicatedIpWarmupAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5604,10 +5081,7 @@ const deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandError = asy
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5615,10 +5089,7 @@ const deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandError = asy
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5656,10 +5127,7 @@ export const deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand =
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError(output, context);
   }
   const contents: PutDeliverabilityDashboardOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5684,10 +5152,7 @@ const deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError = a
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5695,10 +5160,7 @@ const deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError = a
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5706,10 +5168,7 @@ const deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError = a
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5717,10 +5176,7 @@ const deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommandError = a
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5758,10 +5214,7 @@ export const deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand = a
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandError(output, context);
   }
   const contents: PutEmailIdentityDkimAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5786,10 +5239,7 @@ const deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandError = asy
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5797,10 +5247,7 @@ const deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandError = asy
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5854,10 +5301,7 @@ export const deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesComm
     contents.DkimStatus = data.DkimStatus;
   }
   if (data.DkimTokens !== undefined && data.DkimTokens !== null) {
-    contents.DkimTokens = deserializeAws_restJson1_1DnsTokenList(
-      data.DkimTokens,
-      context
-    );
+    contents.DkimTokens = deserializeAws_restJson1_1DnsTokenList(data.DkimTokens, context);
   }
   return Promise.resolve(contents);
 };
@@ -5877,10 +5321,7 @@ const deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommandErro
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5888,10 +5329,7 @@ const deserializeAws_restJson1_1PutEmailIdentityDkimSigningAttributesCommandErro
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5957,10 +5395,7 @@ const deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommandError =
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5968,10 +5403,7 @@ const deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesCommandError =
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6037,10 +5469,7 @@ const deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesCommandError =
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6048,10 +5477,7 @@ const deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesCommandError =
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6089,10 +5515,7 @@ export const deserializeAws_restJson1_1PutSuppressedDestinationCommand = async (
   context: __SerdeContext
 ): Promise<PutSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutSuppressedDestinationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutSuppressedDestinationCommandError(output, context);
   }
   const contents: PutSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6117,10 +5540,7 @@ const deserializeAws_restJson1_1PutSuppressedDestinationCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6198,10 +5618,7 @@ const deserializeAws_restJson1_1SendEmailCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6209,10 +5626,7 @@ const deserializeAws_restJson1_1SendEmailCommandError = async (
     case "LimitExceededException":
     case "com.amazon.bacon.pinpoint.frontend.svc#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6231,10 +5645,7 @@ const deserializeAws_restJson1_1SendEmailCommandError = async (
     case "MessageRejected":
     case "com.amazon.bacon.pinpoint.frontend.svc#MessageRejected":
       response = {
-        ...(await deserializeAws_restJson1_1MessageRejectedResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1MessageRejectedResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6242,10 +5653,7 @@ const deserializeAws_restJson1_1SendEmailCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6253,10 +5661,7 @@ const deserializeAws_restJson1_1SendEmailCommandError = async (
     case "SendingPausedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#SendingPausedException":
       response = {
-        ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SendingPausedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6319,10 +5724,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6341,10 +5743,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6407,10 +5806,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6429,10 +5825,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6498,10 +5891,7 @@ const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandErr
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6509,10 +5899,7 @@ const deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandErr
     case "NotFoundException":
     case "com.amazon.bacon.pinpoint.frontend.svc#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6753,27 +6140,18 @@ const serializeAws_restJson1_1SuppressionOptions = (
   };
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1Body = (
-  input: Body,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Body = (input: Body, context: __SerdeContext): any => {
   return {
     ...(input.Html !== undefined && {
       Html: serializeAws_restJson1_1Content(input.Html, context)
@@ -6824,10 +6202,7 @@ const serializeAws_restJson1_1CloudWatchDimensionConfigurations = (
   );
 };
 
-const serializeAws_restJson1_1Content = (
-  input: Content,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Content = (input: Content, context: __SerdeContext): any => {
   return {
     ...(input.Charset !== undefined && { Charset: input.Charset }),
     ...(input.Data !== undefined && { Data: input.Data })
@@ -6846,28 +6221,16 @@ const serializeAws_restJson1_1DeliveryOptions = (
   };
 };
 
-const serializeAws_restJson1_1Destination = (
-  input: Destination,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
     ...(input.BccAddresses !== undefined && {
-      BccAddresses: serializeAws_restJson1_1EmailAddressList(
-        input.BccAddresses,
-        context
-      )
+      BccAddresses: serializeAws_restJson1_1EmailAddressList(input.BccAddresses, context)
     }),
     ...(input.CcAddresses !== undefined && {
-      CcAddresses: serializeAws_restJson1_1EmailAddressList(
-        input.CcAddresses,
-        context
-      )
+      CcAddresses: serializeAws_restJson1_1EmailAddressList(input.CcAddresses, context)
     }),
     ...(input.ToAddresses !== undefined && {
-      ToAddresses: serializeAws_restJson1_1EmailAddressList(
-        input.ToAddresses,
-        context
-      )
+      ToAddresses: serializeAws_restJson1_1EmailAddressList(input.ToAddresses, context)
     })
   };
 };
@@ -6899,9 +6262,7 @@ const serializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
       )
     }),
     ...(input.SubscriptionStartDate !== undefined && {
-      SubscriptionStartDate: Math.round(
-        input.SubscriptionStartDate.getTime() / 1000
-      )
+      SubscriptionStartDate: Math.round(input.SubscriptionStartDate.getTime() / 1000)
     })
   };
 };
@@ -6958,10 +6319,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       )
     }),
     ...(input.MatchingEventTypes !== undefined && {
-      MatchingEventTypes: serializeAws_restJson1_1EventTypes(
-        input.MatchingEventTypes,
-        context
-      )
+      MatchingEventTypes: serializeAws_restJson1_1EventTypes(input.MatchingEventTypes, context)
     }),
     ...(input.PinpointDestination !== undefined && {
       PinpointDestination: serializeAws_restJson1_1PinpointDestination(
@@ -6970,10 +6328,7 @@ const serializeAws_restJson1_1EventDestinationDefinition = (
       )
     }),
     ...(input.SnsDestination !== undefined && {
-      SnsDestination: serializeAws_restJson1_1SnsDestination(
-        input.SnsDestination,
-        context
-      )
+      SnsDestination: serializeAws_restJson1_1SnsDestination(input.SnsDestination, context)
     })
   };
 };
@@ -6992,18 +6347,12 @@ const serializeAws_restJson1_1InboxPlacementTrackingOption = (
   return {
     ...(input.Global !== undefined && { Global: input.Global }),
     ...(input.TrackedIsps !== undefined && {
-      TrackedIsps: serializeAws_restJson1_1IspNameList(
-        input.TrackedIsps,
-        context
-      )
+      TrackedIsps: serializeAws_restJson1_1IspNameList(input.TrackedIsps, context)
     })
   };
 };
 
-const serializeAws_restJson1_1IspNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IspNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -7019,10 +6368,7 @@ const serializeAws_restJson1_1KinesisFirehoseDestination = (
   };
 };
 
-const serializeAws_restJson1_1Message = (
-  input: Message,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Message = (input: Message, context: __SerdeContext): any => {
   return {
     ...(input.Body !== undefined && {
       Body: serializeAws_restJson1_1Body(input.Body, context)
@@ -7033,10 +6379,7 @@ const serializeAws_restJson1_1Message = (
   };
 };
 
-const serializeAws_restJson1_1MessageTag = (
-  input: MessageTag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MessageTag = (input: MessageTag, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Value !== undefined && { Value: input.Value })
@@ -7061,10 +6404,7 @@ const serializeAws_restJson1_1PinpointDestination = (
   };
 };
 
-const serializeAws_restJson1_1RawMessage = (
-  input: RawMessage,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RawMessage = (input: RawMessage, context: __SerdeContext): any => {
   return {
     ...(input.Data !== undefined && { Data: context.base64Encoder(input.Data) })
   };
@@ -7104,10 +6444,7 @@ const serializeAws_restJson1_1SnsDestination = (
   };
 };
 
-const serializeAws_restJson1_1Template = (
-  input: Template,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Template = (input: Template, context: __SerdeContext): any => {
   return {
     ...(input.TemplateArn !== undefined && { TemplateArn: input.TemplateArn }),
     ...(input.TemplateData !== undefined && {
@@ -7134,12 +6471,8 @@ const deserializeAws_restJson1_1SuppressionAttributes = (
   return {
     __type: "SuppressionAttributes",
     SuppressedReasons:
-      output.SuppressedReasons !== undefined &&
-      output.SuppressedReasons !== null
-        ? deserializeAws_restJson1_1SuppressionListReasons(
-            output.SuppressedReasons,
-            context
-          )
+      output.SuppressedReasons !== undefined && output.SuppressedReasons !== null
+        ? deserializeAws_restJson1_1SuppressionListReasons(output.SuppressedReasons, context)
         : undefined
   } as any;
 };
@@ -7158,38 +6491,22 @@ const deserializeAws_restJson1_1SuppressionOptions = (
   return {
     __type: "SuppressionOptions",
     SuppressedReasons:
-      output.SuppressedReasons !== undefined &&
-      output.SuppressedReasons !== null
-        ? deserializeAws_restJson1_1SuppressionListReasons(
-            output.SuppressedReasons,
-            context
-          )
+      output.SuppressedReasons !== undefined && output.SuppressedReasons !== null
+        ? deserializeAws_restJson1_1SuppressionListReasons(output.SuppressedReasons, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeAws_restJson1_1BlacklistEntries = (
@@ -7215,10 +6532,7 @@ const deserializeAws_restJson1_1BlacklistEntry = (
       output.ListingTime !== undefined && output.ListingTime !== null
         ? new Date(Math.round(output.ListingTime * 1000))
         : undefined,
-    RblName:
-      output.RblName !== undefined && output.RblName !== null
-        ? output.RblName
-        : undefined
+    RblName: output.RblName !== undefined && output.RblName !== null ? output.RblName : undefined
   } as any;
 };
 
@@ -7227,10 +6541,7 @@ const deserializeAws_restJson1_1BlacklistReport = (
   context: __SerdeContext
 ): { [key: string]: BlacklistEntry[] } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: BlacklistEntry[] },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: BlacklistEntry[] }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1BlacklistEntries(value, context)
     }),
@@ -7245,8 +6556,7 @@ const deserializeAws_restJson1_1CloudWatchDestination = (
   return {
     __type: "CloudWatchDestination",
     DimensionConfigurations:
-      output.DimensionConfigurations !== undefined &&
-      output.DimensionConfigurations !== null
+      output.DimensionConfigurations !== undefined && output.DimensionConfigurations !== null
         ? deserializeAws_restJson1_1CloudWatchDimensionConfigurations(
             output.DimensionConfigurations,
             context
@@ -7262,8 +6572,7 @@ const deserializeAws_restJson1_1CloudWatchDimensionConfiguration = (
   return {
     __type: "CloudWatchDimensionConfiguration",
     DefaultDimensionValue:
-      output.DefaultDimensionValue !== undefined &&
-      output.DefaultDimensionValue !== null
+      output.DefaultDimensionValue !== undefined && output.DefaultDimensionValue !== null
         ? output.DefaultDimensionValue
         : undefined,
     DimensionName:
@@ -7271,8 +6580,7 @@ const deserializeAws_restJson1_1CloudWatchDimensionConfiguration = (
         ? output.DimensionName
         : undefined,
     DimensionValueSource:
-      output.DimensionValueSource !== undefined &&
-      output.DimensionValueSource !== null
+      output.DimensionValueSource !== undefined && output.DimensionValueSource !== null
         ? output.DimensionValueSource
         : undefined
   } as any;
@@ -7301,12 +6609,8 @@ const deserializeAws_restJson1_1DailyVolume = (
   return {
     __type: "DailyVolume",
     DomainIspPlacements:
-      output.DomainIspPlacements !== undefined &&
-      output.DomainIspPlacements !== null
-        ? deserializeAws_restJson1_1DomainIspPlacements(
-            output.DomainIspPlacements,
-            context
-          )
+      output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
+        ? deserializeAws_restJson1_1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
     StartDate:
       output.StartDate !== undefined && output.StartDate !== null
@@ -7314,10 +6618,7 @@ const deserializeAws_restJson1_1DailyVolume = (
         : undefined,
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
-        ? deserializeAws_restJson1_1VolumeStatistics(
-            output.VolumeStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1VolumeStatistics(output.VolumeStatistics, context)
         : undefined
   } as any;
 };
@@ -7326,9 +6627,7 @@ const deserializeAws_restJson1_1DailyVolumes = (
   output: any,
   context: __SerdeContext
 ): DailyVolume[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DailyVolume(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DailyVolume(entry, context));
 };
 
 const deserializeAws_restJson1_1DedicatedIp = (
@@ -7339,9 +6638,7 @@ const deserializeAws_restJson1_1DedicatedIp = (
     __type: "DedicatedIp",
     Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
     PoolName:
-      output.PoolName !== undefined && output.PoolName !== null
-        ? output.PoolName
-        : undefined,
+      output.PoolName !== undefined && output.PoolName !== null ? output.PoolName : undefined,
     WarmupPercentage:
       output.WarmupPercentage !== undefined && output.WarmupPercentage !== null
         ? output.WarmupPercentage
@@ -7357,9 +6654,7 @@ const deserializeAws_restJson1_1DedicatedIpList = (
   output: any,
   context: __SerdeContext
 ): DedicatedIp[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DedicatedIp(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DedicatedIp(entry, context));
 };
 
 const deserializeAws_restJson1_1DeliverabilityTestReport = (
@@ -7373,8 +6668,7 @@ const deserializeAws_restJson1_1DeliverabilityTestReport = (
         ? new Date(Math.round(output.CreateDate * 1000))
         : undefined,
     DeliverabilityTestStatus:
-      output.DeliverabilityTestStatus !== undefined &&
-      output.DeliverabilityTestStatus !== null
+      output.DeliverabilityTestStatus !== undefined && output.DeliverabilityTestStatus !== null
         ? output.DeliverabilityTestStatus
         : undefined,
     FromEmailAddress:
@@ -7382,17 +6676,10 @@ const deserializeAws_restJson1_1DeliverabilityTestReport = (
         ? output.FromEmailAddress
         : undefined,
     ReportId:
-      output.ReportId !== undefined && output.ReportId !== null
-        ? output.ReportId
-        : undefined,
+      output.ReportId !== undefined && output.ReportId !== null ? output.ReportId : undefined,
     ReportName:
-      output.ReportName !== undefined && output.ReportName !== null
-        ? output.ReportName
-        : undefined,
-    Subject:
-      output.Subject !== undefined && output.Subject !== null
-        ? output.Subject
-        : undefined
+      output.ReportName !== undefined && output.ReportName !== null ? output.ReportName : undefined,
+    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined
   } as any;
 };
 
@@ -7416,9 +6703,7 @@ const deserializeAws_restJson1_1DeliveryOptions = (
         ? output.SendingPoolName
         : undefined,
     TlsPolicy:
-      output.TlsPolicy !== undefined && output.TlsPolicy !== null
-        ? output.TlsPolicy
-        : undefined
+      output.TlsPolicy !== undefined && output.TlsPolicy !== null ? output.TlsPolicy : undefined
   } as any;
 };
 
@@ -7429,18 +6714,14 @@ const deserializeAws_restJson1_1DkimAttributes = (
   return {
     __type: "DkimAttributes",
     SigningAttributesOrigin:
-      output.SigningAttributesOrigin !== undefined &&
-      output.SigningAttributesOrigin !== null
+      output.SigningAttributesOrigin !== undefined && output.SigningAttributesOrigin !== null
         ? output.SigningAttributesOrigin
         : undefined,
     SigningEnabled:
       output.SigningEnabled !== undefined && output.SigningEnabled !== null
         ? output.SigningEnabled
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Tokens:
       output.Tokens !== undefined && output.Tokens !== null
         ? deserializeAws_restJson1_1DnsTokenList(output.Tokens, context)
@@ -7448,10 +6729,7 @@ const deserializeAws_restJson1_1DkimAttributes = (
   } as any;
 };
 
-const deserializeAws_restJson1_1DnsTokenList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1DnsTokenList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7462,20 +6740,15 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
   return {
     __type: "DomainDeliverabilityCampaign",
     CampaignId:
-      output.CampaignId !== undefined && output.CampaignId !== null
-        ? output.CampaignId
-        : undefined,
+      output.CampaignId !== undefined && output.CampaignId !== null ? output.CampaignId : undefined,
     DeleteRate:
-      output.DeleteRate !== undefined && output.DeleteRate !== null
-        ? output.DeleteRate
-        : undefined,
+      output.DeleteRate !== undefined && output.DeleteRate !== null ? output.DeleteRate : undefined,
     Esps:
       output.Esps !== undefined && output.Esps !== null
         ? deserializeAws_restJson1_1Esps(output.Esps, context)
         : undefined,
     FirstSeenDateTime:
-      output.FirstSeenDateTime !== undefined &&
-      output.FirstSeenDateTime !== null
+      output.FirstSeenDateTime !== undefined && output.FirstSeenDateTime !== null
         ? new Date(Math.round(output.FirstSeenDateTime * 1000))
         : undefined,
     FromAddress:
@@ -7483,13 +6756,9 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
         ? output.FromAddress
         : undefined,
     ImageUrl:
-      output.ImageUrl !== undefined && output.ImageUrl !== null
-        ? output.ImageUrl
-        : undefined,
+      output.ImageUrl !== undefined && output.ImageUrl !== null ? output.ImageUrl : undefined,
     InboxCount:
-      output.InboxCount !== undefined && output.InboxCount !== null
-        ? output.InboxCount
-        : undefined,
+      output.InboxCount !== undefined && output.InboxCount !== null ? output.InboxCount : undefined,
     LastSeenDateTime:
       output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
         ? new Date(Math.round(output.LastSeenDateTime * 1000))
@@ -7503,21 +6772,14 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
         ? output.ReadDeleteRate
         : undefined,
     ReadRate:
-      output.ReadRate !== undefined && output.ReadRate !== null
-        ? output.ReadRate
-        : undefined,
+      output.ReadRate !== undefined && output.ReadRate !== null ? output.ReadRate : undefined,
     SendingIps:
       output.SendingIps !== undefined && output.SendingIps !== null
         ? deserializeAws_restJson1_1IpList(output.SendingIps, context)
         : undefined,
     SpamCount:
-      output.SpamCount !== undefined && output.SpamCount !== null
-        ? output.SpamCount
-        : undefined,
-    Subject:
-      output.Subject !== undefined && output.Subject !== null
-        ? output.Subject
-        : undefined
+      output.SpamCount !== undefined && output.SpamCount !== null ? output.SpamCount : undefined,
+    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined
   } as any;
 };
 
@@ -7536,10 +6798,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
 ): DomainDeliverabilityTrackingOption => {
   return {
     __type: "DomainDeliverabilityTrackingOption",
-    Domain:
-      output.Domain !== undefined && output.Domain !== null
-        ? output.Domain
-        : undefined,
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
     InboxPlacementTrackingOption:
       output.InboxPlacementTrackingOption !== undefined &&
       output.InboxPlacementTrackingOption !== null
@@ -7549,8 +6808,7 @@ const deserializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
           )
         : undefined,
     SubscriptionStartDate:
-      output.SubscriptionStartDate !== undefined &&
-      output.SubscriptionStartDate !== null
+      output.SubscriptionStartDate !== undefined && output.SubscriptionStartDate !== null
         ? new Date(Math.round(output.SubscriptionStartDate * 1000))
         : undefined
   } as any;
@@ -7579,10 +6837,7 @@ const deserializeAws_restJson1_1DomainIspPlacement = (
       output.InboxRawCount !== undefined && output.InboxRawCount !== null
         ? output.InboxRawCount
         : undefined,
-    IspName:
-      output.IspName !== undefined && output.IspName !== null
-        ? output.IspName
-        : undefined,
+    IspName: output.IspName !== undefined && output.IspName !== null ? output.IspName : undefined,
     SpamPercentage:
       output.SpamPercentage !== undefined && output.SpamPercentage !== null
         ? output.SpamPercentage
@@ -7603,10 +6858,7 @@ const deserializeAws_restJson1_1DomainIspPlacements = (
   );
 };
 
-const deserializeAws_restJson1_1Esps = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1Esps = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7617,51 +6869,29 @@ const deserializeAws_restJson1_1EventDestination = (
   return {
     __type: "EventDestination",
     CloudWatchDestination:
-      output.CloudWatchDestination !== undefined &&
-      output.CloudWatchDestination !== null
-        ? deserializeAws_restJson1_1CloudWatchDestination(
-            output.CloudWatchDestination,
-            context
-          )
+      output.CloudWatchDestination !== undefined && output.CloudWatchDestination !== null
+        ? deserializeAws_restJson1_1CloudWatchDestination(output.CloudWatchDestination, context)
         : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     KinesisFirehoseDestination:
-      output.KinesisFirehoseDestination !== undefined &&
-      output.KinesisFirehoseDestination !== null
+      output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
         ? deserializeAws_restJson1_1KinesisFirehoseDestination(
             output.KinesisFirehoseDestination,
             context
           )
         : undefined,
     MatchingEventTypes:
-      output.MatchingEventTypes !== undefined &&
-      output.MatchingEventTypes !== null
-        ? deserializeAws_restJson1_1EventTypes(
-            output.MatchingEventTypes,
-            context
-          )
+      output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
+        ? deserializeAws_restJson1_1EventTypes(output.MatchingEventTypes, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PinpointDestination:
-      output.PinpointDestination !== undefined &&
-      output.PinpointDestination !== null
-        ? deserializeAws_restJson1_1PinpointDestination(
-            output.PinpointDestination,
-            context
-          )
+      output.PinpointDestination !== undefined && output.PinpointDestination !== null
+        ? deserializeAws_restJson1_1PinpointDestination(output.PinpointDestination, context)
         : undefined,
     SnsDestination:
       output.SnsDestination !== undefined && output.SnsDestination !== null
-        ? deserializeAws_restJson1_1SnsDestination(
-            output.SnsDestination,
-            context
-          )
+        ? deserializeAws_restJson1_1SnsDestination(output.SnsDestination, context)
         : undefined
   } as any;
 };
@@ -7707,9 +6937,7 @@ const deserializeAws_restJson1_1IdentityInfoList = (
   output: any,
   context: __SerdeContext
 ): IdentityInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IdentityInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IdentityInfo(entry, context));
 };
 
 const deserializeAws_restJson1_1InboxPlacementTrackingOption = (
@@ -7718,10 +6946,7 @@ const deserializeAws_restJson1_1InboxPlacementTrackingOption = (
 ): InboxPlacementTrackingOption => {
   return {
     __type: "InboxPlacementTrackingOption",
-    Global:
-      output.Global !== undefined && output.Global !== null
-        ? output.Global
-        : undefined,
+    Global: output.Global !== undefined && output.Global !== null ? output.Global : undefined,
     TrackedIsps:
       output.TrackedIsps !== undefined && output.TrackedIsps !== null
         ? deserializeAws_restJson1_1IspNameList(output.TrackedIsps, context)
@@ -7729,17 +6954,11 @@ const deserializeAws_restJson1_1InboxPlacementTrackingOption = (
   } as any;
 };
 
-const deserializeAws_restJson1_1IpList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1IpList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1IspNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1IspNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7749,17 +6968,10 @@ const deserializeAws_restJson1_1IspPlacement = (
 ): IspPlacement => {
   return {
     __type: "IspPlacement",
-    IspName:
-      output.IspName !== undefined && output.IspName !== null
-        ? output.IspName
-        : undefined,
+    IspName: output.IspName !== undefined && output.IspName !== null ? output.IspName : undefined,
     PlacementStatistics:
-      output.PlacementStatistics !== undefined &&
-      output.PlacementStatistics !== null
-        ? deserializeAws_restJson1_1PlacementStatistics(
-            output.PlacementStatistics,
-            context
-          )
+      output.PlacementStatistics !== undefined && output.PlacementStatistics !== null
+        ? deserializeAws_restJson1_1PlacementStatistics(output.PlacementStatistics, context)
         : undefined
   } as any;
 };
@@ -7768,9 +6980,7 @@ const deserializeAws_restJson1_1IspPlacements = (
   output: any,
   context: __SerdeContext
 ): IspPlacement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IspPlacement(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IspPlacement(entry, context));
 };
 
 const deserializeAws_restJson1_1KinesisFirehoseDestination = (
@@ -7780,14 +6990,11 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
   return {
     __type: "KinesisFirehoseDestination",
     DeliveryStreamArn:
-      output.DeliveryStreamArn !== undefined &&
-      output.DeliveryStreamArn !== null
+      output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
         ? output.DeliveryStreamArn
         : undefined,
     IamRoleArn:
-      output.IamRoleArn !== undefined && output.IamRoleArn !== null
-        ? output.IamRoleArn
-        : undefined
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined
   } as any;
 };
 
@@ -7805,8 +7012,7 @@ const deserializeAws_restJson1_1MailFromAttributes = (
   return {
     __type: "MailFromAttributes",
     BehaviorOnMxFailure:
-      output.BehaviorOnMxFailure !== undefined &&
-      output.BehaviorOnMxFailure !== null
+      output.BehaviorOnMxFailure !== undefined && output.BehaviorOnMxFailure !== null
         ? output.BehaviorOnMxFailure
         : undefined,
     MailFromDomain:
@@ -7814,8 +7020,7 @@ const deserializeAws_restJson1_1MailFromAttributes = (
         ? output.MailFromDomain
         : undefined,
     MailFromDomainStatus:
-      output.MailFromDomainStatus !== undefined &&
-      output.MailFromDomainStatus !== null
+      output.MailFromDomainStatus !== undefined && output.MailFromDomainStatus !== null
         ? output.MailFromDomainStatus
         : undefined
   } as any;
@@ -7828,12 +7033,8 @@ const deserializeAws_restJson1_1OverallVolume = (
   return {
     __type: "OverallVolume",
     DomainIspPlacements:
-      output.DomainIspPlacements !== undefined &&
-      output.DomainIspPlacements !== null
-        ? deserializeAws_restJson1_1DomainIspPlacements(
-            output.DomainIspPlacements,
-            context
-          )
+      output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
+        ? deserializeAws_restJson1_1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
     ReadRatePercent:
       output.ReadRatePercent !== undefined && output.ReadRatePercent !== null
@@ -7841,10 +7042,7 @@ const deserializeAws_restJson1_1OverallVolume = (
         : undefined,
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
-        ? deserializeAws_restJson1_1VolumeStatistics(
-            output.VolumeStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1VolumeStatistics(output.VolumeStatistics, context)
         : undefined
   } as any;
 };
@@ -7877,8 +7075,7 @@ const deserializeAws_restJson1_1PlacementStatistics = (
         ? output.InboxPercentage
         : undefined,
     MissingPercentage:
-      output.MissingPercentage !== undefined &&
-      output.MissingPercentage !== null
+      output.MissingPercentage !== undefined && output.MissingPercentage !== null
         ? output.MissingPercentage
         : undefined,
     SpamPercentage:
@@ -7903,17 +7100,13 @@ const deserializeAws_restJson1_1ReputationOptions = (
         ? new Date(Math.round(output.LastFreshStart * 1000))
         : undefined,
     ReputationMetricsEnabled:
-      output.ReputationMetricsEnabled !== undefined &&
-      output.ReputationMetricsEnabled !== null
+      output.ReputationMetricsEnabled !== undefined && output.ReputationMetricsEnabled !== null
         ? output.ReputationMetricsEnabled
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SendQuota = (
-  output: any,
-  context: __SerdeContext
-): SendQuota => {
+const deserializeAws_restJson1_1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
   return {
     __type: "SendQuota",
     Max24HourSend:
@@ -7951,9 +7144,7 @@ const deserializeAws_restJson1_1SnsDestination = (
   return {
     __type: "SnsDestination",
     TopicArn:
-      output.TopicArn !== undefined && output.TopicArn !== null
-        ? output.TopicArn
-        : undefined
+      output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined
   } as any;
 };
 
@@ -7965,10 +7156,7 @@ const deserializeAws_restJson1_1SuppressedDestination = (
     __type: "SuppressedDestination",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_restJson1_1SuppressedDestinationAttributes(
-            output.Attributes,
-            context
-          )
+        ? deserializeAws_restJson1_1SuppressedDestinationAttributes(output.Attributes, context)
         : undefined,
     EmailAddress:
       output.EmailAddress !== undefined && output.EmailAddress !== null
@@ -7978,10 +7166,7 @@ const deserializeAws_restJson1_1SuppressedDestination = (
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
         ? new Date(Math.round(output.LastUpdateTime * 1000))
         : undefined,
-    Reason:
-      output.Reason !== undefined && output.Reason !== null
-        ? output.Reason
-        : undefined
+    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined
   } as any;
 };
 
@@ -7992,13 +7177,9 @@ const deserializeAws_restJson1_1SuppressedDestinationAttributes = (
   return {
     __type: "SuppressedDestinationAttributes",
     FeedbackId:
-      output.FeedbackId !== undefined && output.FeedbackId !== null
-        ? output.FeedbackId
-        : undefined,
+      output.FeedbackId !== undefined && output.FeedbackId !== null ? output.FeedbackId : undefined,
     MessageId:
-      output.MessageId !== undefined && output.MessageId !== null
-        ? output.MessageId
-        : undefined
+      output.MessageId !== undefined && output.MessageId !== null ? output.MessageId : undefined
   } as any;
 };
 
@@ -8025,10 +7206,7 @@ const deserializeAws_restJson1_1SuppressedDestinationSummary = (
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
         ? new Date(Math.round(output.LastUpdateTime * 1000))
         : undefined,
-    Reason:
-      output.Reason !== undefined && output.Reason !== null
-        ? output.Reason
-        : undefined
+    Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined
   } as any;
 };
 
@@ -8039,8 +7217,7 @@ const deserializeAws_restJson1_1TrackingOptions = (
   return {
     __type: "TrackingOptions",
     CustomRedirectDomain:
-      output.CustomRedirectDomain !== undefined &&
-      output.CustomRedirectDomain !== null
+      output.CustomRedirectDomain !== undefined && output.CustomRedirectDomain !== null
         ? output.CustomRedirectDomain
         : undefined
   } as any;
@@ -8085,23 +7262,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  DescribeClientPropertiesRequest,
-  DescribeClientPropertiesResult
-} from "../models/index";
+import { DescribeClientPropertiesRequest, DescribeClientPropertiesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeClientPropertiesCommand,
   serializeAws_json1_1DescribeClientPropertiesCommand
@@ -49,13 +46,8 @@ export class DescribeClientPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClientPropertiesCommandInput,
-    DescribeClientPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClientPropertiesCommandInput, DescribeClientPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeClientPropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientPropertiesCommandOutput> {
-    return deserializeAws_json1_1DescribeClientPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeClientPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

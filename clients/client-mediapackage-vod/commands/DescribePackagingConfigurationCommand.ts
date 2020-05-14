@@ -53,9 +53,7 @@ export class DescribePackagingConfigurationCommand extends $Command<
     DescribePackagingConfigurationCommandInput,
     DescribePackagingConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribePackagingConfigurationCommand extends $Command<
     input: DescribePackagingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribePackagingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribePackagingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribePackagingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

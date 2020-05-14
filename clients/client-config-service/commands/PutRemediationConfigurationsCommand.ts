@@ -49,13 +49,8 @@ export class PutRemediationConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRemediationConfigurationsCommandInput,
-    PutRemediationConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRemediationConfigurationsCommandInput, PutRemediationConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class PutRemediationConfigurationsCommand extends $Command<
     input: PutRemediationConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRemediationConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutRemediationConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRemediationConfigurationsCommandOutput> {
-    return deserializeAws_json1_1PutRemediationConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutRemediationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult
@@ -53,9 +49,7 @@ export class DisableEbsEncryptionByDefaultCommand extends $Command<
     DisableEbsEncryptionByDefaultCommandInput,
     DisableEbsEncryptionByDefaultCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +75,7 @@ export class DisableEbsEncryptionByDefaultCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableEbsEncryptionByDefaultCommandOutput> {
-    return deserializeAws_ec2DisableEbsEncryptionByDefaultCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DisableEbsEncryptionByDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

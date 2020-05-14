@@ -194,11 +194,7 @@ import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput
 } from "./commands/ScheduleKeyDeletionCommand";
-import {
-  SignCommand,
-  SignCommandInput,
-  SignCommandOutput
-} from "./commands/SignCommand";
+import { SignCommand, SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
@@ -224,11 +220,7 @@ import {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput
 } from "./commands/UpdateKeyDescriptionCommand";
-import {
-  VerifyCommand,
-  VerifyCommandInput,
-  VerifyCommandOutput
-} from "./commands/VerifyCommand";
+import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -509,9 +501,7 @@ export class KMS extends KMSClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
@@ -635,9 +625,7 @@ export class KMS extends KMSClient {
   ): void;
   public createGrant(
     args: CreateGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGrantCommandOutput) => void),
     cb?: (err: any, data?: CreateGrantCommandOutput) => void
   ): Promise<CreateGrantCommandOutput> | void {
     const command = new CreateGrantCommand(args);
@@ -745,9 +733,7 @@ export class KMS extends KMSClient {
   ): void;
   public createKey(
     args: CreateKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyCommandOutput) => void
   ): Promise<CreateKeyCommandOutput> | void {
     const command = new CreateKeyCommand(args);
@@ -830,9 +816,7 @@ export class KMS extends KMSClient {
   ): void;
   public decrypt(
     args: DecryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecryptCommandOutput) => void),
     cb?: (err: any, data?: DecryptCommandOutput) => void
   ): Promise<DecryptCommandOutput> | void {
     const command = new DecryptCommand(args);
@@ -870,9 +854,7 @@ export class KMS extends KMSClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
@@ -1093,9 +1075,7 @@ export class KMS extends KMSClient {
   ): void;
   public describeKey(
     args: DescribeKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyCommandOutput) => void
   ): Promise<DescribeKeyCommandOutput> | void {
     const command = new DescribeKeyCommand(args);
@@ -1136,9 +1116,7 @@ export class KMS extends KMSClient {
   ): void;
   public disableKey(
     args: DisableKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKeyCommandOutput) => void),
     cb?: (err: any, data?: DisableKeyCommandOutput) => void
   ): Promise<DisableKeyCommandOutput> | void {
     const command = new DisableKeyCommand(args);
@@ -1267,9 +1245,7 @@ export class KMS extends KMSClient {
   ): void;
   public enableKey(
     args: EnableKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKeyCommandOutput) => void),
     cb?: (err: any, data?: EnableKeyCommandOutput) => void
   ): Promise<EnableKeyCommandOutput> | void {
     const command = new EnableKeyCommand(args);
@@ -1442,9 +1418,7 @@ export class KMS extends KMSClient {
   ): void;
   public encrypt(
     args: EncryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EncryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EncryptCommandOutput) => void),
     cb?: (err: any, data?: EncryptCommandOutput) => void
   ): Promise<EncryptCommandOutput> | void {
     const command = new EncryptCommand(args);
@@ -1535,9 +1509,7 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyCommandOutput) => void
   ): Promise<GenerateDataKeyCommandOutput> | void {
     const command = new GenerateDataKeyCommand(args);
@@ -1653,31 +1625,19 @@ export class KMS extends KMSClient {
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput>;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    cb: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
-    ) => void
+      | ((err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void),
+    cb?: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyPairWithoutPlaintextCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1745,10 +1705,7 @@ export class KMS extends KMSClient {
     args: GenerateDataKeyWithoutPlaintextCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GenerateDataKeyWithoutPlaintextCommandOutput
-        ) => void),
+      | ((err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyWithoutPlaintextCommand(args);
@@ -1786,9 +1743,7 @@ export class KMS extends KMSClient {
   ): void;
   public generateRandom(
     args: GenerateRandomCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateRandomCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateRandomCommandOutput) => void),
     cb?: (err: any, data?: GenerateRandomCommandOutput) => void
   ): Promise<GenerateRandomCommandOutput> | void {
     const command = new GenerateRandomCommand(args);
@@ -1822,9 +1777,7 @@ export class KMS extends KMSClient {
   ): void;
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPolicyCommandOutput) => void
   ): Promise<GetKeyPolicyCommandOutput> | void {
     const command = new GetKeyPolicyCommand(args);
@@ -1998,9 +1951,7 @@ export class KMS extends KMSClient {
   ): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): Promise<GetPublicKeyCommandOutput> | void {
     const command = new GetPublicKeyCommand(args);
@@ -2125,9 +2076,7 @@ export class KMS extends KMSClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
@@ -2162,9 +2111,7 @@ export class KMS extends KMSClient {
   ): void;
   public listGrants(
     args: ListGrantsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGrantsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGrantsCommandOutput) => void),
     cb?: (err: any, data?: ListGrantsCommandOutput) => void
   ): Promise<ListGrantsCommandOutput> | void {
     const command = new ListGrantsCommand(args);
@@ -2200,9 +2147,7 @@ export class KMS extends KMSClient {
   ): void;
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListKeyPoliciesCommandOutput) => void
   ): Promise<ListKeyPoliciesCommandOutput> | void {
     const command = new ListKeyPoliciesCommand(args);
@@ -2236,9 +2181,7 @@ export class KMS extends KMSClient {
   ): void;
   public listKeys(
     args: ListKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeysCommandOutput) => void),
     cb?: (err: any, data?: ListKeysCommandOutput) => void
   ): Promise<ListKeysCommandOutput> | void {
     const command = new ListKeysCommand(args);
@@ -2272,9 +2215,7 @@ export class KMS extends KMSClient {
   ): void;
   public listResourceTags(
     args: ListResourceTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceTagsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceTagsCommandOutput) => void
   ): Promise<ListResourceTagsCommandOutput> | void {
     const command = new ListResourceTagsCommand(args);
@@ -2347,9 +2288,7 @@ export class KMS extends KMSClient {
   ): void;
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutKeyPolicyCommandOutput) => void
   ): Promise<PutKeyPolicyCommandOutput> | void {
     const command = new PutKeyPolicyCommand(args);
@@ -2441,9 +2380,7 @@ export class KMS extends KMSClient {
   ): void;
   public reEncrypt(
     args: ReEncryptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReEncryptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReEncryptCommandOutput) => void),
     cb?: (err: any, data?: ReEncryptCommandOutput) => void
   ): Promise<ReEncryptCommandOutput> | void {
     const command = new ReEncryptCommand(args);
@@ -2494,9 +2431,7 @@ export class KMS extends KMSClient {
   ): void;
   public retireGrant(
     args: RetireGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetireGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetireGrantCommandOutput) => void),
     cb?: (err: any, data?: RetireGrantCommandOutput) => void
   ): Promise<RetireGrantCommandOutput> | void {
     const command = new RetireGrantCommand(args);
@@ -2532,9 +2467,7 @@ export class KMS extends KMSClient {
   ): void;
   public revokeGrant(
     args: RevokeGrantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeGrantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeGrantCommandOutput) => void),
     cb?: (err: any, data?: RevokeGrantCommandOutput) => void
   ): Promise<RevokeGrantCommandOutput> | void {
     const command = new RevokeGrantCommand(args);
@@ -2645,14 +2578,8 @@ export class KMS extends KMSClient {
    * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
    * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  public sign(
-    args: SignCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SignCommandOutput>;
-  public sign(
-    args: SignCommandInput,
-    cb: (err: any, data?: SignCommandOutput) => void
-  ): void;
+  public sign(args: SignCommandInput, options?: __HttpHandlerOptions): Promise<SignCommandOutput>;
+  public sign(args: SignCommandInput, cb: (err: any, data?: SignCommandOutput) => void): void;
   public sign(
     args: SignCommandInput,
     options: __HttpHandlerOptions,
@@ -2660,9 +2587,7 @@ export class KMS extends KMSClient {
   ): void;
   public sign(
     args: SignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignCommandOutput) => void),
     cb?: (err: any, data?: SignCommandOutput) => void
   ): Promise<SignCommandOutput> | void {
     const command = new SignCommand(args);
@@ -2704,9 +2629,7 @@ export class KMS extends KMSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -2745,9 +2668,7 @@ export class KMS extends KMSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -2796,9 +2717,7 @@ export class KMS extends KMSClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
@@ -2954,10 +2873,7 @@ export class KMS extends KMSClient {
     args: VerifyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<VerifyCommandOutput>;
-  public verify(
-    args: VerifyCommandInput,
-    cb: (err: any, data?: VerifyCommandOutput) => void
-  ): void;
+  public verify(args: VerifyCommandInput, cb: (err: any, data?: VerifyCommandOutput) => void): void;
   public verify(
     args: VerifyCommandInput,
     options: __HttpHandlerOptions,
@@ -2965,9 +2881,7 @@ export class KMS extends KMSClient {
   ): void;
   public verify(
     args: VerifyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: VerifyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyCommandOutput) => void),
     cb?: (err: any, data?: VerifyCommandOutput) => void
   ): Promise<VerifyCommandOutput> | void {
     const command = new VerifyCommand(args);

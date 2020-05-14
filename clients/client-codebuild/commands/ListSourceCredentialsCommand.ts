@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  ListSourceCredentialsInput,
-  ListSourceCredentialsOutput
-} from "../models/index";
+import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListSourceCredentialsCommand,
   serializeAws_json1_1ListSourceCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSourceCredentialsCommandInput = ListSourceCredentialsInput;
-export type ListSourceCredentialsCommandOutput = ListSourceCredentialsOutput &
-  __MetadataBearer;
+export type ListSourceCredentialsCommandOutput = ListSourceCredentialsOutput & __MetadataBearer;
 
 export class ListSourceCredentialsCommand extends $Command<
   ListSourceCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class ListSourceCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSourceCredentialsCommandInput,
-    ListSourceCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSourceCredentialsCommandInput, ListSourceCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

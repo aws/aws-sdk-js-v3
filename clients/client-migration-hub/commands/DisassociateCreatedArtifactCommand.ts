@@ -49,13 +49,8 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateCreatedArtifactCommandInput,
-    DisassociateCreatedArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateCreatedArtifactCommandInput, DisassociateCreatedArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     input: DisassociateCreatedArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateCreatedArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateCreatedArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCreatedArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateCreatedArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateCreatedArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

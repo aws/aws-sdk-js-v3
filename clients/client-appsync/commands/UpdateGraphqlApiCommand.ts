@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  UpdateGraphqlApiRequest,
-  UpdateGraphqlApiResponse
-} from "../models/index";
+import { UpdateGraphqlApiRequest, UpdateGraphqlApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateGraphqlApiCommand,
   serializeAws_restJson1_1UpdateGraphqlApiCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGraphqlApiCommandInput = UpdateGraphqlApiRequest;
-export type UpdateGraphqlApiCommandOutput = UpdateGraphqlApiResponse &
-  __MetadataBearer;
+export type UpdateGraphqlApiCommandOutput = UpdateGraphqlApiResponse & __MetadataBearer;
 
 export class UpdateGraphqlApiCommand extends $Command<
   UpdateGraphqlApiCommandInput,
@@ -50,9 +46,7 @@ export class UpdateGraphqlApiCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

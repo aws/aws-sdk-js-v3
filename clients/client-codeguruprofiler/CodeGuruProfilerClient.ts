@@ -14,10 +14,7 @@ import {
   DescribeProfilingGroupCommandInput,
   DescribeProfilingGroupCommandOutput
 } from "./commands/DescribeProfilingGroupCommand";
-import {
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import {
   ListProfileTimesCommandInput,
   ListProfileTimesCommandOutput
@@ -193,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeGuruProfilerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeGuruProfilerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

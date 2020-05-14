@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  SearchFacesByImageRequest,
-  SearchFacesByImageResponse
-} from "../models/index";
+import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchFacesByImageCommand,
   serializeAws_json1_1SearchFacesByImageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchFacesByImageCommandInput = SearchFacesByImageRequest;
-export type SearchFacesByImageCommandOutput = SearchFacesByImageResponse &
-  __MetadataBearer;
+export type SearchFacesByImageCommandOutput = SearchFacesByImageResponse & __MetadataBearer;
 
 export class SearchFacesByImageCommand extends $Command<
   SearchFacesByImageCommandInput,
@@ -50,9 +46,7 @@ export class SearchFacesByImageCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

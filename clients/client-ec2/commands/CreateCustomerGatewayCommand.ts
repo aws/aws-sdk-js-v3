@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateCustomerGatewayRequest,
-  CreateCustomerGatewayResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/index";
 import {
   deserializeAws_ec2CreateCustomerGatewayCommand,
   serializeAws_ec2CreateCustomerGatewayCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCustomerGatewayCommandInput = CreateCustomerGatewayRequest;
-export type CreateCustomerGatewayCommandOutput = CreateCustomerGatewayResult &
-  __MetadataBearer;
+export type CreateCustomerGatewayCommandOutput = CreateCustomerGatewayResult & __MetadataBearer;
 
 export class CreateCustomerGatewayCommand extends $Command<
   CreateCustomerGatewayCommandInput,
@@ -49,13 +41,8 @@ export class CreateCustomerGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCustomerGatewayCommandInput,
-    CreateCustomerGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCustomerGatewayCommandInput, CreateCustomerGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

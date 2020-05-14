@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  DeleteWorkerBlockRequest,
-  DeleteWorkerBlockResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteWorkerBlockCommand,
   serializeAws_json1_1DeleteWorkerBlockCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteWorkerBlockCommandInput = DeleteWorkerBlockRequest;
-export type DeleteWorkerBlockCommandOutput = DeleteWorkerBlockResponse &
-  __MetadataBearer;
+export type DeleteWorkerBlockCommandOutput = DeleteWorkerBlockResponse & __MetadataBearer;
 
 export class DeleteWorkerBlockCommand extends $Command<
   DeleteWorkerBlockCommandInput,
@@ -50,9 +42,7 @@ export class DeleteWorkerBlockCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteWorkerBlockCommandInput, DeleteWorkerBlockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

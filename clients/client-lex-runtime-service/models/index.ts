@@ -10,17 +10,14 @@ import { Readable } from "stream";
  * <p> Request validation failed, there is no usable message in the context, or the bot build
  *       failed, is still in progress, or contains unbuilt changes. </p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -33,16 +30,13 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Internal service error. Retry the call.</p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -56,9 +50,7 @@ export namespace InternalFailureException {
 /**
  * <p>Exceeded a limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -66,24 +58,20 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>The accept header in the request does not have a valid value.</p>
  */
-export interface NotAcceptableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAcceptableException extends __SmithyException, $MetadataBearer {
   name: "NotAcceptableException";
   $fault: "client";
   message?: string;
 }
 
 export namespace NotAcceptableException {
-  export const isa = (o: any): o is NotAcceptableException =>
-    __isa(o, "NotAcceptableException");
+  export const isa = (o: any): o is NotAcceptableException => __isa(o, "NotAcceptableException");
 }
 
 /**
@@ -97,32 +85,26 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>The input speech is too long.</p>
  */
-export interface RequestTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
   name: "RequestTimeoutException";
   $fault: "client";
   message?: string;
 }
 
 export namespace RequestTimeoutException {
-  export const isa = (o: any): o is RequestTimeoutException =>
-    __isa(o, "RequestTimeoutException");
+  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
  */
-export interface UnsupportedMediaTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
@@ -137,17 +119,14 @@ export namespace UnsupportedMediaTypeException {
  * <p>Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly,
  *       AWS Lambda) failed with an internal service error.</p>
  */
-export interface BadGatewayException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadGatewayException extends __SmithyException, $MetadataBearer {
   name: "BadGatewayException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace BadGatewayException {
-  export const isa = (o: any): o is BadGatewayException =>
-    __isa(o, "BadGatewayException");
+  export const isa = (o: any): o is BadGatewayException => __isa(o, "BadGatewayException");
 }
 
 export enum ConfirmationStatus {
@@ -175,8 +154,7 @@ export interface DeleteSessionRequest {
 }
 
 export namespace DeleteSessionRequest {
-  export const isa = (o: any): o is DeleteSessionRequest =>
-    __isa(o, "DeleteSessionRequest");
+  export const isa = (o: any): o is DeleteSessionRequest => __isa(o, "DeleteSessionRequest");
 }
 
 export interface DeleteSessionResponse {
@@ -203,8 +181,7 @@ export interface DeleteSessionResponse {
 }
 
 export namespace DeleteSessionResponse {
-  export const isa = (o: any): o is DeleteSessionResponse =>
-    __isa(o, "DeleteSessionResponse");
+  export const isa = (o: any): o is DeleteSessionResponse => __isa(o, "DeleteSessionResponse");
 }
 
 /**
@@ -222,9 +199,7 @@ export namespace DeleteSessionResponse {
  *             </li>
  *          </ul>
  */
-export interface DependencyFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DependencyFailedException extends __SmithyException, $MetadataBearer {
   name: "DependencyFailedException";
   $fault: "client";
   Message?: string;
@@ -400,8 +375,7 @@ export interface GetSessionRequest {
 }
 
 export namespace GetSessionRequest {
-  export const isa = (o: any): o is GetSessionRequest =>
-    __isa(o, "GetSessionRequest");
+  export const isa = (o: any): o is GetSessionRequest => __isa(o, "GetSessionRequest");
 }
 
 export interface GetSessionResponse {
@@ -434,8 +408,7 @@ export interface GetSessionResponse {
 }
 
 export namespace GetSessionResponse {
-  export const isa = (o: any): o is GetSessionResponse =>
-    __isa(o, "GetSessionResponse");
+  export const isa = (o: any): o is GetSessionResponse => __isa(o, "GetSessionResponse");
 }
 
 /**
@@ -553,17 +526,14 @@ export namespace IntentSummary {
 /**
  * <p>This exception is not used.</p>
  */
-export interface LoopDetectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LoopDetectedException extends __SmithyException, $MetadataBearer {
   name: "LoopDetectedException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace LoopDetectedException {
-  export const isa = (o: any): o is LoopDetectedException =>
-    __isa(o, "LoopDetectedException");
+  export const isa = (o: any): o is LoopDetectedException => __isa(o, "LoopDetectedException");
 }
 
 export enum MessageFormatType {
@@ -734,8 +704,7 @@ export interface PostContentRequest {
 }
 
 export namespace PostContentRequest {
-  export const isa = (o: any): o is PostContentRequest =>
-    __isa(o, "PostContentRequest");
+  export const isa = (o: any): o is PostContentRequest => __isa(o, "PostContentRequest");
 }
 
 export interface PostContentResponse {
@@ -902,8 +871,7 @@ export interface PostContentResponse {
 }
 
 export namespace PostContentResponse {
-  export const isa = (o: any): o is PostContentResponse =>
-    __isa(o, "PostContentResponse");
+  export const isa = (o: any): o is PostContentResponse => __isa(o, "PostContentResponse");
 }
 
 export interface PostTextRequest {
@@ -970,8 +938,7 @@ export interface PostTextRequest {
 }
 
 export namespace PostTextRequest {
-  export const isa = (o: any): o is PostTextRequest =>
-    __isa(o, "PostTextRequest");
+  export const isa = (o: any): o is PostTextRequest => __isa(o, "PostTextRequest");
 }
 
 export interface PostTextResponse {
@@ -1120,8 +1087,7 @@ export interface PostTextResponse {
 }
 
 export namespace PostTextResponse {
-  export const isa = (o: any): o is PostTextResponse =>
-    __isa(o, "PostTextResponse");
+  export const isa = (o: any): o is PostTextResponse => __isa(o, "PostTextResponse");
 }
 
 export interface PutSessionRequest {
@@ -1235,8 +1201,7 @@ export interface PutSessionRequest {
 }
 
 export namespace PutSessionRequest {
-  export const isa = (o: any): o is PutSessionRequest =>
-    __isa(o, "PutSessionRequest");
+  export const isa = (o: any): o is PutSessionRequest => __isa(o, "PutSessionRequest");
 }
 
 export interface PutSessionResponse {
@@ -1355,8 +1320,7 @@ export interface PutSessionResponse {
 }
 
 export namespace PutSessionResponse {
-  export const isa = (o: any): o is PutSessionResponse =>
-    __isa(o, "PutSessionResponse");
+  export const isa = (o: any): o is PutSessionResponse => __isa(o, "PutSessionResponse");
 }
 
 /**
@@ -1378,8 +1342,7 @@ export interface SentimentResponse {
 }
 
 export namespace SentimentResponse {
-  export const isa = (o: any): o is SentimentResponse =>
-    __isa(o, "SentimentResponse");
+  export const isa = (o: any): o is SentimentResponse => __isa(o, "SentimentResponse");
 }
 
 /**
@@ -1440,8 +1403,7 @@ export interface GenericAttachment {
 }
 
 export namespace GenericAttachment {
-  export const isa = (o: any): o is GenericAttachment =>
-    __isa(o, "GenericAttachment");
+  export const isa = (o: any): o is GenericAttachment => __isa(o, "GenericAttachment");
 }
 
 /**

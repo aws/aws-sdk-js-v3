@@ -1,12 +1,5 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  DescribeExecutionInput,
-  DescribeExecutionOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { DescribeExecutionInput, DescribeExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_0DescribeExecutionCommand,
   serializeAws_json1_0DescribeExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeExecutionCommandInput = DescribeExecutionInput;
-export type DescribeExecutionCommandOutput = DescribeExecutionOutput &
-  __MetadataBearer;
+export type DescribeExecutionCommandOutput = DescribeExecutionOutput & __MetadataBearer;
 
 export class DescribeExecutionCommand extends $Command<
   DescribeExecutionCommandInput,
@@ -50,9 +42,7 @@ export class DescribeExecutionCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeExecutionCommandInput, DescribeExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

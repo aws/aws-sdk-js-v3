@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  GetInstanceAccessInput,
-  GetInstanceAccessOutput
-} from "../models/index";
+import { GetInstanceAccessInput, GetInstanceAccessOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceAccessCommand,
   serializeAws_json1_1GetInstanceAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInstanceAccessCommandInput = GetInstanceAccessInput;
-export type GetInstanceAccessCommandOutput = GetInstanceAccessOutput &
-  __MetadataBearer;
+export type GetInstanceAccessCommandOutput = GetInstanceAccessOutput & __MetadataBearer;
 
 export class GetInstanceAccessCommand extends $Command<
   GetInstanceAccessCommandInput,
@@ -50,9 +46,7 @@ export class GetInstanceAccessCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

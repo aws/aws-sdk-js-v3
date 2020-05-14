@@ -49,13 +49,8 @@ export class CreateSimulationApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSimulationApplicationCommandInput,
-    CreateSimulationApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSimulationApplicationCommandInput, CreateSimulationApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateSimulationApplicationCommand extends $Command<
     input: CreateSimulationApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSimulationApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSimulationApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1CreateSimulationApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

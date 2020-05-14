@@ -62,25 +62,17 @@ export interface DeserializeHandlerOutput<Output extends object> {
   output?: Output;
 }
 
-export interface InitializeHandler<
-  Input extends object,
-  Output extends object
-> {
+export interface InitializeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
    *
    * @param args  An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
-  (args: InitializeHandlerArguments<Input>): Promise<
-    InitializeHandlerOutput<Output>
-  >;
+  (args: InitializeHandlerArguments<Input>): Promise<InitializeHandlerOutput<Output>>;
 }
 
-export type Handler<
-  Input extends object,
-  Output extends object
-> = InitializeHandler<Input, Output>;
+export type Handler<Input extends object, Output extends object> = InitializeHandler<Input, Output>;
 
 export interface SerializeHandler<Input extends object, Output extends object> {
   /**
@@ -89,9 +81,7 @@ export interface SerializeHandler<Input extends object, Output extends object> {
    * @param args  An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
-  (args: SerializeHandlerArguments<Input>): Promise<
-    SerializeHandlerOutput<Output>
-  >;
+  (args: SerializeHandlerArguments<Input>): Promise<SerializeHandlerOutput<Output>>;
 }
 
 export interface FinalizeHandler<Input extends object, Output extends object> {
@@ -101,99 +91,80 @@ export interface FinalizeHandler<Input extends object, Output extends object> {
    * @param args  An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
-  (args: FinalizeHandlerArguments<Input>): Promise<
-    FinalizeHandlerOutput<Output>
-  >;
+  (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>>;
 }
 
 export interface BuildHandler<Input extends object, Output extends object> {
   (args: BuildHandlerArguments<Input>): Promise<BuildHandlerOutput<Output>>;
 }
 
-export interface DeserializeHandler<
-  Input extends object,
-  Output extends object
-> {
-  (args: DeserializeHandlerArguments<Input>): Promise<
-    DeserializeHandlerOutput<Output>
-  >;
+export interface DeserializeHandler<Input extends object, Output extends object> {
+  (args: DeserializeHandlerArguments<Input>): Promise<DeserializeHandlerOutput<Output>>;
 }
 
 /**
  * A factory function that creates functions implementing the {Handler}
  * interface.
  */
-export interface InitializeMiddleware<
-  Input extends object,
-  Output extends object
-> {
+export interface InitializeMiddleware<Input extends object, Output extends object> {
   /**
    * @param next The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
    * @param context Invariant data and functions for use by the handler.
    */
-  (
-    next: InitializeHandler<Input, Output>,
-    context: HandlerExecutionContext
-  ): InitializeHandler<Input, Output>;
+  (next: InitializeHandler<Input, Output>, context: HandlerExecutionContext): InitializeHandler<
+    Input,
+    Output
+  >;
 }
 
 /**
  * A factory function that creates functions implementing the {BuildHandler}
  * interface.
  */
-export interface SerializeMiddleware<
-  Input extends object,
-  Output extends object
-> {
+export interface SerializeMiddleware<Input extends object, Output extends object> {
   /**
    * @param next The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
    * @param context Invariant data and functions for use by the handler.
    */
-  (
-    next: SerializeHandler<Input, Output>,
-    context: HandlerExecutionContext
-  ): SerializeHandler<Input, Output>;
+  (next: SerializeHandler<Input, Output>, context: HandlerExecutionContext): SerializeHandler<
+    Input,
+    Output
+  >;
 }
 
 /**
  * A factory function that creates functions implementing the {FinalizeHandler}
  * interface.
  */
-export interface FinalizeRequestMiddleware<
-  Input extends object,
-  Output extends object
-> {
+export interface FinalizeRequestMiddleware<Input extends object, Output extends object> {
   /**
    * @param next The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
    * @param context Invariant data and functions for use by the handler.
    */
-  (
-    next: FinalizeHandler<Input, Output>,
-    context: HandlerExecutionContext
-  ): FinalizeHandler<Input, Output>;
+  (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<
+    Input,
+    Output
+  >;
 }
 
 export interface BuildMiddleware<Input extends object, Output extends object> {
-  (
-    next: BuildHandler<Input, Output>,
-    context: HandlerExecutionContext
-  ): BuildHandler<Input, Output>;
+  (next: BuildHandler<Input, Output>, context: HandlerExecutionContext): BuildHandler<
+    Input,
+    Output
+  >;
 }
 
-export interface DeserializeMiddleware<
-  Input extends object,
-  Output extends object
-> {
-  (
-    next: DeserializeHandler<Input, Output>,
-    context: HandlerExecutionContext
-  ): DeserializeHandler<Input, Output>;
+export interface DeserializeMiddleware<Input extends object, Output extends object> {
+  (next: DeserializeHandler<Input, Output>, context: HandlerExecutionContext): DeserializeHandler<
+    Input,
+    Output
+  >;
 }
 
 export type MiddlewareType<Input extends object, Output extends object> =
@@ -213,12 +184,7 @@ export interface Terminalware {
   ): DeserializeHandler<Input, Output>;
 }
 
-export type Step =
-  | "initialize"
-  | "serialize"
-  | "build"
-  | "finalizeRequest"
-  | "deserialize";
+export type Step = "initialize" | "serialize" | "build" | "finalizeRequest" | "deserialize";
 
 export type Priority = "high" | "normal" | "low";
 

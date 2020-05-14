@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  DetachLoadBalancersResultType,
-  DetachLoadBalancersType
-} from "../models/index";
+import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/index";
 import {
   deserializeAws_queryDetachLoadBalancersCommand,
   serializeAws_queryDetachLoadBalancersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachLoadBalancersCommandInput = DetachLoadBalancersType;
-export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType &
-  __MetadataBearer;
+export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType & __MetadataBearer;
 
 export class DetachLoadBalancersCommand extends $Command<
   DetachLoadBalancersCommandInput,
@@ -49,13 +45,8 @@ export class DetachLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetachLoadBalancersCommandInput,
-    DetachLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetachLoadBalancersCommandInput, DetachLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     GetCloudFormationStackRecordsCommandInput,
     GetCloudFormationStackRecordsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
     input: GetCloudFormationStackRecordsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCloudFormationStackRecordsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetCloudFormationStackRecordsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCloudFormationStackRecordsCommandOutput> {
-    return deserializeAws_json1_1GetCloudFormationStackRecordsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetCloudFormationStackRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

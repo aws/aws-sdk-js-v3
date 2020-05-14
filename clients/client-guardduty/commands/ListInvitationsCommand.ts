@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  ListInvitationsRequest,
-  ListInvitationsResponse
-} from "../models/index";
+import { ListInvitationsRequest, ListInvitationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListInvitationsCommand,
   serializeAws_restJson1_1ListInvitationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListInvitationsCommandInput = ListInvitationsRequest;
-export type ListInvitationsCommandOutput = ListInvitationsResponse &
-  __MetadataBearer;
+export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
 
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
@@ -50,9 +46,7 @@ export class ListInvitationsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInvitationsCommandInput, ListInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

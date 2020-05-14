@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  DescribeUserProfilesRequest,
-  DescribeUserProfilesResult
-} from "../models/index";
+import { DescribeUserProfilesRequest, DescribeUserProfilesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeUserProfilesCommand,
   serializeAws_json1_1DescribeUserProfilesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeUserProfilesCommandInput = DescribeUserProfilesRequest;
-export type DescribeUserProfilesCommandOutput = DescribeUserProfilesResult &
-  __MetadataBearer;
+export type DescribeUserProfilesCommandOutput = DescribeUserProfilesResult & __MetadataBearer;
 
 export class DescribeUserProfilesCommand extends $Command<
   DescribeUserProfilesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeUserProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeUserProfilesCommandInput,
-    DescribeUserProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeUserProfilesCommandInput, DescribeUserProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeIpv6PoolsRequest,
-  DescribeIpv6PoolsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
-export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult &
-  __MetadataBearer;
+export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult & __MetadataBearer;
 
 export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandInput,
@@ -50,9 +42,7 @@ export class DescribeIpv6PoolsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

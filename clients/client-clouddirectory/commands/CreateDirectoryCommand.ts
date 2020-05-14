@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  CreateDirectoryRequest,
-  CreateDirectoryResponse
-} from "../models/index";
+import { CreateDirectoryRequest, CreateDirectoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDirectoryCommand,
   serializeAws_restJson1_1CreateDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDirectoryCommandInput = CreateDirectoryRequest;
-export type CreateDirectoryCommandOutput = CreateDirectoryResponse &
-  __MetadataBearer;
+export type CreateDirectoryCommandOutput = CreateDirectoryResponse & __MetadataBearer;
 
 export class CreateDirectoryCommand extends $Command<
   CreateDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class CreateDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDirectoryCommandInput, CreateDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

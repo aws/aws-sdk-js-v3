@@ -46,9 +46,7 @@ export class BatchReadCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchReadCommandInput, BatchReadCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class BatchReadCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchReadCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchReadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchReadCommand(input, context);
   }
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminResetUserPasswordRequest,
-  AdminResetUserPasswordResponse
-} from "../models/index";
+import { AdminResetUserPasswordRequest, AdminResetUserPasswordResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminResetUserPasswordCommand,
   serializeAws_json1_1AdminResetUserPasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminResetUserPasswordCommandInput = AdminResetUserPasswordRequest;
-export type AdminResetUserPasswordCommandOutput = AdminResetUserPasswordResponse &
-  __MetadataBearer;
+export type AdminResetUserPasswordCommandOutput = AdminResetUserPasswordResponse & __MetadataBearer;
 
 export class AdminResetUserPasswordCommand extends $Command<
   AdminResetUserPasswordCommandInput,
@@ -49,13 +45,8 @@ export class AdminResetUserPasswordCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminResetUserPasswordCommandInput,
-    AdminResetUserPasswordCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminResetUserPasswordCommandInput, AdminResetUserPasswordCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

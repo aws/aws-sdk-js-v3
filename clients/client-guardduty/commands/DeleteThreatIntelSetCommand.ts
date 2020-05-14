@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  DeleteThreatIntelSetRequest,
-  DeleteThreatIntelSetResponse
-} from "../models/index";
+import { DeleteThreatIntelSetRequest, DeleteThreatIntelSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteThreatIntelSetCommand,
   serializeAws_restJson1_1DeleteThreatIntelSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteThreatIntelSetCommandInput = DeleteThreatIntelSetRequest;
-export type DeleteThreatIntelSetCommandOutput = DeleteThreatIntelSetResponse &
-  __MetadataBearer;
+export type DeleteThreatIntelSetCommandOutput = DeleteThreatIntelSetResponse & __MetadataBearer;
 
 export class DeleteThreatIntelSetCommand extends $Command<
   DeleteThreatIntelSetCommandInput,
@@ -49,13 +45,8 @@ export class DeleteThreatIntelSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteThreatIntelSetCommandInput,
-    DeleteThreatIntelSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteThreatIntelSetCommandInput, DeleteThreatIntelSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteThreatIntelSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1_1DeleteThreatIntelSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

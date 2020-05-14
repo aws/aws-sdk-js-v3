@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  InvokeDeviceMethodRequest,
-  InvokeDeviceMethodResponse
-} from "../models/index";
+import { InvokeDeviceMethodRequest, InvokeDeviceMethodResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1InvokeDeviceMethodCommand,
   serializeAws_restJson1_1InvokeDeviceMethodCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InvokeDeviceMethodCommandInput = InvokeDeviceMethodRequest;
-export type InvokeDeviceMethodCommandOutput = InvokeDeviceMethodResponse &
-  __MetadataBearer;
+export type InvokeDeviceMethodCommandOutput = InvokeDeviceMethodResponse & __MetadataBearer;
 
 export class InvokeDeviceMethodCommand extends $Command<
   InvokeDeviceMethodCommandInput,
@@ -50,9 +46,7 @@ export class InvokeDeviceMethodCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

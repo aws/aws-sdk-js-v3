@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  ListRulesPackagesRequest,
-  ListRulesPackagesResponse
-} from "../models/index";
+import { ListRulesPackagesRequest, ListRulesPackagesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListRulesPackagesCommand,
   serializeAws_json1_1ListRulesPackagesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRulesPackagesCommandInput = ListRulesPackagesRequest;
-export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse &
-  __MetadataBearer;
+export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse & __MetadataBearer;
 
 export class ListRulesPackagesCommand extends $Command<
   ListRulesPackagesCommandInput,
@@ -50,9 +46,7 @@ export class ListRulesPackagesCommand extends $Command<
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

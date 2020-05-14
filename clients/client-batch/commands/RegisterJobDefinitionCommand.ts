@@ -1,12 +1,5 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient";
-import {
-  RegisterJobDefinitionRequest,
-  RegisterJobDefinitionResponse
-} from "../models/index";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
+import { RegisterJobDefinitionRequest, RegisterJobDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RegisterJobDefinitionCommand,
   serializeAws_restJson1_1RegisterJobDefinitionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterJobDefinitionCommandInput = RegisterJobDefinitionRequest;
-export type RegisterJobDefinitionCommandOutput = RegisterJobDefinitionResponse &
-  __MetadataBearer;
+export type RegisterJobDefinitionCommandOutput = RegisterJobDefinitionResponse & __MetadataBearer;
 
 export class RegisterJobDefinitionCommand extends $Command<
   RegisterJobDefinitionCommandInput,
@@ -49,13 +41,8 @@ export class RegisterJobDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterJobDefinitionCommandInput,
-    RegisterJobDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterJobDefinitionCommandInput, RegisterJobDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class RegisterJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterJobDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1RegisterJobDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

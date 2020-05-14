@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  CreateSignalingChannelInput,
-  CreateSignalingChannelOutput
-} from "../models/index";
+import { CreateSignalingChannelInput, CreateSignalingChannelOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSignalingChannelCommand,
   serializeAws_restJson1_1CreateSignalingChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSignalingChannelCommandInput = CreateSignalingChannelInput;
-export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput &
-  __MetadataBearer;
+export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput & __MetadataBearer;
 
 export class CreateSignalingChannelCommand extends $Command<
   CreateSignalingChannelCommandInput,
@@ -49,13 +45,8 @@ export class CreateSignalingChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSignalingChannelCommandInput,
-    CreateSignalingChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSignalingChannelCommandInput, CreateSignalingChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateSignalingChannelCommand extends $Command<
     input: CreateSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1CreateSignalingChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

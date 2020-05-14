@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  DescribeResourceServerRequest,
-  DescribeResourceServerResponse
-} from "../models/index";
+import { DescribeResourceServerRequest, DescribeResourceServerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeResourceServerCommand,
   serializeAws_json1_1DescribeResourceServerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeResourceServerCommandInput = DescribeResourceServerRequest;
-export type DescribeResourceServerCommandOutput = DescribeResourceServerResponse &
-  __MetadataBearer;
+export type DescribeResourceServerCommandOutput = DescribeResourceServerResponse & __MetadataBearer;
 
 export class DescribeResourceServerCommand extends $Command<
   DescribeResourceServerCommandInput,
@@ -49,13 +45,8 @@ export class DescribeResourceServerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeResourceServerCommandInput,
-    DescribeResourceServerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeResourceServerCommandInput, DescribeResourceServerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

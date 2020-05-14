@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceDiscoveryClient";
-import {
-  GetInstancesHealthStatusRequest,
-  GetInstancesHealthStatusResponse
-} from "../models/index";
+import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetInstancesHealthStatusCommand,
   serializeAws_json1_1GetInstancesHealthStatusCommand
@@ -49,13 +46,8 @@ export class GetInstancesHealthStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInstancesHealthStatusCommandInput,
-    GetInstancesHealthStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInstancesHealthStatusCommandInput, GetInstancesHealthStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetInstancesHealthStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstancesHealthStatusCommandOutput> {
-    return deserializeAws_json1_1GetInstancesHealthStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetInstancesHealthStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

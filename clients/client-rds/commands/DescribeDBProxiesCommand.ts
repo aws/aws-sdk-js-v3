@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeDBProxiesRequest,
-  DescribeDBProxiesResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeDBProxiesRequest, DescribeDBProxiesResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDBProxiesCommand,
   serializeAws_queryDescribeDBProxiesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBProxiesCommandInput = DescribeDBProxiesRequest;
-export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse &
-  __MetadataBearer;
+export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse & __MetadataBearer;
 
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,
@@ -50,9 +42,7 @@ export class DescribeDBProxiesCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBProxiesCommandInput, DescribeDBProxiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

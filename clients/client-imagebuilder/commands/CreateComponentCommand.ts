@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  CreateComponentRequest,
-  CreateComponentResponse
-} from "../models/index";
+import { CreateComponentRequest, CreateComponentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateComponentCommand,
   serializeAws_restJson1_1CreateComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateComponentCommandInput = CreateComponentRequest;
-export type CreateComponentCommandOutput = CreateComponentResponse &
-  __MetadataBearer;
+export type CreateComponentCommandOutput = CreateComponentResponse & __MetadataBearer;
 
 export class CreateComponentCommand extends $Command<
   CreateComponentCommandInput,
@@ -50,9 +46,7 @@ export class CreateComponentCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateComponentCommandInput, CreateComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

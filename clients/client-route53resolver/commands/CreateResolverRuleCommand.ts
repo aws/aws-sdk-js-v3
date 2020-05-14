@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53ResolverClient";
-import {
-  CreateResolverRuleRequest,
-  CreateResolverRuleResponse
-} from "../models/index";
+import { CreateResolverRuleRequest, CreateResolverRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateResolverRuleCommand,
   serializeAws_json1_1CreateResolverRuleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResolverRuleCommandInput = CreateResolverRuleRequest;
-export type CreateResolverRuleCommandOutput = CreateResolverRuleResponse &
-  __MetadataBearer;
+export type CreateResolverRuleCommandOutput = CreateResolverRuleResponse & __MetadataBearer;
 
 export class CreateResolverRuleCommand extends $Command<
   CreateResolverRuleCommandInput,
@@ -50,9 +46,7 @@ export class CreateResolverRuleCommand extends $Command<
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

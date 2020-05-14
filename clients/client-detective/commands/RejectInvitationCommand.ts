@@ -46,9 +46,7 @@ export class RejectInvitationCommand extends $Command<
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RejectInvitationCommandInput, RejectInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

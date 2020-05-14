@@ -1,8 +1,4 @@
-import {
-  MobileClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MobileClient";
+import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
 import { ExportBundleRequest, ExportBundleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportBundleCommand,
@@ -46,9 +42,7 @@ export class ExportBundleCommand extends $Command<
     configuration: MobileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportBundleCommandInput, ExportBundleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

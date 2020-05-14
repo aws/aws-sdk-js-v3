@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DeleteSnapshotScheduleInput,
-  DeleteSnapshotScheduleOutput
-} from "../models/index";
+import { DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSnapshotScheduleCommand,
   serializeAws_json1_1DeleteSnapshotScheduleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSnapshotScheduleCommandInput = DeleteSnapshotScheduleInput;
-export type DeleteSnapshotScheduleCommandOutput = DeleteSnapshotScheduleOutput &
-  __MetadataBearer;
+export type DeleteSnapshotScheduleCommandOutput = DeleteSnapshotScheduleOutput & __MetadataBearer;
 
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,
@@ -49,13 +45,8 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteSnapshotScheduleCommandInput,
-    DeleteSnapshotScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteSnapshotScheduleCommandInput, DeleteSnapshotScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

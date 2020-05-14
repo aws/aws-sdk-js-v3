@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeGroupCommandInput = DescribeGroupRequest;
-export type DescribeGroupCommandOutput = DescribeGroupResponse &
-  __MetadataBearer;
+export type DescribeGroupCommandOutput = DescribeGroupResponse & __MetadataBearer;
 
 export class DescribeGroupCommand extends $Command<
   DescribeGroupCommandInput,
@@ -47,9 +46,7 @@ export class DescribeGroupCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeGroupCommandInput, DescribeGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

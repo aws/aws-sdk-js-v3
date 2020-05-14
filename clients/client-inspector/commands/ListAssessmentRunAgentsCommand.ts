@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  ListAssessmentRunAgentsRequest,
-  ListAssessmentRunAgentsResponse
-} from "../models/index";
+import { ListAssessmentRunAgentsRequest, ListAssessmentRunAgentsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAssessmentRunAgentsCommand,
   serializeAws_json1_1ListAssessmentRunAgentsCommand
@@ -49,13 +46,8 @@ export class ListAssessmentRunAgentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAssessmentRunAgentsCommandInput,
-    ListAssessmentRunAgentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAssessmentRunAgentsCommandInput, ListAssessmentRunAgentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListAssessmentRunAgentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssessmentRunAgentsCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentRunAgentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentRunAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

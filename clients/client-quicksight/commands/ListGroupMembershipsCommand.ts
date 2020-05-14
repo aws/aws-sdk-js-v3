@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  ListGroupMembershipsRequest,
-  ListGroupMembershipsResponse
-} from "../models/index";
+import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroupMembershipsCommand,
   serializeAws_restJson1_1ListGroupMembershipsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupMembershipsCommandInput = ListGroupMembershipsRequest;
-export type ListGroupMembershipsCommandOutput = ListGroupMembershipsResponse &
-  __MetadataBearer;
+export type ListGroupMembershipsCommandOutput = ListGroupMembershipsResponse & __MetadataBearer;
 
 export class ListGroupMembershipsCommand extends $Command<
   ListGroupMembershipsCommandInput,
@@ -49,13 +45,8 @@ export class ListGroupMembershipsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListGroupMembershipsCommandInput,
-    ListGroupMembershipsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListGroupMembershipsCommandInput, ListGroupMembershipsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListGroupMembershipsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupMembershipsCommandOutput> {
-    return deserializeAws_restJson1_1ListGroupMembershipsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListGroupMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

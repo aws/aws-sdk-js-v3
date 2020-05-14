@@ -53,9 +53,7 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     DescribeSavingsPlansOfferingRatesCommandInput,
     DescribeSavingsPlansOfferingRatesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     input: DescribeSavingsPlansOfferingRatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand(output, context);
   }
 
   // Start section: command_body_extra

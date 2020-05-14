@@ -49,13 +49,8 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PurchaseReservedNodeOfferingCommandInput,
-    PurchaseReservedNodeOfferingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PurchaseReservedNodeOfferingCommandInput, PurchaseReservedNodeOfferingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     input: PurchaseReservedNodeOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedNodeOfferingCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPurchaseReservedNodeOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

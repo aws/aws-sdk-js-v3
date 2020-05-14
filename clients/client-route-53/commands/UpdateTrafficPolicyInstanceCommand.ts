@@ -50,13 +50,8 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTrafficPolicyInstanceCommandInput,
-    UpdateTrafficPolicyInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTrafficPolicyInstanceCommandInput, UpdateTrafficPolicyInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +71,14 @@ export class UpdateTrafficPolicyInstanceCommand extends $Command<
     input: UpdateTrafficPolicyInstanceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlUpdateTrafficPolicyInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -481,9 +481,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type NeptuneClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type NeptuneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -492,9 +490,7 @@ export type NeptuneClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

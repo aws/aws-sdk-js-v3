@@ -46,9 +46,7 @@ export class TagCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagCommandInput, TagCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +61,11 @@ export class TagCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TagCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TagCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TagCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> {
     return deserializeAws_restJson1_1TagCommand(output, context);
   }
 

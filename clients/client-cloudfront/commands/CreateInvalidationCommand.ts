@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  CreateInvalidationRequest,
-  CreateInvalidationResult
-} from "../models/index";
+import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/index";
 import {
   deserializeAws_restXmlCreateInvalidationCommand,
   serializeAws_restXmlCreateInvalidationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInvalidationCommandInput = CreateInvalidationRequest;
-export type CreateInvalidationCommandOutput = CreateInvalidationResult &
-  __MetadataBearer;
+export type CreateInvalidationCommandOutput = CreateInvalidationResult & __MetadataBearer;
 
 export class CreateInvalidationCommand extends $Command<
   CreateInvalidationCommandInput,
@@ -50,9 +46,7 @@ export class CreateInvalidationCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInvalidationCommandInput, CreateInvalidationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

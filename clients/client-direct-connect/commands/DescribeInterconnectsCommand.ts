@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInterconnectsCommandInput = DescribeInterconnectsRequest;
-export type DescribeInterconnectsCommandOutput = Interconnects &
-  __MetadataBearer;
+export type DescribeInterconnectsCommandOutput = Interconnects & __MetadataBearer;
 
 export class DescribeInterconnectsCommand extends $Command<
   DescribeInterconnectsCommandInput,
@@ -46,13 +45,8 @@ export class DescribeInterconnectsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInterconnectsCommandInput,
-    DescribeInterconnectsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInterconnectsCommandInput, DescribeInterconnectsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

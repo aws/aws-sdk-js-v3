@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  CreateNotificationRequest,
-  CreateNotificationResponse
-} from "../models/index";
+import { CreateNotificationRequest, CreateNotificationResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateNotificationCommand,
   serializeAws_json1_1CreateNotificationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNotificationCommandInput = CreateNotificationRequest;
-export type CreateNotificationCommandOutput = CreateNotificationResponse &
-  __MetadataBearer;
+export type CreateNotificationCommandOutput = CreateNotificationResponse & __MetadataBearer;
 
 export class CreateNotificationCommand extends $Command<
   CreateNotificationCommandInput,
@@ -50,9 +46,7 @@ export class CreateNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateNotificationCommandInput, CreateNotificationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

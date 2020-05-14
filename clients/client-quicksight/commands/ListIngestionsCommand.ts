@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListIngestionsCommandInput = ListIngestionsRequest;
-export type ListIngestionsCommandOutput = ListIngestionsResponse &
-  __MetadataBearer;
+export type ListIngestionsCommandOutput = ListIngestionsResponse & __MetadataBearer;
 
 export class ListIngestionsCommand extends $Command<
   ListIngestionsCommandInput,
@@ -47,9 +46,7 @@ export class ListIngestionsCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIngestionsCommandInput, ListIngestionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

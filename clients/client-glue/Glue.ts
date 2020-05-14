@@ -284,11 +284,7 @@ import {
   GetJobBookmarkCommandInput,
   GetJobBookmarkCommandOutput
 } from "./commands/GetJobBookmarkCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetJobRunCommand,
   GetJobRunCommandInput,
@@ -639,9 +635,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
@@ -676,9 +670,7 @@ export class Glue extends GlueClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -711,9 +703,7 @@ export class Glue extends GlueClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -861,9 +851,7 @@ export class Glue extends GlueClient {
   ): void;
   public batchDeleteTable(
     args: BatchDeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteTableCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteTableCommandOutput) => void
   ): Promise<BatchDeleteTableCommandOutput> | void {
     const command = new BatchDeleteTableCommand(args);
@@ -966,9 +954,7 @@ export class Glue extends GlueClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
@@ -1001,9 +987,7 @@ export class Glue extends GlueClient {
   ): void;
   public createDatabase(
     args: CreateDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatabaseCommandOutput) => void),
     cb?: (err: any, data?: CreateDatabaseCommandOutput) => void
   ): Promise<CreateDatabaseCommandOutput> | void {
     const command = new CreateDatabaseCommand(args);
@@ -1036,9 +1020,7 @@ export class Glue extends GlueClient {
   ): void;
   public createPartition(
     args: CreatePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePartitionCommandOutput) => void),
     cb?: (err: any, data?: CreatePartitionCommandOutput) => void
   ): Promise<CreatePartitionCommandOutput> | void {
     const command = new CreatePartitionCommand(args);
@@ -1071,9 +1053,7 @@ export class Glue extends GlueClient {
   ): void;
   public createTable(
     args: CreateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTableCommandOutput) => void),
     cb?: (err: any, data?: CreateTableCommandOutput) => void
   ): Promise<CreateTableCommandOutput> | void {
     const command = new CreateTableCommand(args);
@@ -1141,9 +1121,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
@@ -1188,9 +1166,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteDatabase(
     args: DeleteDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatabaseCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatabaseCommandOutput) => void
   ): Promise<DeleteDatabaseCommandOutput> | void {
     const command = new DeleteDatabaseCommand(args);
@@ -1223,9 +1199,7 @@ export class Glue extends GlueClient {
   ): void;
   public deletePartition(
     args: DeletePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePartitionCommandOutput) => void),
     cb?: (err: any, data?: DeletePartitionCommandOutput) => void
   ): Promise<DeletePartitionCommandOutput> | void {
     const command = new DeletePartitionCommand(args);
@@ -1303,9 +1277,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteTable(
     args: DeleteTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTableCommandOutput) => void),
     cb?: (err: any, data?: DeleteTableCommandOutput) => void
   ): Promise<DeleteTableCommandOutput> | void {
     const command = new DeleteTableCommand(args);
@@ -1443,9 +1415,7 @@ export class Glue extends GlueClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
@@ -1478,9 +1448,7 @@ export class Glue extends GlueClient {
   ): void;
   public getConnections(
     args: GetConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionsCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionsCommandOutput) => void
   ): Promise<GetConnectionsCommandOutput> | void {
     const command = new GetConnectionsCommand(args);
@@ -1515,14 +1483,8 @@ export class Glue extends GlueClient {
     args: GetDataCatalogEncryptionSettingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetDataCatalogEncryptionSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetDataCatalogEncryptionSettingsCommandOutput
-    ) => void
+      | ((err: any, data?: GetDataCatalogEncryptionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetDataCatalogEncryptionSettingsCommandOutput) => void
   ): Promise<GetDataCatalogEncryptionSettingsCommandOutput> | void {
     const command = new GetDataCatalogEncryptionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1554,9 +1516,7 @@ export class Glue extends GlueClient {
   ): void;
   public getDatabase(
     args: GetDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabaseCommandOutput) => void),
     cb?: (err: any, data?: GetDatabaseCommandOutput) => void
   ): Promise<GetDatabaseCommandOutput> | void {
     const command = new GetDatabaseCommand(args);
@@ -1589,9 +1549,7 @@ export class Glue extends GlueClient {
   ): void;
   public getDatabases(
     args: GetDatabasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDatabasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatabasesCommandOutput) => void),
     cb?: (err: any, data?: GetDatabasesCommandOutput) => void
   ): Promise<GetDatabasesCommandOutput> | void {
     const command = new GetDatabasesCommand(args);
@@ -1624,9 +1582,7 @@ export class Glue extends GlueClient {
   ): void;
   public getPartition(
     args: GetPartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionCommandOutput) => void),
     cb?: (err: any, data?: GetPartitionCommandOutput) => void
   ): Promise<GetPartitionCommandOutput> | void {
     const command = new GetPartitionCommand(args);
@@ -1659,9 +1615,7 @@ export class Glue extends GlueClient {
   ): void;
   public getPartitions(
     args: GetPartitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPartitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionsCommandOutput) => void),
     cb?: (err: any, data?: GetPartitionsCommandOutput) => void
   ): Promise<GetPartitionsCommandOutput> | void {
     const command = new GetPartitionsCommand(args);
@@ -1730,9 +1684,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTable(
     args: GetTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableCommandOutput) => void),
     cb?: (err: any, data?: GetTableCommandOutput) => void
   ): Promise<GetTableCommandOutput> | void {
     const command = new GetTableCommand(args);
@@ -1765,9 +1717,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTableVersion(
     args: GetTableVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableVersionCommandOutput) => void),
     cb?: (err: any, data?: GetTableVersionCommandOutput) => void
   ): Promise<GetTableVersionCommandOutput> | void {
     const command = new GetTableVersionCommand(args);
@@ -1801,9 +1751,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTableVersions(
     args: GetTableVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTableVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTableVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetTableVersionsCommandOutput) => void
   ): Promise<GetTableVersionsCommandOutput> | void {
     const command = new GetTableVersionsCommand(args);
@@ -1837,9 +1785,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTables(
     args: GetTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTablesCommandOutput) => void),
     cb?: (err: any, data?: GetTablesCommandOutput) => void
   ): Promise<GetTablesCommandOutput> | void {
     const command = new GetTablesCommand(args);
@@ -1980,14 +1926,8 @@ export class Glue extends GlueClient {
     args: PutDataCatalogEncryptionSettingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutDataCatalogEncryptionSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutDataCatalogEncryptionSettingsCommandOutput
-    ) => void
+      | ((err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> | void {
     const command = new PutDataCatalogEncryptionSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2055,9 +1995,7 @@ export class Glue extends GlueClient {
   ): void;
   public searchTables(
     args: SearchTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchTablesCommandOutput) => void),
     cb?: (err: any, data?: SearchTablesCommandOutput) => void
   ): Promise<SearchTablesCommandOutput> | void {
     const command = new SearchTablesCommand(args);
@@ -2090,9 +2028,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateConnection(
     args: UpdateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectionCommandOutput) => void),
     cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): Promise<UpdateConnectionCommandOutput> | void {
     const command = new UpdateConnectionCommand(args);
@@ -2125,9 +2061,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateDatabase(
     args: UpdateDatabaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatabaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatabaseCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatabaseCommandOutput) => void
   ): Promise<UpdateDatabaseCommandOutput> | void {
     const command = new UpdateDatabaseCommand(args);
@@ -2160,9 +2094,7 @@ export class Glue extends GlueClient {
   ): void;
   public updatePartition(
     args: UpdatePartitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePartitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePartitionCommandOutput) => void),
     cb?: (err: any, data?: UpdatePartitionCommandOutput) => void
   ): Promise<UpdatePartitionCommandOutput> | void {
     const command = new UpdatePartitionCommand(args);
@@ -2195,9 +2127,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateTable(
     args: UpdateTableCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTableCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTableCommandOutput) => void),
     cb?: (err: any, data?: UpdateTableCommandOutput) => void
   ): Promise<UpdateTableCommandOutput> | void {
     const command = new UpdateTableCommand(args);
@@ -2448,9 +2378,7 @@ export class Glue extends GlueClient {
   ): void;
   public getDevEndpoint(
     args: GetDevEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetDevEndpointCommandOutput) => void
   ): Promise<GetDevEndpointCommandOutput> | void {
     const command = new GetDevEndpointCommand(args);
@@ -2488,9 +2416,7 @@ export class Glue extends GlueClient {
   ): void;
   public getDevEndpoints(
     args: GetDevEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDevEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDevEndpointsCommandOutput) => void),
     cb?: (err: any, data?: GetDevEndpointsCommandOutput) => void
   ): Promise<GetDevEndpointsCommandOutput> | void {
     const command = new GetDevEndpointsCommand(args);
@@ -2523,9 +2449,7 @@ export class Glue extends GlueClient {
   ): void;
   public getJobBookmark(
     args: GetJobBookmarkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobBookmarkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobBookmarkCommandOutput) => void),
     cb?: (err: any, data?: GetJobBookmarkCommandOutput) => void
   ): Promise<GetJobBookmarkCommandOutput> | void {
     const command = new GetJobBookmarkCommand(args);
@@ -2634,9 +2558,7 @@ export class Glue extends GlueClient {
   ): void;
   public listDevEndpoints(
     args: ListDevEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDevEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListDevEndpointsCommandOutput) => void
   ): Promise<ListDevEndpointsCommandOutput> | void {
     const command = new ListDevEndpointsCommand(args);
@@ -2669,9 +2591,7 @@ export class Glue extends GlueClient {
   ): void;
   public resetJobBookmark(
     args: ResetJobBookmarkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetJobBookmarkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetJobBookmarkCommandOutput) => void),
     cb?: (err: any, data?: ResetJobBookmarkCommandOutput) => void
   ): Promise<ResetJobBookmarkCommandOutput> | void {
     const command = new ResetJobBookmarkCommand(args);
@@ -2742,9 +2662,7 @@ export class Glue extends GlueClient {
   ): void;
   public cancelMLTaskRun(
     args: CancelMLTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelMLTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelMLTaskRunCommandOutput) => void),
     cb?: (err: any, data?: CancelMLTaskRunCommandOutput) => void
   ): Promise<CancelMLTaskRunCommandOutput> | void {
     const command = new CancelMLTaskRunCommand(args);
@@ -2868,9 +2786,7 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTaskRun(
     args: GetMLTaskRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTaskRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTaskRunCommandOutput) => void),
     cb?: (err: any, data?: GetMLTaskRunCommandOutput) => void
   ): Promise<GetMLTaskRunCommandOutput> | void {
     const command = new GetMLTaskRunCommand(args);
@@ -2909,9 +2825,7 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTaskRuns(
     args: GetMLTaskRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTaskRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTaskRunsCommandOutput) => void),
     cb?: (err: any, data?: GetMLTaskRunsCommandOutput) => void
   ): Promise<GetMLTaskRunsCommandOutput> | void {
     const command = new GetMLTaskRunsCommand(args);
@@ -2948,9 +2862,7 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTransform(
     args: GetMLTransformCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTransformCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTransformCommandOutput) => void),
     cb?: (err: any, data?: GetMLTransformCommandOutput) => void
   ): Promise<GetMLTransformCommandOutput> | void {
     const command = new GetMLTransformCommand(args);
@@ -2987,9 +2899,7 @@ export class Glue extends GlueClient {
   ): void;
   public getMLTransforms(
     args: GetMLTransformsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMLTransformsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLTransformsCommandOutput) => void),
     cb?: (err: any, data?: GetMLTransformsCommandOutput) => void
   ): Promise<GetMLTransformsCommandOutput> | void {
     const command = new GetMLTransformsCommand(args);
@@ -3170,31 +3080,19 @@ export class Glue extends GlueClient {
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput>;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
-    cb: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+    cb: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): void;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+    cb: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): void;
   public startMLLabelingSetGenerationTaskRun(
     args: StartMLLabelingSetGenerationTaskRunCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartMLLabelingSetGenerationTaskRunCommandOutput
-    ) => void
+      | ((err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void),
+    cb?: (err: any, data?: StartMLLabelingSetGenerationTaskRunCommandOutput) => void
   ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> | void {
     const command = new StartMLLabelingSetGenerationTaskRunCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3266,9 +3164,7 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetJobs(
     args: BatchGetJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetJobsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetJobsCommandOutput) => void
   ): Promise<BatchGetJobsCommandOutput> | void {
     const command = new BatchGetJobsCommand(args);
@@ -3301,9 +3197,7 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetTriggers(
     args: BatchGetTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetTriggersCommandOutput) => void),
     cb?: (err: any, data?: BatchGetTriggersCommandOutput) => void
   ): Promise<BatchGetTriggersCommandOutput> | void {
     const command = new BatchGetTriggersCommand(args);
@@ -3371,9 +3265,7 @@ export class Glue extends GlueClient {
   ): void;
   public batchStopJobRun(
     args: BatchStopJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchStopJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStopJobRunCommandOutput) => void),
     cb?: (err: any, data?: BatchStopJobRunCommandOutput) => void
   ): Promise<BatchStopJobRunCommandOutput> | void {
     const command = new BatchStopJobRunCommand(args);
@@ -3406,9 +3298,7 @@ export class Glue extends GlueClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -3441,9 +3331,7 @@ export class Glue extends GlueClient {
   ): void;
   public createTrigger(
     args: CreateTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTriggerCommandOutput) => void),
     cb?: (err: any, data?: CreateTriggerCommandOutput) => void
   ): Promise<CreateTriggerCommandOutput> | void {
     const command = new CreateTriggerCommand(args);
@@ -3476,9 +3364,7 @@ export class Glue extends GlueClient {
   ): void;
   public createWorkflow(
     args: CreateWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkflowCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): Promise<CreateWorkflowCommandOutput> | void {
     const command = new CreateWorkflowCommand(args);
@@ -3512,9 +3398,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteJob(
     args: DeleteJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
@@ -3548,9 +3432,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteTrigger(
     args: DeleteTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTriggerCommandOutput) => void),
     cb?: (err: any, data?: DeleteTriggerCommandOutput) => void
   ): Promise<DeleteTriggerCommandOutput> | void {
     const command = new DeleteTriggerCommand(args);
@@ -3583,9 +3465,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): Promise<DeleteWorkflowCommandOutput> | void {
     const command = new DeleteWorkflowCommand(args);
@@ -3607,10 +3487,7 @@ export class Glue extends GlueClient {
     args: GetJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -3618,9 +3495,7 @@ export class Glue extends GlueClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
@@ -3653,9 +3528,7 @@ export class Glue extends GlueClient {
   ): void;
   public getJobRun(
     args: GetJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobRunCommandOutput) => void),
     cb?: (err: any, data?: GetJobRunCommandOutput) => void
   ): Promise<GetJobRunCommandOutput> | void {
     const command = new GetJobRunCommand(args);
@@ -3688,9 +3561,7 @@ export class Glue extends GlueClient {
   ): void;
   public getJobRuns(
     args: GetJobRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobRunsCommandOutput) => void),
     cb?: (err: any, data?: GetJobRunsCommandOutput) => void
   ): Promise<GetJobRunsCommandOutput> | void {
     const command = new GetJobRunsCommand(args);
@@ -3723,9 +3594,7 @@ export class Glue extends GlueClient {
   ): void;
   public getJobs(
     args: GetJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobsCommandOutput) => void),
     cb?: (err: any, data?: GetJobsCommandOutput) => void
   ): Promise<GetJobsCommandOutput> | void {
     const command = new GetJobsCommand(args);
@@ -3758,9 +3627,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTrigger(
     args: GetTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTriggerCommandOutput) => void),
     cb?: (err: any, data?: GetTriggerCommandOutput) => void
   ): Promise<GetTriggerCommandOutput> | void {
     const command = new GetTriggerCommand(args);
@@ -3793,9 +3660,7 @@ export class Glue extends GlueClient {
   ): void;
   public getTriggers(
     args: GetTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTriggersCommandOutput) => void),
     cb?: (err: any, data?: GetTriggersCommandOutput) => void
   ): Promise<GetTriggersCommandOutput> | void {
     const command = new GetTriggersCommand(args);
@@ -3828,9 +3693,7 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflow(
     args: GetWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowCommandOutput) => void
   ): Promise<GetWorkflowCommandOutput> | void {
     const command = new GetWorkflowCommand(args);
@@ -3863,9 +3726,7 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowRunCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowRunCommandOutput) => void
   ): Promise<GetWorkflowRunCommandOutput> | void {
     const command = new GetWorkflowRunCommand(args);
@@ -3933,9 +3794,7 @@ export class Glue extends GlueClient {
   ): void;
   public getWorkflowRuns(
     args: GetWorkflowRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWorkflowRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowRunsCommandOutput) => void),
     cb?: (err: any, data?: GetWorkflowRunsCommandOutput) => void
   ): Promise<GetWorkflowRunsCommandOutput> | void {
     const command = new GetWorkflowRunsCommand(args);
@@ -3972,9 +3831,7 @@ export class Glue extends GlueClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -4011,9 +3868,7 @@ export class Glue extends GlueClient {
   ): void;
   public listTriggers(
     args: ListTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTriggersCommandOutput) => void),
     cb?: (err: any, data?: ListTriggersCommandOutput) => void
   ): Promise<ListTriggersCommandOutput> | void {
     const command = new ListTriggersCommand(args);
@@ -4046,9 +3901,7 @@ export class Glue extends GlueClient {
   ): void;
   public listWorkflows(
     args: ListWorkflowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkflowsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): Promise<ListWorkflowsCommandOutput> | void {
     const command = new ListWorkflowsCommand(args);
@@ -4116,9 +3969,7 @@ export class Glue extends GlueClient {
   ): void;
   public startJobRun(
     args: StartJobRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobRunCommandOutput) => void),
     cb?: (err: any, data?: StartJobRunCommandOutput) => void
   ): Promise<StartJobRunCommandOutput> | void {
     const command = new StartJobRunCommand(args);
@@ -4153,9 +4004,7 @@ export class Glue extends GlueClient {
   ): void;
   public startTrigger(
     args: StartTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTriggerCommandOutput) => void),
     cb?: (err: any, data?: StartTriggerCommandOutput) => void
   ): Promise<StartTriggerCommandOutput> | void {
     const command = new StartTriggerCommand(args);
@@ -4188,9 +4037,7 @@ export class Glue extends GlueClient {
   ): void;
   public startWorkflowRun(
     args: StartWorkflowRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartWorkflowRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWorkflowRunCommandOutput) => void),
     cb?: (err: any, data?: StartWorkflowRunCommandOutput) => void
   ): Promise<StartWorkflowRunCommandOutput> | void {
     const command = new StartWorkflowRunCommand(args);
@@ -4223,9 +4070,7 @@ export class Glue extends GlueClient {
   ): void;
   public stopTrigger(
     args: StopTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTriggerCommandOutput) => void),
     cb?: (err: any, data?: StopTriggerCommandOutput) => void
   ): Promise<StopTriggerCommandOutput> | void {
     const command = new StopTriggerCommand(args);
@@ -4258,9 +4103,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateJob(
     args: UpdateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);
@@ -4293,9 +4136,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateTrigger(
     args: UpdateTriggerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTriggerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTriggerCommandOutput) => void),
     cb?: (err: any, data?: UpdateTriggerCommandOutput) => void
   ): Promise<UpdateTriggerCommandOutput> | void {
     const command = new UpdateTriggerCommand(args);
@@ -4328,9 +4169,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWorkflowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkflowCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): Promise<UpdateWorkflowCommandOutput> | void {
     const command = new UpdateWorkflowCommand(args);
@@ -4363,9 +4202,7 @@ export class Glue extends GlueClient {
   ): void;
   public batchGetCrawlers(
     args: BatchGetCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCrawlersCommandOutput) => void),
     cb?: (err: any, data?: BatchGetCrawlersCommandOutput) => void
   ): Promise<BatchGetCrawlersCommandOutput> | void {
     const command = new BatchGetCrawlersCommand(args);
@@ -4400,9 +4237,7 @@ export class Glue extends GlueClient {
   ): void;
   public createClassifier(
     args: CreateClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClassifierCommandOutput) => void),
     cb?: (err: any, data?: CreateClassifierCommandOutput) => void
   ): Promise<CreateClassifierCommandOutput> | void {
     const command = new CreateClassifierCommand(args);
@@ -4437,9 +4272,7 @@ export class Glue extends GlueClient {
   ): void;
   public createCrawler(
     args: CreateCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCrawlerCommandOutput) => void),
     cb?: (err: any, data?: CreateCrawlerCommandOutput) => void
   ): Promise<CreateCrawlerCommandOutput> | void {
     const command = new CreateCrawlerCommand(args);
@@ -4472,9 +4305,7 @@ export class Glue extends GlueClient {
   ): void;
   public createScript(
     args: CreateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScriptCommandOutput) => void),
     cb?: (err: any, data?: CreateScriptCommandOutput) => void
   ): Promise<CreateScriptCommandOutput> | void {
     const command = new CreateScriptCommand(args);
@@ -4507,9 +4338,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteClassifier(
     args: DeleteClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClassifierCommandOutput) => void),
     cb?: (err: any, data?: DeleteClassifierCommandOutput) => void
   ): Promise<DeleteClassifierCommandOutput> | void {
     const command = new DeleteClassifierCommand(args);
@@ -4543,9 +4372,7 @@ export class Glue extends GlueClient {
   ): void;
   public deleteCrawler(
     args: DeleteCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCrawlerCommandOutput) => void),
     cb?: (err: any, data?: DeleteCrawlerCommandOutput) => void
   ): Promise<DeleteCrawlerCommandOutput> | void {
     const command = new DeleteCrawlerCommand(args);
@@ -4578,9 +4405,7 @@ export class Glue extends GlueClient {
   ): void;
   public getClassifier(
     args: GetClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClassifierCommandOutput) => void),
     cb?: (err: any, data?: GetClassifierCommandOutput) => void
   ): Promise<GetClassifierCommandOutput> | void {
     const command = new GetClassifierCommand(args);
@@ -4613,9 +4438,7 @@ export class Glue extends GlueClient {
   ): void;
   public getClassifiers(
     args: GetClassifiersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetClassifiersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetClassifiersCommandOutput) => void),
     cb?: (err: any, data?: GetClassifiersCommandOutput) => void
   ): Promise<GetClassifiersCommandOutput> | void {
     const command = new GetClassifiersCommand(args);
@@ -4648,9 +4471,7 @@ export class Glue extends GlueClient {
   ): void;
   public getCrawler(
     args: GetCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCrawlerCommandOutput) => void),
     cb?: (err: any, data?: GetCrawlerCommandOutput) => void
   ): Promise<GetCrawlerCommandOutput> | void {
     const command = new GetCrawlerCommand(args);
@@ -4719,9 +4540,7 @@ export class Glue extends GlueClient {
   ): void;
   public getCrawlers(
     args: GetCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCrawlersCommandOutput) => void),
     cb?: (err: any, data?: GetCrawlersCommandOutput) => void
   ): Promise<GetCrawlersCommandOutput> | void {
     const command = new GetCrawlersCommand(args);
@@ -4754,9 +4573,7 @@ export class Glue extends GlueClient {
   ): void;
   public getDataflowGraph(
     args: GetDataflowGraphCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataflowGraphCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataflowGraphCommandOutput) => void),
     cb?: (err: any, data?: GetDataflowGraphCommandOutput) => void
   ): Promise<GetDataflowGraphCommandOutput> | void {
     const command = new GetDataflowGraphCommand(args);
@@ -4789,9 +4606,7 @@ export class Glue extends GlueClient {
   ): void;
   public getMapping(
     args: GetMappingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMappingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMappingCommandOutput) => void),
     cb?: (err: any, data?: GetMappingCommandOutput) => void
   ): Promise<GetMappingCommandOutput> | void {
     const command = new GetMappingCommand(args);
@@ -4824,9 +4639,7 @@ export class Glue extends GlueClient {
   ): void;
   public getPlan(
     args: GetPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlanCommandOutput) => void),
     cb?: (err: any, data?: GetPlanCommandOutput) => void
   ): Promise<GetPlanCommandOutput> | void {
     const command = new GetPlanCommand(args);
@@ -4865,9 +4678,7 @@ export class Glue extends GlueClient {
   ): void;
   public listCrawlers(
     args: ListCrawlersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCrawlersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCrawlersCommandOutput) => void),
     cb?: (err: any, data?: ListCrawlersCommandOutput) => void
   ): Promise<ListCrawlersCommandOutput> | void {
     const command = new ListCrawlersCommand(args);
@@ -4901,9 +4712,7 @@ export class Glue extends GlueClient {
   ): void;
   public startCrawler(
     args: StartCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCrawlerCommandOutput) => void),
     cb?: (err: any, data?: StartCrawlerCommandOutput) => void
   ): Promise<StartCrawlerCommandOutput> | void {
     const command = new StartCrawlerCommand(args);
@@ -4973,9 +4782,7 @@ export class Glue extends GlueClient {
   ): void;
   public stopCrawler(
     args: StopCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopCrawlerCommandOutput) => void),
     cb?: (err: any, data?: StopCrawlerCommandOutput) => void
   ): Promise<StopCrawlerCommandOutput> | void {
     const command = new StopCrawlerCommand(args);
@@ -5047,9 +4854,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateClassifier(
     args: UpdateClassifierCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClassifierCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClassifierCommandOutput) => void),
     cb?: (err: any, data?: UpdateClassifierCommandOutput) => void
   ): Promise<UpdateClassifierCommandOutput> | void {
     const command = new UpdateClassifierCommand(args);
@@ -5084,9 +4889,7 @@ export class Glue extends GlueClient {
   ): void;
   public updateCrawler(
     args: UpdateCrawlerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCrawlerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCrawlerCommandOutput) => void),
     cb?: (err: any, data?: UpdateCrawlerCommandOutput) => void
   ): Promise<UpdateCrawlerCommandOutput> | void {
     const command = new UpdateCrawlerCommand(args);

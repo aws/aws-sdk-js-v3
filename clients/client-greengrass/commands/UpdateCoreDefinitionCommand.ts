@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  UpdateCoreDefinitionRequest,
-  UpdateCoreDefinitionResponse
-} from "../models/index";
+import { UpdateCoreDefinitionRequest, UpdateCoreDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateCoreDefinitionCommand,
   serializeAws_restJson1_1UpdateCoreDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateCoreDefinitionCommandInput = UpdateCoreDefinitionRequest;
-export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse &
-  __MetadataBearer;
+export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse & __MetadataBearer;
 
 export class UpdateCoreDefinitionCommand extends $Command<
   UpdateCoreDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class UpdateCoreDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCoreDefinitionCommandInput,
-    UpdateCoreDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCoreDefinitionCommandInput, UpdateCoreDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateCoreDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCoreDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateCoreDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateCoreDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

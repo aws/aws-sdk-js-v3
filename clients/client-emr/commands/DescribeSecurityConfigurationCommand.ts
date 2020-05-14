@@ -1,8 +1,4 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import {
   DescribeSecurityConfigurationInput,
   DescribeSecurityConfigurationOutput
@@ -53,9 +49,7 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     DescribeSecurityConfigurationCommandInput,
     DescribeSecurityConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeSecurityConfigurationCommand extends $Command<
     input: DescribeSecurityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSecurityConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeSecurityConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSecurityConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSecurityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

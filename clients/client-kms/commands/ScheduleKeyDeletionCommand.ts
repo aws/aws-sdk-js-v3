@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ScheduleKeyDeletionRequest,
-  ScheduleKeyDeletionResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ScheduleKeyDeletionCommand,
   serializeAws_json1_1ScheduleKeyDeletionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ScheduleKeyDeletionCommandInput = ScheduleKeyDeletionRequest;
-export type ScheduleKeyDeletionCommandOutput = ScheduleKeyDeletionResponse &
-  __MetadataBearer;
+export type ScheduleKeyDeletionCommandOutput = ScheduleKeyDeletionResponse & __MetadataBearer;
 
 export class ScheduleKeyDeletionCommand extends $Command<
   ScheduleKeyDeletionCommandInput,
@@ -49,13 +41,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ScheduleKeyDeletionCommandInput,
-    ScheduleKeyDeletionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ScheduleKeyDeletionCommandInput, ScheduleKeyDeletionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

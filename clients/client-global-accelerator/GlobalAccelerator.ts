@@ -256,9 +256,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createListener(
     args: CreateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListenerCommandOutput) => void),
     cb?: (err: any, data?: CreateListenerCommandOutput) => void
   ): Promise<CreateListenerCommandOutput> | void {
     const command = new CreateListenerCommand(args);
@@ -362,9 +360,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteListener(
     args: DeleteListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListenerCommandOutput) => void),
     cb?: (err: any, data?: DeleteListenerCommandOutput) => void
   ): Promise<DeleteListenerCommandOutput> | void {
     const command = new DeleteListenerCommand(args);
@@ -502,9 +498,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeListener(
     args: DescribeListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeListenerCommandOutput) => void),
     cb?: (err: any, data?: DescribeListenerCommandOutput) => void
   ): Promise<DescribeListenerCommandOutput> | void {
     const command = new DescribeListenerCommand(args);
@@ -537,9 +531,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
     cb?: (err: any, data?: ListAcceleratorsCommandOutput) => void
   ): Promise<ListAcceleratorsCommandOutput> | void {
     const command = new ListAcceleratorsCommand(args);
@@ -607,9 +599,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listListeners(
     args: ListListenersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListListenersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListListenersCommandOutput) => void),
     cb?: (err: any, data?: ListListenersCommandOutput) => void
   ): Promise<ListListenersCommandOutput> | void {
     const command = new ListListenersCommand(args);
@@ -753,9 +743,7 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateListener(
     args: UpdateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateListenerCommandOutput) => void),
     cb?: (err: any, data?: UpdateListenerCommandOutput) => void
   ): Promise<UpdateListenerCommandOutput> | void {
     const command = new UpdateListenerCommand(args);

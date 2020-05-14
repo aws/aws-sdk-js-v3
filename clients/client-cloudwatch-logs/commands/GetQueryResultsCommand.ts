@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  GetQueryResultsRequest,
-  GetQueryResultsResponse
-} from "../models/index";
+import { GetQueryResultsRequest, GetQueryResultsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetQueryResultsCommand,
   serializeAws_json1_1GetQueryResultsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetQueryResultsCommandInput = GetQueryResultsRequest;
-export type GetQueryResultsCommandOutput = GetQueryResultsResponse &
-  __MetadataBearer;
+export type GetQueryResultsCommandOutput = GetQueryResultsResponse & __MetadataBearer;
 
 export class GetQueryResultsCommand extends $Command<
   GetQueryResultsCommandInput,
@@ -50,9 +46,7 @@ export class GetQueryResultsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetQueryResultsCommandInput, GetQueryResultsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

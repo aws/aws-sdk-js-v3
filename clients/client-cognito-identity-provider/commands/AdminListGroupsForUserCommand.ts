@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminListGroupsForUserRequest,
-  AdminListGroupsForUserResponse
-} from "../models/index";
+import { AdminListGroupsForUserRequest, AdminListGroupsForUserResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminListGroupsForUserCommand,
   serializeAws_json1_1AdminListGroupsForUserCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminListGroupsForUserCommandInput = AdminListGroupsForUserRequest;
-export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse &
-  __MetadataBearer;
+export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse & __MetadataBearer;
 
 export class AdminListGroupsForUserCommand extends $Command<
   AdminListGroupsForUserCommandInput,
@@ -49,13 +45,8 @@ export class AdminListGroupsForUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminListGroupsForUserCommandInput,
-    AdminListGroupsForUserCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminListGroupsForUserCommandInput, AdminListGroupsForUserCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

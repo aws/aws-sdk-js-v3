@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteTransitGatewayRequest,
-  DeleteTransitGatewayResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteTransitGatewayRequest, DeleteTransitGatewayResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteTransitGatewayCommand,
   serializeAws_ec2DeleteTransitGatewayCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTransitGatewayCommandInput = DeleteTransitGatewayRequest;
-export type DeleteTransitGatewayCommandOutput = DeleteTransitGatewayResult &
-  __MetadataBearer;
+export type DeleteTransitGatewayCommandOutput = DeleteTransitGatewayResult & __MetadataBearer;
 
 export class DeleteTransitGatewayCommand extends $Command<
   DeleteTransitGatewayCommandInput,
@@ -49,13 +41,8 @@ export class DeleteTransitGatewayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTransitGatewayCommandInput,
-    DeleteTransitGatewayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTransitGatewayCommandInput, DeleteTransitGatewayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

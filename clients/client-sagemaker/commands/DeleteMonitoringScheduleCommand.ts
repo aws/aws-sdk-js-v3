@@ -45,13 +45,8 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMonitoringScheduleCommandInput,
-    DeleteMonitoringScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMonitoringScheduleCommandInput, DeleteMonitoringScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteMonitoringScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

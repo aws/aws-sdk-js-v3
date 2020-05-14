@@ -53,9 +53,7 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     ValidateConfigurationSettingsCommandInput,
     ValidateConfigurationSettingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     input: ValidateConfigurationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryValidateConfigurationSettingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryValidateConfigurationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryValidateConfigurationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryValidateConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -53,9 +53,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     UpdateIdentityProviderConfigurationCommandInput,
     UpdateIdentityProviderConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     input: UpdateIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

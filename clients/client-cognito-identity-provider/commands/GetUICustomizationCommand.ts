@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  GetUICustomizationRequest,
-  GetUICustomizationResponse
-} from "../models/index";
+import { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetUICustomizationCommand,
   serializeAws_json1_1GetUICustomizationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUICustomizationCommandInput = GetUICustomizationRequest;
-export type GetUICustomizationCommandOutput = GetUICustomizationResponse &
-  __MetadataBearer;
+export type GetUICustomizationCommandOutput = GetUICustomizationResponse & __MetadataBearer;
 
 export class GetUICustomizationCommand extends $Command<
   GetUICustomizationCommandInput,
@@ -50,9 +46,7 @@ export class GetUICustomizationCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUICustomizationCommandInput, GetUICustomizationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

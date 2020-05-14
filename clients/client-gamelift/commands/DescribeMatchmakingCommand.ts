@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeMatchmakingInput,
-  DescribeMatchmakingOutput
-} from "../models/index";
+import { DescribeMatchmakingInput, DescribeMatchmakingOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMatchmakingCommand,
   serializeAws_json1_1DescribeMatchmakingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMatchmakingCommandInput = DescribeMatchmakingInput;
-export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput &
-  __MetadataBearer;
+export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput & __MetadataBearer;
 
 export class DescribeMatchmakingCommand extends $Command<
   DescribeMatchmakingCommandInput,
@@ -49,13 +45,8 @@ export class DescribeMatchmakingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMatchmakingCommandInput,
-    DescribeMatchmakingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMatchmakingCommandInput, DescribeMatchmakingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

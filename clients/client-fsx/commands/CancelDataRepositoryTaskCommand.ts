@@ -1,12 +1,5 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
-import {
-  CancelDataRepositoryTaskRequest,
-  CancelDataRepositoryTaskResponse
-} from "../models/index";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelDataRepositoryTaskCommand,
   serializeAws_json1_1CancelDataRepositoryTaskCommand
@@ -49,13 +42,8 @@ export class CancelDataRepositoryTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelDataRepositoryTaskCommandInput,
-    CancelDataRepositoryTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelDataRepositoryTaskCommandInput, CancelDataRepositoryTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class CancelDataRepositoryTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDataRepositoryTaskCommandOutput> {
-    return deserializeAws_json1_1CancelDataRepositoryTaskCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CancelDataRepositoryTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppMeshClient";
-import {
-  ListVirtualServicesInput,
-  ListVirtualServicesOutput
-} from "../models/index";
+import { ListVirtualServicesInput, ListVirtualServicesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListVirtualServicesCommand,
   serializeAws_restJson1_1ListVirtualServicesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListVirtualServicesCommandInput = ListVirtualServicesInput;
-export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput &
-  __MetadataBearer;
+export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput & __MetadataBearer;
 
 export class ListVirtualServicesCommand extends $Command<
   ListVirtualServicesCommandInput,
@@ -49,13 +45,8 @@ export class ListVirtualServicesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVirtualServicesCommandInput,
-    ListVirtualServicesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVirtualServicesCommandInput, ListVirtualServicesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListVirtualServicesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVirtualServicesCommandOutput> {
-    return deserializeAws_restJson1_1ListVirtualServicesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVirtualServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

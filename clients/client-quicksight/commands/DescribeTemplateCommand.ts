@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DescribeTemplateRequest,
-  DescribeTemplateResponse
-} from "../models/index";
+import { DescribeTemplateRequest, DescribeTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeTemplateCommand,
   serializeAws_restJson1_1DescribeTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTemplateCommandInput = DescribeTemplateRequest;
-export type DescribeTemplateCommandOutput = DescribeTemplateResponse &
-  __MetadataBearer;
+export type DescribeTemplateCommandOutput = DescribeTemplateResponse & __MetadataBearer;
 
 export class DescribeTemplateCommand extends $Command<
   DescribeTemplateCommandInput,
@@ -50,9 +46,7 @@ export class DescribeTemplateCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTemplateCommandInput, DescribeTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPullRequestsCommandInput = ListPullRequestsInput;
-export type ListPullRequestsCommandOutput = ListPullRequestsOutput &
-  __MetadataBearer;
+export type ListPullRequestsCommandOutput = ListPullRequestsOutput & __MetadataBearer;
 
 export class ListPullRequestsCommand extends $Command<
   ListPullRequestsCommandInput,
@@ -47,9 +46,7 @@ export class ListPullRequestsCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPullRequestsCommandInput, ListPullRequestsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

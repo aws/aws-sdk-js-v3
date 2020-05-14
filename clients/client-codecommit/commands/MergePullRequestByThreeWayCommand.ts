@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  MergePullRequestByThreeWayInput,
-  MergePullRequestByThreeWayOutput
-} from "../models/index";
+import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/index";
 import {
   deserializeAws_json1_1MergePullRequestByThreeWayCommand,
   serializeAws_json1_1MergePullRequestByThreeWayCommand
@@ -49,13 +46,8 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergePullRequestByThreeWayCommandInput,
-    MergePullRequestByThreeWayCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergePullRequestByThreeWayCommandInput, MergePullRequestByThreeWayCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     input: MergePullRequestByThreeWayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestByThreeWayCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1MergePullRequestByThreeWayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestByThreeWayCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestByThreeWayCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergePullRequestByThreeWayCommand(output, context);
   }
 
   // Start section: command_body_extra

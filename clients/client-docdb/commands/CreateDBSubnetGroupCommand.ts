@@ -1,12 +1,5 @@
-import {
-  DocDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DocDBClient";
-import {
-  CreateDBSubnetGroupMessage,
-  CreateDBSubnetGroupResult
-} from "../models/index";
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBSubnetGroupCommand,
   serializeAws_queryCreateDBSubnetGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBSubnetGroupCommandInput = CreateDBSubnetGroupMessage;
-export type CreateDBSubnetGroupCommandOutput = CreateDBSubnetGroupResult &
-  __MetadataBearer;
+export type CreateDBSubnetGroupCommandOutput = CreateDBSubnetGroupResult & __MetadataBearer;
 
 export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandInput,
@@ -49,13 +41,8 @@ export class CreateDBSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBSubnetGroupCommandInput,
-    CreateDBSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBSubnetGroupCommandInput, CreateDBSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

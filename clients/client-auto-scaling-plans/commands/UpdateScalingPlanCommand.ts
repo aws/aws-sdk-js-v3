@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingPlansClient";
-import {
-  UpdateScalingPlanRequest,
-  UpdateScalingPlanResponse
-} from "../models/index";
+import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateScalingPlanCommand,
   serializeAws_json1_1UpdateScalingPlanCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateScalingPlanCommandInput = UpdateScalingPlanRequest;
-export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse &
-  __MetadataBearer;
+export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse & __MetadataBearer;
 
 export class UpdateScalingPlanCommand extends $Command<
   UpdateScalingPlanCommandInput,
@@ -50,9 +46,7 @@ export class UpdateScalingPlanCommand extends $Command<
     configuration: AutoScalingPlansClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateScalingPlanCommandInput, UpdateScalingPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

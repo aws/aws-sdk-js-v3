@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeSchemasMessage,
-  DescribeSchemasResponse
-} from "../models/index";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSchemasCommand,
   serializeAws_json1_1DescribeSchemasCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSchemasCommandInput = DescribeSchemasMessage;
-export type DescribeSchemasCommandOutput = DescribeSchemasResponse &
-  __MetadataBearer;
+export type DescribeSchemasCommandOutput = DescribeSchemasResponse & __MetadataBearer;
 
 export class DescribeSchemasCommand extends $Command<
   DescribeSchemasCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSchemasCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSchemasCommandInput, DescribeSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

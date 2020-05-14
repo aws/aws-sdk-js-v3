@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   ListWorkersWithQualificationTypeRequest,
   ListWorkersWithQualificationTypeResponse
@@ -53,9 +49,7 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     ListWorkersWithQualificationTypeCommandInput,
     ListWorkersWithQualificationTypeCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListWorkersWithQualificationTypeCommand extends $Command<
     input: ListWorkersWithQualificationTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkersWithQualificationTypeCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListWorkersWithQualificationTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListWorkersWithQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1ListWorkersWithQualificationTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListWorkersWithQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

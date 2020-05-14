@@ -50,9 +50,7 @@ export function sendMessageBatchMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
@@ -67,13 +65,8 @@ export const sendMessageBatchMiddlewareOptions: InitializeHandlerOptions = {
   name: "sendMessageBatchMiddleware"
 };
 
-export const getSendMessageBatchPlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getSendMessageBatchPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      sendMessageBatchMiddleware(config),
-      sendMessageBatchMiddlewareOptions
-    );
+    clientStack.add(sendMessageBatchMiddleware(config), sendMessageBatchMiddlewareOptions);
   }
 });

@@ -36,9 +36,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeAutoScalingNotificationTypesCommandInput
-  ) {
+  constructor(readonly input: DescribeAutoScalingNotificationTypesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -52,9 +50,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     DescribeAutoScalingNotificationTypesCommandInput,
     DescribeAutoScalingNotificationTypesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,20 +69,14 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
     input: DescribeAutoScalingNotificationTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAutoScalingNotificationTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeAutoScalingNotificationTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
-    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

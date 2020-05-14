@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  PutRemediationExceptionsRequest,
-  PutRemediationExceptionsResponse
-} from "../models/index";
+import { PutRemediationExceptionsRequest, PutRemediationExceptionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutRemediationExceptionsCommand,
   serializeAws_json1_1PutRemediationExceptionsCommand
@@ -49,13 +46,8 @@ export class PutRemediationExceptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRemediationExceptionsCommandInput,
-    PutRemediationExceptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRemediationExceptionsCommandInput, PutRemediationExceptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class PutRemediationExceptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1PutRemediationExceptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

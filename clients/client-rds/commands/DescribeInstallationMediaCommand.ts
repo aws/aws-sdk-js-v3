@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DescribeInstallationMediaMessage,
-  InstallationMediaMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DescribeInstallationMediaMessage, InstallationMediaMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeInstallationMediaCommand,
   serializeAws_queryDescribeInstallationMediaCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInstallationMediaCommandInput = DescribeInstallationMediaMessage;
-export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage &
-  __MetadataBearer;
+export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage & __MetadataBearer;
 
 export class DescribeInstallationMediaCommand extends $Command<
   DescribeInstallationMediaCommandInput,
@@ -49,13 +41,8 @@ export class DescribeInstallationMediaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstallationMediaCommandInput,
-    DescribeInstallationMediaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstallationMediaCommandInput, DescribeInstallationMediaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeInstallationMediaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstallationMediaCommandOutput> {
-    return deserializeAws_queryDescribeInstallationMediaCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeInstallationMediaCommand(output, context);
   }
 
   // Start section: command_body_extra

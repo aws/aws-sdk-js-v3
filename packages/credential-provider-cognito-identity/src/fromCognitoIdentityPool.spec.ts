@@ -55,9 +55,7 @@ describe("fromCognitoIdentityPool", () => {
     });
 
     expect(send.mock.calls.length).toBe(1);
-    expect(send.mock.calls[0][0]).toEqual(
-      new GetIdCommand({ IdentityPoolId: identityPoolId })
-    );
+    expect(send.mock.calls[0][0]).toEqual(new GetIdCommand({ IdentityPoolId: identityPoolId }));
 
     expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
     expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
@@ -140,11 +138,9 @@ describe("fromCognitoIdentityPool", () => {
       cache
     })();
 
-    expect(
-      cache.getItem(
-        `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`
-      )
-    ).toBe(identityId);
+    expect(cache.getItem(`aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`)).toBe(
+      identityId
+    );
   });
 
   it("should not call `GetId` if the IdentityId is in cache", async () => {

@@ -29,11 +29,7 @@ import {
   GetCredentialsForIdentityCommandInput,
   GetCredentialsForIdentityCommandOutput
 } from "./commands/GetCredentialsForIdentityCommand";
-import {
-  GetIdCommand,
-  GetIdCommandInput,
-  GetIdCommandOutput
-} from "./commands/GetIdCommand";
+import { GetIdCommand, GetIdCommandInput, GetIdCommandOutput } from "./commands/GetIdCommand";
 import {
   GetIdentityPoolRolesCommand,
   GetIdentityPoolRolesCommandInput,
@@ -204,9 +200,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public deleteIdentities(
     args: DeleteIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIdentitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIdentitiesCommandOutput) => void),
     cb?: (err: any, data?: DeleteIdentitiesCommandOutput) => void
   ): Promise<DeleteIdentitiesCommandOutput> | void {
     const command = new DeleteIdentitiesCommand(args);
@@ -278,9 +272,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public describeIdentity(
     args: DescribeIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityCommandOutput) => void),
     cb?: (err: any, data?: DescribeIdentityCommandOutput) => void
   ): Promise<DescribeIdentityCommandOutput> | void {
     const command = new DescribeIdentityCommand(args);
@@ -380,10 +372,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
     args: GetIdCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIdCommandOutput>;
-  public getId(
-    args: GetIdCommandInput,
-    cb: (err: any, data?: GetIdCommandOutput) => void
-  ): void;
+  public getId(args: GetIdCommandInput, cb: (err: any, data?: GetIdCommandOutput) => void): void;
   public getId(
     args: GetIdCommandInput,
     options: __HttpHandlerOptions,
@@ -391,9 +380,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public getId(
     args: GetIdCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIdCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIdCommandOutput) => void),
     cb?: (err: any, data?: GetIdCommandOutput) => void
   ): Promise<GetIdCommandOutput> | void {
     const command = new GetIdCommand(args);
@@ -466,9 +453,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public getOpenIdToken(
     args: GetOpenIdTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOpenIdTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOpenIdTokenCommandOutput) => void),
     cb?: (err: any, data?: GetOpenIdTokenCommandOutput) => void
   ): Promise<GetOpenIdTokenCommandOutput> | void {
     const command = new GetOpenIdTokenCommand(args);
@@ -504,31 +489,19 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput>;
   public getOpenIdTokenForDeveloperIdentity(
     args: GetOpenIdTokenForDeveloperIdentityCommandInput,
-    cb: (
-      err: any,
-      data?: GetOpenIdTokenForDeveloperIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOpenIdTokenForDeveloperIdentityCommandOutput) => void
   ): void;
   public getOpenIdTokenForDeveloperIdentity(
     args: GetOpenIdTokenForDeveloperIdentityCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetOpenIdTokenForDeveloperIdentityCommandOutput
-    ) => void
+    cb: (err: any, data?: GetOpenIdTokenForDeveloperIdentityCommandOutput) => void
   ): void;
   public getOpenIdTokenForDeveloperIdentity(
     args: GetOpenIdTokenForDeveloperIdentityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetOpenIdTokenForDeveloperIdentityCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetOpenIdTokenForDeveloperIdentityCommandOutput
-    ) => void
+      | ((err: any, data?: GetOpenIdTokenForDeveloperIdentityCommandOutput) => void),
+    cb?: (err: any, data?: GetOpenIdTokenForDeveloperIdentityCommandOutput) => void
   ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> | void {
     const command = new GetOpenIdTokenForDeveloperIdentityCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -561,9 +534,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public listIdentities(
     args: ListIdentitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIdentitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentitiesCommandOutput) => void),
     cb?: (err: any, data?: ListIdentitiesCommandOutput) => void
   ): Promise<ListIdentitiesCommandOutput> | void {
     const command = new ListIdentitiesCommand(args);
@@ -818,9 +789,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -895,9 +864,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public unlinkIdentity(
     args: UnlinkIdentityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnlinkIdentityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnlinkIdentityCommandOutput) => void),
     cb?: (err: any, data?: UnlinkIdentityCommandOutput) => void
   ): Promise<UnlinkIdentityCommandOutput> | void {
     const command = new UnlinkIdentityCommand(args);
@@ -931,9 +898,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

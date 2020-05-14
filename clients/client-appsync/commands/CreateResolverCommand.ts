@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResolverCommandInput = CreateResolverRequest;
-export type CreateResolverCommandOutput = CreateResolverResponse &
-  __MetadataBearer;
+export type CreateResolverCommandOutput = CreateResolverResponse & __MetadataBearer;
 
 export class CreateResolverCommand extends $Command<
   CreateResolverCommandInput,
@@ -47,9 +46,7 @@ export class CreateResolverCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResolverCommandInput, CreateResolverCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

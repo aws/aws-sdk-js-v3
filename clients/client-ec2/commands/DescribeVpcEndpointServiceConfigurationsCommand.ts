@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult
@@ -39,9 +35,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput
-  ) {
+  constructor(readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     DescribeVpcEndpointServiceConfigurationsCommandInput,
     DescribeVpcEndpointServiceConfigurationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

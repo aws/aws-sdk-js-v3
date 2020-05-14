@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DetachClassicLinkVpcRequest,
-  DetachClassicLinkVpcResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/index";
 import {
   deserializeAws_ec2DetachClassicLinkVpcCommand,
   serializeAws_ec2DetachClassicLinkVpcCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachClassicLinkVpcCommandInput = DetachClassicLinkVpcRequest;
-export type DetachClassicLinkVpcCommandOutput = DetachClassicLinkVpcResult &
-  __MetadataBearer;
+export type DetachClassicLinkVpcCommandOutput = DetachClassicLinkVpcResult & __MetadataBearer;
 
 export class DetachClassicLinkVpcCommand extends $Command<
   DetachClassicLinkVpcCommandInput,
@@ -49,13 +41,8 @@ export class DetachClassicLinkVpcCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DetachClassicLinkVpcCommandInput,
-    DetachClassicLinkVpcCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DetachClassicLinkVpcCommandInput, DetachClassicLinkVpcCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

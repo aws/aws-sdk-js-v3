@@ -39,9 +39,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeServiceActionExecutionParametersCommandInput
-  ) {
+  constructor(readonly input: DescribeServiceActionExecutionParametersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     DescribeServiceActionExecutionParametersCommandInput,
     DescribeServiceActionExecutionParametersCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     input: DescribeServiceActionExecutionParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

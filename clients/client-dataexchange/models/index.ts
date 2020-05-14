@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Access to the resource is denied.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   /**
@@ -19,8 +14,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -45,8 +39,7 @@ export interface AssetDestinationEntry {
 }
 
 export namespace AssetDestinationEntry {
-  export const isa = (o: any): o is AssetDestinationEntry =>
-    __isa(o, "AssetDestinationEntry");
+  export const isa = (o: any): o is AssetDestinationEntry => __isa(o, "AssetDestinationEntry");
 }
 
 export interface AssetDetails {
@@ -138,8 +131,7 @@ export interface AssetSourceEntry {
 }
 
 export namespace AssetSourceEntry {
-  export const isa = (o: any): o is AssetSourceEntry =>
-    __isa(o, "AssetSourceEntry");
+  export const isa = (o: any): o is AssetSourceEntry => __isa(o, "AssetSourceEntry");
 }
 
 export enum AssetType {
@@ -155,8 +147,7 @@ export interface CancelJobRequest {
 }
 
 export namespace CancelJobRequest {
-  export const isa = (o: any): o is CancelJobRequest =>
-    __isa(o, "CancelJobRequest");
+  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 export enum Code {
@@ -192,8 +183,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -223,8 +213,7 @@ export interface CreateDataSetRequest {
 }
 
 export namespace CreateDataSetRequest {
-  export const isa = (o: any): o is CreateDataSetRequest =>
-    __isa(o, "CreateDataSetRequest");
+  export const isa = (o: any): o is CreateDataSetRequest => __isa(o, "CreateDataSetRequest");
 }
 
 export interface CreateDataSetResponse {
@@ -286,8 +275,7 @@ export interface CreateDataSetResponse {
 }
 
 export namespace CreateDataSetResponse {
-  export const isa = (o: any): o is CreateDataSetResponse =>
-    __isa(o, "CreateDataSetResponse");
+  export const isa = (o: any): o is CreateDataSetResponse => __isa(o, "CreateDataSetResponse");
 }
 
 /**
@@ -307,8 +295,7 @@ export interface CreateJobRequest {
 }
 
 export namespace CreateJobRequest {
-  export const isa = (o: any): o is CreateJobRequest =>
-    __isa(o, "CreateJobRequest");
+  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
@@ -355,8 +342,7 @@ export interface CreateJobResponse {
 }
 
 export namespace CreateJobResponse {
-  export const isa = (o: any): o is CreateJobResponse =>
-    __isa(o, "CreateJobResponse");
+  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
@@ -381,8 +367,7 @@ export interface CreateRevisionRequest {
 }
 
 export namespace CreateRevisionRequest {
-  export const isa = (o: any): o is CreateRevisionRequest =>
-    __isa(o, "CreateRevisionRequest");
+  export const isa = (o: any): o is CreateRevisionRequest => __isa(o, "CreateRevisionRequest");
 }
 
 export interface CreateRevisionResponse {
@@ -434,8 +419,7 @@ export interface CreateRevisionResponse {
 }
 
 export namespace CreateRevisionResponse {
-  export const isa = (o: any): o is CreateRevisionResponse =>
-    __isa(o, "CreateRevisionResponse");
+  export const isa = (o: any): o is CreateRevisionResponse => __isa(o, "CreateRevisionResponse");
 }
 
 /**
@@ -517,8 +501,7 @@ export interface DeleteAssetRequest {
 }
 
 export namespace DeleteAssetRequest {
-  export const isa = (o: any): o is DeleteAssetRequest =>
-    __isa(o, "DeleteAssetRequest");
+  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
 export interface DeleteDataSetRequest {
@@ -530,8 +513,7 @@ export interface DeleteDataSetRequest {
 }
 
 export namespace DeleteDataSetRequest {
-  export const isa = (o: any): o is DeleteDataSetRequest =>
-    __isa(o, "DeleteDataSetRequest");
+  export const isa = (o: any): o is DeleteDataSetRequest => __isa(o, "DeleteDataSetRequest");
 }
 
 export interface DeleteRevisionRequest {
@@ -548,8 +530,7 @@ export interface DeleteRevisionRequest {
 }
 
 export namespace DeleteRevisionRequest {
-  export const isa = (o: any): o is DeleteRevisionRequest =>
-    __isa(o, "DeleteRevisionRequest");
+  export const isa = (o: any): o is DeleteRevisionRequest => __isa(o, "DeleteRevisionRequest");
 }
 
 export interface Details {
@@ -698,8 +679,7 @@ export interface GetAssetRequest {
 }
 
 export namespace GetAssetRequest {
-  export const isa = (o: any): o is GetAssetRequest =>
-    __isa(o, "GetAssetRequest");
+  export const isa = (o: any): o is GetAssetRequest => __isa(o, "GetAssetRequest");
 }
 
 export interface GetAssetResponse {
@@ -756,8 +736,7 @@ export interface GetAssetResponse {
 }
 
 export namespace GetAssetResponse {
-  export const isa = (o: any): o is GetAssetResponse =>
-    __isa(o, "GetAssetResponse");
+  export const isa = (o: any): o is GetAssetResponse => __isa(o, "GetAssetResponse");
 }
 
 export interface GetDataSetRequest {
@@ -769,8 +748,7 @@ export interface GetDataSetRequest {
 }
 
 export namespace GetDataSetRequest {
-  export const isa = (o: any): o is GetDataSetRequest =>
-    __isa(o, "GetDataSetRequest");
+  export const isa = (o: any): o is GetDataSetRequest => __isa(o, "GetDataSetRequest");
 }
 
 export interface GetDataSetResponse {
@@ -832,8 +810,7 @@ export interface GetDataSetResponse {
 }
 
 export namespace GetDataSetResponse {
-  export const isa = (o: any): o is GetDataSetResponse =>
-    __isa(o, "GetDataSetResponse");
+  export const isa = (o: any): o is GetDataSetResponse => __isa(o, "GetDataSetResponse");
 }
 
 export interface GetJobRequest {
@@ -892,8 +869,7 @@ export interface GetJobResponse {
 }
 
 export namespace GetJobResponse {
-  export const isa = (o: any): o is GetJobResponse =>
-    __isa(o, "GetJobResponse");
+  export const isa = (o: any): o is GetJobResponse => __isa(o, "GetJobResponse");
 }
 
 export interface GetRevisionRequest {
@@ -910,8 +886,7 @@ export interface GetRevisionRequest {
 }
 
 export namespace GetRevisionRequest {
-  export const isa = (o: any): o is GetRevisionRequest =>
-    __isa(o, "GetRevisionRequest");
+  export const isa = (o: any): o is GetRevisionRequest => __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
@@ -963,8 +938,7 @@ export interface GetRevisionResponse {
 }
 
 export namespace GetRevisionResponse {
-  export const isa = (o: any): o is GetRevisionResponse =>
-    __isa(o, "GetRevisionResponse");
+  export const isa = (o: any): o is GetRevisionResponse => __isa(o, "GetRevisionResponse");
 }
 
 export interface ImportAssetFromSignedUrlJobErrorDetails {
@@ -1107,9 +1081,7 @@ export namespace ImportAssetsFromS3ResponseDetails {
 /**
  * An exception occurred with the service.
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   /**
@@ -1119,8 +1091,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -1299,8 +1270,7 @@ export interface ListDataSetsRequest {
 }
 
 export namespace ListDataSetsRequest {
-  export const isa = (o: any): o is ListDataSetsRequest =>
-    __isa(o, "ListDataSetsRequest");
+  export const isa = (o: any): o is ListDataSetsRequest => __isa(o, "ListDataSetsRequest");
 }
 
 export interface ListDataSetsResponse {
@@ -1317,8 +1287,7 @@ export interface ListDataSetsResponse {
 }
 
 export namespace ListDataSetsResponse {
-  export const isa = (o: any): o is ListDataSetsResponse =>
-    __isa(o, "ListDataSetsResponse");
+  export const isa = (o: any): o is ListDataSetsResponse => __isa(o, "ListDataSetsResponse");
 }
 
 export interface ListJobsRequest {
@@ -1345,8 +1314,7 @@ export interface ListJobsRequest {
 }
 
 export namespace ListJobsRequest {
-  export const isa = (o: any): o is ListJobsRequest =>
-    __isa(o, "ListJobsRequest");
+  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
@@ -1363,8 +1331,7 @@ export interface ListJobsResponse {
 }
 
 export namespace ListJobsResponse {
-  export const isa = (o: any): o is ListJobsResponse =>
-    __isa(o, "ListJobsResponse");
+  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListRevisionAssetsRequest {
@@ -1480,16 +1447,13 @@ export interface RequestDetails {
 }
 
 export namespace RequestDetails {
-  export const isa = (o: any): o is RequestDetails =>
-    __isa(o, "RequestDetails");
+  export const isa = (o: any): o is RequestDetails => __isa(o, "RequestDetails");
 }
 
 /**
  * <p>The resource couldn't be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1547,8 +1511,7 @@ export interface ResponseDetails {
 }
 
 export namespace ResponseDetails {
-  export const isa = (o: any): o is ResponseDetails =>
-    __isa(o, "ResponseDetails");
+  export const isa = (o: any): o is ResponseDetails => __isa(o, "ResponseDetails");
 }
 
 /**
@@ -1613,16 +1576,13 @@ export interface S3SnapshotAsset {
 }
 
 export namespace S3SnapshotAsset {
-  export const isa = (o: any): o is S3SnapshotAsset =>
-    __isa(o, "S3SnapshotAsset");
+  export const isa = (o: any): o is S3SnapshotAsset => __isa(o, "S3SnapshotAsset");
 }
 
 /**
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
-export interface ServiceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceLimitExceededException";
   $fault: "client";
   /**
@@ -1655,8 +1615,7 @@ export interface StartJobRequest {
 }
 
 export namespace StartJobRequest {
-  export const isa = (o: any): o is StartJobRequest =>
-    __isa(o, "StartJobRequest");
+  export const isa = (o: any): o is StartJobRequest => __isa(o, "StartJobRequest");
 }
 
 export interface StartJobResponse {
@@ -1664,8 +1623,7 @@ export interface StartJobResponse {
 }
 
 export namespace StartJobResponse {
-  export const isa = (o: any): o is StartJobResponse =>
-    __isa(o, "StartJobResponse");
+  export const isa = (o: any): o is StartJobResponse => __isa(o, "StartJobResponse");
 }
 
 export enum State {
@@ -1694,16 +1652,13 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -1713,8 +1668,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export enum Type {
@@ -1738,8 +1692,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1769,8 +1722,7 @@ export interface UpdateAssetRequest {
 }
 
 export namespace UpdateAssetRequest {
-  export const isa = (o: any): o is UpdateAssetRequest =>
-    __isa(o, "UpdateAssetRequest");
+  export const isa = (o: any): o is UpdateAssetRequest => __isa(o, "UpdateAssetRequest");
 }
 
 export interface UpdateAssetResponse {
@@ -1827,8 +1779,7 @@ export interface UpdateAssetResponse {
 }
 
 export namespace UpdateAssetResponse {
-  export const isa = (o: any): o is UpdateAssetResponse =>
-    __isa(o, "UpdateAssetResponse");
+  export const isa = (o: any): o is UpdateAssetResponse => __isa(o, "UpdateAssetResponse");
 }
 
 /**
@@ -1853,8 +1804,7 @@ export interface UpdateDataSetRequest {
 }
 
 export namespace UpdateDataSetRequest {
-  export const isa = (o: any): o is UpdateDataSetRequest =>
-    __isa(o, "UpdateDataSetRequest");
+  export const isa = (o: any): o is UpdateDataSetRequest => __isa(o, "UpdateDataSetRequest");
 }
 
 export interface UpdateDataSetResponse {
@@ -1911,8 +1861,7 @@ export interface UpdateDataSetResponse {
 }
 
 export namespace UpdateDataSetResponse {
-  export const isa = (o: any): o is UpdateDataSetResponse =>
-    __isa(o, "UpdateDataSetResponse");
+  export const isa = (o: any): o is UpdateDataSetResponse => __isa(o, "UpdateDataSetResponse");
 }
 
 /**
@@ -1942,8 +1891,7 @@ export interface UpdateRevisionRequest {
 }
 
 export namespace UpdateRevisionRequest {
-  export const isa = (o: any): o is UpdateRevisionRequest =>
-    __isa(o, "UpdateRevisionRequest");
+  export const isa = (o: any): o is UpdateRevisionRequest => __isa(o, "UpdateRevisionRequest");
 }
 
 export interface UpdateRevisionResponse {
@@ -1990,16 +1938,13 @@ export interface UpdateRevisionResponse {
 }
 
 export namespace UpdateRevisionResponse {
-  export const isa = (o: any): o is UpdateRevisionResponse =>
-    __isa(o, "UpdateRevisionResponse");
+  export const isa = (o: any): o is UpdateRevisionResponse => __isa(o, "UpdateRevisionResponse");
 }
 
 /**
  * <p>The request was invalid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -2009,6 +1954,5 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

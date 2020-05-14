@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  DeleteLifecyclePolicyInput,
-  DeleteLifecyclePolicyOutput
-} from "../models/index";
+import { DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLifecyclePolicyCommand,
   serializeAws_json1_1DeleteLifecyclePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLifecyclePolicyCommandInput = DeleteLifecyclePolicyInput;
-export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyOutput &
-  __MetadataBearer;
+export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyOutput & __MetadataBearer;
 
 export class DeleteLifecyclePolicyCommand extends $Command<
   DeleteLifecyclePolicyCommandInput,
@@ -49,13 +45,8 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLifecyclePolicyCommandInput,
-    DeleteLifecyclePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLifecyclePolicyCommandInput, DeleteLifecyclePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

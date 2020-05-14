@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoSignalingClient";
-import {
-  GetIceServerConfigRequest,
-  GetIceServerConfigResponse
-} from "../models/index";
+import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIceServerConfigCommand,
   serializeAws_restJson1_1GetIceServerConfigCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIceServerConfigCommandInput = GetIceServerConfigRequest;
-export type GetIceServerConfigCommandOutput = GetIceServerConfigResponse &
-  __MetadataBearer;
+export type GetIceServerConfigCommandOutput = GetIceServerConfigResponse & __MetadataBearer;
 
 export class GetIceServerConfigCommand extends $Command<
   GetIceServerConfigCommandInput,
@@ -50,9 +46,7 @@ export class GetIceServerConfigCommand extends $Command<
     configuration: KinesisVideoSignalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

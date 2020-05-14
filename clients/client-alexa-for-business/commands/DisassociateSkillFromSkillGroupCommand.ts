@@ -53,9 +53,7 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     DisassociateSkillFromSkillGroupCommandInput,
     DisassociateSkillFromSkillGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     input: DisassociateSkillFromSkillGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillFromSkillGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateSkillFromSkillGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillFromSkillGroupCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

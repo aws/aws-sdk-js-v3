@@ -140,9 +140,7 @@ export class Translate extends TranslateClient {
   ): void;
   public getTerminology(
     args: GetTerminologyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTerminologyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTerminologyCommandOutput) => void),
     cb?: (err: any, data?: GetTerminologyCommandOutput) => void
   ): Promise<GetTerminologyCommandOutput> | void {
     const command = new GetTerminologyCommand(args);
@@ -371,9 +369,7 @@ export class Translate extends TranslateClient {
   ): void;
   public translateText(
     args: TranslateTextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TranslateTextCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TranslateTextCommandOutput) => void),
     cb?: (err: any, data?: TranslateTextCommandOutput) => void
   ): Promise<TranslateTextCommandOutput> | void {
     const command = new TranslateTextCommand(args);

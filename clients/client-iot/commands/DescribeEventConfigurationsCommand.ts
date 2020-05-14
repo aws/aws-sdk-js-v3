@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DescribeEventConfigurationsRequest,
   DescribeEventConfigurationsResponse
@@ -49,13 +45,8 @@ export class DescribeEventConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventConfigurationsCommandInput,
-    DescribeEventConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventConfigurationsCommandInput, DescribeEventConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeEventConfigurationsCommand extends $Command<
     input: DescribeEventConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeEventConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeEventConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeEventConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

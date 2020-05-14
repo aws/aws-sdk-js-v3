@@ -53,9 +53,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     CreateDeliverabilityTestReportCommandInput,
     CreateDeliverabilityTestReportCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeliverabilityTestReportCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDeliverabilityTestReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

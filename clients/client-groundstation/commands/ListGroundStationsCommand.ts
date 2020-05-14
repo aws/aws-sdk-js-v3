@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GroundStationClient";
-import {
-  ListGroundStationsRequest,
-  ListGroundStationsResponse
-} from "../models/index";
+import { ListGroundStationsRequest, ListGroundStationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroundStationsCommand,
   serializeAws_restJson1_1ListGroundStationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroundStationsCommandInput = ListGroundStationsRequest;
-export type ListGroundStationsCommandOutput = ListGroundStationsResponse &
-  __MetadataBearer;
+export type ListGroundStationsCommandOutput = ListGroundStationsResponse & __MetadataBearer;
 
 export class ListGroundStationsCommand extends $Command<
   ListGroundStationsCommandInput,
@@ -50,9 +46,7 @@ export class ListGroundStationsCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroundStationsCommandInput, ListGroundStationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

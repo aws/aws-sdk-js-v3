@@ -49,13 +49,8 @@ export class UpdateAcceleratorAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateAcceleratorAttributesCommandInput,
-    UpdateAcceleratorAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateAcceleratorAttributesCommandInput, UpdateAcceleratorAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateAcceleratorAttributesCommand extends $Command<
     input: UpdateAcceleratorAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAcceleratorAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateAcceleratorAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAcceleratorAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateAcceleratorAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAcceleratorAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

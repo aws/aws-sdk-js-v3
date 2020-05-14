@@ -53,9 +53,7 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     ListTrafficPolicyInstancesByPolicyCommandInput,
     ListTrafficPolicyInstancesByPolicyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListTrafficPolicyInstancesByPolicyCommand extends $Command<
     input: ListTrafficPolicyInstancesByPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

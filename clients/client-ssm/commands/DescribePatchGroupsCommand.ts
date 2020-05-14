@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribePatchGroupsRequest,
-  DescribePatchGroupsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribePatchGroupsRequest, DescribePatchGroupsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribePatchGroupsCommand,
   serializeAws_json1_1DescribePatchGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePatchGroupsCommandInput = DescribePatchGroupsRequest;
-export type DescribePatchGroupsCommandOutput = DescribePatchGroupsResult &
-  __MetadataBearer;
+export type DescribePatchGroupsCommandOutput = DescribePatchGroupsResult & __MetadataBearer;
 
 export class DescribePatchGroupsCommand extends $Command<
   DescribePatchGroupsCommandInput,
@@ -49,13 +41,8 @@ export class DescribePatchGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePatchGroupsCommandInput,
-    DescribePatchGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePatchGroupsCommandInput, DescribePatchGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

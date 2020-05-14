@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeRobotCommandInput = DescribeRobotRequest;
-export type DescribeRobotCommandOutput = DescribeRobotResponse &
-  __MetadataBearer;
+export type DescribeRobotCommandOutput = DescribeRobotResponse & __MetadataBearer;
 
 export class DescribeRobotCommand extends $Command<
   DescribeRobotCommandInput,
@@ -47,9 +46,7 @@ export class DescribeRobotCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRobotCommandInput, DescribeRobotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

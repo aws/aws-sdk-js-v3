@@ -1,12 +1,5 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
-import {
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsResponse
-} from "../models/index";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFileSystemsCommand,
   serializeAws_json1_1DescribeFileSystemsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFileSystemsCommandInput = DescribeFileSystemsRequest;
-export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse &
-  __MetadataBearer;
+export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse & __MetadataBearer;
 
 export class DescribeFileSystemsCommand extends $Command<
   DescribeFileSystemsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeFileSystemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFileSystemsCommandInput,
-    DescribeFileSystemsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFileSystemsCommandInput, DescribeFileSystemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

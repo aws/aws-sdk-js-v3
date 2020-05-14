@@ -10,14 +10,8 @@ import {
   AssociateWebsiteCertificateAuthorityCommandInput,
   AssociateWebsiteCertificateAuthorityCommandOutput
 } from "../commands/AssociateWebsiteCertificateAuthorityCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "../commands/CreateFleetCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "../commands/DeleteFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
 import {
   DescribeAuditStreamConfigurationCommandInput,
   DescribeAuditStreamConfigurationCommandOutput
@@ -62,18 +56,9 @@ import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
   DisassociateWebsiteCertificateAuthorityCommandOutput
 } from "../commands/DisassociateWebsiteCertificateAuthorityCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "../commands/ListDevicesCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "../commands/ListDomainsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "../commands/ListFleetsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput
@@ -90,10 +75,7 @@ import {
   RevokeDomainAccessCommandInput,
   RevokeDomainAccessCommandOutput
 } from "../commands/RevokeDomainAccessCommand";
-import {
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput
-} from "../commands/SignOutUserCommand";
+import { SignOutUserCommandInput, SignOutUserCommandOutput } from "../commands/SignOutUserCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput
@@ -793,10 +775,7 @@ export const serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand = 
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_restJson1_1SecurityGroupIds(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_restJson1_1SecurityGroupIds(input.SecurityGroupIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_restJson1_1SubnetIds(input.SubnetIds, context)
@@ -931,10 +910,7 @@ export const deserializeAws_restJson1_1AssociateDomainCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1AssociateDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateDomainCommandError(output, context);
   }
   const contents: AssociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -970,10 +946,7 @@ const deserializeAws_restJson1_1AssociateDomainCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1014,10 +987,7 @@ const deserializeAws_restJson1_1AssociateDomainCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1055,10 +1025,7 @@ export const deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderComm
     AuthorizationProviderId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.AuthorizationProviderId !== undefined &&
-    data.AuthorizationProviderId !== null
-  ) {
+  if (data.AuthorizationProviderId !== undefined && data.AuthorizationProviderId !== null) {
     contents.AuthorizationProviderId = data.AuthorizationProviderId;
   }
   return Promise.resolve(contents);
@@ -1090,10 +1057,7 @@ const deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandErro
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1134,10 +1098,7 @@ const deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandErro
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1207,10 +1168,7 @@ const deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1251,10 +1209,7 @@ const deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1321,10 +1276,7 @@ const deserializeAws_restJson1_1CreateFleetCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1365,10 +1317,7 @@ const deserializeAws_restJson1_1CreateFleetCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1431,10 +1380,7 @@ const deserializeAws_restJson1_1DeleteFleetCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1464,10 +1410,7 @@ const deserializeAws_restJson1_1DeleteFleetCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1494,10 +1437,7 @@ export const deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand =
   context: __SerdeContext
 ): Promise<DescribeAuditStreamConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(output, context);
   }
   const contents: DescribeAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1537,10 +1477,7 @@ const deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError = a
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1570,10 +1507,7 @@ const deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError = a
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1620,10 +1554,7 @@ export const deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationComman
     );
   }
   if (data.SubnetIds !== undefined && data.SubnetIds !== null) {
-    contents.SubnetIds = deserializeAws_restJson1_1SubnetIds(
-      data.SubnetIds,
-      context
-    );
+    contents.SubnetIds = deserializeAws_restJson1_1SubnetIds(data.SubnetIds, context);
   }
   if (data.VpcId !== undefined && data.VpcId !== null) {
     contents.VpcId = data.VpcId;
@@ -1657,10 +1588,7 @@ const deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1690,10 +1618,7 @@ const deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1720,10 +1645,7 @@ export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDeviceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDeviceCommandError(output, context);
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1740,14 +1662,10 @@ export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.FirstAccessedTime !== undefined && data.FirstAccessedTime !== null) {
-    contents.FirstAccessedTime = new Date(
-      Math.round(data.FirstAccessedTime * 1000)
-    );
+    contents.FirstAccessedTime = new Date(Math.round(data.FirstAccessedTime * 1000));
   }
   if (data.LastAccessedTime !== undefined && data.LastAccessedTime !== null) {
-    contents.LastAccessedTime = new Date(
-      Math.round(data.LastAccessedTime * 1000)
-    );
+    contents.LastAccessedTime = new Date(Math.round(data.LastAccessedTime * 1000));
   }
   if (data.Manufacturer !== undefined && data.Manufacturer !== null) {
     contents.Manufacturer = data.Manufacturer;
@@ -1758,10 +1676,7 @@ export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   if (data.OperatingSystem !== undefined && data.OperatingSystem !== null) {
     contents.OperatingSystem = data.OperatingSystem;
   }
-  if (
-    data.OperatingSystemVersion !== undefined &&
-    data.OperatingSystemVersion !== null
-  ) {
+  if (data.OperatingSystemVersion !== undefined && data.OperatingSystemVersion !== null) {
     contents.OperatingSystemVersion = data.OperatingSystemVersion;
   }
   if (data.PatchLevel !== undefined && data.PatchLevel !== null) {
@@ -1802,10 +1717,7 @@ const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1835,10 +1747,7 @@ const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1865,10 +1774,7 @@ export const deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand 
   context: __SerdeContext
 ): Promise<DescribeDevicePolicyConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(output, context);
   }
   const contents: DescribeDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1876,10 +1782,7 @@ export const deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand 
     DeviceCaCertificate: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DeviceCaCertificate !== undefined &&
-    data.DeviceCaCertificate !== null
-  ) {
+  if (data.DeviceCaCertificate !== undefined && data.DeviceCaCertificate !== null) {
     contents.DeviceCaCertificate = data.DeviceCaCertificate;
   }
   return Promise.resolve(contents);
@@ -1911,10 +1814,7 @@ const deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1944,10 +1844,7 @@ const deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1974,10 +1871,7 @@ export const deserializeAws_restJson1_1DescribeDomainCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDomainCommandError(output, context);
   }
   const contents: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2033,10 +1927,7 @@ const deserializeAws_restJson1_1DescribeDomainCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2066,10 +1957,7 @@ const deserializeAws_restJson1_1DescribeDomainCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2096,10 +1984,7 @@ export const deserializeAws_restJson1_1DescribeFleetMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeFleetMetadataCommandError(output, context);
   }
   const contents: DescribeFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2129,14 +2014,9 @@ export const deserializeAws_restJson1_1DescribeFleetMetadataCommand = async (
     contents.FleetStatus = data.FleetStatus;
   }
   if (data.LastUpdatedTime !== undefined && data.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(
-      Math.round(data.LastUpdatedTime * 1000)
-    );
+    contents.LastUpdatedTime = new Date(Math.round(data.LastUpdatedTime * 1000));
   }
-  if (
-    data.OptimizeForEndUserLocation !== undefined &&
-    data.OptimizeForEndUserLocation !== null
-  ) {
+  if (data.OptimizeForEndUserLocation !== undefined && data.OptimizeForEndUserLocation !== null) {
     contents.OptimizeForEndUserLocation = data.OptimizeForEndUserLocation;
   }
   return Promise.resolve(contents);
@@ -2168,10 +2048,7 @@ const deserializeAws_restJson1_1DescribeFleetMetadataCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2201,10 +2078,7 @@ const deserializeAws_restJson1_1DescribeFleetMetadataCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2250,16 +2124,10 @@ export const deserializeAws_restJson1_1DescribeIdentityProviderConfigurationComm
   ) {
     contents.IdentityProviderSamlMetadata = data.IdentityProviderSamlMetadata;
   }
-  if (
-    data.IdentityProviderType !== undefined &&
-    data.IdentityProviderType !== null
-  ) {
+  if (data.IdentityProviderType !== undefined && data.IdentityProviderType !== null) {
     contents.IdentityProviderType = data.IdentityProviderType;
   }
-  if (
-    data.ServiceProviderSamlMetadata !== undefined &&
-    data.ServiceProviderSamlMetadata !== null
-  ) {
+  if (data.ServiceProviderSamlMetadata !== undefined && data.ServiceProviderSamlMetadata !== null) {
     contents.ServiceProviderSamlMetadata = data.ServiceProviderSamlMetadata;
   }
   return Promise.resolve(contents);
@@ -2291,10 +2159,7 @@ const deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandErro
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2324,10 +2189,7 @@ const deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandErro
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2405,10 +2267,7 @@ const deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2438,10 +2297,7 @@ const deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2468,10 +2324,7 @@ export const deserializeAws_restJson1_1DisassociateDomainCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DisassociateDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateDomainCommandError(output, context);
   }
   const contents: DisassociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2507,10 +2360,7 @@ const deserializeAws_restJson1_1DisassociateDomainCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2540,10 +2390,7 @@ const deserializeAws_restJson1_1DisassociateDomainCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2609,10 +2456,7 @@ const deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandE
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2653,10 +2497,7 @@ const deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandE
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2722,10 +2563,7 @@ const deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandEr
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2755,10 +2593,7 @@ const deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandEr
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2795,10 +2630,7 @@ export const deserializeAws_restJson1_1ListDevicesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Devices !== undefined && data.Devices !== null) {
-    contents.Devices = deserializeAws_restJson1_1DeviceSummaryList(
-      data.Devices,
-      context
-    );
+    contents.Devices = deserializeAws_restJson1_1DeviceSummaryList(data.Devices, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -2832,10 +2664,7 @@ const deserializeAws_restJson1_1ListDevicesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2865,10 +2694,7 @@ const deserializeAws_restJson1_1ListDevicesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2905,10 +2731,7 @@ export const deserializeAws_restJson1_1ListDomainsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Domains !== undefined && data.Domains !== null) {
-    contents.Domains = deserializeAws_restJson1_1DomainSummaryList(
-      data.Domains,
-      context
-    );
+    contents.Domains = deserializeAws_restJson1_1DomainSummaryList(data.Domains, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -2942,10 +2765,7 @@ const deserializeAws_restJson1_1ListDomainsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2964,10 +2784,7 @@ const deserializeAws_restJson1_1ListDomainsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3041,10 +2858,7 @@ const deserializeAws_restJson1_1ListFleetsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3063,10 +2877,7 @@ const deserializeAws_restJson1_1ListFleetsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3093,10 +2904,7 @@ export const deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand 
   context: __SerdeContext
 ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(output, context);
   }
   const contents: ListWebsiteAuthorizationProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3146,10 +2954,7 @@ const deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3179,10 +2984,7 @@ const deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3209,10 +3011,7 @@ export const deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand 
   context: __SerdeContext
 ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(output, context);
   }
   const contents: ListWebsiteCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3262,10 +3061,7 @@ const deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3284,10 +3080,7 @@ const deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3314,10 +3107,7 @@ export const deserializeAws_restJson1_1RestoreDomainAccessCommand = async (
   context: __SerdeContext
 ): Promise<RestoreDomainAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RestoreDomainAccessCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RestoreDomainAccessCommandError(output, context);
   }
   const contents: RestoreDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3353,10 +3143,7 @@ const deserializeAws_restJson1_1RestoreDomainAccessCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3386,10 +3173,7 @@ const deserializeAws_restJson1_1RestoreDomainAccessCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3416,10 +3200,7 @@ export const deserializeAws_restJson1_1RevokeDomainAccessCommand = async (
   context: __SerdeContext
 ): Promise<RevokeDomainAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RevokeDomainAccessCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RevokeDomainAccessCommandError(output, context);
   }
   const contents: RevokeDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3455,10 +3236,7 @@ const deserializeAws_restJson1_1RevokeDomainAccessCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3488,10 +3266,7 @@ const deserializeAws_restJson1_1RevokeDomainAccessCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3554,10 +3329,7 @@ const deserializeAws_restJson1_1SignOutUserCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3587,10 +3359,7 @@ const deserializeAws_restJson1_1SignOutUserCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3617,10 +3386,7 @@ export const deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand = a
   context: __SerdeContext
 ): Promise<UpdateAuditStreamConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(output, context);
   }
   const contents: UpdateAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3656,10 +3422,7 @@ const deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError = asy
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3689,10 +3452,7 @@ const deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError = asy
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3719,10 +3479,7 @@ export const deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand 
   context: __SerdeContext
 ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(output, context);
   }
   const contents: UpdateCompanyNetworkConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3758,10 +3515,7 @@ const deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError = 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3791,10 +3545,7 @@ const deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError = 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3821,10 +3572,7 @@ export const deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand = 
   context: __SerdeContext
 ): Promise<UpdateDevicePolicyConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(output, context);
   }
   const contents: UpdateDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3860,10 +3608,7 @@ const deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError = as
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3893,10 +3638,7 @@ const deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError = as
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3923,10 +3665,7 @@ export const deserializeAws_restJson1_1UpdateDomainMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainMetadataCommandError(output, context);
   }
   const contents: UpdateDomainMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3962,10 +3701,7 @@ const deserializeAws_restJson1_1UpdateDomainMetadataCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3995,10 +3731,7 @@ const deserializeAws_restJson1_1UpdateDomainMetadataCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4025,10 +3758,7 @@ export const deserializeAws_restJson1_1UpdateFleetMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFleetMetadataCommandError(output, context);
   }
   const contents: UpdateFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4064,10 +3794,7 @@ const deserializeAws_restJson1_1UpdateFleetMetadataCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4097,10 +3824,7 @@ const deserializeAws_restJson1_1UpdateFleetMetadataCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4166,10 +3890,7 @@ const deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError 
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4199,10 +3920,7 @@ const deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError 
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4333,10 +4051,7 @@ const serializeAws_restJson1_1SecurityGroupIds = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4347,9 +4062,7 @@ const deserializeAws_restJson1_1DeviceSummary = (
   return {
     __type: "DeviceSummary",
     DeviceId:
-      output.DeviceId !== undefined && output.DeviceId !== null
-        ? output.DeviceId
-        : undefined,
+      output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
     DeviceStatus:
       output.DeviceStatus !== undefined && output.DeviceStatus !== null
         ? output.DeviceStatus
@@ -4381,9 +4094,7 @@ const deserializeAws_restJson1_1DomainSummary = (
         ? output.DisplayName
         : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     DomainStatus:
       output.DomainStatus !== undefined && output.DomainStatus !== null
         ? output.DomainStatus
@@ -4419,13 +4130,9 @@ const deserializeAws_restJson1_1FleetSummary = (
         ? output.DisplayName
         : undefined,
     FleetArn:
-      output.FleetArn !== undefined && output.FleetArn !== null
-        ? output.FleetArn
-        : undefined,
+      output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetName:
-      output.FleetName !== undefined && output.FleetName !== null
-        ? output.FleetName
-        : undefined,
+      output.FleetName !== undefined && output.FleetName !== null ? output.FleetName : undefined,
     FleetStatus:
       output.FleetStatus !== undefined && output.FleetStatus !== null
         ? output.FleetStatus
@@ -4441,9 +4148,7 @@ const deserializeAws_restJson1_1FleetSummaryList = (
   output: any,
   context: __SerdeContext
 ): FleetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FleetSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FleetSummary(entry, context));
 };
 
 const deserializeAws_restJson1_1SecurityGroupIds = (
@@ -4453,10 +4158,7 @@ const deserializeAws_restJson1_1SecurityGroupIds = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1SubnetIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -4467,13 +4169,11 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
   return {
     __type: "WebsiteAuthorizationProviderSummary",
     AuthorizationProviderId:
-      output.AuthorizationProviderId !== undefined &&
-      output.AuthorizationProviderId !== null
+      output.AuthorizationProviderId !== undefined && output.AuthorizationProviderId !== null
         ? output.AuthorizationProviderId
         : undefined,
     AuthorizationProviderType:
-      output.AuthorizationProviderType !== undefined &&
-      output.AuthorizationProviderType !== null
+      output.AuthorizationProviderType !== undefined && output.AuthorizationProviderType !== null
         ? output.AuthorizationProviderType
         : undefined,
     CreatedTime:
@@ -4481,9 +4181,7 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined
+      output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined
   } as any;
 };
 
@@ -4492,10 +4190,7 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList = (
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary(
-      entry,
-      context
-    )
+    deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary(entry, context)
   );
 };
 
@@ -4543,23 +4238,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

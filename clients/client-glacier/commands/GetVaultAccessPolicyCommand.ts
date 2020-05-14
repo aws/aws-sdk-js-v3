@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  GetVaultAccessPolicyInput,
-  GetVaultAccessPolicyOutput
-} from "../models/index";
+import { GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVaultAccessPolicyCommand,
   serializeAws_restJson1_1GetVaultAccessPolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVaultAccessPolicyCommandInput = GetVaultAccessPolicyInput;
-export type GetVaultAccessPolicyCommandOutput = GetVaultAccessPolicyOutput &
-  __MetadataBearer;
+export type GetVaultAccessPolicyCommandOutput = GetVaultAccessPolicyOutput & __MetadataBearer;
 
 export class GetVaultAccessPolicyCommand extends $Command<
   GetVaultAccessPolicyCommandInput,
@@ -49,13 +45,8 @@ export class GetVaultAccessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVaultAccessPolicyCommandInput,
-    GetVaultAccessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVaultAccessPolicyCommandInput, GetVaultAccessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetVaultAccessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetVaultAccessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

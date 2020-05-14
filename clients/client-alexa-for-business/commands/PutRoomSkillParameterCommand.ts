@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  PutRoomSkillParameterRequest,
-  PutRoomSkillParameterResponse
-} from "../models/index";
+import { PutRoomSkillParameterRequest, PutRoomSkillParameterResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutRoomSkillParameterCommand,
   serializeAws_json1_1PutRoomSkillParameterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutRoomSkillParameterCommandInput = PutRoomSkillParameterRequest;
-export type PutRoomSkillParameterCommandOutput = PutRoomSkillParameterResponse &
-  __MetadataBearer;
+export type PutRoomSkillParameterCommandOutput = PutRoomSkillParameterResponse & __MetadataBearer;
 
 export class PutRoomSkillParameterCommand extends $Command<
   PutRoomSkillParameterCommandInput,
@@ -49,13 +45,8 @@ export class PutRoomSkillParameterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRoomSkillParameterCommandInput,
-    PutRoomSkillParameterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRoomSkillParameterCommandInput, PutRoomSkillParameterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

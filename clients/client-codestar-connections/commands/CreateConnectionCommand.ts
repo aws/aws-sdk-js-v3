@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateConnectionCommandInput = CreateConnectionInput;
-export type CreateConnectionCommandOutput = CreateConnectionOutput &
-  __MetadataBearer;
+export type CreateConnectionCommandOutput = CreateConnectionOutput & __MetadataBearer;
 
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,
@@ -47,9 +46,7 @@ export class CreateConnectionCommand extends $Command<
     configuration: CodeStarconnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateConnectionCommandInput, CreateConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

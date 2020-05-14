@@ -6,26 +6,14 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput
 } from "./commands/CreateConfigurationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   DeleteBrokerCommandInput,
   DeleteBrokerCommandOutput
 } from "./commands/DeleteBrokerCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DescribeBrokerCommandInput,
   DescribeBrokerCommandOutput
@@ -50,10 +38,7 @@ import {
   DescribeUserCommandInput,
   DescribeUserCommandOutput
 } from "./commands/DescribeUserCommand";
-import {
-  ListBrokersCommandInput,
-  ListBrokersCommandOutput
-} from "./commands/ListBrokersCommand";
+import { ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
 import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput
@@ -62,14 +47,8 @@ import {
   ListConfigurationsCommandInput,
   ListConfigurationsCommandOutput
 } from "./commands/ListConfigurationsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   RebootBrokerCommandInput,
   RebootBrokerCommandOutput
@@ -82,10 +61,7 @@ import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput
 } from "./commands/UpdateConfigurationCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -271,9 +247,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type mqClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type mqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -282,9 +256,7 @@ export type mqClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type mqClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type mqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

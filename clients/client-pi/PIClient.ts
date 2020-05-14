@@ -58,9 +58,7 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | DescribeDimensionKeysCommandInput
-  | GetResourceMetricsCommandInput;
+export type ServiceInputTypes = DescribeDimensionKeysCommandInput | GetResourceMetricsCommandInput;
 
 export type ServiceOutputTypes =
   | DescribeDimensionKeysCommandOutput
@@ -151,9 +149,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PIClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PIClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,9 +158,7 @@ export type PIClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PIClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PIClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

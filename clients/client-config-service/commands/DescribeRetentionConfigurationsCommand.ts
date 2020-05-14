@@ -53,9 +53,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     DescribeRetentionConfigurationsCommandInput,
     DescribeRetentionConfigurationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     input: DescribeRetentionConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRetentionConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeRetentionConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRetentionConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRetentionConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRetentionConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListThingGroupsRequest,
-  ListThingGroupsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListThingGroupsRequest, ListThingGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingGroupsCommand,
   serializeAws_restJson1_1ListThingGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListThingGroupsCommandInput = ListThingGroupsRequest;
-export type ListThingGroupsCommandOutput = ListThingGroupsResponse &
-  __MetadataBearer;
+export type ListThingGroupsCommandOutput = ListThingGroupsResponse & __MetadataBearer;
 
 export class ListThingGroupsCommand extends $Command<
   ListThingGroupsCommandInput,
@@ -50,9 +42,7 @@ export class ListThingGroupsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListThingGroupsCommandInput, ListThingGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

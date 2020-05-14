@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
-import {
-  AssociateWebACLRequest,
-  AssociateWebACLResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
+import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateWebACLCommand,
   serializeAws_json1_1AssociateWebACLCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateWebACLCommandInput = AssociateWebACLRequest;
-export type AssociateWebACLCommandOutput = AssociateWebACLResponse &
-  __MetadataBearer;
+export type AssociateWebACLCommandOutput = AssociateWebACLResponse & __MetadataBearer;
 
 export class AssociateWebACLCommand extends $Command<
   AssociateWebACLCommandInput,
@@ -50,9 +42,7 @@ export class AssociateWebACLCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateWebACLCommandInput, AssociateWebACLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

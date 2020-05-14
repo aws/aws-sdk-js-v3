@@ -49,9 +49,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     SkipWaitTimeForInstanceTerminationCommandInput,
     SkipWaitTimeForInstanceTerminationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +68,14 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     input: SkipWaitTimeForInstanceTerminationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
-    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

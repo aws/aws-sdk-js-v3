@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageClient";
-import {
-  UpdateOriginEndpointRequest,
-  UpdateOriginEndpointResponse
-} from "../models/index";
+import { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateOriginEndpointCommand,
   serializeAws_restJson1_1UpdateOriginEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateOriginEndpointCommandInput = UpdateOriginEndpointRequest;
-export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse &
-  __MetadataBearer;
+export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse & __MetadataBearer;
 
 export class UpdateOriginEndpointCommand extends $Command<
   UpdateOriginEndpointCommandInput,
@@ -49,13 +45,8 @@ export class UpdateOriginEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateOriginEndpointCommandInput,
-    UpdateOriginEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateOriginEndpointCommandInput, UpdateOriginEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateOriginEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1_1UpdateOriginEndpointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

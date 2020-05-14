@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointConnectionNotificationsRequest,
   DescribeVpcEndpointConnectionNotificationsResult
@@ -39,9 +35,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeVpcEndpointConnectionNotificationsCommandInput
-  ) {
+  constructor(readonly input: DescribeVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     DescribeVpcEndpointConnectionNotificationsCommandInput,
     DescribeVpcEndpointConnectionNotificationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<
     input: DescribeVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

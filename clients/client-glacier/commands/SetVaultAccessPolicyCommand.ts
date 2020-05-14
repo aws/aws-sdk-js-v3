@@ -45,13 +45,8 @@ export class SetVaultAccessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetVaultAccessPolicyCommandInput,
-    SetVaultAccessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetVaultAccessPolicyCommandInput, SetVaultAccessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class SetVaultAccessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1SetVaultAccessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

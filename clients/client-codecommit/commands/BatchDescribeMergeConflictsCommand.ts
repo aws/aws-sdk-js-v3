@@ -49,13 +49,8 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDescribeMergeConflictsCommandInput,
-    BatchDescribeMergeConflictsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDescribeMergeConflictsCommandInput, BatchDescribeMergeConflictsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     input: BatchDescribeMergeConflictsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDescribeMergeConflictsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1BatchDescribeMergeConflictsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeMergeConflictsCommandOutput> {
-    return deserializeAws_json1_1BatchDescribeMergeConflictsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDescribeMergeConflictsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 } from "../TranslateClient";
-import {
-  ImportTerminologyRequest,
-  ImportTerminologyResponse
-} from "../models/index";
+import { ImportTerminologyRequest, ImportTerminologyResponse } from "../models/index";
 import {
   deserializeAws_json1_1ImportTerminologyCommand,
   serializeAws_json1_1ImportTerminologyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportTerminologyCommandInput = ImportTerminologyRequest;
-export type ImportTerminologyCommandOutput = ImportTerminologyResponse &
-  __MetadataBearer;
+export type ImportTerminologyCommandOutput = ImportTerminologyResponse & __MetadataBearer;
 
 export class ImportTerminologyCommand extends $Command<
   ImportTerminologyCommandInput,
@@ -50,9 +46,7 @@ export class ImportTerminologyCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportTerminologyCommandInput, ImportTerminologyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

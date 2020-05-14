@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubClient";
-import {
-  ImportMigrationTaskRequest,
-  ImportMigrationTaskResult
-} from "../models/index";
+import { ImportMigrationTaskRequest, ImportMigrationTaskResult } from "../models/index";
 import {
   deserializeAws_json1_1ImportMigrationTaskCommand,
   serializeAws_json1_1ImportMigrationTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportMigrationTaskCommandInput = ImportMigrationTaskRequest;
-export type ImportMigrationTaskCommandOutput = ImportMigrationTaskResult &
-  __MetadataBearer;
+export type ImportMigrationTaskCommandOutput = ImportMigrationTaskResult & __MetadataBearer;
 
 export class ImportMigrationTaskCommand extends $Command<
   ImportMigrationTaskCommandInput,
@@ -49,13 +45,8 @@ export class ImportMigrationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportMigrationTaskCommandInput,
-    ImportMigrationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportMigrationTaskCommandInput, ImportMigrationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

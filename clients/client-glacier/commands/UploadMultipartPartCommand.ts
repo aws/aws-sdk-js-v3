@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  UploadMultipartPartInput,
-  UploadMultipartPartOutput
-} from "../models/index";
+import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UploadMultipartPartCommand,
   serializeAws_restJson1_1UploadMultipartPartCommand
@@ -27,14 +24,10 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type UploadMultipartPartCommandInput = Omit<
-  UploadMultipartPartInput,
-  "body"
-> & {
+export type UploadMultipartPartCommandInput = Omit<UploadMultipartPartInput, "body"> & {
   body?: UploadMultipartPartInput["body"] | string | Uint8Array | Buffer;
 };
-export type UploadMultipartPartCommandOutput = UploadMultipartPartOutput &
-  __MetadataBearer;
+export type UploadMultipartPartCommandOutput = UploadMultipartPartOutput & __MetadataBearer;
 
 export class UploadMultipartPartCommand extends $Command<
   UploadMultipartPartCommandInput,
@@ -54,13 +47,8 @@ export class UploadMultipartPartCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UploadMultipartPartCommandInput,
-    UploadMultipartPartCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UploadMultipartPartCommandInput, UploadMultipartPartCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -86,10 +74,7 @@ export class UploadMultipartPartCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UploadMultipartPartCommandOutput> {
-    return deserializeAws_restJson1_1UploadMultipartPartCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UploadMultipartPartCommand(output, context);
   }
 
   // Start section: command_body_extra

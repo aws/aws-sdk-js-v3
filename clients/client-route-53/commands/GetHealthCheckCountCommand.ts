@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  GetHealthCheckCountRequest,
-  GetHealthCheckCountResponse
-} from "../models/index";
+import { GetHealthCheckCountRequest, GetHealthCheckCountResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetHealthCheckCountCommand,
   serializeAws_restXmlGetHealthCheckCountCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHealthCheckCountCommandInput = GetHealthCheckCountRequest;
-export type GetHealthCheckCountCommandOutput = GetHealthCheckCountResponse &
-  __MetadataBearer;
+export type GetHealthCheckCountCommandOutput = GetHealthCheckCountResponse & __MetadataBearer;
 
 export class GetHealthCheckCountCommand extends $Command<
   GetHealthCheckCountCommandInput,
@@ -49,13 +45,8 @@ export class GetHealthCheckCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHealthCheckCountCommandInput,
-    GetHealthCheckCountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHealthCheckCountCommandInput, GetHealthCheckCountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

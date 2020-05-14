@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMergeCommitCommandInput = GetMergeCommitInput;
-export type GetMergeCommitCommandOutput = GetMergeCommitOutput &
-  __MetadataBearer;
+export type GetMergeCommitCommandOutput = GetMergeCommitOutput & __MetadataBearer;
 
 export class GetMergeCommitCommand extends $Command<
   GetMergeCommitCommandInput,
@@ -47,9 +46,7 @@ export class GetMergeCommitCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMergeCommitCommandInput, GetMergeCommitCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

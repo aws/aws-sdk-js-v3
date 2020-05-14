@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketNotificationConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlPutBucketNotificationConfigurationCommand,
@@ -50,9 +46,7 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     PutBucketNotificationConfigurationCommandInput,
     PutBucketNotificationConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     input: PutBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketNotificationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlPutBucketNotificationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketNotificationConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketNotificationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlPutBucketNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

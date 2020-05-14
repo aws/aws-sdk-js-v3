@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  GetDomainSuggestionsRequest,
-  GetDomainSuggestionsResponse
-} from "../models/index";
+import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetDomainSuggestionsCommand,
   serializeAws_json1_1GetDomainSuggestionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDomainSuggestionsCommandInput = GetDomainSuggestionsRequest;
-export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse &
-  __MetadataBearer;
+export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse & __MetadataBearer;
 
 export class GetDomainSuggestionsCommand extends $Command<
   GetDomainSuggestionsCommandInput,
@@ -49,13 +45,8 @@ export class GetDomainSuggestionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDomainSuggestionsCommandInput,
-    GetDomainSuggestionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDomainSuggestionsCommandInput, GetDomainSuggestionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

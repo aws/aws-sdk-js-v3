@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminListDevicesRequest,
-  AdminListDevicesResponse
-} from "../models/index";
+import { AdminListDevicesRequest, AdminListDevicesResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminListDevicesCommand,
   serializeAws_json1_1AdminListDevicesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminListDevicesCommandInput = AdminListDevicesRequest;
-export type AdminListDevicesCommandOutput = AdminListDevicesResponse &
-  __MetadataBearer;
+export type AdminListDevicesCommandOutput = AdminListDevicesResponse & __MetadataBearer;
 
 export class AdminListDevicesCommand extends $Command<
   AdminListDevicesCommandInput,
@@ -50,9 +46,7 @@ export class AdminListDevicesCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminListDevicesCommandInput, AdminListDevicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

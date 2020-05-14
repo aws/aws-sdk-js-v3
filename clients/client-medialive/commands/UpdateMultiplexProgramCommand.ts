@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  UpdateMultiplexProgramRequest,
-  UpdateMultiplexProgramResponse
-} from "../models/index";
+import { UpdateMultiplexProgramRequest, UpdateMultiplexProgramResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateMultiplexProgramCommand,
   serializeAws_restJson1_1UpdateMultiplexProgramCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMultiplexProgramCommandInput = UpdateMultiplexProgramRequest;
-export type UpdateMultiplexProgramCommandOutput = UpdateMultiplexProgramResponse &
-  __MetadataBearer;
+export type UpdateMultiplexProgramCommandOutput = UpdateMultiplexProgramResponse & __MetadataBearer;
 
 export class UpdateMultiplexProgramCommand extends $Command<
   UpdateMultiplexProgramCommandInput,
@@ -49,13 +45,8 @@ export class UpdateMultiplexProgramCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMultiplexProgramCommandInput,
-    UpdateMultiplexProgramCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMultiplexProgramCommandInput, UpdateMultiplexProgramCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateMultiplexProgramCommand extends $Command<
     input: UpdateMultiplexProgramCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateMultiplexProgramCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateMultiplexProgramCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMultiplexProgramCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

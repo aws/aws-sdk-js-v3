@@ -502,9 +502,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public acceptMatch(
     args: AcceptMatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptMatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptMatchCommandOutput) => void),
     cb?: (err: any, data?: AcceptMatchCommandOutput) => void
   ): Promise<AcceptMatchCommandOutput> | void {
     const command = new AcceptMatchCommand(args);
@@ -582,9 +580,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
@@ -690,9 +686,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createBuild(
     args: CreateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBuildCommandOutput) => void),
     cb?: (err: any, data?: CreateBuildCommandOutput) => void
   ): Promise<CreateBuildCommandOutput> | void {
     const command = new CreateBuildCommand(args);
@@ -820,9 +814,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
@@ -1127,10 +1119,7 @@ export class GameLift extends GameLiftClient {
     args: CreateMatchmakingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateMatchmakingConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateMatchmakingConfigurationCommandOutput) => void
   ): Promise<CreateMatchmakingConfigurationCommandOutput> | void {
     const command = new CreateMatchmakingConfigurationCommand(args);
@@ -1505,9 +1494,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public createScript(
     args: CreateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateScriptCommandOutput) => void),
     cb?: (err: any, data?: CreateScriptCommandOutput) => void
   ): Promise<CreateScriptCommandOutput> | void {
     const command = new CreateScriptCommand(args);
@@ -1747,9 +1734,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
@@ -1823,9 +1808,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteBuild(
     args: DeleteBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBuildCommandOutput) => void),
     cb?: (err: any, data?: DeleteBuildCommandOutput) => void
   ): Promise<DeleteBuildCommandOutput> | void {
     const command = new DeleteBuildCommand(args);
@@ -1916,9 +1899,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
@@ -2058,10 +2039,7 @@ export class GameLift extends GameLiftClient {
     args: DeleteMatchmakingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteMatchmakingConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteMatchmakingConfigurationCommandOutput) => void
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> | void {
     const command = new DeleteMatchmakingConfigurationCommand(args);
@@ -2317,9 +2295,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public deleteScript(
     args: DeleteScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScriptCommandOutput) => void),
     cb?: (err: any, data?: DeleteScriptCommandOutput) => void
   ): Promise<DeleteScriptCommandOutput> | void {
     const command = new DeleteScriptCommand(args);
@@ -2528,9 +2504,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeAlias(
     args: DescribeAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAliasCommandOutput) => void),
     cb?: (err: any, data?: DescribeAliasCommandOutput) => void
   ): Promise<DescribeAliasCommandOutput> | void {
     const command = new DescribeAliasCommand(args);
@@ -2601,9 +2575,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeBuild(
     args: DescribeBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBuildCommandOutput) => void),
     cb?: (err: any, data?: DescribeBuildCommandOutput) => void
   ): Promise<DescribeBuildCommandOutput> | void {
     const command = new DescribeBuildCommand(args);
@@ -3951,31 +3923,19 @@ export class GameLift extends GameLiftClient {
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput>;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): void;
   public describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMatchmakingConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMatchmakingConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMatchmakingConfigurationsCommandOutput) => void
   ): Promise<DescribeMatchmakingConfigurationsCommandOutput> | void {
     const command = new DescribeMatchmakingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4439,9 +4399,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public describeScript(
     args: DescribeScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScriptCommandOutput) => void),
     cb?: (err: any, data?: DescribeScriptCommandOutput) => void
   ): Promise<DescribeScriptCommandOutput> | void {
     const command = new DescribeScriptCommand(args);
@@ -4510,14 +4468,8 @@ export class GameLift extends GameLiftClient {
     args: DescribeVpcPeeringAuthorizationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeVpcPeeringAuthorizationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeVpcPeeringAuthorizationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcPeeringAuthorizationsCommandOutput) => void
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> | void {
     const command = new DescribeVpcPeeringAuthorizationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4802,9 +4754,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
@@ -4880,9 +4830,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
@@ -4972,9 +4920,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listFleets(
     args: ListFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListFleetsCommandOutput) => void
   ): Promise<ListFleetsCommandOutput> | void {
     const command = new ListFleetsCommand(args);
@@ -5043,9 +4989,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public listScripts(
     args: ListScriptsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListScriptsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScriptsCommandOutput) => void),
     cb?: (err: any, data?: ListScriptsCommandOutput) => void
   ): Promise<ListScriptsCommandOutput> | void {
     const command = new ListScriptsCommand(args);
@@ -5283,9 +5227,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): Promise<PutScalingPolicyCommandOutput> | void {
     const command = new PutScalingPolicyCommand(args);
@@ -5427,9 +5369,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public resolveAlias(
     args: ResolveAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveAliasCommandOutput) => void),
     cb?: (err: any, data?: ResolveAliasCommandOutput) => void
   ): Promise<ResolveAliasCommandOutput> | void {
     const command = new ResolveAliasCommand(args);
@@ -6100,9 +6040,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public startMatchmaking(
     args: StartMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StartMatchmakingCommandOutput) => void
   ): Promise<StartMatchmakingCommandOutput> | void {
     const command = new StartMatchmakingCommand(args);
@@ -6248,9 +6186,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopFleetActions(
     args: StopFleetActionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopFleetActionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFleetActionsCommandOutput) => void),
     cb?: (err: any, data?: StopFleetActionsCommandOutput) => void
   ): Promise<StopFleetActionsCommandOutput> | void {
     const command = new StopFleetActionsCommand(args);
@@ -6420,9 +6356,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public stopMatchmaking(
     args: StopMatchmakingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMatchmakingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMatchmakingCommandOutput) => void),
     cb?: (err: any, data?: StopMatchmakingCommandOutput) => void
   ): Promise<StopMatchmakingCommandOutput> | void {
     const command = new StopMatchmakingCommand(args);
@@ -6516,9 +6450,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -6612,9 +6544,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -6682,9 +6612,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
@@ -6756,9 +6684,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateBuild(
     args: UpdateBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBuildCommandOutput) => void),
     cb?: (err: any, data?: UpdateBuildCommandOutput) => void
   ): Promise<UpdateBuildCommandOutput> | void {
     const command = new UpdateBuildCommand(args);
@@ -7337,10 +7263,7 @@ export class GameLift extends GameLiftClient {
     args: UpdateMatchmakingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateMatchmakingConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateMatchmakingConfigurationCommandOutput) => void
   ): Promise<UpdateMatchmakingConfigurationCommandOutput> | void {
     const command = new UpdateMatchmakingConfigurationCommand(args);
@@ -7535,9 +7458,7 @@ export class GameLift extends GameLiftClient {
   ): void;
   public updateScript(
     args: UpdateScriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateScriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateScriptCommandOutput) => void),
     cb?: (err: any, data?: UpdateScriptCommandOutput) => void
   ): Promise<UpdateScriptCommandOutput> | void {
     const command = new UpdateScriptCommand(args);

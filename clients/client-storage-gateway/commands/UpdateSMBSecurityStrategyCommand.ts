@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateSMBSecurityStrategyInput,
-  UpdateSMBSecurityStrategyOutput
-} from "../models/index";
+import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSMBSecurityStrategyCommand,
   serializeAws_json1_1UpdateSMBSecurityStrategyCommand
@@ -49,13 +46,8 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSMBSecurityStrategyCommandInput,
-    UpdateSMBSecurityStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSMBSecurityStrategyCommandInput, UpdateSMBSecurityStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  FunctionEventInvokeConfig,
-  GetFunctionEventInvokeConfigRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionEventInvokeConfig, GetFunctionEventInvokeConfigRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommand,
   serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand
@@ -49,13 +42,8 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFunctionEventInvokeConfigCommandInput,
-    GetFunctionEventInvokeConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFunctionEventInvokeConfigCommandInput, GetFunctionEventInvokeConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     input: GetFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

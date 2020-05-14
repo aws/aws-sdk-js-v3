@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeFleetPortSettingsInput,
-  DescribeFleetPortSettingsOutput
-} from "../models/index";
+import { DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFleetPortSettingsCommand,
   serializeAws_json1_1DescribeFleetPortSettingsCommand
@@ -49,13 +46,8 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetPortSettingsCommandInput,
-    DescribeFleetPortSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetPortSettingsCommandInput, DescribeFleetPortSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

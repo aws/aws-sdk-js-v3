@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateApnsVoipChannelRequest,
-  UpdateApnsVoipChannelResponse
-} from "../models/index";
+import { UpdateApnsVoipChannelRequest, UpdateApnsVoipChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApnsVoipChannelCommand,
   serializeAws_restJson1_1UpdateApnsVoipChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApnsVoipChannelCommandInput = UpdateApnsVoipChannelRequest;
-export type UpdateApnsVoipChannelCommandOutput = UpdateApnsVoipChannelResponse &
-  __MetadataBearer;
+export type UpdateApnsVoipChannelCommandOutput = UpdateApnsVoipChannelResponse & __MetadataBearer;
 
 export class UpdateApnsVoipChannelCommand extends $Command<
   UpdateApnsVoipChannelCommandInput,
@@ -49,13 +45,8 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApnsVoipChannelCommandInput,
-    UpdateApnsVoipChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApnsVoipChannelCommandInput, UpdateApnsVoipChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateApnsVoipChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApnsVoipChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

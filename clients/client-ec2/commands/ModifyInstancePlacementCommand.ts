@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyInstancePlacementRequest,
-  ModifyInstancePlacementResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyInstancePlacementCommandInput = ModifyInstancePlacementRequest;
-export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult &
-  __MetadataBearer;
+export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult & __MetadataBearer;
 
 export class ModifyInstancePlacementCommand extends $Command<
   ModifyInstancePlacementCommandInput,
@@ -49,13 +41,8 @@ export class ModifyInstancePlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyInstancePlacementCommandInput,
-    ModifyInstancePlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyInstancePlacementCommandInput, ModifyInstancePlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

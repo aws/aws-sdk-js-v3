@@ -49,13 +49,8 @@ export class ListLicenseConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListLicenseConfigurationsCommandInput,
-    ListLicenseConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListLicenseConfigurationsCommandInput, ListLicenseConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ListLicenseConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListLicenseConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListLicenseConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionResponse
-} from "../models/index";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteEventSubscriptionCommand,
   serializeAws_json1_1DeleteEventSubscriptionCommand
@@ -49,13 +46,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEventSubscriptionCommandInput,
-    DeleteEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEventSubscriptionCommandInput, DeleteEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteEventSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteEventSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  DeleteRealtimeEndpointInput,
-  DeleteRealtimeEndpointOutput
-} from "../models/index";
+import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRealtimeEndpointCommand,
   serializeAws_json1_1DeleteRealtimeEndpointCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRealtimeEndpointCommandInput = DeleteRealtimeEndpointInput;
-export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput &
-  __MetadataBearer;
+export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput & __MetadataBearer;
 
 export class DeleteRealtimeEndpointCommand extends $Command<
   DeleteRealtimeEndpointCommandInput,
@@ -49,13 +45,8 @@ export class DeleteRealtimeEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRealtimeEndpointCommandInput,
-    DeleteRealtimeEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRealtimeEndpointCommandInput, DeleteRealtimeEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

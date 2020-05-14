@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribeDocumentRequest,
-  DescribeDocumentResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribeDocumentRequest, DescribeDocumentResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDocumentCommand,
   serializeAws_json1_1DescribeDocumentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDocumentCommandInput = DescribeDocumentRequest;
-export type DescribeDocumentCommandOutput = DescribeDocumentResult &
-  __MetadataBearer;
+export type DescribeDocumentCommandOutput = DescribeDocumentResult & __MetadataBearer;
 
 export class DescribeDocumentCommand extends $Command<
   DescribeDocumentCommandInput,
@@ -50,9 +42,7 @@ export class DescribeDocumentCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDocumentCommandInput, DescribeDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

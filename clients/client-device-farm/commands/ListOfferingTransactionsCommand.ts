@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListOfferingTransactionsRequest,
-  ListOfferingTransactionsResult
-} from "../models/index";
+import { ListOfferingTransactionsRequest, ListOfferingTransactionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListOfferingTransactionsCommand,
   serializeAws_json1_1ListOfferingTransactionsCommand
@@ -49,13 +46,8 @@ export class ListOfferingTransactionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOfferingTransactionsCommandInput,
-    ListOfferingTransactionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOfferingTransactionsCommandInput, ListOfferingTransactionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListOfferingTransactionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOfferingTransactionsCommandOutput> {
-    return deserializeAws_json1_1ListOfferingTransactionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListOfferingTransactionsCommand(output, context);
   }
 
   // Start section: command_body_extra

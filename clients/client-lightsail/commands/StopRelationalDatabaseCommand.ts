@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  StopRelationalDatabaseRequest,
-  StopRelationalDatabaseResult
-} from "../models/index";
+import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1StopRelationalDatabaseCommand,
   serializeAws_json1_1StopRelationalDatabaseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopRelationalDatabaseCommandInput = StopRelationalDatabaseRequest;
-export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult &
-  __MetadataBearer;
+export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult & __MetadataBearer;
 
 export class StopRelationalDatabaseCommand extends $Command<
   StopRelationalDatabaseCommandInput,
@@ -49,13 +45,8 @@ export class StopRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopRelationalDatabaseCommandInput,
-    StopRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopRelationalDatabaseCommandInput, StopRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

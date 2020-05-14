@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ListGrantsResponse,
-  ListRetirableGrantsRequest
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ListGrantsResponse, ListRetirableGrantsRequest } from "../models/index";
 import {
   deserializeAws_json1_1ListRetirableGrantsCommand,
   serializeAws_json1_1ListRetirableGrantsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRetirableGrantsCommandInput = ListRetirableGrantsRequest;
-export type ListRetirableGrantsCommandOutput = ListGrantsResponse &
-  __MetadataBearer;
+export type ListRetirableGrantsCommandOutput = ListGrantsResponse & __MetadataBearer;
 
 export class ListRetirableGrantsCommand extends $Command<
   ListRetirableGrantsCommandInput,
@@ -49,13 +41,8 @@ export class ListRetirableGrantsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRetirableGrantsCommandInput,
-    ListRetirableGrantsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRetirableGrantsCommandInput, ListRetirableGrantsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

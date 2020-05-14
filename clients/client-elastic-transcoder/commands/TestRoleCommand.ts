@@ -46,9 +46,7 @@ export class TestRoleCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestRoleCommandInput, TestRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +61,7 @@ export class TestRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TestRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TestRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TestRoleCommand(input, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 import { DescribeAttackRequest, DescribeAttackResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAttackCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAttackCommandInput = DescribeAttackRequest;
-export type DescribeAttackCommandOutput = DescribeAttackResponse &
-  __MetadataBearer;
+export type DescribeAttackCommandOutput = DescribeAttackResponse & __MetadataBearer;
 
 export class DescribeAttackCommand extends $Command<
   DescribeAttackCommandInput,
@@ -47,9 +42,7 @@ export class DescribeAttackCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAttackCommandInput, DescribeAttackCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

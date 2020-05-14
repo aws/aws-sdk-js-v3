@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  StartExportLabelsTaskRunRequest,
-  StartExportLabelsTaskRunResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { StartExportLabelsTaskRunRequest, StartExportLabelsTaskRunResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartExportLabelsTaskRunCommand,
   serializeAws_json1_1StartExportLabelsTaskRunCommand
@@ -49,13 +42,8 @@ export class StartExportLabelsTaskRunCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartExportLabelsTaskRunCommandInput,
-    StartExportLabelsTaskRunCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartExportLabelsTaskRunCommandInput, StartExportLabelsTaskRunCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class StartExportLabelsTaskRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartExportLabelsTaskRunCommandOutput> {
-    return deserializeAws_json1_1StartExportLabelsTaskRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartExportLabelsTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

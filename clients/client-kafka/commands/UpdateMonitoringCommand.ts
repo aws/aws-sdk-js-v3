@@ -1,12 +1,5 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  UpdateMonitoringRequest,
-  UpdateMonitoringResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { UpdateMonitoringRequest, UpdateMonitoringResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateMonitoringCommand,
   serializeAws_restJson1_1UpdateMonitoringCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMonitoringCommandInput = UpdateMonitoringRequest;
-export type UpdateMonitoringCommandOutput = UpdateMonitoringResponse &
-  __MetadataBearer;
+export type UpdateMonitoringCommandOutput = UpdateMonitoringResponse & __MetadataBearer;
 
 export class UpdateMonitoringCommand extends $Command<
   UpdateMonitoringCommandInput,
@@ -50,9 +42,7 @@ export class UpdateMonitoringCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

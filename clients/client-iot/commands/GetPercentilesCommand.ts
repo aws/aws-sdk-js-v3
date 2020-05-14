@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetPercentilesRequest, GetPercentilesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPercentilesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPercentilesCommandInput = GetPercentilesRequest;
-export type GetPercentilesCommandOutput = GetPercentilesResponse &
-  __MetadataBearer;
+export type GetPercentilesCommandOutput = GetPercentilesResponse & __MetadataBearer;
 
 export class GetPercentilesCommand extends $Command<
   GetPercentilesCommandInput,
@@ -47,9 +42,7 @@ export class GetPercentilesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPercentilesCommandInput, GetPercentilesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

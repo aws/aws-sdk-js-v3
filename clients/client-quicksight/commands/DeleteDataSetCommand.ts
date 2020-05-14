@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDataSetCommandInput = DeleteDataSetRequest;
-export type DeleteDataSetCommandOutput = DeleteDataSetResponse &
-  __MetadataBearer;
+export type DeleteDataSetCommandOutput = DeleteDataSetResponse & __MetadataBearer;
 
 export class DeleteDataSetCommand extends $Command<
   DeleteDataSetCommandInput,
@@ -47,9 +46,7 @@ export class DeleteDataSetCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSetCommandInput, DeleteDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

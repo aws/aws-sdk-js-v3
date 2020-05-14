@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LicenseManagerClient";
-import {
-  GetLicenseConfigurationRequest,
-  GetLicenseConfigurationResponse
-} from "../models/index";
+import { GetLicenseConfigurationRequest, GetLicenseConfigurationResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLicenseConfigurationCommand,
   serializeAws_json1_1GetLicenseConfigurationCommand
@@ -49,13 +46,8 @@ export class GetLicenseConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLicenseConfigurationCommandInput,
-    GetLicenseConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLicenseConfigurationCommandInput, GetLicenseConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class GetLicenseConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLicenseConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

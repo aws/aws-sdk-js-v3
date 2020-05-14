@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MarketplaceCatalogClient";
-import {
-  CancelChangeSetRequest,
-  CancelChangeSetResponse
-} from "../models/index";
+import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelChangeSetCommand,
   serializeAws_restJson1_1CancelChangeSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelChangeSetCommandInput = CancelChangeSetRequest;
-export type CancelChangeSetCommandOutput = CancelChangeSetResponse &
-  __MetadataBearer;
+export type CancelChangeSetCommandOutput = CancelChangeSetResponse & __MetadataBearer;
 
 export class CancelChangeSetCommand extends $Command<
   CancelChangeSetCommandInput,
@@ -50,9 +46,7 @@ export class CancelChangeSetCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelChangeSetCommandInput, CancelChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

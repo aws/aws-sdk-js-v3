@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateEndpointsBatchRequest,
-  UpdateEndpointsBatchResponse
-} from "../models/index";
+import { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateEndpointsBatchCommand,
   serializeAws_restJson1_1UpdateEndpointsBatchCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEndpointsBatchCommandInput = UpdateEndpointsBatchRequest;
-export type UpdateEndpointsBatchCommandOutput = UpdateEndpointsBatchResponse &
-  __MetadataBearer;
+export type UpdateEndpointsBatchCommandOutput = UpdateEndpointsBatchResponse & __MetadataBearer;
 
 export class UpdateEndpointsBatchCommand extends $Command<
   UpdateEndpointsBatchCommandInput,
@@ -49,13 +45,8 @@ export class UpdateEndpointsBatchCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEndpointsBatchCommandInput,
-    UpdateEndpointsBatchCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEndpointsBatchCommandInput, UpdateEndpointsBatchCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateEndpointsBatchCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEndpointsBatchCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEndpointsBatchCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateEndpointsBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

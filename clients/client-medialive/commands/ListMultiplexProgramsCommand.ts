@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  ListMultiplexProgramsRequest,
-  ListMultiplexProgramsResponse
-} from "../models/index";
+import { ListMultiplexProgramsRequest, ListMultiplexProgramsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListMultiplexProgramsCommand,
   serializeAws_restJson1_1ListMultiplexProgramsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMultiplexProgramsCommandInput = ListMultiplexProgramsRequest;
-export type ListMultiplexProgramsCommandOutput = ListMultiplexProgramsResponse &
-  __MetadataBearer;
+export type ListMultiplexProgramsCommandOutput = ListMultiplexProgramsResponse & __MetadataBearer;
 
 export class ListMultiplexProgramsCommand extends $Command<
   ListMultiplexProgramsCommandInput,
@@ -49,13 +45,8 @@ export class ListMultiplexProgramsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListMultiplexProgramsCommandInput,
-    ListMultiplexProgramsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListMultiplexProgramsCommandInput, ListMultiplexProgramsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListMultiplexProgramsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMultiplexProgramsCommandOutput> {
-    return deserializeAws_restJson1_1ListMultiplexProgramsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListMultiplexProgramsCommand(output, context);
   }
 
   // Start section: command_body_extra

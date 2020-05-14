@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListInvitationsCommandInput = ListInvitationsInput;
-export type ListInvitationsCommandOutput = ListInvitationsOutput &
-  __MetadataBearer;
+export type ListInvitationsCommandOutput = ListInvitationsOutput & __MetadataBearer;
 
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,
@@ -47,9 +46,7 @@ export class ListInvitationsCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInvitationsCommandInput, ListInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

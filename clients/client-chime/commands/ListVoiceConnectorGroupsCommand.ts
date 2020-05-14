@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  ListVoiceConnectorGroupsRequest,
-  ListVoiceConnectorGroupsResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { ListVoiceConnectorGroupsRequest, ListVoiceConnectorGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListVoiceConnectorGroupsCommand,
   serializeAws_restJson1_1ListVoiceConnectorGroupsCommand
@@ -49,13 +42,8 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListVoiceConnectorGroupsCommandInput,
-    ListVoiceConnectorGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListVoiceConnectorGroupsCommandInput, ListVoiceConnectorGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListVoiceConnectorGroupsCommand extends $Command<
     input: ListVoiceConnectorGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListVoiceConnectorGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListVoiceConnectorGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVoiceConnectorGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListVoiceConnectorGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListVoiceConnectorGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

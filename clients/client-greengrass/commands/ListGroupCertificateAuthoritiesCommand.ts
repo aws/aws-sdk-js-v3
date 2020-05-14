@@ -53,9 +53,7 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     ListGroupCertificateAuthoritiesCommandInput,
     ListGroupCertificateAuthoritiesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     input: ListGroupCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

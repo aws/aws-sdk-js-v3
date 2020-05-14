@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  SendAnnouncementRequest,
-  SendAnnouncementResponse
-} from "../models/index";
+import { SendAnnouncementRequest, SendAnnouncementResponse } from "../models/index";
 import {
   deserializeAws_json1_1SendAnnouncementCommand,
   serializeAws_json1_1SendAnnouncementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendAnnouncementCommandInput = SendAnnouncementRequest;
-export type SendAnnouncementCommandOutput = SendAnnouncementResponse &
-  __MetadataBearer;
+export type SendAnnouncementCommandOutput = SendAnnouncementResponse & __MetadataBearer;
 
 export class SendAnnouncementCommand extends $Command<
   SendAnnouncementCommandInput,
@@ -50,9 +46,7 @@ export class SendAnnouncementCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendAnnouncementCommandInput, SendAnnouncementCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

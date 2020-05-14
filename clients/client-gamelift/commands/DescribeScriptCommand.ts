@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScriptCommandInput = DescribeScriptInput;
-export type DescribeScriptCommandOutput = DescribeScriptOutput &
-  __MetadataBearer;
+export type DescribeScriptCommandOutput = DescribeScriptOutput & __MetadataBearer;
 
 export class DescribeScriptCommand extends $Command<
   DescribeScriptCommandInput,
@@ -47,9 +46,7 @@ export class DescribeScriptCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeScriptCommandInput, DescribeScriptCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

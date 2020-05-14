@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  CreateHsmConfigurationMessage,
-  CreateHsmConfigurationResult
-} from "../models/index";
+import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/index";
 import {
   deserializeAws_queryCreateHsmConfigurationCommand,
   serializeAws_queryCreateHsmConfigurationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
-export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult &
-  __MetadataBearer;
+export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult & __MetadataBearer;
 
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,
@@ -49,13 +45,8 @@ export class CreateHsmConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateHsmConfigurationCommandInput,
-    CreateHsmConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateHsmConfigurationCommandInput, CreateHsmConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

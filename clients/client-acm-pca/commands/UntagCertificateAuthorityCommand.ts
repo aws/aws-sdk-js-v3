@@ -1,8 +1,4 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { UntagCertificateAuthorityRequest } from "../models/index";
 import {
   deserializeAws_json1_1UntagCertificateAuthorityCommand,
@@ -45,13 +41,8 @@ export class UntagCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UntagCertificateAuthorityCommandInput,
-    UntagCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UntagCertificateAuthorityCommandInput, UntagCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class UntagCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1UntagCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UntagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

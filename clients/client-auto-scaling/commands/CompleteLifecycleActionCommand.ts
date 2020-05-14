@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  CompleteLifecycleActionAnswer,
-  CompleteLifecycleActionType
-} from "../models/index";
+import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/index";
 import {
   deserializeAws_queryCompleteLifecycleActionCommand,
   serializeAws_queryCompleteLifecycleActionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CompleteLifecycleActionCommandInput = CompleteLifecycleActionType;
-export type CompleteLifecycleActionCommandOutput = CompleteLifecycleActionAnswer &
-  __MetadataBearer;
+export type CompleteLifecycleActionCommandOutput = CompleteLifecycleActionAnswer & __MetadataBearer;
 
 export class CompleteLifecycleActionCommand extends $Command<
   CompleteLifecycleActionCommandInput,
@@ -49,13 +45,8 @@ export class CompleteLifecycleActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteLifecycleActionCommandInput,
-    CompleteLifecycleActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteLifecycleActionCommandInput, CompleteLifecycleActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

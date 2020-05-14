@@ -494,9 +494,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
@@ -529,9 +527,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagKeys(
     args: GetTagKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagKeysCommandOutput) => void),
     cb?: (err: any, data?: GetTagKeysCommandOutput) => void
   ): Promise<GetTagKeysCommandOutput> | void {
     const command = new GetTagKeysCommand(args);
@@ -565,9 +561,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public getTagValues(
     args: GetTagValuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagValuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagValuesCommandOutput) => void),
     cb?: (err: any, data?: GetTagValuesCommandOutput) => void
   ): Promise<GetTagValuesCommandOutput> | void {
     const command = new GetTagValuesCommand(args);
@@ -663,9 +657,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public tagResources(
     args: TagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourcesCommandOutput) => void),
     cb?: (err: any, data?: TagResourcesCommandOutput) => void
   ): Promise<TagResourcesCommandOutput> | void {
     const command = new TagResourcesCommand(args);
@@ -712,9 +704,7 @@ export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient {
   ): void;
   public untagResources(
     args: UntagResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourcesCommandOutput) => void),
     cb?: (err: any, data?: UntagResourcesCommandOutput) => void
   ): Promise<UntagResourcesCommandOutput> | void {
     const command = new UntagResourcesCommand(args);

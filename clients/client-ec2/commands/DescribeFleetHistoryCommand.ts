@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeFleetHistoryRequest,
-  DescribeFleetHistoryResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeFleetHistoryCommand,
   serializeAws_ec2DescribeFleetHistoryCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFleetHistoryCommandInput = DescribeFleetHistoryRequest;
-export type DescribeFleetHistoryCommandOutput = DescribeFleetHistoryResult &
-  __MetadataBearer;
+export type DescribeFleetHistoryCommandOutput = DescribeFleetHistoryResult & __MetadataBearer;
 
 export class DescribeFleetHistoryCommand extends $Command<
   DescribeFleetHistoryCommandInput,
@@ -49,13 +41,8 @@ export class DescribeFleetHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetHistoryCommandInput,
-    DescribeFleetHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetHistoryCommandInput, DescribeFleetHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

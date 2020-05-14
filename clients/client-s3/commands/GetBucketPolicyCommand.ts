@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketPolicyCommand,
@@ -26,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketPolicyCommandInput = GetBucketPolicyRequest;
-export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput &
-  __MetadataBearer;
+export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput & __MetadataBearer;
 
 export class GetBucketPolicyCommand extends $Command<
   GetBucketPolicyCommandInput,
@@ -48,9 +43,7 @@ export class GetBucketPolicyCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

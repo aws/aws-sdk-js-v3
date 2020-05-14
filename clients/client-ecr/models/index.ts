@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -53,8 +50,7 @@ export interface AuthorizationData {
 }
 
 export namespace AuthorizationData {
-  export const isa = (o: any): o is AuthorizationData =>
-    __isa(o, "AuthorizationData");
+  export const isa = (o: any): o is AuthorizationData => __isa(o, "AuthorizationData");
 }
 
 export interface BatchCheckLayerAvailabilityRequest {
@@ -126,8 +122,7 @@ export interface BatchDeleteImageRequest {
 }
 
 export namespace BatchDeleteImageRequest {
-  export const isa = (o: any): o is BatchDeleteImageRequest =>
-    __isa(o, "BatchDeleteImageRequest");
+  export const isa = (o: any): o is BatchDeleteImageRequest => __isa(o, "BatchDeleteImageRequest");
 }
 
 export interface BatchDeleteImageResponse {
@@ -179,8 +174,7 @@ export interface BatchGetImageRequest {
 }
 
 export namespace BatchGetImageRequest {
-  export const isa = (o: any): o is BatchGetImageRequest =>
-    __isa(o, "BatchGetImageRequest");
+  export const isa = (o: any): o is BatchGetImageRequest => __isa(o, "BatchGetImageRequest");
 }
 
 export interface BatchGetImageResponse {
@@ -197,8 +191,7 @@ export interface BatchGetImageResponse {
 }
 
 export namespace BatchGetImageResponse {
-  export const isa = (o: any): o is BatchGetImageResponse =>
-    __isa(o, "BatchGetImageResponse");
+  export const isa = (o: any): o is BatchGetImageResponse => __isa(o, "BatchGetImageResponse");
 }
 
 export interface CompleteLayerUploadRequest {
@@ -293,8 +286,7 @@ export interface CreateRepositoryRequest {
 }
 
 export namespace CreateRepositoryRequest {
-  export const isa = (o: any): o is CreateRepositoryRequest =>
-    __isa(o, "CreateRepositoryRequest");
+  export const isa = (o: any): o is CreateRepositoryRequest => __isa(o, "CreateRepositoryRequest");
 }
 
 export interface CreateRepositoryResponse {
@@ -420,8 +412,7 @@ export interface DeleteRepositoryRequest {
 }
 
 export namespace DeleteRepositoryRequest {
-  export const isa = (o: any): o is DeleteRepositoryRequest =>
-    __isa(o, "DeleteRepositoryRequest");
+  export const isa = (o: any): o is DeleteRepositoryRequest => __isa(o, "DeleteRepositoryRequest");
 }
 
 export interface DeleteRepositoryResponse {
@@ -541,8 +532,7 @@ export interface DescribeImagesFilter {
 }
 
 export namespace DescribeImagesFilter {
-  export const isa = (o: any): o is DescribeImagesFilter =>
-    __isa(o, "DescribeImagesFilter");
+  export const isa = (o: any): o is DescribeImagesFilter => __isa(o, "DescribeImagesFilter");
 }
 
 export interface DescribeImagesRequest {
@@ -594,8 +584,7 @@ export interface DescribeImagesRequest {
 }
 
 export namespace DescribeImagesRequest {
-  export const isa = (o: any): o is DescribeImagesRequest =>
-    __isa(o, "DescribeImagesRequest");
+  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResponse {
@@ -617,8 +606,7 @@ export interface DescribeImagesResponse {
 }
 
 export namespace DescribeImagesResponse {
-  export const isa = (o: any): o is DescribeImagesResponse =>
-    __isa(o, "DescribeImagesResponse");
+  export const isa = (o: any): o is DescribeImagesResponse => __isa(o, "DescribeImagesResponse");
 }
 
 export interface DescribeRepositoriesRequest {
@@ -694,9 +682,7 @@ export namespace DescribeRepositoriesResponse {
 /**
  * <p>The specified layer upload does not contain any layer parts.</p>
  */
-export interface EmptyUploadException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EmptyUploadException extends __SmithyException, $MetadataBearer {
   name: "EmptyUploadException";
   $fault: "client";
   /**
@@ -706,8 +692,7 @@ export interface EmptyUploadException
 }
 
 export namespace EmptyUploadException {
-  export const isa = (o: any): o is EmptyUploadException =>
-    __isa(o, "EmptyUploadException");
+  export const isa = (o: any): o is EmptyUploadException => __isa(o, "EmptyUploadException");
 }
 
 export enum FindingSeverity {
@@ -1018,9 +1003,7 @@ export enum ImageActionType {
  * <p>The specified image has already been pushed, and there were no changes to the manifest
  *             or image tag after the last push.</p>
  */
-export interface ImageAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ImageAlreadyExistsException";
   $fault: "client";
   /**
@@ -1142,24 +1125,20 @@ export interface ImageIdentifier {
 }
 
 export namespace ImageIdentifier {
-  export const isa = (o: any): o is ImageIdentifier =>
-    __isa(o, "ImageIdentifier");
+  export const isa = (o: any): o is ImageIdentifier => __isa(o, "ImageIdentifier");
 }
 
 /**
  * <p>The image requested does not exist in the specified repository.</p>
  */
-export interface ImageNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ImageNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ImageNotFoundException {
-  export const isa = (o: any): o is ImageNotFoundException =>
-    __isa(o, "ImageNotFoundException");
+  export const isa = (o: any): o is ImageNotFoundException => __isa(o, "ImageNotFoundException");
 }
 
 /**
@@ -1194,8 +1173,7 @@ export interface ImageScanFinding {
 }
 
 export namespace ImageScanFinding {
-  export const isa = (o: any): o is ImageScanFinding =>
-    __isa(o, "ImageScanFinding");
+  export const isa = (o: any): o is ImageScanFinding => __isa(o, "ImageScanFinding");
 }
 
 /**
@@ -1225,8 +1203,7 @@ export interface ImageScanFindings {
 }
 
 export namespace ImageScanFindings {
-  export const isa = (o: any): o is ImageScanFindings =>
-    __isa(o, "ImageScanFindings");
+  export const isa = (o: any): o is ImageScanFindings => __isa(o, "ImageScanFindings");
 }
 
 /**
@@ -1272,8 +1249,7 @@ export interface ImageScanStatus {
 }
 
 export namespace ImageScanStatus {
-  export const isa = (o: any): o is ImageScanStatus =>
-    __isa(o, "ImageScanStatus");
+  export const isa = (o: any): o is ImageScanStatus => __isa(o, "ImageScanStatus");
 }
 
 /**
@@ -1299,9 +1275,7 @@ export namespace ImageScanningConfiguration {
  * <p>The specified image is tagged with a tag that already exists. The repository is
  *             configured for tag immutability.</p>
  */
-export interface ImageTagAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageTagAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ImageTagAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1359,9 +1333,7 @@ export namespace InitiateLayerUploadResponse {
  * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
  *             not match the digest specified.</p>
  */
-export interface InvalidLayerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLayerException extends __SmithyException, $MetadataBearer {
   name: "InvalidLayerException";
   $fault: "client";
   /**
@@ -1371,17 +1343,14 @@ export interface InvalidLayerException
 }
 
 export namespace InvalidLayerException {
-  export const isa = (o: any): o is InvalidLayerException =>
-    __isa(o, "InvalidLayerException");
+  export const isa = (o: any): o is InvalidLayerException => __isa(o, "InvalidLayerException");
 }
 
 /**
  * <p>The layer part size is not valid, or the first byte specified is not consecutive to
  *             the last byte of a previous layer part upload.</p>
  */
-export interface InvalidLayerPartException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLayerPartException extends __SmithyException, $MetadataBearer {
   name: "InvalidLayerPartException";
   $fault: "client";
   /**
@@ -1420,9 +1389,7 @@ export namespace InvalidLayerPartException {
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1440,9 +1407,7 @@ export namespace InvalidParameterException {
  * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
  *             a maximum length of 256 characters.</p>
  */
-export interface InvalidTagParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagParameterException";
   $fault: "client";
   message?: string;
@@ -1488,9 +1453,7 @@ export namespace Layer {
 /**
  * <p>The image layer already exists in the associated repository.</p>
  */
-export interface LayerAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "LayerAlreadyExistsException";
   $fault: "client";
   /**
@@ -1543,9 +1506,7 @@ export enum LayerFailureCode {
  * <p>The specified layer is not available because it is not associated with an image.
  *             Unassociated image layers may be cleaned up at any time.</p>
  */
-export interface LayerInaccessibleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerInaccessibleException extends __SmithyException, $MetadataBearer {
   name: "LayerInaccessibleException";
   $fault: "client";
   /**
@@ -1562,9 +1523,7 @@ export namespace LayerInaccessibleException {
 /**
  * <p>Layer parts must be at least 5 MiB in size.</p>
  */
-export interface LayerPartTooSmallException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayerPartTooSmallException extends __SmithyException, $MetadataBearer {
   name: "LayerPartTooSmallException";
   $fault: "client";
   /**
@@ -1582,9 +1541,7 @@ export namespace LayerPartTooSmallException {
  * <p>The specified layers could not be found, or the specified layer is not valid for this
  *             repository.</p>
  */
-export interface LayersNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LayersNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LayersNotFoundException";
   $fault: "client";
   /**
@@ -1594,17 +1551,14 @@ export interface LayersNotFoundException
 }
 
 export namespace LayersNotFoundException {
-  export const isa = (o: any): o is LayersNotFoundException =>
-    __isa(o, "LayersNotFoundException");
+  export const isa = (o: any): o is LayersNotFoundException => __isa(o, "LayersNotFoundException");
 }
 
 /**
  * <p>The lifecycle policy could not be found, and no policy is set to the
  *             repository.</p>
  */
-export interface LifecyclePolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecyclePolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "LifecyclePolicyNotFoundException";
   $fault: "client";
   message?: string;
@@ -1745,9 +1699,7 @@ export namespace LifecyclePolicyRuleAction {
  *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html">Amazon ECR Default Service
  *                 Limits</a> in the Amazon Elastic Container Registry User Guide.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -1757,8 +1709,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1775,8 +1726,7 @@ export interface ListImagesFilter {
 }
 
 export namespace ListImagesFilter {
-  export const isa = (o: any): o is ListImagesFilter =>
-    __isa(o, "ListImagesFilter");
+  export const isa = (o: any): o is ListImagesFilter => __isa(o, "ListImagesFilter");
 }
 
 export interface ListImagesRequest {
@@ -1825,8 +1775,7 @@ export interface ListImagesRequest {
 }
 
 export namespace ListImagesRequest {
-  export const isa = (o: any): o is ListImagesRequest =>
-    __isa(o, "ListImagesRequest");
+  export const isa = (o: any): o is ListImagesRequest => __isa(o, "ListImagesRequest");
 }
 
 export interface ListImagesResponse {
@@ -1847,8 +1796,7 @@ export interface ListImagesResponse {
 }
 
 export namespace ListImagesResponse {
-  export const isa = (o: any): o is ListImagesResponse =>
-    __isa(o, "ListImagesResponse");
+  export const isa = (o: any): o is ListImagesResponse => __isa(o, "ListImagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1904,8 +1852,7 @@ export interface PutImageRequest {
 }
 
 export namespace PutImageRequest {
-  export const isa = (o: any): o is PutImageRequest =>
-    __isa(o, "PutImageRequest");
+  export const isa = (o: any): o is PutImageRequest => __isa(o, "PutImageRequest");
 }
 
 export interface PutImageResponse {
@@ -1917,8 +1864,7 @@ export interface PutImageResponse {
 }
 
 export namespace PutImageResponse {
-  export const isa = (o: any): o is PutImageResponse =>
-    __isa(o, "PutImageResponse");
+  export const isa = (o: any): o is PutImageResponse => __isa(o, "PutImageResponse");
 }
 
 export interface PutImageScanningConfigurationRequest {
@@ -2121,9 +2067,7 @@ export namespace Repository {
 /**
  * <p>The specified repository already exists in the specified registry.</p>
  */
-export interface RepositoryAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "RepositoryAlreadyExistsException";
   $fault: "client";
   /**
@@ -2141,9 +2085,7 @@ export namespace RepositoryAlreadyExistsException {
  * <p>The specified repository contains images. To delete a repository that contains images,
  *             you must force the deletion with the <code>force</code> parameter.</p>
  */
-export interface RepositoryNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNotEmptyException";
   $fault: "client";
   /**
@@ -2161,9 +2103,7 @@ export namespace RepositoryNotEmptyException {
  * <p>The specified repository could not be found. Check the spelling of the specified
  *             repository and ensure that you are performing operations on the correct registry.</p>
  */
-export interface RepositoryNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotFoundException extends __SmithyException, $MetadataBearer {
   name: "RepositoryNotFoundException";
   $fault: "client";
   /**
@@ -2181,9 +2121,7 @@ export namespace RepositoryNotFoundException {
  * <p>The specified repository and registry combination does not have an associated
  *             repository policy.</p>
  */
-export interface RepositoryPolicyNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RepositoryPolicyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "RepositoryPolicyNotFoundException";
   $fault: "client";
   /**
@@ -2201,17 +2139,14 @@ export namespace RepositoryPolicyNotFoundException {
  * <p>The specified image scan could not be found. Ensure that image scanning is enabled on
  *             the repository and try again.</p>
  */
-export interface ScanNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScanNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ScanNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ScanNotFoundException {
-  export const isa = (o: any): o is ScanNotFoundException =>
-    __isa(o, "ScanNotFoundException");
+  export const isa = (o: any): o is ScanNotFoundException => __isa(o, "ScanNotFoundException");
 }
 
 export enum ScanStatus {
@@ -2233,8 +2168,7 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServerException {
-  export const isa = (o: any): o is ServerException =>
-    __isa(o, "ServerException");
+  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 export interface SetRepositoryPolicyRequest {
@@ -2314,8 +2248,7 @@ export interface StartImageScanRequest {
 }
 
 export namespace StartImageScanRequest {
-  export const isa = (o: any): o is StartImageScanRequest =>
-    __isa(o, "StartImageScanRequest");
+  export const isa = (o: any): o is StartImageScanRequest => __isa(o, "StartImageScanRequest");
 }
 
 export interface StartImageScanResponse {
@@ -2342,8 +2275,7 @@ export interface StartImageScanResponse {
 }
 
 export namespace StartImageScanResponse {
-  export const isa = (o: any): o is StartImageScanResponse =>
-    __isa(o, "StartImageScanResponse");
+  export const isa = (o: any): o is StartImageScanResponse => __isa(o, "StartImageScanResponse");
 }
 
 export interface StartLifecyclePolicyPreviewRequest {
@@ -2441,8 +2373,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2450,8 +2381,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TagStatus {
@@ -2464,17 +2394,14 @@ export enum TagStatus {
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
@@ -2492,8 +2419,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2501,8 +2427,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UploadLayerPartRequest {
@@ -2541,8 +2466,7 @@ export interface UploadLayerPartRequest {
 }
 
 export namespace UploadLayerPartRequest {
-  export const isa = (o: any): o is UploadLayerPartRequest =>
-    __isa(o, "UploadLayerPartRequest");
+  export const isa = (o: any): o is UploadLayerPartRequest => __isa(o, "UploadLayerPartRequest");
 }
 
 export interface UploadLayerPartResponse {
@@ -2569,17 +2493,14 @@ export interface UploadLayerPartResponse {
 }
 
 export namespace UploadLayerPartResponse {
-  export const isa = (o: any): o is UploadLayerPartResponse =>
-    __isa(o, "UploadLayerPartResponse");
+  export const isa = (o: any): o is UploadLayerPartResponse => __isa(o, "UploadLayerPartResponse");
 }
 
 /**
  * <p>The upload could not be found, or the specified upload id is not valid for this
  *             repository.</p>
  */
-export interface UploadNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UploadNotFoundException extends __SmithyException, $MetadataBearer {
   name: "UploadNotFoundException";
   $fault: "client";
   /**
@@ -2589,6 +2510,5 @@ export interface UploadNotFoundException
 }
 
 export namespace UploadNotFoundException {
-  export const isa = (o: any): o is UploadNotFoundException =>
-    __isa(o, "UploadNotFoundException");
+  export const isa = (o: any): o is UploadNotFoundException => __isa(o, "UploadNotFoundException");
 }

@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOTAUpdatesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOTAUpdatesCommandInput = ListOTAUpdatesRequest;
-export type ListOTAUpdatesCommandOutput = ListOTAUpdatesResponse &
-  __MetadataBearer;
+export type ListOTAUpdatesCommandOutput = ListOTAUpdatesResponse & __MetadataBearer;
 
 export class ListOTAUpdatesCommand extends $Command<
   ListOTAUpdatesCommandInput,
@@ -47,9 +42,7 @@ export class ListOTAUpdatesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOTAUpdatesCommandInput, ListOTAUpdatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

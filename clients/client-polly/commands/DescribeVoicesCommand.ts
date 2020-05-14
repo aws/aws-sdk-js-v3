@@ -1,8 +1,4 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeVoicesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVoicesCommandInput = DescribeVoicesInput;
-export type DescribeVoicesCommandOutput = DescribeVoicesOutput &
-  __MetadataBearer;
+export type DescribeVoicesCommandOutput = DescribeVoicesOutput & __MetadataBearer;
 
 export class DescribeVoicesCommand extends $Command<
   DescribeVoicesCommandInput,
@@ -47,9 +42,7 @@ export class DescribeVoicesCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVoicesCommandInput, DescribeVoicesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

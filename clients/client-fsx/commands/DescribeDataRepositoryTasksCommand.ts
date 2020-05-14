@@ -1,8 +1,4 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
   DescribeDataRepositoryTasksRequest,
   DescribeDataRepositoryTasksResponse
@@ -49,13 +45,8 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDataRepositoryTasksCommandInput,
-    DescribeDataRepositoryTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDataRepositoryTasksCommandInput, DescribeDataRepositoryTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     input: DescribeDataRepositoryTasksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataRepositoryTasksCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDataRepositoryTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataRepositoryTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeDataRepositoryTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDataRepositoryTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

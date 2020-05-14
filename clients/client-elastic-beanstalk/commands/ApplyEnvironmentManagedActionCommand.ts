@@ -53,9 +53,7 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     ApplyEnvironmentManagedActionCommandInput,
     ApplyEnvironmentManagedActionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     input: ApplyEnvironmentManagedActionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryApplyEnvironmentManagedActionCommand(
-      input,
-      context
-    );
+    return serializeAws_queryApplyEnvironmentManagedActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> {
-    return deserializeAws_queryApplyEnvironmentManagedActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryApplyEnvironmentManagedActionCommand(output, context);
   }
 
   // Start section: command_body_extra

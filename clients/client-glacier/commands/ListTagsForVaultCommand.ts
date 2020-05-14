@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsForVaultCommandInput = ListTagsForVaultInput;
-export type ListTagsForVaultCommandOutput = ListTagsForVaultOutput &
-  __MetadataBearer;
+export type ListTagsForVaultCommandOutput = ListTagsForVaultOutput & __MetadataBearer;
 
 export class ListTagsForVaultCommand extends $Command<
   ListTagsForVaultCommandInput,
@@ -47,9 +46,7 @@ export class ListTagsForVaultCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsForVaultCommandInput, ListTagsForVaultCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

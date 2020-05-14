@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  UpdateStackInstancesInput,
-  UpdateStackInstancesOutput
-} from "../models/index";
+import { UpdateStackInstancesInput, UpdateStackInstancesOutput } from "../models/index";
 import {
   deserializeAws_queryUpdateStackInstancesCommand,
   serializeAws_queryUpdateStackInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateStackInstancesCommandInput = UpdateStackInstancesInput;
-export type UpdateStackInstancesCommandOutput = UpdateStackInstancesOutput &
-  __MetadataBearer;
+export type UpdateStackInstancesCommandOutput = UpdateStackInstancesOutput & __MetadataBearer;
 
 export class UpdateStackInstancesCommand extends $Command<
   UpdateStackInstancesCommandInput,
@@ -49,13 +45,8 @@ export class UpdateStackInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateStackInstancesCommandInput,
-    UpdateStackInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateStackInstancesCommandInput, UpdateStackInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

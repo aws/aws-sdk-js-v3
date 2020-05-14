@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  SendAutomationSignalRequest,
-  SendAutomationSignalResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/index";
 import {
   deserializeAws_json1_1SendAutomationSignalCommand,
   serializeAws_json1_1SendAutomationSignalCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendAutomationSignalCommandInput = SendAutomationSignalRequest;
-export type SendAutomationSignalCommandOutput = SendAutomationSignalResult &
-  __MetadataBearer;
+export type SendAutomationSignalCommandOutput = SendAutomationSignalResult & __MetadataBearer;
 
 export class SendAutomationSignalCommand extends $Command<
   SendAutomationSignalCommandInput,
@@ -49,13 +41,8 @@ export class SendAutomationSignalCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendAutomationSignalCommandInput,
-    SendAutomationSignalCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendAutomationSignalCommandInput, SendAutomationSignalCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

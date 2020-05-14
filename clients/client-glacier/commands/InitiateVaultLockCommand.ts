@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlacierClient";
-import {
-  InitiateVaultLockInput,
-  InitiateVaultLockOutput
-} from "../models/index";
+import { InitiateVaultLockInput, InitiateVaultLockOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1InitiateVaultLockCommand,
   serializeAws_restJson1_1InitiateVaultLockCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InitiateVaultLockCommandInput = InitiateVaultLockInput;
-export type InitiateVaultLockCommandOutput = InitiateVaultLockOutput &
-  __MetadataBearer;
+export type InitiateVaultLockCommandOutput = InitiateVaultLockOutput & __MetadataBearer;
 
 export class InitiateVaultLockCommand extends $Command<
   InitiateVaultLockCommandInput,
@@ -50,9 +46,7 @@ export class InitiateVaultLockCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InitiateVaultLockCommandInput, InitiateVaultLockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

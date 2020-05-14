@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateServiceCommandInput = CreateServiceRequest;
-export type CreateServiceCommandOutput = CreateServiceResponse &
-  __MetadataBearer;
+export type CreateServiceCommandOutput = CreateServiceResponse & __MetadataBearer;
 
 export class CreateServiceCommand extends $Command<
   CreateServiceCommandInput,
@@ -47,9 +46,7 @@ export class CreateServiceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateServiceCommandInput, CreateServiceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type QueryForecastCommandInput = QueryForecastRequest;
-export type QueryForecastCommandOutput = QueryForecastResponse &
-  __MetadataBearer;
+export type QueryForecastCommandOutput = QueryForecastResponse & __MetadataBearer;
 
 export class QueryForecastCommand extends $Command<
   QueryForecastCommandInput,
@@ -47,9 +46,7 @@ export class QueryForecastCommand extends $Command<
     configuration: forecastqueryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryForecastCommandInput, QueryForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

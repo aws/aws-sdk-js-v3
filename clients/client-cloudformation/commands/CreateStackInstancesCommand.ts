@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  CreateStackInstancesInput,
-  CreateStackInstancesOutput
-} from "../models/index";
+import { CreateStackInstancesInput, CreateStackInstancesOutput } from "../models/index";
 import {
   deserializeAws_queryCreateStackInstancesCommand,
   serializeAws_queryCreateStackInstancesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateStackInstancesCommandInput = CreateStackInstancesInput;
-export type CreateStackInstancesCommandOutput = CreateStackInstancesOutput &
-  __MetadataBearer;
+export type CreateStackInstancesCommandOutput = CreateStackInstancesOutput & __MetadataBearer;
 
 export class CreateStackInstancesCommand extends $Command<
   CreateStackInstancesCommandInput,
@@ -49,13 +45,8 @@ export class CreateStackInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateStackInstancesCommandInput,
-    CreateStackInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateStackInstancesCommandInput, CreateStackInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  CreateResourceDataSyncRequest,
-  CreateResourceDataSyncResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateResourceDataSyncCommand,
   serializeAws_json1_1CreateResourceDataSyncCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResourceDataSyncCommandInput = CreateResourceDataSyncRequest;
-export type CreateResourceDataSyncCommandOutput = CreateResourceDataSyncResult &
-  __MetadataBearer;
+export type CreateResourceDataSyncCommandOutput = CreateResourceDataSyncResult & __MetadataBearer;
 
 export class CreateResourceDataSyncCommand extends $Command<
   CreateResourceDataSyncCommandInput,
@@ -49,13 +41,8 @@ export class CreateResourceDataSyncCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateResourceDataSyncCommandInput,
-    CreateResourceDataSyncCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateResourceDataSyncCommandInput, CreateResourceDataSyncCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

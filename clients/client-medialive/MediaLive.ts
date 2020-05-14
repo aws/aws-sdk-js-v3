@@ -273,9 +273,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createChannel(
     args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
@@ -308,9 +306,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createInput(
     args: CreateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInputCommandOutput) => void),
     cb?: (err: any, data?: CreateInputCommandOutput) => void
   ): Promise<CreateInputCommandOutput> | void {
     const command = new CreateInputCommand(args);
@@ -378,9 +374,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createMultiplex(
     args: CreateMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMultiplexCommandOutput) => void),
     cb?: (err: any, data?: CreateMultiplexCommandOutput) => void
   ): Promise<CreateMultiplexCommandOutput> | void {
     const command = new CreateMultiplexCommand(args);
@@ -448,9 +442,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -483,9 +475,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteChannel(
     args: DeleteChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteChannelCommandOutput) => void
   ): Promise<DeleteChannelCommandOutput> | void {
     const command = new DeleteChannelCommand(args);
@@ -518,9 +508,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteInput(
     args: DeleteInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInputCommandOutput) => void),
     cb?: (err: any, data?: DeleteInputCommandOutput) => void
   ): Promise<DeleteInputCommandOutput> | void {
     const command = new DeleteInputCommand(args);
@@ -588,9 +576,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteMultiplex(
     args: DeleteMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMultiplexCommandOutput) => void),
     cb?: (err: any, data?: DeleteMultiplexCommandOutput) => void
   ): Promise<DeleteMultiplexCommandOutput> | void {
     const command = new DeleteMultiplexCommand(args);
@@ -693,9 +679,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteSchedule(
     args: DeleteScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteScheduleCommandOutput) => void
   ): Promise<DeleteScheduleCommandOutput> | void {
     const command = new DeleteScheduleCommand(args);
@@ -728,9 +712,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -763,9 +745,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeChannel(
     args: DescribeChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
@@ -798,9 +778,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeInput(
     args: DescribeInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputCommandOutput) => void),
     cb?: (err: any, data?: DescribeInputCommandOutput) => void
   ): Promise<DescribeInputCommandOutput> | void {
     const command = new DescribeInputCommand(args);
@@ -938,9 +916,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeOffering(
     args: DescribeOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOfferingCommandOutput) => void),
     cb?: (err: any, data?: DescribeOfferingCommandOutput) => void
   ): Promise<DescribeOfferingCommandOutput> | void {
     const command = new DescribeOfferingCommand(args);
@@ -1008,9 +984,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public describeSchedule(
     args: DescribeScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeScheduleCommandOutput) => void),
     cb?: (err: any, data?: DescribeScheduleCommandOutput) => void
   ): Promise<DescribeScheduleCommandOutput> | void {
     const command = new DescribeScheduleCommand(args);
@@ -1043,9 +1017,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listChannels(
     args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
@@ -1113,9 +1085,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listInputs(
     args: ListInputsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputsCommandOutput) => void),
     cb?: (err: any, data?: ListInputsCommandOutput) => void
   ): Promise<ListInputsCommandOutput> | void {
     const command = new ListInputsCommand(args);
@@ -1183,9 +1153,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listMultiplexes(
     args: ListMultiplexesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMultiplexesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMultiplexesCommandOutput) => void),
     cb?: (err: any, data?: ListMultiplexesCommandOutput) => void
   ): Promise<ListMultiplexesCommandOutput> | void {
     const command = new ListMultiplexesCommand(args);
@@ -1218,9 +1186,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listOfferings(
     args: ListOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOfferingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingsCommandOutput) => void),
     cb?: (err: any, data?: ListOfferingsCommandOutput) => void
   ): Promise<ListOfferingsCommandOutput> | void {
     const command = new ListOfferingsCommand(args);
@@ -1253,9 +1219,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public listReservations(
     args: ListReservationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReservationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReservationsCommandOutput) => void),
     cb?: (err: any, data?: ListReservationsCommandOutput) => void
   ): Promise<ListReservationsCommandOutput> | void {
     const command = new ListReservationsCommand(args);
@@ -1323,9 +1287,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
     cb?: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): Promise<PurchaseOfferingCommandOutput> | void {
     const command = new PurchaseOfferingCommand(args);
@@ -1358,9 +1320,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public startChannel(
     args: StartChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChannelCommandOutput) => void),
     cb?: (err: any, data?: StartChannelCommandOutput) => void
   ): Promise<StartChannelCommandOutput> | void {
     const command = new StartChannelCommand(args);
@@ -1393,9 +1353,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public startMultiplex(
     args: StartMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMultiplexCommandOutput) => void),
     cb?: (err: any, data?: StartMultiplexCommandOutput) => void
   ): Promise<StartMultiplexCommandOutput> | void {
     const command = new StartMultiplexCommand(args);
@@ -1428,9 +1386,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public stopChannel(
     args: StopChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopChannelCommandOutput) => void),
     cb?: (err: any, data?: StopChannelCommandOutput) => void
   ): Promise<StopChannelCommandOutput> | void {
     const command = new StopChannelCommand(args);
@@ -1463,9 +1419,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public stopMultiplex(
     args: StopMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMultiplexCommandOutput) => void),
     cb?: (err: any, data?: StopMultiplexCommandOutput) => void
   ): Promise<StopMultiplexCommandOutput> | void {
     const command = new StopMultiplexCommand(args);
@@ -1498,9 +1452,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateChannel(
     args: UpdateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
@@ -1568,9 +1520,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateInput(
     args: UpdateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputCommandOutput) => void),
     cb?: (err: any, data?: UpdateInputCommandOutput) => void
   ): Promise<UpdateInputCommandOutput> | void {
     const command = new UpdateInputCommand(args);
@@ -1638,9 +1588,7 @@ export class MediaLive extends MediaLiveClient {
   ): void;
   public updateMultiplex(
     args: UpdateMultiplexCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMultiplexCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMultiplexCommandOutput) => void),
     cb?: (err: any, data?: UpdateMultiplexCommandOutput) => void
   ): Promise<UpdateMultiplexCommandOutput> | void {
     const command = new UpdateMultiplexCommand(args);

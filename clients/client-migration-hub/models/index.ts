@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -44,8 +38,7 @@ export interface ApplicationState {
 }
 
 export namespace ApplicationState {
-  export const isa = (o: any): o is ApplicationState =>
-    __isa(o, "ApplicationState");
+  export const isa = (o: any): o is ApplicationState => __isa(o, "ApplicationState");
 }
 
 export enum ApplicationStatus {
@@ -184,8 +177,7 @@ export interface CreatedArtifact {
 }
 
 export namespace CreatedArtifact {
-  export const isa = (o: any): o is CreatedArtifact =>
-    __isa(o, "CreatedArtifact");
+  export const isa = (o: any): o is CreatedArtifact => __isa(o, "CreatedArtifact");
 }
 
 export interface DeleteProgressUpdateStreamRequest {
@@ -384,8 +376,7 @@ export interface DiscoveredResource {
 }
 
 export namespace DiscoveredResource {
-  export const isa = (o: any): o is DiscoveredResource =>
-    __isa(o, "DiscoveredResource");
+  export const isa = (o: any): o is DiscoveredResource => __isa(o, "DiscoveredResource");
 }
 
 /**
@@ -399,16 +390,13 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DryRunOperation {
-  export const isa = (o: any): o is DryRunOperation =>
-    __isa(o, "DryRunOperation");
+  export const isa = (o: any): o is DryRunOperation => __isa(o, "DryRunOperation");
 }
 
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
-export interface HomeRegionNotSetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HomeRegionNotSetException extends __SmithyException, $MetadataBearer {
   name: "HomeRegionNotSetException";
   $fault: "client";
   Message?: string;
@@ -458,34 +446,28 @@ export namespace ImportMigrationTaskResult {
  * <p>Exception raised when an internal, configuration, or dependency error is
  *          encountered.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>Exception raised when the provided input violates a policy constraint or is entered in
  *          the wrong format or data type.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export interface ListApplicationStatesRequest {
@@ -803,8 +785,7 @@ export interface MigrationTaskSummary {
 }
 
 export namespace MigrationTaskSummary {
-  export const isa = (o: any): o is MigrationTaskSummary =>
-    __isa(o, "MigrationTaskSummary");
+  export const isa = (o: any): o is MigrationTaskSummary => __isa(o, "MigrationTaskSummary");
 }
 
 export interface NotifyApplicationStateRequest {
@@ -903,17 +884,14 @@ export namespace NotifyMigrationTaskStateResult {
  *          (Application Discovery Service); most likely due to a misconfigured policy or the
  *             <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
  */
-export interface PolicyErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PolicyErrorException extends __SmithyException, $MetadataBearer {
   name: "PolicyErrorException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PolicyErrorException {
-  export const isa = (o: any): o is PolicyErrorException =>
-    __isa(o, "PolicyErrorException");
+  export const isa = (o: any): o is PolicyErrorException => __isa(o, "PolicyErrorException");
 }
 
 /**
@@ -1055,8 +1033,7 @@ export interface ResourceAttribute {
 }
 
 export namespace ResourceAttribute {
-  export const isa = (o: any): o is ResourceAttribute =>
-    __isa(o, "ResourceAttribute");
+  export const isa = (o: any): o is ResourceAttribute => __isa(o, "ResourceAttribute");
 }
 
 export enum ResourceAttributeType {
@@ -1077,9 +1054,7 @@ export enum ResourceAttributeType {
  *          configuration, update stream, migration task, etc.) that does not exist in Application
  *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1094,9 +1069,7 @@ export namespace ResourceNotFoundException {
  * <p>Exception raised when there is an internal, configuration, or dependency error
  *          encountered.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1145,15 +1118,12 @@ export namespace Task {
  * <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  */
-export interface UnauthorizedOperation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedOperation extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedOperation";
   $fault: "client";
   Message?: string;
 }
 
 export namespace UnauthorizedOperation {
-  export const isa = (o: any): o is UnauthorizedOperation =>
-    __isa(o, "UnauthorizedOperation");
+  export const isa = (o: any): o is UnauthorizedOperation => __isa(o, "UnauthorizedOperation");
 }

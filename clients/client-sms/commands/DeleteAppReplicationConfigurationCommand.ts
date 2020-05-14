@@ -1,8 +1,4 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import {
   DeleteAppReplicationConfigurationRequest,
   DeleteAppReplicationConfigurationResponse
@@ -53,9 +49,7 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     DeleteAppReplicationConfigurationCommandInput,
     DeleteAppReplicationConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     input: DeleteAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

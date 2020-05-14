@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  DescribeEventsMessage,
-  EventDescriptionsMessage
-} from "../models/index";
+import { DescribeEventsMessage, EventDescriptionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeEventsCommand,
   serializeAws_queryDescribeEventsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventsCommandInput = DescribeEventsMessage;
-export type DescribeEventsCommandOutput = EventDescriptionsMessage &
-  __MetadataBearer;
+export type DescribeEventsCommandOutput = EventDescriptionsMessage & __MetadataBearer;
 
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeEventsCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventsCommandInput, DescribeEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

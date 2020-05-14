@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult
@@ -39,9 +35,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput
-  ) {
+  constructor(readonly input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
     input: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> {
-    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand(output, context);
   }
 
   // Start section: command_body_extra

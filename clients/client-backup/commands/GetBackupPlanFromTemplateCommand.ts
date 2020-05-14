@@ -1,12 +1,5 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupPlanFromTemplateInput,
-  GetBackupPlanFromTemplateOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupPlanFromTemplateInput, GetBackupPlanFromTemplateOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand,
   serializeAws_restJson1_1GetBackupPlanFromTemplateCommand
@@ -49,13 +42,8 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupPlanFromTemplateCommandInput,
-    GetBackupPlanFromTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupPlanFromTemplateCommandInput, GetBackupPlanFromTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     input: GetBackupPlanFromTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupPlanFromTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ChangePasswordCommandInput = ChangePasswordRequest;
-export type ChangePasswordCommandOutput = ChangePasswordResponse &
-  __MetadataBearer;
+export type ChangePasswordCommandOutput = ChangePasswordResponse & __MetadataBearer;
 
 export class ChangePasswordCommand extends $Command<
   ChangePasswordCommandInput,
@@ -47,9 +46,7 @@ export class ChangePasswordCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ChangePasswordCommandInput, ChangePasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

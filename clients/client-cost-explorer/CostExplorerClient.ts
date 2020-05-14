@@ -58,10 +58,7 @@ import {
   GetSavingsPlansUtilizationDetailsCommandInput,
   GetSavingsPlansUtilizationDetailsCommandOutput
 } from "./commands/GetSavingsPlansUtilizationDetailsCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import {
   GetUsageForecastCommandInput,
   GetUsageForecastCommandOutput
@@ -253,9 +250,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CostExplorerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CostExplorerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +259,7 @@ export type CostExplorerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

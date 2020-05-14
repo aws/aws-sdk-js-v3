@@ -53,9 +53,7 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     DescribeOrderableClusterOptionsCommandInput,
     DescribeOrderableClusterOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     input: DescribeOrderableClusterOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableClusterOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeOrderableClusterOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableClusterOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeOrderableClusterOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

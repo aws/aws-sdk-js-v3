@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DeleteActivationRequest,
-  DeleteActivationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DeleteActivationRequest, DeleteActivationResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteActivationCommand,
   serializeAws_json1_1DeleteActivationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteActivationCommandInput = DeleteActivationRequest;
-export type DeleteActivationCommandOutput = DeleteActivationResult &
-  __MetadataBearer;
+export type DeleteActivationCommandOutput = DeleteActivationResult & __MetadataBearer;
 
 export class DeleteActivationCommand extends $Command<
   DeleteActivationCommandInput,
@@ -50,9 +42,7 @@ export class DeleteActivationCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteActivationCommandInput, DeleteActivationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

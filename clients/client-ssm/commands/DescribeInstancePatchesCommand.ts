@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribeInstancePatchesRequest,
-  DescribeInstancePatchesResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribeInstancePatchesRequest, DescribeInstancePatchesResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeInstancePatchesCommand,
   serializeAws_json1_1DescribeInstancePatchesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInstancePatchesCommandInput = DescribeInstancePatchesRequest;
-export type DescribeInstancePatchesCommandOutput = DescribeInstancePatchesResult &
-  __MetadataBearer;
+export type DescribeInstancePatchesCommandOutput = DescribeInstancePatchesResult & __MetadataBearer;
 
 export class DescribeInstancePatchesCommand extends $Command<
   DescribeInstancePatchesCommandInput,
@@ -49,13 +41,8 @@ export class DescribeInstancePatchesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstancePatchesCommandInput,
-    DescribeInstancePatchesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstancePatchesCommandInput, DescribeInstancePatchesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeInstancePatchesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstancePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeInstancePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

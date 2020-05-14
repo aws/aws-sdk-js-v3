@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  ListOfferingPromotionsRequest,
-  ListOfferingPromotionsResult
-} from "../models/index";
+import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListOfferingPromotionsCommand,
   serializeAws_json1_1ListOfferingPromotionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOfferingPromotionsCommandInput = ListOfferingPromotionsRequest;
-export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult &
-  __MetadataBearer;
+export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult & __MetadataBearer;
 
 export class ListOfferingPromotionsCommand extends $Command<
   ListOfferingPromotionsCommandInput,
@@ -49,13 +45,8 @@ export class ListOfferingPromotionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOfferingPromotionsCommandInput,
-    ListOfferingPromotionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOfferingPromotionsCommandInput, ListOfferingPromotionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

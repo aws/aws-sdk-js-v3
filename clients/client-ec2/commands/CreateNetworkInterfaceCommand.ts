@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CreateNetworkInterfaceRequest,
-  CreateNetworkInterfaceResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/index";
 import {
   deserializeAws_ec2CreateNetworkInterfaceCommand,
   serializeAws_ec2CreateNetworkInterfaceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateNetworkInterfaceCommandInput = CreateNetworkInterfaceRequest;
-export type CreateNetworkInterfaceCommandOutput = CreateNetworkInterfaceResult &
-  __MetadataBearer;
+export type CreateNetworkInterfaceCommandOutput = CreateNetworkInterfaceResult & __MetadataBearer;
 
 export class CreateNetworkInterfaceCommand extends $Command<
   CreateNetworkInterfaceCommandInput,
@@ -49,13 +41,8 @@ export class CreateNetworkInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateNetworkInterfaceCommandInput,
-    CreateNetworkInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateNetworkInterfaceCommandInput, CreateNetworkInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

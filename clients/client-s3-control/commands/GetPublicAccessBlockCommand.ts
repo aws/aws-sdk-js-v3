@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../S3ControlClient";
-import {
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockRequest
-} from "../models/index";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetPublicAccessBlockCommand,
   serializeAws_restXmlGetPublicAccessBlockCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPublicAccessBlockCommandInput = GetPublicAccessBlockRequest;
-export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput &
-  __MetadataBearer;
+export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput & __MetadataBearer;
 
 export class GetPublicAccessBlockCommand extends $Command<
   GetPublicAccessBlockCommandInput,
@@ -49,13 +45,8 @@ export class GetPublicAccessBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPublicAccessBlockCommandInput,
-    GetPublicAccessBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPublicAccessBlockCommandInput, GetPublicAccessBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

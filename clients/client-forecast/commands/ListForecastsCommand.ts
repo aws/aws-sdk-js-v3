@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListForecastsCommandInput = ListForecastsRequest;
-export type ListForecastsCommandOutput = ListForecastsResponse &
-  __MetadataBearer;
+export type ListForecastsCommandOutput = ListForecastsResponse & __MetadataBearer;
 
 export class ListForecastsCommand extends $Command<
   ListForecastsCommandInput,
@@ -47,9 +46,7 @@ export class ListForecastsCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListForecastsCommandInput, ListForecastsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

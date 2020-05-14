@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEntityCommandInput = DescribeEntityRequest;
-export type DescribeEntityCommandOutput = DescribeEntityResponse &
-  __MetadataBearer;
+export type DescribeEntityCommandOutput = DescribeEntityResponse & __MetadataBearer;
 
 export class DescribeEntityCommand extends $Command<
   DescribeEntityCommandInput,
@@ -47,9 +46,7 @@ export class DescribeEntityCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEntityCommandInput, DescribeEntityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

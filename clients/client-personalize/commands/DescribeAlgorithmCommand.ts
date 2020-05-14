@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  DescribeAlgorithmRequest,
-  DescribeAlgorithmResponse
-} from "../models/index";
+import { DescribeAlgorithmRequest, DescribeAlgorithmResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAlgorithmCommand,
   serializeAws_json1_1DescribeAlgorithmCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlgorithmCommandInput = DescribeAlgorithmRequest;
-export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse &
-  __MetadataBearer;
+export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse & __MetadataBearer;
 
 export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandInput,
@@ -50,9 +46,7 @@ export class DescribeAlgorithmCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

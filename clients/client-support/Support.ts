@@ -315,9 +315,7 @@ export class Support extends SupportClient {
   ): void;
   public createCase(
     args: CreateCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCaseCommandOutput) => void),
     cb?: (err: any, data?: CreateCaseCommandOutput) => void
   ): Promise<CreateCaseCommandOutput> | void {
     const command = new CreateCaseCommand(args);
@@ -405,9 +403,7 @@ export class Support extends SupportClient {
   ): void;
   public describeCases(
     args: DescribeCasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCasesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCasesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCasesCommandOutput) => void
   ): Promise<DescribeCasesCommandOutput> | void {
     const command = new DescribeCasesCommand(args);
@@ -492,9 +488,7 @@ export class Support extends SupportClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
@@ -566,9 +560,7 @@ export class Support extends SupportClient {
   ): void;
   public resolveCase(
     args: ResolveCaseCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResolveCaseCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveCaseCommandOutput) => void),
     cb?: (err: any, data?: ResolveCaseCommandOutput) => void
   ): Promise<ResolveCaseCommandOutput> | void {
     const command = new ResolveCaseCommand(args);
@@ -599,31 +591,19 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput>;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -684,31 +664,19 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput>;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckResultCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckResultCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckResultCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -734,31 +702,19 @@ export class Support extends SupportClient {
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput>;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): void;
   public describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeTrustedAdvisorCheckSummariesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> | void {
     const command = new DescribeTrustedAdvisorCheckSummariesCommand(args);
     if (typeof optionsOrCb === "function") {

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  StopStackSetOperationInput,
-  StopStackSetOperationOutput
-} from "../models/index";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/index";
 import {
   deserializeAws_queryStopStackSetOperationCommand,
   serializeAws_queryStopStackSetOperationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
-export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput &
-  __MetadataBearer;
+export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput & __MetadataBearer;
 
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,
@@ -49,13 +45,8 @@ export class StopStackSetOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopStackSetOperationCommandInput,
-    StopStackSetOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopStackSetOperationCommandInput, StopStackSetOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -28,9 +25,7 @@ export namespace ActiveDirectoryBackupAttributes {
 /**
  * <p>An Active Directory error.</p>
  */
-export interface ActiveDirectoryError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer {
   name: "ActiveDirectoryError";
   $fault: "client";
   /**
@@ -50,8 +45,7 @@ export interface ActiveDirectoryError
 }
 
 export namespace ActiveDirectoryError {
-  export const isa = (o: any): o is ActiveDirectoryError =>
-    __isa(o, "ActiveDirectoryError");
+  export const isa = (o: any): o is ActiveDirectoryError => __isa(o, "ActiveDirectoryError");
 }
 
 export enum ActiveDirectoryErrorType {
@@ -143,8 +137,7 @@ export interface BackupFailureDetails {
 }
 
 export namespace BackupFailureDetails {
-  export const isa = (o: any): o is BackupFailureDetails =>
-    __isa(o, "BackupFailureDetails");
+  export const isa = (o: any): o is BackupFailureDetails => __isa(o, "BackupFailureDetails");
 }
 
 /**
@@ -161,8 +154,7 @@ export interface BackupInProgress extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupInProgress {
-  export const isa = (o: any): o is BackupInProgress =>
-    __isa(o, "BackupInProgress");
+  export const isa = (o: any): o is BackupInProgress => __isa(o, "BackupInProgress");
 }
 
 export enum BackupLifecycle {
@@ -185,8 +177,7 @@ export interface BackupNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupNotFound {
-  export const isa = (o: any): o is BackupNotFound =>
-    __isa(o, "BackupNotFound");
+  export const isa = (o: any): o is BackupNotFound => __isa(o, "BackupNotFound");
 }
 
 /**
@@ -208,8 +199,7 @@ export interface BackupRestoring extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupRestoring {
-  export const isa = (o: any): o is BackupRestoring =>
-    __isa(o, "BackupRestoring");
+  export const isa = (o: any): o is BackupRestoring => __isa(o, "BackupRestoring");
 }
 
 export enum BackupType {
@@ -334,8 +324,7 @@ export interface CompletionReport {
 }
 
 export namespace CompletionReport {
-  export const isa = (o: any): o is CompletionReport =>
-    __isa(o, "CompletionReport");
+  export const isa = (o: any): o is CompletionReport => __isa(o, "CompletionReport");
 }
 
 /**
@@ -363,8 +352,7 @@ export interface CreateBackupRequest {
 }
 
 export namespace CreateBackupRequest {
-  export const isa = (o: any): o is CreateBackupRequest =>
-    __isa(o, "CreateBackupRequest");
+  export const isa = (o: any): o is CreateBackupRequest => __isa(o, "CreateBackupRequest");
 }
 
 /**
@@ -379,8 +367,7 @@ export interface CreateBackupResponse {
 }
 
 export namespace CreateBackupResponse {
-  export const isa = (o: any): o is CreateBackupResponse =>
-    __isa(o, "CreateBackupResponse");
+  export const isa = (o: any): o is CreateBackupResponse => __isa(o, "CreateBackupResponse");
 }
 
 export interface CreateDataRepositoryTaskRequest {
@@ -634,8 +621,7 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
-  export const isa = (o: any): o is CreateFileSystemRequest =>
-    __isa(o, "CreateFileSystemRequest");
+  export const isa = (o: any): o is CreateFileSystemRequest => __isa(o, "CreateFileSystemRequest");
 }
 
 /**
@@ -895,16 +881,13 @@ export interface DataRepositoryTask {
 }
 
 export namespace DataRepositoryTask {
-  export const isa = (o: any): o is DataRepositoryTask =>
-    __isa(o, "DataRepositoryTask");
+  export const isa = (o: any): o is DataRepositoryTask => __isa(o, "DataRepositoryTask");
 }
 
 /**
  * <p>The data repository task could not be canceled because the task has already ended.</p>
  */
-export interface DataRepositoryTaskEnded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DataRepositoryTaskEnded extends __SmithyException, $MetadataBearer {
   name: "DataRepositoryTaskEnded";
   $fault: "client";
   /**
@@ -914,17 +897,14 @@ export interface DataRepositoryTaskEnded
 }
 
 export namespace DataRepositoryTaskEnded {
-  export const isa = (o: any): o is DataRepositoryTaskEnded =>
-    __isa(o, "DataRepositoryTaskEnded");
+  export const isa = (o: any): o is DataRepositoryTaskEnded => __isa(o, "DataRepositoryTaskEnded");
 }
 
 /**
  * <p>An existing data repository task is currently executing on the file system.
  *         Wait until the existing task has completed, then create the new task.</p>
  */
-export interface DataRepositoryTaskExecuting
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DataRepositoryTaskExecuting extends __SmithyException, $MetadataBearer {
   name: "DataRepositoryTaskExecuting";
   $fault: "client";
   /**
@@ -1004,9 +984,7 @@ export enum DataRepositoryTaskLifecycle {
 /**
  * <p>The data repository task or tasks you specified could not be found.</p>
  */
-export interface DataRepositoryTaskNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DataRepositoryTaskNotFound extends __SmithyException, $MetadataBearer {
   name: "DataRepositoryTaskNotFound";
   $fault: "client";
   /**
@@ -1077,8 +1055,7 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
-  export const isa = (o: any): o is DeleteBackupRequest =>
-    __isa(o, "DeleteBackupRequest");
+  export const isa = (o: any): o is DeleteBackupRequest => __isa(o, "DeleteBackupRequest");
 }
 
 /**
@@ -1098,8 +1075,7 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
-  export const isa = (o: any): o is DeleteBackupResponse =>
-    __isa(o, "DeleteBackupResponse");
+  export const isa = (o: any): o is DeleteBackupResponse => __isa(o, "DeleteBackupResponse");
 }
 
 /**
@@ -1127,8 +1103,7 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
-  export const isa = (o: any): o is DeleteFileSystemRequest =>
-    __isa(o, "DeleteFileSystemRequest");
+  export const isa = (o: any): o is DeleteFileSystemRequest => __isa(o, "DeleteFileSystemRequest");
 }
 
 /**
@@ -1240,8 +1215,7 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
-  export const isa = (o: any): o is DescribeBackupsRequest =>
-    __isa(o, "DescribeBackupsRequest");
+  export const isa = (o: any): o is DescribeBackupsRequest => __isa(o, "DescribeBackupsRequest");
 }
 
 /**
@@ -1263,8 +1237,7 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
-  export const isa = (o: any): o is DescribeBackupsResponse =>
-    __isa(o, "DescribeBackupsResponse");
+  export const isa = (o: any): o is DescribeBackupsResponse => __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeDataRepositoryTasksRequest {
@@ -1554,8 +1527,7 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
-  export const isa = (o: any): o is FileSystemNotFound =>
-    __isa(o, "FileSystemNotFound");
+  export const isa = (o: any): o is FileSystemNotFound => __isa(o, "FileSystemNotFound");
 }
 
 export enum FileSystemType {
@@ -1595,9 +1567,7 @@ export enum FilterName {
  *             token but different parameters settings. A client request token should always uniquely
  *             identify a single request.</p>
  */
-export interface IncompatibleParameterError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatibleParameterError extends __SmithyException, $MetadataBearer {
   name: "IncompatibleParameterError";
   $fault: "client";
   /**
@@ -1619,9 +1589,7 @@ export namespace IncompatibleParameterError {
 /**
  * <p>A generic error indicating a server-side failure.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -1631,8 +1599,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -1648,8 +1615,7 @@ export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidExportPath {
-  export const isa = (o: any): o is InvalidExportPath =>
-    __isa(o, "InvalidExportPath");
+  export const isa = (o: any): o is InvalidExportPath => __isa(o, "InvalidExportPath");
 }
 
 /**
@@ -1665,8 +1631,7 @@ export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidImportPath {
-  export const isa = (o: any): o is InvalidImportPath =>
-    __isa(o, "InvalidImportPath");
+  export const isa = (o: any): o is InvalidImportPath => __isa(o, "InvalidImportPath");
 }
 
 /**
@@ -1677,9 +1642,7 @@ export namespace InvalidImportPath {
  *                 <code>InvalidSecurityGroupIds</code> returns the list of IDs for security groups
  *             that are either invalid or not part of the VPC specified.</p>
  */
-export interface InvalidNetworkSettings
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNetworkSettings extends __SmithyException, $MetadataBearer {
   name: "InvalidNetworkSettings";
   $fault: "client";
   /**
@@ -1706,8 +1669,7 @@ export interface InvalidNetworkSettings
 }
 
 export namespace InvalidNetworkSettings {
-  export const isa = (o: any): o is InvalidNetworkSettings =>
-    __isa(o, "InvalidNetworkSettings");
+  export const isa = (o: any): o is InvalidNetworkSettings => __isa(o, "InvalidNetworkSettings");
 }
 
 /**
@@ -1789,9 +1751,7 @@ export namespace LustreFileSystemConfiguration {
 /**
  * <p>File system configuration is required for this operation.</p>
  */
-export interface MissingFileSystemConfiguration
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingFileSystemConfiguration extends __SmithyException, $MetadataBearer {
   name: "MissingFileSystemConfiguration";
   $fault: "client";
   /**
@@ -1809,9 +1769,7 @@ export namespace MissingFileSystemConfiguration {
  * <p>The resource specified for the tagging operation is not a resource type owned by
  *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
  */
-export interface NotServiceResourceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotServiceResourceError extends __SmithyException, $MetadataBearer {
   name: "NotServiceResourceError";
   $fault: "client";
   /**
@@ -1826,8 +1784,7 @@ export interface NotServiceResourceError
 }
 
 export namespace NotServiceResourceError {
-  export const isa = (o: any): o is NotServiceResourceError =>
-    __isa(o, "NotServiceResourceError");
+  export const isa = (o: any): o is NotServiceResourceError => __isa(o, "NotServiceResourceError");
 }
 
 export enum ReportFormat {
@@ -1841,9 +1798,7 @@ export enum ReportScope {
 /**
  * <p>The resource specified does not support tagging. </p>
  */
-export interface ResourceDoesNotSupportTagging
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceDoesNotSupportTagging extends __SmithyException, $MetadataBearer {
   name: "ResourceDoesNotSupportTagging";
   $fault: "client";
   /**
@@ -1881,8 +1836,7 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
-  export const isa = (o: any): o is ResourceNotFound =>
-    __isa(o, "ResourceNotFound");
+  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -2030,9 +1984,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
 }
 
 export namespace SelfManagedActiveDirectoryConfigurationUpdates {
-  export const isa = (
-    o: any
-  ): o is SelfManagedActiveDirectoryConfigurationUpdates =>
+  export const isa = (o: any): o is SelfManagedActiveDirectoryConfigurationUpdates =>
     __isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
 }
 
@@ -2048,9 +2000,7 @@ export enum ServiceLimit {
  *             some service limits by contacting AWS Support.
  *             </p>
  */
-export interface ServiceLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ServiceLimitExceeded";
   $fault: "client";
   /**
@@ -2065,8 +2015,7 @@ export interface ServiceLimitExceeded
 }
 
 export namespace ServiceLimitExceeded {
-  export const isa = (o: any): o is ServiceLimitExceeded =>
-    __isa(o, "ServiceLimitExceeded");
+  export const isa = (o: any): o is ServiceLimitExceeded => __isa(o, "ServiceLimitExceeded");
 }
 
 /**
@@ -2112,8 +2061,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -2124,16 +2072,13 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>The requested operation is not supported for this resource or API.</p>
  */
-export interface UnsupportedOperation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperation";
   $fault: "client";
   /**
@@ -2143,8 +2088,7 @@ export interface UnsupportedOperation
 }
 
 export namespace UnsupportedOperation {
-  export const isa = (o: any): o is UnsupportedOperation =>
-    __isa(o, "UnsupportedOperation");
+  export const isa = (o: any): o is UnsupportedOperation => __isa(o, "UnsupportedOperation");
 }
 
 /**
@@ -2165,8 +2109,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -2177,8 +2120,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -2229,8 +2171,7 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
-  export const isa = (o: any): o is UpdateFileSystemRequest =>
-    __isa(o, "UpdateFileSystemRequest");
+  export const isa = (o: any): o is UpdateFileSystemRequest => __isa(o, "UpdateFileSystemRequest");
 }
 
 /**

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  SearchProductsAsAdminInput,
-  SearchProductsAsAdminOutput
-} from "../models/index";
+import { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/index";
 import {
   deserializeAws_json1_1SearchProductsAsAdminCommand,
   serializeAws_json1_1SearchProductsAsAdminCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchProductsAsAdminCommandInput = SearchProductsAsAdminInput;
-export type SearchProductsAsAdminCommandOutput = SearchProductsAsAdminOutput &
-  __MetadataBearer;
+export type SearchProductsAsAdminCommandOutput = SearchProductsAsAdminOutput & __MetadataBearer;
 
 export class SearchProductsAsAdminCommand extends $Command<
   SearchProductsAsAdminCommandInput,
@@ -49,13 +45,8 @@ export class SearchProductsAsAdminCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchProductsAsAdminCommandInput,
-    SearchProductsAsAdminCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchProductsAsAdminCommandInput, SearchProductsAsAdminCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

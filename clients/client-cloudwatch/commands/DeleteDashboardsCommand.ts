@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDashboardsCommandInput = DeleteDashboardsInput;
-export type DeleteDashboardsCommandOutput = DeleteDashboardsOutput &
-  __MetadataBearer;
+export type DeleteDashboardsCommandOutput = DeleteDashboardsOutput & __MetadataBearer;
 
 export class DeleteDashboardsCommand extends $Command<
   DeleteDashboardsCommandInput,
@@ -47,9 +46,7 @@ export class DeleteDashboardsCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  DisableDirectoryRequest,
-  DisableDirectoryResponse
-} from "../models/index";
+import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisableDirectoryCommand,
   serializeAws_restJson1_1DisableDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableDirectoryCommandInput = DisableDirectoryRequest;
-export type DisableDirectoryCommandOutput = DisableDirectoryResponse &
-  __MetadataBearer;
+export type DisableDirectoryCommandOutput = DisableDirectoryResponse & __MetadataBearer;
 
 export class DisableDirectoryCommand extends $Command<
   DisableDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class DisableDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisableDirectoryCommandInput, DisableDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteReceiptFilterRequest,
-  DeleteReceiptFilterResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteReceiptFilterCommand,
   serializeAws_queryDeleteReceiptFilterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReceiptFilterCommandInput = DeleteReceiptFilterRequest;
-export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse &
-  __MetadataBearer;
+export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse & __MetadataBearer;
 
 export class DeleteReceiptFilterCommand extends $Command<
   DeleteReceiptFilterCommandInput,
@@ -49,13 +41,8 @@ export class DeleteReceiptFilterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReceiptFilterCommandInput,
-    DeleteReceiptFilterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReceiptFilterCommandInput, DeleteReceiptFilterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

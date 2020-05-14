@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  EnableDirectoryRequest,
-  EnableDirectoryResponse
-} from "../models/index";
+import { EnableDirectoryRequest, EnableDirectoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1EnableDirectoryCommand,
   serializeAws_restJson1_1EnableDirectoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EnableDirectoryCommandInput = EnableDirectoryRequest;
-export type EnableDirectoryCommandOutput = EnableDirectoryResponse &
-  __MetadataBearer;
+export type EnableDirectoryCommandOutput = EnableDirectoryResponse & __MetadataBearer;
 
 export class EnableDirectoryCommand extends $Command<
   EnableDirectoryCommandInput,
@@ -50,9 +46,7 @@ export class EnableDirectoryCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableDirectoryCommandInput, EnableDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

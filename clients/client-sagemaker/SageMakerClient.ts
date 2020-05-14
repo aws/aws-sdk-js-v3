@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput
@@ -10,10 +7,7 @@ import {
   CreateAlgorithmCommandInput,
   CreateAlgorithmCommandOutput
 } from "./commands/CreateAlgorithmCommand";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateAutoMLJobCommandInput,
   CreateAutoMLJobCommandOutput
@@ -58,10 +52,7 @@ import {
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput
 } from "./commands/CreateLabelingJobCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelPackageCommandInput,
   CreateModelPackageCommandOutput
@@ -98,10 +89,7 @@ import {
   CreateTransformJobCommandInput,
   CreateTransformJobCommandOutput
 } from "./commands/CreateTransformJobCommand";
-import {
-  CreateTrialCommandInput,
-  CreateTrialCommandOutput
-} from "./commands/CreateTrialCommand";
+import { CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand";
 import {
   CreateTrialComponentCommandInput,
   CreateTrialComponentCommandOutput
@@ -118,10 +106,7 @@ import {
   DeleteAlgorithmCommandInput,
   DeleteAlgorithmCommandOutput
 } from "./commands/DeleteAlgorithmCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput
@@ -146,10 +131,7 @@ import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput
 } from "./commands/DeleteFlowDefinitionCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelPackageCommandInput,
   DeleteModelPackageCommandOutput
@@ -166,14 +148,8 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DeleteTrialCommandInput,
-  DeleteTrialCommandOutput
-} from "./commands/DeleteTrialCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommandInput,
   DeleteTrialComponentCommandOutput
@@ -190,10 +166,7 @@ import {
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput
 } from "./commands/DescribeAlgorithmCommand";
-import {
-  DescribeAppCommandInput,
-  DescribeAppCommandOutput
-} from "./commands/DescribeAppCommand";
+import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
 import {
   DescribeAutoMLJobCommandInput,
   DescribeAutoMLJobCommandOutput
@@ -306,10 +279,7 @@ import {
   ListAlgorithmsCommandInput,
   ListAlgorithmsCommandOutput
 } from "./commands/ListAlgorithmsCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import {
   ListAutoMLJobsCommandInput,
   ListAutoMLJobsCommandOutput
@@ -326,10 +296,7 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput
 } from "./commands/ListCompilationJobsCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEndpointConfigsCommandInput,
   ListEndpointConfigsCommandOutput
@@ -366,10 +333,7 @@ import {
   ListModelPackagesCommandInput,
   ListModelPackagesCommandOutput
 } from "./commands/ListModelPackagesCommand";
-import {
-  ListModelsCommandInput,
-  ListModelsCommandOutput
-} from "./commands/ListModelsCommand";
+import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput
@@ -394,10 +358,7 @@ import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput
 } from "./commands/ListSubscribedWorkteamsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListTrainingJobsCommandInput,
   ListTrainingJobsCommandOutput
@@ -414,10 +375,7 @@ import {
   ListTrialComponentsCommandInput,
   ListTrialComponentsCommandOutput
 } from "./commands/ListTrialComponentsCommand";
-import {
-  ListTrialsCommandInput,
-  ListTrialsCommandOutput
-} from "./commands/ListTrialsCommand";
+import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand";
 import {
   ListUserProfilesCommandInput,
   ListUserProfilesCommandOutput
@@ -430,10 +388,7 @@ import {
   RenderUiTemplateCommandInput,
   RenderUiTemplateCommandOutput
 } from "./commands/RenderUiTemplateCommand";
-import {
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
+import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput
@@ -510,10 +465,7 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
-import {
-  UpdateTrialCommandInput,
-  UpdateTrialCommandOutput
-} from "./commands/UpdateTrialCommand";
+import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommandInput,
   UpdateTrialComponentCommandOutput
@@ -937,9 +889,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SageMakerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SageMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -948,9 +898,7 @@ export type SageMakerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

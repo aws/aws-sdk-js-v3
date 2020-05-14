@@ -26,10 +26,7 @@ export function locationConstraintMiddleware(
     const { CreateBucketConfiguration } = args.input;
     //After region config resolution, region is a Provider<string>
     const region = await options.region();
-    if (
-      !CreateBucketConfiguration ||
-      !CreateBucketConfiguration.LocationConstraint
-    ) {
+    if (!CreateBucketConfiguration || !CreateBucketConfiguration.LocationConstraint) {
       args = {
         ...args,
         input: {
@@ -54,9 +51,6 @@ export const getLocationConstraintPlugin = (
   config: LocationConstraintResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      locationConstraintMiddleware(config),
-      locationConstraintMiddlewareOptions
-    );
+    clientStack.add(locationConstraintMiddleware(config), locationConstraintMiddlewareOptions);
   }
 });

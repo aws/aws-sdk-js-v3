@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteLoadBalancerRequest,
-  DeleteLoadBalancerResult
-} from "../models/index";
+import { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLoadBalancerCommand,
   serializeAws_json1_1DeleteLoadBalancerCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerCommandInput = DeleteLoadBalancerRequest;
-export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerResult &
-  __MetadataBearer;
+export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerResult & __MetadataBearer;
 
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,
@@ -50,9 +46,7 @@ export class DeleteLoadBalancerCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

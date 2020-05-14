@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  DeprecateFlowTemplateRequest,
-  DeprecateFlowTemplateResponse
-} from "../models/index";
+import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeprecateFlowTemplateCommand,
   serializeAws_json1_1DeprecateFlowTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeprecateFlowTemplateCommandInput = DeprecateFlowTemplateRequest;
-export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse &
-  __MetadataBearer;
+export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse & __MetadataBearer;
 
 export class DeprecateFlowTemplateCommand extends $Command<
   DeprecateFlowTemplateCommandInput,
@@ -49,13 +45,8 @@ export class DeprecateFlowTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeprecateFlowTemplateCommandInput,
-    DeprecateFlowTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeprecateFlowTemplateCommandInput, DeprecateFlowTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

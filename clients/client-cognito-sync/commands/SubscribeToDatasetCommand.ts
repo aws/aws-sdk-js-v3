@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient";
-import {
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetResponse
-} from "../models/index";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SubscribeToDatasetCommand,
   serializeAws_restJson1_1SubscribeToDatasetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
-export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse &
-  __MetadataBearer;
+export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse & __MetadataBearer;
 
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,
@@ -50,9 +46,7 @@ export class SubscribeToDatasetCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

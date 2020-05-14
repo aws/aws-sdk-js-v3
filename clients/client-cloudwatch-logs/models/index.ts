@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateKmsKeyRequest {
@@ -19,8 +16,7 @@ export interface AssociateKmsKeyRequest {
 }
 
 export namespace AssociateKmsKeyRequest {
-  export const isa = (o: any): o is AssociateKmsKeyRequest =>
-    __isa(o, "AssociateKmsKeyRequest");
+  export const isa = (o: any): o is AssociateKmsKeyRequest => __isa(o, "AssociateKmsKeyRequest");
 }
 
 export interface CancelExportTaskRequest {
@@ -32,8 +28,7 @@ export interface CancelExportTaskRequest {
 }
 
 export namespace CancelExportTaskRequest {
-  export const isa = (o: any): o is CancelExportTaskRequest =>
-    __isa(o, "CancelExportTaskRequest");
+  export const isa = (o: any): o is CancelExportTaskRequest => __isa(o, "CancelExportTaskRequest");
 }
 
 export interface CreateExportTaskRequest {
@@ -81,8 +76,7 @@ export interface CreateExportTaskRequest {
 }
 
 export namespace CreateExportTaskRequest {
-  export const isa = (o: any): o is CreateExportTaskRequest =>
-    __isa(o, "CreateExportTaskRequest");
+  export const isa = (o: any): o is CreateExportTaskRequest => __isa(o, "CreateExportTaskRequest");
 }
 
 export interface CreateExportTaskResponse {
@@ -118,8 +112,7 @@ export interface CreateLogGroupRequest {
 }
 
 export namespace CreateLogGroupRequest {
-  export const isa = (o: any): o is CreateLogGroupRequest =>
-    __isa(o, "CreateLogGroupRequest");
+  export const isa = (o: any): o is CreateLogGroupRequest => __isa(o, "CreateLogGroupRequest");
 }
 
 export interface CreateLogStreamRequest {
@@ -136,16 +129,13 @@ export interface CreateLogStreamRequest {
 }
 
 export namespace CreateLogStreamRequest {
-  export const isa = (o: any): o is CreateLogStreamRequest =>
-    __isa(o, "CreateLogStreamRequest");
+  export const isa = (o: any): o is CreateLogStreamRequest => __isa(o, "CreateLogStreamRequest");
 }
 
 /**
  * <p>The event was already logged.</p>
  */
-export interface DataAlreadyAcceptedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DataAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
   name: "DataAlreadyAcceptedException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -179,8 +169,7 @@ export interface DeleteLogGroupRequest {
 }
 
 export namespace DeleteLogGroupRequest {
-  export const isa = (o: any): o is DeleteLogGroupRequest =>
-    __isa(o, "DeleteLogGroupRequest");
+  export const isa = (o: any): o is DeleteLogGroupRequest => __isa(o, "DeleteLogGroupRequest");
 }
 
 export interface DeleteLogStreamRequest {
@@ -197,8 +186,7 @@ export interface DeleteLogStreamRequest {
 }
 
 export namespace DeleteLogStreamRequest {
-  export const isa = (o: any): o is DeleteLogStreamRequest =>
-    __isa(o, "DeleteLogStreamRequest");
+  export const isa = (o: any): o is DeleteLogStreamRequest => __isa(o, "DeleteLogStreamRequest");
 }
 
 export interface DeleteMetricFilterRequest {
@@ -542,8 +530,7 @@ export interface DescribeQueriesRequest {
 }
 
 export namespace DescribeQueriesRequest {
-  export const isa = (o: any): o is DescribeQueriesRequest =>
-    __isa(o, "DescribeQueriesRequest");
+  export const isa = (o: any): o is DescribeQueriesRequest => __isa(o, "DescribeQueriesRequest");
 }
 
 export interface DescribeQueriesResponse {
@@ -560,8 +547,7 @@ export interface DescribeQueriesResponse {
 }
 
 export namespace DescribeQueriesResponse {
-  export const isa = (o: any): o is DescribeQueriesResponse =>
-    __isa(o, "DescribeQueriesResponse");
+  export const isa = (o: any): o is DescribeQueriesResponse => __isa(o, "DescribeQueriesResponse");
 }
 
 export interface DescribeResourcePoliciesRequest {
@@ -783,8 +769,7 @@ export interface ExportTaskExecutionInfo {
 }
 
 export namespace ExportTaskExecutionInfo {
-  export const isa = (o: any): o is ExportTaskExecutionInfo =>
-    __isa(o, "ExportTaskExecutionInfo");
+  export const isa = (o: any): o is ExportTaskExecutionInfo => __isa(o, "ExportTaskExecutionInfo");
 }
 
 /**
@@ -804,8 +789,7 @@ export interface ExportTaskStatus {
 }
 
 export namespace ExportTaskStatus {
-  export const isa = (o: any): o is ExportTaskStatus =>
-    __isa(o, "ExportTaskStatus");
+  export const isa = (o: any): o is ExportTaskStatus => __isa(o, "ExportTaskStatus");
 }
 
 export enum ExportTaskStatusCode {
@@ -881,8 +865,7 @@ export interface FilterLogEventsRequest {
 }
 
 export namespace FilterLogEventsRequest {
-  export const isa = (o: any): o is FilterLogEventsRequest =>
-    __isa(o, "FilterLogEventsRequest");
+  export const isa = (o: any): o is FilterLogEventsRequest => __isa(o, "FilterLogEventsRequest");
 }
 
 export interface FilterLogEventsResponse {
@@ -904,8 +887,7 @@ export interface FilterLogEventsResponse {
 }
 
 export namespace FilterLogEventsResponse {
-  export const isa = (o: any): o is FilterLogEventsResponse =>
-    __isa(o, "FilterLogEventsResponse");
+  export const isa = (o: any): o is FilterLogEventsResponse => __isa(o, "FilterLogEventsResponse");
 }
 
 /**
@@ -942,8 +924,7 @@ export interface FilteredLogEvent {
 }
 
 export namespace FilteredLogEvent {
-  export const isa = (o: any): o is FilteredLogEvent =>
-    __isa(o, "FilteredLogEvent");
+  export const isa = (o: any): o is FilteredLogEvent => __isa(o, "FilteredLogEvent");
 }
 
 export interface GetLogEventsRequest {
@@ -994,8 +975,7 @@ export interface GetLogEventsRequest {
 }
 
 export namespace GetLogEventsRequest {
-  export const isa = (o: any): o is GetLogEventsRequest =>
-    __isa(o, "GetLogEventsRequest");
+  export const isa = (o: any): o is GetLogEventsRequest => __isa(o, "GetLogEventsRequest");
 }
 
 export interface GetLogEventsResponse {
@@ -1019,8 +999,7 @@ export interface GetLogEventsResponse {
 }
 
 export namespace GetLogEventsResponse {
-  export const isa = (o: any): o is GetLogEventsResponse =>
-    __isa(o, "GetLogEventsResponse");
+  export const isa = (o: any): o is GetLogEventsResponse => __isa(o, "GetLogEventsResponse");
 }
 
 export interface GetLogGroupFieldsRequest {
@@ -1071,8 +1050,7 @@ export interface GetLogRecordRequest {
 }
 
 export namespace GetLogRecordRequest {
-  export const isa = (o: any): o is GetLogRecordRequest =>
-    __isa(o, "GetLogRecordRequest");
+  export const isa = (o: any): o is GetLogRecordRequest => __isa(o, "GetLogRecordRequest");
 }
 
 export interface GetLogRecordResponse {
@@ -1084,8 +1062,7 @@ export interface GetLogRecordResponse {
 }
 
 export namespace GetLogRecordResponse {
-  export const isa = (o: any): o is GetLogRecordResponse =>
-    __isa(o, "GetLogRecordResponse");
+  export const isa = (o: any): o is GetLogRecordResponse => __isa(o, "GetLogRecordResponse");
 }
 
 export interface GetQueryResultsRequest {
@@ -1097,8 +1074,7 @@ export interface GetQueryResultsRequest {
 }
 
 export namespace GetQueryResultsRequest {
-  export const isa = (o: any): o is GetQueryResultsRequest =>
-    __isa(o, "GetQueryResultsRequest");
+  export const isa = (o: any): o is GetQueryResultsRequest => __isa(o, "GetQueryResultsRequest");
 }
 
 export interface GetQueryResultsResponse {
@@ -1129,8 +1105,7 @@ export interface GetQueryResultsResponse {
 }
 
 export namespace GetQueryResultsResponse {
-  export const isa = (o: any): o is GetQueryResultsResponse =>
-    __isa(o, "GetQueryResultsResponse");
+  export const isa = (o: any): o is GetQueryResultsResponse => __isa(o, "GetQueryResultsResponse");
 }
 
 /**
@@ -1158,9 +1133,7 @@ export namespace InputLogEvent {
 /**
  * <p>The operation is not valid on the specified resource.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -1174,9 +1147,7 @@ export namespace InvalidOperationException {
 /**
  * <p>A parameter is specified incorrectly.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1192,9 +1163,7 @@ export namespace InvalidParameterException {
  *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
  *     message. </p>
  */
-export interface InvalidSequenceTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSequenceTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidSequenceTokenException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -1209,17 +1178,14 @@ export namespace InvalidSequenceTokenException {
 /**
  * <p>You have reached the maximum number of resources that can be created.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsLogGroupRequest {
@@ -1231,8 +1197,7 @@ export interface ListTagsLogGroupRequest {
 }
 
 export namespace ListTagsLogGroupRequest {
-  export const isa = (o: any): o is ListTagsLogGroupRequest =>
-    __isa(o, "ListTagsLogGroupRequest");
+  export const isa = (o: any): o is ListTagsLogGroupRequest => __isa(o, "ListTagsLogGroupRequest");
 }
 
 export interface ListTagsLogGroupResponse {
@@ -1385,9 +1350,7 @@ export namespace LogStream {
  *          <p>For more information about valid query syntax, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  */
-export interface MalformedQueryException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedQueryException extends __SmithyException, $MetadataBearer {
   name: "MalformedQueryException";
   $fault: "client";
   message?: string;
@@ -1398,8 +1361,7 @@ export interface MalformedQueryException
 }
 
 export namespace MalformedQueryException {
-  export const isa = (o: any): o is MalformedQueryException =>
-    __isa(o, "MalformedQueryException");
+  export const isa = (o: any): o is MalformedQueryException => __isa(o, "MalformedQueryException");
 }
 
 /**
@@ -1463,8 +1425,7 @@ export interface MetricFilterMatchRecord {
 }
 
 export namespace MetricFilterMatchRecord {
-  export const isa = (o: any): o is MetricFilterMatchRecord =>
-    __isa(o, "MetricFilterMatchRecord");
+  export const isa = (o: any): o is MetricFilterMatchRecord => __isa(o, "MetricFilterMatchRecord");
 }
 
 /**
@@ -1496,16 +1457,13 @@ export interface MetricTransformation {
 }
 
 export namespace MetricTransformation {
-  export const isa = (o: any): o is MetricTransformation =>
-    __isa(o, "MetricTransformation");
+  export const isa = (o: any): o is MetricTransformation => __isa(o, "MetricTransformation");
 }
 
 /**
  * <p>Multiple requests to update the same resource were in conflict.</p>
  */
-export interface OperationAbortedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationAbortedException extends __SmithyException, $MetadataBearer {
   name: "OperationAbortedException";
   $fault: "client";
   message?: string;
@@ -1545,8 +1503,7 @@ export interface OutputLogEvent {
 }
 
 export namespace OutputLogEvent {
-  export const isa = (o: any): o is OutputLogEvent =>
-    __isa(o, "OutputLogEvent");
+  export const isa = (o: any): o is OutputLogEvent => __isa(o, "OutputLogEvent");
 }
 
 export interface PutDestinationPolicyRequest {
@@ -1588,8 +1545,7 @@ export interface PutDestinationRequest {
 }
 
 export namespace PutDestinationRequest {
-  export const isa = (o: any): o is PutDestinationRequest =>
-    __isa(o, "PutDestinationRequest");
+  export const isa = (o: any): o is PutDestinationRequest => __isa(o, "PutDestinationRequest");
 }
 
 export interface PutDestinationResponse {
@@ -1601,8 +1557,7 @@ export interface PutDestinationResponse {
 }
 
 export namespace PutDestinationResponse {
-  export const isa = (o: any): o is PutDestinationResponse =>
-    __isa(o, "PutDestinationResponse");
+  export const isa = (o: any): o is PutDestinationResponse => __isa(o, "PutDestinationResponse");
 }
 
 export interface PutLogEventsRequest {
@@ -1633,8 +1588,7 @@ export interface PutLogEventsRequest {
 }
 
 export namespace PutLogEventsRequest {
-  export const isa = (o: any): o is PutLogEventsRequest =>
-    __isa(o, "PutLogEventsRequest");
+  export const isa = (o: any): o is PutLogEventsRequest => __isa(o, "PutLogEventsRequest");
 }
 
 export interface PutLogEventsResponse {
@@ -1651,8 +1605,7 @@ export interface PutLogEventsResponse {
 }
 
 export namespace PutLogEventsResponse {
-  export const isa = (o: any): o is PutLogEventsResponse =>
-    __isa(o, "PutLogEventsResponse");
+  export const isa = (o: any): o is PutLogEventsResponse => __isa(o, "PutLogEventsResponse");
 }
 
 export interface PutMetricFilterRequest {
@@ -1679,8 +1632,7 @@ export interface PutMetricFilterRequest {
 }
 
 export namespace PutMetricFilterRequest {
-  export const isa = (o: any): o is PutMetricFilterRequest =>
-    __isa(o, "PutMetricFilterRequest");
+  export const isa = (o: any): o is PutMetricFilterRequest => __isa(o, "PutMetricFilterRequest");
 }
 
 export interface PutResourcePolicyRequest {
@@ -1837,8 +1789,7 @@ export interface QueryCompileError {
 }
 
 export namespace QueryCompileError {
-  export const isa = (o: any): o is QueryCompileError =>
-    __isa(o, "QueryCompileError");
+  export const isa = (o: any): o is QueryCompileError => __isa(o, "QueryCompileError");
 }
 
 /**
@@ -1921,8 +1872,7 @@ export interface QueryStatistics {
 }
 
 export namespace QueryStatistics {
-  export const isa = (o: any): o is QueryStatistics =>
-    __isa(o, "QueryStatistics");
+  export const isa = (o: any): o is QueryStatistics => __isa(o, "QueryStatistics");
 }
 
 export enum QueryStatus {
@@ -1955,16 +1905,13 @@ export interface RejectedLogEventsInfo {
 }
 
 export namespace RejectedLogEventsInfo {
-  export const isa = (o: any): o is RejectedLogEventsInfo =>
-    __isa(o, "RejectedLogEventsInfo");
+  export const isa = (o: any): o is RejectedLogEventsInfo => __isa(o, "RejectedLogEventsInfo");
 }
 
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1978,9 +1925,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -2014,8 +1959,7 @@ export interface ResourcePolicy {
 }
 
 export namespace ResourcePolicy {
-  export const isa = (o: any): o is ResourcePolicy =>
-    __isa(o, "ResourcePolicy");
+  export const isa = (o: any): o is ResourcePolicy => __isa(o, "ResourcePolicy");
 }
 
 /**
@@ -2055,16 +1999,13 @@ export interface SearchedLogStream {
 }
 
 export namespace SearchedLogStream {
-  export const isa = (o: any): o is SearchedLogStream =>
-    __isa(o, "SearchedLogStream");
+  export const isa = (o: any): o is SearchedLogStream => __isa(o, "SearchedLogStream");
 }
 
 /**
  * <p>The service cannot complete the request.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -2119,8 +2060,7 @@ export interface StartQueryRequest {
 }
 
 export namespace StartQueryRequest {
-  export const isa = (o: any): o is StartQueryRequest =>
-    __isa(o, "StartQueryRequest");
+  export const isa = (o: any): o is StartQueryRequest => __isa(o, "StartQueryRequest");
 }
 
 export interface StartQueryResponse {
@@ -2132,8 +2072,7 @@ export interface StartQueryResponse {
 }
 
 export namespace StartQueryResponse {
-  export const isa = (o: any): o is StartQueryResponse =>
-    __isa(o, "StartQueryResponse");
+  export const isa = (o: any): o is StartQueryResponse => __isa(o, "StartQueryResponse");
 }
 
 export interface StopQueryRequest {
@@ -2146,8 +2085,7 @@ export interface StopQueryRequest {
 }
 
 export namespace StopQueryRequest {
-  export const isa = (o: any): o is StopQueryRequest =>
-    __isa(o, "StopQueryRequest");
+  export const isa = (o: any): o is StopQueryRequest => __isa(o, "StopQueryRequest");
 }
 
 export interface StopQueryResponse {
@@ -2159,8 +2097,7 @@ export interface StopQueryResponse {
 }
 
 export namespace StopQueryResponse {
-  export const isa = (o: any): o is StopQueryResponse =>
-    __isa(o, "StopQueryResponse");
+  export const isa = (o: any): o is StopQueryResponse => __isa(o, "StopQueryResponse");
 }
 
 /**
@@ -2209,8 +2146,7 @@ export interface SubscriptionFilter {
 }
 
 export namespace SubscriptionFilter {
-  export const isa = (o: any): o is SubscriptionFilter =>
-    __isa(o, "SubscriptionFilter");
+  export const isa = (o: any): o is SubscriptionFilter => __isa(o, "SubscriptionFilter");
 }
 
 export interface TagLogGroupRequest {
@@ -2227,8 +2163,7 @@ export interface TagLogGroupRequest {
 }
 
 export namespace TagLogGroupRequest {
-  export const isa = (o: any): o is TagLogGroupRequest =>
-    __isa(o, "TagLogGroupRequest");
+  export const isa = (o: any): o is TagLogGroupRequest => __isa(o, "TagLogGroupRequest");
 }
 
 export interface TestMetricFilterRequest {
@@ -2247,8 +2182,7 @@ export interface TestMetricFilterRequest {
 }
 
 export namespace TestMetricFilterRequest {
-  export const isa = (o: any): o is TestMetricFilterRequest =>
-    __isa(o, "TestMetricFilterRequest");
+  export const isa = (o: any): o is TestMetricFilterRequest => __isa(o, "TestMetricFilterRequest");
 }
 
 export interface TestMetricFilterResponse {
@@ -2267,9 +2201,7 @@ export namespace TestMetricFilterResponse {
 /**
  * <p>The most likely cause is an invalid AWS access key ID or secret key.</p>
  */
-export interface UnrecognizedClientException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnrecognizedClientException extends __SmithyException, $MetadataBearer {
   name: "UnrecognizedClientException";
   $fault: "client";
   message?: string;
@@ -2294,6 +2226,5 @@ export interface UntagLogGroupRequest {
 }
 
 export namespace UntagLogGroupRequest {
-  export const isa = (o: any): o is UntagLogGroupRequest =>
-    __isa(o, "UntagLogGroupRequest");
+  export const isa = (o: any): o is UntagLogGroupRequest => __isa(o, "UntagLogGroupRequest");
 }

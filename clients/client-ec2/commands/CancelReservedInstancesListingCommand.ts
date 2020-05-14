@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CancelReservedInstancesListingRequest,
   CancelReservedInstancesListingResult
@@ -53,9 +49,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
     CancelReservedInstancesListingCommandInput,
     CancelReservedInstancesListingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CancelReservedInstancesListingCommand extends $Command<
     input: CancelReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelReservedInstancesListingCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CancelReservedInstancesListingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CancelReservedInstancesListingCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CancelReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

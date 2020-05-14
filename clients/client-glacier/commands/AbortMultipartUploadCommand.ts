@@ -45,13 +45,8 @@ export class AbortMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AbortMultipartUploadCommandInput,
-    AbortMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AbortMultipartUploadCommandInput, AbortMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class AbortMultipartUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1_1AbortMultipartUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AbortMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

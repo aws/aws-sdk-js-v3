@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListBudgetsForResourceInput,
-  ListBudgetsForResourceOutput
-} from "../models/index";
+import { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListBudgetsForResourceCommand,
   serializeAws_json1_1ListBudgetsForResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBudgetsForResourceCommandInput = ListBudgetsForResourceInput;
-export type ListBudgetsForResourceCommandOutput = ListBudgetsForResourceOutput &
-  __MetadataBearer;
+export type ListBudgetsForResourceCommandOutput = ListBudgetsForResourceOutput & __MetadataBearer;
 
 export class ListBudgetsForResourceCommand extends $Command<
   ListBudgetsForResourceCommandInput,
@@ -49,13 +45,8 @@ export class ListBudgetsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBudgetsForResourceCommandInput,
-    ListBudgetsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBudgetsForResourceCommandInput, ListBudgetsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

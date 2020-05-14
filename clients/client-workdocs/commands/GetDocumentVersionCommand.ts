@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 } from "../WorkDocsClient";
-import {
-  GetDocumentVersionRequest,
-  GetDocumentVersionResponse
-} from "../models/index";
+import { GetDocumentVersionRequest, GetDocumentVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDocumentVersionCommand,
   serializeAws_restJson1_1GetDocumentVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDocumentVersionCommandInput = GetDocumentVersionRequest;
-export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse &
-  __MetadataBearer;
+export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse & __MetadataBearer;
 
 export class GetDocumentVersionCommand extends $Command<
   GetDocumentVersionCommandInput,
@@ -50,9 +46,7 @@ export class GetDocumentVersionCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDocumentVersionCommandInput, GetDocumentVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

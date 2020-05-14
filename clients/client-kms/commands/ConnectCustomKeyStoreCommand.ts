@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ConnectCustomKeyStoreRequest,
-  ConnectCustomKeyStoreResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ConnectCustomKeyStoreRequest, ConnectCustomKeyStoreResponse } from "../models/index";
 import {
   deserializeAws_json1_1ConnectCustomKeyStoreCommand,
   serializeAws_json1_1ConnectCustomKeyStoreCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConnectCustomKeyStoreCommandInput = ConnectCustomKeyStoreRequest;
-export type ConnectCustomKeyStoreCommandOutput = ConnectCustomKeyStoreResponse &
-  __MetadataBearer;
+export type ConnectCustomKeyStoreCommandOutput = ConnectCustomKeyStoreResponse & __MetadataBearer;
 
 export class ConnectCustomKeyStoreCommand extends $Command<
   ConnectCustomKeyStoreCommandInput,
@@ -49,13 +41,8 @@ export class ConnectCustomKeyStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConnectCustomKeyStoreCommandInput,
-    ConnectCustomKeyStoreCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConnectCustomKeyStoreCommandInput, ConnectCustomKeyStoreCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

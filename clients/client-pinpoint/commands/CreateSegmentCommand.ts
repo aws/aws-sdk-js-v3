@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSegmentCommandInput = CreateSegmentRequest;
-export type CreateSegmentCommandOutput = CreateSegmentResponse &
-  __MetadataBearer;
+export type CreateSegmentCommandOutput = CreateSegmentResponse & __MetadataBearer;
 
 export class CreateSegmentCommand extends $Command<
   CreateSegmentCommandInput,
@@ -47,9 +46,7 @@ export class CreateSegmentCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSegmentCommandInput, CreateSegmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

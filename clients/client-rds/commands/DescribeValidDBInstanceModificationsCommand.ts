@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult
@@ -39,9 +35,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeValidDBInstanceModificationsCommandInput
-  ) {
+  constructor(readonly input: DescribeValidDBInstanceModificationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     DescribeValidDBInstanceModificationsCommandInput,
     DescribeValidDBInstanceModificationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

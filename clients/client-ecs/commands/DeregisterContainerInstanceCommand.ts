@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   DeregisterContainerInstanceRequest,
   DeregisterContainerInstanceResponse
@@ -49,13 +45,8 @@ export class DeregisterContainerInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterContainerInstanceCommandInput,
-    DeregisterContainerInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterContainerInstanceCommandInput, DeregisterContainerInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DeregisterContainerInstanceCommand extends $Command<
     input: DeregisterContainerInstanceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterContainerInstanceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeregisterContainerInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterContainerInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterContainerInstanceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterContainerInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import {
   DecreaseReplicationFactorRequest,
   DecreaseReplicationFactorResponse
@@ -49,13 +45,8 @@ export class DecreaseReplicationFactorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DecreaseReplicationFactorCommandInput,
-    DecreaseReplicationFactorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DecreaseReplicationFactorCommandInput, DecreaseReplicationFactorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DecreaseReplicationFactorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1DecreaseReplicationFactorCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DecreaseReplicationFactorCommand(output, context);
   }
 
   // Start section: command_body_extra

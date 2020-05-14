@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  SearchSkillGroupsRequest,
-  SearchSkillGroupsResponse
-} from "../models/index";
+import { SearchSkillGroupsRequest, SearchSkillGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchSkillGroupsCommand,
   serializeAws_json1_1SearchSkillGroupsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
-export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse &
-  __MetadataBearer;
+export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse & __MetadataBearer;
 
 export class SearchSkillGroupsCommand extends $Command<
   SearchSkillGroupsCommandInput,
@@ -50,9 +46,7 @@ export class SearchSkillGroupsCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchSkillGroupsCommandInput, SearchSkillGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

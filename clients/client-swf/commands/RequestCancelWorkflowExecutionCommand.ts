@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { RequestCancelWorkflowExecutionInput } from "../models/index";
 import {
   deserializeAws_json1_0RequestCancelWorkflowExecutionCommand,
@@ -49,9 +45,7 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     RequestCancelWorkflowExecutionCommandInput,
     RequestCancelWorkflowExecutionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     input: RequestCancelWorkflowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0RequestCancelWorkflowExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0RequestCancelWorkflowExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RequestCancelWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

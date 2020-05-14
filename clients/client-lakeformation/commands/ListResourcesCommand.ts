@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourcesCommandInput = ListResourcesRequest;
-export type ListResourcesCommandOutput = ListResourcesResponse &
-  __MetadataBearer;
+export type ListResourcesCommandOutput = ListResourcesResponse & __MetadataBearer;
 
 export class ListResourcesCommand extends $Command<
   ListResourcesCommandInput,
@@ -47,9 +46,7 @@ export class ListResourcesCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResourcesCommandInput, ListResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

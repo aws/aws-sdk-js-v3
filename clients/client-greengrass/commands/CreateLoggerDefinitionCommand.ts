@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  CreateLoggerDefinitionRequest,
-  CreateLoggerDefinitionResponse
-} from "../models/index";
+import { CreateLoggerDefinitionRequest, CreateLoggerDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateLoggerDefinitionCommand,
   serializeAws_restJson1_1CreateLoggerDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLoggerDefinitionCommandInput = CreateLoggerDefinitionRequest;
-export type CreateLoggerDefinitionCommandOutput = CreateLoggerDefinitionResponse &
-  __MetadataBearer;
+export type CreateLoggerDefinitionCommandOutput = CreateLoggerDefinitionResponse & __MetadataBearer;
 
 export class CreateLoggerDefinitionCommand extends $Command<
   CreateLoggerDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class CreateLoggerDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLoggerDefinitionCommandInput,
-    CreateLoggerDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLoggerDefinitionCommandInput, CreateLoggerDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateLoggerDefinitionCommand extends $Command<
     input: CreateLoggerDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateLoggerDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateLoggerDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1CreateLoggerDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

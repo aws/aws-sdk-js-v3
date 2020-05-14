@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 } from "../TranslateClient";
-import {
-  ListTerminologiesRequest,
-  ListTerminologiesResponse
-} from "../models/index";
+import { ListTerminologiesRequest, ListTerminologiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListTerminologiesCommand,
   serializeAws_json1_1ListTerminologiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTerminologiesCommandInput = ListTerminologiesRequest;
-export type ListTerminologiesCommandOutput = ListTerminologiesResponse &
-  __MetadataBearer;
+export type ListTerminologiesCommandOutput = ListTerminologiesResponse & __MetadataBearer;
 
 export class ListTerminologiesCommand extends $Command<
   ListTerminologiesCommandInput,
@@ -50,9 +46,7 @@ export class ListTerminologiesCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTerminologiesCommandInput, ListTerminologiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

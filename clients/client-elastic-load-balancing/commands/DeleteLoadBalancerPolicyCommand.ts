@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  DeleteLoadBalancerPolicyInput,
-  DeleteLoadBalancerPolicyOutput
-} from "../models/index";
+import { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteLoadBalancerPolicyCommand,
   serializeAws_queryDeleteLoadBalancerPolicyCommand
@@ -49,13 +46,8 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteLoadBalancerPolicyCommandInput,
-    DeleteLoadBalancerPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteLoadBalancerPolicyCommandInput, DeleteLoadBalancerPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

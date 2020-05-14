@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyLaunchTemplateRequest,
-  ModifyLaunchTemplateResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyLaunchTemplateRequest, ModifyLaunchTemplateResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyLaunchTemplateCommand,
   serializeAws_ec2ModifyLaunchTemplateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyLaunchTemplateCommandInput = ModifyLaunchTemplateRequest;
-export type ModifyLaunchTemplateCommandOutput = ModifyLaunchTemplateResult &
-  __MetadataBearer;
+export type ModifyLaunchTemplateCommandOutput = ModifyLaunchTemplateResult & __MetadataBearer;
 
 export class ModifyLaunchTemplateCommand extends $Command<
   ModifyLaunchTemplateCommandInput,
@@ -49,13 +41,8 @@ export class ModifyLaunchTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyLaunchTemplateCommandInput,
-    ModifyLaunchTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyLaunchTemplateCommandInput, ModifyLaunchTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

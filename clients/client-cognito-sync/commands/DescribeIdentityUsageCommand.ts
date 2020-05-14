@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient";
-import {
-  DescribeIdentityUsageRequest,
-  DescribeIdentityUsageResponse
-} from "../models/index";
+import { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeIdentityUsageCommand,
   serializeAws_restJson1_1DescribeIdentityUsageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeIdentityUsageCommandInput = DescribeIdentityUsageRequest;
-export type DescribeIdentityUsageCommandOutput = DescribeIdentityUsageResponse &
-  __MetadataBearer;
+export type DescribeIdentityUsageCommandOutput = DescribeIdentityUsageResponse & __MetadataBearer;
 
 export class DescribeIdentityUsageCommand extends $Command<
   DescribeIdentityUsageCommandInput,
@@ -49,13 +45,8 @@ export class DescribeIdentityUsageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeIdentityUsageCommandInput,
-    DescribeIdentityUsageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeIdentityUsageCommandInput, DescribeIdentityUsageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeIdentityUsageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityUsageCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIdentityUsageCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIdentityUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

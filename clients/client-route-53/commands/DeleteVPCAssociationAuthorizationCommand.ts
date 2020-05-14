@@ -54,9 +54,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     DeleteVPCAssociationAuthorizationCommandInput,
     DeleteVPCAssociationAuthorizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +74,14 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     input: DeleteVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
-    return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

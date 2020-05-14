@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   SendTestEventNotificationRequest,
   SendTestEventNotificationResponse
@@ -49,13 +45,8 @@ export class SendTestEventNotificationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendTestEventNotificationCommandInput,
-    SendTestEventNotificationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendTestEventNotificationCommandInput, SendTestEventNotificationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class SendTestEventNotificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendTestEventNotificationCommandOutput> {
-    return deserializeAws_json1_1SendTestEventNotificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SendTestEventNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

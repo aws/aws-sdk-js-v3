@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteVoiceConnectorOriginationRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand,
@@ -49,9 +45,7 @@ export class DeleteVoiceConnectorOriginationCommand extends $Command<
     DeleteVoiceConnectorOriginationCommandInput,
     DeleteVoiceConnectorOriginationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +64,14 @@ export class DeleteVoiceConnectorOriginationCommand extends $Command<
     input: DeleteVoiceConnectorOriginationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorOriginationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommand(output, context);
   }
 
   // Start section: command_body_extra

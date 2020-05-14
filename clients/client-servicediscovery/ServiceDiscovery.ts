@@ -276,9 +276,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public createService(
     args: CreateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceCommandOutput) => void
   ): Promise<CreateServiceCommandOutput> | void {
     const command = new CreateServiceCommand(args);
@@ -311,9 +309,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): Promise<DeleteNamespaceCommandOutput> | void {
     const command = new DeleteNamespaceCommand(args);
@@ -346,9 +342,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public deleteService(
     args: DeleteServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceCommandOutput) => void
   ): Promise<DeleteServiceCommandOutput> | void {
     const command = new DeleteServiceCommand(args);
@@ -451,9 +445,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getInstance(
     args: GetInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceCommandOutput) => void
   ): Promise<GetInstanceCommandOutput> | void {
     const command = new GetInstanceCommand(args);
@@ -525,9 +517,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getNamespace(
     args: GetNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamespaceCommandOutput) => void),
     cb?: (err: any, data?: GetNamespaceCommandOutput) => void
   ): Promise<GetNamespaceCommandOutput> | void {
     const command = new GetNamespaceCommand(args);
@@ -564,9 +554,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getOperation(
     args: GetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationCommandOutput) => void),
     cb?: (err: any, data?: GetOperationCommandOutput) => void
   ): Promise<GetOperationCommandOutput> | void {
     const command = new GetOperationCommand(args);
@@ -599,9 +587,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public getService(
     args: GetServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceCommandOutput) => void),
     cb?: (err: any, data?: GetServiceCommandOutput) => void
   ): Promise<GetServiceCommandOutput> | void {
     const command = new GetServiceCommand(args);
@@ -634,9 +620,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listInstances(
     args: ListInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListInstancesCommandOutput) => void
   ): Promise<ListInstancesCommandOutput> | void {
     const command = new ListInstancesCommand(args);
@@ -669,9 +653,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listNamespaces(
     args: ListNamespacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNamespacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamespacesCommandOutput) => void),
     cb?: (err: any, data?: ListNamespacesCommandOutput) => void
   ): Promise<ListNamespacesCommandOutput> | void {
     const command = new ListNamespacesCommand(args);
@@ -704,9 +686,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listOperations(
     args: ListOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
@@ -739,9 +719,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
@@ -813,9 +791,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public registerInstance(
     args: RegisterInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterInstanceCommandOutput) => void
   ): Promise<RegisterInstanceCommandOutput> | void {
     const command = new RegisterInstanceCommand(args);
@@ -854,14 +830,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
     args: UpdateInstanceCustomHealthStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateInstanceCustomHealthStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateInstanceCustomHealthStatusCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void
   ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> | void {
     const command = new UpdateInstanceCustomHealthStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -910,9 +880,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   ): void;
   public updateService(
     args: UpdateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceCommandOutput) => void
   ): Promise<UpdateServiceCommandOutput> | void {
     const command = new UpdateServiceCommand(args);

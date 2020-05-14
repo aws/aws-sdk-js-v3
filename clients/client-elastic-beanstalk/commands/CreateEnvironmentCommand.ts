@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticBeanstalkClient";
-import {
-  CreateEnvironmentMessage,
-  EnvironmentDescription
-} from "../models/index";
+import { CreateEnvironmentMessage, EnvironmentDescription } from "../models/index";
 import {
   deserializeAws_queryCreateEnvironmentCommand,
   serializeAws_queryCreateEnvironmentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEnvironmentCommandInput = CreateEnvironmentMessage;
-export type CreateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type CreateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,
@@ -50,9 +46,7 @@ export class CreateEnvironmentCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

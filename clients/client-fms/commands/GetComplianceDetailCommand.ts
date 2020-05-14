@@ -1,12 +1,5 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  GetComplianceDetailRequest,
-  GetComplianceDetailResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetComplianceDetailCommand,
   serializeAws_json1_1GetComplianceDetailCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetComplianceDetailCommandInput = GetComplianceDetailRequest;
-export type GetComplianceDetailCommandOutput = GetComplianceDetailResponse &
-  __MetadataBearer;
+export type GetComplianceDetailCommandOutput = GetComplianceDetailResponse & __MetadataBearer;
 
 export class GetComplianceDetailCommand extends $Command<
   GetComplianceDetailCommandInput,
@@ -49,13 +41,8 @@ export class GetComplianceDetailCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetComplianceDetailCommandInput,
-    GetComplianceDetailCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetComplianceDetailCommandInput, GetComplianceDetailCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

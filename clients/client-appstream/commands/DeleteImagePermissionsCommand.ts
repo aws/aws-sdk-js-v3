@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  DeleteImagePermissionsRequest,
-  DeleteImagePermissionsResult
-} from "../models/index";
+import { DeleteImagePermissionsRequest, DeleteImagePermissionsResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteImagePermissionsCommand,
   serializeAws_json1_1DeleteImagePermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteImagePermissionsCommandInput = DeleteImagePermissionsRequest;
-export type DeleteImagePermissionsCommandOutput = DeleteImagePermissionsResult &
-  __MetadataBearer;
+export type DeleteImagePermissionsCommandOutput = DeleteImagePermissionsResult & __MetadataBearer;
 
 export class DeleteImagePermissionsCommand extends $Command<
   DeleteImagePermissionsCommandInput,
@@ -49,13 +45,8 @@ export class DeleteImagePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteImagePermissionsCommandInput,
-    DeleteImagePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteImagePermissionsCommandInput, DeleteImagePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSnapshotSchedulesCommandInput,
-    DescribeSnapshotSchedulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSnapshotSchedulesCommandInput, DescribeSnapshotSchedulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotSchedulesCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotSchedulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeSnapshotSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

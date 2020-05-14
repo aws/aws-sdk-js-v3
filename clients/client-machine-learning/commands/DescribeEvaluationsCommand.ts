@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  DescribeEvaluationsInput,
-  DescribeEvaluationsOutput
-} from "../models/index";
+import { DescribeEvaluationsInput, DescribeEvaluationsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEvaluationsCommand,
   serializeAws_json1_1DescribeEvaluationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEvaluationsCommandInput = DescribeEvaluationsInput;
-export type DescribeEvaluationsCommandOutput = DescribeEvaluationsOutput &
-  __MetadataBearer;
+export type DescribeEvaluationsCommandOutput = DescribeEvaluationsOutput & __MetadataBearer;
 
 export class DescribeEvaluationsCommand extends $Command<
   DescribeEvaluationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEvaluationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEvaluationsCommandInput,
-    DescribeEvaluationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEvaluationsCommandInput, DescribeEvaluationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

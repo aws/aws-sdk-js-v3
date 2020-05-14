@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SupportClientResolvedConfig
 } from "../SupportClient";
-import {
-  DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsResponse
-} from "../models/index";
+import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSeverityLevelsCommand,
   serializeAws_json1_1DescribeSeverityLevelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSeverityLevelsCommandInput = DescribeSeverityLevelsRequest;
-export type DescribeSeverityLevelsCommandOutput = DescribeSeverityLevelsResponse &
-  __MetadataBearer;
+export type DescribeSeverityLevelsCommandOutput = DescribeSeverityLevelsResponse & __MetadataBearer;
 
 export class DescribeSeverityLevelsCommand extends $Command<
   DescribeSeverityLevelsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeSeverityLevelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSeverityLevelsCommandInput,
-    DescribeSeverityLevelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSeverityLevelsCommandInput, DescribeSeverityLevelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyDBSnapshotAttributeMessage,
-  ModifyDBSnapshotAttributeResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBSnapshotAttributeCommand,
   serializeAws_queryModifyDBSnapshotAttributeCommand
@@ -49,13 +42,8 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDBSnapshotAttributeCommandInput,
-    ModifyDBSnapshotAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDBSnapshotAttributeCommandInput, ModifyDBSnapshotAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBSnapshotAttributeCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyDBSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

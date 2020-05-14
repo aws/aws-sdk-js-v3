@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse
-} from "../models/index";
+import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDatasetGroupCommand,
   serializeAws_json1_1CreateDatasetGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatasetGroupCommandInput = CreateDatasetGroupRequest;
-export type CreateDatasetGroupCommandOutput = CreateDatasetGroupResponse &
-  __MetadataBearer;
+export type CreateDatasetGroupCommandOutput = CreateDatasetGroupResponse & __MetadataBearer;
 
 export class CreateDatasetGroupCommand extends $Command<
   CreateDatasetGroupCommandInput,
@@ -50,9 +46,7 @@ export class CreateDatasetGroupCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

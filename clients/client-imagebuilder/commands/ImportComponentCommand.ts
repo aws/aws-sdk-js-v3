@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
-import {
-  ImportComponentRequest,
-  ImportComponentResponse
-} from "../models/index";
+import { ImportComponentRequest, ImportComponentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ImportComponentCommand,
   serializeAws_restJson1_1ImportComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportComponentCommandInput = ImportComponentRequest;
-export type ImportComponentCommandOutput = ImportComponentResponse &
-  __MetadataBearer;
+export type ImportComponentCommandOutput = ImportComponentResponse & __MetadataBearer;
 
 export class ImportComponentCommand extends $Command<
   ImportComponentCommandInput,
@@ -50,9 +46,7 @@ export class ImportComponentCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportComponentCommandInput, ImportComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

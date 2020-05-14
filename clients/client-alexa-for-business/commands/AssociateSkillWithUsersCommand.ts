@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  AssociateSkillWithUsersRequest,
-  AssociateSkillWithUsersResponse
-} from "../models/index";
+import { AssociateSkillWithUsersRequest, AssociateSkillWithUsersResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateSkillWithUsersCommand,
   serializeAws_json1_1AssociateSkillWithUsersCommand
@@ -49,13 +46,8 @@ export class AssociateSkillWithUsersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateSkillWithUsersCommandInput,
-    AssociateSkillWithUsersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateSkillWithUsersCommandInput, AssociateSkillWithUsersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class AssociateSkillWithUsersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillWithUsersCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillWithUsersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateSkillWithUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

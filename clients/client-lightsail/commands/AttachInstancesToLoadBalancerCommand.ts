@@ -53,9 +53,7 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     AttachInstancesToLoadBalancerCommandInput,
     AttachInstancesToLoadBalancerCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     input: AttachInstancesToLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AttachInstancesToLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachInstancesToLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AttachInstancesToLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

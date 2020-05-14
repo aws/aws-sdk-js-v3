@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  CreateDocumentationPartRequest,
-  DocumentationPart
-} from "../models/index";
+import { CreateDocumentationPartRequest, DocumentationPart } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDocumentationPartCommand,
   serializeAws_restJson1_1CreateDocumentationPartCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDocumentationPartCommandInput = CreateDocumentationPartRequest;
-export type CreateDocumentationPartCommandOutput = DocumentationPart &
-  __MetadataBearer;
+export type CreateDocumentationPartCommandOutput = DocumentationPart & __MetadataBearer;
 
 export class CreateDocumentationPartCommand extends $Command<
   CreateDocumentationPartCommandInput,
@@ -49,13 +45,8 @@ export class CreateDocumentationPartCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDocumentationPartCommandInput,
-    CreateDocumentationPartCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDocumentationPartCommandInput, CreateDocumentationPartCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateDocumentationPartCommand extends $Command<
     input: CreateDocumentationPartCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDocumentationPartCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateDocumentationPartCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1_1CreateDocumentationPartCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDocumentationPartCommand(output, context);
   }
 
   // Start section: command_body_extra

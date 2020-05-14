@@ -22,10 +22,7 @@ import {
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput
 } from "./commands/DeleteCollectionCommand";
-import {
-  DeleteFacesCommandInput,
-  DeleteFacesCommandOutput
-} from "./commands/DeleteFacesCommand";
+import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput
@@ -50,10 +47,7 @@ import {
   DetectCustomLabelsCommandInput,
   DetectCustomLabelsCommandOutput
 } from "./commands/DetectCustomLabelsCommand";
-import {
-  DetectFacesCommandInput,
-  DetectFacesCommandOutput
-} from "./commands/DetectFacesCommand";
+import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
 import {
   DetectLabelsCommandInput,
   DetectLabelsCommandOutput
@@ -62,10 +56,7 @@ import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput
 } from "./commands/DetectModerationLabelsCommand";
-import {
-  DetectTextCommandInput,
-  DetectTextCommandOutput
-} from "./commands/DetectTextCommand";
+import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
 import {
   GetCelebrityInfoCommandInput,
   GetCelebrityInfoCommandOutput
@@ -94,18 +85,12 @@ import {
   GetPersonTrackingCommandInput,
   GetPersonTrackingCommandOutput
 } from "./commands/GetPersonTrackingCommand";
-import {
-  IndexFacesCommandInput,
-  IndexFacesCommandOutput
-} from "./commands/IndexFacesCommand";
+import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
 import {
   ListCollectionsCommandInput,
   ListCollectionsCommandOutput
 } from "./commands/ListCollectionsCommand";
-import {
-  ListFacesCommandInput,
-  ListFacesCommandOutput
-} from "./commands/ListFacesCommand";
+import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput
@@ -118,10 +103,7 @@ import {
   SearchFacesByImageCommandInput,
   SearchFacesByImageCommandOutput
 } from "./commands/SearchFacesByImageCommand";
-import {
-  SearchFacesCommandInput,
-  SearchFacesCommandOutput
-} from "./commands/SearchFacesCommand";
+import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
 import {
   StartCelebrityRecognitionCommandInput,
   StartCelebrityRecognitionCommandOutput
@@ -385,9 +367,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RekognitionClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -396,9 +376,7 @@ export type RekognitionClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteInsightCommandInput = DeleteInsightRequest;
-export type DeleteInsightCommandOutput = DeleteInsightResponse &
-  __MetadataBearer;
+export type DeleteInsightCommandOutput = DeleteInsightResponse & __MetadataBearer;
 
 export class DeleteInsightCommand extends $Command<
   DeleteInsightCommandInput,
@@ -47,9 +46,7 @@ export class DeleteInsightCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteInsightCommandInput, DeleteInsightCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

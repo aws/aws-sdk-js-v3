@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  DescribeSnapshotsListMessage,
-  DescribeSnapshotsMessage
-} from "../models/index";
+import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeSnapshotsCommand,
   serializeAws_queryDescribeSnapshotsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsMessage;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage &
-  __MetadataBearer;
+export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage & __MetadataBearer;
 
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSnapshotsCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

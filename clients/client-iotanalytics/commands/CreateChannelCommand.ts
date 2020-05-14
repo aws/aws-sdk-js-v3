@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateChannelCommandInput = CreateChannelRequest;
-export type CreateChannelCommandOutput = CreateChannelResponse &
-  __MetadataBearer;
+export type CreateChannelCommandOutput = CreateChannelResponse & __MetadataBearer;
 
 export class CreateChannelCommand extends $Command<
   CreateChannelCommandInput,
@@ -47,9 +46,7 @@ export class CreateChannelCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateChannelCommandInput, CreateChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

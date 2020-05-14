@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  ListEventSourceMappingsRequest,
-  ListEventSourceMappingsResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { ListEventSourceMappingsRequest, ListEventSourceMappingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListEventSourceMappingsCommand,
   serializeAws_restJson1_1ListEventSourceMappingsCommand
@@ -49,13 +42,8 @@ export class ListEventSourceMappingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEventSourceMappingsCommandInput,
-    ListEventSourceMappingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEventSourceMappingsCommandInput, ListEventSourceMappingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListEventSourceMappingsCommand extends $Command<
     input: ListEventSourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListEventSourceMappingsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListEventSourceMappingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEventSourceMappingsCommandOutput> {
-    return deserializeAws_restJson1_1ListEventSourceMappingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListEventSourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

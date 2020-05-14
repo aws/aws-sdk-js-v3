@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53ResolverClient";
-import {
-  DisassociateResolverRuleRequest,
-  DisassociateResolverRuleResponse
-} from "../models/index";
+import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateResolverRuleCommand,
   serializeAws_json1_1DisassociateResolverRuleCommand
@@ -49,13 +46,8 @@ export class DisassociateResolverRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateResolverRuleCommandInput,
-    DisassociateResolverRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateResolverRuleCommandInput, DisassociateResolverRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DisassociateResolverRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

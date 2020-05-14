@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   ListDeliverabilityTestReportsRequest,
   ListDeliverabilityTestReportsResponse
@@ -53,9 +49,7 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     ListDeliverabilityTestReportsCommandInput,
     ListDeliverabilityTestReportsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     input: ListDeliverabilityTestReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDeliverabilityTestReportsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListDeliverabilityTestReportsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeliverabilityTestReportsCommandOutput> {
-    return deserializeAws_restJson1_1ListDeliverabilityTestReportsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeliverabilityTestReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

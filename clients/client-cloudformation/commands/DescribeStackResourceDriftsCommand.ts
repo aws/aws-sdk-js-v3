@@ -49,13 +49,8 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackResourceDriftsCommandInput,
-    DescribeStackResourceDriftsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackResourceDriftsCommandInput, DescribeStackResourceDriftsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackResourceDriftsCommandOutput> {
-    return deserializeAws_queryDescribeStackResourceDriftsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeStackResourceDriftsCommand(output, context);
   }
 
   // Start section: command_body_extra

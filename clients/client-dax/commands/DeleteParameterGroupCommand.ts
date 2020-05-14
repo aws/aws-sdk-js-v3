@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DeleteParameterGroupRequest,
-  DeleteParameterGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteParameterGroupCommand,
   serializeAws_json1_1DeleteParameterGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteParameterGroupCommandInput = DeleteParameterGroupRequest;
-export type DeleteParameterGroupCommandOutput = DeleteParameterGroupResponse &
-  __MetadataBearer;
+export type DeleteParameterGroupCommandOutput = DeleteParameterGroupResponse & __MetadataBearer;
 
 export class DeleteParameterGroupCommand extends $Command<
   DeleteParameterGroupCommandInput,
@@ -49,13 +41,8 @@ export class DeleteParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteParameterGroupCommandInput,
-    DeleteParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteParameterGroupCommandInput, DeleteParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

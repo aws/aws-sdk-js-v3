@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResolversCommandInput = ListResolversRequest;
-export type ListResolversCommandOutput = ListResolversResponse &
-  __MetadataBearer;
+export type ListResolversCommandOutput = ListResolversResponse & __MetadataBearer;
 
 export class ListResolversCommand extends $Command<
   ListResolversCommandInput,
@@ -47,9 +46,7 @@ export class ListResolversCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResolversCommandInput, ListResolversCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

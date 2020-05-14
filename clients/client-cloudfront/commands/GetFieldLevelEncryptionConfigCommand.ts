@@ -53,9 +53,7 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     GetFieldLevelEncryptionConfigCommandInput,
     GetFieldLevelEncryptionConfigCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     input: GetFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  CopyWorkspaceImageRequest,
-  CopyWorkspaceImageResult
-} from "../models/index";
+import { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/index";
 import {
   deserializeAws_json1_1CopyWorkspaceImageCommand,
   serializeAws_json1_1CopyWorkspaceImageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyWorkspaceImageCommandInput = CopyWorkspaceImageRequest;
-export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult &
-  __MetadataBearer;
+export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult & __MetadataBearer;
 
 export class CopyWorkspaceImageCommand extends $Command<
   CopyWorkspaceImageCommandInput,
@@ -50,9 +46,7 @@ export class CopyWorkspaceImageCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

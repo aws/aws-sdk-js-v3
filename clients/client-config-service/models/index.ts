@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -245,8 +242,7 @@ export interface AggregatedSourceStatus {
 }
 
 export namespace AggregatedSourceStatus {
-  export const isa = (o: any): o is AggregatedSourceStatus =>
-    __isa(o, "AggregatedSourceStatus");
+  export const isa = (o: any): o is AggregatedSourceStatus => __isa(o, "AggregatedSourceStatus");
 }
 
 export enum AggregatedSourceStatusType {
@@ -375,8 +371,7 @@ export interface BaseConfigurationItem {
 }
 
 export namespace BaseConfigurationItem {
-  export const isa = (o: any): o is BaseConfigurationItem =>
-    __isa(o, "BaseConfigurationItem");
+  export const isa = (o: any): o is BaseConfigurationItem => __isa(o, "BaseConfigurationItem");
 }
 
 export interface BatchGetAggregateResourceConfigRequest {
@@ -519,8 +514,7 @@ export interface ComplianceByConfigRule {
 }
 
 export namespace ComplianceByConfigRule {
-  export const isa = (o: any): o is ComplianceByConfigRule =>
-    __isa(o, "ComplianceByConfigRule");
+  export const isa = (o: any): o is ComplianceByConfigRule => __isa(o, "ComplianceByConfigRule");
 }
 
 /**
@@ -550,8 +544,7 @@ export interface ComplianceByResource {
 }
 
 export namespace ComplianceByResource {
-  export const isa = (o: any): o is ComplianceByResource =>
-    __isa(o, "ComplianceByResource");
+  export const isa = (o: any): o is ComplianceByResource => __isa(o, "ComplianceByResource");
 }
 
 /**
@@ -606,8 +599,7 @@ export interface ComplianceSummary {
 }
 
 export namespace ComplianceSummary {
-  export const isa = (o: any): o is ComplianceSummary =>
-    __isa(o, "ComplianceSummary");
+  export const isa = (o: any): o is ComplianceSummary => __isa(o, "ComplianceSummary");
 }
 
 /**
@@ -1140,8 +1132,7 @@ export interface ConfigurationAggregator {
 }
 
 export namespace ConfigurationAggregator {
-  export const isa = (o: any): o is ConfigurationAggregator =>
-    __isa(o, "ConfigurationAggregator");
+  export const isa = (o: any): o is ConfigurationAggregator => __isa(o, "ConfigurationAggregator");
 }
 
 /**
@@ -1259,8 +1250,7 @@ export interface ConfigurationItem {
 }
 
 export namespace ConfigurationItem {
-  export const isa = (o: any): o is ConfigurationItem =>
-    __isa(o, "ConfigurationItem");
+  export const isa = (o: any): o is ConfigurationItem => __isa(o, "ConfigurationItem");
 }
 
 export enum ConfigurationItemStatus {
@@ -1298,8 +1288,7 @@ export interface ConfigurationRecorder {
 }
 
 export namespace ConfigurationRecorder {
-  export const isa = (o: any): o is ConfigurationRecorder =>
-    __isa(o, "ConfigurationRecorder");
+  export const isa = (o: any): o is ConfigurationRecorder => __isa(o, "ConfigurationRecorder");
 }
 
 /**
@@ -1385,10 +1374,7 @@ export interface ConformancePackComplianceSummary {
   /**
    * <p>The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT. </p>
    */
-  ConformancePackComplianceStatus:
-    | ConformancePackComplianceType
-    | string
-    | undefined;
+  ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
 
   /**
    * <p>The name of the conformance pack name.</p>
@@ -1453,8 +1439,7 @@ export interface ConformancePackDetail {
 }
 
 export namespace ConformancePackDetail {
-  export const isa = (o: any): o is ConformancePackDetail =>
-    __isa(o, "ConformancePackDetail");
+  export const isa = (o: any): o is ConformancePackDetail => __isa(o, "ConformancePackDetail");
 }
 
 /**
@@ -1664,9 +1649,7 @@ export interface ConformancePackTemplateValidationException
 }
 
 export namespace ConformancePackTemplateValidationException {
-  export const isa = (
-    o: any
-  ): o is ConformancePackTemplateValidationException =>
+  export const isa = (o: any): o is ConformancePackTemplateValidationException =>
     __isa(o, "ConformancePackTemplateValidationException");
 }
 
@@ -1702,8 +1685,7 @@ export interface DeleteConfigRuleRequest {
 }
 
 export namespace DeleteConfigRuleRequest {
-  export const isa = (o: any): o is DeleteConfigRuleRequest =>
-    __isa(o, "DeleteConfigRuleRequest");
+  export const isa = (o: any): o is DeleteConfigRuleRequest => __isa(o, "DeleteConfigRuleRequest");
 }
 
 export interface DeleteConfigurationAggregatorRequest {
@@ -2018,8 +2000,7 @@ export interface DeliveryChannel {
 }
 
 export namespace DeliveryChannel {
-  export const isa = (o: any): o is DeliveryChannel =>
-    __isa(o, "DeliveryChannel");
+  export const isa = (o: any): o is DeliveryChannel => __isa(o, "DeliveryChannel");
 }
 
 /**
@@ -2055,8 +2036,7 @@ export interface DeliveryChannelStatus {
 }
 
 export namespace DeliveryChannelStatus {
-  export const isa = (o: any): o is DeliveryChannelStatus =>
-    __isa(o, "DeliveryChannelStatus");
+  export const isa = (o: any): o is DeliveryChannelStatus => __isa(o, "DeliveryChannelStatus");
 }
 
 export enum DeliveryStatus {
@@ -2094,9 +2074,7 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
 }
 
 export namespace DescribeAggregateComplianceByConfigRulesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeAggregateComplianceByConfigRulesRequest =>
+  export const isa = (o: any): o is DescribeAggregateComplianceByConfigRulesRequest =>
     __isa(o, "DescribeAggregateComplianceByConfigRulesRequest");
 }
 
@@ -2116,9 +2094,7 @@ export interface DescribeAggregateComplianceByConfigRulesResponse {
 }
 
 export namespace DescribeAggregateComplianceByConfigRulesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeAggregateComplianceByConfigRulesResponse =>
+  export const isa = (o: any): o is DescribeAggregateComplianceByConfigRulesResponse =>
     __isa(o, "DescribeAggregateComplianceByConfigRulesResponse");
 }
 
@@ -2343,9 +2319,7 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
 }
 
 export namespace DescribeConfigRuleEvaluationStatusResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeConfigRuleEvaluationStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigRuleEvaluationStatusResponse =>
     __isa(o, "DescribeConfigRuleEvaluationStatusResponse");
 }
 
@@ -2437,9 +2411,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationAggregatorSourcesStatusRequest =>
+  export const isa = (o: any): o is DescribeConfigurationAggregatorSourcesStatusRequest =>
     __isa(o, "DescribeConfigurationAggregatorSourcesStatusRequest");
 }
 
@@ -2459,9 +2431,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusResponse {
 }
 
 export namespace DescribeConfigurationAggregatorSourcesStatusResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationAggregatorSourcesStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigurationAggregatorSourcesStatusResponse =>
     __isa(o, "DescribeConfigurationAggregatorSourcesStatusResponse");
 }
 
@@ -2525,9 +2495,7 @@ export interface DescribeConfigurationRecorderStatusRequest {
 }
 
 export namespace DescribeConfigurationRecorderStatusRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationRecorderStatusRequest =>
+  export const isa = (o: any): o is DescribeConfigurationRecorderStatusRequest =>
     __isa(o, "DescribeConfigurationRecorderStatusRequest");
 }
 
@@ -2545,9 +2513,7 @@ export interface DescribeConfigurationRecorderStatusResponse {
 }
 
 export namespace DescribeConfigurationRecorderStatusResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeConfigurationRecorderStatusResponse =>
+  export const isa = (o: any): o is DescribeConfigurationRecorderStatusResponse =>
     __isa(o, "DescribeConfigurationRecorderStatusResponse");
 }
 
@@ -2622,9 +2588,7 @@ export interface DescribeConformancePackComplianceResponse {
   /**
    * <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
    */
-  ConformancePackRuleComplianceList:
-    | ConformancePackRuleCompliance[]
-    | undefined;
+  ConformancePackRuleComplianceList: ConformancePackRuleCompliance[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -2807,9 +2771,7 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
 }
 
 export namespace DescribeOrganizationConfigRuleStatusesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConfigRuleStatusesRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConfigRuleStatusesRequest =>
     __isa(o, "DescribeOrganizationConfigRuleStatusesRequest");
 }
 
@@ -2827,9 +2789,7 @@ export interface DescribeOrganizationConfigRuleStatusesResponse {
 }
 
 export namespace DescribeOrganizationConfigRuleStatusesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConfigRuleStatusesResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConfigRuleStatusesResponse =>
     __isa(o, "DescribeOrganizationConfigRuleStatusesResponse");
 }
 
@@ -2895,9 +2855,7 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
 }
 
 export namespace DescribeOrganizationConformancePackStatusesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePackStatusesRequest =>
     __isa(o, "DescribeOrganizationConformancePackStatusesRequest");
 }
 
@@ -2915,9 +2873,7 @@ export interface DescribeOrganizationConformancePackStatusesResponse {
 }
 
 export namespace DescribeOrganizationConformancePackStatusesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePackStatusesResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePackStatusesResponse =>
     __isa(o, "DescribeOrganizationConformancePackStatusesResponse");
 }
 
@@ -2942,9 +2898,7 @@ export interface DescribeOrganizationConformancePacksRequest {
 }
 
 export namespace DescribeOrganizationConformancePacksRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePacksRequest =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePacksRequest =>
     __isa(o, "DescribeOrganizationConformancePacksRequest");
 }
 
@@ -2963,9 +2917,7 @@ export interface DescribeOrganizationConformancePacksResponse {
 }
 
 export namespace DescribeOrganizationConformancePacksResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeOrganizationConformancePacksResponse =>
+  export const isa = (o: any): o is DescribeOrganizationConformancePacksResponse =>
     __isa(o, "DescribeOrganizationConformancePacksResponse");
 }
 
@@ -3005,9 +2957,7 @@ export interface DescribePendingAggregationRequestsResponse {
 }
 
 export namespace DescribePendingAggregationRequestsResponse {
-  export const isa = (
-    o: any
-  ): o is DescribePendingAggregationRequestsResponse =>
+  export const isa = (o: any): o is DescribePendingAggregationRequestsResponse =>
     __isa(o, "DescribePendingAggregationRequestsResponse");
 }
 
@@ -3125,9 +3075,7 @@ export interface DescribeRemediationExecutionStatusResponse {
 }
 
 export namespace DescribeRemediationExecutionStatusResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeRemediationExecutionStatusResponse =>
+  export const isa = (o: any): o is DescribeRemediationExecutionStatusResponse =>
     __isa(o, "DescribeRemediationExecutionStatusResponse");
 }
 
@@ -3281,8 +3229,7 @@ export interface EvaluationResult {
 }
 
 export namespace EvaluationResult {
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -3356,8 +3303,7 @@ export interface ExecutionControls {
 }
 
 export namespace ExecutionControls {
-  export const isa = (o: any): o is ExecutionControls =>
-    __isa(o, "ExecutionControls");
+  export const isa = (o: any): o is ExecutionControls => __isa(o, "ExecutionControls");
 }
 
 /**
@@ -3398,8 +3344,7 @@ export interface FailedRemediationBatch {
 }
 
 export namespace FailedRemediationBatch {
-  export const isa = (o: any): o is FailedRemediationBatch =>
-    __isa(o, "FailedRemediationBatch");
+  export const isa = (o: any): o is FailedRemediationBatch => __isa(o, "FailedRemediationBatch");
 }
 
 /**
@@ -3489,9 +3434,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
-  export const isa = (
-    o: any
-  ): o is GetAggregateComplianceDetailsByConfigRuleRequest =>
+  export const isa = (o: any): o is GetAggregateComplianceDetailsByConfigRuleRequest =>
     __isa(o, "GetAggregateComplianceDetailsByConfigRuleRequest");
 }
 
@@ -3510,9 +3453,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleResponse {
 }
 
 export namespace GetAggregateComplianceDetailsByConfigRuleResponse {
-  export const isa = (
-    o: any
-  ): o is GetAggregateComplianceDetailsByConfigRuleResponse =>
+  export const isa = (o: any): o is GetAggregateComplianceDetailsByConfigRuleResponse =>
     __isa(o, "GetAggregateComplianceDetailsByConfigRuleResponse");
 }
 
@@ -3549,9 +3490,7 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryRequest {
-  export const isa = (
-    o: any
-  ): o is GetAggregateConfigRuleComplianceSummaryRequest =>
+  export const isa = (o: any): o is GetAggregateConfigRuleComplianceSummaryRequest =>
     __isa(o, "GetAggregateConfigRuleComplianceSummaryRequest");
 }
 
@@ -3575,9 +3514,7 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
 }
 
 export namespace GetAggregateConfigRuleComplianceSummaryResponse {
-  export const isa = (
-    o: any
-  ): o is GetAggregateConfigRuleComplianceSummaryResponse =>
+  export const isa = (o: any): o is GetAggregateConfigRuleComplianceSummaryResponse =>
     __isa(o, "GetAggregateConfigRuleComplianceSummaryResponse");
 }
 
@@ -3610,9 +3547,7 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
 }
 
 export namespace GetAggregateDiscoveredResourceCountsRequest {
-  export const isa = (
-    o: any
-  ): o is GetAggregateDiscoveredResourceCountsRequest =>
+  export const isa = (o: any): o is GetAggregateDiscoveredResourceCountsRequest =>
     __isa(o, "GetAggregateDiscoveredResourceCountsRequest");
 }
 
@@ -3640,9 +3575,7 @@ export interface GetAggregateDiscoveredResourceCountsResponse {
 }
 
 export namespace GetAggregateDiscoveredResourceCountsResponse {
-  export const isa = (
-    o: any
-  ): o is GetAggregateDiscoveredResourceCountsResponse =>
+  export const isa = (o: any): o is GetAggregateDiscoveredResourceCountsResponse =>
     __isa(o, "GetAggregateDiscoveredResourceCountsResponse");
 }
 
@@ -3855,9 +3788,7 @@ export interface GetComplianceSummaryByResourceTypeResponse {
 }
 
 export namespace GetComplianceSummaryByResourceTypeResponse {
-  export const isa = (
-    o: any
-  ): o is GetComplianceSummaryByResourceTypeResponse =>
+  export const isa = (o: any): o is GetComplianceSummaryByResourceTypeResponse =>
     __isa(o, "GetComplianceSummaryByResourceTypeResponse");
 }
 
@@ -3885,9 +3816,7 @@ export interface GetConformancePackComplianceDetailsRequest {
 }
 
 export namespace GetConformancePackComplianceDetailsRequest {
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceDetailsRequest =>
+  export const isa = (o: any): o is GetConformancePackComplianceDetailsRequest =>
     __isa(o, "GetConformancePackComplianceDetailsRequest");
 }
 
@@ -3910,9 +3839,7 @@ export interface GetConformancePackComplianceDetailsResponse {
 }
 
 export namespace GetConformancePackComplianceDetailsResponse {
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceDetailsResponse =>
+  export const isa = (o: any): o is GetConformancePackComplianceDetailsResponse =>
     __isa(o, "GetConformancePackComplianceDetailsResponse");
 }
 
@@ -3935,9 +3862,7 @@ export interface GetConformancePackComplianceSummaryRequest {
 }
 
 export namespace GetConformancePackComplianceSummaryRequest {
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceSummaryRequest =>
+  export const isa = (o: any): o is GetConformancePackComplianceSummaryRequest =>
     __isa(o, "GetConformancePackComplianceSummaryRequest");
 }
 
@@ -3955,9 +3880,7 @@ export interface GetConformancePackComplianceSummaryResponse {
 }
 
 export namespace GetConformancePackComplianceSummaryResponse {
-  export const isa = (
-    o: any
-  ): o is GetConformancePackComplianceSummaryResponse =>
+  export const isa = (o: any): o is GetConformancePackComplianceSummaryResponse =>
     __isa(o, "GetConformancePackComplianceSummaryResponse");
 }
 
@@ -4079,9 +4002,7 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
 }
 
 export namespace GetOrganizationConfigRuleDetailedStatusRequest {
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConfigRuleDetailedStatusRequest =>
+  export const isa = (o: any): o is GetOrganizationConfigRuleDetailedStatusRequest =>
     __isa(o, "GetOrganizationConfigRuleDetailedStatusRequest");
 }
 
@@ -4099,9 +4020,7 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
 }
 
 export namespace GetOrganizationConfigRuleDetailedStatusResponse {
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConfigRuleDetailedStatusResponse =>
+  export const isa = (o: any): o is GetOrganizationConfigRuleDetailedStatusResponse =>
     __isa(o, "GetOrganizationConfigRuleDetailedStatusResponse");
 }
 
@@ -4130,9 +4049,7 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
 }
 
 export namespace GetOrganizationConformancePackDetailedStatusRequest {
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConformancePackDetailedStatusRequest =>
+  export const isa = (o: any): o is GetOrganizationConformancePackDetailedStatusRequest =>
     __isa(o, "GetOrganizationConformancePackDetailedStatusRequest");
 }
 
@@ -4150,9 +4067,7 @@ export interface GetOrganizationConformancePackDetailedStatusResponse {
 }
 
 export namespace GetOrganizationConformancePackDetailedStatusResponse {
-  export const isa = (
-    o: any
-  ): o is GetOrganizationConformancePackDetailedStatusResponse =>
+  export const isa = (o: any): o is GetOrganizationConformancePackDetailedStatusResponse =>
     __isa(o, "GetOrganizationConformancePackDetailedStatusResponse");
 }
 
@@ -4255,17 +4170,14 @@ export interface GroupedResourceCount {
 }
 
 export namespace GroupedResourceCount {
-  export const isa = (o: any): o is GroupedResourceCount =>
-    __isa(o, "GroupedResourceCount");
+  export const isa = (o: any): o is GroupedResourceCount => __isa(o, "GroupedResourceCount");
 }
 
 /**
  * <p>Your Amazon S3 bucket policy does not permit AWS Config to
  * 			write to it.</p>
  */
-export interface InsufficientDeliveryPolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientDeliveryPolicyException extends __SmithyException, $MetadataBearer {
   name: "InsufficientDeliveryPolicyException";
   $fault: "client";
   /**
@@ -4304,9 +4216,7 @@ export namespace InsufficientDeliveryPolicyException {
  * 			         </li>
  *          </ul>
  */
-export interface InsufficientPermissionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientPermissionsException extends __SmithyException, $MetadataBearer {
   name: "InsufficientPermissionsException";
   $fault: "client";
   /**
@@ -4343,9 +4253,7 @@ export namespace InvalidConfigurationRecorderNameException {
 /**
  * <p>The specified delivery channel name is not valid.</p>
  */
-export interface InvalidDeliveryChannelNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeliveryChannelNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeliveryChannelNameException";
   $fault: "client";
   /**
@@ -4362,9 +4270,7 @@ export namespace InvalidDeliveryChannelNameException {
 /**
  * <p>The syntax of the query is incorrect.</p>
  */
-export interface InvalidExpressionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidExpressionException extends __SmithyException, $MetadataBearer {
   name: "InvalidExpressionException";
   $fault: "client";
   /**
@@ -4381,9 +4287,7 @@ export namespace InvalidExpressionException {
 /**
  * <p>The specified limit is outside the allowable range.</p>
  */
-export interface InvalidLimitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLimitException extends __SmithyException, $MetadataBearer {
   name: "InvalidLimitException";
   $fault: "client";
   /**
@@ -4393,8 +4297,7 @@ export interface InvalidLimitException
 }
 
 export namespace InvalidLimitException {
-  export const isa = (o: any): o is InvalidLimitException =>
-    __isa(o, "InvalidLimitException");
+  export const isa = (o: any): o is InvalidLimitException => __isa(o, "InvalidLimitException");
 }
 
 /**
@@ -4402,9 +4305,7 @@ export namespace InvalidLimitException {
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -4422,9 +4323,7 @@ export namespace InvalidNextTokenException {
  * <p>One or more of the specified parameters are invalid. Verify
  * 			that your parameters are valid and try again.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -4441,9 +4340,7 @@ export namespace InvalidParameterValueException {
 /**
  * <p>AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
  */
-export interface InvalidRecordingGroupException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRecordingGroupException extends __SmithyException, $MetadataBearer {
   name: "InvalidRecordingGroupException";
   $fault: "client";
   /**
@@ -4460,9 +4357,7 @@ export namespace InvalidRecordingGroupException {
 /**
  * <p>The specified <code>ResultToken</code> is invalid.</p>
  */
-export interface InvalidResultTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResultTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidResultTokenException";
   $fault: "client";
   /**
@@ -4479,9 +4374,7 @@ export namespace InvalidResultTokenException {
 /**
  * <p>You have provided a null or empty role ARN.</p>
  */
-export interface InvalidRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidRoleException";
   $fault: "client";
   /**
@@ -4491,16 +4384,13 @@ export interface InvalidRoleException
 }
 
 export namespace InvalidRoleException {
-  export const isa = (o: any): o is InvalidRoleException =>
-    __isa(o, "InvalidRoleException");
+  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
  * <p>The specified Amazon S3 key prefix is not valid.</p>
  */
-export interface InvalidS3KeyPrefixException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3KeyPrefixException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3KeyPrefixException";
   $fault: "client";
   /**
@@ -4517,9 +4407,7 @@ export namespace InvalidS3KeyPrefixException {
 /**
  * <p>The specified Amazon SNS topic does not exist.</p>
  */
-export interface InvalidSNSTopicARNException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSNSTopicARNException extends __SmithyException, $MetadataBearer {
   name: "InvalidSNSTopicARNException";
   $fault: "client";
   /**
@@ -4537,9 +4425,7 @@ export namespace InvalidSNSTopicARNException {
  * <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  */
-export interface InvalidTimeRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -4581,9 +4467,7 @@ export namespace LastDeliveryChannelDeleteFailedException {
  * 			is thrown if the number of accounts and aggregators exceeds the
  * 			limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -4593,8 +4477,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAggregateDiscoveredResourcesRequest {
@@ -4770,9 +4653,7 @@ export namespace ListTagsForResourceResponse {
  * <p>You have reached the limit (100,000) of active custom resource types in your account.
  * 			Delete unused resources using <code>DeleteResourceConfig</code>.</p>
  */
-export interface MaxActiveResourcesExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxActiveResourcesExceededException extends __SmithyException, $MetadataBearer {
   name: "MaxActiveResourcesExceededException";
   $fault: "client";
   /**
@@ -4823,9 +4704,7 @@ export interface MaxNumberOfConfigurationRecordersExceededException
 }
 
 export namespace MaxNumberOfConfigurationRecordersExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfConfigurationRecordersExceededException =>
+  export const isa = (o: any): o is MaxNumberOfConfigurationRecordersExceededException =>
     __isa(o, "MaxNumberOfConfigurationRecordersExceededException");
 }
 
@@ -4844,9 +4723,7 @@ export interface MaxNumberOfConformancePacksExceededException
 }
 
 export namespace MaxNumberOfConformancePacksExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfConformancePacksExceededException =>
+  export const isa = (o: any): o is MaxNumberOfConformancePacksExceededException =>
     __isa(o, "MaxNumberOfConformancePacksExceededException");
 }
 
@@ -4866,9 +4743,7 @@ export interface MaxNumberOfDeliveryChannelsExceededException
 }
 
 export namespace MaxNumberOfDeliveryChannelsExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfDeliveryChannelsExceededException =>
+  export const isa = (o: any): o is MaxNumberOfDeliveryChannelsExceededException =>
     __isa(o, "MaxNumberOfDeliveryChannelsExceededException");
 }
 
@@ -4887,9 +4762,7 @@ export interface MaxNumberOfOrganizationConfigRulesExceededException
 }
 
 export namespace MaxNumberOfOrganizationConfigRulesExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfOrganizationConfigRulesExceededException =>
+  export const isa = (o: any): o is MaxNumberOfOrganizationConfigRulesExceededException =>
     __isa(o, "MaxNumberOfOrganizationConfigRulesExceededException");
 }
 
@@ -4908,9 +4781,7 @@ export interface MaxNumberOfOrganizationConformancePacksExceededException
 }
 
 export namespace MaxNumberOfOrganizationConformancePacksExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfOrganizationConformancePacksExceededException =>
+  export const isa = (o: any): o is MaxNumberOfOrganizationConformancePacksExceededException =>
     __isa(o, "MaxNumberOfOrganizationConformancePacksExceededException");
 }
 
@@ -4929,9 +4800,7 @@ export interface MaxNumberOfRetentionConfigurationsExceededException
 }
 
 export namespace MaxNumberOfRetentionConfigurationsExceededException {
-  export const isa = (
-    o: any
-  ): o is MaxNumberOfRetentionConfigurationsExceededException =>
+  export const isa = (o: any): o is MaxNumberOfRetentionConfigurationsExceededException =>
     __isa(o, "MaxNumberOfRetentionConfigurationsExceededException");
 }
 
@@ -5035,8 +4904,7 @@ export interface MemberAccountStatus {
 }
 
 export namespace MemberAccountStatus {
-  export const isa = (o: any): o is MemberAccountStatus =>
-    __isa(o, "MemberAccountStatus");
+  export const isa = (o: any): o is MemberAccountStatus => __isa(o, "MemberAccountStatus");
 }
 
 export enum MessageType {
@@ -5071,9 +4939,7 @@ export namespace NoAvailableConfigurationRecorderException {
  * <p>There is no delivery channel available to record
  * 			configurations.</p>
  */
-export interface NoAvailableDeliveryChannelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableDeliveryChannelException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableDeliveryChannelException";
   $fault: "client";
   /**
@@ -5090,9 +4956,7 @@ export namespace NoAvailableDeliveryChannelException {
 /**
  * <p>Organization is no longer available.</p>
  */
-export interface NoAvailableOrganizationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoAvailableOrganizationException extends __SmithyException, $MetadataBearer {
   name: "NoAvailableOrganizationException";
   $fault: "client";
   /**
@@ -5128,9 +4992,7 @@ export namespace NoRunningConfigurationRecorderException {
 /**
  * <p>The specified Amazon S3 bucket does not exist.</p>
  */
-export interface NoSuchBucketException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchBucketException extends __SmithyException, $MetadataBearer {
   name: "NoSuchBucketException";
   $fault: "client";
   /**
@@ -5140,17 +5002,14 @@ export interface NoSuchBucketException
 }
 
 export namespace NoSuchBucketException {
-  export const isa = (o: any): o is NoSuchBucketException =>
-    __isa(o, "NoSuchBucketException");
+  export const isa = (o: any): o is NoSuchBucketException => __isa(o, "NoSuchBucketException");
 }
 
 /**
  * <p>One or more AWS Config rules in the request are invalid. Verify
  * 			that the rule names are correct and try again.</p>
  */
-export interface NoSuchConfigRuleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigRuleException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigRuleException";
   $fault: "client";
   /**
@@ -5179,18 +5038,14 @@ export interface NoSuchConfigRuleInConformancePackException
 }
 
 export namespace NoSuchConfigRuleInConformancePackException {
-  export const isa = (
-    o: any
-  ): o is NoSuchConfigRuleInConformancePackException =>
+  export const isa = (o: any): o is NoSuchConfigRuleInConformancePackException =>
     __isa(o, "NoSuchConfigRuleInConformancePackException");
 }
 
 /**
  * <p>You have specified a configuration aggregator that does not exist.</p>
  */
-export interface NoSuchConfigurationAggregatorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigurationAggregatorException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigurationAggregatorException";
   $fault: "client";
   /**
@@ -5208,9 +5063,7 @@ export namespace NoSuchConfigurationAggregatorException {
  * <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  */
-export interface NoSuchConfigurationRecorderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConfigurationRecorderException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConfigurationRecorderException";
   $fault: "client";
   /**
@@ -5227,9 +5080,7 @@ export namespace NoSuchConfigurationRecorderException {
 /**
  * <p>You specified one or more conformance packs that do not exist.</p>
  */
-export interface NoSuchConformancePackException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchConformancePackException extends __SmithyException, $MetadataBearer {
   name: "NoSuchConformancePackException";
   $fault: "client";
   /**
@@ -5247,9 +5098,7 @@ export namespace NoSuchConformancePackException {
  * <p>You have specified a delivery channel that does not
  * 			exist.</p>
  */
-export interface NoSuchDeliveryChannelException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchDeliveryChannelException extends __SmithyException, $MetadataBearer {
   name: "NoSuchDeliveryChannelException";
   $fault: "client";
   /**
@@ -5266,9 +5115,7 @@ export namespace NoSuchDeliveryChannelException {
 /**
  * <p>You specified one or more organization config rules that do not exist.</p>
  */
-export interface NoSuchOrganizationConfigRuleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchOrganizationConfigRuleException extends __SmithyException, $MetadataBearer {
   name: "NoSuchOrganizationConfigRuleException";
   $fault: "client";
   /**
@@ -5298,9 +5145,7 @@ export interface NoSuchOrganizationConformancePackException
 }
 
 export namespace NoSuchOrganizationConformancePackException {
-  export const isa = (
-    o: any
-  ): o is NoSuchOrganizationConformancePackException =>
+  export const isa = (o: any): o is NoSuchOrganizationConformancePackException =>
     __isa(o, "NoSuchOrganizationConformancePackException");
 }
 
@@ -5326,9 +5171,7 @@ export namespace NoSuchRemediationConfigurationException {
 /**
  * <p>You tried to delete a remediation exception that does not exist.</p>
  */
-export interface NoSuchRemediationExceptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchRemediationExceptionException extends __SmithyException, $MetadataBearer {
   name: "NoSuchRemediationExceptionException";
   $fault: "client";
   /**
@@ -5345,9 +5188,7 @@ export namespace NoSuchRemediationExceptionException {
 /**
  * <p>You have specified a retention configuration that does not exist.</p>
  */
-export interface NoSuchRetentionConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchRetentionConfigurationException extends __SmithyException, $MetadataBearer {
   name: "NoSuchRetentionConfigurationException";
   $fault: "client";
   /**
@@ -5365,9 +5206,7 @@ export namespace NoSuchRetentionConfigurationException {
  * <p>For PutConfigAggregator API, no permission to call EnableAWSServiceAccess API.</p>
  * 		       <p>For all OrganizationConfigRule and OrganizationConformancePack APIs, AWS Config throws an exception if APIs are called from member accounts. All APIs must be called from organization master account.</p>
  */
-export interface OrganizationAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OrganizationAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "OrganizationAccessDeniedException";
   $fault: "client";
   /**
@@ -5425,9 +5264,7 @@ export interface OrganizationAllFeaturesNotEnabledException
 }
 
 export namespace OrganizationAllFeaturesNotEnabledException {
-  export const isa = (
-    o: any
-  ): o is OrganizationAllFeaturesNotEnabledException =>
+  export const isa = (o: any): o is OrganizationAllFeaturesNotEnabledException =>
     __isa(o, "OrganizationAllFeaturesNotEnabledException");
 }
 
@@ -5468,8 +5305,7 @@ export interface OrganizationConfigRule {
 }
 
 export namespace OrganizationConfigRule {
-  export const isa = (o: any): o is OrganizationConfigRule =>
-    __isa(o, "OrganizationConfigRule");
+  export const isa = (o: any): o is OrganizationConfigRule => __isa(o, "OrganizationConfigRule");
 }
 
 /**
@@ -5790,9 +5626,7 @@ export interface OrganizationConformancePackTemplateValidationException
 }
 
 export namespace OrganizationConformancePackTemplateValidationException {
-  export const isa = (
-    o: any
-  ): o is OrganizationConformancePackTemplateValidationException =>
+  export const isa = (o: any): o is OrganizationConformancePackTemplateValidationException =>
     __isa(o, "OrganizationConformancePackTemplateValidationException");
 }
 
@@ -5847,9 +5681,7 @@ export interface OrganizationCustomRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes:
-    | (OrganizationConfigRuleTriggerType | string)[]
-    | undefined;
+  OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
 
   /**
    * <p>The ID of the AWS resource that was evaluated.</p>
@@ -6042,9 +5874,7 @@ export enum OrganizationRuleStatus {
 /**
  * <p>The configuration item size is outside the allowable range.</p>
  */
-export interface OversizedConfigurationItemException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OversizedConfigurationItemException extends __SmithyException, $MetadataBearer {
   name: "OversizedConfigurationItemException";
   $fault: "client";
   /**
@@ -6139,8 +5969,7 @@ export interface PutConfigRuleRequest {
 }
 
 export namespace PutConfigRuleRequest {
-  export const isa = (o: any): o is PutConfigRuleRequest =>
-    __isa(o, "PutConfigRuleRequest");
+  export const isa = (o: any): o is PutConfigRuleRequest => __isa(o, "PutConfigRuleRequest");
 }
 
 export interface PutConfigurationAggregatorRequest {
@@ -6318,8 +6147,7 @@ export interface PutEvaluationsRequest {
 }
 
 export namespace PutEvaluationsRequest {
-  export const isa = (o: any): o is PutEvaluationsRequest =>
-    __isa(o, "PutEvaluationsRequest");
+  export const isa = (o: any): o is PutEvaluationsRequest => __isa(o, "PutEvaluationsRequest");
 }
 
 /**
@@ -6335,8 +6163,7 @@ export interface PutEvaluationsResponse {
 }
 
 export namespace PutEvaluationsResponse {
-  export const isa = (o: any): o is PutEvaluationsResponse =>
-    __isa(o, "PutEvaluationsResponse");
+  export const isa = (o: any): o is PutEvaluationsResponse => __isa(o, "PutEvaluationsResponse");
 }
 
 export interface PutOrganizationConfigRuleRequest {
@@ -6689,8 +6516,7 @@ export interface RecordingGroup {
 }
 
 export namespace RecordingGroup {
-  export const isa = (o: any): o is RecordingGroup =>
-    __isa(o, "RecordingGroup");
+  export const isa = (o: any): o is RecordingGroup => __isa(o, "RecordingGroup");
 }
 
 /**
@@ -6831,8 +6657,7 @@ export interface RemediationException {
 }
 
 export namespace RemediationException {
-  export const isa = (o: any): o is RemediationException =>
-    __isa(o, "RemediationException");
+  export const isa = (o: any): o is RemediationException => __isa(o, "RemediationException");
 }
 
 /**
@@ -6945,9 +6770,7 @@ export enum RemediationExecutionStepState {
 /**
  * <p>Remediation action is in progress. You can either cancel execution in AWS Systems Manager or wait and try again later. </p>
  */
-export interface RemediationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RemediationInProgressException extends __SmithyException, $MetadataBearer {
   name: "RemediationInProgressException";
   $fault: "client";
   /**
@@ -7030,8 +6853,7 @@ export interface ResourceCountFilters {
 }
 
 export namespace ResourceCountFilters {
-  export const isa = (o: any): o is ResourceCountFilters =>
-    __isa(o, "ResourceCountFilters");
+  export const isa = (o: any): o is ResourceCountFilters => __isa(o, "ResourceCountFilters");
 }
 
 export enum ResourceCountGroupKey {
@@ -7067,8 +6889,7 @@ export interface ResourceFilters {
 }
 
 export namespace ResourceFilters {
-  export const isa = (o: any): o is ResourceFilters =>
-    __isa(o, "ResourceFilters");
+  export const isa = (o: any): o is ResourceFilters => __isa(o, "ResourceFilters");
 }
 
 /**
@@ -7101,8 +6922,7 @@ export interface ResourceIdentifier {
 }
 
 export namespace ResourceIdentifier {
-  export const isa = (o: any): o is ResourceIdentifier =>
-    __isa(o, "ResourceIdentifier");
+  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
@@ -7131,9 +6951,7 @@ export namespace ResourceIdentifier {
  *             </li>
  *          </ul>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -7143,8 +6961,7 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -7172,9 +6989,7 @@ export namespace ResourceKey {
  * <p>You have specified a resource that is either unknown or has not
  * 			been discovered.</p>
  */
-export interface ResourceNotDiscoveredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotDiscoveredException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotDiscoveredException";
   $fault: "client";
   /**
@@ -7191,9 +7006,7 @@ export namespace ResourceNotDiscoveredException {
 /**
  * <p>You have specified a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -7339,8 +7152,7 @@ export interface RetentionConfiguration {
 }
 
 export namespace RetentionConfiguration {
-  export const isa = (o: any): o is RetentionConfiguration =>
-    __isa(o, "RetentionConfiguration");
+  export const isa = (o: any): o is RetentionConfiguration => __isa(o, "RetentionConfiguration");
 }
 
 /**
@@ -7739,8 +7551,7 @@ export interface StatusDetailFilters {
 }
 
 export namespace StatusDetailFilters {
-  export const isa = (o: any): o is StatusDetailFilters =>
-    __isa(o, "StatusDetailFilters");
+  export const isa = (o: any): o is StatusDetailFilters => __isa(o, "StatusDetailFilters");
 }
 
 /**
@@ -7795,16 +7606,13 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>You have reached the limit of the number of tags you can use. You have more than 50 tags.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   /**
@@ -7814,8 +7622,7 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
@@ -7832,16 +7639,13 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>The requested action is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -7851,6 +7655,5 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

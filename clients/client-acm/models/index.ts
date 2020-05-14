@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToCertificateRequest {
@@ -203,8 +200,7 @@ export interface CertificateDetail {
 }
 
 export namespace CertificateDetail {
-  export const isa = (o: any): o is CertificateDetail =>
-    __isa(o, "CertificateDetail");
+  export const isa = (o: any): o is CertificateDetail => __isa(o, "CertificateDetail");
 }
 
 /**
@@ -222,14 +218,11 @@ export interface CertificateOptions {
    * <p>You can opt out of certificate transparency logging by specifying the
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    */
-  CertificateTransparencyLoggingPreference?:
-    | CertificateTransparencyLoggingPreference
-    | string;
+  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
 }
 
 export namespace CertificateOptions {
-  export const isa = (o: any): o is CertificateOptions =>
-    __isa(o, "CertificateOptions");
+  export const isa = (o: any): o is CertificateOptions => __isa(o, "CertificateOptions");
 }
 
 export enum CertificateStatus {
@@ -267,8 +260,7 @@ export interface CertificateSummary {
 }
 
 export namespace CertificateSummary {
-  export const isa = (o: any): o is CertificateSummary =>
-    __isa(o, "CertificateSummary");
+  export const isa = (o: any): o is CertificateSummary => __isa(o, "CertificateSummary");
 }
 
 export enum CertificateTransparencyLoggingPreference {
@@ -392,8 +384,7 @@ export interface DomainValidation {
 }
 
 export namespace DomainValidation {
-  export const isa = (o: any): o is DomainValidation =>
-    __isa(o, "DomainValidation");
+  export const isa = (o: any): o is DomainValidation => __isa(o, "DomainValidation");
 }
 
 /**
@@ -436,8 +427,7 @@ export interface DomainValidationOption {
 }
 
 export namespace DomainValidationOption {
-  export const isa = (o: any): o is DomainValidationOption =>
-    __isa(o, "DomainValidationOption");
+  export const isa = (o: any): o is DomainValidationOption => __isa(o, "DomainValidationOption");
 }
 
 export interface ExportCertificateRequest {
@@ -559,8 +549,7 @@ export interface ExtendedKeyUsage {
 }
 
 export namespace ExtendedKeyUsage {
-  export const isa = (o: any): o is ExtendedKeyUsage =>
-    __isa(o, "ExtendedKeyUsage");
+  export const isa = (o: any): o is ExtendedKeyUsage => __isa(o, "ExtendedKeyUsage");
 }
 
 export enum ExtendedKeyUsageName {
@@ -640,8 +629,7 @@ export interface GetCertificateRequest {
 }
 
 export namespace GetCertificateRequest {
-  export const isa = (o: any): o is GetCertificateRequest =>
-    __isa(o, "GetCertificateRequest");
+  export const isa = (o: any): o is GetCertificateRequest => __isa(o, "GetCertificateRequest");
 }
 
 export interface GetCertificateResponse {
@@ -660,8 +648,7 @@ export interface GetCertificateResponse {
 }
 
 export namespace GetCertificateResponse {
-  export const isa = (o: any): o is GetCertificateResponse =>
-    __isa(o, "GetCertificateResponse");
+  export const isa = (o: any): o is GetCertificateResponse => __isa(o, "GetCertificateResponse");
 }
 
 export interface ImportCertificateRequest {
@@ -717,33 +704,27 @@ export namespace ImportCertificateResponse {
 /**
  * <p>One or more of of request parameters specified is not valid.</p>
  */
-export interface InvalidArgsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidArgsException {
-  export const isa = (o: any): o is InvalidArgsException =>
-    __isa(o, "InvalidArgsException");
+  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
-export interface InvalidArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidArnException {
-  export const isa = (o: any): o is InvalidArnException =>
-    __isa(o, "InvalidArnException");
+  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -766,9 +747,7 @@ export namespace InvalidDomainValidationOptionsException {
 /**
  * <p>An input parameter was invalid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -782,34 +761,28 @@ export namespace InvalidParameterException {
 /**
  * <p>Processing has reached an invalid state.</p>
  */
-export interface InvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidStateException {
-  export const isa = (o: any): o is InvalidStateException =>
-    __isa(o, "InvalidStateException");
+  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
  * <p>One or both of the values that make up the key-value pair is not valid. For example, you
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
-export interface InvalidTagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidTagException {
-  export const isa = (o: any): o is InvalidTagException =>
-    __isa(o, "InvalidTagException");
+  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 export enum KeyAlgorithm {
@@ -854,17 +827,14 @@ export enum KeyUsageName {
 /**
  * <p>An ACM limit has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCertificatesRequest {
@@ -897,8 +867,7 @@ export interface ListCertificatesRequest {
 }
 
 export namespace ListCertificatesRequest {
-  export const isa = (o: any): o is ListCertificatesRequest =>
-    __isa(o, "ListCertificatesRequest");
+  export const isa = (o: any): o is ListCertificatesRequest => __isa(o, "ListCertificatesRequest");
 }
 
 export interface ListCertificatesResponse {
@@ -994,8 +963,7 @@ export interface RenewCertificateRequest {
 }
 
 export namespace RenewCertificateRequest {
-  export const isa = (o: any): o is RenewCertificateRequest =>
-    __isa(o, "RenewCertificateRequest");
+  export const isa = (o: any): o is RenewCertificateRequest => __isa(o, "RenewCertificateRequest");
 }
 
 export enum RenewalEligibility {
@@ -1042,8 +1010,7 @@ export interface RenewalSummary {
 }
 
 export namespace RenewalSummary {
-  export const isa = (o: any): o is RenewalSummary =>
-    __isa(o, "RenewalSummary");
+  export const isa = (o: any): o is RenewalSummary => __isa(o, "RenewalSummary");
 }
 
 export interface RequestCertificateRequest {
@@ -1166,9 +1133,7 @@ export namespace RequestCertificateResponse {
  * <p>The certificate request is in process and the certificate in your account has not yet been
  *       issued.</p>
  */
-export interface RequestInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1236,26 +1201,21 @@ export namespace ResendValidationEmailRequest {
  * <p>The certificate is in use by another AWS service in the caller's account. Remove the
  *       association and try again.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1290,8 +1250,7 @@ export interface ResourceRecord {
 }
 
 export namespace ResourceRecord {
-  export const isa = (o: any): o is ResourceRecord =>
-    __isa(o, "ResourceRecord");
+  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 export enum RevocationReason {
@@ -1337,24 +1296,20 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagPolicyException {
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 /**
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UpdateCertificateOptionsRequest {

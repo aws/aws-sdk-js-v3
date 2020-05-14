@@ -49,13 +49,8 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApnsVoipSandboxChannelCommandInput,
-    UpdateApnsVoipSandboxChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApnsVoipSandboxChannelCommandInput, UpdateApnsVoipSandboxChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateApnsVoipSandboxChannelCommand extends $Command<
     input: UpdateApnsVoipSandboxChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  ListPlatformApplicationsInput,
-  ListPlatformApplicationsResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/index";
 import {
   deserializeAws_queryListPlatformApplicationsCommand,
   serializeAws_queryListPlatformApplicationsCommand
@@ -49,13 +42,8 @@ export class ListPlatformApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPlatformApplicationsCommandInput,
-    ListPlatformApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPlatformApplicationsCommandInput, ListPlatformApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

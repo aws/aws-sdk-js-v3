@@ -241,9 +241,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public createEventBus(
     args: CreateEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventBusCommandOutput) => void),
     cb?: (err: any, data?: CreateEventBusCommandOutput) => void
   ): Promise<CreateEventBusCommandOutput> | void {
     const command = new CreateEventBusCommand(args);
@@ -389,9 +387,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public deleteEventBus(
     args: DeleteEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventBusCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventBusCommandOutput) => void
   ): Promise<DeleteEventBusCommandOutput> | void {
     const command = new DeleteEventBusCommand(args);
@@ -471,9 +467,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
@@ -511,9 +505,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public describeEventBus(
     args: DescribeEventBusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventBusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventBusCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventBusCommandOutput) => void
   ): Promise<DescribeEventBusCommandOutput> | void {
     const command = new DescribeEventBusCommand(args);
@@ -627,9 +619,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public describeRule(
     args: DescribeRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuleCommandOutput) => void),
     cb?: (err: any, data?: DescribeRuleCommandOutput) => void
   ): Promise<DescribeRuleCommandOutput> | void {
     const command = new DescribeRuleCommand(args);
@@ -666,9 +656,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public disableRule(
     args: DisableRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableRuleCommandOutput) => void),
     cb?: (err: any, data?: DisableRuleCommandOutput) => void
   ): Promise<DisableRuleCommandOutput> | void {
     const command = new DisableRuleCommand(args);
@@ -705,9 +693,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public enableRule(
     args: EnableRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableRuleCommandOutput) => void),
     cb?: (err: any, data?: EnableRuleCommandOutput) => void
   ): Promise<EnableRuleCommandOutput> | void {
     const command = new EnableRuleCommand(args);
@@ -743,9 +729,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public listEventBuses(
     args: ListEventBusesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventBusesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventBusesCommandOutput) => void),
     cb?: (err: any, data?: ListEventBusesCommandOutput) => void
   ): Promise<ListEventBusesCommandOutput> | void {
     const command = new ListEventBusesCommand(args);
@@ -782,9 +766,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public listEventSources(
     args: ListEventSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventSourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListEventSourcesCommandOutput) => void
   ): Promise<ListEventSourcesCommandOutput> | void {
     const command = new ListEventSourcesCommand(args);
@@ -823,10 +805,7 @@ export class EventBridge extends EventBridgeClient {
     args: ListPartnerEventSourceAccountsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListPartnerEventSourceAccountsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> | void {
     const command = new ListPartnerEventSourceAccountsCommand(args);
@@ -939,9 +918,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
@@ -1045,9 +1022,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public putEvents(
     args: PutEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);
@@ -1084,9 +1059,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPartnerEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPartnerEventsCommandOutput) => void),
     cb?: (err: any, data?: PutPartnerEventsCommandOutput) => void
   ): Promise<PutPartnerEventsCommandOutput> | void {
     const command = new PutPartnerEventsCommand(args);
@@ -1134,9 +1107,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public putPermission(
     args: PutPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionCommandOutput) => void
   ): Promise<PutPermissionCommandOutput> | void {
     const command = new PutPermissionCommand(args);
@@ -1216,9 +1187,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public putRule(
     args: PutRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRuleCommandOutput) => void),
     cb?: (err: any, data?: PutRuleCommandOutput) => void
   ): Promise<PutRuleCommandOutput> | void {
     const command = new PutRuleCommand(args);
@@ -1382,9 +1351,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public putTargets(
     args: PutTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTargetsCommandOutput) => void),
     cb?: (err: any, data?: PutTargetsCommandOutput) => void
   ): Promise<PutTargetsCommandOutput> | void {
     const command = new PutTargetsCommand(args);
@@ -1419,9 +1386,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public removePermission(
     args: RemovePermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemovePermissionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemovePermissionCommandOutput) => void),
     cb?: (err: any, data?: RemovePermissionCommandOutput) => void
   ): Promise<RemovePermissionCommandOutput> | void {
     const command = new RemovePermissionCommand(args);
@@ -1461,9 +1426,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public removeTargets(
     args: RemoveTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTargetsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTargetsCommandOutput) => void
   ): Promise<RemoveTargetsCommandOutput> | void {
     const command = new RemoveTargetsCommand(args);
@@ -1507,9 +1470,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1547,9 +1508,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public testEventPattern(
     args: TestEventPatternCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestEventPatternCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestEventPatternCommandOutput) => void),
     cb?: (err: any, data?: TestEventPatternCommandOutput) => void
   ): Promise<TestEventPatternCommandOutput> | void {
     const command = new TestEventPatternCommand(args);
@@ -1582,9 +1541,7 @@ export class EventBridge extends EventBridgeClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

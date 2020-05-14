@@ -46,9 +46,7 @@ export class QueryTimestampsCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryTimestampsCommandInput, QueryTimestampsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

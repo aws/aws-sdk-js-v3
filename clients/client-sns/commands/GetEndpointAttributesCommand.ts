@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetEndpointAttributesInput,
-  GetEndpointAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetEndpointAttributesCommand,
   serializeAws_queryGetEndpointAttributesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEndpointAttributesCommandInput = GetEndpointAttributesInput;
-export type GetEndpointAttributesCommandOutput = GetEndpointAttributesResponse &
-  __MetadataBearer;
+export type GetEndpointAttributesCommandOutput = GetEndpointAttributesResponse & __MetadataBearer;
 
 export class GetEndpointAttributesCommand extends $Command<
   GetEndpointAttributesCommandInput,
@@ -49,13 +41,8 @@ export class GetEndpointAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEndpointAttributesCommandInput,
-    GetEndpointAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEndpointAttributesCommandInput, GetEndpointAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -53,9 +53,7 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     DeleteMatchmakingConfigurationCommandInput,
     DeleteMatchmakingConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
     input: DeleteMatchmakingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMatchmakingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteMatchmakingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMatchmakingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

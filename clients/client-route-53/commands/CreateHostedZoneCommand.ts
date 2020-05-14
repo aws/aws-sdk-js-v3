@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  CreateHostedZoneRequest,
-  CreateHostedZoneResponse
-} from "../models/index";
+import { CreateHostedZoneRequest, CreateHostedZoneResponse } from "../models/index";
 import {
   deserializeAws_restXmlCreateHostedZoneCommand,
   serializeAws_restXmlCreateHostedZoneCommand
@@ -29,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHostedZoneCommandInput = CreateHostedZoneRequest;
-export type CreateHostedZoneCommandOutput = CreateHostedZoneResponse &
-  __MetadataBearer;
+export type CreateHostedZoneCommandOutput = CreateHostedZoneResponse & __MetadataBearer;
 
 export class CreateHostedZoneCommand extends $Command<
   CreateHostedZoneCommandInput,
@@ -51,9 +47,7 @@ export class CreateHostedZoneCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

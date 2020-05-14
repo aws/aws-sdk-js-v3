@@ -1,8 +1,4 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
@@ -36,9 +32,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeHealthServiceStatusForOrganizationCommandInput
-  ) {
+  constructor(readonly input: DescribeHealthServiceStatusForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -52,9 +46,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     DescribeHealthServiceStatusForOrganizationCommandInput,
     DescribeHealthServiceStatusForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,20 +65,14 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
     input: DescribeHealthServiceStatusForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

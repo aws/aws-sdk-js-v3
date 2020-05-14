@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  BatchGrantPermissionsRequest,
-  BatchGrantPermissionsResponse
-} from "../models/index";
+import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGrantPermissionsCommand,
   serializeAws_json1_1BatchGrantPermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGrantPermissionsCommandInput = BatchGrantPermissionsRequest;
-export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse &
-  __MetadataBearer;
+export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse & __MetadataBearer;
 
 export class BatchGrantPermissionsCommand extends $Command<
   BatchGrantPermissionsCommandInput,
@@ -49,13 +45,8 @@ export class BatchGrantPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGrantPermissionsCommandInput,
-    BatchGrantPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGrantPermissionsCommandInput, BatchGrantPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

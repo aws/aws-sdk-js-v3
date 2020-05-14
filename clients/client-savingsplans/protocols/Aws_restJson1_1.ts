@@ -22,10 +22,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -78,30 +75,18 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = 
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList(
-        input.filters,
-        context
-      )
+      filters: serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList(input.filters, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.operations !== undefined && {
-      operations: serializeAws_restJson1_1SavingsPlanRateOperationList(
-        input.operations,
-        context
-      )
+      operations: serializeAws_restJson1_1SavingsPlanRateOperationList(input.operations, context)
     }),
     ...(input.products !== undefined && {
-      products: serializeAws_restJson1_1SavingsPlanProductTypeList(
-        input.products,
-        context
-      )
+      products: serializeAws_restJson1_1SavingsPlanProductTypeList(input.products, context)
     }),
     ...(input.savingsPlanOfferingIds !== undefined && {
-      savingsPlanOfferingIds: serializeAws_restJson1_1UUIDs(
-        input.savingsPlanOfferingIds,
-        context
-      )
+      savingsPlanOfferingIds: serializeAws_restJson1_1UUIDs(input.savingsPlanOfferingIds, context)
     }),
     ...(input.savingsPlanPaymentOptions !== undefined && {
       savingsPlanPaymentOptions: serializeAws_restJson1_1SavingsPlanPaymentOptionList(
@@ -110,10 +95,7 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = 
       )
     }),
     ...(input.savingsPlanTypes !== undefined && {
-      savingsPlanTypes: serializeAws_restJson1_1SavingsPlanTypeList(
-        input.savingsPlanTypes,
-        context
-      )
+      savingsPlanTypes: serializeAws_restJson1_1SavingsPlanTypeList(input.savingsPlanTypes, context)
     }),
     ...(input.serviceCodes !== undefined && {
       serviceCodes: serializeAws_restJson1_1SavingsPlanRateServiceCodeList(
@@ -122,10 +104,7 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = 
       )
     }),
     ...(input.usageTypes !== undefined && {
-      usageTypes: serializeAws_restJson1_1SavingsPlanRateUsageTypeList(
-        input.usageTypes,
-        context
-      )
+      usageTypes: serializeAws_restJson1_1SavingsPlanRateUsageTypeList(input.usageTypes, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -151,25 +130,16 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = asyn
   let body: any;
   body = JSON.stringify({
     ...(input.currencies !== undefined && {
-      currencies: serializeAws_restJson1_1CurrencyList(
-        input.currencies,
-        context
-      )
+      currencies: serializeAws_restJson1_1CurrencyList(input.currencies, context)
     }),
     ...(input.descriptions !== undefined && {
-      descriptions: serializeAws_restJson1_1SavingsPlanDescriptionsList(
-        input.descriptions,
-        context
-      )
+      descriptions: serializeAws_restJson1_1SavingsPlanDescriptionsList(input.descriptions, context)
     }),
     ...(input.durations !== undefined && {
       durations: serializeAws_restJson1_1DurationsList(input.durations, context)
     }),
     ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1_1SavingsPlanOfferingFiltersList(
-        input.filters,
-        context
-      )
+      filters: serializeAws_restJson1_1SavingsPlanOfferingFiltersList(input.filters, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -177,10 +147,7 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = asyn
       offeringIds: serializeAws_restJson1_1UUIDs(input.offeringIds, context)
     }),
     ...(input.operations !== undefined && {
-      operations: serializeAws_restJson1_1SavingsPlanOperationList(
-        input.operations,
-        context
-      )
+      operations: serializeAws_restJson1_1SavingsPlanOperationList(input.operations, context)
     }),
     ...(input.paymentOptions !== undefined && {
       paymentOptions: serializeAws_restJson1_1SavingsPlanPaymentOptionList(
@@ -189,23 +156,14 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = asyn
       )
     }),
     ...(input.planTypes !== undefined && {
-      planTypes: serializeAws_restJson1_1SavingsPlanTypeList(
-        input.planTypes,
-        context
-      )
+      planTypes: serializeAws_restJson1_1SavingsPlanTypeList(input.planTypes, context)
     }),
     ...(input.productType !== undefined && { productType: input.productType }),
     ...(input.serviceCodes !== undefined && {
-      serviceCodes: serializeAws_restJson1_1SavingsPlanServiceCodeList(
-        input.serviceCodes,
-        context
-      )
+      serviceCodes: serializeAws_restJson1_1SavingsPlanServiceCodeList(input.serviceCodes, context)
     }),
     ...(input.usageTypes !== undefined && {
-      usageTypes: serializeAws_restJson1_1SavingsPlanUsageTypeList(
-        input.usageTypes,
-        context
-      )
+      usageTypes: serializeAws_restJson1_1SavingsPlanUsageTypeList(input.usageTypes, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -265,10 +223,7 @@ export const serializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1_1SavingsPlanRateFilterList(
-        input.filters,
-        context
-      )
+      filters: serializeAws_restJson1_1SavingsPlanRateFilterList(input.filters, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -299,30 +254,18 @@ export const serializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined && {
-      filters: serializeAws_restJson1_1SavingsPlanFilterList(
-        input.filters,
-        context
-      )
+      filters: serializeAws_restJson1_1SavingsPlanFilterList(input.filters, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.savingsPlanArns !== undefined && {
-      savingsPlanArns: serializeAws_restJson1_1SavingsPlanArnList(
-        input.savingsPlanArns,
-        context
-      )
+      savingsPlanArns: serializeAws_restJson1_1SavingsPlanArnList(input.savingsPlanArns, context)
     }),
     ...(input.savingsPlanIds !== undefined && {
-      savingsPlanIds: serializeAws_restJson1_1SavingsPlanIdList(
-        input.savingsPlanIds,
-        context
-      )
+      savingsPlanIds: serializeAws_restJson1_1SavingsPlanIdList(input.savingsPlanIds, context)
     }),
     ...(input.states !== undefined && {
-      states: serializeAws_restJson1_1SavingsPlanStateList(
-        input.states,
-        context
-      )
+      states: serializeAws_restJson1_1SavingsPlanStateList(input.states, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -420,10 +363,7 @@ export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand 
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError(output, context);
   }
   const contents: DescribeSavingsPlansOfferingRatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -459,10 +399,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError = 
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -470,10 +407,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommandError = 
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -500,10 +434,7 @@ export const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = as
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError(output, context);
   }
   const contents: DescribeSavingsPlansOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -539,10 +470,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError = asyn
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -550,10 +478,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansOfferingsCommandError = asyn
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -580,10 +505,7 @@ export const deserializeAws_restJson1_1CreateSavingsPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateSavingsPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateSavingsPlanCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSavingsPlanCommandError(output, context);
   }
   const contents: CreateSavingsPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -612,10 +534,7 @@ const deserializeAws_restJson1_1CreateSavingsPlanCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -645,10 +564,7 @@ const deserializeAws_restJson1_1CreateSavingsPlanCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -675,10 +591,7 @@ export const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSavingsPlanRatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError(output, context);
   }
   const contents: DescribeSavingsPlanRatesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -729,10 +642,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlanRatesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -759,10 +669,7 @@ export const deserializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSavingsPlansCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSavingsPlansCommandError(output, context);
   }
   const contents: DescribeSavingsPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -775,10 +682,7 @@ export const deserializeAws_restJson1_1DescribeSavingsPlansCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.savingsPlans !== undefined && data.savingsPlans !== null) {
-    contents.savingsPlans = deserializeAws_restJson1_1SavingsPlanList(
-      data.savingsPlans,
-      context
-    );
+    contents.savingsPlans = deserializeAws_restJson1_1SavingsPlanList(data.savingsPlans, context);
   }
   return Promise.resolve(contents);
 };
@@ -798,10 +702,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -809,10 +710,7 @@ const deserializeAws_restJson1_1DescribeSavingsPlansCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -839,10 +737,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -871,10 +766,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -893,10 +785,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -948,10 +837,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -981,10 +867,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1036,10 +919,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.awssavingsplanservice.external#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1058,10 +938,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.awssavingsplanservice.external#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1158,10 +1035,7 @@ const serializeAws_restJson1_1CurrencyList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1DurationsList = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DurationsList = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1221,10 +1095,7 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
   );
 };
 
-const serializeAws_restJson1_1UUIDs = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1UUIDs = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1291,10 +1162,7 @@ const serializeAws_restJson1_1SavingsPlanUsageTypeList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1ListOfStrings = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ListOfStrings = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1321,9 +1189,7 @@ const serializeAws_restJson1_1SavingsPlanFilterList = (
   input: SavingsPlanFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1SavingsPlanFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1SavingsPlanFilter(entry, context));
 };
 
 const serializeAws_restJson1_1SavingsPlanIdList = (
@@ -1349,9 +1215,7 @@ const serializeAws_restJson1_1SavingsPlanRateFilterList = (
   input: SavingsPlanRateFilter[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1SavingsPlanRateFilter(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1SavingsPlanRateFilter(entry, context));
 };
 
 const serializeAws_restJson1_1SavingsPlanStateList = (
@@ -1361,10 +1225,7 @@ const serializeAws_restJson1_1SavingsPlanStateList = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1388,17 +1249,13 @@ const deserializeAws_restJson1_1ParentSavingsPlanOffering = (
   return {
     __type: "ParentSavingsPlanOffering",
     currency:
-      output.currency !== undefined && output.currency !== null
-        ? output.currency
-        : undefined,
+      output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     durationSeconds:
       output.durationSeconds !== undefined && output.durationSeconds !== null
         ? output.durationSeconds
         : undefined,
     offeringId:
-      output.offeringId !== undefined && output.offeringId !== null
-        ? output.offeringId
-        : undefined,
+      output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
     paymentOption:
       output.paymentOption !== undefined && output.paymentOption !== null
         ? output.paymentOption
@@ -1408,9 +1265,7 @@ const deserializeAws_restJson1_1ParentSavingsPlanOffering = (
         ? output.planDescription
         : undefined,
     planType:
-      output.planType !== undefined && output.planType !== null
-        ? output.planType
-        : undefined
+      output.planType !== undefined && output.planType !== null ? output.planType : undefined
   } as any;
 };
 
@@ -1421,9 +1276,7 @@ const deserializeAws_restJson1_1SavingsPlanOffering = (
   return {
     __type: "SavingsPlanOffering",
     currency:
-      output.currency !== undefined && output.currency !== null
-        ? output.currency
-        : undefined,
+      output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     description:
       output.description !== undefined && output.description !== null
         ? output.description
@@ -1433,43 +1286,29 @@ const deserializeAws_restJson1_1SavingsPlanOffering = (
         ? output.durationSeconds
         : undefined,
     offeringId:
-      output.offeringId !== undefined && output.offeringId !== null
-        ? output.offeringId
-        : undefined,
+      output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
     operation:
-      output.operation !== undefined && output.operation !== null
-        ? output.operation
-        : undefined,
+      output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     paymentOption:
       output.paymentOption !== undefined && output.paymentOption !== null
         ? output.paymentOption
         : undefined,
     planType:
-      output.planType !== undefined && output.planType !== null
-        ? output.planType
-        : undefined,
+      output.planType !== undefined && output.planType !== null ? output.planType : undefined,
     productTypes:
       output.productTypes !== undefined && output.productTypes !== null
-        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(
-            output.productTypes,
-            context
-          )
+        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(output.productTypes, context)
         : undefined,
     properties:
       output.properties !== undefined && output.properties !== null
-        ? deserializeAws_restJson1_1SavingsPlanOfferingPropertyList(
-            output.properties,
-            context
-          )
+        ? deserializeAws_restJson1_1SavingsPlanOfferingPropertyList(output.properties, context)
         : undefined,
     serviceCode:
       output.serviceCode !== undefined && output.serviceCode !== null
         ? output.serviceCode
         : undefined,
     usageType:
-      output.usageType !== undefined && output.usageType !== null
-        ? output.usageType
-        : undefined
+      output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined
   } as any;
 };
 
@@ -1479,14 +1318,8 @@ const deserializeAws_restJson1_1SavingsPlanOfferingProperty = (
 ): SavingsPlanOfferingProperty => {
   return {
     __type: "SavingsPlanOfferingProperty",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -1506,44 +1339,27 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRate = (
   return {
     __type: "SavingsPlanOfferingRate",
     operation:
-      output.operation !== undefined && output.operation !== null
-        ? output.operation
-        : undefined,
+      output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     productType:
       output.productType !== undefined && output.productType !== null
         ? output.productType
         : undefined,
     properties:
       output.properties !== undefined && output.properties !== null
-        ? deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList(
-            output.properties,
-            context
-          )
+        ? deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList(output.properties, context)
         : undefined,
-    rate:
-      output.rate !== undefined && output.rate !== null
-        ? output.rate
-        : undefined,
+    rate: output.rate !== undefined && output.rate !== null ? output.rate : undefined,
     savingsPlanOffering:
-      output.savingsPlanOffering !== undefined &&
-      output.savingsPlanOffering !== null
-        ? deserializeAws_restJson1_1ParentSavingsPlanOffering(
-            output.savingsPlanOffering,
-            context
-          )
+      output.savingsPlanOffering !== undefined && output.savingsPlanOffering !== null
+        ? deserializeAws_restJson1_1ParentSavingsPlanOffering(output.savingsPlanOffering, context)
         : undefined,
     serviceCode:
       output.serviceCode !== undefined && output.serviceCode !== null
         ? output.serviceCode
         : undefined,
-    unit:
-      output.unit !== undefined && output.unit !== null
-        ? output.unit
-        : undefined,
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
     usageType:
-      output.usageType !== undefined && output.usageType !== null
-        ? output.usageType
-        : undefined
+      output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined
   } as any;
 };
 
@@ -1553,14 +1369,8 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRateProperty = (
 ): SavingsPlanOfferingRateProperty => {
   return {
     __type: "SavingsPlanOfferingRateProperty",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -1604,14 +1414,8 @@ const deserializeAws_restJson1_1SavingsPlanRateProperty = (
 ): SavingsPlanRateProperty => {
   return {
     __type: "SavingsPlanRateProperty",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -1631,48 +1435,33 @@ const deserializeAws_restJson1_1SavingsPlan = (
   return {
     __type: "SavingsPlan",
     commitment:
-      output.commitment !== undefined && output.commitment !== null
-        ? output.commitment
-        : undefined,
+      output.commitment !== undefined && output.commitment !== null ? output.commitment : undefined,
     currency:
-      output.currency !== undefined && output.currency !== null
-        ? output.currency
-        : undefined,
+      output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     description:
       output.description !== undefined && output.description !== null
         ? output.description
         : undefined,
     ec2InstanceFamily:
-      output.ec2InstanceFamily !== undefined &&
-      output.ec2InstanceFamily !== null
+      output.ec2InstanceFamily !== undefined && output.ec2InstanceFamily !== null
         ? output.ec2InstanceFamily
         : undefined,
-    end:
-      output.end !== undefined && output.end !== null ? output.end : undefined,
+    end: output.end !== undefined && output.end !== null ? output.end : undefined,
     offeringId:
-      output.offeringId !== undefined && output.offeringId !== null
-        ? output.offeringId
-        : undefined,
+      output.offeringId !== undefined && output.offeringId !== null ? output.offeringId : undefined,
     paymentOption:
       output.paymentOption !== undefined && output.paymentOption !== null
         ? output.paymentOption
         : undefined,
     productTypes:
       output.productTypes !== undefined && output.productTypes !== null
-        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(
-            output.productTypes,
-            context
-          )
+        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(output.productTypes, context)
         : undefined,
     recurringPaymentAmount:
-      output.recurringPaymentAmount !== undefined &&
-      output.recurringPaymentAmount !== null
+      output.recurringPaymentAmount !== undefined && output.recurringPaymentAmount !== null
         ? output.recurringPaymentAmount
         : undefined,
-    region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
+    region: output.region !== undefined && output.region !== null ? output.region : undefined,
     savingsPlanArn:
       output.savingsPlanArn !== undefined && output.savingsPlanArn !== null
         ? output.savingsPlanArn
@@ -1685,26 +1474,18 @@ const deserializeAws_restJson1_1SavingsPlan = (
       output.savingsPlanType !== undefined && output.savingsPlanType !== null
         ? output.savingsPlanType
         : undefined,
-    start:
-      output.start !== undefined && output.start !== null
-        ? output.start
-        : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
+    start: output.start !== undefined && output.start !== null ? output.start : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1TagMap(output.tags, context)
         : undefined,
     termDurationInSeconds:
-      output.termDurationInSeconds !== undefined &&
-      output.termDurationInSeconds !== null
+      output.termDurationInSeconds !== undefined && output.termDurationInSeconds !== null
         ? output.termDurationInSeconds
         : undefined,
     upfrontPaymentAmount:
-      output.upfrontPaymentAmount !== undefined &&
-      output.upfrontPaymentAmount !== null
+      output.upfrontPaymentAmount !== undefined && output.upfrontPaymentAmount !== null
         ? output.upfrontPaymentAmount
         : undefined
   } as any;
@@ -1714,9 +1495,7 @@ const deserializeAws_restJson1_1SavingsPlanList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlan[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SavingsPlan(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SavingsPlan(entry, context));
 };
 
 const deserializeAws_restJson1_1SavingsPlanRate = (
@@ -1726,40 +1505,25 @@ const deserializeAws_restJson1_1SavingsPlanRate = (
   return {
     __type: "SavingsPlanRate",
     currency:
-      output.currency !== undefined && output.currency !== null
-        ? output.currency
-        : undefined,
+      output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     operation:
-      output.operation !== undefined && output.operation !== null
-        ? output.operation
-        : undefined,
+      output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     productType:
       output.productType !== undefined && output.productType !== null
         ? output.productType
         : undefined,
     properties:
       output.properties !== undefined && output.properties !== null
-        ? deserializeAws_restJson1_1SavingsPlanRatePropertyList(
-            output.properties,
-            context
-          )
+        ? deserializeAws_restJson1_1SavingsPlanRatePropertyList(output.properties, context)
         : undefined,
-    rate:
-      output.rate !== undefined && output.rate !== null
-        ? output.rate
-        : undefined,
+    rate: output.rate !== undefined && output.rate !== null ? output.rate : undefined,
     serviceCode:
       output.serviceCode !== undefined && output.serviceCode !== null
         ? output.serviceCode
         : undefined,
-    unit:
-      output.unit !== undefined && output.unit !== null
-        ? output.unit
-        : undefined,
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
     usageType:
-      output.usageType !== undefined && output.usageType !== null
-        ? output.usageType
-        : undefined
+      output.usageType !== undefined && output.usageType !== null ? output.usageType : undefined
   } as any;
 };
 
@@ -1799,23 +1563,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

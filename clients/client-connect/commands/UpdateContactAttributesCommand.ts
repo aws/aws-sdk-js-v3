@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConnectClient";
-import {
-  UpdateContactAttributesRequest,
-  UpdateContactAttributesResponse
-} from "../models/index";
+import { UpdateContactAttributesRequest, UpdateContactAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateContactAttributesCommand,
   serializeAws_restJson1_1UpdateContactAttributesCommand
@@ -49,13 +46,8 @@ export class UpdateContactAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateContactAttributesCommandInput,
-    UpdateContactAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateContactAttributesCommandInput, UpdateContactAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class UpdateContactAttributesCommand extends $Command<
     input: UpdateContactAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateContactAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateContactAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContactAttributesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateContactAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateContactAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

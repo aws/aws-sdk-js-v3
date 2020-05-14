@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The user is not authorized to access a resource.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum AccessPropertyValue {
@@ -65,8 +59,7 @@ export interface AccountModification {
 }
 
 export namespace AccountModification {
-  export const isa = (o: any): o is AccountModification =>
-    __isa(o, "AccountModification");
+  export const isa = (o: any): o is AccountModification => __isa(o, "AccountModification");
 }
 
 export interface AssociateIpGroupsRequest {
@@ -92,8 +85,7 @@ export interface AssociateIpGroupsResult {
 }
 
 export namespace AssociateIpGroupsResult {
-  export const isa = (o: any): o is AssociateIpGroupsResult =>
-    __isa(o, "AssociateIpGroupsResult");
+  export const isa = (o: any): o is AssociateIpGroupsResult => __isa(o, "AssociateIpGroupsResult");
 }
 
 export interface AuthorizeIpRulesRequest {
@@ -110,8 +102,7 @@ export interface AuthorizeIpRulesRequest {
 }
 
 export namespace AuthorizeIpRulesRequest {
-  export const isa = (o: any): o is AuthorizeIpRulesRequest =>
-    __isa(o, "AuthorizeIpRulesRequest");
+  export const isa = (o: any): o is AuthorizeIpRulesRequest => __isa(o, "AuthorizeIpRulesRequest");
 }
 
 export interface AuthorizeIpRulesResult {
@@ -119,8 +110,7 @@ export interface AuthorizeIpRulesResult {
 }
 
 export namespace AuthorizeIpRulesResult {
-  export const isa = (o: any): o is AuthorizeIpRulesResult =>
-    __isa(o, "AuthorizeIpRulesResult");
+  export const isa = (o: any): o is AuthorizeIpRulesResult => __isa(o, "AuthorizeIpRulesResult");
 }
 
 /**
@@ -137,8 +127,7 @@ export interface ClientProperties {
 }
 
 export namespace ClientProperties {
-  export const isa = (o: any): o is ClientProperties =>
-    __isa(o, "ClientProperties");
+  export const isa = (o: any): o is ClientProperties => __isa(o, "ClientProperties");
 }
 
 /**
@@ -158,8 +147,7 @@ export interface ClientPropertiesResult {
 }
 
 export namespace ClientPropertiesResult {
-  export const isa = (o: any): o is ClientPropertiesResult =>
-    __isa(o, "ClientPropertiesResult");
+  export const isa = (o: any): o is ClientPropertiesResult => __isa(o, "ClientPropertiesResult");
 }
 
 export enum Compute {
@@ -263,8 +251,7 @@ export interface CreateIpGroupRequest {
 }
 
 export namespace CreateIpGroupRequest {
-  export const isa = (o: any): o is CreateIpGroupRequest =>
-    __isa(o, "CreateIpGroupRequest");
+  export const isa = (o: any): o is CreateIpGroupRequest => __isa(o, "CreateIpGroupRequest");
 }
 
 export interface CreateIpGroupResult {
@@ -276,8 +263,7 @@ export interface CreateIpGroupResult {
 }
 
 export namespace CreateIpGroupResult {
-  export const isa = (o: any): o is CreateIpGroupResult =>
-    __isa(o, "CreateIpGroupResult");
+  export const isa = (o: any): o is CreateIpGroupResult => __isa(o, "CreateIpGroupResult");
 }
 
 export interface CreateTagsRequest {
@@ -296,8 +282,7 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
-  export const isa = (o: any): o is CreateTagsRequest =>
-    __isa(o, "CreateTagsRequest");
+  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 export interface CreateTagsResult {
@@ -305,8 +290,7 @@ export interface CreateTagsResult {
 }
 
 export namespace CreateTagsResult {
-  export const isa = (o: any): o is CreateTagsResult =>
-    __isa(o, "CreateTagsResult");
+  export const isa = (o: any): o is CreateTagsResult => __isa(o, "CreateTagsResult");
 }
 
 export interface CreateWorkspacesRequest {
@@ -318,8 +302,7 @@ export interface CreateWorkspacesRequest {
 }
 
 export namespace CreateWorkspacesRequest {
-  export const isa = (o: any): o is CreateWorkspacesRequest =>
-    __isa(o, "CreateWorkspacesRequest");
+  export const isa = (o: any): o is CreateWorkspacesRequest => __isa(o, "CreateWorkspacesRequest");
 }
 
 export interface CreateWorkspacesResult {
@@ -339,8 +322,7 @@ export interface CreateWorkspacesResult {
 }
 
 export namespace CreateWorkspacesResult {
-  export const isa = (o: any): o is CreateWorkspacesResult =>
-    __isa(o, "CreateWorkspacesResult");
+  export const isa = (o: any): o is CreateWorkspacesResult => __isa(o, "CreateWorkspacesResult");
 }
 
 export enum DedicatedTenancyModificationStateEnum {
@@ -418,8 +400,7 @@ export interface DeleteIpGroupRequest {
 }
 
 export namespace DeleteIpGroupRequest {
-  export const isa = (o: any): o is DeleteIpGroupRequest =>
-    __isa(o, "DeleteIpGroupRequest");
+  export const isa = (o: any): o is DeleteIpGroupRequest => __isa(o, "DeleteIpGroupRequest");
 }
 
 export interface DeleteIpGroupResult {
@@ -427,8 +408,7 @@ export interface DeleteIpGroupResult {
 }
 
 export namespace DeleteIpGroupResult {
-  export const isa = (o: any): o is DeleteIpGroupResult =>
-    __isa(o, "DeleteIpGroupResult");
+  export const isa = (o: any): o is DeleteIpGroupResult => __isa(o, "DeleteIpGroupResult");
 }
 
 export interface DeleteTagsRequest {
@@ -446,8 +426,7 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
-  export const isa = (o: any): o is DeleteTagsRequest =>
-    __isa(o, "DeleteTagsRequest");
+  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteTagsResult {
@@ -455,8 +434,7 @@ export interface DeleteTagsResult {
 }
 
 export namespace DeleteTagsResult {
-  export const isa = (o: any): o is DeleteTagsResult =>
-    __isa(o, "DeleteTagsResult");
+  export const isa = (o: any): o is DeleteTagsResult => __isa(o, "DeleteTagsResult");
 }
 
 export interface DeleteWorkspaceImageRequest {
@@ -543,8 +521,7 @@ export interface DescribeAccountRequest {
 }
 
 export namespace DescribeAccountRequest {
-  export const isa = (o: any): o is DescribeAccountRequest =>
-    __isa(o, "DescribeAccountRequest");
+  export const isa = (o: any): o is DescribeAccountRequest => __isa(o, "DescribeAccountRequest");
 }
 
 export interface DescribeAccountResult {
@@ -565,8 +542,7 @@ export interface DescribeAccountResult {
 }
 
 export namespace DescribeAccountResult {
-  export const isa = (o: any): o is DescribeAccountResult =>
-    __isa(o, "DescribeAccountResult");
+  export const isa = (o: any): o is DescribeAccountResult => __isa(o, "DescribeAccountResult");
 }
 
 export interface DescribeClientPropertiesRequest {
@@ -615,8 +591,7 @@ export interface DescribeIpGroupsRequest {
 }
 
 export namespace DescribeIpGroupsRequest {
-  export const isa = (o: any): o is DescribeIpGroupsRequest =>
-    __isa(o, "DescribeIpGroupsRequest");
+  export const isa = (o: any): o is DescribeIpGroupsRequest => __isa(o, "DescribeIpGroupsRequest");
 }
 
 export interface DescribeIpGroupsResult {
@@ -634,8 +609,7 @@ export interface DescribeIpGroupsResult {
 }
 
 export namespace DescribeIpGroupsResult {
-  export const isa = (o: any): o is DescribeIpGroupsResult =>
-    __isa(o, "DescribeIpGroupsResult");
+  export const isa = (o: any): o is DescribeIpGroupsResult => __isa(o, "DescribeIpGroupsResult");
 }
 
 export interface DescribeTagsRequest {
@@ -648,8 +622,7 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
-  export const isa = (o: any): o is DescribeTagsRequest =>
-    __isa(o, "DescribeTagsRequest");
+  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResult {
@@ -661,8 +634,7 @@ export interface DescribeTagsResult {
 }
 
 export namespace DescribeTagsResult {
-  export const isa = (o: any): o is DescribeTagsResult =>
-    __isa(o, "DescribeTagsResult");
+  export const isa = (o: any): o is DescribeTagsResult => __isa(o, "DescribeTagsResult");
 }
 
 export interface DescribeWorkspaceBundlesRequest {
@@ -1066,9 +1038,7 @@ export namespace ImportWorkspaceImageResult {
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface InvalidParameterValuesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValuesException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValuesException";
   $fault: "client";
   /**
@@ -1085,9 +1055,7 @@ export namespace InvalidParameterValuesException {
 /**
  * <p>The state of the resource is not valid for this operation.</p>
  */
-export interface InvalidResourceStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
   message?: string;
@@ -1176,8 +1144,7 @@ export interface MigrateWorkspaceRequest {
 }
 
 export namespace MigrateWorkspaceRequest {
-  export const isa = (o: any): o is MigrateWorkspaceRequest =>
-    __isa(o, "MigrateWorkspaceRequest");
+  export const isa = (o: any): o is MigrateWorkspaceRequest => __isa(o, "MigrateWorkspaceRequest");
 }
 
 export interface MigrateWorkspaceResult {
@@ -1195,8 +1162,7 @@ export interface MigrateWorkspaceResult {
 }
 
 export namespace MigrateWorkspaceResult {
-  export const isa = (o: any): o is MigrateWorkspaceResult =>
-    __isa(o, "MigrateWorkspaceResult");
+  export const isa = (o: any): o is MigrateWorkspaceResult => __isa(o, "MigrateWorkspaceResult");
 }
 
 export enum ModificationResourceEnum {
@@ -1222,8 +1188,7 @@ export interface ModificationState {
 }
 
 export namespace ModificationState {
-  export const isa = (o: any): o is ModificationState =>
-    __isa(o, "ModificationState");
+  export const isa = (o: any): o is ModificationState => __isa(o, "ModificationState");
 }
 
 export enum ModificationStateEnum {
@@ -1249,8 +1214,7 @@ export interface ModifyAccountRequest {
 }
 
 export namespace ModifyAccountRequest {
-  export const isa = (o: any): o is ModifyAccountRequest =>
-    __isa(o, "ModifyAccountRequest");
+  export const isa = (o: any): o is ModifyAccountRequest => __isa(o, "ModifyAccountRequest");
 }
 
 export interface ModifyAccountResult {
@@ -1258,8 +1222,7 @@ export interface ModifyAccountResult {
 }
 
 export namespace ModifyAccountResult {
-  export const isa = (o: any): o is ModifyAccountResult =>
-    __isa(o, "ModifyAccountResult");
+  export const isa = (o: any): o is ModifyAccountResult => __isa(o, "ModifyAccountResult");
 }
 
 export interface ModifyClientPropertiesRequest {
@@ -1436,8 +1399,7 @@ export interface OperatingSystem {
 }
 
 export namespace OperatingSystem {
-  export const isa = (o: any): o is OperatingSystem =>
-    __isa(o, "OperatingSystem");
+  export const isa = (o: any): o is OperatingSystem => __isa(o, "OperatingSystem");
 }
 
 export enum OperatingSystemType {
@@ -1448,9 +1410,7 @@ export enum OperatingSystemType {
 /**
  * <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  */
-export interface OperationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
   name: "OperationInProgressException";
   $fault: "client";
   message?: string;
@@ -1464,9 +1424,7 @@ export namespace OperationInProgressException {
 /**
  * <p>This operation is not supported.</p>
  */
-export interface OperationNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotSupportedException";
   $fault: "client";
   message?: string;
@@ -1501,8 +1459,7 @@ export interface RebootWorkspacesRequest {
 }
 
 export namespace RebootWorkspacesRequest {
-  export const isa = (o: any): o is RebootWorkspacesRequest =>
-    __isa(o, "RebootWorkspacesRequest");
+  export const isa = (o: any): o is RebootWorkspacesRequest => __isa(o, "RebootWorkspacesRequest");
 }
 
 export interface RebootWorkspacesResult {
@@ -1514,8 +1471,7 @@ export interface RebootWorkspacesResult {
 }
 
 export namespace RebootWorkspacesResult {
-  export const isa = (o: any): o is RebootWorkspacesResult =>
-    __isa(o, "RebootWorkspacesResult");
+  export const isa = (o: any): o is RebootWorkspacesResult => __isa(o, "RebootWorkspacesResult");
 }
 
 /**
@@ -1530,8 +1486,7 @@ export interface RebuildRequest {
 }
 
 export namespace RebuildRequest {
-  export const isa = (o: any): o is RebuildRequest =>
-    __isa(o, "RebuildRequest");
+  export const isa = (o: any): o is RebuildRequest => __isa(o, "RebuildRequest");
 }
 
 export interface RebuildWorkspacesRequest {
@@ -1556,8 +1511,7 @@ export interface RebuildWorkspacesResult {
 }
 
 export namespace RebuildWorkspacesResult {
-  export const isa = (o: any): o is RebuildWorkspacesResult =>
-    __isa(o, "RebuildWorkspacesResult");
+  export const isa = (o: any): o is RebuildWorkspacesResult => __isa(o, "RebuildWorkspacesResult");
 }
 
 export enum ReconnectEnum {
@@ -1627,9 +1581,7 @@ export namespace RegisterWorkspaceDirectoryResult {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1643,9 +1595,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p>The resource is associated with a directory.</p>
  */
-export interface ResourceAssociatedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAssociatedException extends __SmithyException, $MetadataBearer {
   name: "ResourceAssociatedException";
   $fault: "client";
   message?: string;
@@ -1659,9 +1609,7 @@ export namespace ResourceAssociatedException {
 /**
  * <p>The resource could not be created.</p>
  */
-export interface ResourceCreationFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceCreationFailedException extends __SmithyException, $MetadataBearer {
   name: "ResourceCreationFailedException";
   $fault: "client";
   message?: string;
@@ -1675,9 +1623,7 @@ export namespace ResourceCreationFailedException {
 /**
  * <p>Your resource limits have been exceeded.</p>
  */
-export interface ResourceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
   /**
@@ -1694,9 +1640,7 @@ export namespace ResourceLimitExceededException {
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1718,9 +1662,7 @@ export namespace ResourceNotFoundException {
 /**
  * <p>The specified resource is not available.</p>
  */
-export interface ResourceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ResourceUnavailableException";
   $fault: "client";
   /**
@@ -1748,8 +1690,7 @@ export interface RestoreWorkspaceRequest {
 }
 
 export namespace RestoreWorkspaceRequest {
-  export const isa = (o: any): o is RestoreWorkspaceRequest =>
-    __isa(o, "RestoreWorkspaceRequest");
+  export const isa = (o: any): o is RestoreWorkspaceRequest => __isa(o, "RestoreWorkspaceRequest");
 }
 
 export interface RestoreWorkspaceResult {
@@ -1757,8 +1698,7 @@ export interface RestoreWorkspaceResult {
 }
 
 export namespace RestoreWorkspaceResult {
-  export const isa = (o: any): o is RestoreWorkspaceResult =>
-    __isa(o, "RestoreWorkspaceResult");
+  export const isa = (o: any): o is RestoreWorkspaceResult => __isa(o, "RestoreWorkspaceResult");
 }
 
 export interface RevokeIpRulesRequest {
@@ -1775,8 +1715,7 @@ export interface RevokeIpRulesRequest {
 }
 
 export namespace RevokeIpRulesRequest {
-  export const isa = (o: any): o is RevokeIpRulesRequest =>
-    __isa(o, "RevokeIpRulesRequest");
+  export const isa = (o: any): o is RevokeIpRulesRequest => __isa(o, "RevokeIpRulesRequest");
 }
 
 export interface RevokeIpRulesResult {
@@ -1784,8 +1723,7 @@ export interface RevokeIpRulesResult {
 }
 
 export namespace RevokeIpRulesResult {
-  export const isa = (o: any): o is RevokeIpRulesResult =>
-    __isa(o, "RevokeIpRulesResult");
+  export const isa = (o: any): o is RevokeIpRulesResult => __isa(o, "RevokeIpRulesResult");
 }
 
 /**
@@ -1842,8 +1780,7 @@ export interface SelfservicePermissions {
 }
 
 export namespace SelfservicePermissions {
-  export const isa = (o: any): o is SelfservicePermissions =>
-    __isa(o, "SelfservicePermissions");
+  export const isa = (o: any): o is SelfservicePermissions => __isa(o, "SelfservicePermissions");
 }
 
 /**
@@ -1885,8 +1822,7 @@ export interface StartWorkspacesRequest {
 }
 
 export namespace StartWorkspacesRequest {
-  export const isa = (o: any): o is StartWorkspacesRequest =>
-    __isa(o, "StartWorkspacesRequest");
+  export const isa = (o: any): o is StartWorkspacesRequest => __isa(o, "StartWorkspacesRequest");
 }
 
 export interface StartWorkspacesResult {
@@ -1898,8 +1834,7 @@ export interface StartWorkspacesResult {
 }
 
 export namespace StartWorkspacesResult {
-  export const isa = (o: any): o is StartWorkspacesResult =>
-    __isa(o, "StartWorkspacesResult");
+  export const isa = (o: any): o is StartWorkspacesResult => __isa(o, "StartWorkspacesResult");
 }
 
 /**
@@ -1926,8 +1861,7 @@ export interface StopWorkspacesRequest {
 }
 
 export namespace StopWorkspacesRequest {
-  export const isa = (o: any): o is StopWorkspacesRequest =>
-    __isa(o, "StopWorkspacesRequest");
+  export const isa = (o: any): o is StopWorkspacesRequest => __isa(o, "StopWorkspacesRequest");
 }
 
 export interface StopWorkspacesResult {
@@ -1939,8 +1873,7 @@ export interface StopWorkspacesResult {
 }
 
 export namespace StopWorkspacesResult {
-  export const isa = (o: any): o is StopWorkspacesResult =>
-    __isa(o, "StopWorkspacesResult");
+  export const isa = (o: any): o is StopWorkspacesResult => __isa(o, "StopWorkspacesResult");
 }
 
 /**
@@ -1985,8 +1918,7 @@ export interface TerminateRequest {
 }
 
 export namespace TerminateRequest {
-  export const isa = (o: any): o is TerminateRequest =>
-    __isa(o, "TerminateRequest");
+  export const isa = (o: any): o is TerminateRequest => __isa(o, "TerminateRequest");
 }
 
 export interface TerminateWorkspacesRequest {
@@ -2048,9 +1980,7 @@ export interface UnsupportedWorkspaceConfigurationException
 }
 
 export namespace UnsupportedWorkspaceConfigurationException {
-  export const isa = (
-    o: any
-  ): o is UnsupportedWorkspaceConfigurationException =>
+  export const isa = (o: any): o is UnsupportedWorkspaceConfigurationException =>
     __isa(o, "UnsupportedWorkspaceConfigurationException");
 }
 
@@ -2290,8 +2220,7 @@ export interface WorkspaceBundle {
 }
 
 export namespace WorkspaceBundle {
-  export const isa = (o: any): o is WorkspaceBundle =>
-    __isa(o, "WorkspaceBundle");
+  export const isa = (o: any): o is WorkspaceBundle => __isa(o, "WorkspaceBundle");
 }
 
 /**
@@ -2457,8 +2386,7 @@ export interface WorkspaceDirectory {
 }
 
 export namespace WorkspaceDirectory {
-  export const isa = (o: any): o is WorkspaceDirectory =>
-    __isa(o, "WorkspaceDirectory");
+  export const isa = (o: any): o is WorkspaceDirectory => __isa(o, "WorkspaceDirectory");
 }
 
 export enum WorkspaceDirectoryState {
@@ -2524,8 +2452,7 @@ export interface WorkspaceImage {
 }
 
 export namespace WorkspaceImage {
-  export const isa = (o: any): o is WorkspaceImage =>
-    __isa(o, "WorkspaceImage");
+  export const isa = (o: any): o is WorkspaceImage => __isa(o, "WorkspaceImage");
 }
 
 export enum WorkspaceImageIngestionProcess {
@@ -2579,8 +2506,7 @@ export interface WorkspaceProperties {
 }
 
 export namespace WorkspaceProperties {
-  export const isa = (o: any): o is WorkspaceProperties =>
-    __isa(o, "WorkspaceProperties");
+  export const isa = (o: any): o is WorkspaceProperties => __isa(o, "WorkspaceProperties");
 }
 
 /**
@@ -2633,8 +2559,7 @@ export interface WorkspaceRequest {
 }
 
 export namespace WorkspaceRequest {
-  export const isa = (o: any): o is WorkspaceRequest =>
-    __isa(o, "WorkspaceRequest");
+  export const isa = (o: any): o is WorkspaceRequest => __isa(o, "WorkspaceRequest");
 }
 
 export enum WorkspaceState {
@@ -2661,9 +2586,7 @@ export enum WorkspaceState {
  * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  */
-export interface WorkspacesDefaultRoleNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface WorkspacesDefaultRoleNotFoundException extends __SmithyException, $MetadataBearer {
   name: "WorkspacesDefaultRoleNotFoundException";
   $fault: "client";
   message?: string;
@@ -2701,6 +2624,5 @@ export interface WorkspacesIpGroup {
 }
 
 export namespace WorkspacesIpGroup {
-  export const isa = (o: any): o is WorkspacesIpGroup =>
-    __isa(o, "WorkspacesIpGroup");
+  export const isa = (o: any): o is WorkspacesIpGroup => __isa(o, "WorkspacesIpGroup");
 }

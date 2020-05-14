@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteReplicationTaskMessage,
-  DeleteReplicationTaskResponse
-} from "../models/index";
+import { DeleteReplicationTaskMessage, DeleteReplicationTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteReplicationTaskCommand,
   serializeAws_json1_1DeleteReplicationTaskCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReplicationTaskCommandInput = DeleteReplicationTaskMessage;
-export type DeleteReplicationTaskCommandOutput = DeleteReplicationTaskResponse &
-  __MetadataBearer;
+export type DeleteReplicationTaskCommandOutput = DeleteReplicationTaskResponse & __MetadataBearer;
 
 export class DeleteReplicationTaskCommand extends $Command<
   DeleteReplicationTaskCommandInput,
@@ -49,13 +45,8 @@ export class DeleteReplicationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReplicationTaskCommandInput,
-    DeleteReplicationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReplicationTaskCommandInput, DeleteReplicationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

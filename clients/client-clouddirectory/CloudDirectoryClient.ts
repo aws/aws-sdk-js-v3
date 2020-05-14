@@ -2,10 +2,7 @@ import {
   AddFacetToObjectCommandInput,
   AddFacetToObjectCommandOutput
 } from "./commands/AddFacetToObjectCommand";
-import {
-  ApplySchemaCommandInput,
-  ApplySchemaCommandOutput
-} from "./commands/ApplySchemaCommand";
+import { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand";
 import {
   AttachObjectCommandInput,
   AttachObjectCommandOutput
@@ -22,26 +19,14 @@ import {
   AttachTypedLinkCommandInput,
   AttachTypedLinkCommandOutput
 } from "./commands/AttachTypedLinkCommand";
-import {
-  BatchReadCommandInput,
-  BatchReadCommandOutput
-} from "./commands/BatchReadCommand";
-import {
-  BatchWriteCommandInput,
-  BatchWriteCommandOutput
-} from "./commands/BatchWriteCommand";
+import { BatchReadCommandInput, BatchReadCommandOutput } from "./commands/BatchReadCommand";
+import { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
 import {
   CreateDirectoryCommandInput,
   CreateDirectoryCommandOutput
 } from "./commands/CreateDirectoryCommand";
-import {
-  CreateFacetCommandInput,
-  CreateFacetCommandOutput
-} from "./commands/CreateFacetCommand";
-import {
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput
-} from "./commands/CreateIndexCommand";
+import { CreateFacetCommandInput, CreateFacetCommandOutput } from "./commands/CreateFacetCommand";
+import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateObjectCommandInput,
   CreateObjectCommandOutput
@@ -58,10 +43,7 @@ import {
   DeleteDirectoryCommandInput,
   DeleteDirectoryCommandOutput
 } from "./commands/DeleteDirectoryCommand";
-import {
-  DeleteFacetCommandInput,
-  DeleteFacetCommandOutput
-} from "./commands/DeleteFacetCommand";
+import { DeleteFacetCommandInput, DeleteFacetCommandOutput } from "./commands/DeleteFacetCommand";
 import {
   DeleteObjectCommandInput,
   DeleteObjectCommandOutput
@@ -106,10 +88,7 @@ import {
   GetDirectoryCommandInput,
   GetDirectoryCommandOutput
 } from "./commands/GetDirectoryCommand";
-import {
-  GetFacetCommandInput,
-  GetFacetCommandOutput
-} from "./commands/GetFacetCommand";
+import { GetFacetCommandInput, GetFacetCommandOutput } from "./commands/GetFacetCommand";
 import {
   GetLinkAttributesCommandInput,
   GetLinkAttributesCommandOutput
@@ -158,10 +137,7 @@ import {
   ListIncomingTypedLinksCommandInput,
   ListIncomingTypedLinksCommandOutput
 } from "./commands/ListIncomingTypedLinksCommand";
-import {
-  ListIndexCommandInput,
-  ListIndexCommandOutput
-} from "./commands/ListIndexCommand";
+import { ListIndexCommandInput, ListIndexCommandOutput } from "./commands/ListIndexCommand";
 import {
   ListManagedSchemaArnsCommandInput,
   ListManagedSchemaArnsCommandOutput
@@ -226,18 +202,12 @@ import {
   RemoveFacetFromObjectCommandInput,
   RemoveFacetFromObjectCommandOutput
 } from "./commands/RemoveFacetFromObjectCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateFacetCommandInput,
-  UpdateFacetCommandOutput
-} from "./commands/UpdateFacetCommand";
+import { UpdateFacetCommandInput, UpdateFacetCommandOutput } from "./commands/UpdateFacetCommand";
 import {
   UpdateLinkAttributesCommandInput,
   UpdateLinkAttributesCommandOutput
@@ -535,9 +505,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudDirectoryClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudDirectoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

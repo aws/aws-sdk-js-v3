@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  CreateImageBuilderRequest,
-  CreateImageBuilderResult
-} from "../models/index";
+import { CreateImageBuilderRequest, CreateImageBuilderResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateImageBuilderCommand,
   serializeAws_json1_1CreateImageBuilderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateImageBuilderCommandInput = CreateImageBuilderRequest;
-export type CreateImageBuilderCommandOutput = CreateImageBuilderResult &
-  __MetadataBearer;
+export type CreateImageBuilderCommandOutput = CreateImageBuilderResult & __MetadataBearer;
 
 export class CreateImageBuilderCommand extends $Command<
   CreateImageBuilderCommandInput,
@@ -50,9 +46,7 @@ export class CreateImageBuilderCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

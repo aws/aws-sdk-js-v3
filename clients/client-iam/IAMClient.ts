@@ -34,10 +34,7 @@ import {
   CreateAccountAliasCommandInput,
   CreateAccountAliasCommandOutput
 } from "./commands/CreateAccountAliasCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput
@@ -58,10 +55,7 @@ import {
   CreatePolicyVersionCommandInput,
   CreatePolicyVersionCommandOutput
 } from "./commands/CreatePolicyVersionCommand";
-import {
-  CreateRoleCommandInput,
-  CreateRoleCommandOutput
-} from "./commands/CreateRoleCommand";
+import { CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand";
 import {
   CreateSAMLProviderCommandInput,
   CreateSAMLProviderCommandOutput
@@ -74,10 +68,7 @@ import {
   CreateServiceSpecificCredentialCommandInput,
   CreateServiceSpecificCredentialCommandOutput
 } from "./commands/CreateServiceSpecificCredentialCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateVirtualMFADeviceCommandInput,
   CreateVirtualMFADeviceCommandOutput
@@ -98,10 +89,7 @@ import {
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput
 } from "./commands/DeleteAccountPasswordPolicyCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupPolicyCommandInput,
   DeleteGroupPolicyCommandOutput
@@ -126,10 +114,7 @@ import {
   DeletePolicyVersionCommandInput,
   DeletePolicyVersionCommandOutput
 } from "./commands/DeletePolicyVersionCommand";
-import {
-  DeleteRoleCommandInput,
-  DeleteRoleCommandOutput
-} from "./commands/DeleteRoleCommand";
+import { DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand";
 import {
   DeleteRolePermissionsBoundaryCommandInput,
   DeleteRolePermissionsBoundaryCommandOutput
@@ -162,10 +147,7 @@ import {
   DeleteSigningCertificateCommandInput,
   DeleteSigningCertificateCommandOutput
 } from "./commands/DeleteSigningCertificateCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserPermissionsBoundaryCommandInput,
   DeleteUserPermissionsBoundaryCommandOutput
@@ -234,10 +216,7 @@ import {
   GetCredentialReportCommandInput,
   GetCredentialReportCommandOutput
 } from "./commands/GetCredentialReportCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetGroupPolicyCommandInput,
   GetGroupPolicyCommandOutput
@@ -258,18 +237,12 @@ import {
   GetOrganizationsAccessReportCommandInput,
   GetOrganizationsAccessReportCommandOutput
 } from "./commands/GetOrganizationsAccessReportCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetPolicyVersionCommandInput,
   GetPolicyVersionCommandOutput
 } from "./commands/GetPolicyVersionCommand";
-import {
-  GetRoleCommandInput,
-  GetRoleCommandOutput
-} from "./commands/GetRoleCommand";
+import { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
 import {
   GetRolePolicyCommandInput,
   GetRolePolicyCommandOutput
@@ -298,10 +271,7 @@ import {
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPolicyCommandInput,
   GetUserPolicyCommandOutput
@@ -334,10 +304,7 @@ import {
   ListGroupPoliciesCommandInput,
   ListGroupPoliciesCommandOutput
 } from "./commands/ListGroupPoliciesCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListGroupsForUserCommandInput,
   ListGroupsForUserCommandOutput
@@ -378,10 +345,7 @@ import {
   ListRoleTagsCommandInput,
   ListRoleTagsCommandOutput
 } from "./commands/ListRoleTagsCommand";
-import {
-  ListRolesCommandInput,
-  ListRolesCommandOutput
-} from "./commands/ListRolesCommand";
+import { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
 import {
   ListSAMLProvidersCommandInput,
   ListSAMLProvidersCommandOutput
@@ -410,10 +374,7 @@ import {
   ListUserTagsCommandInput,
   ListUserTagsCommandOutput
 } from "./commands/ListUserTagsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVirtualMFADevicesCommandInput,
   ListVirtualMFADevicesCommandOutput
@@ -474,22 +435,10 @@ import {
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput
 } from "./commands/SimulatePrincipalPolicyCommand";
-import {
-  TagRoleCommandInput,
-  TagRoleCommandOutput
-} from "./commands/TagRoleCommand";
-import {
-  TagUserCommandInput,
-  TagUserCommandOutput
-} from "./commands/TagUserCommand";
-import {
-  UntagRoleCommandInput,
-  UntagRoleCommandOutput
-} from "./commands/UntagRoleCommand";
-import {
-  UntagUserCommandInput,
-  UntagUserCommandOutput
-} from "./commands/UntagUserCommand";
+import { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand";
+import { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand";
+import { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand";
+import { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand";
 import {
   UpdateAccessKeyCommandInput,
   UpdateAccessKeyCommandOutput
@@ -502,10 +451,7 @@ import {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput
 } from "./commands/UpdateAssumeRolePolicyCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateLoginProfileCommandInput,
   UpdateLoginProfileCommandOutput
@@ -514,10 +460,7 @@ import {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
   UpdateOpenIDConnectProviderThumbprintCommandOutput
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
-import {
-  UpdateRoleCommandInput,
-  UpdateRoleCommandOutput
-} from "./commands/UpdateRoleCommand";
+import { UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand";
 import {
   UpdateRoleDescriptionCommandInput,
   UpdateRoleDescriptionCommandOutput
@@ -542,10 +485,7 @@ import {
   UpdateSigningCertificateCommandInput,
   UpdateSigningCertificateCommandOutput
 } from "./commands/UpdateSigningCertificateCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UploadSSHPublicKeyCommandInput,
   UploadSSHPublicKeyCommandOutput
@@ -979,9 +919,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IAMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -990,9 +928,7 @@ export type IAMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

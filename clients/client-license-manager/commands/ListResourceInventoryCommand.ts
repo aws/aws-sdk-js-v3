@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LicenseManagerClient";
-import {
-  ListResourceInventoryRequest,
-  ListResourceInventoryResponse
-} from "../models/index";
+import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResourceInventoryCommand,
   serializeAws_json1_1ListResourceInventoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourceInventoryCommandInput = ListResourceInventoryRequest;
-export type ListResourceInventoryCommandOutput = ListResourceInventoryResponse &
-  __MetadataBearer;
+export type ListResourceInventoryCommandOutput = ListResourceInventoryResponse & __MetadataBearer;
 
 export class ListResourceInventoryCommand extends $Command<
   ListResourceInventoryCommandInput,
@@ -49,13 +45,8 @@ export class ListResourceInventoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourceInventoryCommandInput,
-    ListResourceInventoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourceInventoryCommandInput, ListResourceInventoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

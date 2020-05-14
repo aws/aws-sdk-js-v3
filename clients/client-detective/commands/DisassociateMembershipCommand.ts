@@ -45,13 +45,8 @@ export class DisassociateMembershipCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateMembershipCommandInput,
-    DisassociateMembershipCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateMembershipCommandInput, DisassociateMembershipCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class DisassociateMembershipCommand extends $Command<
     input: DisassociateMembershipCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateMembershipCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateMembershipCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateMembershipCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateMembershipCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

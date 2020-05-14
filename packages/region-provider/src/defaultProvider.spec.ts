@@ -15,10 +15,7 @@ jest.mock("./fromSharedConfigFiles", () => {
     fromSharedConfigFiles: jest.fn().mockReturnValue(iniProvider)
   };
 });
-import {
-  fromSharedConfigFiles,
-  SharedConfigInit
-} from "./fromSharedConfigFiles";
+import { fromSharedConfigFiles, SharedConfigInit } from "./fromSharedConfigFiles";
 
 beforeEach(() => {
   (fromEnv() as any).mockClear();
@@ -40,12 +37,8 @@ describe("defaultProvider", () => {
   it("should continue on to the ini provider if no environment variable region has been found", async () => {
     const region = "foo";
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Nothing here!"))
-    );
-    (fromSharedConfigFiles() as any).mockImplementation(() =>
-      Promise.resolve(region)
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromSharedConfigFiles() as any).mockImplementation(() => Promise.resolve(region));
 
     expect(await defaultProvider()()).toEqual(region);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
@@ -73,12 +66,8 @@ describe("defaultProvider", () => {
       configFilepath: "/home/user/.secrets/credentials.ini"
     };
 
-    (fromEnv() as any).mockImplementation(() =>
-      Promise.reject(new ProviderError("Keep moving!"))
-    );
-    (fromSharedConfigFiles() as any).mockImplementation(() =>
-      Promise.resolve("region")
-    );
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSharedConfigFiles() as any).mockImplementation(() => Promise.resolve("region"));
 
     (fromSharedConfigFiles as any).mockClear();
 

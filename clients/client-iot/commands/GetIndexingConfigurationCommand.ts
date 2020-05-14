@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  GetIndexingConfigurationRequest,
-  GetIndexingConfigurationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIndexingConfigurationCommand,
   serializeAws_restJson1_1GetIndexingConfigurationCommand
@@ -49,13 +42,8 @@ export class GetIndexingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIndexingConfigurationCommandInput,
-    GetIndexingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIndexingConfigurationCommandInput, GetIndexingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetIndexingConfigurationCommand extends $Command<
     input: GetIndexingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIndexingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetIndexingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetIndexingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

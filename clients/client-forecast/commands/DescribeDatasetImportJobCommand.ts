@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  DescribeDatasetImportJobRequest,
-  DescribeDatasetImportJobResponse
-} from "../models/index";
+import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDatasetImportJobCommand,
   serializeAws_json1_1DescribeDatasetImportJobCommand
@@ -49,13 +46,8 @@ export class DescribeDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDatasetImportJobCommandInput,
-    DescribeDatasetImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDatasetImportJobCommandInput, DescribeDatasetImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeDatasetImportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

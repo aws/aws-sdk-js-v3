@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListServiceActionsInput,
-  ListServiceActionsOutput
-} from "../models/index";
+import { ListServiceActionsInput, ListServiceActionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListServiceActionsCommand,
   serializeAws_json1_1ListServiceActionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListServiceActionsCommandInput = ListServiceActionsInput;
-export type ListServiceActionsCommandOutput = ListServiceActionsOutput &
-  __MetadataBearer;
+export type ListServiceActionsCommandOutput = ListServiceActionsOutput & __MetadataBearer;
 
 export class ListServiceActionsCommand extends $Command<
   ListServiceActionsCommandInput,
@@ -50,9 +46,7 @@ export class ListServiceActionsCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListServiceActionsCommandInput, ListServiceActionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

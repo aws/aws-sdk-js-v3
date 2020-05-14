@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecurityHubClient";
-import {
-  CreateActionTargetRequest,
-  CreateActionTargetResponse
-} from "../models/index";
+import { CreateActionTargetRequest, CreateActionTargetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateActionTargetCommand,
   serializeAws_restJson1_1CreateActionTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateActionTargetCommandInput = CreateActionTargetRequest;
-export type CreateActionTargetCommandOutput = CreateActionTargetResponse &
-  __MetadataBearer;
+export type CreateActionTargetCommandOutput = CreateActionTargetResponse & __MetadataBearer;
 
 export class CreateActionTargetCommand extends $Command<
   CreateActionTargetCommandInput,
@@ -50,9 +46,7 @@ export class CreateActionTargetCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateActionTargetCommandInput, CreateActionTargetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

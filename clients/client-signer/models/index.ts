@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -26,17 +20,14 @@ export namespace AccessDeniedException {
  * 			call a tagging API on a cancelled signing
  * 			profile.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CancelSigningProfileRequest {
@@ -329,8 +320,7 @@ export interface HashAlgorithmOptions {
 }
 
 export namespace HashAlgorithmOptions {
-  export const isa = (o: any): o is HashAlgorithmOptions =>
-    __isa(o, "HashAlgorithmOptions");
+  export const isa = (o: any): o is HashAlgorithmOptions => __isa(o, "HashAlgorithmOptions");
 }
 
 export type ImageFormat = "JSON";
@@ -338,9 +328,7 @@ export type ImageFormat = "JSON";
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
@@ -387,8 +375,7 @@ export interface ListSigningJobsRequest {
 }
 
 export namespace ListSigningJobsRequest {
-  export const isa = (o: any): o is ListSigningJobsRequest =>
-    __isa(o, "ListSigningJobsRequest");
+  export const isa = (o: any): o is ListSigningJobsRequest => __isa(o, "ListSigningJobsRequest");
 }
 
 export interface ListSigningJobsResponse {
@@ -405,8 +392,7 @@ export interface ListSigningJobsResponse {
 }
 
 export namespace ListSigningJobsResponse {
-  export const isa = (o: any): o is ListSigningJobsResponse =>
-    __isa(o, "ListSigningJobsResponse");
+  export const isa = (o: any): o is ListSigningJobsResponse => __isa(o, "ListSigningJobsResponse");
 }
 
 export interface ListSigningPlatformsRequest {
@@ -550,8 +536,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface PutSigningProfileRequest {
@@ -614,9 +599,7 @@ export namespace PutSigningProfileResponse {
 /**
  * <p>A specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -665,8 +648,7 @@ export interface S3SignedObject {
 }
 
 export namespace S3SignedObject {
-  export const isa = (o: any): o is S3SignedObject =>
-    __isa(o, "S3SignedObject");
+  export const isa = (o: any): o is S3SignedObject => __isa(o, "S3SignedObject");
 }
 
 /**
@@ -727,8 +709,7 @@ export interface SigningConfiguration {
 }
 
 export namespace SigningConfiguration {
-  export const isa = (o: any): o is SigningConfiguration =>
-    __isa(o, "SigningConfiguration");
+  export const isa = (o: any): o is SigningConfiguration => __isa(o, "SigningConfiguration");
 }
 
 /**
@@ -772,8 +753,7 @@ export interface SigningImageFormat {
 }
 
 export namespace SigningImageFormat {
-  export const isa = (o: any): o is SigningImageFormat =>
-    __isa(o, "SigningImageFormat");
+  export const isa = (o: any): o is SigningImageFormat => __isa(o, "SigningImageFormat");
 }
 
 /**
@@ -832,8 +812,7 @@ export interface SigningMaterial {
 }
 
 export namespace SigningMaterial {
-  export const isa = (o: any): o is SigningMaterial =>
-    __isa(o, "SigningMaterial");
+  export const isa = (o: any): o is SigningMaterial => __isa(o, "SigningMaterial");
 }
 
 /**
@@ -885,8 +864,7 @@ export interface SigningPlatform {
 }
 
 export namespace SigningPlatform {
-  export const isa = (o: any): o is SigningPlatform =>
-    __isa(o, "SigningPlatform");
+  export const isa = (o: any): o is SigningPlatform => __isa(o, "SigningPlatform");
 }
 
 /**
@@ -956,8 +934,7 @@ export interface SigningProfile {
 }
 
 export namespace SigningProfile {
-  export const isa = (o: any): o is SigningProfile =>
-    __isa(o, "SigningProfile");
+  export const isa = (o: any): o is SigningProfile => __isa(o, "SigningProfile");
 }
 
 export type SigningProfileStatus = "Active" | "Canceled";
@@ -1007,8 +984,7 @@ export interface StartSigningJobRequest {
 }
 
 export namespace StartSigningJobRequest {
-  export const isa = (o: any): o is StartSigningJobRequest =>
-    __isa(o, "StartSigningJobRequest");
+  export const isa = (o: any): o is StartSigningJobRequest => __isa(o, "StartSigningJobRequest");
 }
 
 export interface StartSigningJobResponse {
@@ -1020,8 +996,7 @@ export interface StartSigningJobResponse {
 }
 
 export namespace StartSigningJobResponse {
-  export const isa = (o: any): o is StartSigningJobResponse =>
-    __isa(o, "StartSigningJobResponse");
+  export const isa = (o: any): o is StartSigningJobResponse => __isa(o, "StartSigningJobResponse");
 }
 
 export interface TagResourceRequest {
@@ -1042,8 +1017,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1051,24 +1025,20 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>The signing job has been throttled.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UntagResourceRequest {
@@ -1089,8 +1059,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1098,22 +1067,18 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>You signing certificate could not be validated.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

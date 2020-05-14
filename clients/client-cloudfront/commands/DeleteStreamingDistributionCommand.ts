@@ -45,13 +45,8 @@ export class DeleteStreamingDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteStreamingDistributionCommandInput,
-    DeleteStreamingDistributionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteStreamingDistributionCommandInput, DeleteStreamingDistributionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +65,14 @@ export class DeleteStreamingDistributionCommand extends $Command<
     input: DeleteStreamingDistributionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteStreamingDistributionCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteStreamingDistributionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStreamingDistributionCommandOutput> {
-    return deserializeAws_restXmlDeleteStreamingDistributionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteStreamingDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

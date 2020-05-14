@@ -1,8 +1,4 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
 import {
   AssumeRoleWithWebIdentityRequest,
   AssumeRoleWithWebIdentityResponse
@@ -49,13 +45,8 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssumeRoleWithWebIdentityCommandInput,
-    AssumeRoleWithWebIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssumeRoleWithWebIdentityCommandInput, AssumeRoleWithWebIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssumeRoleWithWebIdentityCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAssumeRoleWithWebIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

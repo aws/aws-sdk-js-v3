@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  CreateMicrosoftADRequest,
-  CreateMicrosoftADResult
-} from "../models/index";
+import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateMicrosoftADCommand,
   serializeAws_json1_1CreateMicrosoftADCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMicrosoftADCommandInput = CreateMicrosoftADRequest;
-export type CreateMicrosoftADCommandOutput = CreateMicrosoftADResult &
-  __MetadataBearer;
+export type CreateMicrosoftADCommandOutput = CreateMicrosoftADResult & __MetadataBearer;
 
 export class CreateMicrosoftADCommand extends $Command<
   CreateMicrosoftADCommandInput,
@@ -50,9 +46,7 @@ export class CreateMicrosoftADCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

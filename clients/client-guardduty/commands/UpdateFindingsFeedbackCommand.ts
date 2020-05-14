@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  UpdateFindingsFeedbackRequest,
-  UpdateFindingsFeedbackResponse
-} from "../models/index";
+import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFindingsFeedbackCommand,
   serializeAws_restJson1_1UpdateFindingsFeedbackCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFindingsFeedbackCommandInput = UpdateFindingsFeedbackRequest;
-export type UpdateFindingsFeedbackCommandOutput = UpdateFindingsFeedbackResponse &
-  __MetadataBearer;
+export type UpdateFindingsFeedbackCommandOutput = UpdateFindingsFeedbackResponse & __MetadataBearer;
 
 export class UpdateFindingsFeedbackCommand extends $Command<
   UpdateFindingsFeedbackCommandInput,
@@ -49,13 +45,8 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFindingsFeedbackCommandInput,
-    UpdateFindingsFeedbackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFindingsFeedbackCommandInput, UpdateFindingsFeedbackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     input: UpdateFindingsFeedbackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFindingsFeedbackCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateFindingsFeedbackCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFindingsFeedbackCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFindingsFeedbackCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFindingsFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

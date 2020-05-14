@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  RetryStageExecutionInput,
-  RetryStageExecutionOutput
-} from "../models/index";
+import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1RetryStageExecutionCommand,
   serializeAws_json1_1RetryStageExecutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
-export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput &
-  __MetadataBearer;
+export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput & __MetadataBearer;
 
 export class RetryStageExecutionCommand extends $Command<
   RetryStageExecutionCommandInput,
@@ -49,13 +45,8 @@ export class RetryStageExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RetryStageExecutionCommandInput,
-    RetryStageExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RetryStageExecutionCommandInput, RetryStageExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

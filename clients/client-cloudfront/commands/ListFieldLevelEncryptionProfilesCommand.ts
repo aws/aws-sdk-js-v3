@@ -53,9 +53,7 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     ListFieldLevelEncryptionProfilesCommandInput,
     ListFieldLevelEncryptionProfilesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
     input: ListFieldLevelEncryptionProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlListFieldLevelEncryptionProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> {
-    return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

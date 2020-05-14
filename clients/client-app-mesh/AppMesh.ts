@@ -179,9 +179,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createMesh(
     args: CreateMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeshCommandOutput) => void),
     cb?: (err: any, data?: CreateMeshCommandOutput) => void
   ): Promise<CreateMeshCommandOutput> | void {
     const command = new CreateMeshCommand(args);
@@ -221,9 +219,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
@@ -391,9 +387,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteMesh(
     args: DeleteMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMeshCommandOutput) => void),
     cb?: (err: any, data?: DeleteMeshCommandOutput) => void
   ): Promise<DeleteMeshCommandOutput> | void {
     const command = new DeleteMeshCommand(args);
@@ -426,9 +420,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
@@ -570,9 +562,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeMesh(
     args: DescribeMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMeshCommandOutput) => void),
     cb?: (err: any, data?: DescribeMeshCommandOutput) => void
   ): Promise<DescribeMeshCommandOutput> | void {
     const command = new DescribeMeshCommand(args);
@@ -605,9 +595,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public describeRoute(
     args: DescribeRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRouteCommandOutput) => void),
     cb?: (err: any, data?: DescribeRouteCommandOutput) => void
   ): Promise<DescribeRouteCommandOutput> | void {
     const command = new DescribeRouteCommand(args);
@@ -745,9 +733,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listMeshes(
     args: ListMeshesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMeshesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeshesCommandOutput) => void),
     cb?: (err: any, data?: ListMeshesCommandOutput) => void
   ): Promise<ListMeshesCommandOutput> | void {
     const command = new ListMeshesCommand(args);
@@ -780,9 +766,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listRoutes(
     args: ListRoutesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoutesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoutesCommandOutput) => void),
     cb?: (err: any, data?: ListRoutesCommandOutput) => void
   ): Promise<ListRoutesCommandOutput> | void {
     const command = new ListRoutesCommand(args);
@@ -850,9 +834,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public listVirtualNodes(
     args: ListVirtualNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVirtualNodesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVirtualNodesCommandOutput) => void),
     cb?: (err: any, data?: ListVirtualNodesCommandOutput) => void
   ): Promise<ListVirtualNodesCommandOutput> | void {
     const command = new ListVirtualNodesCommand(args);
@@ -958,9 +940,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -993,9 +973,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1028,9 +1006,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateMesh(
     args: UpdateMeshCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMeshCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMeshCommandOutput) => void),
     cb?: (err: any, data?: UpdateMeshCommandOutput) => void
   ): Promise<UpdateMeshCommandOutput> | void {
     const command = new UpdateMeshCommand(args);
@@ -1063,9 +1039,7 @@ export class AppMesh extends AppMeshClient {
   ): void;
   public updateRoute(
     args: UpdateRouteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRouteCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
     cb?: (err: any, data?: UpdateRouteCommandOutput) => void
   ): Promise<UpdateRouteCommandOutput> | void {
     const command = new UpdateRouteCommand(args);

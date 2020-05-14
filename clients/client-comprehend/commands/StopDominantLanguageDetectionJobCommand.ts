@@ -53,9 +53,7 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     StopDominantLanguageDetectionJobCommandInput,
     StopDominantLanguageDetectionJobCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     input: StopDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

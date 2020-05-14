@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   UpdateVoiceConnectorGroupRequest,
   UpdateVoiceConnectorGroupResponse
@@ -49,13 +45,8 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVoiceConnectorGroupCommandInput,
-    UpdateVoiceConnectorGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVoiceConnectorGroupCommandInput, UpdateVoiceConnectorGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     input: UpdateVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateVoiceConnectorGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateVoiceConnectorGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

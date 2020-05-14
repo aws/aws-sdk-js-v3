@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateNodeCommandInput = AssociateNodeRequest;
-export type AssociateNodeCommandOutput = AssociateNodeResponse &
-  __MetadataBearer;
+export type AssociateNodeCommandOutput = AssociateNodeResponse & __MetadataBearer;
 
 export class AssociateNodeCommand extends $Command<
   AssociateNodeCommandInput,
@@ -47,9 +46,7 @@ export class AssociateNodeCommand extends $Command<
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateNodeCommandInput, AssociateNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

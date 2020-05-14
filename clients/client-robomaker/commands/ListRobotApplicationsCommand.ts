@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  ListRobotApplicationsRequest,
-  ListRobotApplicationsResponse
-} from "../models/index";
+import { ListRobotApplicationsRequest, ListRobotApplicationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRobotApplicationsCommand,
   serializeAws_restJson1_1ListRobotApplicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRobotApplicationsCommandInput = ListRobotApplicationsRequest;
-export type ListRobotApplicationsCommandOutput = ListRobotApplicationsResponse &
-  __MetadataBearer;
+export type ListRobotApplicationsCommandOutput = ListRobotApplicationsResponse & __MetadataBearer;
 
 export class ListRobotApplicationsCommand extends $Command<
   ListRobotApplicationsCommandInput,
@@ -49,13 +45,8 @@ export class ListRobotApplicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRobotApplicationsCommandInput,
-    ListRobotApplicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRobotApplicationsCommandInput, ListRobotApplicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListRobotApplicationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRobotApplicationsCommandOutput> {
-    return deserializeAws_restJson1_1ListRobotApplicationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRobotApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

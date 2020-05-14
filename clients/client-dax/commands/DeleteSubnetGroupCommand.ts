@@ -1,12 +1,5 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSubnetGroupCommand,
   serializeAws_json1_1DeleteSubnetGroupCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSubnetGroupCommandInput = DeleteSubnetGroupRequest;
-export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse &
-  __MetadataBearer;
+export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse & __MetadataBearer;
 
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,
@@ -50,9 +42,7 @@ export class DeleteSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

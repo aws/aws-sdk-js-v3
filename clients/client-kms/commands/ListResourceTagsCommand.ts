@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  ListResourceTagsRequest,
-  ListResourceTagsResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResourceTagsCommand,
   serializeAws_json1_1ListResourceTagsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourceTagsCommandInput = ListResourceTagsRequest;
-export type ListResourceTagsCommandOutput = ListResourceTagsResponse &
-  __MetadataBearer;
+export type ListResourceTagsCommandOutput = ListResourceTagsResponse & __MetadataBearer;
 
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,
@@ -50,9 +42,7 @@ export class ListResourceTagsCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResourceTagsCommandInput, ListResourceTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

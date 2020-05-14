@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetOpenIDConnectProviderRequest,
-  GetOpenIDConnectProviderResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetOpenIDConnectProviderRequest, GetOpenIDConnectProviderResponse } from "../models/index";
 import {
   deserializeAws_queryGetOpenIDConnectProviderCommand,
   serializeAws_queryGetOpenIDConnectProviderCommand
@@ -49,13 +42,8 @@ export class GetOpenIDConnectProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOpenIDConnectProviderCommandInput,
-    GetOpenIDConnectProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOpenIDConnectProviderCommandInput, GetOpenIDConnectProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteBackupSelectionInput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBackupSelectionCommand,
@@ -45,13 +41,8 @@ export class DeleteBackupSelectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBackupSelectionCommandInput,
-    DeleteBackupSelectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBackupSelectionCommandInput, DeleteBackupSelectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class DeleteBackupSelectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBackupSelectionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupSelectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBackupSelectionCommand(output, context);
   }
 
   // Start section: command_body_extra

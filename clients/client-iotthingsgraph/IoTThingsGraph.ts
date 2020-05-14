@@ -390,9 +390,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamespaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): Promise<DeleteNamespaceCommandOutput> | void {
     const command = new DeleteNamespaceCommand(args);
@@ -716,9 +714,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getEntities(
     args: GetEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntitiesCommandOutput) => void),
     cb?: (err: any, data?: GetEntitiesCommandOutput) => void
   ): Promise<GetEntitiesCommandOutput> | void {
     const command = new GetEntitiesCommand(args);
@@ -751,9 +747,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getFlowTemplate(
     args: GetFlowTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFlowTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFlowTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetFlowTemplateCommandOutput) => void
   ): Promise<GetFlowTemplateCommandOutput> | void {
     const command = new GetFlowTemplateCommand(args);
@@ -963,9 +957,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public getUploadStatus(
     args: GetUploadStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUploadStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUploadStatusCommandOutput) => void),
     cb?: (err: any, data?: GetUploadStatusCommandOutput) => void
   ): Promise<GetUploadStatusCommandOutput> | void {
     const command = new GetUploadStatusCommand(args);
@@ -1068,9 +1060,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchEntities(
     args: SearchEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchEntitiesCommandOutput) => void),
     cb?: (err: any, data?: SearchEntitiesCommandOutput) => void
   ): Promise<SearchEntitiesCommandOutput> | void {
     const command = new SearchEntitiesCommand(args);
@@ -1246,9 +1236,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public searchThings(
     args: SearchThingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchThingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchThingsCommandOutput) => void),
     cb?: (err: any, data?: SearchThingsCommandOutput) => void
   ): Promise<SearchThingsCommandOutput> | void {
     const command = new SearchThingsCommand(args);
@@ -1281,9 +1269,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1351,9 +1337,7 @@ export class IoTThingsGraph extends IoTThingsGraphClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  SetLocalConsolePasswordInput,
-  SetLocalConsolePasswordOutput
-} from "../models/index";
+import { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/index";
 import {
   deserializeAws_json1_1SetLocalConsolePasswordCommand,
   serializeAws_json1_1SetLocalConsolePasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetLocalConsolePasswordCommandInput = SetLocalConsolePasswordInput;
-export type SetLocalConsolePasswordCommandOutput = SetLocalConsolePasswordOutput &
-  __MetadataBearer;
+export type SetLocalConsolePasswordCommandOutput = SetLocalConsolePasswordOutput & __MetadataBearer;
 
 export class SetLocalConsolePasswordCommand extends $Command<
   SetLocalConsolePasswordCommandInput,
@@ -49,13 +45,8 @@ export class SetLocalConsolePasswordCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetLocalConsolePasswordCommandInput,
-    SetLocalConsolePasswordCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetLocalConsolePasswordCommandInput, SetLocalConsolePasswordCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class SetLocalConsolePasswordCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLocalConsolePasswordCommandOutput> {
-    return deserializeAws_json1_1SetLocalConsolePasswordCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetLocalConsolePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

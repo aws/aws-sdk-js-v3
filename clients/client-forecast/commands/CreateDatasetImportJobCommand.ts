@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse
-} from "../models/index";
+import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDatasetImportJobCommand,
   serializeAws_json1_1CreateDatasetImportJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatasetImportJobCommandInput = CreateDatasetImportJobRequest;
-export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse &
-  __MetadataBearer;
+export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse & __MetadataBearer;
 
 export class CreateDatasetImportJobCommand extends $Command<
   CreateDatasetImportJobCommandInput,
@@ -49,13 +45,8 @@ export class CreateDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDatasetImportJobCommandInput,
-    CreateDatasetImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDatasetImportJobCommandInput, CreateDatasetImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

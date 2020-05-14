@@ -2,10 +2,7 @@ import {
   AllocateStaticIpCommandInput,
   AllocateStaticIpCommandOutput
 } from "./commands/AllocateStaticIpCommand";
-import {
-  AttachDiskCommandInput,
-  AttachDiskCommandOutput
-} from "./commands/AttachDiskCommand";
+import { AttachDiskCommandInput, AttachDiskCommandOutput } from "./commands/AttachDiskCommand";
 import {
   AttachInstancesToLoadBalancerCommandInput,
   AttachInstancesToLoadBalancerCommandOutput
@@ -30,10 +27,7 @@ import {
   CreateCloudFormationStackCommandInput,
   CreateCloudFormationStackCommandOutput
 } from "./commands/CreateCloudFormationStackCommand";
-import {
-  CreateDiskCommandInput,
-  CreateDiskCommandOutput
-} from "./commands/CreateDiskCommand";
+import { CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand";
 import {
   CreateDiskFromSnapshotCommandInput,
   CreateDiskFromSnapshotCommandOutput
@@ -90,10 +84,7 @@ import {
   DeleteAutoSnapshotCommandInput,
   DeleteAutoSnapshotCommandOutput
 } from "./commands/DeleteAutoSnapshotCommand";
-import {
-  DeleteDiskCommandInput,
-  DeleteDiskCommandOutput
-} from "./commands/DeleteDiskCommand";
+import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand";
 import {
   DeleteDiskSnapshotCommandInput,
   DeleteDiskSnapshotCommandOutput
@@ -138,10 +129,7 @@ import {
   DeleteRelationalDatabaseSnapshotCommandInput,
   DeleteRelationalDatabaseSnapshotCommandOutput
 } from "./commands/DeleteRelationalDatabaseSnapshotCommand";
-import {
-  DetachDiskCommandInput,
-  DetachDiskCommandOutput
-} from "./commands/DetachDiskCommand";
+import { DetachDiskCommandInput, DetachDiskCommandOutput } from "./commands/DetachDiskCommand";
 import {
   DetachInstancesFromLoadBalancerCommandInput,
   DetachInstancesFromLoadBalancerCommandOutput
@@ -158,10 +146,7 @@ import {
   DownloadDefaultKeyPairCommandInput,
   DownloadDefaultKeyPairCommandOutput
 } from "./commands/DownloadDefaultKeyPairCommand";
-import {
-  EnableAddOnCommandInput,
-  EnableAddOnCommandOutput
-} from "./commands/EnableAddOnCommand";
+import { EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand";
 import {
   ExportSnapshotCommandInput,
   ExportSnapshotCommandOutput
@@ -178,18 +163,12 @@ import {
   GetBlueprintsCommandInput,
   GetBlueprintsCommandOutput
 } from "./commands/GetBlueprintsCommand";
-import {
-  GetBundlesCommandInput,
-  GetBundlesCommandOutput
-} from "./commands/GetBundlesCommand";
+import { GetBundlesCommandInput, GetBundlesCommandOutput } from "./commands/GetBundlesCommand";
 import {
   GetCloudFormationStackRecordsCommandInput,
   GetCloudFormationStackRecordsCommandOutput
 } from "./commands/GetCloudFormationStackRecordsCommand";
-import {
-  GetDiskCommandInput,
-  GetDiskCommandOutput
-} from "./commands/GetDiskCommand";
+import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import {
   GetDiskSnapshotCommandInput,
   GetDiskSnapshotCommandOutput
@@ -198,18 +177,9 @@ import {
   GetDiskSnapshotsCommandInput,
   GetDiskSnapshotsCommandOutput
 } from "./commands/GetDiskSnapshotsCommand";
-import {
-  GetDisksCommandInput,
-  GetDisksCommandOutput
-} from "./commands/GetDisksCommand";
-import {
-  GetDomainCommandInput,
-  GetDomainCommandOutput
-} from "./commands/GetDomainCommand";
-import {
-  GetDomainsCommandInput,
-  GetDomainsCommandOutput
-} from "./commands/GetDomainsCommand";
+import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
+import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetDomainsCommandInput, GetDomainsCommandOutput } from "./commands/GetDomainsCommand";
 import {
   GetExportSnapshotRecordsCommandInput,
   GetExportSnapshotRecordsCommandOutput
@@ -218,10 +188,7 @@ import {
   GetInstanceAccessDetailsCommandInput,
   GetInstanceAccessDetailsCommandOutput
 } from "./commands/GetInstanceAccessDetailsCommand";
-import {
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput
-} from "./commands/GetInstanceCommand";
+import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstanceMetricDataCommandInput,
   GetInstanceMetricDataCommandOutput
@@ -246,14 +213,8 @@ import {
   GetInstancesCommandInput,
   GetInstancesCommandOutput
 } from "./commands/GetInstancesCommand";
-import {
-  GetKeyPairCommandInput,
-  GetKeyPairCommandOutput
-} from "./commands/GetKeyPairCommand";
-import {
-  GetKeyPairsCommandInput,
-  GetKeyPairsCommandOutput
-} from "./commands/GetKeyPairsCommand";
+import { GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand";
+import { GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand";
 import {
   GetLoadBalancerCommandInput,
   GetLoadBalancerCommandOutput
@@ -282,10 +243,7 @@ import {
   GetOperationsForResourceCommandInput,
   GetOperationsForResourceCommandOutput
 } from "./commands/GetOperationsForResourceCommand";
-import {
-  GetRegionsCommandInput,
-  GetRegionsCommandOutput
-} from "./commands/GetRegionsCommand";
+import { GetRegionsCommandInput, GetRegionsCommandOutput } from "./commands/GetRegionsCommand";
 import {
   GetRelationalDatabaseBlueprintsCommandInput,
   GetRelationalDatabaseBlueprintsCommandOutput
@@ -334,10 +292,7 @@ import {
   GetRelationalDatabasesCommandInput,
   GetRelationalDatabasesCommandOutput
 } from "./commands/GetRelationalDatabasesCommand";
-import {
-  GetStaticIpCommandInput,
-  GetStaticIpCommandOutput
-} from "./commands/GetStaticIpCommand";
+import { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import {
   GetStaticIpsCommandInput,
   GetStaticIpsCommandOutput
@@ -346,18 +301,12 @@ import {
   ImportKeyPairCommandInput,
   ImportKeyPairCommandOutput
 } from "./commands/ImportKeyPairCommand";
-import {
-  IsVpcPeeredCommandInput,
-  IsVpcPeeredCommandOutput
-} from "./commands/IsVpcPeeredCommand";
+import { IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand";
 import {
   OpenInstancePublicPortsCommandInput,
   OpenInstancePublicPortsCommandOutput
 } from "./commands/OpenInstancePublicPortsCommand";
-import {
-  PeerVpcCommandInput,
-  PeerVpcCommandOutput
-} from "./commands/PeerVpcCommand";
+import { PeerVpcCommandInput, PeerVpcCommandOutput } from "./commands/PeerVpcCommand";
 import {
   PutInstancePublicPortsCommandInput,
   PutInstancePublicPortsCommandOutput
@@ -390,14 +339,8 @@ import {
   StopRelationalDatabaseCommandInput,
   StopRelationalDatabaseCommandOutput
 } from "./commands/StopRelationalDatabaseCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnpeerVpcCommandInput,
-  UnpeerVpcCommandOutput
-} from "./commands/UnpeerVpcCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -769,9 +712,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LightsailClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LightsailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -780,9 +721,7 @@ export type LightsailClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

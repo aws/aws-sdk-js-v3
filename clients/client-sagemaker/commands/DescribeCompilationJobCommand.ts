@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeCompilationJobRequest,
-  DescribeCompilationJobResponse
-} from "../models/index";
+import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCompilationJobCommandInput = DescribeCompilationJobRequest;
-export type DescribeCompilationJobCommandOutput = DescribeCompilationJobResponse &
-  __MetadataBearer;
+export type DescribeCompilationJobCommandOutput = DescribeCompilationJobResponse & __MetadataBearer;
 
 export class DescribeCompilationJobCommand extends $Command<
   DescribeCompilationJobCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCompilationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCompilationJobCommandInput,
-    DescribeCompilationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCompilationJobCommandInput, DescribeCompilationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

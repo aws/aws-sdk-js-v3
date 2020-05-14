@@ -26,8 +26,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SubscribeToShardCommandInput = SubscribeToShardInput;
-export type SubscribeToShardCommandOutput = SubscribeToShardOutput &
-  __MetadataBearer;
+export type SubscribeToShardCommandOutput = SubscribeToShardOutput & __MetadataBearer;
 
 export class SubscribeToShardCommand extends $Command<
   SubscribeToShardCommandInput,
@@ -48,9 +47,7 @@ export class SubscribeToShardCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeToShardCommandInput, SubscribeToShardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { TagQueueRequest } from "../models/index";
 import {
   deserializeAws_queryTagQueueCommand,
@@ -46,9 +42,7 @@ export class TagQueueCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagQueueCommandInput, TagQueueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class TagQueueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TagQueueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTagQueueCommand(input, context);
   }
 

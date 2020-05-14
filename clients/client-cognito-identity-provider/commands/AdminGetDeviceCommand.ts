@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminGetDeviceCommandInput = AdminGetDeviceRequest;
-export type AdminGetDeviceCommandOutput = AdminGetDeviceResponse &
-  __MetadataBearer;
+export type AdminGetDeviceCommandOutput = AdminGetDeviceResponse & __MetadataBearer;
 
 export class AdminGetDeviceCommand extends $Command<
   AdminGetDeviceCommandInput,
@@ -47,9 +46,7 @@ export class AdminGetDeviceCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

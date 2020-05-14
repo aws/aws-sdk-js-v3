@@ -38,9 +38,7 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
@@ -73,9 +71,7 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public getConnection(
     args: GetConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectionCommandOutput) => void),
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
@@ -108,9 +104,7 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   ): void;
   public postToConnection(
     args: PostToConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostToConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostToConnectionCommandOutput) => void),
     cb?: (err: any, data?: PostToConnectionCommandOutput) => void
   ): Promise<PostToConnectionCommandOutput> | void {
     const command = new PostToConnectionCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeTagsMessage,
-  TaggedResourceListMessage
-} from "../models/index";
+import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeTagsCommand,
   serializeAws_queryDescribeTagsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTagsCommandInput = DescribeTagsMessage;
-export type DescribeTagsCommandOutput = TaggedResourceListMessage &
-  __MetadataBearer;
+export type DescribeTagsCommandOutput = TaggedResourceListMessage & __MetadataBearer;
 
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeTagsCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTagsCommandInput, DescribeTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

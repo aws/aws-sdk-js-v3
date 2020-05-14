@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AccessAnalyzerClient";
-import {
-  ListAnalyzedResourcesRequest,
-  ListAnalyzedResourcesResponse
-} from "../models/index";
+import { ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAnalyzedResourcesCommand,
   serializeAws_restJson1_1ListAnalyzedResourcesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAnalyzedResourcesCommandInput = ListAnalyzedResourcesRequest;
-export type ListAnalyzedResourcesCommandOutput = ListAnalyzedResourcesResponse &
-  __MetadataBearer;
+export type ListAnalyzedResourcesCommandOutput = ListAnalyzedResourcesResponse & __MetadataBearer;
 
 export class ListAnalyzedResourcesCommand extends $Command<
   ListAnalyzedResourcesCommandInput,
@@ -49,13 +45,8 @@ export class ListAnalyzedResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAnalyzedResourcesCommandInput,
-    ListAnalyzedResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAnalyzedResourcesCommandInput, ListAnalyzedResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListAnalyzedResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAnalyzedResourcesCommandOutput> {
-    return deserializeAws_restJson1_1ListAnalyzedResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAnalyzedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

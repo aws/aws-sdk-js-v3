@@ -22,10 +22,7 @@ import {
   PutRecordBatchCommandInput,
   PutRecordBatchCommandOutput
 } from "./commands/PutRecordBatchCommand";
-import {
-  PutRecordCommandInput,
-  PutRecordCommandOutput
-} from "./commands/PutRecordCommand";
+import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import {
   StartDeliveryStreamEncryptionCommandInput,
   StartDeliveryStreamEncryptionCommandOutput
@@ -211,9 +208,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FirehoseClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FirehoseClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -222,9 +217,7 @@ export type FirehoseClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

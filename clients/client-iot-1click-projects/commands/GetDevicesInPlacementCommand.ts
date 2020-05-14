@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickProjectsClient";
-import {
-  GetDevicesInPlacementRequest,
-  GetDevicesInPlacementResponse
-} from "../models/index";
+import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDevicesInPlacementCommand,
   serializeAws_restJson1_1GetDevicesInPlacementCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDevicesInPlacementCommandInput = GetDevicesInPlacementRequest;
-export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse &
-  __MetadataBearer;
+export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse & __MetadataBearer;
 
 export class GetDevicesInPlacementCommand extends $Command<
   GetDevicesInPlacementCommandInput,
@@ -49,13 +45,8 @@ export class GetDevicesInPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDevicesInPlacementCommandInput,
-    GetDevicesInPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDevicesInPlacementCommandInput, GetDevicesInPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetDevicesInPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDevicesInPlacementCommandOutput> {
-    return deserializeAws_restJson1_1GetDevicesInPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDevicesInPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

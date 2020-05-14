@@ -68,9 +68,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public configureAgent(
     args: ConfigureAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfigureAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfigureAgentCommandOutput) => void),
     cb?: (err: any, data?: ConfigureAgentCommandOutput) => void
   ): Promise<ConfigureAgentCommandOutput> | void {
     const command = new ConfigureAgentCommand(args);
@@ -281,9 +279,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public getProfile(
     args: GetProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProfileCommandOutput) => void),
     cb?: (err: any, data?: GetProfileCommandOutput) => void
   ): Promise<GetProfileCommandOutput> | void {
     const command = new GetProfileCommand(args);
@@ -316,9 +312,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public listProfileTimes(
     args: ListProfileTimesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProfileTimesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProfileTimesCommandOutput) => void),
     cb?: (err: any, data?: ListProfileTimesCommandOutput) => void
   ): Promise<ListProfileTimesCommandOutput> | void {
     const command = new ListProfileTimesCommand(args);
@@ -351,9 +345,7 @@ export class CodeGuruProfiler extends CodeGuruProfilerClient {
   ): void;
   public postAgentProfile(
     args: PostAgentProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostAgentProfileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostAgentProfileCommandOutput) => void),
     cb?: (err: any, data?: PostAgentProfileCommandOutput) => void
   ): Promise<PostAgentProfileCommandOutput> | void {
     const command = new PostAgentProfileCommand(args);

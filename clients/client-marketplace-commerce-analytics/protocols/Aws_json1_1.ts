@@ -35,9 +35,7 @@ export const serializeAws_json1_1GenerateDataSetCommand = async (
     "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GenerateDataSetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GenerateDataSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -47,13 +45,10 @@ export const serializeAws_json1_1StartSupportDataExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
+    "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartSupportDataExportRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartSupportDataExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -86,8 +81,7 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
@@ -122,10 +116,7 @@ export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   context: __SerdeContext
 ): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartSupportDataExportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartSupportDataExportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -149,8 +140,7 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
@@ -223,9 +213,7 @@ const serializeAws_json1_1GenerateDataSetRequest = (
       )
     }),
     ...(input.dataSetPublicationDate !== undefined && {
-      dataSetPublicationDate: Math.round(
-        input.dataSetPublicationDate.getTime() / 1000
-      )
+      dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000)
     }),
     ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName !== undefined && {
@@ -284,10 +272,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
 ): MarketplaceCommerceAnalyticsException => {
   return {
     __type: "MarketplaceCommerceAnalyticsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -318,16 +303,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

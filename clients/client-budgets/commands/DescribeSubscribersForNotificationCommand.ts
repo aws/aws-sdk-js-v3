@@ -53,9 +53,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     DescribeSubscribersForNotificationCommandInput,
     DescribeSubscribersForNotificationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     input: DescribeSubscribersForNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeSubscribersForNotificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribersForNotificationCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSubscribersForNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

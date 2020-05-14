@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  ListPortfolioAccessInput,
-  ListPortfolioAccessOutput
-} from "../models/index";
+import { ListPortfolioAccessInput, ListPortfolioAccessOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListPortfolioAccessCommand,
   serializeAws_json1_1ListPortfolioAccessCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPortfolioAccessCommandInput = ListPortfolioAccessInput;
-export type ListPortfolioAccessCommandOutput = ListPortfolioAccessOutput &
-  __MetadataBearer;
+export type ListPortfolioAccessCommandOutput = ListPortfolioAccessOutput & __MetadataBearer;
 
 export class ListPortfolioAccessCommand extends $Command<
   ListPortfolioAccessCommandInput,
@@ -49,13 +45,8 @@ export class ListPortfolioAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPortfolioAccessCommandInput,
-    ListPortfolioAccessCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPortfolioAccessCommandInput, ListPortfolioAccessCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

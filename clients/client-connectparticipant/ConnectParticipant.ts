@@ -141,9 +141,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public getTranscript(
     args: GetTranscriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTranscriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTranscriptCommandOutput) => void),
     cb?: (err: any, data?: GetTranscriptCommandOutput) => void
   ): Promise<GetTranscriptCommandOutput> | void {
     const command = new GetTranscriptCommand(args);
@@ -177,9 +175,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public sendEvent(
     args: SendEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEventCommandOutput) => void),
     cb?: (err: any, data?: SendEventCommandOutput) => void
   ): Promise<SendEventCommandOutput> | void {
     const command = new SendEventCommand(args);
@@ -213,9 +209,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public sendMessage(
     args: SendMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageCommandOutput) => void),
     cb?: (err: any, data?: SendMessageCommandOutput) => void
   ): Promise<SendMessageCommandOutput> | void {
     const command = new SendMessageCommand(args);

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateReservedInstancesListingRequest,
   CreateReservedInstancesListingResult
@@ -53,9 +49,7 @@ export class CreateReservedInstancesListingCommand extends $Command<
     CreateReservedInstancesListingCommandInput,
     CreateReservedInstancesListingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreateReservedInstancesListingCommand extends $Command<
     input: CreateReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateReservedInstancesListingCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2CreateReservedInstancesListingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CreateReservedInstancesListingCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

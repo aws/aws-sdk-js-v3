@@ -53,9 +53,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     PurchaseReservedCacheNodesOfferingCommandInput,
     PurchaseReservedCacheNodesOfferingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     input: PurchaseReservedCacheNodesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

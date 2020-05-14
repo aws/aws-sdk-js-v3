@@ -515,10 +515,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: AssociatePrincipalWithPortfolioCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociatePrincipalWithPortfolioCommandOutput
-        ) => void),
+      | ((err: any, data?: AssociatePrincipalWithPortfolioCommandOutput) => void),
     cb?: (err: any, data?: AssociatePrincipalWithPortfolioCommandOutput) => void
   ): Promise<AssociatePrincipalWithPortfolioCommandOutput> | void {
     const command = new AssociatePrincipalWithPortfolioCommand(args);
@@ -577,37 +574,21 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput>;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    AssociateServiceActionWithProvisioningArtifactCommandOutput
-  > | void {
-    const command = new AssociateServiceActionWithProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: AssociateServiceActionWithProvisioningArtifactCommandOutput) => void
+  ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> | void {
+    const command = new AssociateServiceActionWithProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -639,10 +620,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: AssociateTagOptionWithResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateTagOptionWithResourceCommandOutput
-        ) => void),
+      | ((err: any, data?: AssociateTagOptionWithResourceCommandOutput) => void),
     cb?: (err: any, data?: AssociateTagOptionWithResourceCommandOutput) => void
   ): Promise<AssociateTagOptionWithResourceCommandOutput> | void {
     const command = new AssociateTagOptionWithResourceCommand(args);
@@ -666,18 +644,12 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput>;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
   ): void;
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
@@ -687,16 +659,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
           err: any,
           data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
         ) => void),
-    cb?: (
-      err: any,
-      data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
-  > | void {
-    const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(
-      args
-    );
+    cb?: (err: any, data?: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput) => void
+  ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> | void {
+    const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -714,9 +679,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  >;
+  ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput>;
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
     cb: (
@@ -744,12 +707,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
       err: any,
       data?: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
     ) => void
-  ): Promise<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  > | void {
-    const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(
-      args
-    );
+  ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> | void {
+    const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -783,9 +742,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public copyProduct(
     args: CopyProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyProductCommandOutput) => void),
     cb?: (err: any, data?: CopyProductCommandOutput) => void
   ): Promise<CopyProductCommandOutput> | void {
     const command = new CopyProductCommand(args);
@@ -818,9 +775,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createConstraint(
     args: CreateConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConstraintCommandOutput) => void),
     cb?: (err: any, data?: CreateConstraintCommandOutput) => void
   ): Promise<CreateConstraintCommandOutput> | void {
     const command = new CreateConstraintCommand(args);
@@ -853,9 +808,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createPortfolio(
     args: CreatePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePortfolioCommandOutput) => void),
     cb?: (err: any, data?: CreatePortfolioCommandOutput) => void
   ): Promise<CreatePortfolioCommandOutput> | void {
     const command = new CreatePortfolioCommand(args);
@@ -923,9 +876,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createProduct(
     args: CreateProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProductCommandOutput) => void),
     cb?: (err: any, data?: CreateProductCommandOutput) => void
   ): Promise<CreateProductCommandOutput> | void {
     const command = new CreateProductCommand(args);
@@ -1070,9 +1021,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public createTagOption(
     args: CreateTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagOptionCommandOutput) => void),
     cb?: (err: any, data?: CreateTagOptionCommandOutput) => void
   ): Promise<CreateTagOptionCommandOutput> | void {
     const command = new CreateTagOptionCommand(args);
@@ -1105,9 +1054,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteConstraint(
     args: DeleteConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConstraintCommandOutput) => void),
     cb?: (err: any, data?: DeleteConstraintCommandOutput) => void
   ): Promise<DeleteConstraintCommandOutput> | void {
     const command = new DeleteConstraintCommand(args);
@@ -1142,9 +1089,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deletePortfolio(
     args: DeletePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePortfolioCommandOutput) => void),
     cb?: (err: any, data?: DeletePortfolioCommandOutput) => void
   ): Promise<DeletePortfolioCommandOutput> | void {
     const command = new DeletePortfolioCommand(args);
@@ -1213,9 +1158,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteProduct(
     args: DeleteProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProductCommandOutput) => void),
     cb?: (err: any, data?: DeleteProductCommandOutput) => void
   ): Promise<DeleteProductCommandOutput> | void {
     const command = new DeleteProductCommand(args);
@@ -1357,9 +1300,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public deleteTagOption(
     args: DeleteTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagOptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagOptionCommandOutput) => void
   ): Promise<DeleteTagOptionCommandOutput> | void {
     const command = new DeleteTagOptionCommand(args);
@@ -1532,9 +1473,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeProduct(
     args: DescribeProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductCommandOutput) => void
   ): Promise<DescribeProductCommandOutput> | void {
     const command = new DescribeProductCommand(args);
@@ -1674,10 +1613,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: DescribeProvisionedProductPlanCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeProvisionedProductPlanCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeProvisionedProductPlanCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisionedProductPlanCommandOutput) => void
   ): Promise<DescribeProvisionedProductPlanCommandOutput> | void {
     const command = new DescribeProvisionedProductPlanCommand(args);
@@ -1754,10 +1690,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: DescribeProvisioningParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeProvisioningParametersCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeProvisioningParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeProvisioningParametersCommandOutput) => void
   ): Promise<DescribeProvisioningParametersCommandOutput> | void {
     const command = new DescribeProvisioningParametersCommand(args);
@@ -1798,9 +1731,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public describeRecord(
     args: DescribeRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecordCommandOutput) => void),
     cb?: (err: any, data?: DescribeRecordCommandOutput) => void
   ): Promise<DescribeRecordCommandOutput> | void {
     const command = new DescribeRecordCommand(args);
@@ -1856,31 +1787,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput>;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): void;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): void;
   public describeServiceActionExecutionParameters(
     args: DescribeServiceActionExecutionParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeServiceActionExecutionParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeServiceActionExecutionParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeServiceActionExecutionParametersCommandOutput) => void
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> | void {
     const command = new DescribeServiceActionExecutionParametersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1984,10 +1903,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: DisassociateBudgetFromResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateBudgetFromResourceCommandOutput
-        ) => void),
+      | ((err: any, data?: DisassociateBudgetFromResourceCommandOutput) => void),
     cb?: (err: any, data?: DisassociateBudgetFromResourceCommandOutput) => void
   ): Promise<DisassociateBudgetFromResourceCommandOutput> | void {
     const command = new DisassociateBudgetFromResourceCommand(args);
@@ -2012,31 +1928,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput>;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): void;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): void;
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociatePrincipalFromPortfolioCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociatePrincipalFromPortfolioCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePrincipalFromPortfolioCommandOutput) => void
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> | void {
     const command = new DisassociatePrincipalFromPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2070,14 +1974,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: DisassociateProductFromPortfolioCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateProductFromPortfolioCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateProductFromPortfolioCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateProductFromPortfolioCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateProductFromPortfolioCommandOutput) => void
   ): Promise<DisassociateProductFromPortfolioCommandOutput> | void {
     const command = new DisassociateProductFromPortfolioCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2100,37 +1998,21 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput>;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
   ): void;
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateServiceActionFromProvisioningArtifactCommandOutput
-  > | void {
-    const command = new DisassociateServiceActionFromProvisioningArtifactCommand(
-      args
-    );
+      | ((err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceActionFromProvisioningArtifactCommandOutput) => void
+  ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> | void {
+    const command = new DisassociateServiceActionFromProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2151,31 +2033,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<DisassociateTagOptionFromResourceCommandOutput>;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): void;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): void;
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateTagOptionFromResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateTagOptionFromResourceCommandOutput
-    ) => void
+      | ((err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTagOptionFromResourceCommandOutput) => void
   ): Promise<DisassociateTagOptionFromResourceCommandOutput> | void {
     const command = new DisassociateTagOptionFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2269,31 +2139,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput>;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
-    cb: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): void;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): void;
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ExecuteProvisionedProductServiceActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ExecuteProvisionedProductServiceActionCommandOutput
-    ) => void
+      | ((err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteProvisionedProductServiceActionCommandOutput) => void
   ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> | void {
     const command = new ExecuteProvisionedProductServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2327,10 +2185,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: GetAWSOrganizationsAccessStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAWSOrganizationsAccessStatusCommandOutput
-        ) => void),
+      | ((err: any, data?: GetAWSOrganizationsAccessStatusCommandOutput) => void),
     cb?: (err: any, data?: GetAWSOrganizationsAccessStatusCommandOutput) => void
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> | void {
     const command = new GetAWSOrganizationsAccessStatusCommand(args);
@@ -2470,9 +2325,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listLaunchPaths(
     args: ListLaunchPathsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLaunchPathsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLaunchPathsCommandOutput) => void),
     cb?: (err: any, data?: ListLaunchPathsCommandOutput) => void
   ): Promise<ListLaunchPathsCommandOutput> | void {
     const command = new ListLaunchPathsCommand(args);
@@ -2507,10 +2360,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
     args: ListOrganizationPortfolioAccessCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListOrganizationPortfolioAccessCommandOutput
-        ) => void),
+      | ((err: any, data?: ListOrganizationPortfolioAccessCommandOutput) => void),
     cb?: (err: any, data?: ListOrganizationPortfolioAccessCommandOutput) => void
   ): Promise<ListOrganizationPortfolioAccessCommandOutput> | void {
     const command = new ListOrganizationPortfolioAccessCommand(args);
@@ -2578,9 +2428,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listPortfolios(
     args: ListPortfoliosCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPortfoliosCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPortfoliosCommandOutput) => void),
     cb?: (err: any, data?: ListPortfoliosCommandOutput) => void
   ): Promise<ListPortfoliosCommandOutput> | void {
     const command = new ListPortfoliosCommand(args);
@@ -2744,31 +2592,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput>;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
-    cb: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): void;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+    cb: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): void;
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListProvisioningArtifactsForServiceActionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListProvisioningArtifactsForServiceActionCommandOutput
-    ) => void
+      | ((err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void),
+    cb?: (err: any, data?: ListProvisioningArtifactsForServiceActionCommandOutput) => void
   ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> | void {
     const command = new ListProvisioningArtifactsForServiceActionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2896,31 +2732,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput>;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
-    cb: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): void;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+    cb: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): void;
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListServiceActionsForProvisioningArtifactCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListServiceActionsForProvisioningArtifactCommandOutput
-    ) => void
+      | ((err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void),
+    cb?: (err: any, data?: ListServiceActionsForProvisioningArtifactCommandOutput) => void
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> | void {
     const command = new ListServiceActionsForProvisioningArtifactCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2943,31 +2767,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<ListStackInstancesForProvisionedProductCommandOutput>;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
-    cb: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+    cb: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): void;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+    cb: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): void;
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListStackInstancesForProvisionedProductCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListStackInstancesForProvisionedProductCommandOutput
-    ) => void
+      | ((err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void),
+    cb?: (err: any, data?: ListStackInstancesForProvisionedProductCommandOutput) => void
   ): Promise<ListStackInstancesForProvisionedProductCommandOutput> | void {
     const command = new ListStackInstancesForProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2999,9 +2811,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public listTagOptions(
     args: ListTagOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagOptionsCommandOutput) => void),
     cb?: (err: any, data?: ListTagOptionsCommandOutput) => void
   ): Promise<ListTagOptionsCommandOutput> | void {
     const command = new ListTagOptionsCommand(args);
@@ -3042,9 +2852,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public provisionProduct(
     args: ProvisionProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ProvisionProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionProductCommandOutput) => void),
     cb?: (err: any, data?: ProvisionProductCommandOutput) => void
   ): Promise<ProvisionProductCommandOutput> | void {
     const command = new ProvisionProductCommand(args);
@@ -3148,9 +2956,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public searchProducts(
     args: SearchProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchProductsCommandOutput) => void),
     cb?: (err: any, data?: SearchProductsCommandOutput) => void
   ): Promise<SearchProductsCommandOutput> | void {
     const command = new SearchProductsCommand(args);
@@ -3290,9 +3096,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateConstraint(
     args: UpdateConstraintCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConstraintCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConstraintCommandOutput) => void),
     cb?: (err: any, data?: UpdateConstraintCommandOutput) => void
   ): Promise<UpdateConstraintCommandOutput> | void {
     const command = new UpdateConstraintCommand(args);
@@ -3326,9 +3130,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updatePortfolio(
     args: UpdatePortfolioCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePortfolioCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePortfolioCommandOutput) => void),
     cb?: (err: any, data?: UpdatePortfolioCommandOutput) => void
   ): Promise<UpdatePortfolioCommandOutput> | void {
     const command = new UpdatePortfolioCommand(args);
@@ -3361,9 +3163,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateProduct(
     args: UpdateProductCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProductCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProductCommandOutput) => void),
     cb?: (err: any, data?: UpdateProductCommandOutput) => void
   ): Promise<UpdateProductCommandOutput> | void {
     const command = new UpdateProductCommand(args);
@@ -3426,31 +3226,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput>;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): void;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): void;
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateProvisionedProductPropertiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateProvisionedProductPropertiesCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProvisionedProductPropertiesCommandOutput) => void
   ): Promise<UpdateProvisionedProductPropertiesCommandOutput> | void {
     const command = new UpdateProvisionedProductPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3553,9 +3341,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   ): void;
   public updateTagOption(
     args: UpdateTagOptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTagOptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTagOptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateTagOptionCommandOutput) => void
   ): Promise<UpdateTagOptionCommandOutput> | void {
     const command = new UpdateTagOptionCommand(args);

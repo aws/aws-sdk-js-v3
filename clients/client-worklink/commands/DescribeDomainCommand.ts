@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDomainCommandInput = DescribeDomainRequest;
-export type DescribeDomainCommandOutput = DescribeDomainResponse &
-  __MetadataBearer;
+export type DescribeDomainCommandOutput = DescribeDomainResponse & __MetadataBearer;
 
 export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandInput,
@@ -47,9 +46,7 @@ export class DescribeDomainCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainCommandInput, DescribeDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

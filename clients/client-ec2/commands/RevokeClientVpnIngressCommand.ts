@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  RevokeClientVpnIngressRequest,
-  RevokeClientVpnIngressResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/index";
 import {
   deserializeAws_ec2RevokeClientVpnIngressCommand,
   serializeAws_ec2RevokeClientVpnIngressCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeClientVpnIngressCommandInput = RevokeClientVpnIngressRequest;
-export type RevokeClientVpnIngressCommandOutput = RevokeClientVpnIngressResult &
-  __MetadataBearer;
+export type RevokeClientVpnIngressCommandOutput = RevokeClientVpnIngressResult & __MetadataBearer;
 
 export class RevokeClientVpnIngressCommand extends $Command<
   RevokeClientVpnIngressCommandInput,
@@ -49,13 +41,8 @@ export class RevokeClientVpnIngressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RevokeClientVpnIngressCommandInput,
-    RevokeClientVpnIngressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RevokeClientVpnIngressCommandInput, RevokeClientVpnIngressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

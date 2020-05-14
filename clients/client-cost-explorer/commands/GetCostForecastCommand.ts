@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CostExplorerClient";
-import {
-  GetCostForecastRequest,
-  GetCostForecastResponse
-} from "../models/index";
+import { GetCostForecastRequest, GetCostForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCostForecastCommand,
   serializeAws_json1_1GetCostForecastCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCostForecastCommandInput = GetCostForecastRequest;
-export type GetCostForecastCommandOutput = GetCostForecastResponse &
-  __MetadataBearer;
+export type GetCostForecastCommandOutput = GetCostForecastResponse & __MetadataBearer;
 
 export class GetCostForecastCommand extends $Command<
   GetCostForecastCommandInput,
@@ -50,9 +46,7 @@ export class GetCostForecastCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCostForecastCommandInput, GetCostForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoSyncClient";
-import {
-  GetCognitoEventsRequest,
-  GetCognitoEventsResponse
-} from "../models/index";
+import { GetCognitoEventsRequest, GetCognitoEventsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCognitoEventsCommand,
   serializeAws_restJson1_1GetCognitoEventsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCognitoEventsCommandInput = GetCognitoEventsRequest;
-export type GetCognitoEventsCommandOutput = GetCognitoEventsResponse &
-  __MetadataBearer;
+export type GetCognitoEventsCommandOutput = GetCognitoEventsResponse & __MetadataBearer;
 
 export class GetCognitoEventsCommand extends $Command<
   GetCognitoEventsCommandInput,
@@ -50,9 +46,7 @@ export class GetCognitoEventsCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCognitoEventsCommandInput, GetCognitoEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

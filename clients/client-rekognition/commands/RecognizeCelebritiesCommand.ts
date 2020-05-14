@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  RecognizeCelebritiesRequest,
-  RecognizeCelebritiesResponse
-} from "../models/index";
+import { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1RecognizeCelebritiesCommand,
   serializeAws_json1_1RecognizeCelebritiesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecognizeCelebritiesCommandInput = RecognizeCelebritiesRequest;
-export type RecognizeCelebritiesCommandOutput = RecognizeCelebritiesResponse &
-  __MetadataBearer;
+export type RecognizeCelebritiesCommandOutput = RecognizeCelebritiesResponse & __MetadataBearer;
 
 export class RecognizeCelebritiesCommand extends $Command<
   RecognizeCelebritiesCommandInput,
@@ -49,13 +45,8 @@ export class RecognizeCelebritiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RecognizeCelebritiesCommandInput,
-    RecognizeCelebritiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RecognizeCelebritiesCommandInput, RecognizeCelebritiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

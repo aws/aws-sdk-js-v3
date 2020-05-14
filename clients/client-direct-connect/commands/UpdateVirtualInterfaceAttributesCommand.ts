@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  UpdateVirtualInterfaceAttributesRequest,
-  VirtualInterface
-} from "../models/index";
+import { UpdateVirtualInterfaceAttributesRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
   serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVirtualInterfaceAttributesCommandInput = UpdateVirtualInterfaceAttributesRequest;
-export type UpdateVirtualInterfaceAttributesCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type UpdateVirtualInterfaceAttributesCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class UpdateVirtualInterfaceAttributesCommand extends $Command<
   UpdateVirtualInterfaceAttributesCommandInput,
@@ -53,9 +49,7 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     UpdateVirtualInterfaceAttributesCommandInput,
     UpdateVirtualInterfaceAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     input: UpdateVirtualInterfaceAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PublishSchemaCommandInput = PublishSchemaRequest;
-export type PublishSchemaCommandOutput = PublishSchemaResponse &
-  __MetadataBearer;
+export type PublishSchemaCommandOutput = PublishSchemaResponse & __MetadataBearer;
 
 export class PublishSchemaCommand extends $Command<
   PublishSchemaCommandInput,
@@ -47,9 +46,7 @@ export class PublishSchemaCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishSchemaCommandInput, PublishSchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

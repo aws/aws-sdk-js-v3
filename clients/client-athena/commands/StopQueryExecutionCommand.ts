@@ -1,12 +1,5 @@
-import {
-  AthenaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AthenaClient";
-import {
-  StopQueryExecutionInput,
-  StopQueryExecutionOutput
-} from "../models/index";
+import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
+import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1StopQueryExecutionCommand,
   serializeAws_json1_1StopQueryExecutionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopQueryExecutionCommandInput = StopQueryExecutionInput;
-export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput &
-  __MetadataBearer;
+export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput & __MetadataBearer;
 
 export class StopQueryExecutionCommand extends $Command<
   StopQueryExecutionCommandInput,
@@ -50,9 +42,7 @@ export class StopQueryExecutionCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

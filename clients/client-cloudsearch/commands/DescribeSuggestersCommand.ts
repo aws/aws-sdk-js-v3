@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudSearchClient";
-import {
-  DescribeSuggestersRequest,
-  DescribeSuggestersResponse
-} from "../models/index";
+import { DescribeSuggestersRequest, DescribeSuggestersResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeSuggestersCommand,
   serializeAws_queryDescribeSuggestersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSuggestersCommandInput = DescribeSuggestersRequest;
-export type DescribeSuggestersCommandOutput = DescribeSuggestersResponse &
-  __MetadataBearer;
+export type DescribeSuggestersCommandOutput = DescribeSuggestersResponse & __MetadataBearer;
 
 export class DescribeSuggestersCommand extends $Command<
   DescribeSuggestersCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSuggestersCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSuggestersCommandInput, DescribeSuggestersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

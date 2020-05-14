@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeReplicationTasksMessage,
-  DescribeReplicationTasksResponse
-} from "../models/index";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeReplicationTasksCommand,
   serializeAws_json1_1DescribeReplicationTasksCommand
@@ -49,13 +46,8 @@ export class DescribeReplicationTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReplicationTasksCommandInput,
-    DescribeReplicationTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReplicationTasksCommandInput, DescribeReplicationTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeReplicationTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReplicationTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

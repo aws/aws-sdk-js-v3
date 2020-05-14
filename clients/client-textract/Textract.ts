@@ -85,9 +85,7 @@ export class Textract extends TextractClient {
   ): void;
   public analyzeDocument(
     args: AnalyzeDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AnalyzeDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AnalyzeDocumentCommandOutput) => void),
     cb?: (err: any, data?: AnalyzeDocumentCommandOutput) => void
   ): Promise<AnalyzeDocumentCommandOutput> | void {
     const command = new AnalyzeDocumentCommand(args);

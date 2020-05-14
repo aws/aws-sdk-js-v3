@@ -134,18 +134,9 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput
 } from "../commands/PutSubscriptionFilterCommand";
-import {
-  StartQueryCommandInput,
-  StartQueryCommandOutput
-} from "../commands/StartQueryCommand";
-import {
-  StopQueryCommandInput,
-  StopQueryCommandOutput
-} from "../commands/StopQueryCommand";
-import {
-  TagLogGroupCommandInput,
-  TagLogGroupCommandOutput
-} from "../commands/TagLogGroupCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQueryCommand";
+import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "../commands/TagLogGroupCommand";
 import {
   TestMetricFilterCommandInput,
   TestMetricFilterCommandOutput
@@ -271,9 +262,7 @@ export const serializeAws_json1_1AssociateKmsKeyCommand = async (
     "X-Amz-Target": "Logs_20140328.AssociateKmsKey"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AssociateKmsKeyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AssociateKmsKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,9 +275,7 @@ export const serializeAws_json1_1CancelExportTaskCommand = async (
     "X-Amz-Target": "Logs_20140328.CancelExportTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CancelExportTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CancelExportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -301,9 +288,7 @@ export const serializeAws_json1_1CreateExportTaskCommand = async (
     "X-Amz-Target": "Logs_20140328.CreateExportTask"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateExportTaskRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateExportTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -316,9 +301,7 @@ export const serializeAws_json1_1CreateLogGroupCommand = async (
     "X-Amz-Target": "Logs_20140328.CreateLogGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateLogGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateLogGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,9 +314,7 @@ export const serializeAws_json1_1CreateLogStreamCommand = async (
     "X-Amz-Target": "Logs_20140328.CreateLogStream"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateLogStreamRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateLogStreamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,9 +327,7 @@ export const serializeAws_json1_1DeleteDestinationCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteDestination"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDestinationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -361,9 +340,7 @@ export const serializeAws_json1_1DeleteLogGroupCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteLogGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteLogGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteLogGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -376,9 +353,7 @@ export const serializeAws_json1_1DeleteLogStreamCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteLogStream"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteLogStreamRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteLogStreamRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -391,9 +366,7 @@ export const serializeAws_json1_1DeleteMetricFilterCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteMetricFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteMetricFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteMetricFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -406,9 +379,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteResourcePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -421,9 +392,7 @@ export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteRetentionPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteRetentionPolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -436,9 +405,7 @@ export const serializeAws_json1_1DeleteSubscriptionFilterCommand = async (
     "X-Amz-Target": "Logs_20140328.DeleteSubscriptionFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSubscriptionFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSubscriptionFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -451,9 +418,7 @@ export const serializeAws_json1_1DescribeDestinationsCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeDestinations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDestinationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDestinationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -466,9 +431,7 @@ export const serializeAws_json1_1DescribeExportTasksCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeExportTasks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeExportTasksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeExportTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -481,9 +444,7 @@ export const serializeAws_json1_1DescribeLogGroupsCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeLogGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeLogGroupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeLogGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -496,9 +457,7 @@ export const serializeAws_json1_1DescribeLogStreamsCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeLogStreams"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeLogStreamsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeLogStreamsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -511,9 +470,7 @@ export const serializeAws_json1_1DescribeMetricFiltersCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeMetricFilters"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeMetricFiltersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeMetricFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -526,9 +483,7 @@ export const serializeAws_json1_1DescribeQueriesCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeQueries"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeQueriesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeQueriesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -541,9 +496,7 @@ export const serializeAws_json1_1DescribeResourcePoliciesCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeResourcePolicies"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeResourcePoliciesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeResourcePoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -556,9 +509,7 @@ export const serializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
     "X-Amz-Target": "Logs_20140328.DescribeSubscriptionFilters"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSubscriptionFiltersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSubscriptionFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -571,9 +522,7 @@ export const serializeAws_json1_1DisassociateKmsKeyCommand = async (
     "X-Amz-Target": "Logs_20140328.DisassociateKmsKey"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisassociateKmsKeyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisassociateKmsKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -586,9 +535,7 @@ export const serializeAws_json1_1FilterLogEventsCommand = async (
     "X-Amz-Target": "Logs_20140328.FilterLogEvents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1FilterLogEventsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1FilterLogEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,9 +548,7 @@ export const serializeAws_json1_1GetLogEventsCommand = async (
     "X-Amz-Target": "Logs_20140328.GetLogEvents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetLogEventsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetLogEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -616,9 +561,7 @@ export const serializeAws_json1_1GetLogGroupFieldsCommand = async (
     "X-Amz-Target": "Logs_20140328.GetLogGroupFields"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetLogGroupFieldsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetLogGroupFieldsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -631,9 +574,7 @@ export const serializeAws_json1_1GetLogRecordCommand = async (
     "X-Amz-Target": "Logs_20140328.GetLogRecord"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetLogRecordRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetLogRecordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -646,9 +587,7 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
     "X-Amz-Target": "Logs_20140328.GetQueryResults"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetQueryResultsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetQueryResultsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -661,9 +600,7 @@ export const serializeAws_json1_1ListTagsLogGroupCommand = async (
     "X-Amz-Target": "Logs_20140328.ListTagsLogGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsLogGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsLogGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -676,9 +613,7 @@ export const serializeAws_json1_1PutDestinationCommand = async (
     "X-Amz-Target": "Logs_20140328.PutDestination"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutDestinationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutDestinationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -691,9 +626,7 @@ export const serializeAws_json1_1PutDestinationPolicyCommand = async (
     "X-Amz-Target": "Logs_20140328.PutDestinationPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutDestinationPolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutDestinationPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -706,9 +639,7 @@ export const serializeAws_json1_1PutLogEventsCommand = async (
     "X-Amz-Target": "Logs_20140328.PutLogEvents"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutLogEventsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutLogEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -721,9 +652,7 @@ export const serializeAws_json1_1PutMetricFilterCommand = async (
     "X-Amz-Target": "Logs_20140328.PutMetricFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutMetricFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutMetricFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -736,9 +665,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
     "X-Amz-Target": "Logs_20140328.PutResourcePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutResourcePolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -751,9 +678,7 @@ export const serializeAws_json1_1PutRetentionPolicyCommand = async (
     "X-Amz-Target": "Logs_20140328.PutRetentionPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutRetentionPolicyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -766,9 +691,7 @@ export const serializeAws_json1_1PutSubscriptionFilterCommand = async (
     "X-Amz-Target": "Logs_20140328.PutSubscriptionFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutSubscriptionFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutSubscriptionFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -820,9 +743,7 @@ export const serializeAws_json1_1TestMetricFilterCommand = async (
     "X-Amz-Target": "Logs_20140328.TestMetricFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TestMetricFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TestMetricFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -835,9 +756,7 @@ export const serializeAws_json1_1UntagLogGroupCommand = async (
     "X-Amz-Target": "Logs_20140328.UntagLogGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagLogGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagLogGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -866,16 +785,12 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -883,10 +798,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -894,10 +806,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -905,10 +814,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -955,16 +861,12 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidOperationException":
     case "com.amazonaws.logs.v20140328#InvalidOperationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -972,10 +874,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -983,10 +882,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -994,10 +890,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1048,16 +941,12 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1065,10 +954,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1076,10 +962,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1098,10 +981,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1109,10 +989,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1159,16 +1036,12 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1176,10 +1049,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1187,10 +1057,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1209,10 +1076,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1259,16 +1123,12 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1287,10 +1147,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1298,10 +1155,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1348,16 +1202,12 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1365,10 +1215,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1376,10 +1223,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1387,10 +1231,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1437,16 +1278,12 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1454,10 +1291,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1465,10 +1299,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1476,10 +1307,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1526,16 +1354,12 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1543,10 +1367,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1554,10 +1375,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1565,10 +1383,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1595,10 +1410,7 @@ export const deserializeAws_json1_1DeleteMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMetricFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteMetricFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMetricFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMetricFilterCommandOutput = {
@@ -1618,16 +1430,12 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1635,10 +1443,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1646,10 +1451,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1657,10 +1459,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1687,10 +1486,7 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourcePolicyCommandOutput = {
@@ -1710,16 +1506,12 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1727,10 +1519,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1738,10 +1527,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1768,10 +1554,7 @@ export const deserializeAws_json1_1DeleteRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRetentionPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRetentionPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRetentionPolicyCommandOutput = {
@@ -1791,16 +1574,12 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1808,10 +1587,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1819,10 +1595,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1830,10 +1603,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1860,10 +1630,7 @@ export const deserializeAws_json1_1DeleteSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubscriptionFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSubscriptionFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSubscriptionFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSubscriptionFilterCommandOutput = {
@@ -1883,16 +1650,12 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1900,10 +1663,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1911,10 +1671,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1922,10 +1679,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1952,10 +1706,7 @@ export const deserializeAws_json1_1DescribeDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDestinationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDestinationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDestinationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1979,16 +1730,12 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1996,10 +1743,7 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2026,10 +1770,7 @@ export const deserializeAws_json1_1DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeExportTasksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeExportTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2053,16 +1794,12 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2070,10 +1807,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2124,16 +1858,12 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2141,10 +1871,7 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2171,10 +1898,7 @@ export const deserializeAws_json1_1DescribeLogStreamsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLogStreamsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLogStreamsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeLogStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2198,16 +1922,12 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2215,10 +1935,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2226,10 +1943,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2256,10 +1970,7 @@ export const deserializeAws_json1_1DescribeMetricFiltersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetricFiltersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMetricFiltersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMetricFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2283,16 +1994,12 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2300,10 +2007,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2311,10 +2015,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2365,16 +2066,12 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2382,10 +2079,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2393,10 +2087,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2423,17 +2114,11 @@ export const deserializeAws_json1_1DescribeResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourcePoliciesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeResourcePoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeResourcePoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourcePoliciesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeResourcePoliciesResponse(data, context);
   const response: DescribeResourcePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeResourcePoliciesResponse",
@@ -2453,16 +2138,12 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2470,10 +2151,7 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2500,17 +2178,11 @@ export const deserializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSubscriptionFiltersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSubscriptionFiltersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSubscriptionFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSubscriptionFiltersResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSubscriptionFiltersResponse(data, context);
   const response: DescribeSubscriptionFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSubscriptionFiltersResponse",
@@ -2530,16 +2202,12 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2547,10 +2215,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2558,10 +2223,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2588,10 +2250,7 @@ export const deserializeAws_json1_1DisassociateKmsKeyCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateKmsKeyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisassociateKmsKeyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateKmsKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateKmsKeyCommandOutput = {
@@ -2611,16 +2270,12 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2628,10 +2283,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2639,10 +2291,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2650,10 +2299,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2704,16 +2350,12 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2721,10 +2363,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2732,10 +2371,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2786,16 +2422,12 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2803,10 +2435,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2814,10 +2443,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2868,16 +2494,12 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2885,10 +2507,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2896,10 +2515,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2907,10 +2523,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2961,16 +2574,12 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2978,10 +2587,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2989,10 +2595,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3000,10 +2603,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3054,16 +2654,12 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3071,10 +2667,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3082,10 +2675,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3136,16 +2726,12 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3153,10 +2739,7 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3207,16 +2790,12 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3224,10 +2803,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3235,10 +2811,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3265,10 +2838,7 @@ export const deserializeAws_json1_1PutDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutDestinationPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutDestinationPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutDestinationPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutDestinationPolicyCommandOutput = {
@@ -3288,16 +2858,12 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3305,10 +2871,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3316,10 +2879,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3370,8 +2930,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DataAlreadyAcceptedException":
     case "com.amazonaws.logs.v20140328#DataAlreadyAcceptedException":
@@ -3387,10 +2946,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3409,10 +2965,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3420,10 +2973,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3431,10 +2981,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     case "UnrecognizedClientException":
     case "com.amazonaws.logs.v20140328#UnrecognizedClientException":
       response = {
-        ...(await deserializeAws_json1_1UnrecognizedClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnrecognizedClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3481,16 +3028,12 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3498,10 +3041,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3509,10 +3049,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3520,10 +3057,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3531,10 +3065,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3585,16 +3116,12 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3602,10 +3129,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3613,10 +3137,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3643,10 +3164,7 @@ export const deserializeAws_json1_1PutRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutRetentionPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutRetentionPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRetentionPolicyCommandOutput = {
@@ -3666,16 +3184,12 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3683,10 +3197,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3694,10 +3205,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3705,10 +3213,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3735,10 +3240,7 @@ export const deserializeAws_json1_1PutSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<PutSubscriptionFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutSubscriptionFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutSubscriptionFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutSubscriptionFilterCommandOutput = {
@@ -3758,16 +3260,12 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3775,10 +3273,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3786,10 +3281,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     case "OperationAbortedException":
     case "com.amazonaws.logs.v20140328#OperationAbortedException":
       response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3797,10 +3289,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3808,10 +3297,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3862,16 +3348,12 @@ const deserializeAws_json1_1StartQueryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3879,10 +3361,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.logs.v20140328#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3890,10 +3369,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "MalformedQueryException":
     case "com.amazonaws.logs.v20140328#MalformedQueryException":
       response = {
-        ...(await deserializeAws_json1_1MalformedQueryExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1MalformedQueryExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3901,10 +3377,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3912,10 +3385,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3966,16 +3436,12 @@ const deserializeAws_json1_1StopQueryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3983,10 +3449,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3994,10 +3457,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4044,16 +3504,12 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4061,10 +3517,7 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4115,16 +3568,12 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.logs.v20140328#InvalidParameterException":
       response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4132,10 +3581,7 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.logs.v20140328#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4182,16 +3628,12 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.logs.v20140328#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4218,10 +3660,7 @@ const deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DataAlreadyAcceptedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DataAlreadyAcceptedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DataAlreadyAcceptedException(body, context);
   const contents: DataAlreadyAcceptedException = {
     name: "DataAlreadyAcceptedException",
     $fault: "client",
@@ -4236,10 +3675,7 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOperationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidOperationException(body, context);
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
     $fault: "client",
@@ -4254,10 +3690,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
   const contents: InvalidParameterException = {
     name: "InvalidParameterException",
     $fault: "client",
@@ -4272,10 +3705,7 @@ const deserializeAws_json1_1InvalidSequenceTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidSequenceTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSequenceTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidSequenceTokenException(body, context);
   const contents: InvalidSequenceTokenException = {
     name: "InvalidSequenceTokenException",
     $fault: "client",
@@ -4290,10 +3720,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -4308,10 +3735,7 @@ const deserializeAws_json1_1MalformedQueryExceptionResponse = async (
   context: __SerdeContext
 ): Promise<MalformedQueryException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedQueryException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MalformedQueryException(body, context);
   const contents: MalformedQueryException = {
     name: "MalformedQueryException",
     $fault: "client",
@@ -4326,10 +3750,7 @@ const deserializeAws_json1_1OperationAbortedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationAbortedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationAbortedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationAbortedException(body, context);
   const contents: OperationAbortedException = {
     name: "OperationAbortedException",
     $fault: "client",
@@ -4344,10 +3765,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
   const contents: ResourceAlreadyExistsException = {
     name: "ResourceAlreadyExistsException",
     $fault: "client",
@@ -4362,10 +3780,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -4380,10 +3795,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
@@ -4398,10 +3810,7 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnrecognizedClientException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnrecognizedClientException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnrecognizedClientException(body, context);
   const contents: UnrecognizedClientException = {
     name: "UnrecognizedClientException",
     $fault: "client",
@@ -4707,10 +4116,7 @@ const serializeAws_json1_1FilterLogEventsRequest = (
       logStreamNamePrefix: input.logStreamNamePrefix
     }),
     ...(input.logStreamNames !== undefined && {
-      logStreamNames: serializeAws_json1_1InputLogStreamNames(
-        input.logStreamNames,
-        context
-      )
+      logStreamNames: serializeAws_json1_1InputLogStreamNames(input.logStreamNames, context)
     }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.startTime !== undefined && { startTime: input.startTime })
@@ -4770,10 +4176,7 @@ const serializeAws_json1_1GetQueryResultsRequest = (
   };
 };
 
-const serializeAws_json1_1InputLogEvent = (
-  input: InputLogEvent,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InputLogEvent = (input: InputLogEvent, context: __SerdeContext): any => {
   return {
     ...(input.message !== undefined && { message: input.message }),
     ...(input.timestamp !== undefined && { timestamp: input.timestamp })
@@ -4787,10 +4190,7 @@ const serializeAws_json1_1InputLogEvents = (
   return input.map(entry => serializeAws_json1_1InputLogEvent(entry, context));
 };
 
-const serializeAws_json1_1InputLogStreamNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InputLogStreamNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4805,10 +4205,7 @@ const serializeAws_json1_1ListTagsLogGroupRequest = (
   };
 };
 
-const serializeAws_json1_1LogGroupNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -4832,9 +4229,7 @@ const serializeAws_json1_1MetricTransformations = (
   input: MetricTransformation[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1MetricTransformation(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1MetricTransformation(entry, context));
 };
 
 const serializeAws_json1_1PutDestinationPolicyRequest = (
@@ -4964,10 +4359,7 @@ const serializeAws_json1_1StartQueryRequest = (
       logGroupName: input.logGroupName
     }),
     ...(input.logGroupNames !== undefined && {
-      logGroupNames: serializeAws_json1_1LogGroupNames(
-        input.logGroupNames,
-        context
-      )
+      logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context)
     }),
     ...(input.queryString !== undefined && { queryString: input.queryString }),
     ...(input.startTime !== undefined && { startTime: input.startTime })
@@ -4983,10 +4375,7 @@ const serializeAws_json1_1StopQueryRequest = (
   };
 };
 
-const serializeAws_json1_1TagList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5017,10 +4406,7 @@ const serializeAws_json1_1Tags = (
   );
 };
 
-const serializeAws_json1_1TestEventMessages = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TestEventMessages = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5033,10 +4419,7 @@ const serializeAws_json1_1TestMetricFilterRequest = (
       filterPattern: input.filterPattern
     }),
     ...(input.logEventMessages !== undefined && {
-      logEventMessages: serializeAws_json1_1TestEventMessages(
-        input.logEventMessages,
-        context
-      )
+      logEventMessages: serializeAws_json1_1TestEventMessages(input.logEventMessages, context)
     })
   };
 };
@@ -5061,10 +4444,7 @@ const deserializeAws_json1_1CreateExportTaskResponse = (
 ): CreateExportTaskResponse => {
   return {
     __type: "CreateExportTaskResponse",
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined
   } as any;
 };
 
@@ -5075,14 +4455,10 @@ const deserializeAws_json1_1DataAlreadyAcceptedException = (
   return {
     __type: "DataAlreadyAcceptedException",
     expectedSequenceToken:
-      output.expectedSequenceToken !== undefined &&
-      output.expectedSequenceToken !== null
+      output.expectedSequenceToken !== undefined && output.expectedSequenceToken !== null
         ? output.expectedSequenceToken
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5097,9 +4473,7 @@ const deserializeAws_json1_1DescribeDestinationsResponse = (
         ? deserializeAws_json1_1Destinations(output.destinations, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5114,9 +4488,7 @@ const deserializeAws_json1_1DescribeExportTasksResponse = (
         ? deserializeAws_json1_1ExportTasks(output.exportTasks, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5131,9 +4503,7 @@ const deserializeAws_json1_1DescribeLogGroupsResponse = (
         ? deserializeAws_json1_1LogGroups(output.logGroups, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5148,9 +4518,7 @@ const deserializeAws_json1_1DescribeLogStreamsResponse = (
         ? deserializeAws_json1_1LogStreams(output.logStreams, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5165,9 +4533,7 @@ const deserializeAws_json1_1DescribeMetricFiltersResponse = (
         ? deserializeAws_json1_1MetricFilters(output.metricFilters, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -5178,9 +4544,7 @@ const deserializeAws_json1_1DescribeQueriesResponse = (
   return {
     __type: "DescribeQueriesResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     queries:
       output.queries !== undefined && output.queries !== null
         ? deserializeAws_json1_1QueryInfoList(output.queries, context)
@@ -5195,15 +4559,10 @@ const deserializeAws_json1_1DescribeResourcePoliciesResponse = (
   return {
     __type: "DescribeResourcePoliciesResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     resourcePolicies:
       output.resourcePolicies !== undefined && output.resourcePolicies !== null
-        ? deserializeAws_json1_1ResourcePolicies(
-            output.resourcePolicies,
-            context
-          )
+        ? deserializeAws_json1_1ResourcePolicies(output.resourcePolicies, context)
         : undefined
   } as any;
 };
@@ -5215,32 +4574,22 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersResponse = (
   return {
     __type: "DescribeSubscriptionFiltersResponse",
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     subscriptionFilters:
-      output.subscriptionFilters !== undefined &&
-      output.subscriptionFilters !== null
-        ? deserializeAws_json1_1SubscriptionFilters(
-            output.subscriptionFilters,
-            context
-          )
+      output.subscriptionFilters !== undefined && output.subscriptionFilters !== null
+        ? deserializeAws_json1_1SubscriptionFilters(output.subscriptionFilters, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Destination = (
-  output: any,
-  context: __SerdeContext
-): Destination => {
+const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext): Destination => {
   return {
     __type: "Destination",
     accessPolicy:
       output.accessPolicy !== undefined && output.accessPolicy !== null
         ? output.accessPolicy
         : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? output.creationTime
@@ -5249,14 +4598,9 @@ const deserializeAws_json1_1Destination = (
       output.destinationName !== undefined && output.destinationName !== null
         ? output.destinationName
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     targetArn:
-      output.targetArn !== undefined && output.targetArn !== null
-        ? output.targetArn
-        : undefined
+      output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined
   } as any;
 };
 
@@ -5264,15 +4608,10 @@ const deserializeAws_json1_1Destinations = (
   output: any,
   context: __SerdeContext
 ): Destination[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Destination(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1Destination(entry, context));
 };
 
-const deserializeAws_json1_1ExportTask = (
-  output: any,
-  context: __SerdeContext
-): ExportTask => {
+const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   return {
     __type: "ExportTask",
     destination:
@@ -5280,21 +4619,14 @@ const deserializeAws_json1_1ExportTask = (
         ? output.destination
         : undefined,
     destinationPrefix:
-      output.destinationPrefix !== undefined &&
-      output.destinationPrefix !== null
+      output.destinationPrefix !== undefined && output.destinationPrefix !== null
         ? output.destinationPrefix
         : undefined,
     executionInfo:
       output.executionInfo !== undefined && output.executionInfo !== null
-        ? deserializeAws_json1_1ExportTaskExecutionInfo(
-            output.executionInfo,
-            context
-          )
+        ? deserializeAws_json1_1ExportTaskExecutionInfo(output.executionInfo, context)
         : undefined,
-    from:
-      output.from !== undefined && output.from !== null
-        ? output.from
-        : undefined,
+    from: output.from !== undefined && output.from !== null ? output.from : undefined,
     logGroupName:
       output.logGroupName !== undefined && output.logGroupName !== null
         ? output.logGroupName
@@ -5303,14 +4635,9 @@ const deserializeAws_json1_1ExportTask = (
       output.status !== undefined && output.status !== null
         ? deserializeAws_json1_1ExportTaskStatus(output.status, context)
         : undefined,
-    taskId:
-      output.taskId !== undefined && output.taskId !== null
-        ? output.taskId
-        : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
     taskName:
-      output.taskName !== undefined && output.taskName !== null
-        ? output.taskName
-        : undefined,
+      output.taskName !== undefined && output.taskName !== null ? output.taskName : undefined,
     to: output.to !== undefined && output.to !== null ? output.to : undefined
   } as any;
 };
@@ -5338,24 +4665,13 @@ const deserializeAws_json1_1ExportTaskStatus = (
 ): ExportTaskStatus => {
   return {
     __type: "ExportTaskStatus",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ExportTasks = (
-  output: any,
-  context: __SerdeContext
-): ExportTask[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ExportTask(entry, context)
-  );
+const deserializeAws_json1_1ExportTasks = (output: any, context: __SerdeContext): ExportTask[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ExportTask(entry, context));
 };
 
 const deserializeAws_json1_1ExtractedValues = (
@@ -5382,16 +4698,10 @@ const deserializeAws_json1_1FilterLogEventsResponse = (
         ? deserializeAws_json1_1FilteredLogEvents(output.events, context)
         : undefined,
     nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+      output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     searchedLogStreams:
-      output.searchedLogStreams !== undefined &&
-      output.searchedLogStreams !== null
-        ? deserializeAws_json1_1SearchedLogStreams(
-            output.searchedLogStreams,
-            context
-          )
+      output.searchedLogStreams !== undefined && output.searchedLogStreams !== null
+        ? deserializeAws_json1_1SearchedLogStreams(output.searchedLogStreams, context)
         : undefined
   } as any;
 };
@@ -5402,10 +4712,7 @@ const deserializeAws_json1_1FilteredLogEvent = (
 ): FilteredLogEvent => {
   return {
     __type: "FilteredLogEvent",
-    eventId:
-      output.eventId !== undefined && output.eventId !== null
-        ? output.eventId
-        : undefined,
+    eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
     ingestionTime:
       output.ingestionTime !== undefined && output.ingestionTime !== null
         ? output.ingestionTime
@@ -5414,14 +4721,9 @@ const deserializeAws_json1_1FilteredLogEvent = (
       output.logStreamName !== undefined && output.logStreamName !== null
         ? output.logStreamName
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? output.timestamp
-        : undefined
+      output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined
   } as any;
 };
 
@@ -5429,9 +4731,7 @@ const deserializeAws_json1_1FilteredLogEvents = (
   output: any,
   context: __SerdeContext
 ): FilteredLogEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1FilteredLogEvent(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1FilteredLogEvent(entry, context));
 };
 
 const deserializeAws_json1_1GetLogEventsResponse = (
@@ -5445,8 +4745,7 @@ const deserializeAws_json1_1GetLogEventsResponse = (
         ? deserializeAws_json1_1OutputLogEvents(output.events, context)
         : undefined,
     nextBackwardToken:
-      output.nextBackwardToken !== undefined &&
-      output.nextBackwardToken !== null
+      output.nextBackwardToken !== undefined && output.nextBackwardToken !== null
         ? output.nextBackwardToken
         : undefined,
     nextForwardToken:
@@ -5464,10 +4763,7 @@ const deserializeAws_json1_1GetLogGroupFieldsResponse = (
     __type: "GetLogGroupFieldsResponse",
     logGroupFields:
       output.logGroupFields !== undefined && output.logGroupFields !== null
-        ? deserializeAws_json1_1LogGroupFieldList(
-            output.logGroupFields,
-            context
-          )
+        ? deserializeAws_json1_1LogGroupFieldList(output.logGroupFields, context)
         : undefined
   } as any;
 };
@@ -5499,10 +4795,7 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
       output.statistics !== undefined && output.statistics !== null
         ? deserializeAws_json1_1QueryStatistics(output.statistics, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -5512,10 +4805,7 @@ const deserializeAws_json1_1InvalidOperationException = (
 ): InvalidOperationException => {
   return {
     __type: "InvalidOperationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5525,10 +4815,7 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   return {
     __type: "InvalidParameterException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5539,14 +4826,10 @@ const deserializeAws_json1_1InvalidSequenceTokenException = (
   return {
     __type: "InvalidSequenceTokenException",
     expectedSequenceToken:
-      output.expectedSequenceToken !== undefined &&
-      output.expectedSequenceToken !== null
+      output.expectedSequenceToken !== undefined && output.expectedSequenceToken !== null
         ? output.expectedSequenceToken
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5556,10 +4839,7 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5576,29 +4856,22 @@ const deserializeAws_json1_1ListTagsLogGroupResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1LogGroup = (
-  output: any,
-  context: __SerdeContext
-): LogGroup => {
+const deserializeAws_json1_1LogGroup = (output: any, context: __SerdeContext): LogGroup => {
   return {
     __type: "LogGroup",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? output.creationTime
         : undefined,
     kmsKeyId:
-      output.kmsKeyId !== undefined && output.kmsKeyId !== null
-        ? output.kmsKeyId
-        : undefined,
+      output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     logGroupName:
       output.logGroupName !== undefined && output.logGroupName !== null
         ? output.logGroupName
         : undefined,
     metricFilterCount:
-      output.metricFilterCount !== undefined &&
-      output.metricFilterCount !== null
+      output.metricFilterCount !== undefined && output.metricFilterCount !== null
         ? output.metricFilterCount
         : undefined,
     retentionInDays:
@@ -5618,14 +4891,8 @@ const deserializeAws_json1_1LogGroupField = (
 ): LogGroupField => {
   return {
     __type: "LogGroupField",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    percent:
-      output.percent !== undefined && output.percent !== null
-        ? output.percent
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    percent: output.percent !== undefined && output.percent !== null ? output.percent : undefined
   } as any;
 };
 
@@ -5633,18 +4900,11 @@ const deserializeAws_json1_1LogGroupFieldList = (
   output: any,
   context: __SerdeContext
 ): LogGroupField[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LogGroupField(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1LogGroupField(entry, context));
 };
 
-const deserializeAws_json1_1LogGroups = (
-  output: any,
-  context: __SerdeContext
-): LogGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LogGroup(entry, context)
-  );
+const deserializeAws_json1_1LogGroups = (output: any, context: __SerdeContext): LogGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1LogGroup(entry, context));
 };
 
 const deserializeAws_json1_1LogRecord = (
@@ -5660,31 +4920,24 @@ const deserializeAws_json1_1LogRecord = (
   );
 };
 
-const deserializeAws_json1_1LogStream = (
-  output: any,
-  context: __SerdeContext
-): LogStream => {
+const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): LogStream => {
   return {
     __type: "LogStream",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? output.creationTime
         : undefined,
     firstEventTimestamp:
-      output.firstEventTimestamp !== undefined &&
-      output.firstEventTimestamp !== null
+      output.firstEventTimestamp !== undefined && output.firstEventTimestamp !== null
         ? output.firstEventTimestamp
         : undefined,
     lastEventTimestamp:
-      output.lastEventTimestamp !== undefined &&
-      output.lastEventTimestamp !== null
+      output.lastEventTimestamp !== undefined && output.lastEventTimestamp !== null
         ? output.lastEventTimestamp
         : undefined,
     lastIngestionTime:
-      output.lastIngestionTime !== undefined &&
-      output.lastIngestionTime !== null
+      output.lastIngestionTime !== undefined && output.lastIngestionTime !== null
         ? output.lastIngestionTime
         : undefined,
     logStreamName:
@@ -5696,20 +4949,14 @@ const deserializeAws_json1_1LogStream = (
         ? output.storedBytes
         : undefined,
     uploadSequenceToken:
-      output.uploadSequenceToken !== undefined &&
-      output.uploadSequenceToken !== null
+      output.uploadSequenceToken !== undefined && output.uploadSequenceToken !== null
         ? output.uploadSequenceToken
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LogStreams = (
-  output: any,
-  context: __SerdeContext
-): LogStream[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1LogStream(entry, context)
-  );
+const deserializeAws_json1_1LogStreams = (output: any, context: __SerdeContext): LogStream[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1LogStream(entry, context));
 };
 
 const deserializeAws_json1_1MalformedQueryException = (
@@ -5718,25 +4965,15 @@ const deserializeAws_json1_1MalformedQueryException = (
 ): MalformedQueryException => {
   return {
     __type: "MalformedQueryException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     queryCompileError:
-      output.queryCompileError !== undefined &&
-      output.queryCompileError !== null
-        ? deserializeAws_json1_1QueryCompileError(
-            output.queryCompileError,
-            context
-          )
+      output.queryCompileError !== undefined && output.queryCompileError !== null
+        ? deserializeAws_json1_1QueryCompileError(output.queryCompileError, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MetricFilter = (
-  output: any,
-  context: __SerdeContext
-): MetricFilter => {
+const deserializeAws_json1_1MetricFilter = (output: any, context: __SerdeContext): MetricFilter => {
   return {
     __type: "MetricFilter",
     creationTime:
@@ -5744,9 +4981,7 @@ const deserializeAws_json1_1MetricFilter = (
         ? output.creationTime
         : undefined,
     filterName:
-      output.filterName !== undefined && output.filterName !== null
-        ? output.filterName
-        : undefined,
+      output.filterName !== undefined && output.filterName !== null ? output.filterName : undefined,
     filterPattern:
       output.filterPattern !== undefined && output.filterPattern !== null
         ? output.filterPattern
@@ -5756,12 +4991,8 @@ const deserializeAws_json1_1MetricFilter = (
         ? output.logGroupName
         : undefined,
     metricTransformations:
-      output.metricTransformations !== undefined &&
-      output.metricTransformations !== null
-        ? deserializeAws_json1_1MetricTransformations(
-            output.metricTransformations,
-            context
-          )
+      output.metricTransformations !== undefined && output.metricTransformations !== null
+        ? deserializeAws_json1_1MetricTransformations(output.metricTransformations, context)
         : undefined
   } as any;
 };
@@ -5800,9 +5031,7 @@ const deserializeAws_json1_1MetricFilters = (
   output: any,
   context: __SerdeContext
 ): MetricFilter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MetricFilter(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1MetricFilter(entry, context));
 };
 
 const deserializeAws_json1_1MetricTransformation = (
@@ -5816,9 +5045,7 @@ const deserializeAws_json1_1MetricTransformation = (
         ? output.defaultValue
         : undefined,
     metricName:
-      output.metricName !== undefined && output.metricName !== null
-        ? output.metricName
-        : undefined,
+      output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricNamespace:
       output.metricNamespace !== undefined && output.metricNamespace !== null
         ? output.metricNamespace
@@ -5845,10 +5072,7 @@ const deserializeAws_json1_1OperationAbortedException = (
 ): OperationAbortedException => {
   return {
     __type: "OperationAbortedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5862,14 +5086,9 @@ const deserializeAws_json1_1OutputLogEvent = (
       output.ingestionTime !== undefined && output.ingestionTime !== null
         ? output.ingestionTime
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? output.timestamp
-        : undefined
+      output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined
   } as any;
 };
 
@@ -5877,9 +5096,7 @@ const deserializeAws_json1_1OutputLogEvents = (
   output: any,
   context: __SerdeContext
 ): OutputLogEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OutputLogEvent(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1OutputLogEvent(entry, context));
 };
 
 const deserializeAws_json1_1PutDestinationResponse = (
@@ -5902,17 +5119,12 @@ const deserializeAws_json1_1PutLogEventsResponse = (
   return {
     __type: "PutLogEventsResponse",
     nextSequenceToken:
-      output.nextSequenceToken !== undefined &&
-      output.nextSequenceToken !== null
+      output.nextSequenceToken !== undefined && output.nextSequenceToken !== null
         ? output.nextSequenceToken
         : undefined,
     rejectedLogEventsInfo:
-      output.rejectedLogEventsInfo !== undefined &&
-      output.rejectedLogEventsInfo !== null
-        ? deserializeAws_json1_1RejectedLogEventsInfo(
-            output.rejectedLogEventsInfo,
-            context
-          )
+      output.rejectedLogEventsInfo !== undefined && output.rejectedLogEventsInfo !== null
+        ? deserializeAws_json1_1RejectedLogEventsInfo(output.rejectedLogEventsInfo, context)
         : undefined
   } as any;
 };
@@ -5938,15 +5150,9 @@ const deserializeAws_json1_1QueryCompileError = (
     __type: "QueryCompileError",
     location:
       output.location !== undefined && output.location !== null
-        ? deserializeAws_json1_1QueryCompileErrorLocation(
-            output.location,
-            context
-          )
+        ? deserializeAws_json1_1QueryCompileErrorLocation(output.location, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5967,51 +5173,33 @@ const deserializeAws_json1_1QueryCompileErrorLocation = (
   } as any;
 };
 
-const deserializeAws_json1_1QueryInfo = (
-  output: any,
-  context: __SerdeContext
-): QueryInfo => {
+const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
   return {
     __type: "QueryInfo",
     createTime:
-      output.createTime !== undefined && output.createTime !== null
-        ? output.createTime
-        : undefined,
+      output.createTime !== undefined && output.createTime !== null ? output.createTime : undefined,
     logGroupName:
       output.logGroupName !== undefined && output.logGroupName !== null
         ? output.logGroupName
         : undefined,
-    queryId:
-      output.queryId !== undefined && output.queryId !== null
-        ? output.queryId
-        : undefined,
+    queryId: output.queryId !== undefined && output.queryId !== null ? output.queryId : undefined,
     queryString:
       output.queryString !== undefined && output.queryString !== null
         ? output.queryString
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1QueryInfoList = (
-  output: any,
-  context: __SerdeContext
-): QueryInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1QueryInfo(entry, context)
-  );
+const deserializeAws_json1_1QueryInfoList = (output: any, context: __SerdeContext): QueryInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1QueryInfo(entry, context));
 };
 
 const deserializeAws_json1_1QueryResults = (
   output: any,
   context: __SerdeContext
 ): ResultField[][] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResultRows(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ResultRows(entry, context));
 };
 
 const deserializeAws_json1_1QueryStatistics = (
@@ -6042,18 +5230,15 @@ const deserializeAws_json1_1RejectedLogEventsInfo = (
   return {
     __type: "RejectedLogEventsInfo",
     expiredLogEventEndIndex:
-      output.expiredLogEventEndIndex !== undefined &&
-      output.expiredLogEventEndIndex !== null
+      output.expiredLogEventEndIndex !== undefined && output.expiredLogEventEndIndex !== null
         ? output.expiredLogEventEndIndex
         : undefined,
     tooNewLogEventStartIndex:
-      output.tooNewLogEventStartIndex !== undefined &&
-      output.tooNewLogEventStartIndex !== null
+      output.tooNewLogEventStartIndex !== undefined && output.tooNewLogEventStartIndex !== null
         ? output.tooNewLogEventStartIndex
         : undefined,
     tooOldLogEventEndIndex:
-      output.tooOldLogEventEndIndex !== undefined &&
-      output.tooOldLogEventEndIndex !== null
+      output.tooOldLogEventEndIndex !== undefined && output.tooOldLogEventEndIndex !== null
         ? output.tooOldLogEventEndIndex
         : undefined
   } as any;
@@ -6065,10 +5250,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     __type: "ResourceAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6078,10 +5260,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6089,9 +5268,7 @@ const deserializeAws_json1_1ResourcePolicies = (
   output: any,
   context: __SerdeContext
 ): ResourcePolicy[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResourcePolicy(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1ResourcePolicy(entry, context));
 };
 
 const deserializeAws_json1_1ResourcePolicy = (
@@ -6109,36 +5286,20 @@ const deserializeAws_json1_1ResourcePolicy = (
         ? output.policyDocument
         : undefined,
     policyName:
-      output.policyName !== undefined && output.policyName !== null
-        ? output.policyName
-        : undefined
+      output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ResultField = (
-  output: any,
-  context: __SerdeContext
-): ResultField => {
+const deserializeAws_json1_1ResultField = (output: any, context: __SerdeContext): ResultField => {
   return {
     __type: "ResultField",
-    field:
-      output.field !== undefined && output.field !== null
-        ? output.field
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    field: output.field !== undefined && output.field !== null ? output.field : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ResultRows = (
-  output: any,
-  context: __SerdeContext
-): ResultField[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ResultField(entry, context)
-  );
+const deserializeAws_json1_1ResultRows = (output: any, context: __SerdeContext): ResultField[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ResultField(entry, context));
 };
 
 const deserializeAws_json1_1SearchedLogStream = (
@@ -6152,8 +5313,7 @@ const deserializeAws_json1_1SearchedLogStream = (
         ? output.logStreamName
         : undefined,
     searchedCompletely:
-      output.searchedCompletely !== undefined &&
-      output.searchedCompletely !== null
+      output.searchedCompletely !== undefined && output.searchedCompletely !== null
         ? output.searchedCompletely
         : undefined
   } as any;
@@ -6174,10 +5334,7 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   return {
     __type: "ServiceUnavailableException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6187,10 +5344,7 @@ const deserializeAws_json1_1StartQueryResponse = (
 ): StartQueryResponse => {
   return {
     __type: "StartQueryResponse",
-    queryId:
-      output.queryId !== undefined && output.queryId !== null
-        ? output.queryId
-        : undefined
+    queryId: output.queryId !== undefined && output.queryId !== null ? output.queryId : undefined
   } as any;
 };
 
@@ -6200,10 +5354,7 @@ const deserializeAws_json1_1StopQueryResponse = (
 ): StopQueryResponse => {
   return {
     __type: "StopQueryResponse",
-    success:
-      output.success !== undefined && output.success !== null
-        ? output.success
-        : undefined
+    success: output.success !== undefined && output.success !== null ? output.success : undefined
   } as any;
 };
 
@@ -6226,9 +5377,7 @@ const deserializeAws_json1_1SubscriptionFilter = (
         ? output.distribution
         : undefined,
     filterName:
-      output.filterName !== undefined && output.filterName !== null
-        ? output.filterName
-        : undefined,
+      output.filterName !== undefined && output.filterName !== null ? output.filterName : undefined,
     filterPattern:
       output.filterPattern !== undefined && output.filterPattern !== null
         ? output.filterPattern
@@ -6237,10 +5386,7 @@ const deserializeAws_json1_1SubscriptionFilter = (
       output.logGroupName !== undefined && output.logGroupName !== null
         ? output.logGroupName
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
@@ -6285,10 +5431,7 @@ const deserializeAws_json1_1UnrecognizedClientException = (
 ): UnrecognizedClientException => {
   return {
     __type: "UnrecognizedClientException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -6306,16 +5449,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

@@ -785,10 +785,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
     args: DeleteEnvironmentConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteEnvironmentConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteEnvironmentConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteEnvironmentConfigurationCommandOutput) => void
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> | void {
     const command = new DeleteEnvironmentConfigurationCommand(args);
@@ -1078,31 +1075,19 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput>;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionHistoryCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEnvironmentManagedActionHistoryCommandOutput) => void
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> | void {
     const command = new DescribeEnvironmentManagedActionHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1125,31 +1110,19 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput>;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): void;
   public describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEnvironmentManagedActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEnvironmentManagedActionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEnvironmentManagedActionsCommandOutput) => void
   ): Promise<DescribeEnvironmentManagedActionsCommandOutput> | void {
     const command = new DescribeEnvironmentManagedActionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1255,9 +1228,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -1556,9 +1527,7 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): void;
   public restartAppServer(
     args: RestartAppServerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestartAppServerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestartAppServerCommandOutput) => void),
     cb?: (err: any, data?: RestartAppServerCommandOutput) => void
   ): Promise<RestartAppServerCommandOutput> | void {
     const command = new RestartAppServerCommand(args);
@@ -1735,31 +1704,19 @@ export class ElasticBeanstalk extends ElasticBeanstalkClient {
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput>;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): void;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): void;
   public updateApplicationResourceLifecycle(
     args: UpdateApplicationResourceLifecycleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApplicationResourceLifecycleCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApplicationResourceLifecycleCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationResourceLifecycleCommandOutput) => void
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> | void {
     const command = new UpdateApplicationResourceLifecycleCommand(args);
     if (typeof optionsOrCb === "function") {

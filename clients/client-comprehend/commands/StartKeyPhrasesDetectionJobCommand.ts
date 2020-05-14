@@ -49,13 +49,8 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartKeyPhrasesDetectionJobCommandInput,
-    StartKeyPhrasesDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartKeyPhrasesDetectionJobCommandInput, StartKeyPhrasesDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     input: StartKeyPhrasesDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

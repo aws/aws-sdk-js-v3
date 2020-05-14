@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  UpdateManagedInstanceRoleRequest,
-  UpdateManagedInstanceRoleResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
   serializeAws_json1_1UpdateManagedInstanceRoleCommand
@@ -49,13 +42,8 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateManagedInstanceRoleCommandInput,
-    UpdateManagedInstanceRoleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateManagedInstanceRoleCommandInput, UpdateManagedInstanceRoleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedInstanceRoleCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedInstanceRoleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateManagedInstanceRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

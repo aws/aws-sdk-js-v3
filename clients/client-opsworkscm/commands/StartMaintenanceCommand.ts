@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksCMClient";
-import {
-  StartMaintenanceRequest,
-  StartMaintenanceResponse
-} from "../models/index";
+import { StartMaintenanceRequest, StartMaintenanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartMaintenanceCommand,
   serializeAws_json1_1StartMaintenanceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartMaintenanceCommandInput = StartMaintenanceRequest;
-export type StartMaintenanceCommandOutput = StartMaintenanceResponse &
-  __MetadataBearer;
+export type StartMaintenanceCommandOutput = StartMaintenanceResponse & __MetadataBearer;
 
 export class StartMaintenanceCommand extends $Command<
   StartMaintenanceCommandInput,
@@ -50,9 +46,7 @@ export class StartMaintenanceCommand extends $Command<
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMaintenanceCommandInput, StartMaintenanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

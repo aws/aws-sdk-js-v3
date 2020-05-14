@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  OpenInstancePublicPortsRequest,
-  OpenInstancePublicPortsResult
-} from "../models/index";
+import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/index";
 import {
   deserializeAws_json1_1OpenInstancePublicPortsCommand,
   serializeAws_json1_1OpenInstancePublicPortsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type OpenInstancePublicPortsCommandInput = OpenInstancePublicPortsRequest;
-export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult &
-  __MetadataBearer;
+export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult & __MetadataBearer;
 
 export class OpenInstancePublicPortsCommand extends $Command<
   OpenInstancePublicPortsCommandInput,
@@ -49,13 +45,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    OpenInstancePublicPortsCommandInput,
-    OpenInstancePublicPortsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<OpenInstancePublicPortsCommandInput, OpenInstancePublicPortsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class OpenInstancePublicPortsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OpenInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1OpenInstancePublicPortsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1OpenInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateOTAUpdateRequest,
-  CreateOTAUpdateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateOTAUpdateRequest, CreateOTAUpdateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateOTAUpdateCommand,
   serializeAws_restJson1_1CreateOTAUpdateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateOTAUpdateCommandInput = CreateOTAUpdateRequest;
-export type CreateOTAUpdateCommandOutput = CreateOTAUpdateResponse &
-  __MetadataBearer;
+export type CreateOTAUpdateCommandOutput = CreateOTAUpdateResponse & __MetadataBearer;
 
 export class CreateOTAUpdateCommand extends $Command<
   CreateOTAUpdateCommandInput,
@@ -50,9 +42,7 @@ export class CreateOTAUpdateCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

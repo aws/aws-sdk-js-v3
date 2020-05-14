@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  UpdateThreatIntelSetRequest,
-  UpdateThreatIntelSetResponse
-} from "../models/index";
+import { UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateThreatIntelSetCommand,
   serializeAws_restJson1_1UpdateThreatIntelSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateThreatIntelSetCommandInput = UpdateThreatIntelSetRequest;
-export type UpdateThreatIntelSetCommandOutput = UpdateThreatIntelSetResponse &
-  __MetadataBearer;
+export type UpdateThreatIntelSetCommandOutput = UpdateThreatIntelSetResponse & __MetadataBearer;
 
 export class UpdateThreatIntelSetCommand extends $Command<
   UpdateThreatIntelSetCommandInput,
@@ -49,13 +45,8 @@ export class UpdateThreatIntelSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateThreatIntelSetCommandInput,
-    UpdateThreatIntelSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateThreatIntelSetCommandInput, UpdateThreatIntelSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateThreatIntelSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateThreatIntelSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

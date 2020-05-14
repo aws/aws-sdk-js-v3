@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListComponentsCommandInput = ListComponentsRequest;
-export type ListComponentsCommandOutput = ListComponentsResponse &
-  __MetadataBearer;
+export type ListComponentsCommandOutput = ListComponentsResponse & __MetadataBearer;
 
 export class ListComponentsCommand extends $Command<
   ListComponentsCommandInput,
@@ -47,9 +46,7 @@ export class ListComponentsCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListComponentsCommandInput, ListComponentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

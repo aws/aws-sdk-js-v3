@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  DeleteMailboxPermissionsRequest,
-  DeleteMailboxPermissionsResponse
-} from "../models/index";
+import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteMailboxPermissionsCommand,
   serializeAws_json1_1DeleteMailboxPermissionsCommand
@@ -49,13 +46,8 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMailboxPermissionsCommandInput,
-    DeleteMailboxPermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMailboxPermissionsCommandInput, DeleteMailboxPermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteMailboxPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1DeleteMailboxPermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

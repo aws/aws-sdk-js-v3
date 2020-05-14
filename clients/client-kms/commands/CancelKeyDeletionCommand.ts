@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  CancelKeyDeletionRequest,
-  CancelKeyDeletionResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelKeyDeletionCommand,
   serializeAws_json1_1CancelKeyDeletionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelKeyDeletionCommandInput = CancelKeyDeletionRequest;
-export type CancelKeyDeletionCommandOutput = CancelKeyDeletionResponse &
-  __MetadataBearer;
+export type CancelKeyDeletionCommandOutput = CancelKeyDeletionResponse & __MetadataBearer;
 
 export class CancelKeyDeletionCommand extends $Command<
   CancelKeyDeletionCommandInput,
@@ -50,9 +42,7 @@ export class CancelKeyDeletionCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

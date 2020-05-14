@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConstraintCommandInput = DeleteConstraintInput;
-export type DeleteConstraintCommandOutput = DeleteConstraintOutput &
-  __MetadataBearer;
+export type DeleteConstraintCommandOutput = DeleteConstraintOutput & __MetadataBearer;
 
 export class DeleteConstraintCommand extends $Command<
   DeleteConstraintCommandInput,
@@ -47,9 +46,7 @@ export class DeleteConstraintCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConstraintCommandInput, DeleteConstraintCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

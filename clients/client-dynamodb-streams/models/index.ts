@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -27,8 +24,7 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
-  export const isa = (o: any): o is DescribeStreamInput =>
-    __isa(o, "DescribeStreamInput");
+  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 /**
@@ -43,8 +39,7 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
-  export const isa = (o: any): o is DescribeStreamOutput =>
-    __isa(o, "DescribeStreamOutput");
+  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 /**
@@ -52,9 +47,7 @@ export namespace DescribeStreamOutput {
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
  *       action.</p>
  */
-export interface ExpiredIteratorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredIteratorException extends __SmithyException, $MetadataBearer {
   name: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -85,8 +78,7 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
-  export const isa = (o: any): o is GetRecordsInput =>
-    __isa(o, "GetRecordsInput");
+  export const isa = (o: any): o is GetRecordsInput => __isa(o, "GetRecordsInput");
 }
 
 /**
@@ -108,8 +100,7 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
-  export const isa = (o: any): o is GetRecordsOutput =>
-    __isa(o, "GetRecordsOutput");
+  export const isa = (o: any): o is GetRecordsOutput => __isa(o, "GetRecordsOutput");
 }
 
 /**
@@ -163,8 +154,7 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
-  export const isa = (o: any): o is GetShardIteratorInput =>
-    __isa(o, "GetShardIteratorInput");
+  export const isa = (o: any): o is GetShardIteratorInput => __isa(o, "GetShardIteratorInput");
 }
 
 /**
@@ -179,8 +169,7 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
-  export const isa = (o: any): o is GetShardIteratorOutput =>
-    __isa(o, "GetShardIteratorOutput");
+  export const isa = (o: any): o is GetShardIteratorOutput => __isa(o, "GetShardIteratorOutput");
 }
 
 /**
@@ -228,8 +217,7 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
-  export const isa = (o: any): o is ListStreamsInput =>
-    __isa(o, "ListStreamsInput");
+  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 /**
@@ -254,8 +242,7 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
-  export const isa = (o: any): o is ListStreamsOutput =>
-    __isa(o, "ListStreamsOutput");
+  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
@@ -349,8 +336,7 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
-  export const isa = (o: any): o is SequenceNumberRange =>
-    __isa(o, "SequenceNumberRange");
+  export const isa = (o: any): o is SequenceNumberRange => __isa(o, "SequenceNumberRange");
 }
 
 /**
@@ -532,8 +518,7 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
-  export const isa = (o: any): o is StreamDescription =>
-    __isa(o, "StreamDescription");
+  export const isa = (o: any): o is StreamDescription => __isa(o, "StreamDescription");
 }
 
 /**
@@ -615,9 +600,7 @@ export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
  *             </li>
  *          </ul>
  */
-export interface TrimmedDataAccessException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrimmedDataAccessException extends __SmithyException, $MetadataBearer {
   name: "TrimmedDataAccessException";
   $fault: "client";
   /**
@@ -689,16 +672,13 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -708,8 +688,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -741,8 +720,7 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
-  export const isa = (o: any): o is KeySchemaElement =>
-    __isa(o, "KeySchemaElement");
+  export const isa = (o: any): o is KeySchemaElement => __isa(o, "KeySchemaElement");
 }
 
 export type KeyType = "HASH" | "RANGE";
@@ -754,9 +732,7 @@ export type KeyType = "HASH" | "RANGE";
  *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries">Error Retries and Exponential
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -766,16 +742,13 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>The operation tried to access a nonexistent stream.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -789,8 +762,4 @@ export namespace ResourceNotFoundException {
     __isa(o, "ResourceNotFoundException");
 }
 
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";
+export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";

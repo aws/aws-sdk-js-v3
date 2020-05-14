@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  GetInsightRuleReportInput,
-  GetInsightRuleReportOutput
-} from "../models/index";
+import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/index";
 import {
   deserializeAws_queryGetInsightRuleReportCommand,
   serializeAws_queryGetInsightRuleReportCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInsightRuleReportCommandInput = GetInsightRuleReportInput;
-export type GetInsightRuleReportCommandOutput = GetInsightRuleReportOutput &
-  __MetadataBearer;
+export type GetInsightRuleReportCommandOutput = GetInsightRuleReportOutput & __MetadataBearer;
 
 export class GetInsightRuleReportCommand extends $Command<
   GetInsightRuleReportCommandInput,
@@ -49,13 +45,8 @@ export class GetInsightRuleReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetInsightRuleReportCommandInput,
-    GetInsightRuleReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetInsightRuleReportCommandInput, GetInsightRuleReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

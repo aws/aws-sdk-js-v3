@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  UpdateTagsForDomainRequest,
-  UpdateTagsForDomainResponse
-} from "../models/index";
+import { UpdateTagsForDomainRequest, UpdateTagsForDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateTagsForDomainCommand,
   serializeAws_json1_1UpdateTagsForDomainCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
-export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse &
-  __MetadataBearer;
+export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse & __MetadataBearer;
 
 export class UpdateTagsForDomainCommand extends $Command<
   UpdateTagsForDomainCommandInput,
@@ -49,13 +45,8 @@ export class UpdateTagsForDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTagsForDomainCommandInput,
-    UpdateTagsForDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTagsForDomainCommandInput, UpdateTagsForDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

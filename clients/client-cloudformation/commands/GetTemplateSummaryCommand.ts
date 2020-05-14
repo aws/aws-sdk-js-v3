@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  GetTemplateSummaryInput,
-  GetTemplateSummaryOutput
-} from "../models/index";
+import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/index";
 import {
   deserializeAws_queryGetTemplateSummaryCommand,
   serializeAws_queryGetTemplateSummaryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTemplateSummaryCommandInput = GetTemplateSummaryInput;
-export type GetTemplateSummaryCommandOutput = GetTemplateSummaryOutput &
-  __MetadataBearer;
+export type GetTemplateSummaryCommandOutput = GetTemplateSummaryOutput & __MetadataBearer;
 
 export class GetTemplateSummaryCommand extends $Command<
   GetTemplateSummaryCommandInput,
@@ -50,9 +46,7 @@ export class GetTemplateSummaryCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

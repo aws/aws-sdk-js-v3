@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  CreateAcceleratorRequest,
-  CreateAcceleratorResponse
-} from "../models/index";
+import { CreateAcceleratorRequest, CreateAcceleratorResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateAcceleratorCommand,
   serializeAws_json1_1CreateAcceleratorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAcceleratorCommandInput = CreateAcceleratorRequest;
-export type CreateAcceleratorCommandOutput = CreateAcceleratorResponse &
-  __MetadataBearer;
+export type CreateAcceleratorCommandOutput = CreateAcceleratorResponse & __MetadataBearer;
 
 export class CreateAcceleratorCommand extends $Command<
   CreateAcceleratorCommandInput,
@@ -50,9 +46,7 @@ export class CreateAcceleratorCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

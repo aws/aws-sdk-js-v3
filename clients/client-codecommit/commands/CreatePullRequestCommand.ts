@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  CreatePullRequestInput,
-  CreatePullRequestOutput
-} from "../models/index";
+import { CreatePullRequestInput, CreatePullRequestOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreatePullRequestCommand,
   serializeAws_json1_1CreatePullRequestCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePullRequestCommandInput = CreatePullRequestInput;
-export type CreatePullRequestCommandOutput = CreatePullRequestOutput &
-  __MetadataBearer;
+export type CreatePullRequestCommandOutput = CreatePullRequestOutput & __MetadataBearer;
 
 export class CreatePullRequestCommand extends $Command<
   CreatePullRequestCommandInput,
@@ -50,9 +46,7 @@ export class CreatePullRequestCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePullRequestCommandInput, CreatePullRequestCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

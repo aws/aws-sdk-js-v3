@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListCommandInvocationsRequest,
-  ListCommandInvocationsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListCommandInvocationsRequest, ListCommandInvocationsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListCommandInvocationsCommand,
   serializeAws_json1_1ListCommandInvocationsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCommandInvocationsCommandInput = ListCommandInvocationsRequest;
-export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult &
-  __MetadataBearer;
+export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult & __MetadataBearer;
 
 export class ListCommandInvocationsCommand extends $Command<
   ListCommandInvocationsCommandInput,
@@ -49,13 +41,8 @@ export class ListCommandInvocationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCommandInvocationsCommandInput,
-    ListCommandInvocationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCommandInvocationsCommandInput, ListCommandInvocationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

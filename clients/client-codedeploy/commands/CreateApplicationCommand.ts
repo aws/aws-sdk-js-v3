@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  CreateApplicationInput,
-  CreateApplicationOutput
-} from "../models/index";
+import { CreateApplicationInput, CreateApplicationOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateApplicationCommand,
   serializeAws_json1_1CreateApplicationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateApplicationCommandInput = CreateApplicationInput;
-export type CreateApplicationCommandOutput = CreateApplicationOutput &
-  __MetadataBearer;
+export type CreateApplicationCommandOutput = CreateApplicationOutput & __MetadataBearer;
 
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
@@ -50,9 +46,7 @@ export class CreateApplicationCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  GetRemoteAccessSessionRequest,
-  GetRemoteAccessSessionResult
-} from "../models/index";
+import { GetRemoteAccessSessionRequest, GetRemoteAccessSessionResult } from "../models/index";
 import {
   deserializeAws_json1_1GetRemoteAccessSessionCommand,
   serializeAws_json1_1GetRemoteAccessSessionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRemoteAccessSessionCommandInput = GetRemoteAccessSessionRequest;
-export type GetRemoteAccessSessionCommandOutput = GetRemoteAccessSessionResult &
-  __MetadataBearer;
+export type GetRemoteAccessSessionCommandOutput = GetRemoteAccessSessionResult & __MetadataBearer;
 
 export class GetRemoteAccessSessionCommand extends $Command<
   GetRemoteAccessSessionCommandInput,
@@ -49,13 +45,8 @@ export class GetRemoteAccessSessionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRemoteAccessSessionCommandInput,
-    GetRemoteAccessSessionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRemoteAccessSessionCommandInput, GetRemoteAccessSessionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

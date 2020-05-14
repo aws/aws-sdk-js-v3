@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetAccountSettingsCommand,
   serializeAws_restJson1_1GetAccountSettingsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse &
-  __MetadataBearer;
+export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse & __MetadataBearer;
 
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,
@@ -50,9 +42,7 @@ export class GetAccountSettingsCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

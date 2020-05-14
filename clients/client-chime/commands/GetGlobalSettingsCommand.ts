@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetGlobalSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetGlobalSettingsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetGlobalSettingsCommandInput = {};
-export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse &
-  __MetadataBearer;
+export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse & __MetadataBearer;
 
 export class GetGlobalSettingsCommand extends $Command<
   GetGlobalSettingsCommandInput,
@@ -47,9 +42,7 @@ export class GetGlobalSettingsCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeFleetCapacityInput,
-  DescribeFleetCapacityOutput
-} from "../models/index";
+import { DescribeFleetCapacityInput, DescribeFleetCapacityOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFleetCapacityCommand,
   serializeAws_json1_1DescribeFleetCapacityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFleetCapacityCommandInput = DescribeFleetCapacityInput;
-export type DescribeFleetCapacityCommandOutput = DescribeFleetCapacityOutput &
-  __MetadataBearer;
+export type DescribeFleetCapacityCommandOutput = DescribeFleetCapacityOutput & __MetadataBearer;
 
 export class DescribeFleetCapacityCommand extends $Command<
   DescribeFleetCapacityCommandInput,
@@ -49,13 +45,8 @@ export class DescribeFleetCapacityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetCapacityCommandInput,
-    DescribeFleetCapacityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetCapacityCommandInput, DescribeFleetCapacityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

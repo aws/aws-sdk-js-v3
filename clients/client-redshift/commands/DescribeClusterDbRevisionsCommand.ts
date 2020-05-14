@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  ClusterDbRevisionsMessage,
-  DescribeClusterDbRevisionsMessage
-} from "../models/index";
+import { ClusterDbRevisionsMessage, DescribeClusterDbRevisionsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterDbRevisionsCommand,
   serializeAws_queryDescribeClusterDbRevisionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterDbRevisionsCommandInput = DescribeClusterDbRevisionsMessage;
-export type DescribeClusterDbRevisionsCommandOutput = ClusterDbRevisionsMessage &
-  __MetadataBearer;
+export type DescribeClusterDbRevisionsCommandOutput = ClusterDbRevisionsMessage & __MetadataBearer;
 
 export class DescribeClusterDbRevisionsCommand extends $Command<
   DescribeClusterDbRevisionsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterDbRevisionsCommandInput,
-    DescribeClusterDbRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterDbRevisionsCommandInput, DescribeClusterDbRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterDbRevisionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterDbRevisionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeClusterDbRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

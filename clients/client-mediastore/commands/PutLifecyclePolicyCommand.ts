@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  PutLifecyclePolicyInput,
-  PutLifecyclePolicyOutput
-} from "../models/index";
+import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutLifecyclePolicyCommand,
   serializeAws_json1_1PutLifecyclePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyInput;
-export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput &
-  __MetadataBearer;
+export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput & __MetadataBearer;
 
 export class PutLifecyclePolicyCommand extends $Command<
   PutLifecyclePolicyCommandInput,
@@ -50,9 +46,7 @@ export class PutLifecyclePolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

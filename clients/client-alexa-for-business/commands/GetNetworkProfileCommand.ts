@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetNetworkProfileRequest,
-  GetNetworkProfileResponse
-} from "../models/index";
+import { GetNetworkProfileRequest, GetNetworkProfileResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetNetworkProfileCommand,
   serializeAws_json1_1GetNetworkProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
-export type GetNetworkProfileCommandOutput = GetNetworkProfileResponse &
-  __MetadataBearer;
+export type GetNetworkProfileCommandOutput = GetNetworkProfileResponse & __MetadataBearer;
 
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,
@@ -50,9 +46,7 @@ export class GetNetworkProfileCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

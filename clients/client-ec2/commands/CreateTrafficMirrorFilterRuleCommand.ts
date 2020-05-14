@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateTrafficMirrorFilterRuleRequest,
   CreateTrafficMirrorFilterRuleResult
@@ -53,9 +49,7 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
     CreateTrafficMirrorFilterRuleCommandInput,
     CreateTrafficMirrorFilterRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +75,7 @@ export class CreateTrafficMirrorFilterRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTrafficMirrorFilterRuleCommandOutput> {
-    return deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

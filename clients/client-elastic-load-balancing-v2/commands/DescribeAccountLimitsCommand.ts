@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeAccountLimitsInput,
-  DescribeAccountLimitsOutput
-} from "../models/index";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountLimitsCommandInput = DescribeAccountLimitsInput;
-export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsOutput &
-  __MetadataBearer;
+export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsOutput & __MetadataBearer;
 
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeAccountLimitsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAccountLimitsCommandInput,
-    DescribeAccountLimitsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAccountLimitsCommandInput, DescribeAccountLimitsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

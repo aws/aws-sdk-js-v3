@@ -50,9 +50,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     DescribeTerminationPolicyTypesCommandInput,
     DescribeTerminationPolicyTypesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +69,14 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     input: DescribeTerminationPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTerminationPolicyTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeTerminationPolicyTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

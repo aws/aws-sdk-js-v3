@@ -734,9 +734,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -1018,9 +1016,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getApplication(
     args: GetApplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
@@ -1095,9 +1091,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
@@ -1340,9 +1334,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
@@ -1522,9 +1514,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
@@ -1661,31 +1651,19 @@ export class CodeDeploy extends CodeDeployClient {
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput>;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: PutLifecycleEventHookExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
   ): void;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PutLifecycleEventHookExecutionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
   ): void;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutLifecycleEventHookExecutionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PutLifecycleEventHookExecutionStatusCommandOutput
-    ) => void
+      | ((err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void),
+    cb?: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> | void {
     const command = new PutLifecycleEventHookExecutionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1782,31 +1760,19 @@ export class CodeDeploy extends CodeDeployClient {
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput>;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
   ): void;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
   ): void;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveTagsFromOnPremisesInstancesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void),
+    cb?: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> | void {
     const command = new RemoveTagsFromOnPremisesInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1830,31 +1796,19 @@ export class CodeDeploy extends CodeDeployClient {
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput>;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
-    cb: (
-      err: any,
-      data?: SkipWaitTimeForInstanceTerminationCommandOutput
-    ) => void
+    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
   ): void;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: SkipWaitTimeForInstanceTerminationCommandOutput
-    ) => void
+    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
   ): void;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: SkipWaitTimeForInstanceTerminationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: SkipWaitTimeForInstanceTerminationCommandOutput
-    ) => void
+      | ((err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void),
+    cb?: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> | void {
     const command = new SkipWaitTimeForInstanceTerminationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1886,9 +1840,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StopDeploymentCommandOutput) => void
   ): Promise<StopDeploymentCommandOutput> | void {
     const command = new StopDeploymentCommand(args);
@@ -1923,9 +1875,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1961,9 +1911,7 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

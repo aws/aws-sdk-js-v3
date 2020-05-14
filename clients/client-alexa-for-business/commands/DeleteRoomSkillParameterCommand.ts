@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  DeleteRoomSkillParameterRequest,
-  DeleteRoomSkillParameterResponse
-} from "../models/index";
+import { DeleteRoomSkillParameterRequest, DeleteRoomSkillParameterResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRoomSkillParameterCommand,
   serializeAws_json1_1DeleteRoomSkillParameterCommand
@@ -49,13 +46,8 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRoomSkillParameterCommandInput,
-    DeleteRoomSkillParameterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRoomSkillParameterCommandInput, DeleteRoomSkillParameterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteRoomSkillParameterCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRoomSkillParameterCommandOutput> {
-    return deserializeAws_json1_1DeleteRoomSkillParameterCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRoomSkillParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

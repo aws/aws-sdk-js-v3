@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  BatchDetectSyntaxRequest,
-  BatchDetectSyntaxResponse
-} from "../models/index";
+import { BatchDetectSyntaxRequest, BatchDetectSyntaxResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDetectSyntaxCommand,
   serializeAws_json1_1BatchDetectSyntaxCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDetectSyntaxCommandInput = BatchDetectSyntaxRequest;
-export type BatchDetectSyntaxCommandOutput = BatchDetectSyntaxResponse &
-  __MetadataBearer;
+export type BatchDetectSyntaxCommandOutput = BatchDetectSyntaxResponse & __MetadataBearer;
 
 export class BatchDetectSyntaxCommand extends $Command<
   BatchDetectSyntaxCommandInput,
@@ -50,9 +46,7 @@ export class BatchDetectSyntaxCommand extends $Command<
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

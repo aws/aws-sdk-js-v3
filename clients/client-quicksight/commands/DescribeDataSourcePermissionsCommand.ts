@@ -53,9 +53,7 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     DescribeDataSourcePermissionsCommandInput,
     DescribeDataSourcePermissionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     input: DescribeDataSourcePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDataSourcePermissionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeDataSourcePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDataSourcePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

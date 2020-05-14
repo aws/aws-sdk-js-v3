@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../InspectorClient";
-import {
-  CreateAssessmentTemplateRequest,
-  CreateAssessmentTemplateResponse
-} from "../models/index";
+import { CreateAssessmentTemplateRequest, CreateAssessmentTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateAssessmentTemplateCommand,
   serializeAws_json1_1CreateAssessmentTemplateCommand
@@ -49,13 +46,8 @@ export class CreateAssessmentTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAssessmentTemplateCommandInput,
-    CreateAssessmentTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAssessmentTemplateCommandInput, CreateAssessmentTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CreateAssessmentTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAssessmentTemplateCommandOutput> {
-    return deserializeAws_json1_1CreateAssessmentTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateAssessmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  UpdateXssMatchSetRequest,
-  UpdateXssMatchSetResponse
-} from "../models/index";
+import { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateXssMatchSetCommand,
   serializeAws_json1_1UpdateXssMatchSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
-export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse &
-  __MetadataBearer;
+export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse & __MetadataBearer;
 
 export class UpdateXssMatchSetCommand extends $Command<
   UpdateXssMatchSetCommandInput,
@@ -50,9 +46,7 @@ export class UpdateXssMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateXssMatchSetCommandInput, UpdateXssMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

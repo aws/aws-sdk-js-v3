@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  GetCrawlerMetricsRequest,
-  GetCrawlerMetricsResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCrawlerMetricsCommand,
   serializeAws_json1_1GetCrawlerMetricsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCrawlerMetricsCommandInput = GetCrawlerMetricsRequest;
-export type GetCrawlerMetricsCommandOutput = GetCrawlerMetricsResponse &
-  __MetadataBearer;
+export type GetCrawlerMetricsCommandOutput = GetCrawlerMetricsResponse & __MetadataBearer;
 
 export class GetCrawlerMetricsCommand extends $Command<
   GetCrawlerMetricsCommandInput,
@@ -50,9 +42,7 @@ export class GetCrawlerMetricsCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

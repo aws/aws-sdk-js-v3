@@ -42,9 +42,7 @@ export function receiveMessageMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error(
-        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
-      );
+      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
     return next({
@@ -59,13 +57,8 @@ export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {
   name: "receiveMessageMiddleware"
 };
 
-export const getReceiveMessagePlugin = (
-  config: PreviouslyResolved
-): Pluggable<any, any> => ({
+export const getReceiveMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      receiveMessageMiddleware(config),
-      receiveMessageMiddlewareOptions
-    );
+    clientStack.add(receiveMessageMiddleware(config), receiveMessageMiddlewareOptions);
   }
 });

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApnsChannelCommandInput = GetApnsChannelRequest;
-export type GetApnsChannelCommandOutput = GetApnsChannelResponse &
-  __MetadataBearer;
+export type GetApnsChannelCommandOutput = GetApnsChannelResponse & __MetadataBearer;
 
 export class GetApnsChannelCommand extends $Command<
   GetApnsChannelCommandInput,
@@ -47,9 +46,7 @@ export class GetApnsChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApnsChannelCommandInput, GetApnsChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  VerifyDomainDkimRequest,
-  VerifyDomainDkimResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/index";
 import {
   deserializeAws_queryVerifyDomainDkimCommand,
   serializeAws_queryVerifyDomainDkimCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type VerifyDomainDkimCommandInput = VerifyDomainDkimRequest;
-export type VerifyDomainDkimCommandOutput = VerifyDomainDkimResponse &
-  __MetadataBearer;
+export type VerifyDomainDkimCommandOutput = VerifyDomainDkimResponse & __MetadataBearer;
 
 export class VerifyDomainDkimCommand extends $Command<
   VerifyDomainDkimCommandInput,
@@ -50,9 +42,7 @@ export class VerifyDomainDkimCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<VerifyDomainDkimCommandInput, VerifyDomainDkimCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

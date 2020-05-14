@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryCreateEventSubscriptionCommand,
   serializeAws_queryCreateEventSubscriptionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEventSubscriptionCommandInput = CreateEventSubscriptionMessage;
-export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult &
-  __MetadataBearer;
+export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult & __MetadataBearer;
 
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,
@@ -49,13 +41,8 @@ export class CreateEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEventSubscriptionCommandInput,
-    CreateEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

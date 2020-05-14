@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  ImportWorkspaceImageRequest,
-  ImportWorkspaceImageResult
-} from "../models/index";
+import { ImportWorkspaceImageRequest, ImportWorkspaceImageResult } from "../models/index";
 import {
   deserializeAws_json1_1ImportWorkspaceImageCommand,
   serializeAws_json1_1ImportWorkspaceImageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportWorkspaceImageCommandInput = ImportWorkspaceImageRequest;
-export type ImportWorkspaceImageCommandOutput = ImportWorkspaceImageResult &
-  __MetadataBearer;
+export type ImportWorkspaceImageCommandOutput = ImportWorkspaceImageResult & __MetadataBearer;
 
 export class ImportWorkspaceImageCommand extends $Command<
   ImportWorkspaceImageCommandInput,
@@ -49,13 +45,8 @@ export class ImportWorkspaceImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportWorkspaceImageCommandInput,
-    ImportWorkspaceImageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportWorkspaceImageCommandInput, ImportWorkspaceImageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  DescribeDatasetRequest,
-  DescribeDatasetResponse
-} from "../models/index";
+import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDatasetCommand,
   serializeAws_restJson1_1DescribeDatasetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDatasetCommandInput = DescribeDatasetRequest;
-export type DescribeDatasetCommandOutput = DescribeDatasetResponse &
-  __MetadataBearer;
+export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
 
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,
@@ -50,9 +46,7 @@ export class DescribeDatasetCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDatasetCommandInput, DescribeDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

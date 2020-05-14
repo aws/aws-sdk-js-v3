@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  ListEndpointConfigsInput,
-  ListEndpointConfigsOutput
-} from "../models/index";
+import { ListEndpointConfigsInput, ListEndpointConfigsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListEndpointConfigsCommand,
   serializeAws_json1_1ListEndpointConfigsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEndpointConfigsCommandInput = ListEndpointConfigsInput;
-export type ListEndpointConfigsCommandOutput = ListEndpointConfigsOutput &
-  __MetadataBearer;
+export type ListEndpointConfigsCommandOutput = ListEndpointConfigsOutput & __MetadataBearer;
 
 export class ListEndpointConfigsCommand extends $Command<
   ListEndpointConfigsCommandInput,
@@ -49,13 +45,8 @@ export class ListEndpointConfigsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEndpointConfigsCommandInput,
-    ListEndpointConfigsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEndpointConfigsCommandInput, ListEndpointConfigsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

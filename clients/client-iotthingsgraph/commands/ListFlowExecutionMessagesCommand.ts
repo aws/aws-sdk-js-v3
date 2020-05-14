@@ -49,13 +49,8 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListFlowExecutionMessagesCommandInput,
-    ListFlowExecutionMessagesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListFlowExecutionMessagesCommandInput, ListFlowExecutionMessagesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFlowExecutionMessagesCommandOutput> {
-    return deserializeAws_json1_1ListFlowExecutionMessagesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListFlowExecutionMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

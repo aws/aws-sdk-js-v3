@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTThingsGraphClient";
-import {
-  UpdateFlowTemplateRequest,
-  UpdateFlowTemplateResponse
-} from "../models/index";
+import { UpdateFlowTemplateRequest, UpdateFlowTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFlowTemplateCommand,
   serializeAws_json1_1UpdateFlowTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFlowTemplateCommandInput = UpdateFlowTemplateRequest;
-export type UpdateFlowTemplateCommandOutput = UpdateFlowTemplateResponse &
-  __MetadataBearer;
+export type UpdateFlowTemplateCommandOutput = UpdateFlowTemplateResponse & __MetadataBearer;
 
 export class UpdateFlowTemplateCommand extends $Command<
   UpdateFlowTemplateCommandInput,
@@ -50,9 +46,7 @@ export class UpdateFlowTemplateCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFlowTemplateCommandInput, UpdateFlowTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

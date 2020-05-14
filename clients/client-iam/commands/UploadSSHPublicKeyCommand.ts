@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  UploadSSHPublicKeyRequest,
-  UploadSSHPublicKeyResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/index";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UploadSSHPublicKeyCommandInput = UploadSSHPublicKeyRequest;
-export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse &
-  __MetadataBearer;
+export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse & __MetadataBearer;
 
 export class UploadSSHPublicKeyCommand extends $Command<
   UploadSSHPublicKeyCommandInput,
@@ -50,9 +42,7 @@ export class UploadSSHPublicKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

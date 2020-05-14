@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeProductAsAdminInput,
-  DescribeProductAsAdminOutput
-} from "../models/index";
+import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProductAsAdminCommand,
   serializeAws_json1_1DescribeProductAsAdminCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProductAsAdminCommandInput = DescribeProductAsAdminInput;
-export type DescribeProductAsAdminCommandOutput = DescribeProductAsAdminOutput &
-  __MetadataBearer;
+export type DescribeProductAsAdminCommandOutput = DescribeProductAsAdminOutput & __MetadataBearer;
 
 export class DescribeProductAsAdminCommand extends $Command<
   DescribeProductAsAdminCommandInput,
@@ -49,13 +45,8 @@ export class DescribeProductAsAdminCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProductAsAdminCommandInput,
-    DescribeProductAsAdminCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProductAsAdminCommandInput, DescribeProductAsAdminCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

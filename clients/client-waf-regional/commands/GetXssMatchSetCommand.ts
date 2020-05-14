@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetXssMatchSetCommandInput = GetXssMatchSetRequest;
-export type GetXssMatchSetCommandOutput = GetXssMatchSetResponse &
-  __MetadataBearer;
+export type GetXssMatchSetCommandOutput = GetXssMatchSetResponse & __MetadataBearer;
 
 export class GetXssMatchSetCommand extends $Command<
   GetXssMatchSetCommandInput,
@@ -47,9 +46,7 @@ export class GetXssMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetXssMatchSetCommandInput, GetXssMatchSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

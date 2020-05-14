@@ -49,13 +49,8 @@ export class CreateConfigurationTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationTemplateCommandInput,
-    CreateConfigurationTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationTemplateCommandInput, CreateConfigurationTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreateConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationTemplateCommandOutput> {
-    return deserializeAws_queryCreateConfigurationTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

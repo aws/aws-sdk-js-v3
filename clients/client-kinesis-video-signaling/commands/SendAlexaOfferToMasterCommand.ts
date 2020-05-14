@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoSignalingClient";
-import {
-  SendAlexaOfferToMasterRequest,
-  SendAlexaOfferToMasterResponse
-} from "../models/index";
+import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendAlexaOfferToMasterCommand,
   serializeAws_restJson1_1SendAlexaOfferToMasterCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendAlexaOfferToMasterCommandInput = SendAlexaOfferToMasterRequest;
-export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse &
-  __MetadataBearer;
+export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse & __MetadataBearer;
 
 export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandInput,
@@ -49,13 +45,8 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoSignalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SendAlexaOfferToMasterCommandInput,
-    SendAlexaOfferToMasterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SendAlexaOfferToMasterCommandInput, SendAlexaOfferToMasterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     input: SendAlexaOfferToMasterCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SendAlexaOfferToMasterCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1SendAlexaOfferToMasterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendAlexaOfferToMasterCommandOutput> {
-    return deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SendAlexaOfferToMasterCommand(output, context);
   }
 
   // Start section: command_body_extra

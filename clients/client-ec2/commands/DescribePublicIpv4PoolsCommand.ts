@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribePublicIpv4PoolsRequest,
-  DescribePublicIpv4PoolsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribePublicIpv4PoolsCommand,
   serializeAws_ec2DescribePublicIpv4PoolsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePublicIpv4PoolsCommandInput = DescribePublicIpv4PoolsRequest;
-export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult &
-  __MetadataBearer;
+export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult & __MetadataBearer;
 
 export class DescribePublicIpv4PoolsCommand extends $Command<
   DescribePublicIpv4PoolsCommandInput,
@@ -49,13 +41,8 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePublicIpv4PoolsCommandInput,
-    DescribePublicIpv4PoolsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePublicIpv4PoolsCommandInput, DescribePublicIpv4PoolsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

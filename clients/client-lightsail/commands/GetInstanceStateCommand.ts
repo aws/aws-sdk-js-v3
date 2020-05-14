@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetInstanceStateRequest,
-  GetInstanceStateResult
-} from "../models/index";
+import { GetInstanceStateRequest, GetInstanceStateResult } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceStateCommand,
   serializeAws_json1_1GetInstanceStateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInstanceStateCommandInput = GetInstanceStateRequest;
-export type GetInstanceStateCommandOutput = GetInstanceStateResult &
-  __MetadataBearer;
+export type GetInstanceStateCommandOutput = GetInstanceStateResult & __MetadataBearer;
 
 export class GetInstanceStateCommand extends $Command<
   GetInstanceStateCommandInput,
@@ -50,9 +46,7 @@ export class GetInstanceStateCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceStateCommandInput, GetInstanceStateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

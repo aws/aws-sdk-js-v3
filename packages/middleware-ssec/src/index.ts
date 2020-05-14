@@ -62,9 +62,7 @@ export const ssecMiddlewareOptions: InitializeHandlerOptions = {
   tags: ["SSE"]
 };
 
-export const getSsecPlugin = (
-  config: ResolvedSsecMiddlewareConfig
-): Pluggable<any, any> => ({
+export const getSsecPlugin = (config: ResolvedSsecMiddlewareConfig): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(ssecMiddleware(config), ssecMiddlewareOptions);
   }

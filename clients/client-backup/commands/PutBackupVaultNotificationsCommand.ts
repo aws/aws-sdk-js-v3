@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { PutBackupVaultNotificationsInput } from "../models/index";
 import {
   deserializeAws_restJson1_1PutBackupVaultNotificationsCommand,
@@ -45,13 +41,8 @@ export class PutBackupVaultNotificationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutBackupVaultNotificationsCommandInput,
-    PutBackupVaultNotificationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutBackupVaultNotificationsCommandInput, PutBackupVaultNotificationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class PutBackupVaultNotificationsCommand extends $Command<
     input: PutBackupVaultNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutBackupVaultNotificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutBackupVaultNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1_1PutBackupVaultNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutBackupVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

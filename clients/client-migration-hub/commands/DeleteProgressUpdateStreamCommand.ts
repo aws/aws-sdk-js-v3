@@ -49,13 +49,8 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteProgressUpdateStreamCommandInput,
-    DeleteProgressUpdateStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteProgressUpdateStreamCommandInput, DeleteProgressUpdateStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     input: DeleteProgressUpdateStreamCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProgressUpdateStreamCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteProgressUpdateStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProgressUpdateStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteProgressUpdateStreamCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteProgressUpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

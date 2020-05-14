@@ -67,9 +67,7 @@ export class Pricing extends PricingClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
@@ -140,9 +138,7 @@ export class Pricing extends PricingClient {
   ): void;
   public getProducts(
     args: GetProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProductsCommandOutput) => void),
     cb?: (err: any, data?: GetProductsCommandOutput) => void
   ): Promise<GetProductsCommandOutput> | void {
     const command = new GetProductsCommand(args);

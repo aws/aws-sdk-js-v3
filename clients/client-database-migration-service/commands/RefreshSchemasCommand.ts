@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
-export type RefreshSchemasCommandOutput = RefreshSchemasResponse &
-  __MetadataBearer;
+export type RefreshSchemasCommandOutput = RefreshSchemasResponse & __MetadataBearer;
 
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,
@@ -47,9 +46,7 @@ export class RefreshSchemasCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RefreshSchemasCommandInput, RefreshSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

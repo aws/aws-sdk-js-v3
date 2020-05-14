@@ -53,9 +53,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     AssociateServiceRoleToAccountCommandInput,
     AssociateServiceRoleToAccountCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     input: AssociateServiceRoleToAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateServiceRoleToAccountCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateServiceRoleToAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceRoleToAccountCommandOutput> {
-    return deserializeAws_restJson1_1AssociateServiceRoleToAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateServiceRoleToAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

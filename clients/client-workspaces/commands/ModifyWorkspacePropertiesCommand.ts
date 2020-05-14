@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  ModifyWorkspacePropertiesRequest,
-  ModifyWorkspacePropertiesResult
-} from "../models/index";
+import { ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult } from "../models/index";
 import {
   deserializeAws_json1_1ModifyWorkspacePropertiesCommand,
   serializeAws_json1_1ModifyWorkspacePropertiesCommand
@@ -49,13 +46,8 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyWorkspacePropertiesCommandInput,
-    ModifyWorkspacePropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyWorkspacePropertiesCommandInput, ModifyWorkspacePropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyWorkspacePropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspacePropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspacePropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

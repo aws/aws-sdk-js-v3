@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  GetMailboxDetailsRequest,
-  GetMailboxDetailsResponse
-} from "../models/index";
+import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetMailboxDetailsCommand,
   serializeAws_json1_1GetMailboxDetailsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMailboxDetailsCommandInput = GetMailboxDetailsRequest;
-export type GetMailboxDetailsCommandOutput = GetMailboxDetailsResponse &
-  __MetadataBearer;
+export type GetMailboxDetailsCommandOutput = GetMailboxDetailsResponse & __MetadataBearer;
 
 export class GetMailboxDetailsCommand extends $Command<
   GetMailboxDetailsCommandInput,
@@ -50,9 +46,7 @@ export class GetMailboxDetailsCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

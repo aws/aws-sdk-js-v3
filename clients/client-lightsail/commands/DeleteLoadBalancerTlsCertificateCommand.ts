@@ -53,9 +53,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     DeleteLoadBalancerTlsCertificateCommandInput,
     DeleteLoadBalancerTlsCertificateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
     input: DeleteLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

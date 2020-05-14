@@ -259,9 +259,7 @@ export class Backup extends BackupClient {
   ): void;
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupPlanCommandOutput) => void
   ): Promise<CreateBackupPlanCommandOutput> | void {
     const command = new CreateBackupPlanCommand(args);
@@ -411,9 +409,7 @@ export class Backup extends BackupClient {
   ): void;
   public deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupPlanCommandOutput) => void
   ): Promise<DeleteBackupPlanCommandOutput> | void {
     const command = new DeleteBackupPlanCommand(args);
@@ -555,10 +551,7 @@ export class Backup extends BackupClient {
     args: DeleteBackupVaultNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteBackupVaultNotificationsCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteBackupVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupVaultNotificationsCommandOutput) => void
   ): Promise<DeleteBackupVaultNotificationsCommandOutput> | void {
     const command = new DeleteBackupVaultNotificationsCommand(args);
@@ -696,9 +689,7 @@ export class Backup extends BackupClient {
   ): void;
   public describeCopyJob(
     args: DescribeCopyJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCopyJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCopyJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeCopyJobCommandOutput) => void
   ): Promise<DescribeCopyJobCommandOutput> | void {
     const command = new DescribeCopyJobCommand(args);
@@ -873,9 +864,7 @@ export class Backup extends BackupClient {
   ): void;
   public getBackupPlan(
     args: GetBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: GetBackupPlanCommandOutput) => void
   ): Promise<GetBackupPlanCommandOutput> | void {
     const command = new GetBackupPlanCommand(args);
@@ -1087,10 +1076,7 @@ export class Backup extends BackupClient {
     args: GetRecoveryPointRestoreMetadataCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRecoveryPointRestoreMetadataCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRecoveryPointRestoreMetadataCommandOutput) => void),
     cb?: (err: any, data?: GetRecoveryPointRestoreMetadataCommandOutput) => void
   ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> | void {
     const command = new GetRecoveryPointRestoreMetadataCommand(args);
@@ -1158,9 +1144,7 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupJobs(
     args: ListBackupJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupJobsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupJobsCommandOutput) => void
   ): Promise<ListBackupJobsCommandOutput> | void {
     const command = new ListBackupJobsCommand(args);
@@ -1267,9 +1251,7 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupPlans(
     args: ListBackupPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupPlansCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupPlansCommandOutput) => void),
     cb?: (err: any, data?: ListBackupPlansCommandOutput) => void
   ): Promise<ListBackupPlansCommandOutput> | void {
     const command = new ListBackupPlansCommand(args);
@@ -1339,9 +1321,7 @@ export class Backup extends BackupClient {
   ): void;
   public listBackupVaults(
     args: ListBackupVaultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackupVaultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBackupVaultsCommandOutput) => void),
     cb?: (err: any, data?: ListBackupVaultsCommandOutput) => void
   ): Promise<ListBackupVaultsCommandOutput> | void {
     const command = new ListBackupVaultsCommand(args);
@@ -1374,9 +1354,7 @@ export class Backup extends BackupClient {
   ): void;
   public listCopyJobs(
     args: ListCopyJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCopyJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCopyJobsCommandOutput) => void),
     cb?: (err: any, data?: ListCopyJobsCommandOutput) => void
   ): Promise<ListCopyJobsCommandOutput> | void {
     const command = new ListCopyJobsCommand(args);
@@ -1448,10 +1426,7 @@ export class Backup extends BackupClient {
     args: ListRecoveryPointsByBackupVaultCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRecoveryPointsByBackupVaultCommandOutput
-        ) => void),
+      | ((err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void),
     cb?: (err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> | void {
     const command = new ListRecoveryPointsByBackupVaultCommand(args);
@@ -1521,9 +1496,7 @@ export class Backup extends BackupClient {
   ): void;
   public listRestoreJobs(
     args: ListRestoreJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRestoreJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRestoreJobsCommandOutput) => void),
     cb?: (err: any, data?: ListRestoreJobsCommandOutput) => void
   ): Promise<ListRestoreJobsCommandOutput> | void {
     const command = new ListRestoreJobsCommand(args);
@@ -1557,9 +1530,7 @@ export class Backup extends BackupClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
@@ -1664,9 +1635,7 @@ export class Backup extends BackupClient {
   ): void;
   public startBackupJob(
     args: StartBackupJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartBackupJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBackupJobCommandOutput) => void),
     cb?: (err: any, data?: StartBackupJobCommandOutput) => void
   ): Promise<StartBackupJobCommandOutput> | void {
     const command = new StartBackupJobCommand(args);
@@ -1699,9 +1668,7 @@ export class Backup extends BackupClient {
   ): void;
   public startCopyJob(
     args: StartCopyJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCopyJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCopyJobCommandOutput) => void),
     cb?: (err: any, data?: StartCopyJobCommandOutput) => void
   ): Promise<StartCopyJobCommandOutput> | void {
     const command = new StartCopyJobCommand(args);
@@ -1737,9 +1704,7 @@ export class Backup extends BackupClient {
   ): void;
   public startRestoreJob(
     args: StartRestoreJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartRestoreJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRestoreJobCommandOutput) => void),
     cb?: (err: any, data?: StartRestoreJobCommandOutput) => void
   ): Promise<StartRestoreJobCommandOutput> | void {
     const command = new StartRestoreJobCommand(args);
@@ -1772,9 +1737,7 @@ export class Backup extends BackupClient {
   ): void;
   public stopBackupJob(
     args: StopBackupJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopBackupJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBackupJobCommandOutput) => void),
     cb?: (err: any, data?: StopBackupJobCommandOutput) => void
   ): Promise<StopBackupJobCommandOutput> | void {
     const command = new StopBackupJobCommand(args);
@@ -1808,9 +1771,7 @@ export class Backup extends BackupClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1844,9 +1805,7 @@ export class Backup extends BackupClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1881,9 +1840,7 @@ export class Backup extends BackupClient {
   ): void;
   public updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBackupPlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBackupPlanCommandOutput) => void),
     cb?: (err: any, data?: UpdateBackupPlanCommandOutput) => void
   ): Promise<UpdateBackupPlanCommandOutput> | void {
     const command = new UpdateBackupPlanCommand(args);

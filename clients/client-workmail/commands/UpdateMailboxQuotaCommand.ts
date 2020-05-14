@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  UpdateMailboxQuotaRequest,
-  UpdateMailboxQuotaResponse
-} from "../models/index";
+import { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateMailboxQuotaCommand,
   serializeAws_json1_1UpdateMailboxQuotaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMailboxQuotaCommandInput = UpdateMailboxQuotaRequest;
-export type UpdateMailboxQuotaCommandOutput = UpdateMailboxQuotaResponse &
-  __MetadataBearer;
+export type UpdateMailboxQuotaCommandOutput = UpdateMailboxQuotaResponse & __MetadataBearer;
 
 export class UpdateMailboxQuotaCommand extends $Command<
   UpdateMailboxQuotaCommandInput,
@@ -50,9 +46,7 @@ export class UpdateMailboxQuotaCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

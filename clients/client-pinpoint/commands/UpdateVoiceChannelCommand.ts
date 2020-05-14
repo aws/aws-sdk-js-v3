@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  UpdateVoiceChannelRequest,
-  UpdateVoiceChannelResponse
-} from "../models/index";
+import { UpdateVoiceChannelRequest, UpdateVoiceChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVoiceChannelCommand,
   serializeAws_restJson1_1UpdateVoiceChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVoiceChannelCommandInput = UpdateVoiceChannelRequest;
-export type UpdateVoiceChannelCommandOutput = UpdateVoiceChannelResponse &
-  __MetadataBearer;
+export type UpdateVoiceChannelCommandOutput = UpdateVoiceChannelResponse & __MetadataBearer;
 
 export class UpdateVoiceChannelCommand extends $Command<
   UpdateVoiceChannelCommandInput,
@@ -50,9 +46,7 @@ export class UpdateVoiceChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVoiceChannelCommandInput, UpdateVoiceChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

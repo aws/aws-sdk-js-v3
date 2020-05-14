@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PostCommentReplyCommandInput = PostCommentReplyInput;
-export type PostCommentReplyCommandOutput = PostCommentReplyOutput &
-  __MetadataBearer;
+export type PostCommentReplyCommandOutput = PostCommentReplyOutput & __MetadataBearer;
 
 export class PostCommentReplyCommand extends $Command<
   PostCommentReplyCommandInput,
@@ -47,9 +46,7 @@ export class PostCommentReplyCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostCommentReplyCommandInput, PostCommentReplyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

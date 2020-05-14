@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  MergeBranchesByFastForwardInput,
-  MergeBranchesByFastForwardOutput
-} from "../models/index";
+import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/index";
 import {
   deserializeAws_json1_1MergeBranchesByFastForwardCommand,
   serializeAws_json1_1MergeBranchesByFastForwardCommand
@@ -49,13 +46,8 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergeBranchesByFastForwardCommandInput,
-    MergeBranchesByFastForwardCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergeBranchesByFastForwardCommandInput, MergeBranchesByFastForwardCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     input: MergeBranchesByFastForwardCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeBranchesByFastForwardCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1MergeBranchesByFastForwardCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergeBranchesByFastForwardCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesByFastForwardCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergeBranchesByFastForwardCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetBulkDeploymentStatusRequest,
-  GetBulkDeploymentStatusResponse
-} from "../models/index";
+import { GetBulkDeploymentStatusRequest, GetBulkDeploymentStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBulkDeploymentStatusCommand,
   serializeAws_restJson1_1GetBulkDeploymentStatusCommand
@@ -49,13 +46,8 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBulkDeploymentStatusCommandInput,
-    GetBulkDeploymentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBulkDeploymentStatusCommandInput, GetBulkDeploymentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     input: GetBulkDeploymentStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBulkDeploymentStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetBulkDeploymentStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBulkDeploymentStatusCommandOutput> {
-    return deserializeAws_restJson1_1GetBulkDeploymentStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBulkDeploymentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

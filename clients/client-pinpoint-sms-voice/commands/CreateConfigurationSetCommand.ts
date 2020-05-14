@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointSMSVoiceClient";
-import {
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse
-} from "../models/index";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateConfigurationSetCommand,
   serializeAws_restJson1_1CreateConfigurationSetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
-export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse &
-  __MetadataBearer;
+export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
 
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,
@@ -49,13 +45,8 @@ export class CreateConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationSetCommandInput,
-    CreateConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationSetCommandInput, CreateConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateConfigurationSetCommand extends $Command<
     input: CreateConfigurationSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConfigurationSetCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateConfigurationSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

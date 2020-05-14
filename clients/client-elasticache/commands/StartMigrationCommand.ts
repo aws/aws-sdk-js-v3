@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartMigrationCommandInput = StartMigrationMessage;
-export type StartMigrationCommandOutput = StartMigrationResponse &
-  __MetadataBearer;
+export type StartMigrationCommandOutput = StartMigrationResponse & __MetadataBearer;
 
 export class StartMigrationCommand extends $Command<
   StartMigrationCommandInput,
@@ -47,9 +46,7 @@ export class StartMigrationCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMigrationCommandInput, StartMigrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

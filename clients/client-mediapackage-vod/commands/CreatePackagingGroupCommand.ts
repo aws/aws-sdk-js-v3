@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageVodClient";
-import {
-  CreatePackagingGroupRequest,
-  CreatePackagingGroupResponse
-} from "../models/index";
+import { CreatePackagingGroupRequest, CreatePackagingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePackagingGroupCommand,
   serializeAws_restJson1_1CreatePackagingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePackagingGroupCommandInput = CreatePackagingGroupRequest;
-export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse &
-  __MetadataBearer;
+export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse & __MetadataBearer;
 
 export class CreatePackagingGroupCommand extends $Command<
   CreatePackagingGroupCommandInput,
@@ -49,13 +45,8 @@ export class CreatePackagingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePackagingGroupCommandInput,
-    CreatePackagingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePackagingGroupCommandInput, CreatePackagingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class CreatePackagingGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreatePackagingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreatePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

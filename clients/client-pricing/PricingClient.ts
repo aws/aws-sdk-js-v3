@@ -6,10 +6,7 @@ import {
   GetAttributeValuesCommandInput,
   GetAttributeValuesCommandOutput
 } from "./commands/GetAttributeValuesCommand";
-import {
-  GetProductsCommandInput,
-  GetProductsCommandOutput
-} from "./commands/GetProductsCommand";
+import { GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -157,9 +154,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PricingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PricingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,9 +163,7 @@ export type PricingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

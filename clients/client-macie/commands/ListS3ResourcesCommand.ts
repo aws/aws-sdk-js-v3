@@ -1,8 +1,4 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { ListS3ResourcesRequest, ListS3ResourcesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListS3ResourcesCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListS3ResourcesCommandInput = ListS3ResourcesRequest;
-export type ListS3ResourcesCommandOutput = ListS3ResourcesResult &
-  __MetadataBearer;
+export type ListS3ResourcesCommandOutput = ListS3ResourcesResult & __MetadataBearer;
 
 export class ListS3ResourcesCommand extends $Command<
   ListS3ResourcesCommandInput,
@@ -47,9 +42,7 @@ export class ListS3ResourcesCommand extends $Command<
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListS3ResourcesCommandInput, ListS3ResourcesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

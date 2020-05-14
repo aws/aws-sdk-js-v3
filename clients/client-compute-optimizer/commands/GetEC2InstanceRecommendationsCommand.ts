@@ -53,9 +53,7 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     GetEC2InstanceRecommendationsCommandInput,
     GetEC2InstanceRecommendationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class GetEC2InstanceRecommendationsCommand extends $Command<
     input: GetEC2InstanceRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0GetEC2InstanceRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEC2InstanceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetEC2InstanceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

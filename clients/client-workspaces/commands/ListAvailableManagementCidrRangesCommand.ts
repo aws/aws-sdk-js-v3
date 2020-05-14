@@ -53,9 +53,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     ListAvailableManagementCidrRangesCommandInput,
     ListAvailableManagementCidrRangesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     input: ListAvailableManagementCidrRangesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(output, context);
   }
 
   // Start section: command_body_extra

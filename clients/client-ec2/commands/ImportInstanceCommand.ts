@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ImportInstanceRequest, ImportInstanceResult } from "../models/index";
 import {
   deserializeAws_ec2ImportInstanceCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportInstanceCommandInput = ImportInstanceRequest;
-export type ImportInstanceCommandOutput = ImportInstanceResult &
-  __MetadataBearer;
+export type ImportInstanceCommandOutput = ImportInstanceResult & __MetadataBearer;
 
 export class ImportInstanceCommand extends $Command<
   ImportInstanceCommandInput,
@@ -47,9 +42,7 @@ export class ImportInstanceCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportInstanceCommandInput, ImportInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

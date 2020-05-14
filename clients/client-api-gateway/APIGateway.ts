@@ -359,11 +359,7 @@ import {
   GetRestApisCommandInput,
   GetRestApisCommandOutput
 } from "./commands/GetRestApisCommand";
-import {
-  GetSdkCommand,
-  GetSdkCommandInput,
-  GetSdkCommandOutput
-} from "./commands/GetSdkCommand";
+import { GetSdkCommand, GetSdkCommandInput, GetSdkCommandOutput } from "./commands/GetSdkCommand";
 import {
   GetSdkTypeCommand,
   GetSdkTypeCommandInput,
@@ -625,9 +621,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createApiKey(
     args: CreateApiKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApiKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateApiKeyCommandOutput) => void
   ): Promise<CreateApiKeyCommandOutput> | void {
     const command = new CreateApiKeyCommand(args);
@@ -661,9 +655,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): Promise<CreateAuthorizerCommandOutput> | void {
     const command = new CreateAuthorizerCommand(args);
@@ -731,9 +723,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
@@ -830,9 +820,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createDomainName(
     args: CreateDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): Promise<CreateDomainNameCommandOutput> | void {
     const command = new CreateDomainNameCommand(args);
@@ -865,9 +853,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createModel(
     args: CreateModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
     cb?: (err: any, data?: CreateModelCommandOutput) => void
   ): Promise<CreateModelCommandOutput> | void {
     const command = new CreateModelCommand(args);
@@ -935,9 +921,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createResource(
     args: CreateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceCommandOutput) => void
   ): Promise<CreateResourceCommandOutput> | void {
     const command = new CreateResourceCommand(args);
@@ -970,9 +954,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createRestApi(
     args: CreateRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRestApiCommandOutput) => void),
     cb?: (err: any, data?: CreateRestApiCommandOutput) => void
   ): Promise<CreateRestApiCommandOutput> | void {
     const command = new CreateRestApiCommand(args);
@@ -1006,9 +988,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createStage(
     args: CreateStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStageCommandOutput) => void),
     cb?: (err: any, data?: CreateStageCommandOutput) => void
   ): Promise<CreateStageCommandOutput> | void {
     const command = new CreateStageCommand(args);
@@ -1041,9 +1021,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createUsagePlan(
     args: CreateUsagePlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUsagePlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUsagePlanCommandOutput) => void),
     cb?: (err: any, data?: CreateUsagePlanCommandOutput) => void
   ): Promise<CreateUsagePlanCommandOutput> | void {
     const command = new CreateUsagePlanCommand(args);
@@ -1111,9 +1089,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public createVpcLink(
     args: CreateVpcLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVpcLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcLinkCommandOutput) => void),
     cb?: (err: any, data?: CreateVpcLinkCommandOutput) => void
   ): Promise<CreateVpcLinkCommandOutput> | void {
     const command = new CreateVpcLinkCommand(args);
@@ -1146,9 +1122,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApiKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiKeyCommandOutput) => void
   ): Promise<DeleteApiKeyCommandOutput> | void {
     const command = new DeleteApiKeyCommand(args);
@@ -1182,9 +1156,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): Promise<DeleteAuthorizerCommandOutput> | void {
     const command = new DeleteAuthorizerCommand(args);
@@ -1287,9 +1259,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): Promise<DeleteDeploymentCommandOutput> | void {
     const command = new DeleteDeploymentCommand(args);
@@ -1386,9 +1356,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): Promise<DeleteDomainNameCommandOutput> | void {
     const command = new DeleteDomainNameCommand(args);
@@ -1526,9 +1494,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteMethod(
     args: DeleteMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMethodCommandOutput) => void),
     cb?: (err: any, data?: DeleteMethodCommandOutput) => void
   ): Promise<DeleteMethodCommandOutput> | void {
     const command = new DeleteMethodCommand(args);
@@ -1596,9 +1562,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteModel(
     args: DeleteModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelCommandOutput) => void
   ): Promise<DeleteModelCommandOutput> | void {
     const command = new DeleteModelCommand(args);
@@ -1666,9 +1630,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteResource(
     args: DeleteResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourceCommandOutput) => void
   ): Promise<DeleteResourceCommandOutput> | void {
     const command = new DeleteResourceCommand(args);
@@ -1701,9 +1663,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteRestApi(
     args: DeleteRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRestApiCommandOutput) => void),
     cb?: (err: any, data?: DeleteRestApiCommandOutput) => void
   ): Promise<DeleteRestApiCommandOutput> | void {
     const command = new DeleteRestApiCommand(args);
@@ -1736,9 +1696,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteStage(
     args: DeleteStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStageCommandOutput) => void),
     cb?: (err: any, data?: DeleteStageCommandOutput) => void
   ): Promise<DeleteStageCommandOutput> | void {
     const command = new DeleteStageCommand(args);
@@ -1771,9 +1729,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteUsagePlan(
     args: DeleteUsagePlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUsagePlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUsagePlanCommandOutput) => void),
     cb?: (err: any, data?: DeleteUsagePlanCommandOutput) => void
   ): Promise<DeleteUsagePlanCommandOutput> | void {
     const command = new DeleteUsagePlanCommand(args);
@@ -1841,9 +1797,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVpcLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcLinkCommandOutput) => void),
     cb?: (err: any, data?: DeleteVpcLinkCommandOutput) => void
   ): Promise<DeleteVpcLinkCommandOutput> | void {
     const command = new DeleteVpcLinkCommand(args);
@@ -1911,9 +1865,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public flushStageCache(
     args: FlushStageCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: FlushStageCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FlushStageCacheCommandOutput) => void),
     cb?: (err: any, data?: FlushStageCacheCommandOutput) => void
   ): Promise<FlushStageCacheCommandOutput> | void {
     const command = new FlushStageCacheCommand(args);
@@ -1981,9 +1933,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getAccount(
     args: GetAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountCommandOutput) => void),
     cb?: (err: any, data?: GetAccountCommandOutput) => void
   ): Promise<GetAccountCommandOutput> | void {
     const command = new GetAccountCommand(args);
@@ -2016,9 +1966,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getApiKey(
     args: GetApiKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApiKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiKeyCommandOutput) => void),
     cb?: (err: any, data?: GetApiKeyCommandOutput) => void
   ): Promise<GetApiKeyCommandOutput> | void {
     const command = new GetApiKeyCommand(args);
@@ -2051,9 +1999,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getApiKeys(
     args: GetApiKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApiKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiKeysCommandOutput) => void),
     cb?: (err: any, data?: GetApiKeysCommandOutput) => void
   ): Promise<GetApiKeysCommandOutput> | void {
     const command = new GetApiKeysCommand(args);
@@ -2087,9 +2033,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizerCommandOutput) => void
   ): Promise<GetAuthorizerCommandOutput> | void {
     const command = new GetAuthorizerCommand(args);
@@ -2123,9 +2067,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAuthorizersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizersCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizersCommandOutput) => void
   ): Promise<GetAuthorizersCommandOutput> | void {
     const command = new GetAuthorizersCommand(args);
@@ -2298,9 +2240,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
@@ -2333,9 +2273,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getDeployments(
     args: GetDeploymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDeploymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): Promise<GetDeploymentsCommandOutput> | void {
     const command = new GetDeploymentsCommand(args);
@@ -2496,9 +2434,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getDomainName(
     args: GetDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNameCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNameCommandOutput) => void
   ): Promise<GetDomainNameCommandOutput> | void {
     const command = new GetDomainNameCommand(args);
@@ -2531,9 +2467,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getDomainNames(
     args: GetDomainNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNamesCommandOutput) => void
   ): Promise<GetDomainNamesCommandOutput> | void {
     const command = new GetDomainNamesCommand(args);
@@ -2566,9 +2500,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getExport(
     args: GetExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportCommandOutput) => void),
     cb?: (err: any, data?: GetExportCommandOutput) => void
   ): Promise<GetExportCommandOutput> | void {
     const command = new GetExportCommand(args);
@@ -2671,9 +2603,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getIntegration(
     args: GetIntegrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIntegrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationCommandOutput) => void
   ): Promise<GetIntegrationCommandOutput> | void {
     const command = new GetIntegrationCommand(args);
@@ -2741,9 +2671,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getMethod(
     args: GetMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMethodCommandOutput) => void),
     cb?: (err: any, data?: GetMethodCommandOutput) => void
   ): Promise<GetMethodCommandOutput> | void {
     const command = new GetMethodCommand(args);
@@ -2811,9 +2739,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getModel(
     args: GetModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelCommandOutput) => void),
     cb?: (err: any, data?: GetModelCommandOutput) => void
   ): Promise<GetModelCommandOutput> | void {
     const command = new GetModelCommand(args);
@@ -2846,9 +2772,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getModelTemplate(
     args: GetModelTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): Promise<GetModelTemplateCommandOutput> | void {
     const command = new GetModelTemplateCommand(args);
@@ -2881,9 +2805,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getModels(
     args: GetModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
@@ -2986,9 +2908,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getResource(
     args: GetResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceCommandOutput) => void),
     cb?: (err: any, data?: GetResourceCommandOutput) => void
   ): Promise<GetResourceCommandOutput> | void {
     const command = new GetResourceCommand(args);
@@ -3021,9 +2941,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getResources(
     args: GetResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
     cb?: (err: any, data?: GetResourcesCommandOutput) => void
   ): Promise<GetResourcesCommandOutput> | void {
     const command = new GetResourcesCommand(args);
@@ -3056,9 +2974,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getRestApi(
     args: GetRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRestApiCommandOutput) => void),
     cb?: (err: any, data?: GetRestApiCommandOutput) => void
   ): Promise<GetRestApiCommandOutput> | void {
     const command = new GetRestApiCommand(args);
@@ -3091,9 +3007,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getRestApis(
     args: GetRestApisCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRestApisCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRestApisCommandOutput) => void),
     cb?: (err: any, data?: GetRestApisCommandOutput) => void
   ): Promise<GetRestApisCommandOutput> | void {
     const command = new GetRestApisCommand(args);
@@ -3115,10 +3029,7 @@ export class APIGateway extends APIGatewayClient {
     args: GetSdkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSdkCommandOutput>;
-  public getSdk(
-    args: GetSdkCommandInput,
-    cb: (err: any, data?: GetSdkCommandOutput) => void
-  ): void;
+  public getSdk(args: GetSdkCommandInput, cb: (err: any, data?: GetSdkCommandOutput) => void): void;
   public getSdk(
     args: GetSdkCommandInput,
     options: __HttpHandlerOptions,
@@ -3126,9 +3037,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getSdk(
     args: GetSdkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSdkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSdkCommandOutput) => void),
     cb?: (err: any, data?: GetSdkCommandOutput) => void
   ): Promise<GetSdkCommandOutput> | void {
     const command = new GetSdkCommand(args);
@@ -3158,9 +3067,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getSdkType(
     args: GetSdkTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSdkTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSdkTypeCommandOutput) => void),
     cb?: (err: any, data?: GetSdkTypeCommandOutput) => void
   ): Promise<GetSdkTypeCommandOutput> | void {
     const command = new GetSdkTypeCommand(args);
@@ -3190,9 +3097,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getSdkTypes(
     args: GetSdkTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSdkTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSdkTypesCommandOutput) => void),
     cb?: (err: any, data?: GetSdkTypesCommandOutput) => void
   ): Promise<GetSdkTypesCommandOutput> | void {
     const command = new GetSdkTypesCommand(args);
@@ -3225,9 +3130,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getStage(
     args: GetStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStageCommandOutput) => void),
     cb?: (err: any, data?: GetStageCommandOutput) => void
   ): Promise<GetStageCommandOutput> | void {
     const command = new GetStageCommand(args);
@@ -3260,9 +3163,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getStages(
     args: GetStagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStagesCommandOutput) => void),
     cb?: (err: any, data?: GetStagesCommandOutput) => void
   ): Promise<GetStagesCommandOutput> | void {
     const command = new GetStagesCommand(args);
@@ -3295,9 +3196,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getTags(
     args: GetTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTagsCommandOutput) => void),
     cb?: (err: any, data?: GetTagsCommandOutput) => void
   ): Promise<GetTagsCommandOutput> | void {
     const command = new GetTagsCommand(args);
@@ -3330,9 +3229,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getUsage(
     args: GetUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsageCommandOutput) => void),
     cb?: (err: any, data?: GetUsageCommandOutput) => void
   ): Promise<GetUsageCommandOutput> | void {
     const command = new GetUsageCommand(args);
@@ -3365,9 +3262,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getUsagePlan(
     args: GetUsagePlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsagePlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsagePlanCommandOutput) => void),
     cb?: (err: any, data?: GetUsagePlanCommandOutput) => void
   ): Promise<GetUsagePlanCommandOutput> | void {
     const command = new GetUsagePlanCommand(args);
@@ -3400,9 +3295,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getUsagePlanKey(
     args: GetUsagePlanKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsagePlanKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsagePlanKeyCommandOutput) => void),
     cb?: (err: any, data?: GetUsagePlanKeyCommandOutput) => void
   ): Promise<GetUsagePlanKeyCommandOutput> | void {
     const command = new GetUsagePlanKeyCommand(args);
@@ -3435,9 +3328,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getUsagePlanKeys(
     args: GetUsagePlanKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsagePlanKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsagePlanKeysCommandOutput) => void),
     cb?: (err: any, data?: GetUsagePlanKeysCommandOutput) => void
   ): Promise<GetUsagePlanKeysCommandOutput> | void {
     const command = new GetUsagePlanKeysCommand(args);
@@ -3470,9 +3361,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getUsagePlans(
     args: GetUsagePlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUsagePlansCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUsagePlansCommandOutput) => void),
     cb?: (err: any, data?: GetUsagePlansCommandOutput) => void
   ): Promise<GetUsagePlansCommandOutput> | void {
     const command = new GetUsagePlansCommand(args);
@@ -3505,9 +3394,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getVpcLink(
     args: GetVpcLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVpcLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinkCommandOutput) => void),
     cb?: (err: any, data?: GetVpcLinkCommandOutput) => void
   ): Promise<GetVpcLinkCommandOutput> | void {
     const command = new GetVpcLinkCommand(args);
@@ -3540,9 +3427,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public getVpcLinks(
     args: GetVpcLinksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVpcLinksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpcLinksCommandOutput) => void),
     cb?: (err: any, data?: GetVpcLinksCommandOutput) => void
   ): Promise<GetVpcLinksCommandOutput> | void {
     const command = new GetVpcLinksCommand(args);
@@ -3575,9 +3460,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public importApiKeys(
     args: ImportApiKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportApiKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportApiKeysCommandOutput) => void),
     cb?: (err: any, data?: ImportApiKeysCommandOutput) => void
   ): Promise<ImportApiKeysCommandOutput> | void {
     const command = new ImportApiKeysCommand(args);
@@ -3642,9 +3525,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public importRestApi(
     args: ImportRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportRestApiCommandOutput) => void),
     cb?: (err: any, data?: ImportRestApiCommandOutput) => void
   ): Promise<ImportRestApiCommandOutput> | void {
     const command = new ImportRestApiCommand(args);
@@ -3712,9 +3593,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public putIntegration(
     args: PutIntegrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutIntegrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutIntegrationCommandOutput) => void),
     cb?: (err: any, data?: PutIntegrationCommandOutput) => void
   ): Promise<PutIntegrationCommandOutput> | void {
     const command = new PutIntegrationCommand(args);
@@ -3782,9 +3661,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public putMethod(
     args: PutMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMethodCommandOutput) => void),
     cb?: (err: any, data?: PutMethodCommandOutput) => void
   ): Promise<PutMethodCommandOutput> | void {
     const command = new PutMethodCommand(args);
@@ -3853,9 +3730,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public putRestApi(
     args: PutRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRestApiCommandOutput) => void),
     cb?: (err: any, data?: PutRestApiCommandOutput) => void
   ): Promise<PutRestApiCommandOutput> | void {
     const command = new PutRestApiCommand(args);
@@ -3888,9 +3763,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -3962,9 +3835,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public testInvokeMethod(
     args: TestInvokeMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestInvokeMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestInvokeMethodCommandOutput) => void),
     cb?: (err: any, data?: TestInvokeMethodCommandOutput) => void
   ): Promise<TestInvokeMethodCommandOutput> | void {
     const command = new TestInvokeMethodCommand(args);
@@ -3997,9 +3868,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -4032,9 +3901,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateAccount(
     args: UpdateAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountCommandOutput) => void),
     cb?: (err: any, data?: UpdateAccountCommandOutput) => void
   ): Promise<UpdateAccountCommandOutput> | void {
     const command = new UpdateAccountCommand(args);
@@ -4067,9 +3934,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApiKeyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiKeyCommandOutput) => void
   ): Promise<UpdateApiKeyCommandOutput> | void {
     const command = new UpdateApiKeyCommand(args);
@@ -4103,9 +3968,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): Promise<UpdateAuthorizerCommandOutput> | void {
     const command = new UpdateAuthorizerCommand(args);
@@ -4208,9 +4071,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): Promise<UpdateDeploymentCommandOutput> | void {
     const command = new UpdateDeploymentCommand(args);
@@ -4307,9 +4168,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): Promise<UpdateDomainNameCommandOutput> | void {
     const command = new UpdateDomainNameCommand(args);
@@ -4447,9 +4306,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateMethod(
     args: UpdateMethodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMethodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMethodCommandOutput) => void),
     cb?: (err: any, data?: UpdateMethodCommandOutput) => void
   ): Promise<UpdateMethodCommandOutput> | void {
     const command = new UpdateMethodCommand(args);
@@ -4517,9 +4374,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateModel(
     args: UpdateModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateModelCommandOutput) => void
   ): Promise<UpdateModelCommandOutput> | void {
     const command = new UpdateModelCommand(args);
@@ -4587,9 +4442,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateResource(
     args: UpdateResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateResourceCommandOutput) => void
   ): Promise<UpdateResourceCommandOutput> | void {
     const command = new UpdateResourceCommand(args);
@@ -4622,9 +4475,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateRestApi(
     args: UpdateRestApiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRestApiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRestApiCommandOutput) => void),
     cb?: (err: any, data?: UpdateRestApiCommandOutput) => void
   ): Promise<UpdateRestApiCommandOutput> | void {
     const command = new UpdateRestApiCommand(args);
@@ -4657,9 +4508,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateStage(
     args: UpdateStageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStageCommandOutput) => void),
     cb?: (err: any, data?: UpdateStageCommandOutput) => void
   ): Promise<UpdateStageCommandOutput> | void {
     const command = new UpdateStageCommand(args);
@@ -4692,9 +4541,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateUsage(
     args: UpdateUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUsageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUsageCommandOutput) => void),
     cb?: (err: any, data?: UpdateUsageCommandOutput) => void
   ): Promise<UpdateUsageCommandOutput> | void {
     const command = new UpdateUsageCommand(args);
@@ -4727,9 +4574,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateUsagePlan(
     args: UpdateUsagePlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUsagePlanCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUsagePlanCommandOutput) => void),
     cb?: (err: any, data?: UpdateUsagePlanCommandOutput) => void
   ): Promise<UpdateUsagePlanCommandOutput> | void {
     const command = new UpdateUsagePlanCommand(args);
@@ -4762,9 +4607,7 @@ export class APIGateway extends APIGatewayClient {
   ): void;
   public updateVpcLink(
     args: UpdateVpcLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVpcLinkCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcLinkCommandOutput) => void),
     cb?: (err: any, data?: UpdateVpcLinkCommandOutput) => void
   ): Promise<UpdateVpcLinkCommandOutput> | void {
     const command = new UpdateVpcLinkCommand(args);

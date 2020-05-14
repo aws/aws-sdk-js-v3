@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { RemoveLayerVersionPermissionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand,
@@ -45,13 +41,8 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveLayerVersionPermissionCommandInput,
-    RemoveLayerVersionPermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveLayerVersionPermissionCommandInput, RemoveLayerVersionPermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     input: RemoveLayerVersionPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RemoveLayerVersionPermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

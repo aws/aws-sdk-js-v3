@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAssetCommandInput = DescribeAssetRequest;
-export type DescribeAssetCommandOutput = DescribeAssetResponse &
-  __MetadataBearer;
+export type DescribeAssetCommandOutput = DescribeAssetResponse & __MetadataBearer;
 
 export class DescribeAssetCommand extends $Command<
   DescribeAssetCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAssetCommand extends $Command<
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAssetCommandInput, DescribeAssetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

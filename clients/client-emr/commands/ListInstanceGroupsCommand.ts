@@ -1,12 +1,5 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
-import {
-  ListInstanceGroupsInput,
-  ListInstanceGroupsOutput
-} from "../models/index";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
+import { ListInstanceGroupsInput, ListInstanceGroupsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListInstanceGroupsCommand,
   serializeAws_json1_1ListInstanceGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListInstanceGroupsCommandInput = ListInstanceGroupsInput;
-export type ListInstanceGroupsCommandOutput = ListInstanceGroupsOutput &
-  __MetadataBearer;
+export type ListInstanceGroupsCommandOutput = ListInstanceGroupsOutput & __MetadataBearer;
 
 export class ListInstanceGroupsCommand extends $Command<
   ListInstanceGroupsCommandInput,
@@ -50,9 +42,7 @@ export class ListInstanceGroupsCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInstanceGroupsCommandInput, ListInstanceGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

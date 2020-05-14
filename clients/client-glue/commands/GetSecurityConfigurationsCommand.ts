@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   GetSecurityConfigurationsRequest,
   GetSecurityConfigurationsResponse
@@ -49,13 +45,8 @@ export class GetSecurityConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSecurityConfigurationsCommandInput,
-    GetSecurityConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSecurityConfigurationsCommandInput, GetSecurityConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetSecurityConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1GetSecurityConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

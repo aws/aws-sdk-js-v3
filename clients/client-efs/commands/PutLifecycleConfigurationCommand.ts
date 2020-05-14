@@ -1,8 +1,4 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   LifecycleConfigurationDescription,
   PutLifecycleConfigurationRequest
@@ -49,13 +45,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutLifecycleConfigurationCommandInput,
-    PutLifecycleConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutLifecycleConfigurationCommandInput, PutLifecycleConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class PutLifecycleConfigurationCommand extends $Command<
     input: PutLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutLifecycleConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutLifecycleConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutLifecycleConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

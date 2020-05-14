@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  DeleteAutoSnapshotRequest,
-  DeleteAutoSnapshotResult
-} from "../models/index";
+import { DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAutoSnapshotCommand,
   serializeAws_json1_1DeleteAutoSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAutoSnapshotCommandInput = DeleteAutoSnapshotRequest;
-export type DeleteAutoSnapshotCommandOutput = DeleteAutoSnapshotResult &
-  __MetadataBearer;
+export type DeleteAutoSnapshotCommandOutput = DeleteAutoSnapshotResult & __MetadataBearer;
 
 export class DeleteAutoSnapshotCommand extends $Command<
   DeleteAutoSnapshotCommandInput,
@@ -50,9 +46,7 @@ export class DeleteAutoSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAutoSnapshotCommandInput, DeleteAutoSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

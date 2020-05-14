@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteTriggerCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTriggerCommandInput = DeleteTriggerRequest;
-export type DeleteTriggerCommandOutput = DeleteTriggerResponse &
-  __MetadataBearer;
+export type DeleteTriggerCommandOutput = DeleteTriggerResponse & __MetadataBearer;
 
 export class DeleteTriggerCommand extends $Command<
   DeleteTriggerCommandInput,
@@ -47,9 +42,7 @@ export class DeleteTriggerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTriggerCommandInput, DeleteTriggerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

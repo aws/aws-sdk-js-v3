@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLayersCommandInput = DescribeLayersRequest;
-export type DescribeLayersCommandOutput = DescribeLayersResult &
-  __MetadataBearer;
+export type DescribeLayersCommandOutput = DescribeLayersResult & __MetadataBearer;
 
 export class DescribeLayersCommand extends $Command<
   DescribeLayersCommandInput,
@@ -47,9 +46,7 @@ export class DescribeLayersCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLayersCommandInput, DescribeLayersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

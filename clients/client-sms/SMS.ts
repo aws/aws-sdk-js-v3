@@ -49,11 +49,7 @@ import {
   GenerateTemplateCommandInput,
   GenerateTemplateCommandOutput
 } from "./commands/GenerateTemplateCommand";
-import {
-  GetAppCommand,
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
+import { GetAppCommand, GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
 import {
   GetAppLaunchConfigurationCommand,
   GetAppLaunchConfigurationCommandInput,
@@ -184,9 +180,7 @@ export class SMS extends SMSClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
@@ -257,9 +251,7 @@ export class SMS extends SMSClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
@@ -318,31 +310,19 @@ export class SMS extends SMSClient {
   ): Promise<DeleteAppReplicationConfigurationCommandOutput>;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): void;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): void;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAppReplicationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> | void {
     const command = new DeleteAppReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -521,9 +501,7 @@ export class SMS extends SMSClient {
   ): void;
   public generateTemplate(
     args: GenerateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateTemplateCommandOutput) => void),
     cb?: (err: any, data?: GenerateTemplateCommandOutput) => void
   ): Promise<GenerateTemplateCommandOutput> | void {
     const command = new GenerateTemplateCommand(args);
@@ -545,10 +523,7 @@ export class SMS extends SMSClient {
     args: GetAppCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAppCommandOutput>;
-  public getApp(
-    args: GetAppCommandInput,
-    cb: (err: any, data?: GetAppCommandOutput) => void
-  ): void;
+  public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
   public getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
@@ -556,9 +531,7 @@ export class SMS extends SMSClient {
   ): void;
   public getApp(
     args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
     cb?: (err: any, data?: GetAppCommandOutput) => void
   ): Promise<GetAppCommandOutput> | void {
     const command = new GetAppCommand(args);
@@ -629,10 +602,7 @@ export class SMS extends SMSClient {
     args: GetAppReplicationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAppReplicationConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: GetAppReplicationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetAppReplicationConfigurationCommandOutput) => void
   ): Promise<GetAppReplicationConfigurationCommandOutput> | void {
     const command = new GetAppReplicationConfigurationCommand(args);
@@ -665,9 +635,7 @@ export class SMS extends SMSClient {
   ): void;
   public getConnectors(
     args: GetConnectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectorsCommandOutput) => void),
     cb?: (err: any, data?: GetConnectorsCommandOutput) => void
   ): Promise<GetConnectorsCommandOutput> | void {
     const command = new GetConnectorsCommand(args);
@@ -771,9 +739,7 @@ export class SMS extends SMSClient {
   ): void;
   public getServers(
     args: GetServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServersCommandOutput) => void),
     cb?: (err: any, data?: GetServersCommandOutput) => void
   ): Promise<GetServersCommandOutput> | void {
     const command = new GetServersCommand(args);
@@ -844,9 +810,7 @@ export class SMS extends SMSClient {
   ): void;
   public launchApp(
     args: LaunchAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LaunchAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LaunchAppCommandOutput) => void),
     cb?: (err: any, data?: LaunchAppCommandOutput) => void
   ): Promise<LaunchAppCommandOutput> | void {
     const command = new LaunchAppCommand(args);
@@ -879,9 +843,7 @@ export class SMS extends SMSClient {
   ): void;
   public listApps(
     args: ListAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsCommandOutput) => void),
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
@@ -951,10 +913,7 @@ export class SMS extends SMSClient {
     args: PutAppReplicationConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAppReplicationConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: PutAppReplicationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutAppReplicationConfigurationCommandOutput) => void
   ): Promise<PutAppReplicationConfigurationCommandOutput> | void {
     const command = new PutAppReplicationConfigurationCommand(args);
@@ -1096,9 +1055,7 @@ export class SMS extends SMSClient {
   ): void;
   public terminateApp(
     args: TerminateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateAppCommandOutput) => void),
     cb?: (err: any, data?: TerminateAppCommandOutput) => void
   ): Promise<TerminateAppCommandOutput> | void {
     const command = new TerminateAppCommand(args);
@@ -1131,9 +1088,7 @@ export class SMS extends SMSClient {
   ): void;
   public updateApp(
     args: UpdateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetConnectorDefinitionRequest,
-  GetConnectorDefinitionResponse
-} from "../models/index";
+import { GetConnectorDefinitionRequest, GetConnectorDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConnectorDefinitionCommand,
   serializeAws_restJson1_1GetConnectorDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectorDefinitionCommandInput = GetConnectorDefinitionRequest;
-export type GetConnectorDefinitionCommandOutput = GetConnectorDefinitionResponse &
-  __MetadataBearer;
+export type GetConnectorDefinitionCommandOutput = GetConnectorDefinitionResponse & __MetadataBearer;
 
 export class GetConnectorDefinitionCommand extends $Command<
   GetConnectorDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class GetConnectorDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetConnectorDefinitionCommandInput,
-    GetConnectorDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetConnectorDefinitionCommandInput, GetConnectorDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class GetConnectorDefinitionCommand extends $Command<
     input: GetConnectorDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetConnectorDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetConnectorDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1GetConnectorDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

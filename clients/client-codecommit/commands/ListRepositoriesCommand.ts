@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRepositoriesCommandInput = ListRepositoriesInput;
-export type ListRepositoriesCommandOutput = ListRepositoriesOutput &
-  __MetadataBearer;
+export type ListRepositoriesCommandOutput = ListRepositoriesOutput & __MetadataBearer;
 
 export class ListRepositoriesCommand extends $Command<
   ListRepositoriesCommandInput,
@@ -47,9 +46,7 @@ export class ListRepositoriesCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRepositoriesCommandInput, ListRepositoriesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

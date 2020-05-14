@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  SubmitTaskStateChangeRequest,
-  SubmitTaskStateChangeResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/index";
 import {
   deserializeAws_json1_1SubmitTaskStateChangeCommand,
   serializeAws_json1_1SubmitTaskStateChangeCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SubmitTaskStateChangeCommandInput = SubmitTaskStateChangeRequest;
-export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse &
-  __MetadataBearer;
+export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse & __MetadataBearer;
 
 export class SubmitTaskStateChangeCommand extends $Command<
   SubmitTaskStateChangeCommandInput,
@@ -49,13 +41,8 @@ export class SubmitTaskStateChangeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SubmitTaskStateChangeCommandInput,
-    SubmitTaskStateChangeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SubmitTaskStateChangeCommandInput, SubmitTaskStateChangeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

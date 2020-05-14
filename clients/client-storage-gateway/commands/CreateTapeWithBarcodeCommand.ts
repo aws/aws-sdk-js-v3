@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  CreateTapeWithBarcodeInput,
-  CreateTapeWithBarcodeOutput
-} from "../models/index";
+import { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateTapeWithBarcodeCommand,
   serializeAws_json1_1CreateTapeWithBarcodeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTapeWithBarcodeCommandInput = CreateTapeWithBarcodeInput;
-export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput &
-  __MetadataBearer;
+export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput & __MetadataBearer;
 
 export class CreateTapeWithBarcodeCommand extends $Command<
   CreateTapeWithBarcodeCommandInput,
@@ -49,13 +45,8 @@ export class CreateTapeWithBarcodeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateTapeWithBarcodeCommandInput,
-    CreateTapeWithBarcodeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateTapeWithBarcodeCommandInput, CreateTapeWithBarcodeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

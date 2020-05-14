@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DeleteChapCredentialsInput,
-  DeleteChapCredentialsOutput
-} from "../models/index";
+import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteChapCredentialsCommand,
   serializeAws_json1_1DeleteChapCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteChapCredentialsCommandInput = DeleteChapCredentialsInput;
-export type DeleteChapCredentialsCommandOutput = DeleteChapCredentialsOutput &
-  __MetadataBearer;
+export type DeleteChapCredentialsCommandOutput = DeleteChapCredentialsOutput & __MetadataBearer;
 
 export class DeleteChapCredentialsCommand extends $Command<
   DeleteChapCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class DeleteChapCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteChapCredentialsCommandInput,
-    DeleteChapCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteChapCredentialsCommandInput, DeleteChapCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListInstancesCommandInput = ListInstancesRequest;
-export type ListInstancesCommandOutput = ListInstancesResponse &
-  __MetadataBearer;
+export type ListInstancesCommandOutput = ListInstancesResponse & __MetadataBearer;
 
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,
@@ -47,9 +46,7 @@ export class ListInstancesCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInstancesCommandInput, ListInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

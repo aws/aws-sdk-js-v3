@@ -1,7 +1,4 @@
-import {
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput
-} from "../commands/CreateTokenCommand";
+import { CreateTokenCommandInput, CreateTokenCommandOutput } from "../commands/CreateTokenCommand";
 import {
   RegisterClientCommandInput,
   RegisterClientCommandOutput
@@ -179,10 +176,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.sso.oidc#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -201,10 +195,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "ExpiredTokenException":
     case "com.amazonaws.sso.oidc#ExpiredTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1ExpiredTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ExpiredTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -212,10 +203,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -223,10 +211,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "InvalidClientException":
     case "com.amazonaws.sso.oidc#InvalidClientException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -234,10 +219,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "InvalidGrantException":
     case "com.amazonaws.sso.oidc#InvalidGrantException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidGrantExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidGrantExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -245,10 +227,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -256,10 +235,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "InvalidScopeException":
     case "com.amazonaws.sso.oidc#InvalidScopeException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -267,10 +243,7 @@ const deserializeAws_restJson1_1CreateTokenCommandError = async (
     case "SlowDownException":
     case "com.amazonaws.sso.oidc#SlowDownException":
       response = {
-        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -319,10 +292,7 @@ export const deserializeAws_restJson1_1RegisterClientCommand = async (
   context: __SerdeContext
 ): Promise<RegisterClientCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RegisterClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterClientCommandError(output, context);
   }
   const contents: RegisterClientCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -335,10 +305,7 @@ export const deserializeAws_restJson1_1RegisterClientCommand = async (
     tokenEndpoint: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizationEndpoint !== undefined &&
-    data.authorizationEndpoint !== null
-  ) {
+  if (data.authorizationEndpoint !== undefined && data.authorizationEndpoint !== null) {
     contents.authorizationEndpoint = data.authorizationEndpoint;
   }
   if (data.clientId !== undefined && data.clientId !== null) {
@@ -350,10 +317,7 @@ export const deserializeAws_restJson1_1RegisterClientCommand = async (
   if (data.clientSecret !== undefined && data.clientSecret !== null) {
     contents.clientSecret = data.clientSecret;
   }
-  if (
-    data.clientSecretExpiresAt !== undefined &&
-    data.clientSecretExpiresAt !== null
-  ) {
+  if (data.clientSecretExpiresAt !== undefined && data.clientSecretExpiresAt !== null) {
     contents.clientSecretExpiresAt = data.clientSecretExpiresAt;
   }
   if (data.tokenEndpoint !== undefined && data.tokenEndpoint !== null) {
@@ -377,10 +341,7 @@ const deserializeAws_restJson1_1RegisterClientCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -399,10 +360,7 @@ const deserializeAws_restJson1_1RegisterClientCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -410,10 +368,7 @@ const deserializeAws_restJson1_1RegisterClientCommandError = async (
     case "InvalidScopeException":
     case "com.amazonaws.sso.oidc#InvalidScopeException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidScopeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -440,10 +395,7 @@ export const deserializeAws_restJson1_1StartDeviceAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<StartDeviceAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartDeviceAuthorizationCommandError(output, context);
   }
   const contents: StartDeviceAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -471,10 +423,7 @@ export const deserializeAws_restJson1_1StartDeviceAuthorizationCommand = async (
   if (data.verificationUri !== undefined && data.verificationUri !== null) {
     contents.verificationUri = data.verificationUri;
   }
-  if (
-    data.verificationUriComplete !== undefined &&
-    data.verificationUriComplete !== null
-  ) {
+  if (data.verificationUriComplete !== undefined && data.verificationUriComplete !== null) {
     contents.verificationUriComplete = data.verificationUriComplete;
   }
   return Promise.resolve(contents);
@@ -495,10 +444,7 @@ const deserializeAws_restJson1_1StartDeviceAuthorizationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.sso.oidc#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -506,10 +452,7 @@ const deserializeAws_restJson1_1StartDeviceAuthorizationCommandError = async (
     case "InvalidClientException":
     case "com.amazonaws.sso.oidc#InvalidClientException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -517,10 +460,7 @@ const deserializeAws_restJson1_1StartDeviceAuthorizationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.sso.oidc#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -528,10 +468,7 @@ const deserializeAws_restJson1_1StartDeviceAuthorizationCommandError = async (
     case "SlowDownException":
     case "com.amazonaws.sso.oidc#SlowDownException":
       response = {
-        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SlowDownExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -816,10 +753,7 @@ const deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Scopes = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Scopes = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -837,23 +771,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

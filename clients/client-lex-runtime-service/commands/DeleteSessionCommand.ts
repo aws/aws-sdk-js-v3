@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSessionCommandInput = DeleteSessionRequest;
-export type DeleteSessionCommandOutput = DeleteSessionResponse &
-  __MetadataBearer;
+export type DeleteSessionCommandOutput = DeleteSessionResponse & __MetadataBearer;
 
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,
@@ -47,9 +46,7 @@ export class DeleteSessionCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSessionCommandInput, DeleteSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

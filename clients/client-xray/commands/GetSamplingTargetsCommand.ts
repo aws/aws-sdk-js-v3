@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  GetSamplingTargetsRequest,
-  GetSamplingTargetsResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSamplingTargetsCommand,
   serializeAws_restJson1_1GetSamplingTargetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSamplingTargetsCommandInput = GetSamplingTargetsRequest;
-export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult &
-  __MetadataBearer;
+export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult & __MetadataBearer;
 
 export class GetSamplingTargetsCommand extends $Command<
   GetSamplingTargetsCommandInput,
@@ -50,9 +42,7 @@ export class GetSamplingTargetsCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

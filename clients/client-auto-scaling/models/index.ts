@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface ActivitiesType {
@@ -22,8 +19,7 @@ export interface ActivitiesType {
 }
 
 export namespace ActivitiesType {
-  export const isa = (o: any): o is ActivitiesType =>
-    __isa(o, "ActivitiesType");
+  export const isa = (o: any): o is ActivitiesType => __isa(o, "ActivitiesType");
 }
 
 /**
@@ -112,8 +108,7 @@ export interface AdjustmentType {
 }
 
 export namespace AdjustmentType {
-  export const isa = (o: any): o is AdjustmentType =>
-    __isa(o, "AdjustmentType");
+  export const isa = (o: any): o is AdjustmentType => __isa(o, "AdjustmentType");
 }
 
 /**
@@ -149,8 +144,7 @@ export interface AlreadyExistsFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AlreadyExistsFault {
-  export const isa = (o: any): o is AlreadyExistsFault =>
-    __isa(o, "AlreadyExistsFault");
+  export const isa = (o: any): o is AlreadyExistsFault => __isa(o, "AlreadyExistsFault");
 }
 
 export interface AttachInstancesQuery {
@@ -167,8 +161,7 @@ export interface AttachInstancesQuery {
 }
 
 export namespace AttachInstancesQuery {
-  export const isa = (o: any): o is AttachInstancesQuery =>
-    __isa(o, "AttachInstancesQuery");
+  export const isa = (o: any): o is AttachInstancesQuery => __isa(o, "AttachInstancesQuery");
 }
 
 export interface AttachLoadBalancerTargetGroupsResultType {
@@ -222,8 +215,7 @@ export interface AttachLoadBalancersType {
 }
 
 export namespace AttachLoadBalancersType {
-  export const isa = (o: any): o is AttachLoadBalancersType =>
-    __isa(o, "AttachLoadBalancersType");
+  export const isa = (o: any): o is AttachLoadBalancersType => __isa(o, "AttachLoadBalancersType");
 }
 
 /**
@@ -372,8 +364,7 @@ export interface AutoScalingGroup {
 }
 
 export namespace AutoScalingGroup {
-  export const isa = (o: any): o is AutoScalingGroup =>
-    __isa(o, "AutoScalingGroup");
+  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 export interface AutoScalingGroupNamesType {
@@ -421,8 +412,7 @@ export interface AutoScalingGroupsType {
 }
 
 export namespace AutoScalingGroupsType {
-  export const isa = (o: any): o is AutoScalingGroupsType =>
-    __isa(o, "AutoScalingGroupsType");
+  export const isa = (o: any): o is AutoScalingGroupsType => __isa(o, "AutoScalingGroupsType");
 }
 
 /**
@@ -609,8 +599,7 @@ export interface BlockDeviceMapping {
 }
 
 export namespace BlockDeviceMapping {
-  export const isa = (o: any): o is BlockDeviceMapping =>
-    __isa(o, "BlockDeviceMapping");
+  export const isa = (o: any): o is BlockDeviceMapping => __isa(o, "BlockDeviceMapping");
 }
 
 export interface CompleteLifecycleActionAnswer {
@@ -1060,8 +1049,7 @@ export interface CreateOrUpdateTagsType {
 }
 
 export namespace CreateOrUpdateTagsType {
-  export const isa = (o: any): o is CreateOrUpdateTagsType =>
-    __isa(o, "CreateOrUpdateTagsType");
+  export const isa = (o: any): o is CreateOrUpdateTagsType => __isa(o, "CreateOrUpdateTagsType");
 }
 
 /**
@@ -1164,8 +1152,7 @@ export interface DeleteLifecycleHookType {
 }
 
 export namespace DeleteLifecycleHookType {
-  export const isa = (o: any): o is DeleteLifecycleHookType =>
-    __isa(o, "DeleteLifecycleHookType");
+  export const isa = (o: any): o is DeleteLifecycleHookType => __isa(o, "DeleteLifecycleHookType");
 }
 
 export interface DeleteNotificationConfigurationType {
@@ -1201,8 +1188,7 @@ export interface DeletePolicyType {
 }
 
 export namespace DeletePolicyType {
-  export const isa = (o: any): o is DeletePolicyType =>
-    __isa(o, "DeletePolicyType");
+  export const isa = (o: any): o is DeletePolicyType => __isa(o, "DeletePolicyType");
 }
 
 export interface DeleteScheduledActionType {
@@ -1232,8 +1218,7 @@ export interface DeleteTagsType {
 }
 
 export namespace DeleteTagsType {
-  export const isa = (o: any): o is DeleteTagsType =>
-    __isa(o, "DeleteTagsType");
+  export const isa = (o: any): o is DeleteTagsType => __isa(o, "DeleteTagsType");
 }
 
 export interface DescribeAccountLimitsAnswer {
@@ -1315,9 +1300,7 @@ export interface DescribeAutoScalingNotificationTypesAnswer {
 }
 
 export namespace DescribeAutoScalingNotificationTypesAnswer {
-  export const isa = (
-    o: any
-  ): o is DescribeAutoScalingNotificationTypesAnswer =>
+  export const isa = (o: any): o is DescribeAutoScalingNotificationTypesAnswer =>
     __isa(o, "DescribeAutoScalingNotificationTypesAnswer");
 }
 
@@ -1557,8 +1540,7 @@ export interface DescribePoliciesType {
 }
 
 export namespace DescribePoliciesType {
-  export const isa = (o: any): o is DescribePoliciesType =>
-    __isa(o, "DescribePoliciesType");
+  export const isa = (o: any): o is DescribePoliciesType => __isa(o, "DescribePoliciesType");
 }
 
 export interface DescribeScalingActivitiesType {
@@ -1660,8 +1642,7 @@ export interface DescribeTagsType {
 }
 
 export namespace DescribeTagsType {
-  export const isa = (o: any): o is DescribeTagsType =>
-    __isa(o, "DescribeTagsType");
+  export const isa = (o: any): o is DescribeTagsType => __isa(o, "DescribeTagsType");
 }
 
 export interface DescribeTerminationPolicyTypesAnswer {
@@ -1689,8 +1670,7 @@ export interface DetachInstancesAnswer {
 }
 
 export namespace DetachInstancesAnswer {
-  export const isa = (o: any): o is DetachInstancesAnswer =>
-    __isa(o, "DetachInstancesAnswer");
+  export const isa = (o: any): o is DetachInstancesAnswer => __isa(o, "DetachInstancesAnswer");
 }
 
 export interface DetachInstancesQuery {
@@ -1713,8 +1693,7 @@ export interface DetachInstancesQuery {
 }
 
 export namespace DetachInstancesQuery {
-  export const isa = (o: any): o is DetachInstancesQuery =>
-    __isa(o, "DetachInstancesQuery");
+  export const isa = (o: any): o is DetachInstancesQuery => __isa(o, "DetachInstancesQuery");
 }
 
 export interface DetachLoadBalancerTargetGroupsResultType {
@@ -1768,8 +1747,7 @@ export interface DetachLoadBalancersType {
 }
 
 export namespace DetachLoadBalancersType {
-  export const isa = (o: any): o is DetachLoadBalancersType =>
-    __isa(o, "DetachLoadBalancersType");
+  export const isa = (o: any): o is DetachLoadBalancersType => __isa(o, "DetachLoadBalancersType");
 }
 
 export interface DisableMetricsCollectionQuery {
@@ -2058,8 +2036,7 @@ export interface EnterStandbyAnswer {
 }
 
 export namespace EnterStandbyAnswer {
-  export const isa = (o: any): o is EnterStandbyAnswer =>
-    __isa(o, "EnterStandbyAnswer");
+  export const isa = (o: any): o is EnterStandbyAnswer => __isa(o, "EnterStandbyAnswer");
 }
 
 export interface EnterStandbyQuery {
@@ -2082,8 +2059,7 @@ export interface EnterStandbyQuery {
 }
 
 export namespace EnterStandbyQuery {
-  export const isa = (o: any): o is EnterStandbyQuery =>
-    __isa(o, "EnterStandbyQuery");
+  export const isa = (o: any): o is EnterStandbyQuery => __isa(o, "EnterStandbyQuery");
 }
 
 export interface ExecutePolicyType {
@@ -2130,8 +2106,7 @@ export interface ExecutePolicyType {
 }
 
 export namespace ExecutePolicyType {
-  export const isa = (o: any): o is ExecutePolicyType =>
-    __isa(o, "ExecutePolicyType");
+  export const isa = (o: any): o is ExecutePolicyType => __isa(o, "ExecutePolicyType");
 }
 
 export interface ExitStandbyAnswer {
@@ -2143,8 +2118,7 @@ export interface ExitStandbyAnswer {
 }
 
 export namespace ExitStandbyAnswer {
-  export const isa = (o: any): o is ExitStandbyAnswer =>
-    __isa(o, "ExitStandbyAnswer");
+  export const isa = (o: any): o is ExitStandbyAnswer => __isa(o, "ExitStandbyAnswer");
 }
 
 export interface ExitStandbyQuery {
@@ -2161,8 +2135,7 @@ export interface ExitStandbyQuery {
 }
 
 export namespace ExitStandbyQuery {
-  export const isa = (o: any): o is ExitStandbyQuery =>
-    __isa(o, "ExitStandbyQuery");
+  export const isa = (o: any): o is ExitStandbyQuery => __isa(o, "ExitStandbyQuery");
 }
 
 /**
@@ -2286,8 +2259,7 @@ export interface InstanceMonitoring {
 }
 
 export namespace InstanceMonitoring {
-  export const isa = (o: any): o is InstanceMonitoring =>
-    __isa(o, "InstanceMonitoring");
+  export const isa = (o: any): o is InstanceMonitoring => __isa(o, "InstanceMonitoring");
 }
 
 /**
@@ -2381,8 +2353,7 @@ export interface InstancesDistribution {
 }
 
 export namespace InstancesDistribution {
-  export const isa = (o: any): o is InstancesDistribution =>
-    __isa(o, "InstancesDistribution");
+  export const isa = (o: any): o is InstancesDistribution => __isa(o, "InstancesDistribution");
 }
 
 /**
@@ -2398,8 +2369,7 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidNextToken {
-  export const isa = (o: any): o is InvalidNextToken =>
-    __isa(o, "InvalidNextToken");
+  export const isa = (o: any): o is InvalidNextToken => __isa(o, "InvalidNextToken");
 }
 
 /**
@@ -2550,8 +2520,7 @@ export interface LaunchConfiguration {
 }
 
 export namespace LaunchConfiguration {
-  export const isa = (o: any): o is LaunchConfiguration =>
-    __isa(o, "LaunchConfiguration");
+  export const isa = (o: any): o is LaunchConfiguration => __isa(o, "LaunchConfiguration");
 }
 
 export interface LaunchConfigurationNameType {
@@ -2641,8 +2610,7 @@ export interface LaunchTemplate {
 }
 
 export namespace LaunchTemplate {
-  export const isa = (o: any): o is LaunchTemplate =>
-    __isa(o, "LaunchTemplate");
+  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
@@ -2671,8 +2639,7 @@ export interface LaunchTemplateOverrides {
 }
 
 export namespace LaunchTemplateOverrides {
-  export const isa = (o: any): o is LaunchTemplateOverrides =>
-    __isa(o, "LaunchTemplateOverrides");
+  export const isa = (o: any): o is LaunchTemplateOverrides => __isa(o, "LaunchTemplateOverrides");
 }
 
 /**
@@ -2917,8 +2884,7 @@ export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace LimitExceededFault {
-  export const isa = (o: any): o is LimitExceededFault =>
-    __isa(o, "LimitExceededFault");
+  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 /**
@@ -2976,8 +2942,7 @@ export interface LoadBalancerState {
 }
 
 export namespace LoadBalancerState {
-  export const isa = (o: any): o is LoadBalancerState =>
-    __isa(o, "LoadBalancerState");
+  export const isa = (o: any): o is LoadBalancerState => __isa(o, "LoadBalancerState");
 }
 
 /**
@@ -3089,8 +3054,7 @@ export interface MetricCollectionType {
 }
 
 export namespace MetricCollectionType {
-  export const isa = (o: any): o is MetricCollectionType =>
-    __isa(o, "MetricCollectionType");
+  export const isa = (o: any): o is MetricCollectionType => __isa(o, "MetricCollectionType");
 }
 
 /**
@@ -3110,8 +3074,7 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export const isa = (o: any): o is MetricDimension =>
-    __isa(o, "MetricDimension");
+  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 /**
@@ -3126,8 +3089,7 @@ export interface MetricGranularityType {
 }
 
 export namespace MetricGranularityType {
-  export const isa = (o: any): o is MetricGranularityType =>
-    __isa(o, "MetricGranularityType");
+  export const isa = (o: any): o is MetricGranularityType => __isa(o, "MetricGranularityType");
 }
 
 export enum MetricStatistic {
@@ -3173,8 +3135,7 @@ export interface MixedInstancesPolicy {
 }
 
 export namespace MixedInstancesPolicy {
-  export const isa = (o: any): o is MixedInstancesPolicy =>
-    __isa(o, "MixedInstancesPolicy");
+  export const isa = (o: any): o is MixedInstancesPolicy => __isa(o, "MixedInstancesPolicy");
 }
 
 /**
@@ -3407,8 +3368,7 @@ export interface PutLifecycleHookAnswer {
 }
 
 export namespace PutLifecycleHookAnswer {
-  export const isa = (o: any): o is PutLifecycleHookAnswer =>
-    __isa(o, "PutLifecycleHookAnswer");
+  export const isa = (o: any): o is PutLifecycleHookAnswer => __isa(o, "PutLifecycleHookAnswer");
 }
 
 export interface PutLifecycleHookType {
@@ -3486,8 +3446,7 @@ export interface PutLifecycleHookType {
 }
 
 export namespace PutLifecycleHookType {
-  export const isa = (o: any): o is PutLifecycleHookType =>
-    __isa(o, "PutLifecycleHookType");
+  export const isa = (o: any): o is PutLifecycleHookType => __isa(o, "PutLifecycleHookType");
 }
 
 export interface PutNotificationConfigurationType {
@@ -3624,8 +3583,7 @@ export interface PutScalingPolicyType {
 }
 
 export namespace PutScalingPolicyType {
-  export const isa = (o: any): o is PutScalingPolicyType =>
-    __isa(o, "PutScalingPolicyType");
+  export const isa = (o: any): o is PutScalingPolicyType => __isa(o, "PutScalingPolicyType");
 }
 
 export interface PutScheduledUpdateGroupActionType {
@@ -3737,9 +3695,7 @@ export namespace RecordLifecycleActionHeartbeatType {
  * <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  */
-export interface ResourceContentionFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceContentionFault extends __SmithyException, $MetadataBearer {
   name: "ResourceContentionFault";
   $fault: "server";
   /**
@@ -3749,8 +3705,7 @@ export interface ResourceContentionFault
 }
 
 export namespace ResourceContentionFault {
-  export const isa = (o: any): o is ResourceContentionFault =>
-    __isa(o, "ResourceContentionFault");
+  export const isa = (o: any): o is ResourceContentionFault => __isa(o, "ResourceContentionFault");
 }
 
 /**
@@ -3766,17 +3721,14 @@ export interface ResourceInUseFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceInUseFault {
-  export const isa = (o: any): o is ResourceInUseFault =>
-    __isa(o, "ResourceInUseFault");
+  export const isa = (o: any): o is ResourceInUseFault => __isa(o, "ResourceInUseFault");
 }
 
 /**
  * <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  */
-export interface ScalingActivityInProgressFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ScalingActivityInProgressFault extends __SmithyException, $MetadataBearer {
   name: "ScalingActivityInProgressFault";
   $fault: "client";
   /**
@@ -3955,8 +3907,7 @@ export interface ScalingProcessQuery {
 }
 
 export namespace ScalingProcessQuery {
-  export const isa = (o: any): o is ScalingProcessQuery =>
-    __isa(o, "ScalingProcessQuery");
+  export const isa = (o: any): o is ScalingProcessQuery => __isa(o, "ScalingProcessQuery");
 }
 
 export interface ScheduledActionsType {
@@ -3976,8 +3927,7 @@ export interface ScheduledActionsType {
 }
 
 export namespace ScheduledActionsType {
-  export const isa = (o: any): o is ScheduledActionsType =>
-    __isa(o, "ScheduledActionsType");
+  export const isa = (o: any): o is ScheduledActionsType => __isa(o, "ScheduledActionsType");
 }
 
 /**
@@ -4113,9 +4063,7 @@ export namespace ScheduledUpdateGroupActionRequest {
 /**
  * <p>The service-linked role is not yet ready for use.</p>
  */
-export interface ServiceLinkedRoleFailure
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLinkedRoleFailure extends __SmithyException, $MetadataBearer {
   name: "ServiceLinkedRoleFailure";
   $fault: "server";
   message?: string;
@@ -4147,8 +4095,7 @@ export interface SetDesiredCapacityType {
 }
 
 export namespace SetDesiredCapacityType {
-  export const isa = (o: any): o is SetDesiredCapacityType =>
-    __isa(o, "SetDesiredCapacityType");
+  export const isa = (o: any): o is SetDesiredCapacityType => __isa(o, "SetDesiredCapacityType");
 }
 
 export interface SetInstanceHealthQuery {
@@ -4176,8 +4123,7 @@ export interface SetInstanceHealthQuery {
 }
 
 export namespace SetInstanceHealthQuery {
-  export const isa = (o: any): o is SetInstanceHealthQuery =>
-    __isa(o, "SetInstanceHealthQuery");
+  export const isa = (o: any): o is SetInstanceHealthQuery => __isa(o, "SetInstanceHealthQuery");
 }
 
 export interface SetInstanceProtectionAnswer {
@@ -4279,8 +4225,7 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
-  export const isa = (o: any): o is StepAdjustment =>
-    __isa(o, "StepAdjustment");
+  export const isa = (o: any): o is StepAdjustment => __isa(o, "StepAdjustment");
 }
 
 /**
@@ -4301,8 +4246,7 @@ export interface SuspendedProcess {
 }
 
 export namespace SuspendedProcess {
-  export const isa = (o: any): o is SuspendedProcess =>
-    __isa(o, "SuspendedProcess");
+  export const isa = (o: any): o is SuspendedProcess => __isa(o, "SuspendedProcess");
 }
 
 /**
@@ -4376,8 +4320,7 @@ export interface TagDescription {
 }
 
 export namespace TagDescription {
-  export const isa = (o: any): o is TagDescription =>
-    __isa(o, "TagDescription");
+  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 export interface TagsType {

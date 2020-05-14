@@ -1,12 +1,5 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteReceiptRuleRequest,
-  DeleteReceiptRuleResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteReceiptRuleCommand,
   serializeAws_queryDeleteReceiptRuleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReceiptRuleCommandInput = DeleteReceiptRuleRequest;
-export type DeleteReceiptRuleCommandOutput = DeleteReceiptRuleResponse &
-  __MetadataBearer;
+export type DeleteReceiptRuleCommandOutput = DeleteReceiptRuleResponse & __MetadataBearer;
 
 export class DeleteReceiptRuleCommand extends $Command<
   DeleteReceiptRuleCommandInput,
@@ -50,9 +42,7 @@ export class DeleteReceiptRuleCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteReceiptRuleCommandInput, DeleteReceiptRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

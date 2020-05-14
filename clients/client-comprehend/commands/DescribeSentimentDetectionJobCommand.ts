@@ -53,9 +53,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     DescribeSentimentDetectionJobCommandInput,
     DescribeSentimentDetectionJobCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
     input: DescribeSentimentDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSentimentDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeSentimentDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeSentimentDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

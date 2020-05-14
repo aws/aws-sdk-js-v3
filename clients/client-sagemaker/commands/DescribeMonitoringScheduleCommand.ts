@@ -49,13 +49,8 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMonitoringScheduleCommandInput,
-    DescribeMonitoringScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMonitoringScheduleCommandInput, DescribeMonitoringScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     input: DescribeMonitoringScheduleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMonitoringScheduleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeMonitoringScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1DescribeMonitoringScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

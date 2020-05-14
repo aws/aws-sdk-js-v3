@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  RebuildWorkspacesRequest,
-  RebuildWorkspacesResult
-} from "../models/index";
+import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/index";
 import {
   deserializeAws_json1_1RebuildWorkspacesCommand,
   serializeAws_json1_1RebuildWorkspacesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RebuildWorkspacesCommandInput = RebuildWorkspacesRequest;
-export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult &
-  __MetadataBearer;
+export type RebuildWorkspacesCommandOutput = RebuildWorkspacesResult & __MetadataBearer;
 
 export class RebuildWorkspacesCommand extends $Command<
   RebuildWorkspacesCommandInput,
@@ -50,9 +46,7 @@ export class RebuildWorkspacesCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebuildWorkspacesCommandInput, RebuildWorkspacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

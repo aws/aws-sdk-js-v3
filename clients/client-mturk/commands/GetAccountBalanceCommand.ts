@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  GetAccountBalanceRequest,
-  GetAccountBalanceResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAccountBalanceCommand,
   serializeAws_json1_1GetAccountBalanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountBalanceCommandInput = GetAccountBalanceRequest;
-export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse &
-  __MetadataBearer;
+export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse & __MetadataBearer;
 
 export class GetAccountBalanceCommand extends $Command<
   GetAccountBalanceCommandInput,
@@ -50,9 +42,7 @@ export class GetAccountBalanceCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountBalanceCommandInput, GetAccountBalanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

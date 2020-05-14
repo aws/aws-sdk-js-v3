@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBSnapshotsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBSnapshotsCommandInput = DescribeDBSnapshotsMessage;
-export type DescribeDBSnapshotsCommandOutput = DBSnapshotMessage &
-  __MetadataBearer;
+export type DescribeDBSnapshotsCommandOutput = DBSnapshotMessage & __MetadataBearer;
 
 export class DescribeDBSnapshotsCommand extends $Command<
   DescribeDBSnapshotsCommandInput,
@@ -46,13 +41,8 @@ export class DescribeDBSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBSnapshotsCommandInput,
-    DescribeDBSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBSnapshotsCommandInput, DescribeDBSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteBGPPeerCommandInput = DeleteBGPPeerRequest;
-export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse &
-  __MetadataBearer;
+export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse & __MetadataBearer;
 
 export class DeleteBGPPeerCommand extends $Command<
   DeleteBGPPeerCommandInput,
@@ -47,9 +46,7 @@ export class DeleteBGPPeerCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

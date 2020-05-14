@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendClient";
-import {
-  BatchDetectSentimentRequest,
-  BatchDetectSentimentResponse
-} from "../models/index";
+import { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDetectSentimentCommand,
   serializeAws_json1_1BatchDetectSentimentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDetectSentimentCommandInput = BatchDetectSentimentRequest;
-export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse &
-  __MetadataBearer;
+export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse & __MetadataBearer;
 
 export class BatchDetectSentimentCommand extends $Command<
   BatchDetectSentimentCommandInput,
@@ -49,13 +45,8 @@ export class BatchDetectSentimentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDetectSentimentCommandInput,
-    BatchDetectSentimentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDetectSentimentCommandInput, BatchDetectSentimentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

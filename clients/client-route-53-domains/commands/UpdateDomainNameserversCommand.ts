@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53DomainsClient";
-import {
-  UpdateDomainNameserversRequest,
-  UpdateDomainNameserversResponse
-} from "../models/index";
+import { UpdateDomainNameserversRequest, UpdateDomainNameserversResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDomainNameserversCommand,
   serializeAws_json1_1UpdateDomainNameserversCommand
@@ -49,13 +46,8 @@ export class UpdateDomainNameserversCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainNameserversCommandInput,
-    UpdateDomainNameserversCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainNameserversCommandInput, UpdateDomainNameserversCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class UpdateDomainNameserversCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainNameserversCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainNameserversCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDomainNameserversCommand(output, context);
   }
 
   // Start section: command_body_extra

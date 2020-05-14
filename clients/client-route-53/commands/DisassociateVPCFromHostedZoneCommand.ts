@@ -54,9 +54,7 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     DisassociateVPCFromHostedZoneCommandInput,
     DisassociateVPCFromHostedZoneCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +74,14 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     input: DisassociateVPCFromHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDisassociateVPCFromHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> {
-    return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConnectClient";
-import {
-  GrantFlowEntitlementsRequest,
-  GrantFlowEntitlementsResponse
-} from "../models/index";
+import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GrantFlowEntitlementsCommand,
   serializeAws_restJson1_1GrantFlowEntitlementsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GrantFlowEntitlementsCommandInput = GrantFlowEntitlementsRequest;
-export type GrantFlowEntitlementsCommandOutput = GrantFlowEntitlementsResponse &
-  __MetadataBearer;
+export type GrantFlowEntitlementsCommandOutput = GrantFlowEntitlementsResponse & __MetadataBearer;
 
 export class GrantFlowEntitlementsCommand extends $Command<
   GrantFlowEntitlementsCommandInput,
@@ -49,13 +45,8 @@ export class GrantFlowEntitlementsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GrantFlowEntitlementsCommandInput,
-    GrantFlowEntitlementsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GrantFlowEntitlementsCommandInput, GrantFlowEntitlementsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GrantFlowEntitlementsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GrantFlowEntitlementsCommandOutput> {
-    return deserializeAws_restJson1_1GrantFlowEntitlementsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GrantFlowEntitlementsCommand(output, context);
   }
 
   // Start section: command_body_extra

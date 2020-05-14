@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateDeviceStatusRequest,
-  UpdateDeviceStatusResponse
-} from "../models/index";
+import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDeviceStatusCommand,
   serializeAws_json1_1UpdateDeviceStatusCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDeviceStatusCommandInput = UpdateDeviceStatusRequest;
-export type UpdateDeviceStatusCommandOutput = UpdateDeviceStatusResponse &
-  __MetadataBearer;
+export type UpdateDeviceStatusCommandOutput = UpdateDeviceStatusResponse & __MetadataBearer;
 
 export class UpdateDeviceStatusCommand extends $Command<
   UpdateDeviceStatusCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDeviceStatusCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

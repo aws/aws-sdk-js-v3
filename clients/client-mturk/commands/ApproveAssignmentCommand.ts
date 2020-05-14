@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ApproveAssignmentRequest,
-  ApproveAssignmentResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/index";
 import {
   deserializeAws_json1_1ApproveAssignmentCommand,
   serializeAws_json1_1ApproveAssignmentCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ApproveAssignmentCommandInput = ApproveAssignmentRequest;
-export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse &
-  __MetadataBearer;
+export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse & __MetadataBearer;
 
 export class ApproveAssignmentCommand extends $Command<
   ApproveAssignmentCommandInput,
@@ -50,9 +42,7 @@ export class ApproveAssignmentCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

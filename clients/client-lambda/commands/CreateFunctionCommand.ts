@@ -1,8 +1,4 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { CreateFunctionRequest, FunctionConfiguration } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateFunctionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFunctionCommandInput = CreateFunctionRequest;
-export type CreateFunctionCommandOutput = FunctionConfiguration &
-  __MetadataBearer;
+export type CreateFunctionCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandInput,
@@ -47,9 +42,7 @@ export class CreateFunctionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFunctionCommandInput, CreateFunctionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

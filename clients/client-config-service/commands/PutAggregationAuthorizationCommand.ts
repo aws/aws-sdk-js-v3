@@ -49,13 +49,8 @@ export class PutAggregationAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutAggregationAuthorizationCommandInput,
-    PutAggregationAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutAggregationAuthorizationCommandInput, PutAggregationAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class PutAggregationAuthorizationCommand extends $Command<
     input: PutAggregationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAggregationAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutAggregationAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAggregationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1PutAggregationAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutAggregationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

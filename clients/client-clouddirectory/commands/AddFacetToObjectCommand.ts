@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  AddFacetToObjectRequest,
-  AddFacetToObjectResponse
-} from "../models/index";
+import { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AddFacetToObjectCommand,
   serializeAws_restJson1_1AddFacetToObjectCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddFacetToObjectCommandInput = AddFacetToObjectRequest;
-export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse &
-  __MetadataBearer;
+export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse & __MetadataBearer;
 
 export class AddFacetToObjectCommand extends $Command<
   AddFacetToObjectCommandInput,
@@ -50,9 +46,7 @@ export class AddFacetToObjectCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

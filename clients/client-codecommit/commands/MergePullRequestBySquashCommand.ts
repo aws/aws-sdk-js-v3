@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  MergePullRequestBySquashInput,
-  MergePullRequestBySquashOutput
-} from "../models/index";
+import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/index";
 import {
   deserializeAws_json1_1MergePullRequestBySquashCommand,
   serializeAws_json1_1MergePullRequestBySquashCommand
@@ -49,13 +46,8 @@ export class MergePullRequestBySquashCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    MergePullRequestBySquashCommandInput,
-    MergePullRequestBySquashCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<MergePullRequestBySquashCommandInput, MergePullRequestBySquashCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class MergePullRequestBySquashCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergePullRequestBySquashCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestBySquashCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1MergePullRequestBySquashCommand(output, context);
   }
 
   // Start section: command_body_extra

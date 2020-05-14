@@ -1,7 +1,4 @@
-import {
-  CloseTunnelCommandInput,
-  CloseTunnelCommandOutput
-} from "./commands/CloseTunnelCommand";
+import { CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
 import {
   DescribeTunnelCommandInput,
   DescribeTunnelCommandOutput
@@ -10,18 +7,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTunnelsCommandInput,
-  ListTunnelsCommandOutput
-} from "./commands/ListTunnelsCommand";
-import {
-  OpenTunnelCommandInput,
-  OpenTunnelCommandOutput
-} from "./commands/OpenTunnelCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { ListTunnelsCommandInput, ListTunnelsCommandOutput } from "./commands/ListTunnelsCommand";
+import { OpenTunnelCommandInput, OpenTunnelCommandOutput } from "./commands/OpenTunnelCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -181,9 +169,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTSecureTunnelingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTSecureTunnelingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

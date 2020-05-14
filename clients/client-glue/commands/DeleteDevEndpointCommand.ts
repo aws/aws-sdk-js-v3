@@ -1,12 +1,5 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  DeleteDevEndpointRequest,
-  DeleteDevEndpointResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDevEndpointCommand,
   serializeAws_json1_1DeleteDevEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDevEndpointCommandInput = DeleteDevEndpointRequest;
-export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse &
-  __MetadataBearer;
+export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse & __MetadataBearer;
 
 export class DeleteDevEndpointCommand extends $Command<
   DeleteDevEndpointCommandInput,
@@ -50,9 +42,7 @@ export class DeleteDevEndpointCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

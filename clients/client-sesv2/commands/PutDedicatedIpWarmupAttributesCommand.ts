@@ -1,8 +1,4 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
 import {
   PutDedicatedIpWarmupAttributesRequest,
   PutDedicatedIpWarmupAttributesResponse
@@ -53,9 +49,7 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     PutDedicatedIpWarmupAttributesCommandInput,
     PutDedicatedIpWarmupAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

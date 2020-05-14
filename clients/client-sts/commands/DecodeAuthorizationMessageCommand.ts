@@ -1,8 +1,4 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
 import {
   DecodeAuthorizationMessageRequest,
   DecodeAuthorizationMessageResponse
@@ -49,13 +45,8 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DecodeAuthorizationMessageCommandInput,
-    DecodeAuthorizationMessageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DecodeAuthorizationMessageCommandInput, DecodeAuthorizationMessageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DecodeAuthorizationMessageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DecodeAuthorizationMessageCommandOutput> {
-    return deserializeAws_queryDecodeAuthorizationMessageCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDecodeAuthorizationMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

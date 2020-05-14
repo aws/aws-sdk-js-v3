@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   PurchaseReservedDBInstancesOfferingMessage,
   PurchaseReservedDBInstancesOfferingResult
@@ -53,9 +49,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     PurchaseReservedDBInstancesOfferingCommandInput,
     PurchaseReservedDBInstancesOfferingCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     input: PurchaseReservedDBInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
-      input,
-      context
-    );
+    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

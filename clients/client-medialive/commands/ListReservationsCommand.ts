@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  ListReservationsRequest,
-  ListReservationsResponse
-} from "../models/index";
+import { ListReservationsRequest, ListReservationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListReservationsCommand,
   serializeAws_restJson1_1ListReservationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListReservationsCommandInput = ListReservationsRequest;
-export type ListReservationsCommandOutput = ListReservationsResponse &
-  __MetadataBearer;
+export type ListReservationsCommandOutput = ListReservationsResponse & __MetadataBearer;
 
 export class ListReservationsCommand extends $Command<
   ListReservationsCommandInput,
@@ -50,9 +46,7 @@ export class ListReservationsCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListReservationsCommandInput, ListReservationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

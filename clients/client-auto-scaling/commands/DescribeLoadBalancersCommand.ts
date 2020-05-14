@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AutoScalingClient";
-import {
-  DescribeLoadBalancersRequest,
-  DescribeLoadBalancersResponse
-} from "../models/index";
+import { DescribeLoadBalancersRequest, DescribeLoadBalancersResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeLoadBalancersCommand,
   serializeAws_queryDescribeLoadBalancersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLoadBalancersCommandInput = DescribeLoadBalancersRequest;
-export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersResponse &
-  __MetadataBearer;
+export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersResponse & __MetadataBearer;
 
 export class DescribeLoadBalancersCommand extends $Command<
   DescribeLoadBalancersCommandInput,
@@ -49,13 +45,8 @@ export class DescribeLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoadBalancersCommandInput,
-    DescribeLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoadBalancersCommandInput, DescribeLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

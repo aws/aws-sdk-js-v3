@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -111,8 +108,7 @@ export interface GetMediaOutput {
 }
 
 export namespace GetMediaOutput {
-  export const isa = (o: any): o is GetMediaOutput =>
-    __isa(o, "GetMediaOutput");
+  export const isa = (o: any): o is GetMediaOutput => __isa(o, "GetMediaOutput");
 }
 
 /**
@@ -207,9 +203,7 @@ export enum StartSelectorType {
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -224,9 +218,7 @@ export namespace ClientLimitExceededException {
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
  */
-export interface ConnectionLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConnectionLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ConnectionLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -240,9 +232,7 @@ export namespace ConnectionLimitExceededException {
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -259,9 +249,7 @@ export namespace InvalidArgumentException {
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
  *         <code>GetMedia</code> call. </p>
  */
-export interface InvalidEndpointException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
@@ -276,25 +264,20 @@ export namespace InvalidEndpointException {
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListTargetsForSecurityProfileRequest,
   ListTargetsForSecurityProfileResponse
@@ -53,9 +49,7 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
     ListTargetsForSecurityProfileCommandInput,
     ListTargetsForSecurityProfileCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ListTargetsForSecurityProfileCommand extends $Command<
     input: ListTargetsForSecurityProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListTargetsForSecurityProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListTargetsForSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTargetsForSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1ListTargetsForSecurityProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTargetsForSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

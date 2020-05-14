@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../BudgetsClient";
-import {
-  DescribeBudgetsRequest,
-  DescribeBudgetsResponse
-} from "../models/index";
+import { DescribeBudgetsRequest, DescribeBudgetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeBudgetsCommand,
   serializeAws_json1_1DescribeBudgetsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBudgetsCommandInput = DescribeBudgetsRequest;
-export type DescribeBudgetsCommandOutput = DescribeBudgetsResponse &
-  __MetadataBearer;
+export type DescribeBudgetsCommandOutput = DescribeBudgetsResponse & __MetadataBearer;
 
 export class DescribeBudgetsCommand extends $Command<
   DescribeBudgetsCommandInput,
@@ -50,9 +46,7 @@ export class DescribeBudgetsCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeBudgetsCommandInput, DescribeBudgetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

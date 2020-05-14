@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFrontClient";
-import {
-  UpdateDistributionRequest,
-  UpdateDistributionResult
-} from "../models/index";
+import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/index";
 import {
   deserializeAws_restXmlUpdateDistributionCommand,
   serializeAws_restXmlUpdateDistributionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDistributionCommandInput = UpdateDistributionRequest;
-export type UpdateDistributionCommandOutput = UpdateDistributionResult &
-  __MetadataBearer;
+export type UpdateDistributionCommandOutput = UpdateDistributionResult & __MetadataBearer;
 
 export class UpdateDistributionCommand extends $Command<
   UpdateDistributionCommandInput,
@@ -50,9 +46,7 @@ export class UpdateDistributionCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDistributionCommandInput, UpdateDistributionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

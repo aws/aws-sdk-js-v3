@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  GetPermissionPolicyRequest,
-  GetPermissionPolicyResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetPermissionPolicyCommand,
   serializeAws_json1_1GetPermissionPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPermissionPolicyCommandInput = GetPermissionPolicyRequest;
-export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse &
-  __MetadataBearer;
+export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse & __MetadataBearer;
 
 export class GetPermissionPolicyCommand extends $Command<
   GetPermissionPolicyCommandInput,
@@ -49,13 +41,8 @@ export class GetPermissionPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPermissionPolicyCommandInput,
-    GetPermissionPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPermissionPolicyCommandInput, GetPermissionPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

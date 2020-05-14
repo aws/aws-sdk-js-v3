@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFindingsCommandInput = UpdateFindingsRequest;
-export type UpdateFindingsCommandOutput = UpdateFindingsResponse &
-  __MetadataBearer;
+export type UpdateFindingsCommandOutput = UpdateFindingsResponse & __MetadataBearer;
 
 export class UpdateFindingsCommand extends $Command<
   UpdateFindingsCommandInput,
@@ -47,9 +46,7 @@ export class UpdateFindingsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFindingsCommandInput, UpdateFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

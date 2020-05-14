@@ -50,9 +50,7 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     GetComplianceSummaryByConfigRuleCommandInput,
     GetComplianceSummaryByConfigRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +69,14 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     input: GetComplianceSummaryByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

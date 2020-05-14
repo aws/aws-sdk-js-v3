@@ -126,9 +126,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public activatePipeline(
     args: ActivatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivatePipelineCommandOutput) => void),
     cb?: (err: any, data?: ActivatePipelineCommandOutput) => void
   ): Promise<ActivatePipelineCommandOutput> | void {
     const command = new ActivatePipelineCommand(args);
@@ -161,9 +159,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
@@ -196,9 +192,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
@@ -272,9 +266,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
@@ -307,9 +299,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public describeObjects(
     args: DescribeObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeObjectsCommandOutput) => void),
     cb?: (err: any, data?: DescribeObjectsCommandOutput) => void
   ): Promise<DescribeObjectsCommandOutput> | void {
     const command = new DescribeObjectsCommand(args);
@@ -450,9 +440,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
@@ -493,9 +481,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public pollForTask(
     args: PollForTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PollForTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PollForTaskCommandOutput) => void),
     cb?: (err: any, data?: PollForTaskCommandOutput) => void
   ): Promise<PollForTaskCommandOutput> | void {
     const command = new PollForTaskCommand(args);
@@ -584,9 +570,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public queryObjects(
     args: QueryObjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryObjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryObjectsCommandOutput) => void),
     cb?: (err: any, data?: QueryObjectsCommandOutput) => void
   ): Promise<QueryObjectsCommandOutput> | void {
     const command = new QueryObjectsCommand(args);
@@ -619,9 +603,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
@@ -731,9 +713,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public setStatus(
     args: SetStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetStatusCommandOutput) => void),
     cb?: (err: any, data?: SetStatusCommandOutput) => void
   ): Promise<SetStatusCommandOutput> | void {
     const command = new SetStatusCommand(args);
@@ -768,9 +748,7 @@ export class DataPipeline extends DataPipelineClient {
   ): void;
   public setTaskStatus(
     args: SetTaskStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetTaskStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTaskStatusCommandOutput) => void),
     cb?: (err: any, data?: SetTaskStatusCommandOutput) => void
   ): Promise<SetTaskStatusCommandOutput> | void {
     const command = new SetTaskStatusCommand(args);

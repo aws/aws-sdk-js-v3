@@ -1,12 +1,5 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
-import {
-  GetKeyRotationStatusRequest,
-  GetKeyRotationStatusResponse
-} from "../models/index";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetKeyRotationStatusCommand,
   serializeAws_json1_1GetKeyRotationStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetKeyRotationStatusCommandInput = GetKeyRotationStatusRequest;
-export type GetKeyRotationStatusCommandOutput = GetKeyRotationStatusResponse &
-  __MetadataBearer;
+export type GetKeyRotationStatusCommandOutput = GetKeyRotationStatusResponse & __MetadataBearer;
 
 export class GetKeyRotationStatusCommand extends $Command<
   GetKeyRotationStatusCommandInput,
@@ -49,13 +41,8 @@ export class GetKeyRotationStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetKeyRotationStatusCommandInput,
-    GetKeyRotationStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetKeyRotationStatusCommandInput, GetKeyRotationStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

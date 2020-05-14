@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  CreatePhoneNumberOrderRequest,
-  CreatePhoneNumberOrderResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePhoneNumberOrderCommand,
   serializeAws_restJson1_1CreatePhoneNumberOrderCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePhoneNumberOrderCommandInput = CreatePhoneNumberOrderRequest;
-export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse &
-  __MetadataBearer;
+export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse & __MetadataBearer;
 
 export class CreatePhoneNumberOrderCommand extends $Command<
   CreatePhoneNumberOrderCommandInput,
@@ -49,13 +41,8 @@ export class CreatePhoneNumberOrderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePhoneNumberOrderCommandInput,
-    CreatePhoneNumberOrderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePhoneNumberOrderCommandInput, CreatePhoneNumberOrderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class CreatePhoneNumberOrderCommand extends $Command<
     input: CreatePhoneNumberOrderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePhoneNumberOrderCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreatePhoneNumberOrderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePhoneNumberOrderCommandOutput> {
-    return deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

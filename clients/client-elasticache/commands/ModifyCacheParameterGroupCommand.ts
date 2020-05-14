@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  CacheParameterGroupNameMessage,
-  ModifyCacheParameterGroupMessage
-} from "../models/index";
+import { CacheParameterGroupNameMessage, ModifyCacheParameterGroupMessage } from "../models/index";
 import {
   deserializeAws_queryModifyCacheParameterGroupCommand,
   serializeAws_queryModifyCacheParameterGroupCommand
@@ -49,13 +46,8 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyCacheParameterGroupCommandInput,
-    ModifyCacheParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyCacheParameterGroupCommandInput, ModifyCacheParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ModifyCacheParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryModifyCacheParameterGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryModifyCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

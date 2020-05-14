@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  AttachVpnGatewayRequest,
-  AttachVpnGatewayResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { AttachVpnGatewayRequest, AttachVpnGatewayResult } from "../models/index";
 import {
   deserializeAws_ec2AttachVpnGatewayCommand,
   serializeAws_ec2AttachVpnGatewayCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachVpnGatewayCommandInput = AttachVpnGatewayRequest;
-export type AttachVpnGatewayCommandOutput = AttachVpnGatewayResult &
-  __MetadataBearer;
+export type AttachVpnGatewayCommandOutput = AttachVpnGatewayResult & __MetadataBearer;
 
 export class AttachVpnGatewayCommand extends $Command<
   AttachVpnGatewayCommandInput,
@@ -50,9 +42,7 @@ export class AttachVpnGatewayCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachVpnGatewayCommandInput, AttachVpnGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

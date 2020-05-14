@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  AttachThingPrincipalRequest,
-  AttachThingPrincipalResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AttachThingPrincipalCommand,
   serializeAws_restJson1_1AttachThingPrincipalCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachThingPrincipalCommandInput = AttachThingPrincipalRequest;
-export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse &
-  __MetadataBearer;
+export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse & __MetadataBearer;
 
 export class AttachThingPrincipalCommand extends $Command<
   AttachThingPrincipalCommandInput,
@@ -49,13 +41,8 @@ export class AttachThingPrincipalCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachThingPrincipalCommandInput,
-    AttachThingPrincipalCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachThingPrincipalCommandInput, AttachThingPrincipalCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class AttachThingPrincipalCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1_1AttachThingPrincipalCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AttachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -40,9 +40,7 @@ export class MarketplaceCommerceAnalytics extends MarketplaceCommerceAnalyticsCl
   ): void;
   public generateDataSet(
     args: GenerateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataSetCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataSetCommandOutput) => void
   ): Promise<GenerateDataSetCommandOutput> | void {
     const command = new GenerateDataSetCommand(args);

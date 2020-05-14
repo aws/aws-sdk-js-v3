@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetProjectsCommandInput = BatchGetProjectsInput;
-export type BatchGetProjectsCommandOutput = BatchGetProjectsOutput &
-  __MetadataBearer;
+export type BatchGetProjectsCommandOutput = BatchGetProjectsOutput & __MetadataBearer;
 
 export class BatchGetProjectsCommand extends $Command<
   BatchGetProjectsCommandInput,
@@ -47,9 +46,7 @@ export class BatchGetProjectsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

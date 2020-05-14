@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  CreateSoftwareUpdateJobRequest,
-  CreateSoftwareUpdateJobResponse
-} from "../models/index";
+import { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand,
   serializeAws_restJson1_1CreateSoftwareUpdateJobCommand
@@ -49,13 +46,8 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSoftwareUpdateJobCommandInput,
-    CreateSoftwareUpdateJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSoftwareUpdateJobCommandInput, CreateSoftwareUpdateJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     input: CreateSoftwareUpdateJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSoftwareUpdateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSoftwareUpdateJobCommandOutput> {
-    return deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

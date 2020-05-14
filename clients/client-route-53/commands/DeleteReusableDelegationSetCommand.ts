@@ -50,13 +50,8 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteReusableDelegationSetCommandInput,
-    DeleteReusableDelegationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteReusableDelegationSetCommandInput, DeleteReusableDelegationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -76,20 +71,14 @@ export class DeleteReusableDelegationSetCommand extends $Command<
     input: DeleteReusableDelegationSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteReusableDelegationSetCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteReusableDelegationSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReusableDelegationSetCommandOutput> {
-    return deserializeAws_restXmlDeleteReusableDelegationSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteReusableDelegationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

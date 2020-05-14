@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateLinkCommandInput = AssociateLinkRequest;
-export type AssociateLinkCommandOutput = AssociateLinkResponse &
-  __MetadataBearer;
+export type AssociateLinkCommandOutput = AssociateLinkResponse & __MetadataBearer;
 
 export class AssociateLinkCommand extends $Command<
   AssociateLinkCommandInput,
@@ -47,9 +46,7 @@ export class AssociateLinkCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateLinkCommandInput, AssociateLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -22,8 +19,7 @@ export interface AccountSharingInfo {
 }
 
 export namespace AccountSharingInfo {
-  export const isa = (o: any): o is AccountSharingInfo =>
-    __isa(o, "AccountSharingInfo");
+  export const isa = (o: any): o is AccountSharingInfo => __isa(o, "AccountSharingInfo");
 }
 
 /**
@@ -136,40 +132,33 @@ export interface AddTagsToResourceResult {
 }
 
 export namespace AddTagsToResourceResult {
-  export const isa = (o: any): o is AddTagsToResourceResult =>
-    __isa(o, "AddTagsToResourceResult");
+  export const isa = (o: any): o is AddTagsToResourceResult => __isa(o, "AddTagsToResourceResult");
 }
 
 /**
  * <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
  *    already registered with a different patch baseline.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>You must disassociate a document from all instances before you can delete it.</p>
  */
-export interface AssociatedInstances
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociatedInstances extends __SmithyException, $MetadataBearer {
   name: "AssociatedInstances";
   $fault: "client";
 }
 
 export namespace AssociatedInstances {
-  export const isa = (o: any): o is AssociatedInstances =>
-    __isa(o, "AssociatedInstances");
+  export const isa = (o: any): o is AssociatedInstances => __isa(o, "AssociatedInstances");
 }
 
 /**
@@ -236,9 +225,7 @@ export namespace Association {
 /**
  * <p>The specified association already exists.</p>
  */
-export interface AssociationAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociationAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "AssociationAlreadyExists";
   $fault: "client";
 }
@@ -380,24 +367,20 @@ export interface AssociationDescription {
 }
 
 export namespace AssociationDescription {
-  export const isa = (o: any): o is AssociationDescription =>
-    __isa(o, "AssociationDescription");
+  export const isa = (o: any): o is AssociationDescription => __isa(o, "AssociationDescription");
 }
 
 /**
  * <p>The specified association does not exist.</p>
  */
-export interface AssociationDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociationDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "AssociationDoesNotExist";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AssociationDoesNotExist {
-  export const isa = (o: any): o is AssociationDoesNotExist =>
-    __isa(o, "AssociationDoesNotExist");
+  export const isa = (o: any): o is AssociationDoesNotExist => __isa(o, "AssociationDoesNotExist");
 }
 
 /**
@@ -447,16 +430,13 @@ export interface AssociationExecution {
 }
 
 export namespace AssociationExecution {
-  export const isa = (o: any): o is AssociationExecution =>
-    __isa(o, "AssociationExecution");
+  export const isa = (o: any): o is AssociationExecution => __isa(o, "AssociationExecution");
 }
 
 /**
  * <p>The specified execution ID does not exist. Verify the ID number and try again.</p>
  */
-export interface AssociationExecutionDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociationExecutionDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "AssociationExecutionDoesNotExist";
   $fault: "client";
   Message?: string;
@@ -599,8 +579,7 @@ export interface AssociationFilter {
 }
 
 export namespace AssociationFilter {
-  export const isa = (o: any): o is AssociationFilter =>
-    __isa(o, "AssociationFilter");
+  export const isa = (o: any): o is AssociationFilter => __isa(o, "AssociationFilter");
 }
 
 export enum AssociationFilterKey {
@@ -622,9 +601,7 @@ export enum AssociationFilterOperatorType {
 /**
  * <p>You can have at most 2,000 active associations.</p>
  */
-export interface AssociationLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociationLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AssociationLimitExceeded";
   $fault: "client";
 }
@@ -658,8 +635,7 @@ export interface AssociationOverview {
 }
 
 export namespace AssociationOverview {
-  export const isa = (o: any): o is AssociationOverview =>
-    __isa(o, "AssociationOverview");
+  export const isa = (o: any): o is AssociationOverview => __isa(o, "AssociationOverview");
 }
 
 /**
@@ -689,8 +665,7 @@ export interface AssociationStatus {
 }
 
 export namespace AssociationStatus {
-  export const isa = (o: any): o is AssociationStatus =>
-    __isa(o, "AssociationStatus");
+  export const isa = (o: any): o is AssociationStatus => __isa(o, "AssociationStatus");
 }
 
 export enum AssociationStatusName {
@@ -790,17 +765,14 @@ export interface AssociationVersionInfo {
 }
 
 export namespace AssociationVersionInfo {
-  export const isa = (o: any): o is AssociationVersionInfo =>
-    __isa(o, "AssociationVersionInfo");
+  export const isa = (o: any): o is AssociationVersionInfo => __isa(o, "AssociationVersionInfo");
 }
 
 /**
  * <p>You have reached the maximum number versions allowed for an association. Each association
  *    has a limit of 1,000 versions. </p>
  */
-export interface AssociationVersionLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AssociationVersionLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AssociationVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -843,8 +815,7 @@ export interface AttachmentContent {
 }
 
 export namespace AttachmentContent {
-  export const isa = (o: any): o is AttachmentContent =>
-    __isa(o, "AttachmentContent");
+  export const isa = (o: any): o is AttachmentContent => __isa(o, "AttachmentContent");
 }
 
 export enum AttachmentHashType {
@@ -863,8 +834,7 @@ export interface AttachmentInformation {
 }
 
 export namespace AttachmentInformation {
-  export const isa = (o: any): o is AttachmentInformation =>
-    __isa(o, "AttachmentInformation");
+  export const isa = (o: any): o is AttachmentInformation => __isa(o, "AttachmentInformation");
 }
 
 /**
@@ -924,8 +894,7 @@ export interface AttachmentsSource {
 }
 
 export namespace AttachmentsSource {
-  export const isa = (o: any): o is AttachmentsSource =>
-    __isa(o, "AttachmentsSource");
+  export const isa = (o: any): o is AttachmentsSource => __isa(o, "AttachmentsSource");
 }
 
 export enum AttachmentsSourceKey {
@@ -937,9 +906,7 @@ export enum AttachmentsSourceKey {
 /**
  * <p>An Automation document with the specified name could not be found.</p>
  */
-export interface AutomationDefinitionNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AutomationDefinitionNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AutomationDefinitionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -962,9 +929,7 @@ export interface AutomationDefinitionVersionNotFoundException
 }
 
 export namespace AutomationDefinitionVersionNotFoundException {
-  export const isa = (
-    o: any
-  ): o is AutomationDefinitionVersionNotFoundException =>
+  export const isa = (o: any): o is AutomationDefinitionVersionNotFoundException =>
     __isa(o, "AutomationDefinitionVersionNotFoundException");
 }
 
@@ -1106,8 +1071,7 @@ export interface AutomationExecution {
 }
 
 export namespace AutomationExecution {
-  export const isa = (o: any): o is AutomationExecution =>
-    __isa(o, "AutomationExecution");
+  export const isa = (o: any): o is AutomationExecution => __isa(o, "AutomationExecution");
 }
 
 /**
@@ -1293,9 +1257,7 @@ export namespace AutomationExecutionMetadata {
  * <p>There is no automation execution information for the requested automation execution
  *    ID.</p>
  */
-export interface AutomationExecutionNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AutomationExecutionNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AutomationExecutionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1321,9 +1283,7 @@ export enum AutomationExecutionStatus {
  * <p>The specified step name and execution ID don't exist. Verify the information and try
  *    again.</p>
  */
-export interface AutomationStepNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AutomationStepNotFoundException extends __SmithyException, $MetadataBearer {
   name: "AutomationStepNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1362,8 +1322,7 @@ export interface CancelCommandRequest {
 }
 
 export namespace CancelCommandRequest {
-  export const isa = (o: any): o is CancelCommandRequest =>
-    __isa(o, "CancelCommandRequest");
+  export const isa = (o: any): o is CancelCommandRequest => __isa(o, "CancelCommandRequest");
 }
 
 /**
@@ -1375,8 +1334,7 @@ export interface CancelCommandResult {
 }
 
 export namespace CancelCommandResult {
-  export const isa = (o: any): o is CancelCommandResult =>
-    __isa(o, "CancelCommandResult");
+  export const isa = (o: any): o is CancelCommandResult => __isa(o, "CancelCommandResult");
 }
 
 export interface CancelMaintenanceWindowExecutionRequest {
@@ -1424,8 +1382,7 @@ export interface CloudWatchOutputConfig {
 }
 
 export namespace CloudWatchOutputConfig {
-  export const isa = (o: any): o is CloudWatchOutputConfig =>
-    __isa(o, "CloudWatchOutputConfig");
+  export const isa = (o: any): o is CloudWatchOutputConfig => __isa(o, "CloudWatchOutputConfig");
 }
 
 /**
@@ -1862,8 +1819,7 @@ export interface CommandInvocation {
 }
 
 export namespace CommandInvocation {
-  export const isa = (o: any): o is CommandInvocation =>
-    __isa(o, "CommandInvocation");
+  export const isa = (o: any): o is CommandInvocation => __isa(o, "CommandInvocation");
 }
 
 export enum CommandInvocationStatus {
@@ -2125,8 +2081,7 @@ export interface ComplianceItem {
 }
 
 export namespace ComplianceItem {
-  export const isa = (o: any): o is ComplianceItem =>
-    __isa(o, "ComplianceItem");
+  export const isa = (o: any): o is ComplianceItem => __isa(o, "ComplianceItem");
 }
 
 /**
@@ -2165,8 +2120,7 @@ export interface ComplianceItemEntry {
 }
 
 export namespace ComplianceItemEntry {
-  export const isa = (o: any): o is ComplianceItemEntry =>
-    __isa(o, "ComplianceItemEntry");
+  export const isa = (o: any): o is ComplianceItemEntry => __isa(o, "ComplianceItemEntry");
 }
 
 export enum ComplianceQueryOperatorType {
@@ -2214,8 +2168,7 @@ export interface ComplianceStringFilter {
 }
 
 export namespace ComplianceStringFilter {
-  export const isa = (o: any): o is ComplianceStringFilter =>
-    __isa(o, "ComplianceStringFilter");
+  export const isa = (o: any): o is ComplianceStringFilter => __isa(o, "ComplianceStringFilter");
 }
 
 /**
@@ -2241,8 +2194,7 @@ export interface ComplianceSummaryItem {
 }
 
 export namespace ComplianceSummaryItem {
-  export const isa = (o: any): o is ComplianceSummaryItem =>
-    __isa(o, "ComplianceSummaryItem");
+  export const isa = (o: any): o is ComplianceSummaryItem => __isa(o, "ComplianceSummaryItem");
 }
 
 /**
@@ -2280,8 +2232,7 @@ export interface CompliantSummary {
 }
 
 export namespace CompliantSummary {
-  export const isa = (o: any): o is CompliantSummary =>
-    __isa(o, "CompliantSummary");
+  export const isa = (o: any): o is CompliantSummary => __isa(o, "CompliantSummary");
 }
 
 export enum ConnectionStatus {
@@ -2362,8 +2313,7 @@ export interface CreateActivationRequest {
 }
 
 export namespace CreateActivationRequest {
-  export const isa = (o: any): o is CreateActivationRequest =>
-    __isa(o, "CreateActivationRequest");
+  export const isa = (o: any): o is CreateActivationRequest => __isa(o, "CreateActivationRequest");
 }
 
 export interface CreateActivationResult {
@@ -2382,8 +2332,7 @@ export interface CreateActivationResult {
 }
 
 export namespace CreateActivationResult {
-  export const isa = (o: any): o is CreateActivationResult =>
-    __isa(o, "CreateActivationResult");
+  export const isa = (o: any): o is CreateActivationResult => __isa(o, "CreateActivationResult");
 }
 
 export interface CreateAssociationBatchRequest {
@@ -2644,8 +2593,7 @@ export interface CreateAssociationResult {
 }
 
 export namespace CreateAssociationResult {
-  export const isa = (o: any): o is CreateAssociationResult =>
-    __isa(o, "CreateAssociationResult");
+  export const isa = (o: any): o is CreateAssociationResult => __isa(o, "CreateAssociationResult");
 }
 
 export interface CreateDocumentRequest {
@@ -2747,8 +2695,7 @@ export interface CreateDocumentRequest {
 }
 
 export namespace CreateDocumentRequest {
-  export const isa = (o: any): o is CreateDocumentRequest =>
-    __isa(o, "CreateDocumentRequest");
+  export const isa = (o: any): o is CreateDocumentRequest => __isa(o, "CreateDocumentRequest");
 }
 
 export interface CreateDocumentResult {
@@ -2760,8 +2707,7 @@ export interface CreateDocumentResult {
 }
 
 export namespace CreateDocumentResult {
-  export const isa = (o: any): o is CreateDocumentResult =>
-    __isa(o, "CreateDocumentResult");
+  export const isa = (o: any): o is CreateDocumentResult => __isa(o, "CreateDocumentResult");
 }
 
 export interface CreateMaintenanceWindowRequest {
@@ -2963,8 +2909,7 @@ export interface CreateOpsItemRequest {
 }
 
 export namespace CreateOpsItemRequest {
-  export const isa = (o: any): o is CreateOpsItemRequest =>
-    __isa(o, "CreateOpsItemRequest");
+  export const isa = (o: any): o is CreateOpsItemRequest => __isa(o, "CreateOpsItemRequest");
 }
 
 export interface CreateOpsItemResponse {
@@ -2976,8 +2921,7 @@ export interface CreateOpsItemResponse {
 }
 
 export namespace CreateOpsItemResponse {
-  export const isa = (o: any): o is CreateOpsItemResponse =>
-    __isa(o, "CreateOpsItemResponse");
+  export const isa = (o: any): o is CreateOpsItemResponse => __isa(o, "CreateOpsItemResponse");
 }
 
 export interface CreatePatchBaselineRequest {
@@ -3179,8 +3123,7 @@ export interface DeleteActivationRequest {
 }
 
 export namespace DeleteActivationRequest {
-  export const isa = (o: any): o is DeleteActivationRequest =>
-    __isa(o, "DeleteActivationRequest");
+  export const isa = (o: any): o is DeleteActivationRequest => __isa(o, "DeleteActivationRequest");
 }
 
 export interface DeleteActivationResult {
@@ -3188,8 +3131,7 @@ export interface DeleteActivationResult {
 }
 
 export namespace DeleteActivationResult {
-  export const isa = (o: any): o is DeleteActivationResult =>
-    __isa(o, "DeleteActivationResult");
+  export const isa = (o: any): o is DeleteActivationResult => __isa(o, "DeleteActivationResult");
 }
 
 export interface DeleteAssociationRequest {
@@ -3220,8 +3162,7 @@ export interface DeleteAssociationResult {
 }
 
 export namespace DeleteAssociationResult {
-  export const isa = (o: any): o is DeleteAssociationResult =>
-    __isa(o, "DeleteAssociationResult");
+  export const isa = (o: any): o is DeleteAssociationResult => __isa(o, "DeleteAssociationResult");
 }
 
 export interface DeleteDocumentRequest {
@@ -3253,8 +3194,7 @@ export interface DeleteDocumentRequest {
 }
 
 export namespace DeleteDocumentRequest {
-  export const isa = (o: any): o is DeleteDocumentRequest =>
-    __isa(o, "DeleteDocumentRequest");
+  export const isa = (o: any): o is DeleteDocumentRequest => __isa(o, "DeleteDocumentRequest");
 }
 
 export interface DeleteDocumentResult {
@@ -3262,8 +3202,7 @@ export interface DeleteDocumentResult {
 }
 
 export namespace DeleteDocumentResult {
-  export const isa = (o: any): o is DeleteDocumentResult =>
-    __isa(o, "DeleteDocumentResult");
+  export const isa = (o: any): o is DeleteDocumentResult => __isa(o, "DeleteDocumentResult");
 }
 
 export interface DeleteInventoryRequest {
@@ -3301,8 +3240,7 @@ export interface DeleteInventoryRequest {
 }
 
 export namespace DeleteInventoryRequest {
-  export const isa = (o: any): o is DeleteInventoryRequest =>
-    __isa(o, "DeleteInventoryRequest");
+  export const isa = (o: any): o is DeleteInventoryRequest => __isa(o, "DeleteInventoryRequest");
 }
 
 export interface DeleteInventoryResult {
@@ -3327,8 +3265,7 @@ export interface DeleteInventoryResult {
 }
 
 export namespace DeleteInventoryResult {
-  export const isa = (o: any): o is DeleteInventoryResult =>
-    __isa(o, "DeleteInventoryResult");
+  export const isa = (o: any): o is DeleteInventoryResult => __isa(o, "DeleteInventoryResult");
 }
 
 export interface DeleteMaintenanceWindowRequest {
@@ -3366,8 +3303,7 @@ export interface DeleteParameterRequest {
 }
 
 export namespace DeleteParameterRequest {
-  export const isa = (o: any): o is DeleteParameterRequest =>
-    __isa(o, "DeleteParameterRequest");
+  export const isa = (o: any): o is DeleteParameterRequest => __isa(o, "DeleteParameterRequest");
 }
 
 export interface DeleteParameterResult {
@@ -3375,8 +3311,7 @@ export interface DeleteParameterResult {
 }
 
 export namespace DeleteParameterResult {
-  export const isa = (o: any): o is DeleteParameterResult =>
-    __isa(o, "DeleteParameterResult");
+  export const isa = (o: any): o is DeleteParameterResult => __isa(o, "DeleteParameterResult");
 }
 
 export interface DeleteParametersRequest {
@@ -3388,8 +3323,7 @@ export interface DeleteParametersRequest {
 }
 
 export namespace DeleteParametersRequest {
-  export const isa = (o: any): o is DeleteParametersRequest =>
-    __isa(o, "DeleteParametersRequest");
+  export const isa = (o: any): o is DeleteParametersRequest => __isa(o, "DeleteParametersRequest");
 }
 
 export interface DeleteParametersResult {
@@ -3406,8 +3340,7 @@ export interface DeleteParametersResult {
 }
 
 export namespace DeleteParametersResult {
-  export const isa = (o: any): o is DeleteParametersResult =>
-    __isa(o, "DeleteParametersResult");
+  export const isa = (o: any): o is DeleteParametersResult => __isa(o, "DeleteParametersResult");
 }
 
 export interface DeletePatchBaselineRequest {
@@ -3500,9 +3433,7 @@ export interface DeregisterPatchBaselineForPatchGroupRequest {
 }
 
 export namespace DeregisterPatchBaselineForPatchGroupRequest {
-  export const isa = (
-    o: any
-  ): o is DeregisterPatchBaselineForPatchGroupRequest =>
+  export const isa = (o: any): o is DeregisterPatchBaselineForPatchGroupRequest =>
     __isa(o, "DeregisterPatchBaselineForPatchGroupRequest");
 }
 
@@ -3520,9 +3451,7 @@ export interface DeregisterPatchBaselineForPatchGroupResult {
 }
 
 export namespace DeregisterPatchBaselineForPatchGroupResult {
-  export const isa = (
-    o: any
-  ): o is DeregisterPatchBaselineForPatchGroupResult =>
+  export const isa = (o: any): o is DeregisterPatchBaselineForPatchGroupResult =>
     __isa(o, "DeregisterPatchBaselineForPatchGroupResult");
 }
 
@@ -3547,9 +3476,7 @@ export interface DeregisterTargetFromMaintenanceWindowRequest {
 }
 
 export namespace DeregisterTargetFromMaintenanceWindowRequest {
-  export const isa = (
-    o: any
-  ): o is DeregisterTargetFromMaintenanceWindowRequest =>
+  export const isa = (o: any): o is DeregisterTargetFromMaintenanceWindowRequest =>
     __isa(o, "DeregisterTargetFromMaintenanceWindowRequest");
 }
 
@@ -3567,9 +3494,7 @@ export interface DeregisterTargetFromMaintenanceWindowResult {
 }
 
 export namespace DeregisterTargetFromMaintenanceWindowResult {
-  export const isa = (
-    o: any
-  ): o is DeregisterTargetFromMaintenanceWindowResult =>
+  export const isa = (o: any): o is DeregisterTargetFromMaintenanceWindowResult =>
     __isa(o, "DeregisterTargetFromMaintenanceWindowResult");
 }
 
@@ -3587,9 +3512,7 @@ export interface DeregisterTaskFromMaintenanceWindowRequest {
 }
 
 export namespace DeregisterTaskFromMaintenanceWindowRequest {
-  export const isa = (
-    o: any
-  ): o is DeregisterTaskFromMaintenanceWindowRequest =>
+  export const isa = (o: any): o is DeregisterTaskFromMaintenanceWindowRequest =>
     __isa(o, "DeregisterTaskFromMaintenanceWindowRequest");
 }
 
@@ -3714,9 +3637,7 @@ export interface DescribeAssociationExecutionTargetsRequest {
 }
 
 export namespace DescribeAssociationExecutionTargetsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeAssociationExecutionTargetsRequest =>
+  export const isa = (o: any): o is DescribeAssociationExecutionTargetsRequest =>
     __isa(o, "DescribeAssociationExecutionTargetsRequest");
 }
 
@@ -4038,8 +3959,7 @@ export interface DescribeDocumentRequest {
 }
 
 export namespace DescribeDocumentRequest {
-  export const isa = (o: any): o is DescribeDocumentRequest =>
-    __isa(o, "DescribeDocumentRequest");
+  export const isa = (o: any): o is DescribeDocumentRequest => __isa(o, "DescribeDocumentRequest");
 }
 
 export interface DescribeDocumentResult {
@@ -4051,8 +3971,7 @@ export interface DescribeDocumentResult {
 }
 
 export namespace DescribeDocumentResult {
-  export const isa = (o: any): o is DescribeDocumentResult =>
-    __isa(o, "DescribeDocumentResult");
+  export const isa = (o: any): o is DescribeDocumentResult => __isa(o, "DescribeDocumentResult");
 }
 
 export interface DescribeEffectiveInstanceAssociationsRequest {
@@ -4076,9 +3995,7 @@ export interface DescribeEffectiveInstanceAssociationsRequest {
 }
 
 export namespace DescribeEffectiveInstanceAssociationsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeEffectiveInstanceAssociationsRequest =>
+  export const isa = (o: any): o is DescribeEffectiveInstanceAssociationsRequest =>
     __isa(o, "DescribeEffectiveInstanceAssociationsRequest");
 }
 
@@ -4097,9 +4014,7 @@ export interface DescribeEffectiveInstanceAssociationsResult {
 }
 
 export namespace DescribeEffectiveInstanceAssociationsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeEffectiveInstanceAssociationsResult =>
+  export const isa = (o: any): o is DescribeEffectiveInstanceAssociationsResult =>
     __isa(o, "DescribeEffectiveInstanceAssociationsResult");
 }
 
@@ -4123,9 +4038,7 @@ export interface DescribeEffectivePatchesForPatchBaselineRequest {
 }
 
 export namespace DescribeEffectivePatchesForPatchBaselineRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeEffectivePatchesForPatchBaselineRequest =>
+  export const isa = (o: any): o is DescribeEffectivePatchesForPatchBaselineRequest =>
     __isa(o, "DescribeEffectivePatchesForPatchBaselineRequest");
 }
 
@@ -4144,9 +4057,7 @@ export interface DescribeEffectivePatchesForPatchBaselineResult {
 }
 
 export namespace DescribeEffectivePatchesForPatchBaselineResult {
-  export const isa = (
-    o: any
-  ): o is DescribeEffectivePatchesForPatchBaselineResult =>
+  export const isa = (o: any): o is DescribeEffectivePatchesForPatchBaselineResult =>
     __isa(o, "DescribeEffectivePatchesForPatchBaselineResult");
 }
 
@@ -4278,9 +4189,7 @@ export interface DescribeInstancePatchStatesForPatchGroupRequest {
 }
 
 export namespace DescribeInstancePatchStatesForPatchGroupRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeInstancePatchStatesForPatchGroupRequest =>
+  export const isa = (o: any): o is DescribeInstancePatchStatesForPatchGroupRequest =>
     __isa(o, "DescribeInstancePatchStatesForPatchGroupRequest");
 }
 
@@ -4299,9 +4208,7 @@ export interface DescribeInstancePatchStatesForPatchGroupResult {
 }
 
 export namespace DescribeInstancePatchStatesForPatchGroupResult {
-  export const isa = (
-    o: any
-  ): o is DescribeInstancePatchStatesForPatchGroupResult =>
+  export const isa = (o: any): o is DescribeInstancePatchStatesForPatchGroupResult =>
     __isa(o, "DescribeInstancePatchStatesForPatchGroupResult");
 }
 
@@ -4482,9 +4389,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionTaskInvocationsRequest =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionTaskInvocationsRequest =>
     __isa(o, "DescribeMaintenanceWindowExecutionTaskInvocationsRequest");
 }
 
@@ -4503,9 +4408,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsResult {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionTaskInvocationsResult =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionTaskInvocationsResult =>
     __isa(o, "DescribeMaintenanceWindowExecutionTaskInvocationsResult");
 }
 
@@ -4537,9 +4440,7 @@ export interface DescribeMaintenanceWindowExecutionTasksRequest {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionTasksRequest =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionTasksRequest =>
     __isa(o, "DescribeMaintenanceWindowExecutionTasksRequest");
 }
 
@@ -4558,9 +4459,7 @@ export interface DescribeMaintenanceWindowExecutionTasksResult {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksResult {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionTasksResult =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionTasksResult =>
     __isa(o, "DescribeMaintenanceWindowExecutionTasksResult");
 }
 
@@ -4594,9 +4493,7 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
 }
 
 export namespace DescribeMaintenanceWindowExecutionsRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowExecutionsRequest =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowExecutionsRequest =>
     __isa(o, "DescribeMaintenanceWindowExecutionsRequest");
 }
 
@@ -4805,9 +4702,7 @@ export interface DescribeMaintenanceWindowsForTargetRequest {
 }
 
 export namespace DescribeMaintenanceWindowsForTargetRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeMaintenanceWindowsForTargetRequest =>
+  export const isa = (o: any): o is DescribeMaintenanceWindowsForTargetRequest =>
     __isa(o, "DescribeMaintenanceWindowsForTargetRequest");
 }
 
@@ -4951,8 +4846,7 @@ export interface DescribeOpsItemsRequest {
 }
 
 export namespace DescribeOpsItemsRequest {
-  export const isa = (o: any): o is DescribeOpsItemsRequest =>
-    __isa(o, "DescribeOpsItemsRequest");
+  export const isa = (o: any): o is DescribeOpsItemsRequest => __isa(o, "DescribeOpsItemsRequest");
 }
 
 export interface DescribeOpsItemsResponse {
@@ -5269,8 +5163,7 @@ export interface DescribeSessionsRequest {
 }
 
 export namespace DescribeSessionsRequest {
-  export const isa = (o: any): o is DescribeSessionsRequest =>
-    __isa(o, "DescribeSessionsRequest");
+  export const isa = (o: any): o is DescribeSessionsRequest => __isa(o, "DescribeSessionsRequest");
 }
 
 export interface DescribeSessionsResponse {
@@ -5295,17 +5188,14 @@ export namespace DescribeSessionsResponse {
 /**
  * <p>The specified document already exists.</p>
  */
-export interface DocumentAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "DocumentAlreadyExists";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DocumentAlreadyExists {
-  export const isa = (o: any): o is DocumentAlreadyExists =>
-    __isa(o, "DocumentAlreadyExists");
+  export const isa = (o: any): o is DocumentAlreadyExists => __isa(o, "DocumentAlreadyExists");
 }
 
 /**
@@ -5464,8 +5354,7 @@ export interface DocumentDescription {
 }
 
 export namespace DocumentDescription {
-  export const isa = (o: any): o is DocumentDescription =>
-    __isa(o, "DocumentDescription");
+  export const isa = (o: any): o is DocumentDescription => __isa(o, "DocumentDescription");
 }
 
 /**
@@ -5485,8 +5374,7 @@ export interface DocumentFilter {
 }
 
 export namespace DocumentFilter {
-  export const isa = (o: any): o is DocumentFilter =>
-    __isa(o, "DocumentFilter");
+  export const isa = (o: any): o is DocumentFilter => __isa(o, "DocumentFilter");
 }
 
 export enum DocumentFilterKey {
@@ -5575,8 +5463,7 @@ export interface DocumentIdentifier {
 }
 
 export namespace DocumentIdentifier {
-  export const isa = (o: any): o is DocumentIdentifier =>
-    __isa(o, "DocumentIdentifier");
+  export const isa = (o: any): o is DocumentIdentifier => __isa(o, "DocumentIdentifier");
 }
 
 /**
@@ -5617,24 +5504,20 @@ export interface DocumentKeyValuesFilter {
 }
 
 export namespace DocumentKeyValuesFilter {
-  export const isa = (o: any): o is DocumentKeyValuesFilter =>
-    __isa(o, "DocumentKeyValuesFilter");
+  export const isa = (o: any): o is DocumentKeyValuesFilter => __isa(o, "DocumentKeyValuesFilter");
 }
 
 /**
  * <p>You can have at most 500 active Systems Manager documents.</p>
  */
-export interface DocumentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "DocumentLimitExceeded";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DocumentLimitExceeded {
-  export const isa = (o: any): o is DocumentLimitExceeded =>
-    __isa(o, "DocumentLimitExceeded");
+  export const isa = (o: any): o is DocumentLimitExceeded => __isa(o, "DocumentLimitExceeded");
 }
 
 /**
@@ -5667,8 +5550,7 @@ export interface DocumentParameter {
 }
 
 export namespace DocumentParameter {
-  export const isa = (o: any): o is DocumentParameter =>
-    __isa(o, "DocumentParameter");
+  export const isa = (o: any): o is DocumentParameter => __isa(o, "DocumentParameter");
 }
 
 export type DocumentParameterType = "String" | "StringList";
@@ -5678,17 +5560,14 @@ export type DocumentParameterType = "String" | "StringList";
  *    maximum of 20 accounts. You can publicly share up to five documents. If you need to increase this
  *    limit, contact AWS Support.</p>
  */
-export interface DocumentPermissionLimit
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentPermissionLimit extends __SmithyException, $MetadataBearer {
   name: "DocumentPermissionLimit";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DocumentPermissionLimit {
-  export const isa = (o: any): o is DocumentPermissionLimit =>
-    __isa(o, "DocumentPermissionLimit");
+  export const isa = (o: any): o is DocumentPermissionLimit => __isa(o, "DocumentPermissionLimit");
 }
 
 export enum DocumentPermissionType {
@@ -5712,8 +5591,7 @@ export interface DocumentRequires {
 }
 
 export namespace DocumentRequires {
-  export const isa = (o: any): o is DocumentRequires =>
-    __isa(o, "DocumentRequires");
+  export const isa = (o: any): o is DocumentRequires => __isa(o, "DocumentRequires");
 }
 
 export enum DocumentStatus {
@@ -5787,17 +5665,14 @@ export interface DocumentVersionInfo {
 }
 
 export namespace DocumentVersionInfo {
-  export const isa = (o: any): o is DocumentVersionInfo =>
-    __isa(o, "DocumentVersionInfo");
+  export const isa = (o: any): o is DocumentVersionInfo => __isa(o, "DocumentVersionInfo");
 }
 
 /**
  * <p>The document has too many versions. Delete one or more document versions and try
  *    again.</p>
  */
-export interface DocumentVersionLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentVersionLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "DocumentVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -5814,26 +5689,21 @@ export namespace DocumentVersionLimitExceeded {
  *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager Service Quotas</a> in the
  *         <i>AWS General Reference</i>.</p>
  */
-export interface DoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "DoesNotExistException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace DoesNotExistException {
-  export const isa = (o: any): o is DoesNotExistException =>
-    __isa(o, "DoesNotExistException");
+  export const isa = (o: any): o is DoesNotExistException => __isa(o, "DoesNotExistException");
 }
 
 /**
  * <p>The content of the association document matches another document. Change the content of the
  *    document and try again.</p>
  */
-export interface DuplicateDocumentContent
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateDocumentContent extends __SmithyException, $MetadataBearer {
   name: "DuplicateDocumentContent";
   $fault: "client";
   Message?: string;
@@ -5848,9 +5718,7 @@ export namespace DuplicateDocumentContent {
  * <p>The version name has already been used in this document. Specify a different version name,
  *    and then try again.</p>
  */
-export interface DuplicateDocumentVersionName
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateDocumentVersionName extends __SmithyException, $MetadataBearer {
   name: "DuplicateDocumentVersionName";
   $fault: "client";
   Message?: string;
@@ -5864,16 +5732,13 @@ export namespace DuplicateDocumentVersionName {
 /**
  * <p>You cannot specify an instance ID in more than one association.</p>
  */
-export interface DuplicateInstanceId
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateInstanceId extends __SmithyException, $MetadataBearer {
   name: "DuplicateInstanceId";
   $fault: "client";
 }
 
 export namespace DuplicateInstanceId {
-  export const isa = (o: any): o is DuplicateInstanceId =>
-    __isa(o, "DuplicateInstanceId");
+  export const isa = (o: any): o is DuplicateInstanceId => __isa(o, "DuplicateInstanceId");
 }
 
 /**
@@ -5899,8 +5764,7 @@ export interface EffectivePatch {
 }
 
 export namespace EffectivePatch {
-  export const isa = (o: any): o is EffectivePatch =>
-    __isa(o, "EffectivePatch");
+  export const isa = (o: any): o is EffectivePatch => __isa(o, "EffectivePatch");
 }
 
 export enum ExecutionMode {
@@ -5930,8 +5794,7 @@ export interface FailedCreateAssociation {
 }
 
 export namespace FailedCreateAssociation {
-  export const isa = (o: any): o is FailedCreateAssociation =>
-    __isa(o, "FailedCreateAssociation");
+  export const isa = (o: any): o is FailedCreateAssociation => __isa(o, "FailedCreateAssociation");
 }
 
 /**
@@ -5958,8 +5821,7 @@ export interface FailureDetails {
 }
 
 export namespace FailureDetails {
-  export const isa = (o: any): o is FailureDetails =>
-    __isa(o, "FailureDetails");
+  export const isa = (o: any): o is FailureDetails => __isa(o, "FailureDetails");
 }
 
 export type Fault = "Client" | "Server" | "Unknown";
@@ -5968,9 +5830,7 @@ export type Fault = "Client" | "Server" | "Unknown";
  * <p>You attempted to register a LAMBDA or STEP_FUNCTIONS task in a region where the
  *    corresponding service is not available. </p>
  */
-export interface FeatureNotAvailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FeatureNotAvailableException extends __SmithyException, $MetadataBearer {
   name: "FeatureNotAvailableException";
   $fault: "client";
   Message?: string;
@@ -6025,8 +5885,7 @@ export interface GetCalendarStateRequest {
 }
 
 export namespace GetCalendarStateRequest {
-  export const isa = (o: any): o is GetCalendarStateRequest =>
-    __isa(o, "GetCalendarStateRequest");
+  export const isa = (o: any): o is GetCalendarStateRequest => __isa(o, "GetCalendarStateRequest");
 }
 
 export interface GetCalendarStateResponse {
@@ -6329,9 +6188,7 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceRequest {
-  export const isa = (
-    o: any
-  ): o is GetDeployablePatchSnapshotForInstanceRequest =>
+  export const isa = (o: any): o is GetDeployablePatchSnapshotForInstanceRequest =>
     __isa(o, "GetDeployablePatchSnapshotForInstanceRequest");
 }
 
@@ -6360,9 +6217,7 @@ export interface GetDeployablePatchSnapshotForInstanceResult {
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceResult {
-  export const isa = (
-    o: any
-  ): o is GetDeployablePatchSnapshotForInstanceResult =>
+  export const isa = (o: any): o is GetDeployablePatchSnapshotForInstanceResult =>
     __isa(o, "GetDeployablePatchSnapshotForInstanceResult");
 }
 
@@ -6393,8 +6248,7 @@ export interface GetDocumentRequest {
 }
 
 export namespace GetDocumentRequest {
-  export const isa = (o: any): o is GetDocumentRequest =>
-    __isa(o, "GetDocumentRequest");
+  export const isa = (o: any): o is GetDocumentRequest => __isa(o, "GetDocumentRequest");
 }
 
 export interface GetDocumentResult {
@@ -6457,8 +6311,7 @@ export interface GetDocumentResult {
 }
 
 export namespace GetDocumentResult {
-  export const isa = (o: any): o is GetDocumentResult =>
-    __isa(o, "GetDocumentResult");
+  export const isa = (o: any): o is GetDocumentResult => __isa(o, "GetDocumentResult");
 }
 
 export interface GetInventoryRequest {
@@ -6495,8 +6348,7 @@ export interface GetInventoryRequest {
 }
 
 export namespace GetInventoryRequest {
-  export const isa = (o: any): o is GetInventoryRequest =>
-    __isa(o, "GetInventoryRequest");
+  export const isa = (o: any): o is GetInventoryRequest => __isa(o, "GetInventoryRequest");
 }
 
 export interface GetInventoryResult {
@@ -6514,8 +6366,7 @@ export interface GetInventoryResult {
 }
 
 export namespace GetInventoryResult {
-  export const isa = (o: any): o is GetInventoryResult =>
-    __isa(o, "GetInventoryResult");
+  export const isa = (o: any): o is GetInventoryResult => __isa(o, "GetInventoryResult");
 }
 
 export interface GetInventorySchemaRequest {
@@ -6645,9 +6496,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
 }
 
 export namespace GetMaintenanceWindowExecutionTaskInvocationRequest {
-  export const isa = (
-    o: any
-  ): o is GetMaintenanceWindowExecutionTaskInvocationRequest =>
+  export const isa = (o: any): o is GetMaintenanceWindowExecutionTaskInvocationRequest =>
     __isa(o, "GetMaintenanceWindowExecutionTaskInvocationRequest");
 }
 
@@ -6718,9 +6567,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
 }
 
 export namespace GetMaintenanceWindowExecutionTaskInvocationResult {
-  export const isa = (
-    o: any
-  ): o is GetMaintenanceWindowExecutionTaskInvocationResult =>
+  export const isa = (o: any): o is GetMaintenanceWindowExecutionTaskInvocationResult =>
     __isa(o, "GetMaintenanceWindowExecutionTaskInvocationResult");
 }
 
@@ -7054,8 +6901,7 @@ export interface GetOpsItemRequest {
 }
 
 export namespace GetOpsItemRequest {
-  export const isa = (o: any): o is GetOpsItemRequest =>
-    __isa(o, "GetOpsItemRequest");
+  export const isa = (o: any): o is GetOpsItemRequest => __isa(o, "GetOpsItemRequest");
 }
 
 export interface GetOpsItemResponse {
@@ -7067,8 +6913,7 @@ export interface GetOpsItemResponse {
 }
 
 export namespace GetOpsItemResponse {
-  export const isa = (o: any): o is GetOpsItemResponse =>
-    __isa(o, "GetOpsItemResponse");
+  export const isa = (o: any): o is GetOpsItemResponse => __isa(o, "GetOpsItemResponse");
 }
 
 export interface GetOpsSummaryRequest {
@@ -7106,8 +6951,7 @@ export interface GetOpsSummaryRequest {
 }
 
 export namespace GetOpsSummaryRequest {
-  export const isa = (o: any): o is GetOpsSummaryRequest =>
-    __isa(o, "GetOpsSummaryRequest");
+  export const isa = (o: any): o is GetOpsSummaryRequest => __isa(o, "GetOpsSummaryRequest");
 }
 
 export interface GetOpsSummaryResult {
@@ -7125,8 +6969,7 @@ export interface GetOpsSummaryResult {
 }
 
 export namespace GetOpsSummaryResult {
-  export const isa = (o: any): o is GetOpsSummaryResult =>
-    __isa(o, "GetOpsSummaryResult");
+  export const isa = (o: any): o is GetOpsSummaryResult => __isa(o, "GetOpsSummaryResult");
 }
 
 export interface GetParameterHistoryRequest {
@@ -7194,8 +7037,7 @@ export interface GetParameterRequest {
 }
 
 export namespace GetParameterRequest {
-  export const isa = (o: any): o is GetParameterRequest =>
-    __isa(o, "GetParameterRequest");
+  export const isa = (o: any): o is GetParameterRequest => __isa(o, "GetParameterRequest");
 }
 
 export interface GetParameterResult {
@@ -7207,8 +7049,7 @@ export interface GetParameterResult {
 }
 
 export namespace GetParameterResult {
-  export const isa = (o: any): o is GetParameterResult =>
-    __isa(o, "GetParameterResult");
+  export const isa = (o: any): o is GetParameterResult => __isa(o, "GetParameterResult");
 }
 
 export interface GetParametersByPathRequest {
@@ -7294,8 +7135,7 @@ export interface GetParametersRequest {
 }
 
 export namespace GetParametersRequest {
-  export const isa = (o: any): o is GetParametersRequest =>
-    __isa(o, "GetParametersRequest");
+  export const isa = (o: any): o is GetParametersRequest => __isa(o, "GetParametersRequest");
 }
 
 export interface GetParametersResult {
@@ -7313,8 +7153,7 @@ export interface GetParametersResult {
 }
 
 export namespace GetParametersResult {
-  export const isa = (o: any): o is GetParametersResult =>
-    __isa(o, "GetParametersResult");
+  export const isa = (o: any): o is GetParametersResult => __isa(o, "GetParametersResult");
 }
 
 export interface GetPatchBaselineForPatchGroupRequest {
@@ -7367,8 +7206,7 @@ export interface GetPatchBaselineRequest {
 }
 
 export namespace GetPatchBaselineRequest {
-  export const isa = (o: any): o is GetPatchBaselineRequest =>
-    __isa(o, "GetPatchBaselineRequest");
+  export const isa = (o: any): o is GetPatchBaselineRequest => __isa(o, "GetPatchBaselineRequest");
 }
 
 export interface GetPatchBaselineResult {
@@ -7455,8 +7293,7 @@ export interface GetPatchBaselineResult {
 }
 
 export namespace GetPatchBaselineResult {
-  export const isa = (o: any): o is GetPatchBaselineResult =>
-    __isa(o, "GetPatchBaselineResult");
+  export const isa = (o: any): o is GetPatchBaselineResult => __isa(o, "GetPatchBaselineResult");
 }
 
 /**
@@ -7487,17 +7324,14 @@ export interface GetServiceSettingResult {
 }
 
 export namespace GetServiceSettingResult {
-  export const isa = (o: any): o is GetServiceSettingResult =>
-    __isa(o, "GetServiceSettingResult");
+  export const isa = (o: any): o is GetServiceSettingResult => __isa(o, "GetServiceSettingResult");
 }
 
 /**
  * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for
  *     Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
  */
-export interface HierarchyLevelLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HierarchyLevelLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "HierarchyLevelLimitExceededException";
   $fault: "client";
   /**
@@ -7517,9 +7351,7 @@ export namespace HierarchyLevelLimitExceededException {
  *    can't change a parameter from a String type to a SecureString type. You must create a new, unique
  *    parameter.</p>
  */
-export interface HierarchyTypeMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HierarchyTypeMismatchException extends __SmithyException, $MetadataBearer {
   name: "HierarchyTypeMismatchException";
   $fault: "client";
   /**
@@ -7539,9 +7371,7 @@ export namespace HierarchyTypeMismatchException {
  * <p>Error returned when an idempotent operation is retried and the parameters don't match the
  *    original call to the API with the same idempotency token. </p>
  */
-export interface IdempotentParameterMismatch
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatch extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatch";
   $fault: "client";
   Message?: string;
@@ -7556,9 +7386,7 @@ export namespace IdempotentParameterMismatch {
  * <p>There is a conflict in the policies specified for this parameter. You can't, for example,
  *    specify two Expiration policies for a parameter. Review your policies, and try again.</p>
  */
-export interface IncompatiblePolicyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatiblePolicyException extends __SmithyException, $MetadataBearer {
   name: "IncompatiblePolicyException";
   $fault: "client";
   message?: string;
@@ -7617,8 +7445,7 @@ export interface InstanceAssociation {
 }
 
 export namespace InstanceAssociation {
-  export const isa = (o: any): o is InstanceAssociation =>
-    __isa(o, "InstanceAssociation");
+  export const isa = (o: any): o is InstanceAssociation => __isa(o, "InstanceAssociation");
 }
 
 /**
@@ -7830,8 +7657,7 @@ export interface InstanceInformation {
 }
 
 export namespace InstanceInformation {
-  export const isa = (o: any): o is InstanceInformation =>
-    __isa(o, "InstanceInformation");
+  export const isa = (o: any): o is InstanceInformation => __isa(o, "InstanceInformation");
 }
 
 /**
@@ -8040,8 +7866,7 @@ export interface InstancePatchState {
 }
 
 export namespace InstancePatchState {
-  export const isa = (o: any): o is InstancePatchState =>
-    __isa(o, "InstancePatchState");
+  export const isa = (o: any): o is InstancePatchState => __isa(o, "InstancePatchState");
 }
 
 /**
@@ -8083,17 +7908,14 @@ export enum InstancePatchStateOperatorType {
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -8107,25 +7929,21 @@ export interface InvalidActivation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidActivation {
-  export const isa = (o: any): o is InvalidActivation =>
-    __isa(o, "InvalidActivation");
+  export const isa = (o: any): o is InvalidActivation => __isa(o, "InvalidActivation");
 }
 
 /**
  * <p>The activation ID is not valid. Verify the you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  */
-export interface InvalidActivationId
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidActivationId extends __SmithyException, $MetadataBearer {
   name: "InvalidActivationId";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidActivationId {
-  export const isa = (o: any): o is InvalidActivationId =>
-    __isa(o, "InvalidActivationId");
+  export const isa = (o: any): o is InvalidActivationId => __isa(o, "InvalidActivationId");
 }
 
 /**
@@ -8133,9 +7951,7 @@ export namespace InvalidActivationId {
  *    a valid inventory type such as <code>AWS:Application</code> or
  *     <code>AWS:InstanceInformation</code>.</p>
  */
-export interface InvalidAggregatorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAggregatorException extends __SmithyException, $MetadataBearer {
   name: "InvalidAggregatorException";
   $fault: "client";
   Message?: string;
@@ -8149,9 +7965,7 @@ export namespace InvalidAggregatorException {
 /**
  * <p>The request does not meet the regular expression requirement.</p>
  */
-export interface InvalidAllowedPatternException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAllowedPatternException extends __SmithyException, $MetadataBearer {
   name: "InvalidAllowedPatternException";
   $fault: "client";
   /**
@@ -8175,8 +7989,7 @@ export interface InvalidAssociation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidAssociation {
-  export const isa = (o: any): o is InvalidAssociation =>
-    __isa(o, "InvalidAssociation");
+  export const isa = (o: any): o is InvalidAssociation => __isa(o, "InvalidAssociation");
 }
 
 /**
@@ -8184,9 +7997,7 @@ export namespace InvalidAssociation {
  *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
  *    view the latest version of the association.</p>
  */
-export interface InvalidAssociationVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAssociationVersion extends __SmithyException, $MetadataBearer {
   name: "InvalidAssociationVersion";
   $fault: "client";
   Message?: string;
@@ -8211,18 +8022,14 @@ export interface InvalidAutomationExecutionParametersException
 }
 
 export namespace InvalidAutomationExecutionParametersException {
-  export const isa = (
-    o: any
-  ): o is InvalidAutomationExecutionParametersException =>
+  export const isa = (o: any): o is InvalidAutomationExecutionParametersException =>
     __isa(o, "InvalidAutomationExecutionParametersException");
 }
 
 /**
  * <p>The signal is not valid for the current Automation execution.</p>
  */
-export interface InvalidAutomationSignalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAutomationSignalException extends __SmithyException, $MetadataBearer {
   name: "InvalidAutomationSignalException";
   $fault: "client";
   Message?: string;
@@ -8236,9 +8043,7 @@ export namespace InvalidAutomationSignalException {
 /**
  * <p>The specified update status operation is not valid.</p>
  */
-export interface InvalidAutomationStatusUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAutomationStatusUpdateException extends __SmithyException, $MetadataBearer {
   name: "InvalidAutomationStatusUpdateException";
   $fault: "client";
   Message?: string;
@@ -8255,8 +8060,7 @@ export interface InvalidCommandId extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidCommandId {
-  export const isa = (o: any): o is InvalidCommandId =>
-    __isa(o, "InvalidCommandId");
+  export const isa = (o: any): o is InvalidCommandId => __isa(o, "InvalidCommandId");
 }
 
 /**
@@ -8280,9 +8084,7 @@ export namespace InvalidDeleteInventoryParametersException {
  * <p>The ID specified for the delete operation does not exist or is not valid. Verify the ID and
  *    try again.</p>
  */
-export interface InvalidDeletionIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeletionIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeletionIdException";
   $fault: "client";
   Message?: string;
@@ -8309,16 +8111,13 @@ export interface InvalidDocument extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidDocument {
-  export const isa = (o: any): o is InvalidDocument =>
-    __isa(o, "InvalidDocument");
+  export const isa = (o: any): o is InvalidDocument => __isa(o, "InvalidDocument");
 }
 
 /**
  * <p>The content for the document is not valid.</p>
  */
-export interface InvalidDocumentContent
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDocumentContent extends __SmithyException, $MetadataBearer {
   name: "InvalidDocumentContent";
   $fault: "client";
   /**
@@ -8328,17 +8127,14 @@ export interface InvalidDocumentContent
 }
 
 export namespace InvalidDocumentContent {
-  export const isa = (o: any): o is InvalidDocumentContent =>
-    __isa(o, "InvalidDocumentContent");
+  export const isa = (o: any): o is InvalidDocumentContent => __isa(o, "InvalidDocumentContent");
 }
 
 /**
  * <p>You attempted to delete a document while it is still shared. You must stop sharing the
  *    document before you can delete it.</p>
  */
-export interface InvalidDocumentOperation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDocumentOperation extends __SmithyException, $MetadataBearer {
   name: "InvalidDocumentOperation";
   $fault: "client";
   Message?: string;
@@ -8352,9 +8148,7 @@ export namespace InvalidDocumentOperation {
 /**
  * <p>The version of the document schema is not supported.</p>
  */
-export interface InvalidDocumentSchemaVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDocumentSchemaVersion extends __SmithyException, $MetadataBearer {
   name: "InvalidDocumentSchemaVersion";
   $fault: "client";
   Message?: string;
@@ -8369,33 +8163,27 @@ export namespace InvalidDocumentSchemaVersion {
  * <p>The document type is not valid. Valid document types are described in the
  *     <code>DocumentType</code> property.</p>
  */
-export interface InvalidDocumentType
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDocumentType extends __SmithyException, $MetadataBearer {
   name: "InvalidDocumentType";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidDocumentType {
-  export const isa = (o: any): o is InvalidDocumentType =>
-    __isa(o, "InvalidDocumentType");
+  export const isa = (o: any): o is InvalidDocumentType => __isa(o, "InvalidDocumentType");
 }
 
 /**
  * <p>The document version is not valid or does not exist.</p>
  */
-export interface InvalidDocumentVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDocumentVersion extends __SmithyException, $MetadataBearer {
   name: "InvalidDocumentVersion";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidDocumentVersion {
-  export const isa = (o: any): o is InvalidDocumentVersion =>
-    __isa(o, "InvalidDocumentVersion");
+  export const isa = (o: any): o is InvalidDocumentVersion => __isa(o, "InvalidDocumentVersion");
 }
 
 /**
@@ -8420,17 +8208,14 @@ export interface InvalidFilterKey extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidFilterKey {
-  export const isa = (o: any): o is InvalidFilterKey =>
-    __isa(o, "InvalidFilterKey");
+  export const isa = (o: any): o is InvalidFilterKey => __isa(o, "InvalidFilterKey");
 }
 
 /**
  * <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path
  *    filter, valid options are Recursive and OneLevel.</p>
  */
-export interface InvalidFilterOption
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFilterOption extends __SmithyException, $MetadataBearer {
   name: "InvalidFilterOption";
   $fault: "client";
   /**
@@ -8441,8 +8226,7 @@ export interface InvalidFilterOption
 }
 
 export namespace InvalidFilterOption {
-  export const isa = (o: any): o is InvalidFilterOption =>
-    __isa(o, "InvalidFilterOption");
+  export const isa = (o: any): o is InvalidFilterOption => __isa(o, "InvalidFilterOption");
 }
 
 /**
@@ -8455,8 +8239,7 @@ export interface InvalidFilterValue extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidFilterValue {
-  export const isa = (o: any): o is InvalidFilterValue =>
-    __isa(o, "InvalidFilterValue");
+  export const isa = (o: any): o is InvalidFilterValue => __isa(o, "InvalidFilterValue");
 }
 
 /**
@@ -8474,16 +8257,13 @@ export interface InvalidInstanceId extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidInstanceId {
-  export const isa = (o: any): o is InvalidInstanceId =>
-    __isa(o, "InvalidInstanceId");
+  export const isa = (o: any): o is InvalidInstanceId => __isa(o, "InvalidInstanceId");
 }
 
 /**
  * <p>The specified filter value is not valid.</p>
  */
-export interface InvalidInstanceInformationFilterValue
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceInformationFilterValue extends __SmithyException, $MetadataBearer {
   name: "InvalidInstanceInformationFilterValue";
   $fault: "client";
   message?: string;
@@ -8497,9 +8277,7 @@ export namespace InvalidInstanceInformationFilterValue {
 /**
  * <p>The specified inventory group is not valid.</p>
  */
-export interface InvalidInventoryGroupException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInventoryGroupException extends __SmithyException, $MetadataBearer {
   name: "InvalidInventoryGroupException";
   $fault: "client";
   Message?: string;
@@ -8514,9 +8292,7 @@ export namespace InvalidInventoryGroupException {
  * <p>You specified invalid keys or values in the <code>Context</code> attribute for
  *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
  */
-export interface InvalidInventoryItemContextException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInventoryItemContextException extends __SmithyException, $MetadataBearer {
   name: "InvalidInventoryItemContextException";
   $fault: "client";
   Message?: string;
@@ -8530,9 +8306,7 @@ export namespace InvalidInventoryItemContextException {
 /**
  * <p>The request is not valid.</p>
  */
-export interface InvalidInventoryRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInventoryRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidInventoryRequestException";
   $fault: "client";
   Message?: string;
@@ -8546,9 +8320,7 @@ export namespace InvalidInventoryRequestException {
 /**
  * <p>One or more content items is not valid.</p>
  */
-export interface InvalidItemContentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidItemContentException extends __SmithyException, $MetadataBearer {
   name: "InvalidItemContentException";
   $fault: "client";
   Message?: string;
@@ -8583,17 +8355,14 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidNextToken {
-  export const isa = (o: any): o is InvalidNextToken =>
-    __isa(o, "InvalidNextToken");
+  export const isa = (o: any): o is InvalidNextToken => __isa(o, "InvalidNextToken");
 }
 
 /**
  * <p>One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN)
  *    was provided for an Amazon SNS topic.</p>
  */
-export interface InvalidNotificationConfig
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNotificationConfig extends __SmithyException, $MetadataBearer {
   name: "InvalidNotificationConfig";
   $fault: "client";
   Message?: string;
@@ -8607,47 +8376,38 @@ export namespace InvalidNotificationConfig {
 /**
  * <p>The delete inventory option specified is not valid. Verify the option and try again.</p>
  */
-export interface InvalidOptionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOptionException extends __SmithyException, $MetadataBearer {
   name: "InvalidOptionException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidOptionException {
-  export const isa = (o: any): o is InvalidOptionException =>
-    __isa(o, "InvalidOptionException");
+  export const isa = (o: any): o is InvalidOptionException => __isa(o, "InvalidOptionException");
 }
 
 /**
  * <p>The S3 bucket does not exist.</p>
  */
-export interface InvalidOutputFolder
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOutputFolder extends __SmithyException, $MetadataBearer {
   name: "InvalidOutputFolder";
   $fault: "client";
 }
 
 export namespace InvalidOutputFolder {
-  export const isa = (o: any): o is InvalidOutputFolder =>
-    __isa(o, "InvalidOutputFolder");
+  export const isa = (o: any): o is InvalidOutputFolder => __isa(o, "InvalidOutputFolder");
 }
 
 /**
  * <p>The output location is not valid or does not exist.</p>
  */
-export interface InvalidOutputLocation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOutputLocation extends __SmithyException, $MetadataBearer {
   name: "InvalidOutputLocation";
   $fault: "client";
 }
 
 export namespace InvalidOutputLocation {
-  export const isa = (o: any): o is InvalidOutputLocation =>
-    __isa(o, "InvalidOutputLocation");
+  export const isa = (o: any): o is InvalidOutputLocation => __isa(o, "InvalidOutputLocation");
 }
 
 /**
@@ -8661,25 +8421,21 @@ export interface InvalidParameters extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidParameters {
-  export const isa = (o: any): o is InvalidParameters =>
-    __isa(o, "InvalidParameters");
+  export const isa = (o: any): o is InvalidParameters => __isa(o, "InvalidParameters");
 }
 
 /**
  * <p>The permission type is not supported. <i>Share</i> is the only supported
  *    permission type.</p>
  */
-export interface InvalidPermissionType
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPermissionType extends __SmithyException, $MetadataBearer {
   name: "InvalidPermissionType";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidPermissionType {
-  export const isa = (o: any): o is InvalidPermissionType =>
-    __isa(o, "InvalidPermissionType");
+  export const isa = (o: any): o is InvalidPermissionType => __isa(o, "InvalidPermissionType");
 }
 
 /**
@@ -8691,16 +8447,13 @@ export interface InvalidPluginName extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidPluginName {
-  export const isa = (o: any): o is InvalidPluginName =>
-    __isa(o, "InvalidPluginName");
+  export const isa = (o: any): o is InvalidPluginName => __isa(o, "InvalidPluginName");
 }
 
 /**
  * <p>A policy attribute or its value is invalid. </p>
  */
-export interface InvalidPolicyAttributeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyAttributeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyAttributeException";
   $fault: "client";
   message?: string;
@@ -8715,9 +8468,7 @@ export namespace InvalidPolicyAttributeException {
  * <p>The policy type is not supported. Parameter Store supports the following policy types:
  *    Expiration, ExpirationNotification, and NoChangeNotification.</p>
  */
-export interface InvalidPolicyTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPolicyTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyTypeException";
   $fault: "client";
   message?: string;
@@ -8737,32 +8488,26 @@ export interface InvalidResourceId extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidResourceId {
-  export const isa = (o: any): o is InvalidResourceId =>
-    __isa(o, "InvalidResourceId");
+  export const isa = (o: any): o is InvalidResourceId => __isa(o, "InvalidResourceId");
 }
 
 /**
  * <p>The resource type is not valid. For example, if you are attempting to tag an instance, the
  *    instance must be a registered, managed instance.</p>
  */
-export interface InvalidResourceType
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceType extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceType";
   $fault: "client";
 }
 
 export namespace InvalidResourceType {
-  export const isa = (o: any): o is InvalidResourceType =>
-    __isa(o, "InvalidResourceType");
+  export const isa = (o: any): o is InvalidResourceType => __isa(o, "InvalidResourceType");
 }
 
 /**
  * <p>The specified inventory item result attribute is not valid.</p>
  */
-export interface InvalidResultAttributeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResultAttributeException extends __SmithyException, $MetadataBearer {
   name: "InvalidResultAttributeException";
   $fault: "client";
   Message?: string;
@@ -8799,8 +8544,7 @@ export interface InvalidSchedule extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidSchedule {
-  export const isa = (o: any): o is InvalidSchedule =>
-    __isa(o, "InvalidSchedule");
+  export const isa = (o: any): o is InvalidSchedule => __isa(o, "InvalidSchedule");
 }
 
 /**
@@ -8820,9 +8564,7 @@ export namespace InvalidTarget {
 /**
  * <p>The parameter type name is not valid.</p>
  */
-export interface InvalidTypeNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidTypeNameException";
   $fault: "client";
   Message?: string;
@@ -8869,8 +8611,7 @@ export interface InventoryAggregator {
 }
 
 export namespace InventoryAggregator {
-  export const isa = (o: any): o is InventoryAggregator =>
-    __isa(o, "InventoryAggregator");
+  export const isa = (o: any): o is InventoryAggregator => __isa(o, "InventoryAggregator");
 }
 
 export enum InventoryAttributeDataType {
@@ -9007,8 +8748,7 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
-  export const isa = (o: any): o is InventoryFilter =>
-    __isa(o, "InventoryFilter");
+  export const isa = (o: any): o is InventoryFilter => __isa(o, "InventoryFilter");
 }
 
 /**
@@ -9031,8 +8771,7 @@ export interface InventoryGroup {
 }
 
 export namespace InventoryGroup {
-  export const isa = (o: any): o is InventoryGroup =>
-    __isa(o, "InventoryGroup");
+  export const isa = (o: any): o is InventoryGroup => __isa(o, "InventoryGroup");
 }
 
 /**
@@ -9100,8 +8839,7 @@ export interface InventoryItemAttribute {
 }
 
 export namespace InventoryItemAttribute {
-  export const isa = (o: any): o is InventoryItemAttribute =>
-    __isa(o, "InventoryItemAttribute");
+  export const isa = (o: any): o is InventoryItemAttribute => __isa(o, "InventoryItemAttribute");
 }
 
 /**
@@ -9135,8 +8873,7 @@ export interface InventoryItemSchema {
 }
 
 export namespace InventoryItemSchema {
-  export const isa = (o: any): o is InventoryItemSchema =>
-    __isa(o, "InventoryItemSchema");
+  export const isa = (o: any): o is InventoryItemSchema => __isa(o, "InventoryItemSchema");
 }
 
 export enum InventoryQueryOperatorType {
@@ -9167,8 +8904,7 @@ export interface InventoryResultEntity {
 }
 
 export namespace InventoryResultEntity {
-  export const isa = (o: any): o is InventoryResultEntity =>
-    __isa(o, "InventoryResultEntity");
+  export const isa = (o: any): o is InventoryResultEntity => __isa(o, "InventoryResultEntity");
 }
 
 /**
@@ -9206,8 +8942,7 @@ export interface InventoryResultItem {
 }
 
 export namespace InventoryResultItem {
-  export const isa = (o: any): o is InventoryResultItem =>
-    __isa(o, "InventoryResultItem");
+  export const isa = (o: any): o is InventoryResultItem => __isa(o, "InventoryResultItem");
 }
 
 export enum InventorySchemaDeleteOption {
@@ -9219,24 +8954,19 @@ export enum InventorySchemaDeleteOption {
  * <p>The command ID and instance ID you specified did not match any invocations. Verify the
  *    command ID and the instance ID and try again. </p>
  */
-export interface InvocationDoesNotExist
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvocationDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "InvocationDoesNotExist";
   $fault: "client";
 }
 
 export namespace InvocationDoesNotExist {
-  export const isa = (o: any): o is InvocationDoesNotExist =>
-    __isa(o, "InvocationDoesNotExist");
+  export const isa = (o: any): o is InvocationDoesNotExist => __isa(o, "InvocationDoesNotExist");
 }
 
 /**
  * <p>The inventory item has invalid content. </p>
  */
-export interface ItemContentMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ItemContentMismatchException extends __SmithyException, $MetadataBearer {
   name: "ItemContentMismatchException";
   $fault: "client";
   Message?: string;
@@ -9251,9 +8981,7 @@ export namespace ItemContentMismatchException {
 /**
  * <p>The inventory item size has exceeded the size limit.</p>
  */
-export interface ItemSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ItemSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ItemSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -9379,8 +9107,7 @@ export interface ListAssociationsRequest {
 }
 
 export namespace ListAssociationsRequest {
-  export const isa = (o: any): o is ListAssociationsRequest =>
-    __isa(o, "ListAssociationsRequest");
+  export const isa = (o: any): o is ListAssociationsRequest => __isa(o, "ListAssociationsRequest");
 }
 
 export interface ListAssociationsResult {
@@ -9398,8 +9125,7 @@ export interface ListAssociationsResult {
 }
 
 export namespace ListAssociationsResult {
-  export const isa = (o: any): o is ListAssociationsResult =>
-    __isa(o, "ListAssociationsResult");
+  export const isa = (o: any): o is ListAssociationsResult => __isa(o, "ListAssociationsResult");
 }
 
 export interface ListCommandInvocationsRequest {
@@ -9495,8 +9221,7 @@ export interface ListCommandsRequest {
 }
 
 export namespace ListCommandsRequest {
-  export const isa = (o: any): o is ListCommandsRequest =>
-    __isa(o, "ListCommandsRequest");
+  export const isa = (o: any): o is ListCommandsRequest => __isa(o, "ListCommandsRequest");
 }
 
 export interface ListCommandsResult {
@@ -9514,8 +9239,7 @@ export interface ListCommandsResult {
 }
 
 export namespace ListCommandsResult {
-  export const isa = (o: any): o is ListCommandsResult =>
-    __isa(o, "ListCommandsResult");
+  export const isa = (o: any): o is ListCommandsResult => __isa(o, "ListCommandsResult");
 }
 
 export interface ListComplianceItemsRequest {
@@ -9691,8 +9415,7 @@ export interface ListDocumentsRequest {
 }
 
 export namespace ListDocumentsRequest {
-  export const isa = (o: any): o is ListDocumentsRequest =>
-    __isa(o, "ListDocumentsRequest");
+  export const isa = (o: any): o is ListDocumentsRequest => __isa(o, "ListDocumentsRequest");
 }
 
 export interface ListDocumentsResult {
@@ -9710,8 +9433,7 @@ export interface ListDocumentsResult {
 }
 
 export namespace ListDocumentsResult {
-  export const isa = (o: any): o is ListDocumentsResult =>
-    __isa(o, "ListDocumentsResult");
+  export const isa = (o: any): o is ListDocumentsResult => __isa(o, "ListDocumentsResult");
 }
 
 export interface ListInventoryEntriesRequest {
@@ -10156,9 +9878,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
 }
 
 export namespace MaintenanceWindowExecutionTaskInvocationIdentity {
-  export const isa = (
-    o: any
-  ): o is MaintenanceWindowExecutionTaskInvocationIdentity =>
+  export const isa = (o: any): o is MaintenanceWindowExecutionTaskInvocationIdentity =>
     __isa(o, "MaintenanceWindowExecutionTaskInvocationIdentity");
 }
 
@@ -10179,8 +9899,7 @@ export interface MaintenanceWindowFilter {
 }
 
 export namespace MaintenanceWindowFilter {
-  export const isa = (o: any): o is MaintenanceWindowFilter =>
-    __isa(o, "MaintenanceWindowFilter");
+  export const isa = (o: any): o is MaintenanceWindowFilter => __isa(o, "MaintenanceWindowFilter");
 }
 
 /**
@@ -10505,8 +10224,7 @@ export interface MaintenanceWindowTarget {
 }
 
 export namespace MaintenanceWindowTarget {
-  export const isa = (o: any): o is MaintenanceWindowTarget =>
-    __isa(o, "MaintenanceWindowTarget");
+  export const isa = (o: any): o is MaintenanceWindowTarget => __isa(o, "MaintenanceWindowTarget");
 }
 
 /**
@@ -10604,8 +10322,7 @@ export interface MaintenanceWindowTask {
 }
 
 export namespace MaintenanceWindowTask {
-  export const isa = (o: any): o is MaintenanceWindowTask =>
-    __isa(o, "MaintenanceWindowTask");
+  export const isa = (o: any): o is MaintenanceWindowTask => __isa(o, "MaintenanceWindowTask");
 }
 
 /**
@@ -10652,9 +10369,7 @@ export interface MaintenanceWindowTaskParameterValueExpression {
 }
 
 export namespace MaintenanceWindowTaskParameterValueExpression {
-  export const isa = (
-    o: any
-  ): o is MaintenanceWindowTaskParameterValueExpression =>
+  export const isa = (o: any): o is MaintenanceWindowTaskParameterValueExpression =>
     __isa(o, "MaintenanceWindowTaskParameterValueExpression");
 }
 
@@ -10668,17 +10383,14 @@ export enum MaintenanceWindowTaskType {
 /**
  * <p>The size limit of a document is 64 KB.</p>
  */
-export interface MaxDocumentSizeExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MaxDocumentSizeExceeded extends __SmithyException, $MetadataBearer {
   name: "MaxDocumentSizeExceeded";
   $fault: "client";
   Message?: string;
 }
 
 export namespace MaxDocumentSizeExceeded {
-  export const isa = (o: any): o is MaxDocumentSizeExceeded =>
-    __isa(o, "MaxDocumentSizeExceeded");
+  export const isa = (o: any): o is MaxDocumentSizeExceeded => __isa(o, "MaxDocumentSizeExceeded");
 }
 
 export interface ModifyDocumentPermissionRequest {
@@ -10747,8 +10459,7 @@ export interface NonCompliantSummary {
 }
 
 export namespace NonCompliantSummary {
-  export const isa = (o: any): o is NonCompliantSummary =>
-    __isa(o, "NonCompliantSummary");
+  export const isa = (o: any): o is NonCompliantSummary => __isa(o, "NonCompliantSummary");
 }
 
 /**
@@ -10779,8 +10490,7 @@ export interface NotificationConfig {
 }
 
 export namespace NotificationConfig {
-  export const isa = (o: any): o is NotificationConfig =>
-    __isa(o, "NotificationConfig");
+  export const isa = (o: any): o is NotificationConfig => __isa(o, "NotificationConfig");
 }
 
 export enum NotificationEvent {
@@ -11044,9 +10754,7 @@ export namespace OpsItem {
 /**
  * <p>The OpsItem already exists.</p>
  */
-export interface OpsItemAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OpsItemAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "OpsItemAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -11081,8 +10789,7 @@ export interface OpsItemDataValue {
 }
 
 export namespace OpsItemDataValue {
-  export const isa = (o: any): o is OpsItemDataValue =>
-    __isa(o, "OpsItemDataValue");
+  export const isa = (o: any): o is OpsItemDataValue => __isa(o, "OpsItemDataValue");
 }
 
 /**
@@ -11139,9 +10846,7 @@ export enum OpsItemFilterOperator {
  * <p>A specified parameter argument isn't valid. Verify the available arguments and try
  *    again.</p>
  */
-export interface OpsItemInvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OpsItemInvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "OpsItemInvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -11158,9 +10863,7 @@ export namespace OpsItemInvalidParameterException {
  *    quotas, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
  *     are the resource limits for OpsCenter?</a>.</p>
  */
-export interface OpsItemLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OpsItemLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "OpsItemLimitExceededException";
   $fault: "client";
   Limit?: number;
@@ -11177,9 +10880,7 @@ export namespace OpsItemLimitExceededException {
 /**
  * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  */
-export interface OpsItemNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OpsItemNotFoundException extends __SmithyException, $MetadataBearer {
   name: "OpsItemNotFoundException";
   $fault: "client";
   Message?: string;
@@ -11203,8 +10904,7 @@ export interface OpsItemNotification {
 }
 
 export namespace OpsItemNotification {
-  export const isa = (o: any): o is OpsItemNotification =>
-    __isa(o, "OpsItemNotification");
+  export const isa = (o: any): o is OpsItemNotification => __isa(o, "OpsItemNotification");
 }
 
 export enum OpsItemStatus {
@@ -11282,8 +10982,7 @@ export interface OpsItemSummary {
 }
 
 export namespace OpsItemSummary {
-  export const isa = (o: any): o is OpsItemSummary =>
-    __isa(o, "OpsItemSummary");
+  export const isa = (o: any): o is OpsItemSummary => __isa(o, "OpsItemSummary");
 }
 
 /**
@@ -11299,8 +10998,7 @@ export interface OpsResultAttribute {
 }
 
 export namespace OpsResultAttribute {
-  export const isa = (o: any): o is OpsResultAttribute =>
-    __isa(o, "OpsResultAttribute");
+  export const isa = (o: any): o is OpsResultAttribute => __isa(o, "OpsResultAttribute");
 }
 
 /**
@@ -11382,17 +11080,14 @@ export namespace Parameter {
 /**
  * <p>The parameter already exists. You can't create duplicate parameters.</p>
  */
-export interface ParameterAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "ParameterAlreadyExists";
   $fault: "client";
   message?: string;
 }
 
 export namespace ParameterAlreadyExists {
-  export const isa = (o: any): o is ParameterAlreadyExists =>
-    __isa(o, "ParameterAlreadyExists");
+  export const isa = (o: any): o is ParameterAlreadyExists => __isa(o, "ParameterAlreadyExists");
 }
 
 /**
@@ -11466,8 +11161,7 @@ export interface ParameterHistory {
 }
 
 export namespace ParameterHistory {
-  export const isa = (o: any): o is ParameterHistory =>
-    __isa(o, "ParameterHistory");
+  export const isa = (o: any): o is ParameterHistory => __isa(o, "ParameterHistory");
 }
 
 /**
@@ -11495,33 +11189,27 @@ export interface ParameterInlinePolicy {
 }
 
 export namespace ParameterInlinePolicy {
-  export const isa = (o: any): o is ParameterInlinePolicy =>
-    __isa(o, "ParameterInlinePolicy");
+  export const isa = (o: any): o is ParameterInlinePolicy => __isa(o, "ParameterInlinePolicy");
 }
 
 /**
  * <p>You have exceeded the number of parameters for this AWS account. Delete one or more
  *    parameters and try again.</p>
  */
-export interface ParameterLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ParameterLimitExceeded";
   $fault: "client";
   message?: string;
 }
 
 export namespace ParameterLimitExceeded {
-  export const isa = (o: any): o is ParameterLimitExceeded =>
-    __isa(o, "ParameterLimitExceeded");
+  export const isa = (o: any): o is ParameterLimitExceeded => __isa(o, "ParameterLimitExceeded");
 }
 
 /**
  * <p>The parameter exceeded the maximum number of allowed versions.</p>
  */
-export interface ParameterMaxVersionLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterMaxVersionLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ParameterMaxVersionLimitExceeded";
   $fault: "client";
   message?: string;
@@ -11592,8 +11280,7 @@ export interface ParameterMetadata {
 }
 
 export namespace ParameterMetadata {
-  export const isa = (o: any): o is ParameterMetadata =>
-    __isa(o, "ParameterMetadata");
+  export const isa = (o: any): o is ParameterMetadata => __isa(o, "ParameterMetadata");
 }
 
 /**
@@ -11606,16 +11293,13 @@ export interface ParameterNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ParameterNotFound {
-  export const isa = (o: any): o is ParameterNotFound =>
-    __isa(o, "ParameterNotFound");
+  export const isa = (o: any): o is ParameterNotFound => __isa(o, "ParameterNotFound");
 }
 
 /**
  * <p>The parameter name is not valid.</p>
  */
-export interface ParameterPatternMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterPatternMismatchException extends __SmithyException, $MetadataBearer {
   name: "ParameterPatternMismatchException";
   $fault: "client";
   /**
@@ -11668,8 +11352,7 @@ export interface ParameterStringFilter {
 }
 
 export namespace ParameterStringFilter {
-  export const isa = (o: any): o is ParameterStringFilter =>
-    __isa(o, "ParameterStringFilter");
+  export const isa = (o: any): o is ParameterStringFilter => __isa(o, "ParameterStringFilter");
 }
 
 export enum ParameterTier {
@@ -11687,9 +11370,7 @@ export enum ParameterType {
 /**
  * <p>A parameter version can have a maximum of ten labels.</p>
  */
-export interface ParameterVersionLabelLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterVersionLabelLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ParameterVersionLabelLimitExceeded";
   $fault: "client";
   message?: string;
@@ -11704,9 +11385,7 @@ export namespace ParameterVersionLabelLimitExceeded {
  * <p>The specified parameter version was not found. Verify the parameter name and version, and
  *    try again.</p>
  */
-export interface ParameterVersionNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterVersionNotFound extends __SmithyException, $MetadataBearer {
   name: "ParameterVersionNotFound";
   $fault: "client";
   message?: string;
@@ -11734,8 +11413,7 @@ export interface ParametersFilter {
 }
 
 export namespace ParametersFilter {
-  export const isa = (o: any): o is ParametersFilter =>
-    __isa(o, "ParametersFilter");
+  export const isa = (o: any): o is ParametersFilter => __isa(o, "ParametersFilter");
 }
 
 export enum ParametersFilterKey {
@@ -11860,8 +11538,7 @@ export interface PatchBaselineIdentity {
 }
 
 export namespace PatchBaselineIdentity {
-  export const isa = (o: any): o is PatchBaselineIdentity =>
-    __isa(o, "PatchBaselineIdentity");
+  export const isa = (o: any): o is PatchBaselineIdentity => __isa(o, "PatchBaselineIdentity");
 }
 
 /**
@@ -11906,8 +11583,7 @@ export interface PatchComplianceData {
 }
 
 export namespace PatchComplianceData {
-  export const isa = (o: any): o is PatchComplianceData =>
-    __isa(o, "PatchComplianceData");
+  export const isa = (o: any): o is PatchComplianceData => __isa(o, "PatchComplianceData");
 }
 
 export enum PatchComplianceDataState {
@@ -11982,8 +11658,7 @@ export interface PatchFilterGroup {
 }
 
 export namespace PatchFilterGroup {
-  export const isa = (o: any): o is PatchFilterGroup =>
-    __isa(o, "PatchFilterGroup");
+  export const isa = (o: any): o is PatchFilterGroup => __isa(o, "PatchFilterGroup");
 }
 
 export enum PatchFilterKey {
@@ -12042,8 +11717,7 @@ export interface PatchOrchestratorFilter {
 }
 
 export namespace PatchOrchestratorFilter {
-  export const isa = (o: any): o is PatchOrchestratorFilter =>
-    __isa(o, "PatchOrchestratorFilter");
+  export const isa = (o: any): o is PatchOrchestratorFilter => __isa(o, "PatchOrchestratorFilter");
 }
 
 export enum PatchProperty {
@@ -12103,8 +11777,7 @@ export interface PatchRuleGroup {
 }
 
 export namespace PatchRuleGroup {
-  export const isa = (o: any): o is PatchRuleGroup =>
-    __isa(o, "PatchRuleGroup");
+  export const isa = (o: any): o is PatchRuleGroup => __isa(o, "PatchRuleGroup");
 }
 
 export enum PatchSet {
@@ -12194,9 +11867,7 @@ export enum PlatformType {
  * <p>You specified more than the maximum number of allowed policies for the parameter. The
  *    maximum is 10.</p>
  */
-export interface PoliciesLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PoliciesLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "PoliciesLimitExceededException";
   $fault: "client";
   message?: string;
@@ -12245,8 +11916,7 @@ export interface ProgressCounters {
 }
 
 export namespace ProgressCounters {
-  export const isa = (o: any): o is ProgressCounters =>
-    __isa(o, "ProgressCounters");
+  export const isa = (o: any): o is ProgressCounters => __isa(o, "ProgressCounters");
 }
 
 export interface PutComplianceItemsRequest {
@@ -12318,8 +11988,7 @@ export interface PutInventoryRequest {
 }
 
 export namespace PutInventoryRequest {
-  export const isa = (o: any): o is PutInventoryRequest =>
-    __isa(o, "PutInventoryRequest");
+  export const isa = (o: any): o is PutInventoryRequest => __isa(o, "PutInventoryRequest");
 }
 
 export interface PutInventoryResult {
@@ -12331,8 +12000,7 @@ export interface PutInventoryResult {
 }
 
 export namespace PutInventoryResult {
-  export const isa = (o: any): o is PutInventoryResult =>
-    __isa(o, "PutInventoryResult");
+  export const isa = (o: any): o is PutInventoryResult => __isa(o, "PutInventoryResult");
 }
 
 export interface PutParameterRequest {
@@ -12556,8 +12224,7 @@ export interface PutParameterRequest {
 }
 
 export namespace PutParameterRequest {
-  export const isa = (o: any): o is PutParameterRequest =>
-    __isa(o, "PutParameterRequest");
+  export const isa = (o: any): o is PutParameterRequest => __isa(o, "PutParameterRequest");
 }
 
 export interface PutParameterResult {
@@ -12578,8 +12245,7 @@ export interface PutParameterResult {
 }
 
 export namespace PutParameterResult {
-  export const isa = (o: any): o is PutParameterResult =>
-    __isa(o, "PutParameterResult");
+  export const isa = (o: any): o is PutParameterResult => __isa(o, "PutParameterResult");
 }
 
 export enum RebootOption {
@@ -12736,9 +12402,7 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
 }
 
 export namespace RegisterTargetWithMaintenanceWindowRequest {
-  export const isa = (
-    o: any
-  ): o is RegisterTargetWithMaintenanceWindowRequest =>
+  export const isa = (o: any): o is RegisterTargetWithMaintenanceWindowRequest =>
     __isa(o, "RegisterTargetWithMaintenanceWindowRequest");
 }
 
@@ -12905,8 +12569,7 @@ export interface RelatedOpsItem {
 }
 
 export namespace RelatedOpsItem {
-  export const isa = (o: any): o is RelatedOpsItem =>
-    __isa(o, "RelatedOpsItem");
+  export const isa = (o: any): o is RelatedOpsItem => __isa(o, "RelatedOpsItem");
 }
 
 export interface RemoveTagsFromResourceRequest {
@@ -13006,8 +12669,7 @@ export interface ResolvedTargets {
 }
 
 export namespace ResolvedTargets {
-  export const isa = (o: any): o is ResolvedTargets =>
-    __isa(o, "ResolvedTargets");
+  export const isa = (o: any): o is ResolvedTargets => __isa(o, "ResolvedTargets");
 }
 
 /**
@@ -13065,9 +12727,7 @@ export namespace ResourceComplianceSummaryItem {
 /**
  * <p>A sync configuration with the same name already exists.</p>
  */
-export interface ResourceDataSyncAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceDataSyncAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceDataSyncAlreadyExistsException";
   $fault: "client";
   SyncName?: string;
@@ -13108,9 +12768,7 @@ export namespace ResourceDataSyncAwsOrganizationsSource {
  * <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
  *    and try again.</p>
  */
-export interface ResourceDataSyncConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceDataSyncConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceDataSyncConflictException";
   $fault: "client";
   Message?: string;
@@ -13124,9 +12782,7 @@ export namespace ResourceDataSyncConflictException {
 /**
  * <p>You have exceeded the allowed maximum sync configurations.</p>
  */
-export interface ResourceDataSyncCountExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceDataSyncCountExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceDataSyncCountExceededException";
   $fault: "client";
   Message?: string;
@@ -13149,9 +12805,7 @@ export interface ResourceDataSyncInvalidConfigurationException
 }
 
 export namespace ResourceDataSyncInvalidConfigurationException {
-  export const isa = (
-    o: any
-  ): o is ResourceDataSyncInvalidConfigurationException =>
+  export const isa = (o: any): o is ResourceDataSyncInvalidConfigurationException =>
     __isa(o, "ResourceDataSyncInvalidConfigurationException");
 }
 
@@ -13216,16 +12870,13 @@ export interface ResourceDataSyncItem {
 }
 
 export namespace ResourceDataSyncItem {
-  export const isa = (o: any): o is ResourceDataSyncItem =>
-    __isa(o, "ResourceDataSyncItem");
+  export const isa = (o: any): o is ResourceDataSyncItem => __isa(o, "ResourceDataSyncItem");
 }
 
 /**
  * <p>The specified sync name was not found.</p>
  */
-export interface ResourceDataSyncNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceDataSyncNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceDataSyncNotFoundException";
   $fault: "client";
   Message?: string;
@@ -13326,8 +12977,7 @@ export interface ResourceDataSyncSource {
 }
 
 export namespace ResourceDataSyncSource {
-  export const isa = (o: any): o is ResourceDataSyncSource =>
-    __isa(o, "ResourceDataSyncSource");
+  export const isa = (o: any): o is ResourceDataSyncSource => __isa(o, "ResourceDataSyncSource");
 }
 
 /**
@@ -13400,17 +13050,14 @@ export namespace ResourceDataSyncSourceWithState {
  * <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
  *    patch group.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -13419,9 +13066,7 @@ export namespace ResourceInUseException {
  *          <p>For information about resource quotas in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager Service Quotas</a> in the
  *         <i>AWS General Reference</i>.</p>
  */
-export interface ResourceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -13460,8 +13105,7 @@ export interface ResultAttribute {
 }
 
 export namespace ResultAttribute {
-  export const isa = (o: any): o is ResultAttribute =>
-    __isa(o, "ResultAttribute");
+  export const isa = (o: any): o is ResultAttribute => __isa(o, "ResultAttribute");
 }
 
 export interface ResumeSessionRequest {
@@ -13473,8 +13117,7 @@ export interface ResumeSessionRequest {
 }
 
 export namespace ResumeSessionRequest {
-  export const isa = (o: any): o is ResumeSessionRequest =>
-    __isa(o, "ResumeSessionRequest");
+  export const isa = (o: any): o is ResumeSessionRequest => __isa(o, "ResumeSessionRequest");
 }
 
 export interface ResumeSessionResponse {
@@ -13506,8 +13149,7 @@ export interface ResumeSessionResponse {
 }
 
 export namespace ResumeSessionResponse {
-  export const isa = (o: any): o is ResumeSessionResponse =>
-    __isa(o, "ResumeSessionResponse");
+  export const isa = (o: any): o is ResumeSessionResponse => __isa(o, "ResumeSessionResponse");
 }
 
 /**
@@ -13533,8 +13175,7 @@ export interface S3OutputLocation {
 }
 
 export namespace S3OutputLocation {
-  export const isa = (o: any): o is S3OutputLocation =>
-    __isa(o, "S3OutputLocation");
+  export const isa = (o: any): o is S3OutputLocation => __isa(o, "S3OutputLocation");
 }
 
 /**
@@ -13748,8 +13389,7 @@ export interface SendCommandRequest {
 }
 
 export namespace SendCommandRequest {
-  export const isa = (o: any): o is SendCommandRequest =>
-    __isa(o, "SendCommandRequest");
+  export const isa = (o: any): o is SendCommandRequest => __isa(o, "SendCommandRequest");
 }
 
 export interface SendCommandResult {
@@ -13762,8 +13402,7 @@ export interface SendCommandResult {
 }
 
 export namespace SendCommandResult {
-  export const isa = (o: any): o is SendCommandResult =>
-    __isa(o, "SendCommandResult");
+  export const isa = (o: any): o is SendCommandResult => __isa(o, "SendCommandResult");
 }
 
 /**
@@ -13831,25 +13470,21 @@ export interface ServiceSetting {
 }
 
 export namespace ServiceSetting {
-  export const isa = (o: any): o is ServiceSetting =>
-    __isa(o, "ServiceSetting");
+  export const isa = (o: any): o is ServiceSetting => __isa(o, "ServiceSetting");
 }
 
 /**
  * <p>The specified service setting was not found. Either the service name or the setting has not
  *    been provisioned by the AWS service team.</p>
  */
-export interface ServiceSettingNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceSettingNotFound extends __SmithyException, $MetadataBearer {
   name: "ServiceSettingNotFound";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceSettingNotFound {
-  export const isa = (o: any): o is ServiceSettingNotFound =>
-    __isa(o, "ServiceSettingNotFound");
+  export const isa = (o: any): o is ServiceSettingNotFound => __isa(o, "ServiceSettingNotFound");
 }
 
 /**
@@ -13993,8 +13628,7 @@ export interface SessionManagerOutputUrl {
 }
 
 export namespace SessionManagerOutputUrl {
-  export const isa = (o: any): o is SessionManagerOutputUrl =>
-    __isa(o, "SessionManagerOutputUrl");
+  export const isa = (o: any): o is SessionManagerOutputUrl => __isa(o, "SessionManagerOutputUrl");
 }
 
 export enum SessionState {
@@ -14057,8 +13691,7 @@ export interface SeveritySummary {
 }
 
 export namespace SeveritySummary {
-  export const isa = (o: any): o is SeveritySummary =>
-    __isa(o, "SeveritySummary");
+  export const isa = (o: any): o is SeveritySummary => __isa(o, "SeveritySummary");
 }
 
 export enum SignalType {
@@ -14233,8 +13866,7 @@ export interface StartSessionRequest {
 }
 
 export namespace StartSessionRequest {
-  export const isa = (o: any): o is StartSessionRequest =>
-    __isa(o, "StartSessionRequest");
+  export const isa = (o: any): o is StartSessionRequest => __isa(o, "StartSessionRequest");
 }
 
 export interface StartSessionResponse {
@@ -14267,8 +13899,7 @@ export interface StartSessionResponse {
 }
 
 export namespace StartSessionResponse {
-  export const isa = (o: any): o is StartSessionResponse =>
-    __isa(o, "StartSessionResponse");
+  export const isa = (o: any): o is StartSessionResponse => __isa(o, "StartSessionResponse");
 }
 
 /**
@@ -14280,8 +13911,7 @@ export interface StatusUnchanged extends __SmithyException, $MetadataBearer {
 }
 
 export namespace StatusUnchanged {
-  export const isa = (o: any): o is StatusUnchanged =>
-    __isa(o, "StatusUnchanged");
+  export const isa = (o: any): o is StatusUnchanged => __isa(o, "StatusUnchanged");
 }
 
 /**
@@ -14430,8 +14060,7 @@ export interface StepExecutionFilter {
 }
 
 export namespace StepExecutionFilter {
-  export const isa = (o: any): o is StepExecutionFilter =>
-    __isa(o, "StepExecutionFilter");
+  export const isa = (o: any): o is StepExecutionFilter => __isa(o, "StepExecutionFilter");
 }
 
 export enum StepExecutionFilterKey {
@@ -14479,9 +14108,7 @@ export enum StopType {
 /**
  * <p>The sub-type count exceeded the limit for the inventory type.</p>
  */
-export interface SubTypeCountLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubTypeCountLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "SubTypeCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -14621,17 +14248,14 @@ export namespace Target {
  * <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
  *    operation, but the target is still referenced in a task.</p>
  */
-export interface TargetInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TargetInUseException extends __SmithyException, $MetadataBearer {
   name: "TargetInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TargetInUseException {
-  export const isa = (o: any): o is TargetInUseException =>
-    __isa(o, "TargetInUseException");
+  export const isa = (o: any): o is TargetInUseException => __isa(o, "TargetInUseException");
 }
 
 /**
@@ -14669,8 +14293,7 @@ export interface TargetLocation {
 }
 
 export namespace TargetLocation {
-  export const isa = (o: any): o is TargetLocation =>
-    __isa(o, "TargetLocation");
+  export const isa = (o: any): o is TargetLocation => __isa(o, "TargetLocation");
 }
 
 /**
@@ -14685,8 +14308,7 @@ export interface TargetNotConnected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TargetNotConnected {
-  export const isa = (o: any): o is TargetNotConnected =>
-    __isa(o, "TargetNotConnected");
+  export const isa = (o: any): o is TargetNotConnected => __isa(o, "TargetNotConnected");
 }
 
 export interface TerminateSessionRequest {
@@ -14698,8 +14320,7 @@ export interface TerminateSessionRequest {
 }
 
 export namespace TerminateSessionRequest {
-  export const isa = (o: any): o is TerminateSessionRequest =>
-    __isa(o, "TerminateSessionRequest");
+  export const isa = (o: any): o is TerminateSessionRequest => __isa(o, "TerminateSessionRequest");
 }
 
 export interface TerminateSessionResponse {
@@ -14725,8 +14346,7 @@ export interface TooManyTagsError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyTagsError {
-  export const isa = (o: any): o is TooManyTagsError =>
-    __isa(o, "TooManyTagsError");
+  export const isa = (o: any): o is TooManyTagsError => __isa(o, "TooManyTagsError");
 }
 
 /**
@@ -14739,16 +14359,13 @@ export interface TooManyUpdates extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyUpdates {
-  export const isa = (o: any): o is TooManyUpdates =>
-    __isa(o, "TooManyUpdates");
+  export const isa = (o: any): o is TooManyUpdates => __isa(o, "TooManyUpdates");
 }
 
 /**
  * <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  */
-export interface TotalSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TotalSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TotalSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -14762,9 +14379,7 @@ export namespace TotalSizeLimitExceededException {
 /**
  * <p>The calendar entry contained in the specified Systems Manager document is not supported.</p>
  */
-export interface UnsupportedCalendarException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedCalendarException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedCalendarException";
   $fault: "client";
   Message?: string;
@@ -14781,9 +14396,7 @@ export namespace UnsupportedCalendarException {
  *    For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Using the Advanced-Instances
  *     Tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  */
-export interface UnsupportedFeatureRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedFeatureRequiredException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedFeatureRequiredException";
   $fault: "client";
   Message?: string;
@@ -14826,9 +14439,7 @@ export interface UnsupportedInventorySchemaVersionException
 }
 
 export namespace UnsupportedInventorySchemaVersionException {
-  export const isa = (
-    o: any
-  ): o is UnsupportedInventorySchemaVersionException =>
+  export const isa = (o: any): o is UnsupportedInventorySchemaVersionException =>
     __isa(o, "UnsupportedInventorySchemaVersionException");
 }
 
@@ -14837,9 +14448,7 @@ export namespace UnsupportedInventorySchemaVersionException {
  *    the operating system. Valid operating systems include: Windows, AmazonLinux,
  *    RedhatEnterpriseLinux, and Ubuntu.</p>
  */
-export interface UnsupportedOperatingSystem
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperatingSystem extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperatingSystem";
   $fault: "client";
   Message?: string;
@@ -14853,9 +14462,7 @@ export namespace UnsupportedOperatingSystem {
 /**
  * <p>The parameter type is not supported.</p>
  */
-export interface UnsupportedParameterType
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedParameterType extends __SmithyException, $MetadataBearer {
   name: "UnsupportedParameterType";
   $fault: "client";
   message?: string;
@@ -14870,17 +14477,14 @@ export namespace UnsupportedParameterType {
  * <p>The document does not support the platform type of the given instance ID(s). For example,
  *    you sent an document for a Windows instance to a Linux instance.</p>
  */
-export interface UnsupportedPlatformType
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedPlatformType extends __SmithyException, $MetadataBearer {
   name: "UnsupportedPlatformType";
   $fault: "client";
   Message?: string;
 }
 
 export namespace UnsupportedPlatformType {
-  export const isa = (o: any): o is UnsupportedPlatformType =>
-    __isa(o, "UnsupportedPlatformType");
+  export const isa = (o: any): o is UnsupportedPlatformType => __isa(o, "UnsupportedPlatformType");
 }
 
 export interface UpdateAssociationRequest {
@@ -15001,8 +14605,7 @@ export interface UpdateAssociationResult {
 }
 
 export namespace UpdateAssociationResult {
-  export const isa = (o: any): o is UpdateAssociationResult =>
-    __isa(o, "UpdateAssociationResult");
+  export const isa = (o: any): o is UpdateAssociationResult => __isa(o, "UpdateAssociationResult");
 }
 
 export interface UpdateAssociationStatusRequest {
@@ -15114,8 +14717,7 @@ export interface UpdateDocumentRequest {
 }
 
 export namespace UpdateDocumentRequest {
-  export const isa = (o: any): o is UpdateDocumentRequest =>
-    __isa(o, "UpdateDocumentRequest");
+  export const isa = (o: any): o is UpdateDocumentRequest => __isa(o, "UpdateDocumentRequest");
 }
 
 export interface UpdateDocumentResult {
@@ -15127,8 +14729,7 @@ export interface UpdateDocumentResult {
 }
 
 export namespace UpdateDocumentResult {
-  export const isa = (o: any): o is UpdateDocumentResult =>
-    __isa(o, "UpdateDocumentResult");
+  export const isa = (o: any): o is UpdateDocumentResult => __isa(o, "UpdateDocumentResult");
 }
 
 export interface UpdateMaintenanceWindowRequest {
@@ -15690,8 +15291,7 @@ export interface UpdateOpsItemRequest {
 }
 
 export namespace UpdateOpsItemRequest {
-  export const isa = (o: any): o is UpdateOpsItemRequest =>
-    __isa(o, "UpdateOpsItemRequest");
+  export const isa = (o: any): o is UpdateOpsItemRequest => __isa(o, "UpdateOpsItemRequest");
 }
 
 export interface UpdateOpsItemResponse {
@@ -15699,8 +15299,7 @@ export interface UpdateOpsItemResponse {
 }
 
 export namespace UpdateOpsItemResponse {
-  export const isa = (o: any): o is UpdateOpsItemResponse =>
-    __isa(o, "UpdateOpsItemResponse");
+  export const isa = (o: any): o is UpdateOpsItemResponse => __isa(o, "UpdateOpsItemResponse");
 }
 
 export interface UpdatePatchBaselineRequest {

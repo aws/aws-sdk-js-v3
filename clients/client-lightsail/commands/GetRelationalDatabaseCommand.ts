@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetRelationalDatabaseRequest,
-  GetRelationalDatabaseResult
-} from "../models/index";
+import { GetRelationalDatabaseRequest, GetRelationalDatabaseResult } from "../models/index";
 import {
   deserializeAws_json1_1GetRelationalDatabaseCommand,
   serializeAws_json1_1GetRelationalDatabaseCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseCommandInput = GetRelationalDatabaseRequest;
-export type GetRelationalDatabaseCommandOutput = GetRelationalDatabaseResult &
-  __MetadataBearer;
+export type GetRelationalDatabaseCommandOutput = GetRelationalDatabaseResult & __MetadataBearer;
 
 export class GetRelationalDatabaseCommand extends $Command<
   GetRelationalDatabaseCommandInput,
@@ -49,13 +45,8 @@ export class GetRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRelationalDatabaseCommandInput,
-    GetRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRelationalDatabaseCommandInput, GetRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

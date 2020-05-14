@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  DeclineHandshakeRequest,
-  DeclineHandshakeResponse
-} from "../models/index";
+import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeclineHandshakeCommand,
   serializeAws_json1_1DeclineHandshakeCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
-export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse &
-  __MetadataBearer;
+export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse & __MetadataBearer;
 
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,
@@ -50,9 +46,7 @@ export class DeclineHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

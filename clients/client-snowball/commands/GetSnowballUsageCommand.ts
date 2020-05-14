@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  GetSnowballUsageRequest,
-  GetSnowballUsageResult
-} from "../models/index";
+import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/index";
 import {
   deserializeAws_json1_1GetSnowballUsageCommand,
   serializeAws_json1_1GetSnowballUsageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSnowballUsageCommandInput = GetSnowballUsageRequest;
-export type GetSnowballUsageCommandOutput = GetSnowballUsageResult &
-  __MetadataBearer;
+export type GetSnowballUsageCommandOutput = GetSnowballUsageResult & __MetadataBearer;
 
 export class GetSnowballUsageCommand extends $Command<
   GetSnowballUsageCommandInput,
@@ -50,9 +46,7 @@ export class GetSnowballUsageCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

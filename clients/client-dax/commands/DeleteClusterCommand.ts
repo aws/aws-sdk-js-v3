@@ -1,8 +1,4 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterCommandInput = DeleteClusterRequest;
-export type DeleteClusterCommandOutput = DeleteClusterResponse &
-  __MetadataBearer;
+export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
@@ -47,9 +42,7 @@ export class DeleteClusterCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

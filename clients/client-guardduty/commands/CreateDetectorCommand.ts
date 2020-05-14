@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDetectorCommandInput = CreateDetectorRequest;
-export type CreateDetectorCommandOutput = CreateDetectorResponse &
-  __MetadataBearer;
+export type CreateDetectorCommandOutput = CreateDetectorResponse & __MetadataBearer;
 
 export class CreateDetectorCommand extends $Command<
   CreateDetectorCommandInput,
@@ -47,9 +46,7 @@ export class CreateDetectorCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDetectorCommandInput, CreateDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

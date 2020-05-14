@@ -86,10 +86,7 @@ export const serializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.detectors !== undefined && {
-      detectors: serializeAws_restJson1_1UpdateDetectorRequests(
-        input.detectors,
-        context
-      )
+      detectors: serializeAws_restJson1_1UpdateDetectorRequests(input.detectors, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -115,18 +112,14 @@ export const serializeAws_restJson1_1DescribeDetectorCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
     ...(input.keyValue !== undefined && { keyValue: input.keyValue })
@@ -156,18 +149,14 @@ export const serializeAws_restJson1_1ListDetectorsCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
       __extendedEncodeURIComponent(labelValue)
     );
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -195,10 +184,7 @@ export const deserializeAws_restJson1_1BatchPutMessageCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1BatchPutMessageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchPutMessageCommandError(output, context);
   }
   const contents: BatchPutMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -206,10 +192,7 @@ export const deserializeAws_restJson1_1BatchPutMessageCommand = async (
     BatchPutMessageErrorEntries: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BatchPutMessageErrorEntries !== undefined &&
-    data.BatchPutMessageErrorEntries !== null
-  ) {
+  if (data.BatchPutMessageErrorEntries !== undefined && data.BatchPutMessageErrorEntries !== null) {
     contents.BatchPutMessageErrorEntries = deserializeAws_restJson1_1BatchPutMessageErrorEntries(
       data.BatchPutMessageErrorEntries,
       context
@@ -244,10 +227,7 @@ const deserializeAws_restJson1_1BatchPutMessageCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -266,10 +246,7 @@ const deserializeAws_restJson1_1BatchPutMessageCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -296,10 +273,7 @@ export const deserializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchUpdateDetectorCommandError(output, context);
   }
   const contents: BatchUpdateDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -345,10 +319,7 @@ const deserializeAws_restJson1_1BatchUpdateDetectorCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -367,10 +338,7 @@ const deserializeAws_restJson1_1BatchUpdateDetectorCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -397,10 +365,7 @@ export const deserializeAws_restJson1_1DescribeDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDetectorCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDetectorCommandError(output, context);
   }
   const contents: DescribeDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -409,10 +374,7 @@ export const deserializeAws_restJson1_1DescribeDetectorCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.detector !== undefined && data.detector !== null) {
-    contents.detector = deserializeAws_restJson1_1Detector(
-      data.detector,
-      context
-    );
+    contents.detector = deserializeAws_restJson1_1Detector(data.detector, context);
   }
   return Promise.resolve(contents);
 };
@@ -443,10 +405,7 @@ const deserializeAws_restJson1_1DescribeDetectorCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -476,10 +435,7 @@ const deserializeAws_restJson1_1DescribeDetectorCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -553,10 +509,7 @@ const deserializeAws_restJson1_1ListDetectorsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -586,10 +539,7 @@ const deserializeAws_restJson1_1ListDetectorsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -706,18 +656,12 @@ const serializeAws_restJson1_1DetectorStateDefinition = (
       timers: serializeAws_restJson1_1TimerDefinitions(input.timers, context)
     }),
     ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1_1VariableDefinitions(
-        input.variables,
-        context
-      )
+      variables: serializeAws_restJson1_1VariableDefinitions(input.variables, context)
     })
   };
 };
 
-const serializeAws_restJson1_1Message = (
-  input: Message,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Message = (input: Message, context: __SerdeContext): any => {
   return {
     ...(input.inputName !== undefined && { inputName: input.inputName }),
     ...(input.messageId !== undefined && { messageId: input.messageId }),
@@ -727,10 +671,7 @@ const serializeAws_restJson1_1Message = (
   };
 };
 
-const serializeAws_restJson1_1Messages = (
-  input: Message[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Messages = (input: Message[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Message(entry, context));
 };
 
@@ -748,9 +689,7 @@ const serializeAws_restJson1_1TimerDefinitions = (
   input: TimerDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1TimerDefinition(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1TimerDefinition(entry, context));
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequest = (
@@ -764,10 +703,7 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
     ...(input.messageId !== undefined && { messageId: input.messageId }),
     ...(input.state !== undefined && {
-      state: serializeAws_restJson1_1DetectorStateDefinition(
-        input.state,
-        context
-      )
+      state: serializeAws_restJson1_1DetectorStateDefinition(input.state, context)
     })
   };
 };
@@ -776,9 +712,7 @@ const serializeAws_restJson1_1UpdateDetectorRequests = (
   input: UpdateDetectorRequest[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1UpdateDetectorRequest(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1UpdateDetectorRequest(entry, context));
 };
 
 const serializeAws_restJson1_1VariableDefinition = (
@@ -795,9 +729,7 @@ const serializeAws_restJson1_1VariableDefinitions = (
   input: VariableDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1VariableDefinition(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1VariableDefinition(entry, context));
 };
 
 const deserializeAws_restJson1_1BatchPutMessageErrorEntries = (
@@ -816,17 +748,13 @@ const deserializeAws_restJson1_1BatchPutMessageErrorEntry = (
   return {
     __type: "BatchPutMessageErrorEntry",
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage:
       output.errorMessage !== undefined && output.errorMessage !== null
         ? output.errorMessage
         : undefined,
     messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined
+      output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined
   } as any;
 };
 
@@ -846,24 +774,17 @@ const deserializeAws_restJson1_1BatchUpdateDetectorErrorEntry = (
   return {
     __type: "BatchUpdateDetectorErrorEntry",
     errorCode:
-      output.errorCode !== undefined && output.errorCode !== null
-        ? output.errorCode
-        : undefined,
+      output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage:
       output.errorMessage !== undefined && output.errorMessage !== null
         ? output.errorMessage
         : undefined,
     messageId:
-      output.messageId !== undefined && output.messageId !== null
-        ? output.messageId
-        : undefined
+      output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Detector = (
-  output: any,
-  context: __SerdeContext
-): Detector => {
+const deserializeAws_restJson1_1Detector = (output: any, context: __SerdeContext): Detector => {
   return {
     __type: "Detector",
     creationTime:
@@ -871,19 +792,15 @@ const deserializeAws_restJson1_1Detector = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
+      output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
         : undefined,
     detectorModelVersion:
-      output.detectorModelVersion !== undefined &&
-      output.detectorModelVersion !== null
+      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
         ? output.detectorModelVersion
         : undefined,
     keyValue:
-      output.keyValue !== undefined && output.keyValue !== null
-        ? output.keyValue
-        : undefined,
+      output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -902,9 +819,7 @@ const deserializeAws_restJson1_1DetectorState = (
   return {
     __type: "DetectorState",
     stateName:
-      output.stateName !== undefined && output.stateName !== null
-        ? output.stateName
-        : undefined,
+      output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
     timers:
       output.timers !== undefined && output.timers !== null
         ? deserializeAws_restJson1_1Timers(output.timers, context)
@@ -923,9 +838,7 @@ const deserializeAws_restJson1_1DetectorStateSummary = (
   return {
     __type: "DetectorStateSummary",
     stateName:
-      output.stateName !== undefined && output.stateName !== null
-        ? output.stateName
-        : undefined
+      output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined
   } as any;
 };
 
@@ -949,19 +862,15 @@ const deserializeAws_restJson1_1DetectorSummary = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
+      output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
         : undefined,
     detectorModelVersion:
-      output.detectorModelVersion !== undefined &&
-      output.detectorModelVersion !== null
+      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
         ? output.detectorModelVersion
         : undefined,
     keyValue:
-      output.keyValue !== undefined && output.keyValue !== null
-        ? output.keyValue
-        : undefined,
+      output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -973,16 +882,10 @@ const deserializeAws_restJson1_1DetectorSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Timer = (
-  output: any,
-  context: __SerdeContext
-): Timer => {
+const deserializeAws_restJson1_1Timer = (output: any, context: __SerdeContext): Timer => {
   return {
     __type: "Timer",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -990,39 +893,20 @@ const deserializeAws_restJson1_1Timer = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Timers = (
-  output: any,
-  context: __SerdeContext
-): Timer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Timer(entry, context)
-  );
+const deserializeAws_restJson1_1Timers = (output: any, context: __SerdeContext): Timer[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Timer(entry, context));
 };
 
-const deserializeAws_restJson1_1Variable = (
-  output: any,
-  context: __SerdeContext
-): Variable => {
+const deserializeAws_restJson1_1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
     __type: "Variable",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Variables = (
-  output: any,
-  context: __SerdeContext
-): Variable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Variable(entry, context)
-  );
+const deserializeAws_restJson1_1Variables = (output: any, context: __SerdeContext): Variable[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Variable(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1039,23 +923,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeClient";
-import {
-  DescribeSolutionRequest,
-  DescribeSolutionResponse
-} from "../models/index";
+import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSolutionCommand,
   serializeAws_json1_1DescribeSolutionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSolutionCommandInput = DescribeSolutionRequest;
-export type DescribeSolutionCommandOutput = DescribeSolutionResponse &
-  __MetadataBearer;
+export type DescribeSolutionCommandOutput = DescribeSolutionResponse & __MetadataBearer;
 
 export class DescribeSolutionCommand extends $Command<
   DescribeSolutionCommandInput,
@@ -50,9 +46,7 @@ export class DescribeSolutionCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSolutionCommandInput, DescribeSolutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

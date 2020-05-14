@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddFlowOutputsCommandInput = AddFlowOutputsRequest;
-export type AddFlowOutputsCommandOutput = AddFlowOutputsResponse &
-  __MetadataBearer;
+export type AddFlowOutputsCommandOutput = AddFlowOutputsResponse & __MetadataBearer;
 
 export class AddFlowOutputsCommand extends $Command<
   AddFlowOutputsCommandInput,
@@ -47,9 +46,7 @@ export class AddFlowOutputsCommand extends $Command<
     configuration: MediaConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SecretsManagerClient";
-import {
-  GetRandomPasswordRequest,
-  GetRandomPasswordResponse
-} from "../models/index";
+import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetRandomPasswordCommand,
   serializeAws_json1_1GetRandomPasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRandomPasswordCommandInput = GetRandomPasswordRequest;
-export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse &
-  __MetadataBearer;
+export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse & __MetadataBearer;
 
 export class GetRandomPasswordCommand extends $Command<
   GetRandomPasswordCommandInput,
@@ -50,9 +46,7 @@ export class GetRandomPasswordCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRandomPasswordCommandInput, GetRandomPasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBParameterGroupsMessage,
-  DescribeDBParameterGroupsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBParameterGroupsMessage, DescribeDBParameterGroupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBParameterGroupsCommand,
   serializeAws_queryDescribeDBParameterGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
-export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage &
-  __MetadataBearer;
+export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage & __MetadataBearer;
 
 export class DescribeDBParameterGroupsCommand extends $Command<
   DescribeDBParameterGroupsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBParameterGroupsCommandInput,
-    DescribeDBParameterGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBParameterGroupsCommandInput, DescribeDBParameterGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribeDBParameterGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBParameterGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

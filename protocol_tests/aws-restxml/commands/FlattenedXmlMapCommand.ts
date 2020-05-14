@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FlattenedXmlMapCommandInput = FlattenedXmlMapInputOutput;
-export type FlattenedXmlMapCommandOutput = FlattenedXmlMapInputOutput &
-  __MetadataBearer;
+export type FlattenedXmlMapCommandOutput = FlattenedXmlMapInputOutput & __MetadataBearer;
 
 export class FlattenedXmlMapCommand extends $Command<
   FlattenedXmlMapCommandInput,
@@ -47,9 +46,7 @@ export class FlattenedXmlMapCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

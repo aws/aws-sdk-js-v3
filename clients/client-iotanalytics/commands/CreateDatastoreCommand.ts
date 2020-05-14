@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoTAnalyticsClient";
-import {
-  CreateDatastoreRequest,
-  CreateDatastoreResponse
-} from "../models/index";
+import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDatastoreCommand,
   serializeAws_restJson1_1CreateDatastoreCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatastoreCommandInput = CreateDatastoreRequest;
-export type CreateDatastoreCommandOutput = CreateDatastoreResponse &
-  __MetadataBearer;
+export type CreateDatastoreCommandOutput = CreateDatastoreResponse & __MetadataBearer;
 
 export class CreateDatastoreCommand extends $Command<
   CreateDatastoreCommandInput,
@@ -50,9 +46,7 @@ export class CreateDatastoreCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatastoreCommandInput, CreateDatastoreCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

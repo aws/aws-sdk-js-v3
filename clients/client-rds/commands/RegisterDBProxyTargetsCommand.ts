@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  RegisterDBProxyTargetsRequest,
-  RegisterDBProxyTargetsResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/index";
 import {
   deserializeAws_queryRegisterDBProxyTargetsCommand,
   serializeAws_queryRegisterDBProxyTargetsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterDBProxyTargetsCommandInput = RegisterDBProxyTargetsRequest;
-export type RegisterDBProxyTargetsCommandOutput = RegisterDBProxyTargetsResponse &
-  __MetadataBearer;
+export type RegisterDBProxyTargetsCommandOutput = RegisterDBProxyTargetsResponse & __MetadataBearer;
 
 export class RegisterDBProxyTargetsCommand extends $Command<
   RegisterDBProxyTargetsCommandInput,
@@ -49,13 +41,8 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterDBProxyTargetsCommandInput,
-    RegisterDBProxyTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterDBProxyTargetsCommandInput, RegisterDBProxyTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

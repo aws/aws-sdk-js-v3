@@ -1,8 +1,4 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   ListTaskDefinitionFamiliesRequest,
   ListTaskDefinitionFamiliesResponse
@@ -49,13 +45,8 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTaskDefinitionFamiliesCommandInput,
-    ListTaskDefinitionFamiliesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTaskDefinitionFamiliesCommandInput, ListTaskDefinitionFamiliesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
     input: ListTaskDefinitionFamiliesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTaskDefinitionFamiliesCommandOutput> {
-    return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CopyImageRequest, CopyImageResult } from "../models/index";
 import {
   deserializeAws_ec2CopyImageCommand,
@@ -46,9 +42,7 @@ export class CopyImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyImageCommandInput, CopyImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class CopyImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopyImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CopyImageCommand(input, context);
   }
 

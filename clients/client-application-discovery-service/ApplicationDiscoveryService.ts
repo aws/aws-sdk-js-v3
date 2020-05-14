@@ -265,31 +265,19 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput>;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): void;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): void;
   public associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateConfigurationItemsToApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateConfigurationItemsToApplicationCommandOutput
-    ) => void
+      | ((err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void),
+    cb?: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput> | void {
     const command = new AssociateConfigurationItemsToApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -399,9 +387,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
@@ -471,9 +457,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
@@ -508,9 +492,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeAgents(
     args: DescribeAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAgentsCommandOutput) => void
   ): Promise<DescribeAgentsCommandOutput> | void {
     const command = new DescribeAgentsCommand(args);
@@ -763,9 +745,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
@@ -789,37 +769,21 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput>;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
   ): void;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
   ): void;
   public disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateConfigurationItemsFromApplicationCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateConfigurationItemsFromApplicationCommandOutput
-  > | void {
-    const command = new DisassociateConfigurationItemsFromApplicationCommand(
-      args
-    );
+      | ((err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
+  ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> | void {
+    const command = new DisassociateConfigurationItemsFromApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1077,9 +1041,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startExportTask(
     args: StartExportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartExportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportTaskCommandOutput) => void),
     cb?: (err: any, data?: StartExportTaskCommandOutput) => void
   ): Promise<StartExportTaskCommandOutput> | void {
     const command = new StartExportTaskCommand(args);
@@ -1147,9 +1109,7 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   ): void;
   public startImportTask(
     args: StartImportTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImportTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportTaskCommandOutput) => void),
     cb?: (err: any, data?: StartImportTaskCommandOutput) => void
   ): Promise<StartImportTaskCommandOutput> | void {
     const command = new StartImportTaskCommand(args);

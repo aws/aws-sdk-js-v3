@@ -49,13 +49,8 @@ export class DescribeStandardsControlsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStandardsControlsCommandInput,
-    DescribeStandardsControlsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStandardsControlsCommandInput, DescribeStandardsControlsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeStandardsControlsCommand extends $Command<
     input: DescribeStandardsControlsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeStandardsControlsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeStandardsControlsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStandardsControlsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeStandardsControlsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeStandardsControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

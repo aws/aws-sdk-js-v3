@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   GetIdentityVerificationAttributesRequest,
   GetIdentityVerificationAttributesResponse
@@ -53,9 +49,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     GetIdentityVerificationAttributesCommandInput,
     GetIdentityVerificationAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityVerificationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityVerificationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityVerificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

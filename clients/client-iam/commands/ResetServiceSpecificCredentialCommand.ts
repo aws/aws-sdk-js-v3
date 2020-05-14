@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ResetServiceSpecificCredentialRequest,
   ResetServiceSpecificCredentialResponse
@@ -53,9 +49,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     ResetServiceSpecificCredentialCommandInput,
     ResetServiceSpecificCredentialCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     input: ResetServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryResetServiceSpecificCredentialCommand(
-      input,
-      context
-    );
+    return serializeAws_queryResetServiceSpecificCredentialCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryResetServiceSpecificCredentialCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryResetServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

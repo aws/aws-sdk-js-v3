@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  PublishLayerVersionRequest,
-  PublishLayerVersionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { PublishLayerVersionRequest, PublishLayerVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PublishLayerVersionCommand,
   serializeAws_restJson1_1PublishLayerVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PublishLayerVersionCommandInput = PublishLayerVersionRequest;
-export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse &
-  __MetadataBearer;
+export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse & __MetadataBearer;
 
 export class PublishLayerVersionCommand extends $Command<
   PublishLayerVersionCommandInput,
@@ -49,13 +41,8 @@ export class PublishLayerVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PublishLayerVersionCommandInput,
-    PublishLayerVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PublishLayerVersionCommandInput, PublishLayerVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class PublishLayerVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PublishLayerVersionCommandOutput> {
-    return deserializeAws_restJson1_1PublishLayerVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PublishLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

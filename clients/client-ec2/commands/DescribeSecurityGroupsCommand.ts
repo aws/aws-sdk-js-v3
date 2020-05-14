@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeSecurityGroupsRequest,
-  DescribeSecurityGroupsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeSecurityGroupsCommand,
   serializeAws_ec2DescribeSecurityGroupsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSecurityGroupsCommandInput = DescribeSecurityGroupsRequest;
-export type DescribeSecurityGroupsCommandOutput = DescribeSecurityGroupsResult &
-  __MetadataBearer;
+export type DescribeSecurityGroupsCommandOutput = DescribeSecurityGroupsResult & __MetadataBearer;
 
 export class DescribeSecurityGroupsCommand extends $Command<
   DescribeSecurityGroupsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSecurityGroupsCommandInput,
-    DescribeSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSecurityGroupsCommandInput, DescribeSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  RegisterElasticIpRequest,
-  RegisterElasticIpResult
-} from "../models/index";
+import { RegisterElasticIpRequest, RegisterElasticIpResult } from "../models/index";
 import {
   deserializeAws_json1_1RegisterElasticIpCommand,
   serializeAws_json1_1RegisterElasticIpCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterElasticIpCommandInput = RegisterElasticIpRequest;
-export type RegisterElasticIpCommandOutput = RegisterElasticIpResult &
-  __MetadataBearer;
+export type RegisterElasticIpCommandOutput = RegisterElasticIpResult & __MetadataBearer;
 
 export class RegisterElasticIpCommand extends $Command<
   RegisterElasticIpCommandInput,
@@ -50,9 +46,7 @@ export class RegisterElasticIpCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterElasticIpCommandInput, RegisterElasticIpCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

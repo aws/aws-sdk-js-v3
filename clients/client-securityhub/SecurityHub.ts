@@ -256,9 +256,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
@@ -439,9 +437,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public createInsight(
     args: CreateInsightCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInsightCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInsightCommandOutput) => void),
     cb?: (err: any, data?: CreateInsightCommandOutput) => void
   ): Promise<CreateInsightCommandOutput> | void {
     const command = new CreateInsightCommand(args);
@@ -485,9 +481,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
@@ -591,9 +585,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteInsight(
     args: DeleteInsightCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInsightCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInsightCommandOutput) => void),
     cb?: (err: any, data?: DeleteInsightCommandOutput) => void
   ): Promise<DeleteInsightCommandOutput> | void {
     const command = new DeleteInsightCommand(args);
@@ -661,9 +653,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
@@ -732,9 +722,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public describeHub(
     args: DescribeHubCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHubCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHubCommandOutput) => void),
     cb?: (err: any, data?: DescribeHubCommandOutput) => void
   ): Promise<DescribeHubCommandOutput> | void {
     const command = new DescribeHubCommand(args);
@@ -768,9 +756,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public describeProducts(
     args: DescribeProductsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProductsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductsCommandOutput) => void
   ): Promise<DescribeProductsCommandOutput> | void {
     const command = new DescribeProductsCommand(args);
@@ -843,10 +829,7 @@ export class SecurityHub extends SecurityHubClient {
     args: DisableImportFindingsForProductCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableImportFindingsForProductCommandOutput
-        ) => void),
+      | ((err: any, data?: DisableImportFindingsForProductCommandOutput) => void),
     cb?: (err: any, data?: DisableImportFindingsForProductCommandOutput) => void
   ): Promise<DisableImportFindingsForProductCommandOutput> | void {
     const command = new DisableImportFindingsForProductCommand(args);
@@ -996,10 +979,7 @@ export class SecurityHub extends SecurityHubClient {
     args: EnableImportFindingsForProductCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableImportFindingsForProductCommandOutput
-        ) => void),
+      | ((err: any, data?: EnableImportFindingsForProductCommandOutput) => void),
     cb?: (err: any, data?: EnableImportFindingsForProductCommandOutput) => void
   ): Promise<EnableImportFindingsForProductCommandOutput> | void {
     const command = new EnableImportFindingsForProductCommand(args);
@@ -1104,9 +1084,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getFindings(
     args: GetFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsCommandOutput) => void),
     cb?: (err: any, data?: GetFindingsCommandOutput) => void
   ): Promise<GetFindingsCommandOutput> | void {
     const command = new GetFindingsCommand(args);
@@ -1174,9 +1152,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getInsights(
     args: GetInsightsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInsightsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightsCommandOutput) => void),
     cb?: (err: any, data?: GetInsightsCommandOutput) => void
   ): Promise<GetInsightsCommandOutput> | void {
     const command = new GetInsightsCommand(args);
@@ -1246,9 +1222,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMasterAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: GetMasterAccountCommandOutput) => void
   ): Promise<GetMasterAccountCommandOutput> | void {
     const command = new GetMasterAccountCommand(args);
@@ -1282,9 +1256,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
@@ -1322,9 +1294,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public inviteMembers(
     args: InviteMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InviteMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteMembersCommandOutput) => void),
     cb?: (err: any, data?: InviteMembersCommandOutput) => void
   ): Promise<InviteMembersCommandOutput> | void {
     const command = new InviteMembersCommand(args);
@@ -1394,9 +1364,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
@@ -1430,9 +1398,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
@@ -1500,9 +1466,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1535,9 +1499,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1607,9 +1569,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public updateFindings(
     args: UpdateFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFindingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateFindingsCommandOutput) => void
   ): Promise<UpdateFindingsCommandOutput> | void {
     const command = new UpdateFindingsCommand(args);
@@ -1642,9 +1602,7 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public updateInsight(
     args: UpdateInsightCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInsightCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInsightCommandOutput) => void),
     cb?: (err: any, data?: UpdateInsightCommandOutput) => void
   ): Promise<UpdateInsightCommandOutput> | void {
     const command = new UpdateInsightCommand(args);

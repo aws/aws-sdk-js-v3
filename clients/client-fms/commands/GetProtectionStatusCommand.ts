@@ -1,12 +1,5 @@
-import {
-  FMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FMSClient";
-import {
-  GetProtectionStatusRequest,
-  GetProtectionStatusResponse
-} from "../models/index";
+import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { GetProtectionStatusRequest, GetProtectionStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetProtectionStatusCommand,
   serializeAws_json1_1GetProtectionStatusCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetProtectionStatusCommandInput = GetProtectionStatusRequest;
-export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse &
-  __MetadataBearer;
+export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse & __MetadataBearer;
 
 export class GetProtectionStatusCommand extends $Command<
   GetProtectionStatusCommandInput,
@@ -49,13 +41,8 @@ export class GetProtectionStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetProtectionStatusCommandInput,
-    GetProtectionStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetProtectionStatusCommandInput, GetProtectionStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

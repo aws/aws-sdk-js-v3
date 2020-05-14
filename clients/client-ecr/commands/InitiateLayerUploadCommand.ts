@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  InitiateLayerUploadRequest,
-  InitiateLayerUploadResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/index";
 import {
   deserializeAws_json1_1InitiateLayerUploadCommand,
   serializeAws_json1_1InitiateLayerUploadCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InitiateLayerUploadCommandInput = InitiateLayerUploadRequest;
-export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse &
-  __MetadataBearer;
+export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse & __MetadataBearer;
 
 export class InitiateLayerUploadCommand extends $Command<
   InitiateLayerUploadCommandInput,
@@ -49,13 +41,8 @@ export class InitiateLayerUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InitiateLayerUploadCommandInput,
-    InitiateLayerUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InitiateLayerUploadCommandInput, InitiateLayerUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

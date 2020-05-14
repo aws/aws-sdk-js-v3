@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListPublishedSchemaArnsRequest,
-  ListPublishedSchemaArnsResponse
-} from "../models/index";
+import { ListPublishedSchemaArnsRequest, ListPublishedSchemaArnsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPublishedSchemaArnsCommand,
   serializeAws_restJson1_1ListPublishedSchemaArnsCommand
@@ -49,13 +46,8 @@ export class ListPublishedSchemaArnsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPublishedSchemaArnsCommandInput,
-    ListPublishedSchemaArnsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPublishedSchemaArnsCommandInput, ListPublishedSchemaArnsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListPublishedSchemaArnsCommand extends $Command<
     input: ListPublishedSchemaArnsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListPublishedSchemaArnsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListPublishedSchemaArnsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPublishedSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1_1ListPublishedSchemaArnsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPublishedSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

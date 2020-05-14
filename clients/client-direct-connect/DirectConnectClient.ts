@@ -74,10 +74,7 @@ import {
   CreateInterconnectCommandInput,
   CreateInterconnectCommandOutput
 } from "./commands/CreateInterconnectCommand";
-import {
-  CreateLagCommandInput,
-  CreateLagCommandOutput
-} from "./commands/CreateLagCommand";
+import { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand";
 import {
   CreatePrivateVirtualInterfaceCommandInput,
   CreatePrivateVirtualInterfaceCommandOutput
@@ -114,10 +111,7 @@ import {
   DeleteInterconnectCommandInput,
   DeleteInterconnectCommandOutput
 } from "./commands/DeleteInterconnectCommand";
-import {
-  DeleteLagCommandInput,
-  DeleteLagCommandOutput
-} from "./commands/DeleteLagCommand";
+import { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
 import {
   DeleteVirtualInterfaceCommandInput,
   DeleteVirtualInterfaceCommandOutput
@@ -166,10 +160,7 @@ import {
   DescribeLagsCommandInput,
   DescribeLagsCommandOutput
 } from "./commands/DescribeLagsCommand";
-import {
-  DescribeLoaCommandInput,
-  DescribeLoaCommandOutput
-} from "./commands/DescribeLoaCommand";
+import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
 import {
   DescribeLocationsCommandInput,
   DescribeLocationsCommandOutput
@@ -190,10 +181,7 @@ import {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput
 } from "./commands/DisassociateConnectionFromLagCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -202,10 +190,7 @@ import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
-import {
-  UpdateLagCommandInput,
-  UpdateLagCommandOutput
-} from "./commands/UpdateLagCommand";
+import { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
 import {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput
@@ -457,9 +442,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -1,8 +1,4 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   AcceptQualificationRequestRequest,
   AcceptQualificationRequestResponse
@@ -49,13 +45,8 @@ export class AcceptQualificationRequestCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AcceptQualificationRequestCommandInput,
-    AcceptQualificationRequestCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AcceptQualificationRequestCommandInput, AcceptQualificationRequestCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class AcceptQualificationRequestCommand extends $Command<
     input: AcceptQualificationRequestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptQualificationRequestCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AcceptQualificationRequestCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptQualificationRequestCommandOutput> {
-    return deserializeAws_json1_1AcceptQualificationRequestCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AcceptQualificationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

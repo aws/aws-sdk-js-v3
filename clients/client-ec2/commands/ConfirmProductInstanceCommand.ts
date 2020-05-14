@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ConfirmProductInstanceRequest,
-  ConfirmProductInstanceResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ConfirmProductInstanceRequest, ConfirmProductInstanceResult } from "../models/index";
 import {
   deserializeAws_ec2ConfirmProductInstanceCommand,
   serializeAws_ec2ConfirmProductInstanceCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfirmProductInstanceCommandInput = ConfirmProductInstanceRequest;
-export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult &
-  __MetadataBearer;
+export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult & __MetadataBearer;
 
 export class ConfirmProductInstanceCommand extends $Command<
   ConfirmProductInstanceCommandInput,
@@ -49,13 +41,8 @@ export class ConfirmProductInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfirmProductInstanceCommandInput,
-    ConfirmProductInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfirmProductInstanceCommandInput, ConfirmProductInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

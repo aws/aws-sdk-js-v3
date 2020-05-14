@@ -2,14 +2,8 @@ import {
   AssociateCertificateCommandInput,
   AssociateCertificateCommandOutput
 } from "./commands/AssociateCertificateCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateJobTemplateCommandInput,
   CreateJobTemplateCommandOutput
@@ -18,10 +12,7 @@ import {
   CreatePresetCommandInput,
   CreatePresetCommandOutput
 } from "./commands/CreatePresetCommand";
-import {
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput
-} from "./commands/CreateQueueCommand";
+import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   DeleteJobTemplateCommandInput,
   DeleteJobTemplateCommandOutput
@@ -30,10 +21,7 @@ import {
   DeletePresetCommandInput,
   DeletePresetCommandOutput
 } from "./commands/DeletePresetCommand";
-import {
-  DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
-} from "./commands/DeleteQueueCommand";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput
@@ -42,46 +30,25 @@ import {
   DisassociateCertificateCommandInput,
   DisassociateCertificateCommandOutput
 } from "./commands/DisassociateCertificateCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetJobTemplateCommandInput,
   GetJobTemplateCommandOutput
 } from "./commands/GetJobTemplateCommand";
-import {
-  GetPresetCommandInput,
-  GetPresetCommandOutput
-} from "./commands/GetPresetCommand";
-import {
-  GetQueueCommandInput,
-  GetQueueCommandOutput
-} from "./commands/GetQueueCommand";
+import { GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand";
+import { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
 import {
   ListJobTemplatesCommandInput,
   ListJobTemplatesCommandOutput
 } from "./commands/ListJobTemplatesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
-import {
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput
-} from "./commands/ListPresetsCommand";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -94,10 +61,7 @@ import {
   UpdatePresetCommandInput,
   UpdatePresetCommandOutput
 } from "./commands/UpdatePresetCommand";
-import {
-  UpdateQueueCommandInput,
-  UpdateQueueCommandOutput
-} from "./commands/UpdateQueueCommand";
+import { UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -289,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaConvertClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaConvertClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -300,9 +262,7 @@ export type MediaConvertClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

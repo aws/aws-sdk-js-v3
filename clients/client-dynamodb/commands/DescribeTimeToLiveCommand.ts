@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  DescribeTimeToLiveInput,
-  DescribeTimeToLiveOutput
-} from "../models/index";
+import { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from "../models/index";
 import {
   deserializeAws_json1_0DescribeTimeToLiveCommand,
   serializeAws_json1_0DescribeTimeToLiveCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTimeToLiveCommandInput = DescribeTimeToLiveInput;
-export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput &
-  __MetadataBearer;
+export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput & __MetadataBearer;
 
 export class DescribeTimeToLiveCommand extends $Command<
   DescribeTimeToLiveCommandInput,
@@ -50,9 +46,7 @@ export class DescribeTimeToLiveCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

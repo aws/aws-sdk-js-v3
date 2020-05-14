@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  DeletePushTemplateRequest,
-  DeletePushTemplateResponse
-} from "../models/index";
+import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeletePushTemplateCommand,
   serializeAws_restJson1_1DeletePushTemplateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePushTemplateCommandInput = DeletePushTemplateRequest;
-export type DeletePushTemplateCommandOutput = DeletePushTemplateResponse &
-  __MetadataBearer;
+export type DeletePushTemplateCommandOutput = DeletePushTemplateResponse & __MetadataBearer;
 
 export class DeletePushTemplateCommand extends $Command<
   DeletePushTemplateCommandInput,
@@ -50,9 +46,7 @@ export class DeletePushTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePushTemplateCommandInput, DeletePushTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

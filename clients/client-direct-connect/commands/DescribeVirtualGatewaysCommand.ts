@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVirtualGatewaysCommandInput = {};
-export type DescribeVirtualGatewaysCommandOutput = VirtualGateways &
-  __MetadataBearer;
+export type DescribeVirtualGatewaysCommandOutput = VirtualGateways & __MetadataBearer;
 
 export class DescribeVirtualGatewaysCommand extends $Command<
   DescribeVirtualGatewaysCommandInput,
@@ -46,13 +45,8 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVirtualGatewaysCommandInput,
-    DescribeVirtualGatewaysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVirtualGatewaysCommandInput, DescribeVirtualGatewaysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class DescribeVirtualGatewaysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVirtualGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeVirtualGatewaysCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVirtualGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

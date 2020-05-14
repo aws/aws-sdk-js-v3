@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  GetDeploymentTargetInput,
-  GetDeploymentTargetOutput
-} from "../models/index";
+import { GetDeploymentTargetInput, GetDeploymentTargetOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetDeploymentTargetCommand,
   serializeAws_json1_1GetDeploymentTargetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDeploymentTargetCommandInput = GetDeploymentTargetInput;
-export type GetDeploymentTargetCommandOutput = GetDeploymentTargetOutput &
-  __MetadataBearer;
+export type GetDeploymentTargetCommandOutput = GetDeploymentTargetOutput & __MetadataBearer;
 
 export class GetDeploymentTargetCommand extends $Command<
   GetDeploymentTargetCommandInput,
@@ -49,13 +45,8 @@ export class GetDeploymentTargetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeploymentTargetCommandInput,
-    GetDeploymentTargetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeploymentTargetCommandInput, GetDeploymentTargetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

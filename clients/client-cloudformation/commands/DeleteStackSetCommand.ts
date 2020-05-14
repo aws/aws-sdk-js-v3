@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStackSetCommandInput = DeleteStackSetInput;
-export type DeleteStackSetCommandOutput = DeleteStackSetOutput &
-  __MetadataBearer;
+export type DeleteStackSetCommandOutput = DeleteStackSetOutput & __MetadataBearer;
 
 export class DeleteStackSetCommand extends $Command<
   DeleteStackSetCommandInput,
@@ -47,9 +46,7 @@ export class DeleteStackSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStackSetCommandInput, DeleteStackSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

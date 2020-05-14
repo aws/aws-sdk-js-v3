@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInputCommandInput = DescribeInputRequest;
-export type DescribeInputCommandOutput = DescribeInputResponse &
-  __MetadataBearer;
+export type DescribeInputCommandOutput = DescribeInputResponse & __MetadataBearer;
 
 export class DescribeInputCommand extends $Command<
   DescribeInputCommandInput,
@@ -47,9 +46,7 @@ export class DescribeInputCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeInputCommandInput, DescribeInputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

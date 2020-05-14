@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetActiveNamesCommandInput = GetActiveNamesRequest;
-export type GetActiveNamesCommandOutput = GetActiveNamesResult &
-  __MetadataBearer;
+export type GetActiveNamesCommandOutput = GetActiveNamesResult & __MetadataBearer;
 
 export class GetActiveNamesCommand extends $Command<
   GetActiveNamesCommandInput,
@@ -47,9 +46,7 @@ export class GetActiveNamesCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetActiveNamesCommandInput, GetActiveNamesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

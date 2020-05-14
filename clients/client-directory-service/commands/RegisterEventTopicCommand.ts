@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  RegisterEventTopicRequest,
-  RegisterEventTopicResult
-} from "../models/index";
+import { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/index";
 import {
   deserializeAws_json1_1RegisterEventTopicCommand,
   serializeAws_json1_1RegisterEventTopicCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterEventTopicCommandInput = RegisterEventTopicRequest;
-export type RegisterEventTopicCommandOutput = RegisterEventTopicResult &
-  __MetadataBearer;
+export type RegisterEventTopicCommandOutput = RegisterEventTopicResult & __MetadataBearer;
 
 export class RegisterEventTopicCommand extends $Command<
   RegisterEventTopicCommandInput,
@@ -50,9 +46,7 @@ export class RegisterEventTopicCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterEventTopicCommandInput, RegisterEventTopicCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

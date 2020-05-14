@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeInstanceInformationRequest,
   DescribeInstanceInformationResult
@@ -49,13 +45,8 @@ export class DescribeInstanceInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstanceInformationCommandInput,
-    DescribeInstanceInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstanceInformationCommandInput, DescribeInstanceInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeInstanceInformationCommand extends $Command<
     input: DescribeInstanceInformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstanceInformationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeInstanceInformationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeInstanceInformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeInstanceInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

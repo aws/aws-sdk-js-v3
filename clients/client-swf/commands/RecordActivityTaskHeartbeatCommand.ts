@@ -1,12 +1,5 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
-import {
-  ActivityTaskStatus,
-  RecordActivityTaskHeartbeatInput
-} from "../models/index";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
+import { ActivityTaskStatus, RecordActivityTaskHeartbeatInput } from "../models/index";
 import {
   deserializeAws_json1_0RecordActivityTaskHeartbeatCommand,
   serializeAws_json1_0RecordActivityTaskHeartbeatCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecordActivityTaskHeartbeatCommandInput = RecordActivityTaskHeartbeatInput;
-export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus &
-  __MetadataBearer;
+export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus & __MetadataBearer;
 
 export class RecordActivityTaskHeartbeatCommand extends $Command<
   RecordActivityTaskHeartbeatCommandInput,
@@ -49,13 +41,8 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RecordActivityTaskHeartbeatCommandInput,
-    RecordActivityTaskHeartbeatCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RecordActivityTaskHeartbeatCommandInput, RecordActivityTaskHeartbeatCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     input: RecordActivityTaskHeartbeatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RecordActivityTaskHeartbeatCommandOutput> {
-    return deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

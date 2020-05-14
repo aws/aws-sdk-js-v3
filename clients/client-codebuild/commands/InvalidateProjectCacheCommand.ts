@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  InvalidateProjectCacheInput,
-  InvalidateProjectCacheOutput
-} from "../models/index";
+import { InvalidateProjectCacheInput, InvalidateProjectCacheOutput } from "../models/index";
 import {
   deserializeAws_json1_1InvalidateProjectCacheCommand,
   serializeAws_json1_1InvalidateProjectCacheCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InvalidateProjectCacheCommandInput = InvalidateProjectCacheInput;
-export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput &
-  __MetadataBearer;
+export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput & __MetadataBearer;
 
 export class InvalidateProjectCacheCommand extends $Command<
   InvalidateProjectCacheCommandInput,
@@ -49,13 +45,8 @@ export class InvalidateProjectCacheCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InvalidateProjectCacheCommandInput,
-    InvalidateProjectCacheCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InvalidateProjectCacheCommandInput, InvalidateProjectCacheCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

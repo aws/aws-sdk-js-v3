@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  UpdateHostedZoneCommentRequest,
-  UpdateHostedZoneCommentResponse
-} from "../models/index";
+import { UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse } from "../models/index";
 import {
   deserializeAws_restXmlUpdateHostedZoneCommentCommand,
   serializeAws_restXmlUpdateHostedZoneCommentCommand
@@ -50,13 +47,8 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateHostedZoneCommentCommandInput,
-    UpdateHostedZoneCommentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateHostedZoneCommentCommandInput, UpdateHostedZoneCommentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -83,10 +75,7 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateHostedZoneCommentCommandOutput> {
-    return deserializeAws_restXmlUpdateHostedZoneCommentCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlUpdateHostedZoneCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

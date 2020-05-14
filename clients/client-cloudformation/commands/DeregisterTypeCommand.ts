@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterTypeCommandInput = DeregisterTypeInput;
-export type DeregisterTypeCommandOutput = DeregisterTypeOutput &
-  __MetadataBearer;
+export type DeregisterTypeCommandOutput = DeregisterTypeOutput & __MetadataBearer;
 
 export class DeregisterTypeCommand extends $Command<
   DeregisterTypeCommandInput,
@@ -47,9 +46,7 @@ export class DeregisterTypeCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTypeCommandInput, DeregisterTypeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

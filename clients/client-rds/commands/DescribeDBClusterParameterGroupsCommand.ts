@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DBClusterParameterGroupsMessage,
   DescribeDBClusterParameterGroupsMessage
@@ -53,9 +49,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     DescribeDBClusterParameterGroupsCommandInput,
     DescribeDBClusterParameterGroupsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     input: DescribeDBClusterParameterGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterParameterGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDBClusterParameterGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

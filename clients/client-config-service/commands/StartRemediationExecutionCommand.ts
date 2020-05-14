@@ -49,13 +49,8 @@ export class StartRemediationExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartRemediationExecutionCommandInput,
-    StartRemediationExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartRemediationExecutionCommandInput, StartRemediationExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class StartRemediationExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartRemediationExecutionCommandOutput> {
-    return deserializeAws_json1_1StartRemediationExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartRemediationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

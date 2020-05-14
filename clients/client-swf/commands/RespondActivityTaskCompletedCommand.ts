@@ -1,8 +1,4 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { RespondActivityTaskCompletedInput } from "../models/index";
 import {
   deserializeAws_json1_0RespondActivityTaskCompletedCommand,
@@ -45,13 +41,8 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RespondActivityTaskCompletedCommandInput,
-    RespondActivityTaskCompletedCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RespondActivityTaskCompletedCommandInput, RespondActivityTaskCompletedCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +61,14 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     input: RespondActivityTaskCompletedCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondActivityTaskCompletedCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0RespondActivityTaskCompletedCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondActivityTaskCompletedCommandOutput> {
-    return deserializeAws_json1_0RespondActivityTaskCompletedCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RespondActivityTaskCompletedCommand(output, context);
   }
 
   // Start section: command_body_extra

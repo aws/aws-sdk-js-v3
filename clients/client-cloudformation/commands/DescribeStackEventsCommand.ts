@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  DescribeStackEventsInput,
-  DescribeStackEventsOutput
-} from "../models/index";
+import { DescribeStackEventsInput, DescribeStackEventsOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeStackEventsCommand,
   serializeAws_queryDescribeStackEventsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStackEventsCommandInput = DescribeStackEventsInput;
-export type DescribeStackEventsCommandOutput = DescribeStackEventsOutput &
-  __MetadataBearer;
+export type DescribeStackEventsCommandOutput = DescribeStackEventsOutput & __MetadataBearer;
 
 export class DescribeStackEventsCommand extends $Command<
   DescribeStackEventsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeStackEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackEventsCommandInput,
-    DescribeStackEventsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackEventsCommandInput, DescribeStackEventsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

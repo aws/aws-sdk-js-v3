@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataSyncClient";
-import {
-  CreateLocationS3Request,
-  CreateLocationS3Response
-} from "../models/index";
+import { CreateLocationS3Request, CreateLocationS3Response } from "../models/index";
 import {
   deserializeAws_json1_1CreateLocationS3Command,
   serializeAws_json1_1CreateLocationS3Command
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLocationS3CommandInput = CreateLocationS3Request;
-export type CreateLocationS3CommandOutput = CreateLocationS3Response &
-  __MetadataBearer;
+export type CreateLocationS3CommandOutput = CreateLocationS3Response & __MetadataBearer;
 
 export class CreateLocationS3Command extends $Command<
   CreateLocationS3CommandInput,
@@ -50,9 +46,7 @@ export class CreateLocationS3Command extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationS3CommandInput, CreateLocationS3CommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointEmailClient";
-import {
-  DeleteEmailIdentityRequest,
-  DeleteEmailIdentityResponse
-} from "../models/index";
+import { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteEmailIdentityCommand,
   serializeAws_restJson1_1DeleteEmailIdentityCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEmailIdentityCommandInput = DeleteEmailIdentityRequest;
-export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse &
-  __MetadataBearer;
+export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse & __MetadataBearer;
 
 export class DeleteEmailIdentityCommand extends $Command<
   DeleteEmailIdentityCommandInput,
@@ -49,13 +45,8 @@ export class DeleteEmailIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEmailIdentityCommandInput,
-    DeleteEmailIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEmailIdentityCommandInput, DeleteEmailIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteEmailIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEmailIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

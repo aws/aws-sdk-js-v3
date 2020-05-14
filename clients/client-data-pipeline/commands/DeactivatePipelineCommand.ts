@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataPipelineClient";
-import {
-  DeactivatePipelineInput,
-  DeactivatePipelineOutput
-} from "../models/index";
+import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeactivatePipelineCommand,
   serializeAws_json1_1DeactivatePipelineCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeactivatePipelineCommandInput = DeactivatePipelineInput;
-export type DeactivatePipelineCommandOutput = DeactivatePipelineOutput &
-  __MetadataBearer;
+export type DeactivatePipelineCommandOutput = DeactivatePipelineOutput & __MetadataBearer;
 
 export class DeactivatePipelineCommand extends $Command<
   DeactivatePipelineCommandInput,
@@ -50,9 +46,7 @@ export class DeactivatePipelineCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeactivatePipelineCommandInput, DeactivatePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

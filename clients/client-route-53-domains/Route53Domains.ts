@@ -438,9 +438,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public getDomainDetail(
     args: GetDomainDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainDetailCommandOutput) => void),
     cb?: (err: any, data?: GetDomainDetailCommandOutput) => void
   ): Promise<GetDomainDetailCommandOutput> | void {
     const command = new GetDomainDetailCommand(args);
@@ -544,9 +542,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
@@ -579,9 +575,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public listOperations(
     args: ListOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListOperationsCommandOutput) => void
   ): Promise<ListOperationsCommandOutput> | void {
     const command = new ListOperationsCommand(args);
@@ -675,9 +669,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public registerDomain(
     args: RegisterDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterDomainCommandOutput) => void),
     cb?: (err: any, data?: RegisterDomainCommandOutput) => void
   ): Promise<RegisterDomainCommandOutput> | void {
     const command = new RegisterDomainCommand(args);
@@ -714,9 +706,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public renewDomain(
     args: RenewDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewDomainCommandOutput) => void),
     cb?: (err: any, data?: RenewDomainCommandOutput) => void
   ): Promise<RenewDomainCommandOutput> | void {
     const command = new RenewDomainCommand(args);
@@ -752,10 +742,7 @@ export class Route53Domains extends Route53DomainsClient {
     args: ResendContactReachabilityEmailCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ResendContactReachabilityEmailCommandOutput
-        ) => void),
+      | ((err: any, data?: ResendContactReachabilityEmailCommandOutput) => void),
     cb?: (err: any, data?: ResendContactReachabilityEmailCommandOutput) => void
   ): Promise<ResendContactReachabilityEmailCommandOutput> | void {
     const command = new ResendContactReachabilityEmailCommand(args);
@@ -839,9 +826,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public transferDomain(
     args: TransferDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TransferDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferDomainCommandOutput) => void),
     cb?: (err: any, data?: TransferDomainCommandOutput) => void
   ): Promise<TransferDomainCommandOutput> | void {
     const command = new TransferDomainCommand(args);
@@ -1026,9 +1011,7 @@ export class Route53Domains extends Route53DomainsClient {
   ): void;
   public viewBilling(
     args: ViewBillingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ViewBillingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ViewBillingCommandOutput) => void),
     cb?: (err: any, data?: ViewBillingCommandOutput) => void
   ): Promise<ViewBillingCommandOutput> | void {
     const command = new ViewBillingCommand(args);

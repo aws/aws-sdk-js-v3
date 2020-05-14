@@ -49,13 +49,8 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApplicationSnapshotCommandInput,
-    DeleteApplicationSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApplicationSnapshotCommandInput, DeleteApplicationSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationSnapshotCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

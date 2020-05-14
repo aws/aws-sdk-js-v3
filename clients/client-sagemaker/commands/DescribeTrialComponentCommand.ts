@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeTrialComponentRequest,
-  DescribeTrialComponentResponse
-} from "../models/index";
+import { DescribeTrialComponentRequest, DescribeTrialComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTrialComponentCommand,
   serializeAws_json1_1DescribeTrialComponentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTrialComponentCommandInput = DescribeTrialComponentRequest;
-export type DescribeTrialComponentCommandOutput = DescribeTrialComponentResponse &
-  __MetadataBearer;
+export type DescribeTrialComponentCommandOutput = DescribeTrialComponentResponse & __MetadataBearer;
 
 export class DescribeTrialComponentCommand extends $Command<
   DescribeTrialComponentCommandInput,
@@ -49,13 +45,8 @@ export class DescribeTrialComponentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTrialComponentCommandInput,
-    DescribeTrialComponentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTrialComponentCommandInput, DescribeTrialComponentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

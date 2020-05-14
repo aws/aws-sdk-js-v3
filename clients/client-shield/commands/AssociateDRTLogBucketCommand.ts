@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  AssociateDRTLogBucketRequest,
-  AssociateDRTLogBucketResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateDRTLogBucketCommand,
   serializeAws_json1_1AssociateDRTLogBucketCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateDRTLogBucketCommandInput = AssociateDRTLogBucketRequest;
-export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse &
-  __MetadataBearer;
+export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse & __MetadataBearer;
 
 export class AssociateDRTLogBucketCommand extends $Command<
   AssociateDRTLogBucketCommandInput,
@@ -49,13 +41,8 @@ export class AssociateDRTLogBucketCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateDRTLogBucketCommandInput,
-    AssociateDRTLogBucketCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateDRTLogBucketCommandInput, AssociateDRTLogBucketCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { SetV2LoggingOptionsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1SetV2LoggingOptionsCommand,
@@ -45,13 +41,8 @@ export class SetV2LoggingOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetV2LoggingOptionsCommandInput,
-    SetV2LoggingOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetV2LoggingOptionsCommandInput, SetV2LoggingOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class SetV2LoggingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetV2LoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1SetV2LoggingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetV2LoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

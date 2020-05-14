@@ -1,12 +1,5 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
-import {
-  DeleteMessageBatchRequest,
-  DeleteMessageBatchResult
-} from "../models/index";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
+import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/index";
 import {
   deserializeAws_queryDeleteMessageBatchCommand,
   serializeAws_queryDeleteMessageBatchCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
-export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult &
-  __MetadataBearer;
+export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult & __MetadataBearer;
 
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,
@@ -50,9 +42,7 @@ export class DeleteMessageBatchCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

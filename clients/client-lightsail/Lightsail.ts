@@ -557,9 +557,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public allocateStaticIp(
     args: AllocateStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateStaticIpCommandOutput) => void),
     cb?: (err: any, data?: AllocateStaticIpCommandOutput) => void
   ): Promise<AllocateStaticIpCommandOutput> | void {
     const command = new AllocateStaticIpCommand(args);
@@ -596,9 +594,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachDisk(
     args: AttachDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachDiskCommandOutput) => void),
     cb?: (err: any, data?: AttachDiskCommandOutput) => void
   ): Promise<AttachDiskCommandOutput> | void {
     const command = new AttachDiskCommand(args);
@@ -681,14 +677,8 @@ export class Lightsail extends LightsailClient {
     args: AttachLoadBalancerTlsCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AttachLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AttachLoadBalancerTlsCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: AttachLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: AttachLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new AttachLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -720,9 +710,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public attachStaticIp(
     args: AttachStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachStaticIpCommandOutput) => void),
     cb?: (err: any, data?: AttachStaticIpCommandOutput) => void
   ): Promise<AttachStaticIpCommandOutput> | void {
     const command = new AttachStaticIpCommand(args);
@@ -803,9 +791,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public copySnapshot(
     args: CopySnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopySnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopySnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopySnapshotCommandOutput) => void
   ): Promise<CopySnapshotCommandOutput> | void {
     const command = new CopySnapshotCommand(args);
@@ -883,9 +869,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDisk(
     args: CreateDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDiskCommandOutput) => void),
     cb?: (err: any, data?: CreateDiskCommandOutput) => void
   ): Promise<CreateDiskCommandOutput> | void {
     const command = new CreateDiskCommand(args);
@@ -1014,9 +998,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
@@ -1130,9 +1112,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createInstances(
     args: CreateInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInstancesCommandOutput) => void),
     cb?: (err: any, data?: CreateInstancesCommandOutput) => void
   ): Promise<CreateInstancesCommandOutput> | void {
     const command = new CreateInstancesCommand(args);
@@ -1206,9 +1186,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public createKeyPair(
     args: CreateKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyPairCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyPairCommandOutput) => void
   ): Promise<CreateKeyPairCommandOutput> | void {
     const command = new CreateKeyPairCommand(args);
@@ -1289,14 +1267,8 @@ export class Lightsail extends LightsailClient {
     args: CreateLoadBalancerTlsCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateLoadBalancerTlsCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: CreateLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: CreateLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<CreateLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new CreateLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1362,31 +1334,19 @@ export class Lightsail extends LightsailClient {
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput>;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
-    cb: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): void;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): void;
   public createRelationalDatabaseFromSnapshot(
     args: CreateRelationalDatabaseFromSnapshotCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateRelationalDatabaseFromSnapshotCommandOutput
-    ) => void
+      | ((err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateRelationalDatabaseFromSnapshotCommandOutput) => void
   ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> | void {
     const command = new CreateRelationalDatabaseFromSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1423,14 +1383,8 @@ export class Lightsail extends LightsailClient {
     args: CreateRelationalDatabaseSnapshotCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateRelationalDatabaseSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateRelationalDatabaseSnapshotCommandOutput
-    ) => void
+      | ((err: any, data?: CreateRelationalDatabaseSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: CreateRelationalDatabaseSnapshotCommandOutput) => void
   ): Promise<CreateRelationalDatabaseSnapshotCommandOutput> | void {
     const command = new CreateRelationalDatabaseSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1505,9 +1459,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDisk(
     args: DeleteDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDiskCommandOutput) => void),
     cb?: (err: any, data?: DeleteDiskCommandOutput) => void
   ): Promise<DeleteDiskCommandOutput> | void {
     const command = new DeleteDiskCommand(args);
@@ -1586,9 +1538,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
@@ -1662,9 +1612,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteInstance(
     args: DeleteInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): Promise<DeleteInstanceCommandOutput> | void {
     const command = new DeleteInstanceCommand(args);
@@ -1739,9 +1687,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public deleteKeyPair(
     args: DeleteKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyPairCommandOutput) => void),
     cb?: (err: any, data?: DeleteKeyPairCommandOutput) => void
   ): Promise<DeleteKeyPairCommandOutput> | void {
     const command = new DeleteKeyPairCommand(args);
@@ -1862,14 +1808,8 @@ export class Lightsail extends LightsailClient {
     args: DeleteLoadBalancerTlsCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteLoadBalancerTlsCertificateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteLoadBalancerTlsCertificateCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteLoadBalancerTlsCertificateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLoadBalancerTlsCertificateCommandOutput) => void
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> | void {
     const command = new DeleteLoadBalancerTlsCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1944,14 +1884,8 @@ export class Lightsail extends LightsailClient {
     args: DeleteRelationalDatabaseSnapshotCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteRelationalDatabaseSnapshotCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteRelationalDatabaseSnapshotCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteRelationalDatabaseSnapshotCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRelationalDatabaseSnapshotCommandOutput) => void
   ): Promise<DeleteRelationalDatabaseSnapshotCommandOutput> | void {
     const command = new DeleteRelationalDatabaseSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1988,9 +1922,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public detachDisk(
     args: DetachDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachDiskCommandOutput) => void),
     cb?: (err: any, data?: DetachDiskCommandOutput) => void
   ): Promise<DetachDiskCommandOutput> | void {
     const command = new DetachDiskCommand(args);
@@ -2030,10 +1962,7 @@ export class Lightsail extends LightsailClient {
     args: DetachInstancesFromLoadBalancerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DetachInstancesFromLoadBalancerCommandOutput
-        ) => void),
+      | ((err: any, data?: DetachInstancesFromLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: DetachInstancesFromLoadBalancerCommandOutput) => void
   ): Promise<DetachInstancesFromLoadBalancerCommandOutput> | void {
     const command = new DetachInstancesFromLoadBalancerCommand(args);
@@ -2067,9 +1996,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public detachStaticIp(
     args: DetachStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachStaticIpCommandOutput) => void),
     cb?: (err: any, data?: DetachStaticIpCommandOutput) => void
   ): Promise<DetachStaticIpCommandOutput> | void {
     const command = new DetachStaticIpCommand(args);
@@ -2102,9 +2029,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public disableAddOn(
     args: DisableAddOnCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableAddOnCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAddOnCommandOutput) => void),
     cb?: (err: any, data?: DisableAddOnCommandOutput) => void
   ): Promise<DisableAddOnCommandOutput> | void {
     const command = new DisableAddOnCommand(args);
@@ -2173,9 +2098,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public enableAddOn(
     args: EnableAddOnCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableAddOnCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAddOnCommandOutput) => void),
     cb?: (err: any, data?: EnableAddOnCommandOutput) => void
   ): Promise<EnableAddOnCommandOutput> | void {
     const command = new EnableAddOnCommand(args);
@@ -2222,9 +2145,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public exportSnapshot(
     args: ExportSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ExportSnapshotCommandOutput) => void
   ): Promise<ExportSnapshotCommandOutput> | void {
     const command = new ExportSnapshotCommand(args);
@@ -2257,9 +2178,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getActiveNames(
     args: GetActiveNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetActiveNamesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetActiveNamesCommandOutput) => void),
     cb?: (err: any, data?: GetActiveNamesCommandOutput) => void
   ): Promise<GetActiveNamesCommandOutput> | void {
     const command = new GetActiveNamesCommand(args);
@@ -2293,9 +2212,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getAutoSnapshots(
     args: GetAutoSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAutoSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutoSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetAutoSnapshotsCommandOutput) => void
   ): Promise<GetAutoSnapshotsCommandOutput> | void {
     const command = new GetAutoSnapshotsCommand(args);
@@ -2337,9 +2254,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getBlueprints(
     args: GetBlueprintsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlueprintsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlueprintsCommandOutput) => void),
     cb?: (err: any, data?: GetBlueprintsCommandOutput) => void
   ): Promise<GetBlueprintsCommandOutput> | void {
     const command = new GetBlueprintsCommand(args);
@@ -2373,9 +2288,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getBundles(
     args: GetBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBundlesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBundlesCommandOutput) => void),
     cb?: (err: any, data?: GetBundlesCommandOutput) => void
   ): Promise<GetBundlesCommandOutput> | void {
     const command = new GetBundlesCommand(args);
@@ -2446,9 +2359,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDisk(
     args: GetDiskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskCommandOutput) => void),
     cb?: (err: any, data?: GetDiskCommandOutput) => void
   ): Promise<GetDiskCommandOutput> | void {
     const command = new GetDiskCommand(args);
@@ -2481,9 +2392,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDiskSnapshot(
     args: GetDiskSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskSnapshotCommandOutput) => void),
     cb?: (err: any, data?: GetDiskSnapshotCommandOutput) => void
   ): Promise<GetDiskSnapshotCommandOutput> | void {
     const command = new GetDiskSnapshotCommand(args);
@@ -2520,9 +2429,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDiskSnapshots(
     args: GetDiskSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiskSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDiskSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetDiskSnapshotsCommandOutput) => void
   ): Promise<GetDiskSnapshotsCommandOutput> | void {
     const command = new GetDiskSnapshotsCommand(args);
@@ -2559,9 +2466,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDisks(
     args: GetDisksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDisksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDisksCommandOutput) => void),
     cb?: (err: any, data?: GetDisksCommandOutput) => void
   ): Promise<GetDisksCommandOutput> | void {
     const command = new GetDisksCommand(args);
@@ -2594,9 +2499,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDomain(
     args: GetDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainCommandOutput) => void),
     cb?: (err: any, data?: GetDomainCommandOutput) => void
   ): Promise<GetDomainCommandOutput> | void {
     const command = new GetDomainCommand(args);
@@ -2629,9 +2532,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getDomains(
     args: GetDomainsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDomainsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainsCommandOutput) => void),
     cb?: (err: any, data?: GetDomainsCommandOutput) => void
   ): Promise<GetDomainsCommandOutput> | void {
     const command = new GetDomainsCommand(args);
@@ -2703,9 +2604,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstance(
     args: GetInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceCommandOutput) => void
   ): Promise<GetInstanceCommandOutput> | void {
     const command = new GetInstanceCommand(args);
@@ -2919,9 +2818,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstanceState(
     args: GetInstanceStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstanceStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceStateCommandOutput) => void),
     cb?: (err: any, data?: GetInstanceStateCommandOutput) => void
   ): Promise<GetInstanceStateCommandOutput> | void {
     const command = new GetInstanceStateCommand(args);
@@ -2955,9 +2852,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getInstances(
     args: GetInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstancesCommandOutput) => void),
     cb?: (err: any, data?: GetInstancesCommandOutput) => void
   ): Promise<GetInstancesCommandOutput> | void {
     const command = new GetInstancesCommand(args);
@@ -2990,9 +2885,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getKeyPair(
     args: GetKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPairCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPairCommandOutput) => void
   ): Promise<GetKeyPairCommandOutput> | void {
     const command = new GetKeyPairCommand(args);
@@ -3025,9 +2918,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getKeyPairs(
     args: GetKeyPairsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetKeyPairsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPairsCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPairsCommandOutput) => void
   ): Promise<GetKeyPairsCommandOutput> | void {
     const command = new GetKeyPairsCommand(args);
@@ -3060,9 +2951,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancer(
     args: GetLoadBalancerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancerCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancerCommandOutput) => void
   ): Promise<GetLoadBalancerCommandOutput> | void {
     const command = new GetLoadBalancerCommand(args);
@@ -3136,10 +3025,7 @@ export class Lightsail extends LightsailClient {
     args: GetLoadBalancerTlsCertificatesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetLoadBalancerTlsCertificatesCommandOutput
-        ) => void),
+      | ((err: any, data?: GetLoadBalancerTlsCertificatesCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancerTlsCertificatesCommandOutput) => void
   ): Promise<GetLoadBalancerTlsCertificatesCommandOutput> | void {
     const command = new GetLoadBalancerTlsCertificatesCommand(args);
@@ -3175,9 +3061,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getLoadBalancers(
     args: GetLoadBalancersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancersCommandOutput) => void),
     cb?: (err: any, data?: GetLoadBalancersCommandOutput) => void
   ): Promise<GetLoadBalancersCommandOutput> | void {
     const command = new GetLoadBalancersCommand(args);
@@ -3211,9 +3095,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getOperation(
     args: GetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationCommandOutput) => void),
     cb?: (err: any, data?: GetOperationCommandOutput) => void
   ): Promise<GetOperationCommandOutput> | void {
     const command = new GetOperationCommand(args);
@@ -3249,9 +3131,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getOperations(
     args: GetOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOperationsCommandOutput) => void),
     cb?: (err: any, data?: GetOperationsCommandOutput) => void
   ): Promise<GetOperationsCommandOutput> | void {
     const command = new GetOperationsCommand(args);
@@ -3321,9 +3201,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getRegions(
     args: GetRegionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegionsCommandOutput) => void),
     cb?: (err: any, data?: GetRegionsCommandOutput) => void
   ): Promise<GetRegionsCommandOutput> | void {
     const command = new GetRegionsCommand(args);
@@ -3396,10 +3274,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseBlueprintsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseBlueprintsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseBlueprintsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseBlueprintsCommandOutput) => void
   ): Promise<GetRelationalDatabaseBlueprintsCommandOutput> | void {
     const command = new GetRelationalDatabaseBlueprintsCommand(args);
@@ -3507,10 +3382,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseLogEventsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseLogEventsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseLogEventsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseLogEventsCommandOutput) => void
   ): Promise<GetRelationalDatabaseLogEventsCommandOutput> | void {
     const command = new GetRelationalDatabaseLogEventsCommand(args);
@@ -3546,10 +3418,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseLogStreamsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseLogStreamsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseLogStreamsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseLogStreamsCommandOutput) => void
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> | void {
     const command = new GetRelationalDatabaseLogStreamsCommand(args);
@@ -3577,31 +3446,19 @@ export class Lightsail extends LightsailClient {
   ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput>;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
-    cb: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+    cb: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): void;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+    cb: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): void;
   public getRelationalDatabaseMasterUserPassword(
     args: GetRelationalDatabaseMasterUserPasswordCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetRelationalDatabaseMasterUserPasswordCommandOutput
-    ) => void
+      | ((err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void),
+    cb?: (err: any, data?: GetRelationalDatabaseMasterUserPasswordCommandOutput) => void
   ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput> | void {
     const command = new GetRelationalDatabaseMasterUserPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3636,10 +3493,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseMetricDataCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseMetricDataCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseMetricDataCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseMetricDataCommandOutput) => void
   ): Promise<GetRelationalDatabaseMetricDataCommandOutput> | void {
     const command = new GetRelationalDatabaseMetricDataCommand(args);
@@ -3678,10 +3532,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseParametersCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseParametersCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseParametersCommandOutput) => void
   ): Promise<GetRelationalDatabaseParametersCommandOutput> | void {
     const command = new GetRelationalDatabaseParametersCommand(args);
@@ -3751,10 +3602,7 @@ export class Lightsail extends LightsailClient {
     args: GetRelationalDatabaseSnapshotsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetRelationalDatabaseSnapshotsCommandOutput
-        ) => void),
+      | ((err: any, data?: GetRelationalDatabaseSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: GetRelationalDatabaseSnapshotsCommandOutput) => void
   ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> | void {
     const command = new GetRelationalDatabaseSnapshotsCommand(args);
@@ -3822,9 +3670,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getStaticIp(
     args: GetStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStaticIpCommandOutput) => void),
     cb?: (err: any, data?: GetStaticIpCommandOutput) => void
   ): Promise<GetStaticIpCommandOutput> | void {
     const command = new GetStaticIpCommand(args);
@@ -3857,9 +3703,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public getStaticIps(
     args: GetStaticIpsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStaticIpsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStaticIpsCommandOutput) => void),
     cb?: (err: any, data?: GetStaticIpsCommandOutput) => void
   ): Promise<GetStaticIpsCommandOutput> | void {
     const command = new GetStaticIpsCommand(args);
@@ -3892,9 +3736,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public importKeyPair(
     args: ImportKeyPairCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportKeyPairCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyPairCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyPairCommandOutput) => void
   ): Promise<ImportKeyPairCommandOutput> | void {
     const command = new ImportKeyPairCommand(args);
@@ -3927,9 +3769,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public isVpcPeered(
     args: IsVpcPeeredCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IsVpcPeeredCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IsVpcPeeredCommandOutput) => void),
     cb?: (err: any, data?: IsVpcPeeredCommandOutput) => void
   ): Promise<IsVpcPeeredCommandOutput> | void {
     const command = new IsVpcPeeredCommand(args);
@@ -4000,9 +3840,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public peerVpc(
     args: PeerVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PeerVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PeerVpcCommandOutput) => void),
     cb?: (err: any, data?: PeerVpcCommandOutput) => void
   ): Promise<PeerVpcCommandOutput> | void {
     const command = new PeerVpcCommand(args);
@@ -4077,9 +3915,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public rebootInstance(
     args: RebootInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootInstanceCommandOutput) => void
   ): Promise<RebootInstanceCommandOutput> | void {
     const command = new RebootInstanceCommand(args);
@@ -4150,9 +3986,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public releaseStaticIp(
     args: ReleaseStaticIpCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReleaseStaticIpCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleaseStaticIpCommandOutput) => void),
     cb?: (err: any, data?: ReleaseStaticIpCommandOutput) => void
   ): Promise<ReleaseStaticIpCommandOutput> | void {
     const command = new ReleaseStaticIpCommand(args);
@@ -4194,9 +4028,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public startInstance(
     args: StartInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartInstanceCommandOutput) => void
   ): Promise<StartInstanceCommandOutput> | void {
     const command = new StartInstanceCommand(args);
@@ -4276,9 +4108,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public stopInstance(
     args: StopInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopInstanceCommandOutput) => void
   ): Promise<StopInstanceCommandOutput> | void {
     const command = new StopInstanceCommand(args);
@@ -4355,9 +4185,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -4390,9 +4218,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public unpeerVpc(
     args: UnpeerVpcCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnpeerVpcCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnpeerVpcCommandOutput) => void),
     cb?: (err: any, data?: UnpeerVpcCommandOutput) => void
   ): Promise<UnpeerVpcCommandOutput> | void {
     const command = new UnpeerVpcCommand(args);
@@ -4429,9 +4255,7 @@ export class Lightsail extends LightsailClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -4581,31 +4405,19 @@ export class Lightsail extends LightsailClient {
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput>;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): void;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): void;
   public updateRelationalDatabaseParameters(
     args: UpdateRelationalDatabaseParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateRelationalDatabaseParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateRelationalDatabaseParametersCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRelationalDatabaseParametersCommandOutput) => void
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> | void {
     const command = new UpdateRelationalDatabaseParametersCommand(args);
     if (typeof optionsOrCb === "function") {

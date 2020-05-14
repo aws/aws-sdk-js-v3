@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  DeleteRuleGroupRequest,
-  DeleteRuleGroupResponse
-} from "../models/index";
+import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRuleGroupCommand,
   serializeAws_json1_1DeleteRuleGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRuleGroupCommandInput = DeleteRuleGroupRequest;
-export type DeleteRuleGroupCommandOutput = DeleteRuleGroupResponse &
-  __MetadataBearer;
+export type DeleteRuleGroupCommandOutput = DeleteRuleGroupResponse & __MetadataBearer;
 
 export class DeleteRuleGroupCommand extends $Command<
   DeleteRuleGroupCommandInput,
@@ -50,9 +46,7 @@ export class DeleteRuleGroupCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

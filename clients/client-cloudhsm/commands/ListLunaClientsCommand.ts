@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudHSMClient";
-import {
-  ListLunaClientsRequest,
-  ListLunaClientsResponse
-} from "../models/index";
+import { ListLunaClientsRequest, ListLunaClientsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListLunaClientsCommand,
   serializeAws_json1_1ListLunaClientsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLunaClientsCommandInput = ListLunaClientsRequest;
-export type ListLunaClientsCommandOutput = ListLunaClientsResponse &
-  __MetadataBearer;
+export type ListLunaClientsCommandOutput = ListLunaClientsResponse & __MetadataBearer;
 
 export class ListLunaClientsCommand extends $Command<
   ListLunaClientsCommandInput,
@@ -50,9 +46,7 @@ export class ListLunaClientsCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLunaClientsCommandInput, ListLunaClientsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

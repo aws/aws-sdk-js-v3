@@ -783,31 +783,19 @@ export class RDS extends RDSClient {
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
   public addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AddSourceIdentifierToSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AddSourceIdentifierToSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> | void {
     const command = new AddSourceIdentifierToSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -924,10 +912,7 @@ export class RDS extends RDSClient {
     args: AuthorizeDBSecurityGroupIngressCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AuthorizeDBSecurityGroupIngressCommandOutput
-        ) => void),
+      | ((err: any, data?: AuthorizeDBSecurityGroupIngressCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeDBSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeDBSecurityGroupIngressCommand(args);
@@ -1193,9 +1178,7 @@ export class RDS extends RDSClient {
   ): void;
   public copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CopyDBSnapshotCommandOutput) => void
   ): Promise<CopyDBSnapshotCommandOutput> | void {
     const command = new CopyDBSnapshotCommand(args);
@@ -1228,9 +1211,7 @@ export class RDS extends RDSClient {
   ): void;
   public copyOptionGroup(
     args: CopyOptionGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyOptionGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyOptionGroupCommandOutput) => void),
     cb?: (err: any, data?: CopyOptionGroupCommandOutput) => void
   ): Promise<CopyOptionGroupCommandOutput> | void {
     const command = new CopyOptionGroupCommand(args);
@@ -1316,9 +1297,7 @@ export class RDS extends RDSClient {
   ): void;
   public createDBCluster(
     args: CreateDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): Promise<CreateDBClusterCommandOutput> | void {
     const command = new CreateDBClusterCommand(args);
@@ -1496,9 +1475,7 @@ export class RDS extends RDSClient {
   ): void;
   public createDBInstance(
     args: CreateDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): Promise<CreateDBInstanceCommandOutput> | void {
     const command = new CreateDBInstanceCommand(args);
@@ -1642,9 +1619,7 @@ export class RDS extends RDSClient {
   ): void;
   public createDBProxy(
     args: CreateDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBProxyCommandOutput) => void),
     cb?: (err: any, data?: CreateDBProxyCommandOutput) => void
   ): Promise<CreateDBProxyCommandOutput> | void {
     const command = new CreateDBProxyCommand(args);
@@ -1715,9 +1690,7 @@ export class RDS extends RDSClient {
   ): void;
   public createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateDBSnapshotCommandOutput) => void
   ): Promise<CreateDBSnapshotCommandOutput> | void {
     const command = new CreateDBSnapshotCommand(args);
@@ -1974,9 +1947,7 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): Promise<DeleteDBClusterCommandOutput> | void {
     const command = new DeleteDBClusterCommand(args);
@@ -2158,9 +2129,7 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): Promise<DeleteDBInstanceCommandOutput> | void {
     const command = new DeleteDBInstanceCommand(args);
@@ -2196,10 +2165,7 @@ export class RDS extends RDSClient {
     args: DeleteDBInstanceAutomatedBackupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDBInstanceAutomatedBackupCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteDBInstanceAutomatedBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBInstanceAutomatedBackupCommandOutput) => void
   ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> | void {
     const command = new DeleteDBInstanceAutomatedBackupCommand(args);
@@ -2271,9 +2237,7 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBProxyCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBProxyCommandOutput) => void
   ): Promise<DeleteDBProxyCommandOutput> | void {
     const command = new DeleteDBProxyCommand(args);
@@ -2348,9 +2312,7 @@ export class RDS extends RDSClient {
   ): void;
   public deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: DeleteDBSnapshotCommandOutput) => void
   ): Promise<DeleteDBSnapshotCommandOutput> | void {
     const command = new DeleteDBSnapshotCommand(args);
@@ -2686,10 +2648,7 @@ export class RDS extends RDSClient {
     args: DescribeCustomAvailabilityZonesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCustomAvailabilityZonesCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void
   ): Promise<DescribeCustomAvailabilityZonesCommandOutput> | void {
     const command = new DescribeCustomAvailabilityZonesCommand(args);
@@ -2815,14 +2774,8 @@ export class RDS extends RDSClient {
     args: DescribeDBClusterParameterGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterParameterGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterParameterGroupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> | void {
     const command = new DescribeDBClusterParameterGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -2897,31 +2850,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
   public describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBClusterSnapshotAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBClusterSnapshotAttributesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> | void {
     const command = new DescribeDBClusterSnapshotAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3069,31 +3010,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput>;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): void;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): void;
   public describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDBInstanceAutomatedBackupsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> | void {
     const command = new DescribeDBInstanceAutomatedBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3536,31 +3465,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
   public describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultClusterParametersCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEngineDefaultClusterParametersCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultClusterParametersCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3594,10 +3511,7 @@ export class RDS extends RDSClient {
     args: DescribeEngineDefaultParametersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEngineDefaultParametersCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void),
     cb?: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): Promise<DescribeEngineDefaultParametersCommandOutput> | void {
     const command = new DescribeEngineDefaultParametersCommand(args);
@@ -3705,9 +3619,7 @@ export class RDS extends RDSClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -3881,31 +3793,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
   public describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableDBInstanceOptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableDBInstanceOptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> | void {
     const command = new DescribeOrderableDBInstanceOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -3928,31 +3828,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4010,31 +3898,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput>;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): void;
   public describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedDBInstancesOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedDBInstancesOfferingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> | void {
     const command = new DescribeReservedDBInstancesOfferingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4097,31 +3973,19 @@ export class RDS extends RDSClient {
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput>;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeValidDBInstanceModificationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeValidDBInstanceModificationsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> | void {
     const command = new DescribeValidDBInstanceModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4388,10 +4252,7 @@ export class RDS extends RDSClient {
     args: ModifyCurrentDBClusterCapacityCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyCurrentDBClusterCapacityCommandOutput
-        ) => void),
+      | ((err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void),
     cb?: (err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> | void {
     const command = new ModifyCurrentDBClusterCapacityCommand(args);
@@ -4433,9 +4294,7 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): Promise<ModifyDBClusterCommandOutput> | void {
     const command = new ModifyDBClusterCommand(args);
@@ -4588,14 +4447,8 @@ export class RDS extends RDSClient {
     args: ModifyDBClusterSnapshotAttributeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyDBClusterSnapshotAttributeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyDBClusterSnapshotAttributeCommandOutput
-    ) => void
+      | ((err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> | void {
     const command = new ModifyDBClusterSnapshotAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -4632,9 +4485,7 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): Promise<ModifyDBInstanceCommandOutput> | void {
     const command = new ModifyDBInstanceCommand(args);
@@ -4725,9 +4576,7 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBProxy(
     args: ModifyDBProxyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBProxyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBProxyCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBProxyCommandOutput) => void
   ): Promise<ModifyDBProxyCommandOutput> | void {
     const command = new ModifyDBProxyCommand(args);
@@ -4804,9 +4653,7 @@ export class RDS extends RDSClient {
   ): void;
   public modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyDBSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: ModifyDBSnapshotCommandOutput) => void
   ): Promise<ModifyDBSnapshotCommandOutput> | void {
     const command = new ModifyDBSnapshotCommand(args);
@@ -5118,31 +4965,19 @@ export class RDS extends RDSClient {
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput>;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+    cb: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): void;
   public purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedDBInstancesOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedDBInstancesOfferingCommandOutput
-    ) => void
+      | ((err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> | void {
     const command = new PurchaseReservedDBInstancesOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5185,9 +5020,7 @@ export class RDS extends RDSClient {
   ): void;
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
@@ -5367,31 +5200,19 @@ export class RDS extends RDSClient {
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
   public removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: RemoveSourceIdentifierFromSubscriptionCommandOutput
-    ) => void
+      | ((err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> | void {
     const command = new RemoveSourceIdentifierFromSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -5709,10 +5530,7 @@ export class RDS extends RDSClient {
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreDBInstanceFromDBSnapshotCommandOutput
-        ) => void),
+      | ((err: any, data?: RestoreDBInstanceFromDBSnapshotCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBInstanceFromDBSnapshotCommandOutput) => void
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> | void {
     const command = new RestoreDBInstanceFromDBSnapshotCommand(args);
@@ -5798,10 +5616,7 @@ export class RDS extends RDSClient {
     args: RestoreDBInstanceToPointInTimeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RestoreDBInstanceToPointInTimeCommandOutput
-        ) => void),
+      | ((err: any, data?: RestoreDBInstanceToPointInTimeCommandOutput) => void),
     cb?: (err: any, data?: RestoreDBInstanceToPointInTimeCommandOutput) => void
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> | void {
     const command = new RestoreDBInstanceToPointInTimeCommand(args);
@@ -5915,9 +5730,7 @@ export class RDS extends RDSClient {
   ): void;
   public startDBCluster(
     args: StartDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StartDBClusterCommandOutput) => void
   ): Promise<StartDBClusterCommandOutput> | void {
     const command = new StartDBClusterCommand(args);
@@ -5965,9 +5778,7 @@ export class RDS extends RDSClient {
   ): void;
   public startDBInstance(
     args: StartDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartDBInstanceCommandOutput) => void
   ): Promise<StartDBInstanceCommandOutput> | void {
     const command = new StartDBInstanceCommand(args);
@@ -6051,9 +5862,7 @@ export class RDS extends RDSClient {
   ): void;
   public stopDBCluster(
     args: StopDBClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDBClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBClusterCommandOutput) => void),
     cb?: (err: any, data?: StopDBClusterCommandOutput) => void
   ): Promise<StopDBClusterCommandOutput> | void {
     const command = new StopDBClusterCommand(args);
@@ -6103,9 +5912,7 @@ export class RDS extends RDSClient {
   ): void;
   public stopDBInstance(
     args: StopDBInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDBInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDBInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopDBInstanceCommandOutput) => void
   ): Promise<StopDBInstanceCommandOutput> | void {
     const command = new StopDBInstanceCommand(args);

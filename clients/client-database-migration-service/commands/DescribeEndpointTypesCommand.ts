@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeEndpointTypesMessage,
-  DescribeEndpointTypesResponse
-} from "../models/index";
+import { DescribeEndpointTypesMessage, DescribeEndpointTypesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEndpointTypesCommand,
   serializeAws_json1_1DescribeEndpointTypesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEndpointTypesCommandInput = DescribeEndpointTypesMessage;
-export type DescribeEndpointTypesCommandOutput = DescribeEndpointTypesResponse &
-  __MetadataBearer;
+export type DescribeEndpointTypesCommandOutput = DescribeEndpointTypesResponse & __MetadataBearer;
 
 export class DescribeEndpointTypesCommand extends $Command<
   DescribeEndpointTypesCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEndpointTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEndpointTypesCommandInput,
-    DescribeEndpointTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEndpointTypesCommandInput, DescribeEndpointTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

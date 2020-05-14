@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  ListCreateAccountStatusRequest,
-  ListCreateAccountStatusResponse
-} from "../models/index";
+import { ListCreateAccountStatusRequest, ListCreateAccountStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListCreateAccountStatusCommand,
   serializeAws_json1_1ListCreateAccountStatusCommand
@@ -49,13 +46,8 @@ export class ListCreateAccountStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCreateAccountStatusCommandInput,
-    ListCreateAccountStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCreateAccountStatusCommandInput, ListCreateAccountStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListCreateAccountStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCreateAccountStatusCommandOutput> {
-    return deserializeAws_json1_1ListCreateAccountStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListCreateAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

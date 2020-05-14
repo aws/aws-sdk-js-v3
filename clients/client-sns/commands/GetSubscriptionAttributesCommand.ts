@@ -1,12 +1,5 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetSubscriptionAttributesInput,
-  GetSubscriptionAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetSubscriptionAttributesCommand,
   serializeAws_queryGetSubscriptionAttributesCommand
@@ -49,13 +42,8 @@ export class GetSubscriptionAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSubscriptionAttributesCommandInput,
-    GetSubscriptionAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSubscriptionAttributesCommandInput, GetSubscriptionAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class GetSubscriptionAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionAttributesCommandOutput> {
-    return deserializeAws_queryGetSubscriptionAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetSubscriptionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

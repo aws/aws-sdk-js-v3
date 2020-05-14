@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetAssociatedRoleRequest,
-  GetAssociatedRoleResponse
-} from "../models/index";
+import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetAssociatedRoleCommand,
   serializeAws_restJson1_1GetAssociatedRoleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAssociatedRoleCommandInput = GetAssociatedRoleRequest;
-export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse &
-  __MetadataBearer;
+export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse & __MetadataBearer;
 
 export class GetAssociatedRoleCommand extends $Command<
   GetAssociatedRoleCommandInput,
@@ -50,9 +46,7 @@ export class GetAssociatedRoleCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  RestoreTableFromBackupInput,
-  RestoreTableFromBackupOutput
-} from "../models/index";
+import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/index";
 import {
   deserializeAws_json1_0RestoreTableFromBackupCommand,
   serializeAws_json1_0RestoreTableFromBackupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreTableFromBackupCommandInput = RestoreTableFromBackupInput;
-export type RestoreTableFromBackupCommandOutput = RestoreTableFromBackupOutput &
-  __MetadataBearer;
+export type RestoreTableFromBackupCommandOutput = RestoreTableFromBackupOutput & __MetadataBearer;
 
 export class RestoreTableFromBackupCommand extends $Command<
   RestoreTableFromBackupCommandInput,
@@ -49,13 +45,8 @@ export class RestoreTableFromBackupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreTableFromBackupCommandInput,
-    RestoreTableFromBackupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreTableFromBackupCommandInput, RestoreTableFromBackupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

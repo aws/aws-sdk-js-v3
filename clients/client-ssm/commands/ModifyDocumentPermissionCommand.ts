@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ModifyDocumentPermissionRequest,
-  ModifyDocumentPermissionResponse
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/index";
 import {
   deserializeAws_json1_1ModifyDocumentPermissionCommand,
   serializeAws_json1_1ModifyDocumentPermissionCommand
@@ -49,13 +42,8 @@ export class ModifyDocumentPermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyDocumentPermissionCommandInput,
-    ModifyDocumentPermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyDocumentPermissionCommandInput, ModifyDocumentPermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class ModifyDocumentPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDocumentPermissionCommandOutput> {
-    return deserializeAws_json1_1ModifyDocumentPermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyDocumentPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

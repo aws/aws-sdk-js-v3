@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetBucketVersioningOutput,
-  GetBucketVersioningRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetBucketVersioningOutput, GetBucketVersioningRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketVersioningCommand,
   serializeAws_restXmlGetBucketVersioningCommand
@@ -29,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketVersioningCommandInput = GetBucketVersioningRequest;
-export type GetBucketVersioningCommandOutput = GetBucketVersioningOutput &
-  __MetadataBearer;
+export type GetBucketVersioningCommandOutput = GetBucketVersioningOutput & __MetadataBearer;
 
 export class GetBucketVersioningCommand extends $Command<
   GetBucketVersioningCommandInput,
@@ -50,13 +42,8 @@ export class GetBucketVersioningCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBucketVersioningCommandInput,
-    GetBucketVersioningCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBucketVersioningCommandInput, GetBucketVersioningCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);

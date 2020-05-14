@@ -138,9 +138,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public createBudget(
     args: CreateBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBudgetCommandOutput) => void),
     cb?: (err: any, data?: CreateBudgetCommandOutput) => void
   ): Promise<CreateBudgetCommandOutput> | void {
     const command = new CreateBudgetCommand(args);
@@ -208,9 +206,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public createSubscriber(
     args: CreateSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSubscriberCommandOutput) => void),
     cb?: (err: any, data?: CreateSubscriberCommandOutput) => void
   ): Promise<CreateSubscriberCommandOutput> | void {
     const command = new CreateSubscriberCommand(args);
@@ -246,9 +242,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public deleteBudget(
     args: DeleteBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBudgetCommandOutput) => void),
     cb?: (err: any, data?: DeleteBudgetCommandOutput) => void
   ): Promise<DeleteBudgetCommandOutput> | void {
     const command = new DeleteBudgetCommand(args);
@@ -322,9 +316,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public deleteSubscriber(
     args: DeleteSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSubscriberCommandOutput) => void),
     cb?: (err: any, data?: DeleteSubscriberCommandOutput) => void
   ): Promise<DeleteSubscriberCommandOutput> | void {
     const command = new DeleteSubscriberCommand(args);
@@ -360,9 +352,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeBudget(
     args: DescribeBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetCommandOutput) => void),
     cb?: (err: any, data?: DescribeBudgetCommandOutput) => void
   ): Promise<DescribeBudgetCommandOutput> | void {
     const command = new DescribeBudgetCommand(args);
@@ -397,14 +387,8 @@ export class Budgets extends BudgetsClient {
     args: DescribeBudgetPerformanceHistoryCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeBudgetPerformanceHistoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeBudgetPerformanceHistoryCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeBudgetPerformanceHistoryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetPerformanceHistoryCommandOutput) => void
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> | void {
     const command = new DescribeBudgetPerformanceHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -439,9 +423,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public describeBudgets(
     args: DescribeBudgetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBudgetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBudgetsCommandOutput) => void
   ): Promise<DescribeBudgetsCommandOutput> | void {
     const command = new DescribeBudgetsCommand(args);
@@ -476,10 +458,7 @@ export class Budgets extends BudgetsClient {
     args: DescribeNotificationsForBudgetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeNotificationsForBudgetCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeNotificationsForBudgetCommandOutput) => void),
     cb?: (err: any, data?: DescribeNotificationsForBudgetCommandOutput) => void
   ): Promise<DescribeNotificationsForBudgetCommandOutput> | void {
     const command = new DescribeNotificationsForBudgetCommand(args);
@@ -503,31 +482,19 @@ export class Budgets extends BudgetsClient {
   ): Promise<DescribeSubscribersForNotificationCommandOutput>;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): void;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): void;
   public describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSubscribersForNotificationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSubscribersForNotificationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): Promise<DescribeSubscribersForNotificationCommandOutput> | void {
     const command = new DescribeSubscribersForNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -562,9 +529,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public updateBudget(
     args: UpdateBudgetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBudgetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBudgetCommandOutput) => void),
     cb?: (err: any, data?: UpdateBudgetCommandOutput) => void
   ): Promise<UpdateBudgetCommandOutput> | void {
     const command = new UpdateBudgetCommand(args);
@@ -632,9 +597,7 @@ export class Budgets extends BudgetsClient {
   ): void;
   public updateSubscriber(
     args: UpdateSubscriberCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSubscriberCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSubscriberCommandOutput) => void),
     cb?: (err: any, data?: UpdateSubscriberCommandOutput) => void
   ): Promise<UpdateSubscriberCommandOutput> | void {
     const command = new UpdateSubscriberCommand(args);

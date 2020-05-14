@@ -53,9 +53,7 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     DeregisterWebhookWithThirdPartyCommandInput,
     DeregisterWebhookWithThirdPartyCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     input: DeregisterWebhookWithThirdPartyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

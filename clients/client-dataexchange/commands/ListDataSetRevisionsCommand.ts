@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DataExchangeClient";
-import {
-  ListDataSetRevisionsRequest,
-  ListDataSetRevisionsResponse
-} from "../models/index";
+import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDataSetRevisionsCommand,
   serializeAws_restJson1_1ListDataSetRevisionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDataSetRevisionsCommandInput = ListDataSetRevisionsRequest;
-export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse &
-  __MetadataBearer;
+export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse & __MetadataBearer;
 
 export class ListDataSetRevisionsCommand extends $Command<
   ListDataSetRevisionsCommandInput,
@@ -49,13 +45,8 @@ export class ListDataSetRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDataSetRevisionsCommandInput,
-    ListDataSetRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDataSetRevisionsCommandInput, ListDataSetRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListDataSetRevisionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataSetRevisionsCommandOutput> {
-    return deserializeAws_restJson1_1ListDataSetRevisionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDataSetRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

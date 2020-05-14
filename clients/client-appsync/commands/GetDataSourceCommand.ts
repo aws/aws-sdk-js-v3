@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataSourceCommandInput = GetDataSourceRequest;
-export type GetDataSourceCommandOutput = GetDataSourceResponse &
-  __MetadataBearer;
+export type GetDataSourceCommandOutput = GetDataSourceResponse & __MetadataBearer;
 
 export class GetDataSourceCommand extends $Command<
   GetDataSourceCommandInput,
@@ -47,9 +46,7 @@ export class GetDataSourceCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataSourceCommandInput, GetDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

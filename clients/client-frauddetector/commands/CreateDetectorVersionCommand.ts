@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  CreateDetectorVersionRequest,
-  CreateDetectorVersionResult
-} from "../models/index";
+import { CreateDetectorVersionRequest, CreateDetectorVersionResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDetectorVersionCommand,
   serializeAws_json1_1CreateDetectorVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDetectorVersionCommandInput = CreateDetectorVersionRequest;
-export type CreateDetectorVersionCommandOutput = CreateDetectorVersionResult &
-  __MetadataBearer;
+export type CreateDetectorVersionCommandOutput = CreateDetectorVersionResult & __MetadataBearer;
 
 export class CreateDetectorVersionCommand extends $Command<
   CreateDetectorVersionCommandInput,
@@ -49,13 +45,8 @@ export class CreateDetectorVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDetectorVersionCommandInput,
-    CreateDetectorVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDetectorVersionCommandInput, CreateDetectorVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

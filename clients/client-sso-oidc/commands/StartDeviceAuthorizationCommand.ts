@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SSOOIDCClient";
-import {
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationResponse
-} from "../models/index";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartDeviceAuthorizationCommand,
   serializeAws_restJson1_1StartDeviceAuthorizationCommand
@@ -49,13 +46,8 @@ export class StartDeviceAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOOIDCClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartDeviceAuthorizationCommandInput,
-    StartDeviceAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartDeviceAuthorizationCommandInput, StartDeviceAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class StartDeviceAuthorizationCommand extends $Command<
     input: StartDeviceAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartDeviceAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartDeviceAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDeviceAuthorizationCommandOutput> {
-    return deserializeAws_restJson1_1StartDeviceAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartDeviceAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

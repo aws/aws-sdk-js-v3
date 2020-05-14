@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetSegmentVersionRequest,
-  GetSegmentVersionResponse
-} from "../models/index";
+import { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSegmentVersionCommand,
   serializeAws_restJson1_1GetSegmentVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSegmentVersionCommandInput = GetSegmentVersionRequest;
-export type GetSegmentVersionCommandOutput = GetSegmentVersionResponse &
-  __MetadataBearer;
+export type GetSegmentVersionCommandOutput = GetSegmentVersionResponse & __MetadataBearer;
 
 export class GetSegmentVersionCommand extends $Command<
   GetSegmentVersionCommandInput,
@@ -50,9 +46,7 @@ export class GetSegmentVersionCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSegmentVersionCommandInput, GetSegmentVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

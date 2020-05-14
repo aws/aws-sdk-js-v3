@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  DeleteReservationRequest,
-  DeleteReservationResponse
-} from "../models/index";
+import { DeleteReservationRequest, DeleteReservationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteReservationCommand,
   serializeAws_restJson1_1DeleteReservationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteReservationCommandInput = DeleteReservationRequest;
-export type DeleteReservationCommandOutput = DeleteReservationResponse &
-  __MetadataBearer;
+export type DeleteReservationCommandOutput = DeleteReservationResponse & __MetadataBearer;
 
 export class DeleteReservationCommand extends $Command<
   DeleteReservationCommandInput,
@@ -50,9 +46,7 @@ export class DeleteReservationCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteReservationCommandInput, DeleteReservationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

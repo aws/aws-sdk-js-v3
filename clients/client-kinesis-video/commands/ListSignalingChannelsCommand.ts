@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  ListSignalingChannelsInput,
-  ListSignalingChannelsOutput
-} from "../models/index";
+import { ListSignalingChannelsInput, ListSignalingChannelsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSignalingChannelsCommand,
   serializeAws_restJson1_1ListSignalingChannelsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSignalingChannelsCommandInput = ListSignalingChannelsInput;
-export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput &
-  __MetadataBearer;
+export type ListSignalingChannelsCommandOutput = ListSignalingChannelsOutput & __MetadataBearer;
 
 export class ListSignalingChannelsCommand extends $Command<
   ListSignalingChannelsCommandInput,
@@ -49,13 +45,8 @@ export class ListSignalingChannelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSignalingChannelsCommandInput,
-    ListSignalingChannelsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSignalingChannelsCommandInput, ListSignalingChannelsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListSignalingChannelsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSignalingChannelsCommandOutput> {
-    return deserializeAws_restJson1_1ListSignalingChannelsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSignalingChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

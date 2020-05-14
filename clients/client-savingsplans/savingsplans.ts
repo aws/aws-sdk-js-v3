@@ -57,31 +57,19 @@ export class savingsplans extends savingsplansClient {
   ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
   public describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSavingsPlansOfferingRatesCommandOutput) => void
   ): void;
   public describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeSavingsPlansOfferingRatesCommandOutput) => void
   ): void;
   public describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSavingsPlansOfferingRatesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeSavingsPlansOfferingRatesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSavingsPlansOfferingRatesCommandOutput) => void
   ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> | void {
     const command = new DescribeSavingsPlansOfferingRatesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -288,9 +276,7 @@ export class savingsplans extends savingsplansClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -323,9 +309,7 @@ export class savingsplans extends savingsplansClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

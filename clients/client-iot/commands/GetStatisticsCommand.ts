@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetStatisticsRequest, GetStatisticsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetStatisticsCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetStatisticsCommandInput = GetStatisticsRequest;
-export type GetStatisticsCommandOutput = GetStatisticsResponse &
-  __MetadataBearer;
+export type GetStatisticsCommandOutput = GetStatisticsResponse & __MetadataBearer;
 
 export class GetStatisticsCommand extends $Command<
   GetStatisticsCommandInput,
@@ -47,9 +42,7 @@ export class GetStatisticsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetStatisticsCommandInput, GetStatisticsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

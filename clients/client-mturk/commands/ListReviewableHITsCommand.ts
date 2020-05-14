@@ -1,12 +1,5 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ListReviewableHITsRequest,
-  ListReviewableHITsResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListReviewableHITsCommand,
   serializeAws_json1_1ListReviewableHITsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListReviewableHITsCommandInput = ListReviewableHITsRequest;
-export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse &
-  __MetadataBearer;
+export type ListReviewableHITsCommandOutput = ListReviewableHITsResponse & __MetadataBearer;
 
 export class ListReviewableHITsCommand extends $Command<
   ListReviewableHITsCommandInput,
@@ -50,9 +42,7 @@ export class ListReviewableHITsCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListReviewableHITsCommandInput, ListReviewableHITsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

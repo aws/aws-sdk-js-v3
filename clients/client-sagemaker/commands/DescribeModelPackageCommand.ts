@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DescribeModelPackageInput,
-  DescribeModelPackageOutput
-} from "../models/index";
+import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeModelPackageCommand,
   serializeAws_json1_1DescribeModelPackageCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeModelPackageCommandInput = DescribeModelPackageInput;
-export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput &
-  __MetadataBearer;
+export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput & __MetadataBearer;
 
 export class DescribeModelPackageCommand extends $Command<
   DescribeModelPackageCommandInput,
@@ -49,13 +45,8 @@ export class DescribeModelPackageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeModelPackageCommandInput,
-    DescribeModelPackageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeModelPackageCommandInput, DescribeModelPackageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

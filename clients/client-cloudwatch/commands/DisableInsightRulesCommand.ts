@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchClient";
-import {
-  DisableInsightRulesInput,
-  DisableInsightRulesOutput
-} from "../models/index";
+import { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/index";
 import {
   deserializeAws_queryDisableInsightRulesCommand,
   serializeAws_queryDisableInsightRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableInsightRulesCommandInput = DisableInsightRulesInput;
-export type DisableInsightRulesCommandOutput = DisableInsightRulesOutput &
-  __MetadataBearer;
+export type DisableInsightRulesCommandOutput = DisableInsightRulesOutput & __MetadataBearer;
 
 export class DisableInsightRulesCommand extends $Command<
   DisableInsightRulesCommandInput,
@@ -49,13 +45,8 @@ export class DisableInsightRulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableInsightRulesCommandInput,
-    DisableInsightRulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableInsightRulesCommandInput, DisableInsightRulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

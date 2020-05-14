@@ -45,9 +45,7 @@ export class MessageUnmarshallerStream extends Transform {
           [message.headers[":event-type"].value as string]: message
         });
       } else {
-        throw Error(
-          `Unrecognizable event type: ${message.headers[":event-type"].value}`
-        );
+        throw Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`);
       }
       return callback();
     } catch (err) {

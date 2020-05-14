@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVariableCommandInput = UpdateVariableRequest;
-export type UpdateVariableCommandOutput = UpdateVariableResult &
-  __MetadataBearer;
+export type UpdateVariableCommandOutput = UpdateVariableResult & __MetadataBearer;
 
 export class UpdateVariableCommand extends $Command<
   UpdateVariableCommandInput,
@@ -47,9 +46,7 @@ export class UpdateVariableCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVariableCommandInput, UpdateVariableCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

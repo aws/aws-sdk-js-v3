@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeClusterSnapshotsMessage,
-  SnapshotMessage
-} from "../models/index";
+import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeClusterSnapshotsCommand,
   serializeAws_queryDescribeClusterSnapshotsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClusterSnapshotsCommandInput = DescribeClusterSnapshotsMessage;
-export type DescribeClusterSnapshotsCommandOutput = SnapshotMessage &
-  __MetadataBearer;
+export type DescribeClusterSnapshotsCommandOutput = SnapshotMessage & __MetadataBearer;
 
 export class DescribeClusterSnapshotsCommand extends $Command<
   DescribeClusterSnapshotsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeClusterSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClusterSnapshotsCommandInput,
-    DescribeClusterSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClusterSnapshotsCommandInput, DescribeClusterSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

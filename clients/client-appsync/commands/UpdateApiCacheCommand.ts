@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApiCacheCommandInput = UpdateApiCacheRequest;
-export type UpdateApiCacheCommandOutput = UpdateApiCacheResponse &
-  __MetadataBearer;
+export type UpdateApiCacheCommandOutput = UpdateApiCacheResponse & __MetadataBearer;
 
 export class UpdateApiCacheCommand extends $Command<
   UpdateApiCacheCommandInput,
@@ -47,9 +46,7 @@ export class UpdateApiCacheCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

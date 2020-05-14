@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBackupPlanCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
-export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput &
-  __MetadataBearer;
+export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput & __MetadataBearer;
 
 export class DeleteBackupPlanCommand extends $Command<
   DeleteBackupPlanCommandInput,
@@ -47,9 +42,7 @@ export class DeleteBackupPlanCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

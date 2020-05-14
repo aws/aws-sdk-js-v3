@@ -42,10 +42,7 @@ import {
   EnableEnhancedMonitoringCommandInput,
   EnableEnhancedMonitoringCommandOutput
 } from "./commands/EnableEnhancedMonitoringCommand";
-import {
-  GetRecordsCommandInput,
-  GetRecordsCommandOutput
-} from "./commands/GetRecordsCommand";
+import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
   GetShardIteratorCommandInput,
   GetShardIteratorCommandOutput
@@ -54,34 +51,19 @@ import {
   IncreaseStreamRetentionPeriodCommandInput,
   IncreaseStreamRetentionPeriodCommandOutput
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
-import {
-  ListShardsCommandInput,
-  ListShardsCommandOutput
-} from "./commands/ListShardsCommand";
+import { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
 import {
   ListStreamConsumersCommandInput,
   ListStreamConsumersCommandOutput
 } from "./commands/ListStreamConsumersCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput
 } from "./commands/ListTagsForStreamCommand";
-import {
-  MergeShardsCommandInput,
-  MergeShardsCommandOutput
-} from "./commands/MergeShardsCommand";
-import {
-  PutRecordCommandInput,
-  PutRecordCommandOutput
-} from "./commands/PutRecordCommand";
-import {
-  PutRecordsCommandInput,
-  PutRecordsCommandOutput
-} from "./commands/PutRecordsCommand";
+import { MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
+import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import { PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
 import {
   RegisterStreamConsumerCommandInput,
   RegisterStreamConsumerCommandOutput
@@ -90,10 +72,7 @@ import {
   RemoveTagsFromStreamCommandInput,
   RemoveTagsFromStreamCommandOutput
 } from "./commands/RemoveTagsFromStreamCommand";
-import {
-  SplitShardCommandInput,
-  SplitShardCommandOutput
-} from "./commands/SplitShardCommand";
+import { SplitShardCommandInput, SplitShardCommandOutput } from "./commands/SplitShardCommand";
 import {
   StartStreamEncryptionCommandInput,
   StartStreamEncryptionCommandOutput
@@ -318,9 +297,7 @@ export interface ClientDefaults
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type KinesisClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -330,9 +307,7 @@ export type KinesisClientConfig = Partial<
   HostHeaderInputConfig &
   EventStreamSerdeInputConfig;
 
-export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

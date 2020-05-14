@@ -1,12 +1,5 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
-import {
-  AssociateS3ResourcesRequest,
-  AssociateS3ResourcesResult
-} from "../models/index";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/index";
 import {
   deserializeAws_json1_1AssociateS3ResourcesCommand,
   serializeAws_json1_1AssociateS3ResourcesCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateS3ResourcesCommandInput = AssociateS3ResourcesRequest;
-export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult &
-  __MetadataBearer;
+export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult & __MetadataBearer;
 
 export class AssociateS3ResourcesCommand extends $Command<
   AssociateS3ResourcesCommandInput,
@@ -49,13 +41,8 @@ export class AssociateS3ResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateS3ResourcesCommandInput,
-    AssociateS3ResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateS3ResourcesCommandInput, AssociateS3ResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

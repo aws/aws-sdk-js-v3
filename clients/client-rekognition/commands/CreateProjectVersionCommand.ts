@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  CreateProjectVersionRequest,
-  CreateProjectVersionResponse
-} from "../models/index";
+import { CreateProjectVersionRequest, CreateProjectVersionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateProjectVersionCommand,
   serializeAws_json1_1CreateProjectVersionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateProjectVersionCommandInput = CreateProjectVersionRequest;
-export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse &
-  __MetadataBearer;
+export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse & __MetadataBearer;
 
 export class CreateProjectVersionCommand extends $Command<
   CreateProjectVersionCommandInput,
@@ -49,13 +45,8 @@ export class CreateProjectVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateProjectVersionCommandInput,
-    CreateProjectVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateProjectVersionCommandInput, CreateProjectVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

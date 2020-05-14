@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendMedicalClient";
-import {
-  StopPHIDetectionJobRequest,
-  StopPHIDetectionJobResponse
-} from "../models/index";
+import { StopPHIDetectionJobRequest, StopPHIDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopPHIDetectionJobCommand,
   serializeAws_json1_1StopPHIDetectionJobCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
-export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse &
-  __MetadataBearer;
+export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse & __MetadataBearer;
 
 export class StopPHIDetectionJobCommand extends $Command<
   StopPHIDetectionJobCommandInput,
@@ -49,13 +45,8 @@ export class StopPHIDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopPHIDetectionJobCommandInput,
-    StopPHIDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopPHIDetectionJobCommandInput, StopPHIDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

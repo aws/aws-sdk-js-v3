@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DeleteClientVpnEndpointRequest,
-  DeleteClientVpnEndpointResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DeleteClientVpnEndpointRequest, DeleteClientVpnEndpointResult } from "../models/index";
 import {
   deserializeAws_ec2DeleteClientVpnEndpointCommand,
   serializeAws_ec2DeleteClientVpnEndpointCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClientVpnEndpointCommandInput = DeleteClientVpnEndpointRequest;
-export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult &
-  __MetadataBearer;
+export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult & __MetadataBearer;
 
 export class DeleteClientVpnEndpointCommand extends $Command<
   DeleteClientVpnEndpointCommandInput,
@@ -49,13 +41,8 @@ export class DeleteClientVpnEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteClientVpnEndpointCommandInput,
-    DeleteClientVpnEndpointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteClientVpnEndpointCommandInput, DeleteClientVpnEndpointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -49,13 +49,8 @@ export class ListStackSetOperationResultsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListStackSetOperationResultsCommandInput,
-    ListStackSetOperationResultsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListStackSetOperationResultsCommandInput, ListStackSetOperationResultsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class ListStackSetOperationResultsCommand extends $Command<
     input: ListStackSetOperationResultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListStackSetOperationResultsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryListStackSetOperationResultsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStackSetOperationResultsCommandOutput> {
-    return deserializeAws_queryListStackSetOperationResultsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListStackSetOperationResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

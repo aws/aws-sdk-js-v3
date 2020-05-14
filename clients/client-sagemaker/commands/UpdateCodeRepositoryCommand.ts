@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  UpdateCodeRepositoryInput,
-  UpdateCodeRepositoryOutput
-} from "../models/index";
+import { UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateCodeRepositoryCommand,
   serializeAws_json1_1UpdateCodeRepositoryCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateCodeRepositoryCommandInput = UpdateCodeRepositoryInput;
-export type UpdateCodeRepositoryCommandOutput = UpdateCodeRepositoryOutput &
-  __MetadataBearer;
+export type UpdateCodeRepositoryCommandOutput = UpdateCodeRepositoryOutput & __MetadataBearer;
 
 export class UpdateCodeRepositoryCommand extends $Command<
   UpdateCodeRepositoryCommandInput,
@@ -49,13 +45,8 @@ export class UpdateCodeRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCodeRepositoryCommandInput,
-    UpdateCodeRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCodeRepositoryCommandInput, UpdateCodeRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

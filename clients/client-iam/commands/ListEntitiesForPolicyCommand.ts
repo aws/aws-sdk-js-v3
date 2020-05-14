@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListEntitiesForPolicyRequest,
-  ListEntitiesForPolicyResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListEntitiesForPolicyRequest, ListEntitiesForPolicyResponse } from "../models/index";
 import {
   deserializeAws_queryListEntitiesForPolicyCommand,
   serializeAws_queryListEntitiesForPolicyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEntitiesForPolicyCommandInput = ListEntitiesForPolicyRequest;
-export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse &
-  __MetadataBearer;
+export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse & __MetadataBearer;
 
 export class ListEntitiesForPolicyCommand extends $Command<
   ListEntitiesForPolicyCommandInput,
@@ -49,13 +41,8 @@ export class ListEntitiesForPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEntitiesForPolicyCommandInput,
-    ListEntitiesForPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEntitiesForPolicyCommandInput, ListEntitiesForPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

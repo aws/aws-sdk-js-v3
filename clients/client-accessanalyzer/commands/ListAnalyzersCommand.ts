@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAnalyzersCommandInput = ListAnalyzersRequest;
-export type ListAnalyzersCommandOutput = ListAnalyzersResponse &
-  __MetadataBearer;
+export type ListAnalyzersCommandOutput = ListAnalyzersResponse & __MetadataBearer;
 
 export class ListAnalyzersCommand extends $Command<
   ListAnalyzersCommandInput,
@@ -47,9 +46,7 @@ export class ListAnalyzersCommand extends $Command<
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAnalyzersCommandInput, ListAnalyzersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

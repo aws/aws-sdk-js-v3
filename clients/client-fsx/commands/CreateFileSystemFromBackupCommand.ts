@@ -1,8 +1,4 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse
@@ -49,13 +45,8 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateFileSystemFromBackupCommandInput,
-    CreateFileSystemFromBackupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateFileSystemFromBackupCommandInput, CreateFileSystemFromBackupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     input: CreateFileSystemFromBackupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateFileSystemFromBackupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateFileSystemFromBackupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFileSystemFromBackupCommandOutput> {
-    return deserializeAws_json1_1CreateFileSystemFromBackupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateFileSystemFromBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

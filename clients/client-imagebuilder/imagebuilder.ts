@@ -268,9 +268,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createComponent(
     args: CreateComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentCommandOutput) => void),
     cb?: (err: any, data?: CreateComponentCommandOutput) => void
   ): Promise<CreateComponentCommandOutput> | void {
     const command = new CreateComponentCommand(args);
@@ -305,10 +303,7 @@ export class imagebuilder extends imagebuilderClient {
     args: CreateDistributionConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDistributionConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateDistributionConfigurationCommandOutput) => void
   ): Promise<CreateDistributionConfigurationCommandOutput> | void {
     const command = new CreateDistributionConfigurationCommand(args);
@@ -341,9 +336,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createImage(
     args: CreateImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageCommandOutput) => void),
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
@@ -437,31 +430,19 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<CreateInfrastructureConfigurationCommandOutput>;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): Promise<CreateInfrastructureConfigurationCommandOutput> | void {
     const command = new CreateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -493,9 +474,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteComponent(
     args: DeleteComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentCommandOutput) => void),
     cb?: (err: any, data?: DeleteComponentCommandOutput) => void
   ): Promise<DeleteComponentCommandOutput> | void {
     const command = new DeleteComponentCommand(args);
@@ -530,10 +509,7 @@ export class imagebuilder extends imagebuilderClient {
     args: DeleteDistributionConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDistributionConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: DeleteDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteDistributionConfigurationCommandOutput) => void
   ): Promise<DeleteDistributionConfigurationCommandOutput> | void {
     const command = new DeleteDistributionConfigurationCommand(args);
@@ -566,9 +542,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteImage(
     args: DeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageCommandOutput) => void
   ): Promise<DeleteImageCommandOutput> | void {
     const command = new DeleteImageCommand(args);
@@ -662,31 +636,19 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<DeleteInfrastructureConfigurationCommandOutput>;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): void;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): void;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): Promise<DeleteInfrastructureConfigurationCommandOutput> | void {
     const command = new DeleteInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -718,9 +680,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getComponent(
     args: GetComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComponentCommandOutput) => void),
     cb?: (err: any, data?: GetComponentCommandOutput) => void
   ): Promise<GetComponentCommandOutput> | void {
     const command = new GetComponentCommand(args);
@@ -823,9 +783,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImage(
     args: GetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImageCommandOutput) => void),
     cb?: (err: any, data?: GetImageCommandOutput) => void
   ): Promise<GetImageCommandOutput> | void {
     const command = new GetImageCommand(args);
@@ -858,9 +816,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImagePipeline(
     args: GetImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImagePipelineCommandOutput) => void),
     cb?: (err: any, data?: GetImagePipelineCommandOutput) => void
   ): Promise<GetImagePipelineCommandOutput> | void {
     const command = new GetImagePipelineCommand(args);
@@ -893,9 +849,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImagePolicy(
     args: GetImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImagePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetImagePolicyCommandOutput) => void
   ): Promise<GetImagePolicyCommandOutput> | void {
     const command = new GetImagePolicyCommand(args);
@@ -928,9 +882,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImageRecipe(
     args: GetImageRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageRecipeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImageRecipeCommandOutput) => void),
     cb?: (err: any, data?: GetImageRecipeCommandOutput) => void
   ): Promise<GetImageRecipeCommandOutput> | void {
     const command = new GetImageRecipeCommand(args);
@@ -1000,10 +952,7 @@ export class imagebuilder extends imagebuilderClient {
     args: GetInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetInfrastructureConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: GetInfrastructureConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
   ): Promise<GetInfrastructureConfigurationCommandOutput> | void {
     const command = new GetInfrastructureConfigurationCommand(args);
@@ -1036,9 +985,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public importComponent(
     args: ImportComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportComponentCommandOutput) => void),
     cb?: (err: any, data?: ImportComponentCommandOutput) => void
   ): Promise<ImportComponentCommandOutput> | void {
     const command = new ImportComponentCommand(args);
@@ -1106,9 +1053,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listComponents(
     args: ListComponentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentsCommandOutput) => void),
     cb?: (err: any, data?: ListComponentsCommandOutput) => void
   ): Promise<ListComponentsCommandOutput> | void {
     const command = new ListComponentsCommand(args);
@@ -1143,10 +1088,7 @@ export class imagebuilder extends imagebuilderClient {
     args: ListDistributionConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDistributionConfigurationsCommandOutput
-        ) => void),
+      | ((err: any, data?: ListDistributionConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
   ): Promise<ListDistributionConfigurationsCommandOutput> | void {
     const command = new ListDistributionConfigurationsCommand(args);
@@ -1284,9 +1226,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImageRecipes(
     args: ListImageRecipesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImageRecipesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageRecipesCommandOutput) => void),
     cb?: (err: any, data?: ListImageRecipesCommandOutput) => void
   ): Promise<ListImageRecipesCommandOutput> | void {
     const command = new ListImageRecipesCommand(args);
@@ -1319,9 +1259,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImages(
     args: ListImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesCommandOutput) => void),
     cb?: (err: any, data?: ListImagesCommandOutput) => void
   ): Promise<ListImagesCommandOutput> | void {
     const command = new ListImagesCommand(args);
@@ -1356,14 +1294,8 @@ export class imagebuilder extends imagebuilderClient {
     args: ListInfrastructureConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListInfrastructureConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListInfrastructureConfigurationsCommandOutput
-    ) => void
+      | ((err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
   ): Promise<ListInfrastructureConfigurationsCommandOutput> | void {
     const command = new ListInfrastructureConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1465,9 +1397,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImagePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImagePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutImagePolicyCommandOutput) => void
   ): Promise<PutImagePolicyCommandOutput> | void {
     const command = new PutImagePolicyCommand(args);
@@ -1570,9 +1500,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1605,9 +1533,7 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1642,10 +1568,7 @@ export class imagebuilder extends imagebuilderClient {
     args: UpdateDistributionConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDistributionConfigurationCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
   ): Promise<UpdateDistributionConfigurationCommandOutput> | void {
     const command = new UpdateDistributionConfigurationCommand(args);
@@ -1704,31 +1627,19 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<UpdateInfrastructureConfigurationCommandOutput>;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+      | ((err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): Promise<UpdateInfrastructureConfigurationCommandOutput> | void {
     const command = new UpdateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {

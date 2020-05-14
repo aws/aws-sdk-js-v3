@@ -1,8 +1,4 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeAffectedEntitiesForOrganizationRequest,
   DescribeAffectedEntitiesForOrganizationResponse
@@ -39,9 +35,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeAffectedEntitiesForOrganizationCommandInput
-  ) {
+  constructor(readonly input: DescribeAffectedEntitiesForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     DescribeAffectedEntitiesForOrganizationCommandInput,
     DescribeAffectedEntitiesForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     input: DescribeAffectedEntitiesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

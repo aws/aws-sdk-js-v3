@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   codestarnotificationsClientResolvedConfig
 } from "../codestarnotificationsClient";
-import {
-  ListNotificationRulesRequest,
-  ListNotificationRulesResult
-} from "../models/index";
+import { ListNotificationRulesRequest, ListNotificationRulesResult } from "../models/index";
 import {
   deserializeAws_restJson1_1ListNotificationRulesCommand,
   serializeAws_restJson1_1ListNotificationRulesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListNotificationRulesCommandInput = ListNotificationRulesRequest;
-export type ListNotificationRulesCommandOutput = ListNotificationRulesResult &
-  __MetadataBearer;
+export type ListNotificationRulesCommandOutput = ListNotificationRulesResult & __MetadataBearer;
 
 export class ListNotificationRulesCommand extends $Command<
   ListNotificationRulesCommandInput,
@@ -49,13 +45,8 @@ export class ListNotificationRulesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListNotificationRulesCommandInput,
-    ListNotificationRulesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListNotificationRulesCommandInput, ListNotificationRulesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListNotificationRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNotificationRulesCommandOutput> {
-    return deserializeAws_restJson1_1ListNotificationRulesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListNotificationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

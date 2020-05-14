@@ -49,13 +49,8 @@ export class UpdatePublishingDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdatePublishingDestinationCommandInput,
-    UpdatePublishingDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdatePublishingDestinationCommandInput, UpdatePublishingDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdatePublishingDestinationCommand extends $Command<
     input: UpdatePublishingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdatePublishingDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdatePublishingDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1_1UpdatePublishingDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

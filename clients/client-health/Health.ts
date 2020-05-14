@@ -185,31 +185,19 @@ export class Health extends HealthClient {
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput>;
   public describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAffectedAccountsForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAffectedAccountsForOrganizationCommandOutput) => void
   ): void;
   public describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAffectedAccountsForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAffectedAccountsForOrganizationCommandOutput) => void
   ): void;
   public describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAffectedAccountsForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAffectedAccountsForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAffectedAccountsForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAffectedAccountsForOrganizationCommandOutput) => void
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> | void {
     const command = new DescribeAffectedAccountsForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -281,31 +269,19 @@ export class Health extends HealthClient {
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput>;
   public describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeAffectedEntitiesForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAffectedEntitiesForOrganizationCommandOutput) => void
   ): void;
   public describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeAffectedEntitiesForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeAffectedEntitiesForOrganizationCommandOutput) => void
   ): void;
   public describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAffectedEntitiesForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeAffectedEntitiesForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeAffectedEntitiesForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAffectedEntitiesForOrganizationCommandOutput) => void
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> | void {
     const command = new DescribeAffectedEntitiesForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -448,31 +424,19 @@ export class Health extends HealthClient {
   ): Promise<DescribeEventDetailsForOrganizationCommandOutput>;
   public describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeEventDetailsForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEventDetailsForOrganizationCommandOutput) => void
   ): void;
   public describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeEventDetailsForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeEventDetailsForOrganizationCommandOutput) => void
   ): void;
   public describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEventDetailsForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEventDetailsForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEventDetailsForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventDetailsForOrganizationCommandOutput) => void
   ): Promise<DescribeEventDetailsForOrganizationCommandOutput> | void {
     const command = new DescribeEventDetailsForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -545,9 +509,7 @@ export class Health extends HealthClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -617,31 +579,19 @@ export class Health extends HealthClient {
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput>;
   public describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeHealthServiceStatusForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeHealthServiceStatusForOrganizationCommandOutput) => void
   ): void;
   public describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeHealthServiceStatusForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeHealthServiceStatusForOrganizationCommandOutput) => void
   ): void;
   public describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeHealthServiceStatusForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeHealthServiceStatusForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeHealthServiceStatusForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHealthServiceStatusForOrganizationCommandOutput) => void
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> | void {
     const command = new DescribeHealthServiceStatusForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -668,31 +618,19 @@ export class Health extends HealthClient {
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
   public disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: DisableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: DisableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisableHealthServiceAccessForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: DisableHealthServiceAccessForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: DisableHealthServiceAccessForOrganizationCommandOutput) => void
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> | void {
     const command = new DisableHealthServiceAccessForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -719,31 +657,19 @@ export class Health extends HealthClient {
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput>;
   public enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
-    cb: (
-      err: any,
-      data?: EnableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: EnableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+    cb: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
   public enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableHealthServiceAccessForOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableHealthServiceAccessForOrganizationCommandOutput
-    ) => void
+      | ((err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void),
+    cb?: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> | void {
     const command = new EnableHealthServiceAccessForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {

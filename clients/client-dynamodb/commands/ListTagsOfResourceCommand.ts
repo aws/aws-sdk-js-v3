@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  ListTagsOfResourceInput,
-  ListTagsOfResourceOutput
-} from "../models/index";
+import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/index";
 import {
   deserializeAws_json1_0ListTagsOfResourceCommand,
   serializeAws_json1_0ListTagsOfResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTagsOfResourceCommandInput = ListTagsOfResourceInput;
-export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput &
-  __MetadataBearer;
+export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput & __MetadataBearer;
 
 export class ListTagsOfResourceCommand extends $Command<
   ListTagsOfResourceCommandInput,
@@ -50,9 +46,7 @@ export class ListTagsOfResourceCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  RegenerateSecurityTokenRequest,
-  RegenerateSecurityTokenResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RegenerateSecurityTokenCommand,
   serializeAws_restJson1_1RegenerateSecurityTokenCommand
@@ -49,13 +42,8 @@ export class RegenerateSecurityTokenCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegenerateSecurityTokenCommandInput,
-    RegenerateSecurityTokenCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegenerateSecurityTokenCommandInput, RegenerateSecurityTokenCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class RegenerateSecurityTokenCommand extends $Command<
     input: RegenerateSecurityTokenCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RegenerateSecurityTokenCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1RegenerateSecurityTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegenerateSecurityTokenCommandOutput> {
-    return deserializeAws_restJson1_1RegenerateSecurityTokenCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegenerateSecurityTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

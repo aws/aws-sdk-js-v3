@@ -53,9 +53,7 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     UpdateApprovalRuleTemplateNameCommandInput,
     UpdateApprovalRuleTemplateNameCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     input: UpdateApprovalRuleTemplateNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(output, context);
   }
 
   // Start section: command_body_extra

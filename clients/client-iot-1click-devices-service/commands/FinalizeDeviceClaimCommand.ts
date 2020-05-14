@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  FinalizeDeviceClaimRequest,
-  FinalizeDeviceClaimResponse
-} from "../models/index";
+import { FinalizeDeviceClaimRequest, FinalizeDeviceClaimResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1FinalizeDeviceClaimCommand,
   serializeAws_restJson1_1FinalizeDeviceClaimCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FinalizeDeviceClaimCommandInput = FinalizeDeviceClaimRequest;
-export type FinalizeDeviceClaimCommandOutput = FinalizeDeviceClaimResponse &
-  __MetadataBearer;
+export type FinalizeDeviceClaimCommandOutput = FinalizeDeviceClaimResponse & __MetadataBearer;
 
 export class FinalizeDeviceClaimCommand extends $Command<
   FinalizeDeviceClaimCommandInput,
@@ -49,13 +45,8 @@ export class FinalizeDeviceClaimCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    FinalizeDeviceClaimCommandInput,
-    FinalizeDeviceClaimCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<FinalizeDeviceClaimCommandInput, FinalizeDeviceClaimCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class FinalizeDeviceClaimCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FinalizeDeviceClaimCommandOutput> {
-    return deserializeAws_restJson1_1FinalizeDeviceClaimCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1FinalizeDeviceClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

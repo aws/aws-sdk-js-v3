@@ -407,9 +407,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetBuildsCommandOutput) => void
   ): Promise<BatchGetBuildsCommandOutput> | void {
     const command = new BatchGetBuildsCommand(args);
@@ -442,9 +440,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetProjectsCommandOutput) => void
   ): Promise<BatchGetProjectsCommandOutput> | void {
     const command = new BatchGetProjectsCommand(args);
@@ -516,9 +512,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetReports(
     args: BatchGetReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetReportsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetReportsCommandOutput) => void
   ): Promise<BatchGetReportsCommandOutput> | void {
     const command = new BatchGetReportsCommand(args);
@@ -551,9 +545,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
@@ -634,9 +626,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createWebhook(
     args: CreateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebhookCommandOutput) => void),
     cb?: (err: any, data?: CreateWebhookCommandOutput) => void
   ): Promise<CreateWebhookCommandOutput> | void {
     const command = new CreateWebhookCommand(args);
@@ -671,9 +661,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
@@ -708,9 +696,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteReport(
     args: DeleteReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportCommandOutput) => void
   ): Promise<DeleteReportCommandOutput> | void {
     const command = new DeleteReportCommand(args);
@@ -859,9 +845,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
@@ -1041,9 +1025,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
@@ -1148,9 +1130,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
@@ -1185,9 +1165,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReportGroups(
     args: ListReportGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReportGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListReportGroupsCommandOutput) => void
   ): Promise<ListReportGroupsCommandOutput> | void {
     const command = new ListReportGroupsCommand(args);
@@ -1222,9 +1200,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReports(
     args: ListReportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportsCommandOutput) => void),
     cb?: (err: any, data?: ListReportsCommandOutput) => void
   ): Promise<ListReportsCommandOutput> | void {
     const command = new ListReportsCommand(args);
@@ -1443,9 +1419,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public startBuild(
     args: StartBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBuildCommandOutput) => void),
     cb?: (err: any, data?: StartBuildCommandOutput) => void
   ): Promise<StartBuildCommandOutput> | void {
     const command = new StartBuildCommand(args);
@@ -1478,9 +1452,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public stopBuild(
     args: StopBuildCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopBuildCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBuildCommandOutput) => void),
     cb?: (err: any, data?: StopBuildCommandOutput) => void
   ): Promise<StopBuildCommandOutput> | void {
     const command = new StopBuildCommand(args);
@@ -1513,9 +1485,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
@@ -1589,9 +1559,7 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateWebhook(
     args: UpdateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebhookCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebhookCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): Promise<UpdateWebhookCommandOutput> | void {
     const command = new UpdateWebhookCommand(args);

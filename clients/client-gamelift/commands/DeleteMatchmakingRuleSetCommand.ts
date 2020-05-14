@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DeleteMatchmakingRuleSetInput,
-  DeleteMatchmakingRuleSetOutput
-} from "../models/index";
+import { DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteMatchmakingRuleSetCommand,
   serializeAws_json1_1DeleteMatchmakingRuleSetCommand
@@ -49,13 +46,8 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteMatchmakingRuleSetCommandInput,
-    DeleteMatchmakingRuleSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteMatchmakingRuleSetCommandInput, DeleteMatchmakingRuleSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMatchmakingRuleSetCommandOutput> {
-    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

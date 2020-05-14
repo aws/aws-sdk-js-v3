@@ -1,8 +1,4 @@
-import {
-  HealthClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../HealthClient";
+import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeEventsForOrganizationRequest,
   DescribeEventsForOrganizationResponse
@@ -53,9 +49,7 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     DescribeEventsForOrganizationCommandInput,
     DescribeEventsForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     input: DescribeEventsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeEventsForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

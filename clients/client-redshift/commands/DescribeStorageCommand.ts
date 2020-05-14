@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStorageCommandInput = {};
-export type DescribeStorageCommandOutput = CustomerStorageMessage &
-  __MetadataBearer;
+export type DescribeStorageCommandOutput = CustomerStorageMessage & __MetadataBearer;
 
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,
@@ -47,9 +46,7 @@ export class DescribeStorageCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeStorageCommandInput, DescribeStorageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

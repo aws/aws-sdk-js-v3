@@ -39,9 +39,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput
-  ) {
+  constructor(readonly input: UpdateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     UpdateCloudFrontOriginAccessIdentityCommandInput,
     UpdateCloudFrontOriginAccessIdentityCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     input: UpdateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

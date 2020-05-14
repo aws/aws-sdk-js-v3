@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfigureAgentCommandInput = ConfigureAgentRequest;
-export type ConfigureAgentCommandOutput = ConfigureAgentResponse &
-  __MetadataBearer;
+export type ConfigureAgentCommandOutput = ConfigureAgentResponse & __MetadataBearer;
 
 export class ConfigureAgentCommand extends $Command<
   ConfigureAgentCommandInput,
@@ -47,9 +46,7 @@ export class ConfigureAgentCommand extends $Command<
     configuration: CodeGuruProfilerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ConfigureAgentCommandInput, ConfigureAgentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

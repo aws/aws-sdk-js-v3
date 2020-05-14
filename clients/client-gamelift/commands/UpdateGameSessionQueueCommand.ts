@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  UpdateGameSessionQueueInput,
-  UpdateGameSessionQueueOutput
-} from "../models/index";
+import { UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateGameSessionQueueCommand,
   serializeAws_json1_1UpdateGameSessionQueueCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGameSessionQueueCommandInput = UpdateGameSessionQueueInput;
-export type UpdateGameSessionQueueCommandOutput = UpdateGameSessionQueueOutput &
-  __MetadataBearer;
+export type UpdateGameSessionQueueCommandOutput = UpdateGameSessionQueueOutput & __MetadataBearer;
 
 export class UpdateGameSessionQueueCommand extends $Command<
   UpdateGameSessionQueueCommandInput,
@@ -49,13 +45,8 @@ export class UpdateGameSessionQueueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateGameSessionQueueCommandInput,
-    UpdateGameSessionQueueCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateGameSessionQueueCommandInput, UpdateGameSessionQueueCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

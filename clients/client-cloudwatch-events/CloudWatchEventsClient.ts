@@ -22,10 +22,7 @@ import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput
 } from "./commands/DeletePartnerEventSourceCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DescribeEventBusCommandInput,
   DescribeEventBusCommandOutput
@@ -42,14 +39,8 @@ import {
   DescribeRuleCommandInput,
   DescribeRuleCommandOutput
 } from "./commands/DescribeRuleCommand";
-import {
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput
-} from "./commands/DisableRuleCommand";
-import {
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "./commands/EnableRuleCommand";
+import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
+import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
 import {
   ListEventBusesCommandInput,
   ListEventBusesCommandOutput
@@ -70,10 +61,7 @@ import {
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput
 } from "./commands/ListRuleNamesByTargetCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -82,10 +70,7 @@ import {
   ListTargetsByRuleCommandInput,
   ListTargetsByRuleCommandOutput
 } from "./commands/ListTargetsByRuleCommand";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
 import {
   PutPartnerEventsCommandInput,
   PutPartnerEventsCommandOutput
@@ -94,14 +79,8 @@ import {
   PutPermissionCommandInput,
   PutPermissionCommandOutput
 } from "./commands/PutPermissionCommand";
-import {
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "./commands/PutRuleCommand";
-import {
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "./commands/PutTargetsCommand";
+import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
+import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
 import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput
@@ -110,10 +89,7 @@ import {
   RemoveTargetsCommandInput,
   RemoveTargetsCommandOutput
 } from "./commands/RemoveTargetsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestEventPatternCommandInput,
   TestEventPatternCommandOutput
@@ -325,9 +301,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchEventsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  UpdateTypedLinkFacetRequest,
-  UpdateTypedLinkFacetResponse
-} from "../models/index";
+import { UpdateTypedLinkFacetRequest, UpdateTypedLinkFacetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateTypedLinkFacetCommand,
   serializeAws_restJson1_1UpdateTypedLinkFacetCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTypedLinkFacetCommandInput = UpdateTypedLinkFacetRequest;
-export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse &
-  __MetadataBearer;
+export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse & __MetadataBearer;
 
 export class UpdateTypedLinkFacetCommand extends $Command<
   UpdateTypedLinkFacetCommandInput,
@@ -49,13 +45,8 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTypedLinkFacetCommandInput,
-    UpdateTypedLinkFacetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTypedLinkFacetCommandInput, UpdateTypedLinkFacetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateTypedLinkFacetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTypedLinkFacetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

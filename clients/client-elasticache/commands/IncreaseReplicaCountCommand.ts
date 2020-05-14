@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import {
-  IncreaseReplicaCountMessage,
-  IncreaseReplicaCountResult
-} from "../models/index";
+import { IncreaseReplicaCountMessage, IncreaseReplicaCountResult } from "../models/index";
 import {
   deserializeAws_queryIncreaseReplicaCountCommand,
   serializeAws_queryIncreaseReplicaCountCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type IncreaseReplicaCountCommandInput = IncreaseReplicaCountMessage;
-export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult &
-  __MetadataBearer;
+export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult & __MetadataBearer;
 
 export class IncreaseReplicaCountCommand extends $Command<
   IncreaseReplicaCountCommandInput,
@@ -49,13 +45,8 @@ export class IncreaseReplicaCountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    IncreaseReplicaCountCommandInput,
-    IncreaseReplicaCountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<IncreaseReplicaCountCommandInput, IncreaseReplicaCountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

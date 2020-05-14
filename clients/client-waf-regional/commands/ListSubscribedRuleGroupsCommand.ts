@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  ListSubscribedRuleGroupsRequest,
-  ListSubscribedRuleGroupsResponse
-} from "../models/index";
+import { ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListSubscribedRuleGroupsCommand,
   serializeAws_json1_1ListSubscribedRuleGroupsCommand
@@ -49,13 +46,8 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSubscribedRuleGroupsCommandInput,
-    ListSubscribedRuleGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSubscribedRuleGroupsCommandInput, ListSubscribedRuleGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSubscribedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

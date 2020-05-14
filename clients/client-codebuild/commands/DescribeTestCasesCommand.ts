@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  DescribeTestCasesInput,
-  DescribeTestCasesOutput
-} from "../models/index";
+import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTestCasesCommand,
   serializeAws_json1_1DescribeTestCasesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTestCasesCommandInput = DescribeTestCasesInput;
-export type DescribeTestCasesCommandOutput = DescribeTestCasesOutput &
-  __MetadataBearer;
+export type DescribeTestCasesCommandOutput = DescribeTestCasesOutput & __MetadataBearer;
 
 export class DescribeTestCasesCommand extends $Command<
   DescribeTestCasesCommandInput,
@@ -50,9 +46,7 @@ export class DescribeTestCasesCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

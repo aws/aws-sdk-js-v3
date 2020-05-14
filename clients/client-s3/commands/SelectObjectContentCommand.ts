@@ -1,12 +1,5 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  SelectObjectContentOutput,
-  SelectObjectContentRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/index";
 import {
   deserializeAws_restXmlSelectObjectContentCommand,
   serializeAws_restXmlSelectObjectContentCommand
@@ -31,8 +24,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SelectObjectContentCommandInput = SelectObjectContentRequest;
-export type SelectObjectContentCommandOutput = SelectObjectContentOutput &
-  __MetadataBearer;
+export type SelectObjectContentCommandOutput = SelectObjectContentOutput & __MetadataBearer;
 
 export class SelectObjectContentCommand extends $Command<
   SelectObjectContentCommandInput,
@@ -52,13 +44,8 @@ export class SelectObjectContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SelectObjectContentCommandInput,
-    SelectObjectContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SelectObjectContentCommandInput, SelectObjectContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 

@@ -6,10 +6,7 @@ import {
   CreateNetworkCommandInput,
   CreateNetworkCommandOutput
 } from "./commands/CreateNetworkCommand";
-import {
-  CreateNodeCommandInput,
-  CreateNodeCommandOutput
-} from "./commands/CreateNodeCommand";
+import { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
 import {
   CreateProposalCommandInput,
   CreateProposalCommandOutput
@@ -18,42 +15,21 @@ import {
   DeleteMemberCommandInput,
   DeleteMemberCommandOutput
 } from "./commands/DeleteMemberCommand";
-import {
-  DeleteNodeCommandInput,
-  DeleteNodeCommandOutput
-} from "./commands/DeleteNodeCommand";
-import {
-  GetMemberCommandInput,
-  GetMemberCommandOutput
-} from "./commands/GetMemberCommand";
-import {
-  GetNetworkCommandInput,
-  GetNetworkCommandOutput
-} from "./commands/GetNetworkCommand";
-import {
-  GetNodeCommandInput,
-  GetNodeCommandOutput
-} from "./commands/GetNodeCommand";
-import {
-  GetProposalCommandInput,
-  GetProposalCommandOutput
-} from "./commands/GetProposalCommand";
+import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
+import { GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
+import { GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
 import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput
 } from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListNetworksCommandInput,
   ListNetworksCommandOutput
 } from "./commands/ListNetworksCommand";
-import {
-  ListNodesCommandInput,
-  ListNodesCommandOutput
-} from "./commands/ListNodesCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
 import {
   ListProposalVotesCommandInput,
   ListProposalVotesCommandOutput
@@ -247,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ManagedBlockchainClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ManagedBlockchainClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

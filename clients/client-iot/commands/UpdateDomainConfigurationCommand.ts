@@ -1,8 +1,4 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   UpdateDomainConfigurationRequest,
   UpdateDomainConfigurationResponse
@@ -49,13 +45,8 @@ export class UpdateDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainConfigurationCommandInput,
-    UpdateDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainConfigurationCommandInput, UpdateDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class UpdateDomainConfigurationCommand extends $Command<
     input: UpdateDomainConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDomainConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

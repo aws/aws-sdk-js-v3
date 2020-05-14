@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsClient";
-import {
-  DeleteApplicationOutputRequest,
-  DeleteApplicationOutputResponse
-} from "../models/index";
+import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteApplicationOutputCommand,
   serializeAws_json1_1DeleteApplicationOutputCommand
@@ -49,13 +46,8 @@ export class DeleteApplicationOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApplicationOutputCommandInput,
-    DeleteApplicationOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApplicationOutputCommandInput, DeleteApplicationOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DeleteApplicationOutputCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationOutputCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationOutputCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

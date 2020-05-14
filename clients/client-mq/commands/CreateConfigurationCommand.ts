@@ -1,12 +1,5 @@
-import {
-  CreateConfigurationRequest,
-  CreateConfigurationResponse
-} from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1CreateConfigurationCommand,
   serializeAws_restJson1_1CreateConfigurationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateConfigurationCommandInput = CreateConfigurationRequest;
-export type CreateConfigurationCommandOutput = CreateConfigurationResponse &
-  __MetadataBearer;
+export type CreateConfigurationCommandOutput = CreateConfigurationResponse & __MetadataBearer;
 
 export class CreateConfigurationCommand extends $Command<
   CreateConfigurationCommandInput,
@@ -49,13 +41,8 @@ export class CreateConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: mqClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationCommandInput,
-    CreateConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationCommandInput, CreateConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class CreateConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

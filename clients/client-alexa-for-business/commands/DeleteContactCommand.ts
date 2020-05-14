@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteContactCommandInput = DeleteContactRequest;
-export type DeleteContactCommandOutput = DeleteContactResponse &
-  __MetadataBearer;
+export type DeleteContactCommandOutput = DeleteContactResponse & __MetadataBearer;
 
 export class DeleteContactCommand extends $Command<
   DeleteContactCommandInput,
@@ -47,9 +46,7 @@ export class DeleteContactCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteContactCommandInput, DeleteContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

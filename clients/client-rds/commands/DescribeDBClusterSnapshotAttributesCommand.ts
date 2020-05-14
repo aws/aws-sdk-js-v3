@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult
@@ -53,9 +49,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     DescribeDBClusterSnapshotAttributesCommandInput,
     DescribeDBClusterSnapshotAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
     input: DescribeDBClusterSnapshotAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

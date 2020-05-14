@@ -1,12 +1,5 @@
-import {
-  SSOClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOClient";
-import {
-  GetRoleCredentialsRequest,
-  GetRoleCredentialsResponse
-} from "../models/index";
+import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
+import { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRoleCredentialsCommand,
   serializeAws_restJson1_1GetRoleCredentialsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRoleCredentialsCommandInput = GetRoleCredentialsRequest;
-export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse &
-  __MetadataBearer;
+export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse & __MetadataBearer;
 
 export class GetRoleCredentialsCommand extends $Command<
   GetRoleCredentialsCommandInput,
@@ -50,9 +42,7 @@ export class GetRoleCredentialsCommand extends $Command<
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

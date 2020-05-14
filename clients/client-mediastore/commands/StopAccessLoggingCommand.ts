@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaStoreClient";
-import {
-  StopAccessLoggingInput,
-  StopAccessLoggingOutput
-} from "../models/index";
+import { StopAccessLoggingInput, StopAccessLoggingOutput } from "../models/index";
 import {
   deserializeAws_json1_1StopAccessLoggingCommand,
   serializeAws_json1_1StopAccessLoggingCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopAccessLoggingCommandInput = StopAccessLoggingInput;
-export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput &
-  __MetadataBearer;
+export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput & __MetadataBearer;
 
 export class StopAccessLoggingCommand extends $Command<
   StopAccessLoggingCommandInput,
@@ -50,9 +46,7 @@ export class StopAccessLoggingCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

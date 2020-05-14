@@ -70,10 +70,7 @@ import {
   CreateDevEndpointCommandInput,
   CreateDevEndpointCommandOutput
 } from "./commands/CreateDevEndpointCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateMLTransformCommandInput,
   CreateMLTransformCommandOutput
@@ -90,10 +87,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput
 } from "./commands/CreateSecurityConfigurationCommand";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
   CreateTriggerCommandInput,
   CreateTriggerCommandOutput
@@ -126,10 +120,7 @@ import {
   DeleteDevEndpointCommandInput,
   DeleteDevEndpointCommandOutput
 } from "./commands/DeleteDevEndpointCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteMLTransformCommandInput,
   DeleteMLTransformCommandOutput
@@ -146,10 +137,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput
 } from "./commands/DeleteSecurityConfigurationCommand";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DeleteTableVersionCommandInput,
   DeleteTableVersionCommandOutput
@@ -186,26 +174,17 @@ import {
   GetConnectionsCommandInput,
   GetConnectionsCommandOutput
 } from "./commands/GetConnectionsCommand";
-import {
-  GetCrawlerCommandInput,
-  GetCrawlerCommandOutput
-} from "./commands/GetCrawlerCommand";
+import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
 import {
   GetCrawlerMetricsCommandInput,
   GetCrawlerMetricsCommandOutput
 } from "./commands/GetCrawlerMetricsCommand";
-import {
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput
-} from "./commands/GetCrawlersCommand";
+import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
 import {
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
-import {
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput
-} from "./commands/GetDatabaseCommand";
+import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDatabasesCommandInput,
   GetDatabasesCommandOutput
@@ -226,22 +205,10 @@ import {
   GetJobBookmarkCommandInput,
   GetJobBookmarkCommandOutput
 } from "./commands/GetJobBookmarkCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetJobRunCommandInput,
-  GetJobRunCommandOutput
-} from "./commands/GetJobRunCommand";
-import {
-  GetJobRunsCommandInput,
-  GetJobRunsCommandOutput
-} from "./commands/GetJobRunsCommand";
-import {
-  GetJobsCommandInput,
-  GetJobsCommandOutput
-} from "./commands/GetJobsCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
+import { GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
+import { GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
 import {
   GetMLTaskRunCommandInput,
   GetMLTaskRunCommandOutput
@@ -258,10 +225,7 @@ import {
   GetMLTransformsCommandInput,
   GetMLTransformsCommandOutput
 } from "./commands/GetMLTransformsCommand";
-import {
-  GetMappingCommandInput,
-  GetMappingCommandOutput
-} from "./commands/GetMappingCommand";
+import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import {
   GetPartitionCommandInput,
   GetPartitionCommandOutput
@@ -270,10 +234,7 @@ import {
   GetPartitionsCommandInput,
   GetPartitionsCommandOutput
 } from "./commands/GetPartitionsCommand";
-import {
-  GetPlanCommandInput,
-  GetPlanCommandOutput
-} from "./commands/GetPlanCommand";
+import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
 import {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput
@@ -286,10 +247,7 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput
 } from "./commands/GetSecurityConfigurationsCommand";
-import {
-  GetTableCommandInput,
-  GetTableCommandOutput
-} from "./commands/GetTableCommand";
+import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import {
   GetTableVersionCommandInput,
   GetTableVersionCommandOutput
@@ -298,22 +256,10 @@ import {
   GetTableVersionsCommandInput,
   GetTableVersionsCommandOutput
 } from "./commands/GetTableVersionsCommand";
-import {
-  GetTablesCommandInput,
-  GetTablesCommandOutput
-} from "./commands/GetTablesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  GetTriggerCommandInput,
-  GetTriggerCommandOutput
-} from "./commands/GetTriggerCommand";
-import {
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput
-} from "./commands/GetTriggersCommand";
+import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
+import { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
 import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput
@@ -322,10 +268,7 @@ import {
   GetUserDefinedFunctionsCommandInput,
   GetUserDefinedFunctionsCommandOutput
 } from "./commands/GetUserDefinedFunctionsCommand";
-import {
-  GetWorkflowCommandInput,
-  GetWorkflowCommandOutput
-} from "./commands/GetWorkflowCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowRunCommandInput,
   GetWorkflowRunCommandOutput
@@ -350,10 +293,7 @@ import {
   ListDevEndpointsCommandInput,
   ListDevEndpointsCommandOutput
 } from "./commands/ListDevEndpointsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListTriggersCommandInput,
   ListTriggersCommandOutput
@@ -398,10 +338,7 @@ import {
   StartImportLabelsTaskRunCommandInput,
   StartImportLabelsTaskRunCommandOutput
 } from "./commands/StartImportLabelsTaskRunCommand";
-import {
-  StartJobRunCommandInput,
-  StartJobRunCommandOutput
-} from "./commands/StartJobRunCommand";
+import { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import {
   StartMLEvaluationTaskRunCommandInput,
   StartMLEvaluationTaskRunCommandOutput
@@ -418,22 +355,13 @@ import {
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput
 } from "./commands/StartWorkflowRunCommand";
-import {
-  StopCrawlerCommandInput,
-  StopCrawlerCommandOutput
-} from "./commands/StopCrawlerCommand";
+import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput
 } from "./commands/StopCrawlerScheduleCommand";
-import {
-  StopTriggerCommandInput,
-  StopTriggerCommandOutput
-} from "./commands/StopTriggerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
@@ -462,10 +390,7 @@ import {
   UpdateDevEndpointCommandInput,
   UpdateDevEndpointCommandOutput
 } from "./commands/UpdateDevEndpointCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateMLTransformCommandInput,
   UpdateMLTransformCommandOutput
@@ -474,10 +399,7 @@ import {
   UpdatePartitionCommandInput,
   UpdatePartitionCommandOutput
 } from "./commands/UpdatePartitionCommand";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTriggerCommandInput,
   UpdateTriggerCommandOutput
@@ -877,9 +799,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GlueClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlueClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -888,9 +808,7 @@ export type GlueClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

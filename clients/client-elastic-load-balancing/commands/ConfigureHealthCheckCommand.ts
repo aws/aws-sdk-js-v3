@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  ConfigureHealthCheckInput,
-  ConfigureHealthCheckOutput
-} from "../models/index";
+import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/index";
 import {
   deserializeAws_queryConfigureHealthCheckCommand,
   serializeAws_queryConfigureHealthCheckCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ConfigureHealthCheckCommandInput = ConfigureHealthCheckInput;
-export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput &
-  __MetadataBearer;
+export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput & __MetadataBearer;
 
 export class ConfigureHealthCheckCommand extends $Command<
   ConfigureHealthCheckCommandInput,
@@ -49,13 +45,8 @@ export class ConfigureHealthCheckCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ConfigureHealthCheckCommandInput,
-    ConfigureHealthCheckCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ConfigureHealthCheckCommandInput, ConfigureHealthCheckCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRegistryCommandInput = CreateRegistryRequest;
-export type CreateRegistryCommandOutput = CreateRegistryResponse &
-  __MetadataBearer;
+export type CreateRegistryCommandOutput = CreateRegistryResponse & __MetadataBearer;
 
 export class CreateRegistryCommand extends $Command<
   CreateRegistryCommandInput,
@@ -47,9 +46,7 @@ export class CreateRegistryCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRegistryCommandInput, CreateRegistryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

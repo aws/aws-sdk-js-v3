@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  ListObjectAttributesRequest,
-  ListObjectAttributesResponse
-} from "../models/index";
+import { ListObjectAttributesRequest, ListObjectAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectAttributesCommand,
   serializeAws_restJson1_1ListObjectAttributesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectAttributesCommandInput = ListObjectAttributesRequest;
-export type ListObjectAttributesCommandOutput = ListObjectAttributesResponse &
-  __MetadataBearer;
+export type ListObjectAttributesCommandOutput = ListObjectAttributesResponse & __MetadataBearer;
 
 export class ListObjectAttributesCommand extends $Command<
   ListObjectAttributesCommandInput,
@@ -49,13 +45,8 @@ export class ListObjectAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListObjectAttributesCommandInput,
-    ListObjectAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListObjectAttributesCommandInput, ListObjectAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class ListObjectAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1_1ListObjectAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

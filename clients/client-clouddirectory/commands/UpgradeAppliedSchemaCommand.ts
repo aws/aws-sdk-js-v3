@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  UpgradeAppliedSchemaRequest,
-  UpgradeAppliedSchemaResponse
-} from "../models/index";
+import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpgradeAppliedSchemaCommand,
   serializeAws_restJson1_1UpgradeAppliedSchemaCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpgradeAppliedSchemaCommandInput = UpgradeAppliedSchemaRequest;
-export type UpgradeAppliedSchemaCommandOutput = UpgradeAppliedSchemaResponse &
-  __MetadataBearer;
+export type UpgradeAppliedSchemaCommandOutput = UpgradeAppliedSchemaResponse & __MetadataBearer;
 
 export class UpgradeAppliedSchemaCommand extends $Command<
   UpgradeAppliedSchemaCommandInput,
@@ -49,13 +45,8 @@ export class UpgradeAppliedSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpgradeAppliedSchemaCommandInput,
-    UpgradeAppliedSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpgradeAppliedSchemaCommandInput, UpgradeAppliedSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpgradeAppliedSchemaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpgradeAppliedSchemaCommandOutput> {
-    return deserializeAws_restJson1_1UpgradeAppliedSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpgradeAppliedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

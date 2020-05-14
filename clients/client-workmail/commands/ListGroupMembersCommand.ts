@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 } from "../WorkMailClient";
-import {
-  ListGroupMembersRequest,
-  ListGroupMembersResponse
-} from "../models/index";
+import { ListGroupMembersRequest, ListGroupMembersResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListGroupMembersCommand,
   serializeAws_json1_1ListGroupMembersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupMembersCommandInput = ListGroupMembersRequest;
-export type ListGroupMembersCommandOutput = ListGroupMembersResponse &
-  __MetadataBearer;
+export type ListGroupMembersCommandOutput = ListGroupMembersResponse & __MetadataBearer;
 
 export class ListGroupMembersCommand extends $Command<
   ListGroupMembersCommandInput,
@@ -50,9 +46,7 @@ export class ListGroupMembersCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroupMembersCommandInput, ListGroupMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeDhcpOptionsRequest,
-  DescribeDhcpOptionsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeDhcpOptionsCommand,
   serializeAws_ec2DescribeDhcpOptionsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDhcpOptionsCommandInput = DescribeDhcpOptionsRequest;
-export type DescribeDhcpOptionsCommandOutput = DescribeDhcpOptionsResult &
-  __MetadataBearer;
+export type DescribeDhcpOptionsCommandOutput = DescribeDhcpOptionsResult & __MetadataBearer;
 
 export class DescribeDhcpOptionsCommand extends $Command<
   DescribeDhcpOptionsCommandInput,
@@ -49,13 +41,8 @@ export class DescribeDhcpOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDhcpOptionsCommandInput,
-    DescribeDhcpOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDhcpOptionsCommandInput, DescribeDhcpOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -6,10 +6,7 @@ import {
   CreateChannelCommandInput,
   CreateChannelCommandOutput
 } from "./commands/CreateChannelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommandInput,
   CreateInputSecurityGroupCommandOutput
@@ -22,18 +19,12 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput
 } from "./commands/CreateMultiplexProgramCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput
 } from "./commands/DeleteChannelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommandInput,
   DeleteInputSecurityGroupCommandOutput
@@ -54,10 +45,7 @@ import {
   DeleteScheduleCommandInput,
   DeleteScheduleCommandOutput
 } from "./commands/DeleteScheduleCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput
@@ -98,10 +86,7 @@ import {
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput
 } from "./commands/ListInputSecurityGroupsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListMultiplexProgramsCommandInput,
   ListMultiplexProgramsCommandOutput
@@ -134,10 +119,7 @@ import {
   StartMultiplexCommandInput,
   StartMultiplexCommandOutput
 } from "./commands/StartMultiplexCommand";
-import {
-  StopChannelCommandInput,
-  StopChannelCommandOutput
-} from "./commands/StopChannelCommand";
+import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
 import {
   StopMultiplexCommandInput,
   StopMultiplexCommandOutput
@@ -150,10 +132,7 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput
 } from "./commands/UpdateChannelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import {
   UpdateInputSecurityGroupCommandInput,
   UpdateInputSecurityGroupCommandOutput
@@ -397,9 +376,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaLiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaLiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -408,9 +385,7 @@ export type MediaLiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

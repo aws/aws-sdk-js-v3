@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ShieldClientResolvedConfig
-} from "../ShieldClient";
-import {
-  AssociateDRTRoleRequest,
-  AssociateDRTRoleResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
+import { AssociateDRTRoleRequest, AssociateDRTRoleResponse } from "../models/index";
 import {
   deserializeAws_json1_1AssociateDRTRoleCommand,
   serializeAws_json1_1AssociateDRTRoleCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateDRTRoleCommandInput = AssociateDRTRoleRequest;
-export type AssociateDRTRoleCommandOutput = AssociateDRTRoleResponse &
-  __MetadataBearer;
+export type AssociateDRTRoleCommandOutput = AssociateDRTRoleResponse & __MetadataBearer;
 
 export class AssociateDRTRoleCommand extends $Command<
   AssociateDRTRoleCommandInput,
@@ -50,9 +42,7 @@ export class AssociateDRTRoleCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateDRTRoleCommandInput, AssociateDRTRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

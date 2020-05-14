@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LakeFormationClient";
-import {
-  GrantPermissionsRequest,
-  GrantPermissionsResponse
-} from "../models/index";
+import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GrantPermissionsCommand,
   serializeAws_json1_1GrantPermissionsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GrantPermissionsCommandInput = GrantPermissionsRequest;
-export type GrantPermissionsCommandOutput = GrantPermissionsResponse &
-  __MetadataBearer;
+export type GrantPermissionsCommandOutput = GrantPermissionsResponse & __MetadataBearer;
 
 export class GrantPermissionsCommand extends $Command<
   GrantPermissionsCommandInput,
@@ -50,9 +46,7 @@ export class GrantPermissionsCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GrantPermissionsCommandInput, GrantPermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

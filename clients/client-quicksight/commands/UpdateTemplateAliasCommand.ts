@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  UpdateTemplateAliasRequest,
-  UpdateTemplateAliasResponse
-} from "../models/index";
+import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateTemplateAliasCommand,
   serializeAws_restJson1_1UpdateTemplateAliasCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTemplateAliasCommandInput = UpdateTemplateAliasRequest;
-export type UpdateTemplateAliasCommandOutput = UpdateTemplateAliasResponse &
-  __MetadataBearer;
+export type UpdateTemplateAliasCommandOutput = UpdateTemplateAliasResponse & __MetadataBearer;
 
 export class UpdateTemplateAliasCommand extends $Command<
   UpdateTemplateAliasCommandInput,
@@ -49,13 +45,8 @@ export class UpdateTemplateAliasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTemplateAliasCommandInput,
-    UpdateTemplateAliasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTemplateAliasCommandInput, UpdateTemplateAliasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class UpdateTemplateAliasCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

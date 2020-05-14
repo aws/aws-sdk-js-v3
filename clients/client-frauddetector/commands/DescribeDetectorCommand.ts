@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorResult
-} from "../models/index";
+import { DescribeDetectorRequest, DescribeDetectorResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDetectorCommand,
   serializeAws_json1_1DescribeDetectorCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDetectorCommandInput = DescribeDetectorRequest;
-export type DescribeDetectorCommandOutput = DescribeDetectorResult &
-  __MetadataBearer;
+export type DescribeDetectorCommandOutput = DescribeDetectorResult & __MetadataBearer;
 
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,
@@ -50,9 +46,7 @@ export class DescribeDetectorCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDetectorCommandInput, DescribeDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

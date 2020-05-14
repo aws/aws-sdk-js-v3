@@ -164,9 +164,7 @@ export class SFN extends SFNClient {
   ): void;
   public createActivity(
     args: CreateActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActivityCommandOutput) => void),
     cb?: (err: any, data?: CreateActivityCommandOutput) => void
   ): Promise<CreateActivityCommandOutput> | void {
     const command = new CreateActivityCommand(args);
@@ -250,9 +248,7 @@ export class SFN extends SFNClient {
   ): void;
   public deleteActivity(
     args: DeleteActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActivityCommandOutput) => void),
     cb?: (err: any, data?: DeleteActivityCommandOutput) => void
   ): Promise<DeleteActivityCommandOutput> | void {
     const command = new DeleteActivityCommand(args);
@@ -329,9 +325,7 @@ export class SFN extends SFNClient {
   ): void;
   public describeActivity(
     args: DescribeActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivityCommandOutput) => void),
     cb?: (err: any, data?: DescribeActivityCommandOutput) => void
   ): Promise<DescribeActivityCommandOutput> | void {
     const command = new DescribeActivityCommand(args);
@@ -445,14 +439,8 @@ export class SFN extends SFNClient {
     args: DescribeStateMachineForExecutionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStateMachineForExecutionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStateMachineForExecutionCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeStateMachineForExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStateMachineForExecutionCommandOutput) => void
   ): Promise<DescribeStateMachineForExecutionCommandOutput> | void {
     const command = new DescribeStateMachineForExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -496,9 +484,7 @@ export class SFN extends SFNClient {
   ): void;
   public getActivityTask(
     args: GetActivityTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetActivityTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetActivityTaskCommandOutput) => void),
     cb?: (err: any, data?: GetActivityTaskCommandOutput) => void
   ): Promise<GetActivityTaskCommandOutput> | void {
     const command = new GetActivityTaskCommand(args);
@@ -575,9 +561,7 @@ export class SFN extends SFNClient {
   ): void;
   public listActivities(
     args: ListActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivitiesCommandOutput) => void),
     cb?: (err: any, data?: ListActivitiesCommandOutput) => void
   ): Promise<ListActivitiesCommandOutput> | void {
     const command = new ListActivitiesCommand(args);
@@ -616,9 +600,7 @@ export class SFN extends SFNClient {
   ): void;
   public listExecutions(
     args: ListExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
@@ -728,9 +710,7 @@ export class SFN extends SFNClient {
   ): void;
   public sendTaskFailure(
     args: SendTaskFailureCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTaskFailureCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTaskFailureCommandOutput) => void),
     cb?: (err: any, data?: SendTaskFailureCommandOutput) => void
   ): Promise<SendTaskFailureCommandOutput> | void {
     const command = new SendTaskFailureCommand(args);
@@ -813,9 +793,7 @@ export class SFN extends SFNClient {
   ): void;
   public sendTaskSuccess(
     args: SendTaskSuccessCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTaskSuccessCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTaskSuccessCommandOutput) => void),
     cb?: (err: any, data?: SendTaskSuccessCommandOutput) => void
   ): Promise<SendTaskSuccessCommandOutput> | void {
     const command = new SendTaskSuccessCommand(args);
@@ -856,9 +834,7 @@ export class SFN extends SFNClient {
   ): void;
   public startExecution(
     args: StartExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartExecutionCommandOutput) => void
   ): Promise<StartExecutionCommandOutput> | void {
     const command = new StartExecutionCommand(args);
@@ -891,9 +867,7 @@ export class SFN extends SFNClient {
   ): void;
   public stopExecution(
     args: StopExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopExecutionCommandOutput) => void
   ): Promise<StopExecutionCommandOutput> | void {
     const command = new StopExecutionCommand(args);
@@ -931,9 +905,7 @@ export class SFN extends SFNClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -966,9 +938,7 @@ export class SFN extends SFNClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);

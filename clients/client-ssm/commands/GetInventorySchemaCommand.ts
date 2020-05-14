@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetInventorySchemaRequest,
-  GetInventorySchemaResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetInventorySchemaRequest, GetInventorySchemaResult } from "../models/index";
 import {
   deserializeAws_json1_1GetInventorySchemaCommand,
   serializeAws_json1_1GetInventorySchemaCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetInventorySchemaCommandInput = GetInventorySchemaRequest;
-export type GetInventorySchemaCommandOutput = GetInventorySchemaResult &
-  __MetadataBearer;
+export type GetInventorySchemaCommandOutput = GetInventorySchemaResult & __MetadataBearer;
 
 export class GetInventorySchemaCommand extends $Command<
   GetInventorySchemaCommandInput,
@@ -50,9 +42,7 @@ export class GetInventorySchemaCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

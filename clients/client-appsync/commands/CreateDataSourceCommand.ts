@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  CreateDataSourceRequest,
-  CreateDataSourceResponse
-} from "../models/index";
+import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDataSourceCommand,
   serializeAws_restJson1_1CreateDataSourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataSourceCommandInput = CreateDataSourceRequest;
-export type CreateDataSourceCommandOutput = CreateDataSourceResponse &
-  __MetadataBearer;
+export type CreateDataSourceCommandOutput = CreateDataSourceResponse & __MetadataBearer;
 
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,
@@ -50,9 +46,7 @@ export class CreateDataSourceCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDataSourceCommandInput, CreateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

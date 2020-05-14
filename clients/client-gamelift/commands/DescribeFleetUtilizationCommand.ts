@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationOutput
-} from "../models/index";
+import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeFleetUtilizationCommand,
   serializeAws_json1_1DescribeFleetUtilizationCommand
@@ -49,13 +46,8 @@ export class DescribeFleetUtilizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFleetUtilizationCommandInput,
-    DescribeFleetUtilizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFleetUtilizationCommandInput, DescribeFleetUtilizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeFleetUtilizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetUtilizationCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

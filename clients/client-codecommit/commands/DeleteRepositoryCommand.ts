@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRepositoryCommandInput = DeleteRepositoryInput;
-export type DeleteRepositoryCommandOutput = DeleteRepositoryOutput &
-  __MetadataBearer;
+export type DeleteRepositoryCommandOutput = DeleteRepositoryOutput & __MetadataBearer;
 
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,
@@ -47,9 +46,7 @@ export class DeleteRepositoryCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

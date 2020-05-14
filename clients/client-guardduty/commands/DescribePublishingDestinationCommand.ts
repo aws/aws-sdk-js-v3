@@ -53,9 +53,7 @@ export class DescribePublishingDestinationCommand extends $Command<
     DescribePublishingDestinationCommandInput,
     DescribePublishingDestinationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribePublishingDestinationCommand extends $Command<
     input: DescribePublishingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribePublishingDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribePublishingDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1_1DescribePublishingDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

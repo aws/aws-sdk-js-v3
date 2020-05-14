@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  CreateDiskFromSnapshotRequest,
-  CreateDiskFromSnapshotResult
-} from "../models/index";
+import { CreateDiskFromSnapshotRequest, CreateDiskFromSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateDiskFromSnapshotCommand,
   serializeAws_json1_1CreateDiskFromSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDiskFromSnapshotCommandInput = CreateDiskFromSnapshotRequest;
-export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult &
-  __MetadataBearer;
+export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult & __MetadataBearer;
 
 export class CreateDiskFromSnapshotCommand extends $Command<
   CreateDiskFromSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDiskFromSnapshotCommandInput,
-    CreateDiskFromSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDiskFromSnapshotCommandInput, CreateDiskFromSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

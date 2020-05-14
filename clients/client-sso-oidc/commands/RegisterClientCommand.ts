@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterClientCommandInput = RegisterClientRequest;
-export type RegisterClientCommandOutput = RegisterClientResponse &
-  __MetadataBearer;
+export type RegisterClientCommandOutput = RegisterClientResponse & __MetadataBearer;
 
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,
@@ -47,9 +46,7 @@ export class RegisterClientCommand extends $Command<
     configuration: SSOOIDCClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterClientCommandInput, RegisterClientCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

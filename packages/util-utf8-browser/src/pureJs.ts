@@ -19,9 +19,7 @@ export function fromUtf8(input: string): Uint8Array {
       (input.charCodeAt(i + 1) & 0xfc00) === 0xdc00
     ) {
       const surrogatePair =
-        0x10000 +
-        ((value & 0b1111111111) << 10) +
-        (input.charCodeAt(++i) & 0b1111111111);
+        0x10000 + ((value & 0b1111111111) << 10) + (input.charCodeAt(++i) & 0b1111111111);
       bytes.push(
         (surrogatePair >> 18) | 0b11110000,
         ((surrogatePair >> 12) & 0b111111) | 0b10000000,
@@ -56,19 +54,14 @@ export function toUtf8(input: Uint8Array): string {
       decoded += String.fromCharCode(byte);
     } else if (0b11000000 <= byte && byte < 0b11100000) {
       const nextByte = input[++i];
-      decoded += String.fromCharCode(
-        ((byte & 0b11111) << 6) | (nextByte & 0b111111)
-      );
+      decoded += String.fromCharCode(((byte & 0b11111) << 6) | (nextByte & 0b111111));
     } else if (0b11110000 <= byte && byte < 0b101101101) {
       const surrogatePair = [byte, input[++i], input[++i], input[++i]];
-      const encoded =
-        "%" + surrogatePair.map(byteValue => byteValue.toString(16)).join("%");
+      const encoded = "%" + surrogatePair.map(byteValue => byteValue.toString(16)).join("%");
       decoded += decodeURIComponent(encoded);
     } else {
       decoded += String.fromCharCode(
-        ((byte & 0b1111) << 12) |
-          ((input[++i] & 0b111111) << 6) |
-          (input[++i] & 0b111111)
+        ((byte & 0b1111) << 12) | ((input[++i] & 0b111111) << 6) | (input[++i] & 0b111111)
       );
     }
   }

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  DescribeRobotApplicationRequest,
-  DescribeRobotApplicationResponse
-} from "../models/index";
+import { DescribeRobotApplicationRequest, DescribeRobotApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeRobotApplicationCommand,
   serializeAws_restJson1_1DescribeRobotApplicationCommand
@@ -49,13 +46,8 @@ export class DescribeRobotApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRobotApplicationCommandInput,
-    DescribeRobotApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRobotApplicationCommandInput, DescribeRobotApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeRobotApplicationCommand extends $Command<
     input: DescribeRobotApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeRobotApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeRobotApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRobotApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

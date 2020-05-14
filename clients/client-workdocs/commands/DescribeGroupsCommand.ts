@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeGroupsCommandInput = DescribeGroupsRequest;
-export type DescribeGroupsCommandOutput = DescribeGroupsResponse &
-  __MetadataBearer;
+export type DescribeGroupsCommandOutput = DescribeGroupsResponse & __MetadataBearer;
 
 export class DescribeGroupsCommand extends $Command<
   DescribeGroupsCommandInput,
@@ -47,9 +46,7 @@ export class DescribeGroupsCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeGroupsCommandInput, DescribeGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

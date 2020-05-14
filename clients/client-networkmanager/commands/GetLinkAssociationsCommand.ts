@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  GetLinkAssociationsRequest,
-  GetLinkAssociationsResponse
-} from "../models/index";
+import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLinkAssociationsCommand,
   serializeAws_restJson1_1GetLinkAssociationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLinkAssociationsCommandInput = GetLinkAssociationsRequest;
-export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse &
-  __MetadataBearer;
+export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse & __MetadataBearer;
 
 export class GetLinkAssociationsCommand extends $Command<
   GetLinkAssociationsCommandInput,
@@ -49,13 +45,8 @@ export class GetLinkAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLinkAssociationsCommandInput,
-    GetLinkAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLinkAssociationsCommandInput, GetLinkAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetLinkAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLinkAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetLinkAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetLinkAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

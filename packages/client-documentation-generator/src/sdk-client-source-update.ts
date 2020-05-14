@@ -1,9 +1,6 @@
 import { sep } from "path";
 import * as ts from "typescript";
-import {
-  ConverterComponent,
-  Component
-} from "typedoc/dist/lib/converter/components";
+import { ConverterComponent, Component } from "typedoc/dist/lib/converter/components";
 import { Converter } from "typedoc/dist/lib/converter";
 import { Context } from "typedoc/dist/lib/converter/context";
 import { SourceFile } from "typedoc/dist/lib/models";

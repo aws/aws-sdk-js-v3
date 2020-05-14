@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccountSummaryResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccountSummaryCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountSummaryCommandInput = {};
-export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse &
-  __MetadataBearer;
+export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse & __MetadataBearer;
 
 export class GetAccountSummaryCommand extends $Command<
   GetAccountSummaryCommandInput,
@@ -47,9 +42,7 @@ export class GetAccountSummaryCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountSummaryCommandInput, GetAccountSummaryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

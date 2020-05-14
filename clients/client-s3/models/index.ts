@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -82,8 +79,7 @@ export interface AccelerateConfiguration {
 }
 
 export namespace AccelerateConfiguration {
-  export const isa = (o: any): o is AccelerateConfiguration =>
-    __isa(o, "AccelerateConfiguration");
+  export const isa = (o: any): o is AccelerateConfiguration => __isa(o, "AccelerateConfiguration");
 }
 
 /**
@@ -103,8 +99,7 @@ export interface AccessControlPolicy {
 }
 
 export namespace AccessControlPolicy {
-  export const isa = (o: any): o is AccessControlPolicy =>
-    __isa(o, "AccessControlPolicy");
+  export const isa = (o: any): o is AccessControlPolicy => __isa(o, "AccessControlPolicy");
 }
 
 /**
@@ -141,8 +136,7 @@ export interface AnalyticsAndOperator {
 }
 
 export namespace AnalyticsAndOperator {
-  export const isa = (o: any): o is AnalyticsAndOperator =>
-    __isa(o, "AnalyticsAndOperator");
+  export const isa = (o: any): o is AnalyticsAndOperator => __isa(o, "AnalyticsAndOperator");
 }
 
 /**
@@ -170,8 +164,7 @@ export interface AnalyticsConfiguration {
 }
 
 export namespace AnalyticsConfiguration {
-  export const isa = (o: any): o is AnalyticsConfiguration =>
-    __isa(o, "AnalyticsConfiguration");
+  export const isa = (o: any): o is AnalyticsConfiguration => __isa(o, "AnalyticsConfiguration");
 }
 
 /**
@@ -212,8 +205,7 @@ export interface AnalyticsFilter {
 }
 
 export namespace AnalyticsFilter {
-  export const isa = (o: any): o is AnalyticsFilter =>
-    __isa(o, "AnalyticsFilter");
+  export const isa = (o: any): o is AnalyticsFilter => __isa(o, "AnalyticsFilter");
 }
 
 /**
@@ -275,16 +267,13 @@ export type BucketAccelerateStatus = "Enabled" | "Suspended";
 /**
  * <p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.</p>
  */
-export interface BucketAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyExists";
   $fault: "client";
 }
 
 export namespace BucketAlreadyExists {
-  export const isa = (o: any): o is BucketAlreadyExists =>
-    __isa(o, "BucketAlreadyExists");
+  export const isa = (o: any): o is BucketAlreadyExists => __isa(o, "BucketAlreadyExists");
 }
 
 /**
@@ -293,16 +282,13 @@ export namespace BucketAlreadyExists {
  *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
  *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
  */
-export interface BucketAlreadyOwnedByYou
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyOwnedByYou";
   $fault: "client";
 }
 
 export namespace BucketAlreadyOwnedByYou {
-  export const isa = (o: any): o is BucketAlreadyOwnedByYou =>
-    __isa(o, "BucketAlreadyOwnedByYou");
+  export const isa = (o: any): o is BucketAlreadyOwnedByYou => __isa(o, "BucketAlreadyOwnedByYou");
 }
 
 export type BucketCannedACL =
@@ -356,8 +342,7 @@ export interface BucketLoggingStatus {
 }
 
 export namespace BucketLoggingStatus {
-  export const isa = (o: any): o is BucketLoggingStatus =>
-    __isa(o, "BucketLoggingStatus");
+  export const isa = (o: any): o is BucketLoggingStatus => __isa(o, "BucketLoggingStatus");
 }
 
 export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
@@ -378,8 +363,7 @@ export interface CORSConfiguration {
 }
 
 export namespace CORSConfiguration {
-  export const isa = (o: any): o is CORSConfiguration =>
-    __isa(o, "CORSConfiguration");
+  export const isa = (o: any): o is CORSConfiguration => __isa(o, "CORSConfiguration");
 }
 
 /**
@@ -724,8 +708,7 @@ export interface ContinuationEvent {
 }
 
 export namespace ContinuationEvent {
-  export const isa = (o: any): o is ContinuationEvent =>
-    __isa(o, "ContinuationEvent");
+  export const isa = (o: any): o is ContinuationEvent => __isa(o, "ContinuationEvent");
 }
 
 export interface CopyObjectOutput {
@@ -786,8 +769,7 @@ export interface CopyObjectOutput {
 }
 
 export namespace CopyObjectOutput {
-  export const isa = (o: any): o is CopyObjectOutput =>
-    __isa(o, "CopyObjectOutput");
+  export const isa = (o: any): o is CopyObjectOutput => __isa(o, "CopyObjectOutput");
 }
 
 export interface CopyObjectRequest {
@@ -995,8 +977,7 @@ export interface CopyObjectRequest {
 }
 
 export namespace CopyObjectRequest {
-  export const isa = (o: any): o is CopyObjectRequest =>
-    __isa(o, "CopyObjectRequest");
+  export const isa = (o: any): o is CopyObjectRequest => __isa(o, "CopyObjectRequest");
 }
 
 /**
@@ -1016,8 +997,7 @@ export interface CopyObjectResult {
 }
 
 export namespace CopyObjectResult {
-  export const isa = (o: any): o is CopyObjectResult =>
-    __isa(o, "CopyObjectResult");
+  export const isa = (o: any): o is CopyObjectResult => __isa(o, "CopyObjectResult");
 }
 
 /**
@@ -1037,8 +1017,7 @@ export interface CopyPartResult {
 }
 
 export namespace CopyPartResult {
-  export const isa = (o: any): o is CopyPartResult =>
-    __isa(o, "CopyPartResult");
+  export const isa = (o: any): o is CopyPartResult => __isa(o, "CopyPartResult");
 }
 
 /**
@@ -1069,8 +1048,7 @@ export interface CreateBucketOutput {
 }
 
 export namespace CreateBucketOutput {
-  export const isa = (o: any): o is CreateBucketOutput =>
-    __isa(o, "CreateBucketOutput");
+  export const isa = (o: any): o is CreateBucketOutput => __isa(o, "CreateBucketOutput");
 }
 
 export interface CreateBucketRequest {
@@ -1122,8 +1100,7 @@ export interface CreateBucketRequest {
 }
 
 export namespace CreateBucketRequest {
-  export const isa = (o: any): o is CreateBucketRequest =>
-    __isa(o, "CreateBucketRequest");
+  export const isa = (o: any): o is CreateBucketRequest => __isa(o, "CreateBucketRequest");
 }
 
 export interface CreateMultipartUploadOutput {
@@ -1377,8 +1354,7 @@ export interface DefaultRetention {
 }
 
 export namespace DefaultRetention {
-  export const isa = (o: any): o is DefaultRetention =>
-    __isa(o, "DefaultRetention");
+  export const isa = (o: any): o is DefaultRetention => __isa(o, "DefaultRetention");
 }
 
 /**
@@ -1428,8 +1404,7 @@ export interface DeleteBucketCorsRequest {
 }
 
 export namespace DeleteBucketCorsRequest {
-  export const isa = (o: any): o is DeleteBucketCorsRequest =>
-    __isa(o, "DeleteBucketCorsRequest");
+  export const isa = (o: any): o is DeleteBucketCorsRequest => __isa(o, "DeleteBucketCorsRequest");
 }
 
 export interface DeleteBucketEncryptionRequest {
@@ -1531,8 +1506,7 @@ export interface DeleteBucketRequest {
 }
 
 export namespace DeleteBucketRequest {
-  export const isa = (o: any): o is DeleteBucketRequest =>
-    __isa(o, "DeleteBucketRequest");
+  export const isa = (o: any): o is DeleteBucketRequest => __isa(o, "DeleteBucketRequest");
 }
 
 export interface DeleteBucketTaggingRequest {
@@ -1593,8 +1567,7 @@ export interface DeleteMarkerEntry {
 }
 
 export namespace DeleteMarkerEntry {
-  export const isa = (o: any): o is DeleteMarkerEntry =>
-    __isa(o, "DeleteMarkerEntry");
+  export const isa = (o: any): o is DeleteMarkerEntry => __isa(o, "DeleteMarkerEntry");
 }
 
 /**
@@ -1620,8 +1593,7 @@ export interface DeleteMarkerReplication {
 }
 
 export namespace DeleteMarkerReplication {
-  export const isa = (o: any): o is DeleteMarkerReplication =>
-    __isa(o, "DeleteMarkerReplication");
+  export const isa = (o: any): o is DeleteMarkerReplication => __isa(o, "DeleteMarkerReplication");
 }
 
 export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
@@ -1645,8 +1617,7 @@ export interface DeleteObjectOutput {
 }
 
 export namespace DeleteObjectOutput {
-  export const isa = (o: any): o is DeleteObjectOutput =>
-    __isa(o, "DeleteObjectOutput");
+  export const isa = (o: any): o is DeleteObjectOutput => __isa(o, "DeleteObjectOutput");
 }
 
 export interface DeleteObjectRequest {
@@ -1689,8 +1660,7 @@ export interface DeleteObjectRequest {
 }
 
 export namespace DeleteObjectRequest {
-  export const isa = (o: any): o is DeleteObjectRequest =>
-    __isa(o, "DeleteObjectRequest");
+  export const isa = (o: any): o is DeleteObjectRequest => __isa(o, "DeleteObjectRequest");
 }
 
 export interface DeleteObjectTaggingOutput {
@@ -1749,8 +1719,7 @@ export interface DeleteObjectsOutput {
 }
 
 export namespace DeleteObjectsOutput {
-  export const isa = (o: any): o is DeleteObjectsOutput =>
-    __isa(o, "DeleteObjectsOutput");
+  export const isa = (o: any): o is DeleteObjectsOutput => __isa(o, "DeleteObjectsOutput");
 }
 
 export interface DeleteObjectsRequest {
@@ -1788,8 +1757,7 @@ export interface DeleteObjectsRequest {
 }
 
 export namespace DeleteObjectsRequest {
-  export const isa = (o: any): o is DeleteObjectsRequest =>
-    __isa(o, "DeleteObjectsRequest");
+  export const isa = (o: any): o is DeleteObjectsRequest => __isa(o, "DeleteObjectsRequest");
 }
 
 export interface DeletePublicAccessBlockRequest {
@@ -1942,8 +1910,7 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
-  export const isa = (o: any): o is EncryptionConfiguration =>
-    __isa(o, "EncryptionConfiguration");
+  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 /**
@@ -3934,8 +3901,7 @@ export interface GetBucketAclOutput {
 }
 
 export namespace GetBucketAclOutput {
-  export const isa = (o: any): o is GetBucketAclOutput =>
-    __isa(o, "GetBucketAclOutput");
+  export const isa = (o: any): o is GetBucketAclOutput => __isa(o, "GetBucketAclOutput");
 }
 
 export interface GetBucketAclRequest {
@@ -3947,8 +3913,7 @@ export interface GetBucketAclRequest {
 }
 
 export namespace GetBucketAclRequest {
-  export const isa = (o: any): o is GetBucketAclRequest =>
-    __isa(o, "GetBucketAclRequest");
+  export const isa = (o: any): o is GetBucketAclRequest => __isa(o, "GetBucketAclRequest");
 }
 
 export interface GetBucketAnalyticsConfigurationOutput {
@@ -3991,8 +3956,7 @@ export interface GetBucketCorsOutput {
 }
 
 export namespace GetBucketCorsOutput {
-  export const isa = (o: any): o is GetBucketCorsOutput =>
-    __isa(o, "GetBucketCorsOutput");
+  export const isa = (o: any): o is GetBucketCorsOutput => __isa(o, "GetBucketCorsOutput");
 }
 
 export interface GetBucketCorsRequest {
@@ -4004,8 +3968,7 @@ export interface GetBucketCorsRequest {
 }
 
 export namespace GetBucketCorsRequest {
-  export const isa = (o: any): o is GetBucketCorsRequest =>
-    __isa(o, "GetBucketCorsRequest");
+  export const isa = (o: any): o is GetBucketCorsRequest => __isa(o, "GetBucketCorsRequest");
 }
 
 export interface GetBucketEncryptionOutput {
@@ -4102,8 +4065,7 @@ export interface GetBucketLocationOutput {
 }
 
 export namespace GetBucketLocationOutput {
-  export const isa = (o: any): o is GetBucketLocationOutput =>
-    __isa(o, "GetBucketLocationOutput");
+  export const isa = (o: any): o is GetBucketLocationOutput => __isa(o, "GetBucketLocationOutput");
 }
 
 export interface GetBucketLocationRequest {
@@ -4130,8 +4092,7 @@ export interface GetBucketLoggingOutput {
 }
 
 export namespace GetBucketLoggingOutput {
-  export const isa = (o: any): o is GetBucketLoggingOutput =>
-    __isa(o, "GetBucketLoggingOutput");
+  export const isa = (o: any): o is GetBucketLoggingOutput => __isa(o, "GetBucketLoggingOutput");
 }
 
 export interface GetBucketLoggingRequest {
@@ -4143,8 +4104,7 @@ export interface GetBucketLoggingRequest {
 }
 
 export namespace GetBucketLoggingRequest {
-  export const isa = (o: any): o is GetBucketLoggingRequest =>
-    __isa(o, "GetBucketLoggingRequest");
+  export const isa = (o: any): o is GetBucketLoggingRequest => __isa(o, "GetBucketLoggingRequest");
 }
 
 export interface GetBucketMetricsConfigurationOutput {
@@ -4200,8 +4160,7 @@ export interface GetBucketPolicyOutput {
 }
 
 export namespace GetBucketPolicyOutput {
-  export const isa = (o: any): o is GetBucketPolicyOutput =>
-    __isa(o, "GetBucketPolicyOutput");
+  export const isa = (o: any): o is GetBucketPolicyOutput => __isa(o, "GetBucketPolicyOutput");
 }
 
 export interface GetBucketPolicyRequest {
@@ -4213,8 +4172,7 @@ export interface GetBucketPolicyRequest {
 }
 
 export namespace GetBucketPolicyRequest {
-  export const isa = (o: any): o is GetBucketPolicyRequest =>
-    __isa(o, "GetBucketPolicyRequest");
+  export const isa = (o: any): o is GetBucketPolicyRequest => __isa(o, "GetBucketPolicyRequest");
 }
 
 export interface GetBucketPolicyStatusOutput {
@@ -4305,8 +4263,7 @@ export interface GetBucketTaggingOutput {
 }
 
 export namespace GetBucketTaggingOutput {
-  export const isa = (o: any): o is GetBucketTaggingOutput =>
-    __isa(o, "GetBucketTaggingOutput");
+  export const isa = (o: any): o is GetBucketTaggingOutput => __isa(o, "GetBucketTaggingOutput");
 }
 
 export interface GetBucketTaggingRequest {
@@ -4318,8 +4275,7 @@ export interface GetBucketTaggingRequest {
 }
 
 export namespace GetBucketTaggingRequest {
-  export const isa = (o: any): o is GetBucketTaggingRequest =>
-    __isa(o, "GetBucketTaggingRequest");
+  export const isa = (o: any): o is GetBucketTaggingRequest => __isa(o, "GetBucketTaggingRequest");
 }
 
 export interface GetBucketVersioningOutput {
@@ -4377,8 +4333,7 @@ export interface GetBucketWebsiteOutput {
 }
 
 export namespace GetBucketWebsiteOutput {
-  export const isa = (o: any): o is GetBucketWebsiteOutput =>
-    __isa(o, "GetBucketWebsiteOutput");
+  export const isa = (o: any): o is GetBucketWebsiteOutput => __isa(o, "GetBucketWebsiteOutput");
 }
 
 export interface GetBucketWebsiteRequest {
@@ -4390,8 +4345,7 @@ export interface GetBucketWebsiteRequest {
 }
 
 export namespace GetBucketWebsiteRequest {
-  export const isa = (o: any): o is GetBucketWebsiteRequest =>
-    __isa(o, "GetBucketWebsiteRequest");
+  export const isa = (o: any): o is GetBucketWebsiteRequest => __isa(o, "GetBucketWebsiteRequest");
 }
 
 export interface GetObjectAclOutput {
@@ -4414,8 +4368,7 @@ export interface GetObjectAclOutput {
 }
 
 export namespace GetObjectAclOutput {
-  export const isa = (o: any): o is GetObjectAclOutput =>
-    __isa(o, "GetObjectAclOutput");
+  export const isa = (o: any): o is GetObjectAclOutput => __isa(o, "GetObjectAclOutput");
 }
 
 export interface GetObjectAclRequest {
@@ -4446,8 +4399,7 @@ export interface GetObjectAclRequest {
 }
 
 export namespace GetObjectAclRequest {
-  export const isa = (o: any): o is GetObjectAclRequest =>
-    __isa(o, "GetObjectAclRequest");
+  export const isa = (o: any): o is GetObjectAclRequest => __isa(o, "GetObjectAclRequest");
 }
 
 export interface GetObjectLegalHoldOutput {
@@ -4692,8 +4644,7 @@ export interface GetObjectOutput {
 }
 
 export namespace GetObjectOutput {
-  export const isa = (o: any): o is GetObjectOutput =>
-    __isa(o, "GetObjectOutput");
+  export const isa = (o: any): o is GetObjectOutput => __isa(o, "GetObjectOutput");
 }
 
 export interface GetObjectRequest {
@@ -4805,8 +4756,7 @@ export interface GetObjectRequest {
 }
 
 export namespace GetObjectRequest {
-  export const isa = (o: any): o is GetObjectRequest =>
-    __isa(o, "GetObjectRequest");
+  export const isa = (o: any): o is GetObjectRequest => __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectRetentionOutput {
@@ -4868,8 +4818,7 @@ export interface GetObjectTaggingOutput {
 }
 
 export namespace GetObjectTaggingOutput {
-  export const isa = (o: any): o is GetObjectTaggingOutput =>
-    __isa(o, "GetObjectTaggingOutput");
+  export const isa = (o: any): o is GetObjectTaggingOutput => __isa(o, "GetObjectTaggingOutput");
 }
 
 export interface GetObjectTaggingRequest {
@@ -4892,8 +4841,7 @@ export interface GetObjectTaggingRequest {
 }
 
 export namespace GetObjectTaggingRequest {
-  export const isa = (o: any): o is GetObjectTaggingRequest =>
-    __isa(o, "GetObjectTaggingRequest");
+  export const isa = (o: any): o is GetObjectTaggingRequest => __isa(o, "GetObjectTaggingRequest");
 }
 
 export interface GetObjectTorrentOutput {
@@ -4910,8 +4858,7 @@ export interface GetObjectTorrentOutput {
 }
 
 export namespace GetObjectTorrentOutput {
-  export const isa = (o: any): o is GetObjectTorrentOutput =>
-    __isa(o, "GetObjectTorrentOutput");
+  export const isa = (o: any): o is GetObjectTorrentOutput => __isa(o, "GetObjectTorrentOutput");
 }
 
 export interface GetObjectTorrentRequest {
@@ -4936,8 +4883,7 @@ export interface GetObjectTorrentRequest {
 }
 
 export namespace GetObjectTorrentRequest {
-  export const isa = (o: any): o is GetObjectTorrentRequest =>
-    __isa(o, "GetObjectTorrentRequest");
+  export const isa = (o: any): o is GetObjectTorrentRequest => __isa(o, "GetObjectTorrentRequest");
 }
 
 export interface GetPublicAccessBlockOutput {
@@ -4980,8 +4926,7 @@ export interface GlacierJobParameters {
 }
 
 export namespace GlacierJobParameters {
-  export const isa = (o: any): o is GlacierJobParameters =>
-    __isa(o, "GlacierJobParameters");
+  export const isa = (o: any): o is GlacierJobParameters => __isa(o, "GlacierJobParameters");
 }
 
 /**
@@ -5048,8 +4993,7 @@ export interface HeadBucketRequest {
 }
 
 export namespace HeadBucketRequest {
-  export const isa = (o: any): o is HeadBucketRequest =>
-    __isa(o, "HeadBucketRequest");
+  export const isa = (o: any): o is HeadBucketRequest => __isa(o, "HeadBucketRequest");
 }
 
 export interface HeadObjectOutput {
@@ -5247,8 +5191,7 @@ export interface HeadObjectOutput {
 }
 
 export namespace HeadObjectOutput {
-  export const isa = (o: any): o is HeadObjectOutput =>
-    __isa(o, "HeadObjectOutput");
+  export const isa = (o: any): o is HeadObjectOutput => __isa(o, "HeadObjectOutput");
 }
 
 export interface HeadObjectRequest {
@@ -5329,8 +5272,7 @@ export interface HeadObjectRequest {
 }
 
 export namespace HeadObjectRequest {
-  export const isa = (o: any): o is HeadObjectRequest =>
-    __isa(o, "HeadObjectRequest");
+  export const isa = (o: any): o is HeadObjectRequest => __isa(o, "HeadObjectRequest");
 }
 
 /**
@@ -5398,8 +5340,7 @@ export interface InputSerialization {
 }
 
 export namespace InputSerialization {
-  export const isa = (o: any): o is InputSerialization =>
-    __isa(o, "InputSerialization");
+  export const isa = (o: any): o is InputSerialization => __isa(o, "InputSerialization");
 }
 
 /**
@@ -5446,8 +5387,7 @@ export interface InventoryConfiguration {
 }
 
 export namespace InventoryConfiguration {
-  export const isa = (o: any): o is InventoryConfiguration =>
-    __isa(o, "InventoryConfiguration");
+  export const isa = (o: any): o is InventoryConfiguration => __isa(o, "InventoryConfiguration");
 }
 
 /**
@@ -5462,8 +5402,7 @@ export interface InventoryDestination {
 }
 
 export namespace InventoryDestination {
-  export const isa = (o: any): o is InventoryDestination =>
-    __isa(o, "InventoryDestination");
+  export const isa = (o: any): o is InventoryDestination => __isa(o, "InventoryDestination");
 }
 
 /**
@@ -5483,8 +5422,7 @@ export interface InventoryEncryption {
 }
 
 export namespace InventoryEncryption {
-  export const isa = (o: any): o is InventoryEncryption =>
-    __isa(o, "InventoryEncryption");
+  export const isa = (o: any): o is InventoryEncryption => __isa(o, "InventoryEncryption");
 }
 
 /**
@@ -5499,8 +5437,7 @@ export interface InventoryFilter {
 }
 
 export namespace InventoryFilter {
-  export const isa = (o: any): o is InventoryFilter =>
-    __isa(o, "InventoryFilter");
+  export const isa = (o: any): o is InventoryFilter => __isa(o, "InventoryFilter");
 }
 
 export type InventoryFormat = "CSV" | "ORC" | "Parquet";
@@ -5571,8 +5508,7 @@ export interface InventorySchedule {
 }
 
 export namespace InventorySchedule {
-  export const isa = (o: any): o is InventorySchedule =>
-    __isa(o, "InventorySchedule");
+  export const isa = (o: any): o is InventorySchedule => __isa(o, "InventorySchedule");
 }
 
 /**
@@ -5669,8 +5605,7 @@ export interface LifecycleExpiration {
 }
 
 export namespace LifecycleExpiration {
-  export const isa = (o: any): o is LifecycleExpiration =>
-    __isa(o, "LifecycleExpiration");
+  export const isa = (o: any): o is LifecycleExpiration => __isa(o, "LifecycleExpiration");
 }
 
 /**
@@ -5784,8 +5719,7 @@ export interface LifecycleRuleFilter {
 }
 
 export namespace LifecycleRuleFilter {
-  export const isa = (o: any): o is LifecycleRuleFilter =>
-    __isa(o, "LifecycleRuleFilter");
+  export const isa = (o: any): o is LifecycleRuleFilter => __isa(o, "LifecycleRuleFilter");
 }
 
 export interface ListBucketAnalyticsConfigurationsOutput {
@@ -5949,8 +5883,7 @@ export interface ListBucketsOutput {
 }
 
 export namespace ListBucketsOutput {
-  export const isa = (o: any): o is ListBucketsOutput =>
-    __isa(o, "ListBucketsOutput");
+  export const isa = (o: any): o is ListBucketsOutput => __isa(o, "ListBucketsOutput");
 }
 
 export interface ListMultipartUploadsOutput {
@@ -6284,8 +6217,7 @@ export interface ListObjectsOutput {
 }
 
 export namespace ListObjectsOutput {
-  export const isa = (o: any): o is ListObjectsOutput =>
-    __isa(o, "ListObjectsOutput");
+  export const isa = (o: any): o is ListObjectsOutput => __isa(o, "ListObjectsOutput");
 }
 
 export interface ListObjectsRequest {
@@ -6327,8 +6259,7 @@ export interface ListObjectsRequest {
 }
 
 export namespace ListObjectsRequest {
-  export const isa = (o: any): o is ListObjectsRequest =>
-    __isa(o, "ListObjectsRequest");
+  export const isa = (o: any): o is ListObjectsRequest => __isa(o, "ListObjectsRequest");
 }
 
 export interface ListObjectsV2Output {
@@ -6420,8 +6351,7 @@ export interface ListObjectsV2Output {
 }
 
 export namespace ListObjectsV2Output {
-  export const isa = (o: any): o is ListObjectsV2Output =>
-    __isa(o, "ListObjectsV2Output");
+  export const isa = (o: any): o is ListObjectsV2Output => __isa(o, "ListObjectsV2Output");
 }
 
 export interface ListObjectsV2Request {
@@ -6475,8 +6405,7 @@ export interface ListObjectsV2Request {
 }
 
 export namespace ListObjectsV2Request {
-  export const isa = (o: any): o is ListObjectsV2Request =>
-    __isa(o, "ListObjectsV2Request");
+  export const isa = (o: any): o is ListObjectsV2Request => __isa(o, "ListObjectsV2Request");
 }
 
 export interface ListPartsOutput {
@@ -6564,8 +6493,7 @@ export interface ListPartsOutput {
 }
 
 export namespace ListPartsOutput {
-  export const isa = (o: any): o is ListPartsOutput =>
-    __isa(o, "ListPartsOutput");
+  export const isa = (o: any): o is ListPartsOutput => __isa(o, "ListPartsOutput");
 }
 
 export interface ListPartsRequest {
@@ -6606,8 +6534,7 @@ export interface ListPartsRequest {
 }
 
 export namespace ListPartsRequest {
-  export const isa = (o: any): o is ListPartsRequest =>
-    __isa(o, "ListPartsRequest");
+  export const isa = (o: any): o is ListPartsRequest => __isa(o, "ListPartsRequest");
 }
 
 /**
@@ -6640,8 +6567,7 @@ export interface LoggingEnabled {
 }
 
 export namespace LoggingEnabled {
-  export const isa = (o: any): o is LoggingEnabled =>
-    __isa(o, "LoggingEnabled");
+  export const isa = (o: any): o is LoggingEnabled => __isa(o, "LoggingEnabled");
 }
 
 export type MFADelete = "Disabled" | "Enabled";
@@ -6715,8 +6641,7 @@ export interface MetricsAndOperator {
 }
 
 export namespace MetricsAndOperator {
-  export const isa = (o: any): o is MetricsAndOperator =>
-    __isa(o, "MetricsAndOperator");
+  export const isa = (o: any): o is MetricsAndOperator => __isa(o, "MetricsAndOperator");
 }
 
 /**
@@ -6739,8 +6664,7 @@ export interface MetricsConfiguration {
 }
 
 export namespace MetricsConfiguration {
-  export const isa = (o: any): o is MetricsConfiguration =>
-    __isa(o, "MetricsConfiguration");
+  export const isa = (o: any): o is MetricsConfiguration => __isa(o, "MetricsConfiguration");
 }
 
 /**
@@ -6809,8 +6733,7 @@ export interface MultipartUpload {
 }
 
 export namespace MultipartUpload {
-  export const isa = (o: any): o is MultipartUpload =>
-    __isa(o, "MultipartUpload");
+  export const isa = (o: any): o is MultipartUpload => __isa(o, "MultipartUpload");
 }
 
 /**
@@ -6983,9 +6906,7 @@ export namespace _Object {
 /**
  * <p>This operation is not allowed against this storage tier.</p>
  */
-export interface ObjectAlreadyInActiveTierError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectAlreadyInActiveTierError extends __SmithyException, $MetadataBearer {
   name: "ObjectAlreadyInActiveTierError";
   $fault: "client";
 }
@@ -7021,8 +6942,7 @@ export interface ObjectIdentifier {
 }
 
 export namespace ObjectIdentifier {
-  export const isa = (o: any): o is ObjectIdentifier =>
-    __isa(o, "ObjectIdentifier");
+  export const isa = (o: any): o is ObjectIdentifier => __isa(o, "ObjectIdentifier");
 }
 
 /**
@@ -7042,8 +6962,7 @@ export interface ObjectLockConfiguration {
 }
 
 export namespace ObjectLockConfiguration {
-  export const isa = (o: any): o is ObjectLockConfiguration =>
-    __isa(o, "ObjectLockConfiguration");
+  export const isa = (o: any): o is ObjectLockConfiguration => __isa(o, "ObjectLockConfiguration");
 }
 
 export type ObjectLockEnabled = "Enabled";
@@ -7060,8 +6979,7 @@ export interface ObjectLockLegalHold {
 }
 
 export namespace ObjectLockLegalHold {
-  export const isa = (o: any): o is ObjectLockLegalHold =>
-    __isa(o, "ObjectLockLegalHold");
+  export const isa = (o: any): o is ObjectLockLegalHold => __isa(o, "ObjectLockLegalHold");
 }
 
 export type ObjectLockLegalHoldStatus = "OFF" | "ON";
@@ -7085,8 +7003,7 @@ export interface ObjectLockRetention {
 }
 
 export namespace ObjectLockRetention {
-  export const isa = (o: any): o is ObjectLockRetention =>
-    __isa(o, "ObjectLockRetention");
+  export const isa = (o: any): o is ObjectLockRetention => __isa(o, "ObjectLockRetention");
 }
 
 export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
@@ -7103,17 +7020,14 @@ export interface ObjectLockRule {
 }
 
 export namespace ObjectLockRule {
-  export const isa = (o: any): o is ObjectLockRule =>
-    __isa(o, "ObjectLockRule");
+  export const isa = (o: any): o is ObjectLockRule => __isa(o, "ObjectLockRule");
 }
 
 /**
  * <p>The source object of the COPY operation is not in the active tier and is only stored in Amazon
  *          S3 Glacier.</p>
  */
-export interface ObjectNotInActiveTierError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectNotInActiveTierError extends __SmithyException, $MetadataBearer {
   name: "ObjectNotInActiveTierError";
   $fault: "client";
 }
@@ -7196,8 +7110,7 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
-  export const isa = (o: any): o is OutputLocation =>
-    __isa(o, "OutputLocation");
+  export const isa = (o: any): o is OutputLocation => __isa(o, "OutputLocation");
 }
 
 /**
@@ -7217,8 +7130,7 @@ export interface OutputSerialization {
 }
 
 export namespace OutputSerialization {
-  export const isa = (o: any): o is OutputSerialization =>
-    __isa(o, "OutputSerialization");
+  export const isa = (o: any): o is OutputSerialization => __isa(o, "OutputSerialization");
 }
 
 /**
@@ -7286,12 +7198,7 @@ export namespace Part {
 
 export type Payer = "BucketOwner" | "Requester";
 
-export type Permission =
-  | "FULL_CONTROL"
-  | "READ"
-  | "READ_ACP"
-  | "WRITE"
-  | "WRITE_ACP";
+export type Permission = "FULL_CONTROL" | "READ" | "READ_ACP" | "WRITE" | "WRITE_ACP";
 
 /**
  * <p>The container element for a bucket's policy status.</p>
@@ -7480,8 +7387,7 @@ export interface PutBucketAclRequest {
 }
 
 export namespace PutBucketAclRequest {
-  export const isa = (o: any): o is PutBucketAclRequest =>
-    __isa(o, "PutBucketAclRequest");
+  export const isa = (o: any): o is PutBucketAclRequest => __isa(o, "PutBucketAclRequest");
 }
 
 export interface PutBucketAnalyticsConfigurationRequest {
@@ -7531,8 +7437,7 @@ export interface PutBucketCorsRequest {
 }
 
 export namespace PutBucketCorsRequest {
-  export const isa = (o: any): o is PutBucketCorsRequest =>
-    __isa(o, "PutBucketCorsRequest");
+  export const isa = (o: any): o is PutBucketCorsRequest => __isa(o, "PutBucketCorsRequest");
 }
 
 export interface PutBucketEncryptionRequest {
@@ -7551,9 +7456,7 @@ export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
    */
-  ServerSideEncryptionConfiguration:
-    | ServerSideEncryptionConfiguration
-    | undefined;
+  ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 }
 
 export namespace PutBucketEncryptionRequest {
@@ -7621,8 +7524,7 @@ export interface PutBucketLoggingRequest {
 }
 
 export namespace PutBucketLoggingRequest {
-  export const isa = (o: any): o is PutBucketLoggingRequest =>
-    __isa(o, "PutBucketLoggingRequest");
+  export const isa = (o: any): o is PutBucketLoggingRequest => __isa(o, "PutBucketLoggingRequest");
 }
 
 export interface PutBucketMetricsConfigurationRequest {
@@ -7691,8 +7593,7 @@ export interface PutBucketPolicyRequest {
 }
 
 export namespace PutBucketPolicyRequest {
-  export const isa = (o: any): o is PutBucketPolicyRequest =>
-    __isa(o, "PutBucketPolicyRequest");
+  export const isa = (o: any): o is PutBucketPolicyRequest => __isa(o, "PutBucketPolicyRequest");
 }
 
 export interface PutBucketReplicationRequest {
@@ -7766,8 +7667,7 @@ export interface PutBucketTaggingRequest {
 }
 
 export namespace PutBucketTaggingRequest {
-  export const isa = (o: any): o is PutBucketTaggingRequest =>
-    __isa(o, "PutBucketTaggingRequest");
+  export const isa = (o: any): o is PutBucketTaggingRequest => __isa(o, "PutBucketTaggingRequest");
 }
 
 export interface PutBucketVersioningRequest {
@@ -7817,8 +7717,7 @@ export interface PutBucketWebsiteRequest {
 }
 
 export namespace PutBucketWebsiteRequest {
-  export const isa = (o: any): o is PutBucketWebsiteRequest =>
-    __isa(o, "PutBucketWebsiteRequest");
+  export const isa = (o: any): o is PutBucketWebsiteRequest => __isa(o, "PutBucketWebsiteRequest");
 }
 
 export interface PutObjectAclOutput {
@@ -7830,8 +7729,7 @@ export interface PutObjectAclOutput {
 }
 
 export namespace PutObjectAclOutput {
-  export const isa = (o: any): o is PutObjectAclOutput =>
-    __isa(o, "PutObjectAclOutput");
+  export const isa = (o: any): o is PutObjectAclOutput => __isa(o, "PutObjectAclOutput");
 }
 
 export interface PutObjectAclRequest {
@@ -7906,8 +7804,7 @@ export interface PutObjectAclRequest {
 }
 
 export namespace PutObjectAclRequest {
-  export const isa = (o: any): o is PutObjectAclRequest =>
-    __isa(o, "PutObjectAclRequest");
+  export const isa = (o: any): o is PutObjectAclRequest => __isa(o, "PutObjectAclRequest");
 }
 
 export interface PutObjectLegalHoldOutput {
@@ -8068,8 +7965,7 @@ export interface PutObjectOutput {
 }
 
 export namespace PutObjectOutput {
-  export const isa = (o: any): o is PutObjectOutput =>
-    __isa(o, "PutObjectOutput");
+  export const isa = (o: any): o is PutObjectOutput => __isa(o, "PutObjectOutput");
 }
 
 export interface PutObjectRequest {
@@ -8260,8 +8156,7 @@ export interface PutObjectRequest {
 }
 
 export namespace PutObjectRequest {
-  export const isa = (o: any): o is PutObjectRequest =>
-    __isa(o, "PutObjectRequest");
+  export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectRetentionOutput {
@@ -8333,8 +8228,7 @@ export interface PutObjectTaggingOutput {
 }
 
 export namespace PutObjectTaggingOutput {
-  export const isa = (o: any): o is PutObjectTaggingOutput =>
-    __isa(o, "PutObjectTaggingOutput");
+  export const isa = (o: any): o is PutObjectTaggingOutput => __isa(o, "PutObjectTaggingOutput");
 }
 
 export interface PutObjectTaggingRequest {
@@ -8367,8 +8261,7 @@ export interface PutObjectTaggingRequest {
 }
 
 export namespace PutObjectTaggingRequest {
-  export const isa = (o: any): o is PutObjectTaggingRequest =>
-    __isa(o, "PutObjectTaggingRequest");
+  export const isa = (o: any): o is PutObjectTaggingRequest => __isa(o, "PutObjectTaggingRequest");
 }
 
 export interface PutPublicAccessBlockRequest {
@@ -8431,8 +8324,7 @@ export interface QueueConfiguration {
 }
 
 export namespace QueueConfiguration {
-  export const isa = (o: any): o is QueueConfiguration =>
-    __isa(o, "QueueConfiguration");
+  export const isa = (o: any): o is QueueConfiguration => __isa(o, "QueueConfiguration");
 }
 
 export enum QuoteFields {
@@ -8507,8 +8399,7 @@ export interface RedirectAllRequestsTo {
 }
 
 export namespace RedirectAllRequestsTo {
-  export const isa = (o: any): o is RedirectAllRequestsTo =>
-    __isa(o, "RedirectAllRequestsTo");
+  export const isa = (o: any): o is RedirectAllRequestsTo => __isa(o, "RedirectAllRequestsTo");
 }
 
 /**
@@ -8616,8 +8507,7 @@ export interface ReplicationRule {
 }
 
 export namespace ReplicationRule {
-  export const isa = (o: any): o is ReplicationRule =>
-    __isa(o, "ReplicationRule");
+  export const isa = (o: any): o is ReplicationRule => __isa(o, "ReplicationRule");
 }
 
 /**
@@ -8692,8 +8582,7 @@ export interface ReplicationRuleFilter {
 }
 
 export namespace ReplicationRuleFilter {
-  export const isa = (o: any): o is ReplicationRuleFilter =>
-    __isa(o, "ReplicationRuleFilter");
+  export const isa = (o: any): o is ReplicationRuleFilter => __isa(o, "ReplicationRuleFilter");
 }
 
 export type ReplicationRuleStatus = "Disabled" | "Enabled";
@@ -8723,8 +8612,7 @@ export interface ReplicationTime {
 }
 
 export namespace ReplicationTime {
-  export const isa = (o: any): o is ReplicationTime =>
-    __isa(o, "ReplicationTime");
+  export const isa = (o: any): o is ReplicationTime => __isa(o, "ReplicationTime");
 }
 
 export type ReplicationTimeStatus = "Disabled" | "Enabled";
@@ -8746,8 +8634,7 @@ export interface ReplicationTimeValue {
 }
 
 export namespace ReplicationTimeValue {
-  export const isa = (o: any): o is ReplicationTimeValue =>
-    __isa(o, "ReplicationTimeValue");
+  export const isa = (o: any): o is ReplicationTimeValue => __isa(o, "ReplicationTimeValue");
 }
 
 export type RequestCharged = "requester";
@@ -8783,8 +8670,7 @@ export interface RequestProgress {
 }
 
 export namespace RequestProgress {
-  export const isa = (o: any): o is RequestProgress =>
-    __isa(o, "RequestProgress");
+  export const isa = (o: any): o is RequestProgress => __isa(o, "RequestProgress");
 }
 
 export interface RestoreObjectOutput {
@@ -8801,8 +8687,7 @@ export interface RestoreObjectOutput {
 }
 
 export namespace RestoreObjectOutput {
-  export const isa = (o: any): o is RestoreObjectOutput =>
-    __isa(o, "RestoreObjectOutput");
+  export const isa = (o: any): o is RestoreObjectOutput => __isa(o, "RestoreObjectOutput");
 }
 
 export interface RestoreObjectRequest {
@@ -8838,8 +8723,7 @@ export interface RestoreObjectRequest {
 }
 
 export namespace RestoreObjectRequest {
-  export const isa = (o: any): o is RestoreObjectRequest =>
-    __isa(o, "RestoreObjectRequest");
+  export const isa = (o: any): o is RestoreObjectRequest => __isa(o, "RestoreObjectRequest");
 }
 
 /**
@@ -8886,8 +8770,7 @@ export interface RestoreRequest {
 }
 
 export namespace RestoreRequest {
-  export const isa = (o: any): o is RestoreRequest =>
-    __isa(o, "RestoreRequest");
+  export const isa = (o: any): o is RestoreRequest => __isa(o, "RestoreRequest");
 }
 
 export enum RestoreRequestType {
@@ -9121,10 +9004,7 @@ export namespace SelectObjectContentEventStream {
     Stats: (value: StatsEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export const visit = <T>(
-    value: SelectObjectContentEventStream,
-    visitor: Visitor<T>
-  ): T => {
+  export const visit = <T>(value: SelectObjectContentEventStream, visitor: Visitor<T>): T => {
     if (value.Cont !== undefined) return visitor.Cont(value.Cont);
     if (value.End !== undefined) return visitor.End(value.End);
     if (value.Progress !== undefined) return visitor.Progress(value.Progress);
@@ -9264,8 +9144,7 @@ export interface SelectParameters {
 }
 
 export namespace SelectParameters {
-  export const isa = (o: any): o is SelectParameters =>
-    __isa(o, "SelectParameters");
+  export const isa = (o: any): o is SelectParameters => __isa(o, "SelectParameters");
 }
 
 export type ServerSideEncryption = "AES256" | "aws:kms";
@@ -9340,8 +9219,7 @@ export interface SourceSelectionCriteria {
 }
 
 export namespace SourceSelectionCriteria {
-  export const isa = (o: any): o is SourceSelectionCriteria =>
-    __isa(o, "SourceSelectionCriteria");
+  export const isa = (o: any): o is SourceSelectionCriteria => __isa(o, "SourceSelectionCriteria");
 }
 
 /**
@@ -9357,8 +9235,7 @@ export interface SseKmsEncryptedObjects {
 }
 
 export namespace SseKmsEncryptedObjects {
-  export const isa = (o: any): o is SseKmsEncryptedObjects =>
-    __isa(o, "SseKmsEncryptedObjects");
+  export const isa = (o: any): o is SseKmsEncryptedObjects => __isa(o, "SseKmsEncryptedObjects");
 }
 
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
@@ -9424,8 +9301,7 @@ export interface StorageClassAnalysis {
 }
 
 export namespace StorageClassAnalysis {
-  export const isa = (o: any): o is StorageClassAnalysis =>
-    __isa(o, "StorageClassAnalysis");
+  export const isa = (o: any): o is StorageClassAnalysis => __isa(o, "StorageClassAnalysis");
 }
 
 /**
@@ -9545,8 +9421,7 @@ export interface TopicConfiguration {
 }
 
 export namespace TopicConfiguration {
-  export const isa = (o: any): o is TopicConfiguration =>
-    __isa(o, "TopicConfiguration");
+  export const isa = (o: any): o is TopicConfiguration => __isa(o, "TopicConfiguration");
 }
 
 /**
@@ -9626,8 +9501,7 @@ export interface UploadPartCopyOutput {
 }
 
 export namespace UploadPartCopyOutput {
-  export const isa = (o: any): o is UploadPartCopyOutput =>
-    __isa(o, "UploadPartCopyOutput");
+  export const isa = (o: any): o is UploadPartCopyOutput => __isa(o, "UploadPartCopyOutput");
 }
 
 export interface UploadPartCopyRequest {
@@ -9733,8 +9607,7 @@ export interface UploadPartCopyRequest {
 }
 
 export namespace UploadPartCopyRequest {
-  export const isa = (o: any): o is UploadPartCopyRequest =>
-    __isa(o, "UploadPartCopyRequest");
+  export const isa = (o: any): o is UploadPartCopyRequest => __isa(o, "UploadPartCopyRequest");
 }
 
 export interface UploadPartOutput {
@@ -9775,8 +9648,7 @@ export interface UploadPartOutput {
 }
 
 export namespace UploadPartOutput {
-  export const isa = (o: any): o is UploadPartOutput =>
-    __isa(o, "UploadPartOutput");
+  export const isa = (o: any): o is UploadPartOutput => __isa(o, "UploadPartOutput");
 }
 
 export interface UploadPartRequest {
@@ -9849,8 +9721,7 @@ export interface UploadPartRequest {
 }
 
 export namespace UploadPartRequest {
-  export const isa = (o: any): o is UploadPartRequest =>
-    __isa(o, "UploadPartRequest");
+  export const isa = (o: any): o is UploadPartRequest => __isa(o, "UploadPartRequest");
 }
 
 /**
@@ -9871,8 +9742,7 @@ export interface VersioningConfiguration {
 }
 
 export namespace VersioningConfiguration {
-  export const isa = (o: any): o is VersioningConfiguration =>
-    __isa(o, "VersioningConfiguration");
+  export const isa = (o: any): o is VersioningConfiguration => __isa(o, "VersioningConfiguration");
 }
 
 /**
@@ -9905,6 +9775,5 @@ export interface WebsiteConfiguration {
 }
 
 export namespace WebsiteConfiguration {
-  export const isa = (o: any): o is WebsiteConfiguration =>
-    __isa(o, "WebsiteConfiguration");
+  export const isa = (o: any): o is WebsiteConfiguration => __isa(o, "WebsiteConfiguration");
 }

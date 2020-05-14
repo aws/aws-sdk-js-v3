@@ -145,10 +145,7 @@ export const serializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Fragments !== undefined && {
-      Fragments: serializeAws_restJson1_1FragmentNumberList(
-        input.Fragments,
-        context
-      )
+      Fragments: serializeAws_restJson1_1FragmentNumberList(input.Fragments, context)
     }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName })
   });
@@ -175,10 +172,7 @@ export const serializeAws_restJson1_1ListFragmentsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.FragmentSelector !== undefined && {
-      FragmentSelector: serializeAws_restJson1_1FragmentSelector(
-        input.FragmentSelector,
-        context
-      )
+      FragmentSelector: serializeAws_restJson1_1FragmentSelector(input.FragmentSelector, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -201,10 +195,7 @@ export const deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async
   context: __SerdeContext
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError(output, context);
   }
   const contents: GetDASHStreamingSessionURLCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -212,10 +203,7 @@ export const deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async
     DASHStreamingSessionURL: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DASHStreamingSessionURL !== undefined &&
-    data.DASHStreamingSessionURL !== null
-  ) {
+  if (data.DASHStreamingSessionURL !== undefined && data.DASHStreamingSessionURL !== null) {
     contents.DASHStreamingSessionURL = data.DASHStreamingSessionURL;
   }
   return Promise.resolve(contents);
@@ -291,10 +279,7 @@ const deserializeAws_restJson1_1GetDASHStreamingSessionURLCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -343,10 +328,7 @@ export const deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async 
   context: __SerdeContext
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError(output, context);
   }
   const contents: GetHLSStreamingSessionURLCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -354,10 +336,7 @@ export const deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async 
     HLSStreamingSessionURL: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.HLSStreamingSessionURL !== undefined &&
-    data.HLSStreamingSessionURL !== null
-  ) {
+  if (data.HLSStreamingSessionURL !== undefined && data.HLSStreamingSessionURL !== null) {
     contents.HLSStreamingSessionURL = data.HLSStreamingSessionURL;
   }
   return Promise.resolve(contents);
@@ -433,10 +412,7 @@ const deserializeAws_restJson1_1GetHLSStreamingSessionURLCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -485,10 +461,7 @@ export const deserializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   context: __SerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetMediaForFragmentListCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetMediaForFragmentListCommandError(output, context);
   }
   const contents: GetMediaForFragmentListCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -541,10 +514,7 @@ const deserializeAws_restJson1_1GetMediaForFragmentListCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -592,10 +562,7 @@ export const deserializeAws_restJson1_1ListFragmentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Fragments !== undefined && data.Fragments !== null) {
-    contents.Fragments = deserializeAws_restJson1_1FragmentList(
-      data.Fragments,
-      context
-    );
+    contents.Fragments = deserializeAws_restJson1_1FragmentList(data.Fragments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -640,10 +607,7 @@ const deserializeAws_restJson1_1ListFragmentsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -821,10 +785,7 @@ const serializeAws_restJson1_1DASHFragmentSelector = (
       FragmentSelectorType: input.FragmentSelectorType
     }),
     ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1_1DASHTimestampRange(
-        input.TimestampRange,
-        context
-      )
+      TimestampRange: serializeAws_restJson1_1DASHTimestampRange(input.TimestampRange, context)
     })
   };
 };
@@ -859,10 +820,7 @@ const serializeAws_restJson1_1FragmentSelector = (
       FragmentSelectorType: input.FragmentSelectorType
     }),
     ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1_1TimestampRange(
-        input.TimestampRange,
-        context
-      )
+      TimestampRange: serializeAws_restJson1_1TimestampRange(input.TimestampRange, context)
     })
   };
 };
@@ -876,10 +834,7 @@ const serializeAws_restJson1_1HLSFragmentSelector = (
       FragmentSelectorType: input.FragmentSelectorType
     }),
     ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1_1HLSTimestampRange(
-        input.TimestampRange,
-        context
-      )
+      TimestampRange: serializeAws_restJson1_1HLSTimestampRange(input.TimestampRange, context)
     })
   };
 };
@@ -912,10 +867,7 @@ const serializeAws_restJson1_1TimestampRange = (
   };
 };
 
-const deserializeAws_restJson1_1Fragment = (
-  output: any,
-  context: __SerdeContext
-): Fragment => {
+const deserializeAws_restJson1_1Fragment = (output: any, context: __SerdeContext): Fragment => {
   return {
     __type: "Fragment",
     FragmentLengthInMilliseconds:
@@ -928,13 +880,11 @@ const deserializeAws_restJson1_1Fragment = (
         ? output.FragmentNumber
         : undefined,
     FragmentSizeInBytes:
-      output.FragmentSizeInBytes !== undefined &&
-      output.FragmentSizeInBytes !== null
+      output.FragmentSizeInBytes !== undefined && output.FragmentSizeInBytes !== null
         ? output.FragmentSizeInBytes
         : undefined,
     ProducerTimestamp:
-      output.ProducerTimestamp !== undefined &&
-      output.ProducerTimestamp !== null
+      output.ProducerTimestamp !== undefined && output.ProducerTimestamp !== null
         ? new Date(Math.round(output.ProducerTimestamp * 1000))
         : undefined,
     ServerTimestamp:
@@ -948,9 +898,7 @@ const deserializeAws_restJson1_1FragmentList = (
   output: any,
   context: __SerdeContext
 ): Fragment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Fragment(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Fragment(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -967,23 +915,17 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

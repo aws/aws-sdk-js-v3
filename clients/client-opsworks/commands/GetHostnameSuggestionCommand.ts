@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OpsWorksClient";
-import {
-  GetHostnameSuggestionRequest,
-  GetHostnameSuggestionResult
-} from "../models/index";
+import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/index";
 import {
   deserializeAws_json1_1GetHostnameSuggestionCommand,
   serializeAws_json1_1GetHostnameSuggestionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHostnameSuggestionCommandInput = GetHostnameSuggestionRequest;
-export type GetHostnameSuggestionCommandOutput = GetHostnameSuggestionResult &
-  __MetadataBearer;
+export type GetHostnameSuggestionCommandOutput = GetHostnameSuggestionResult & __MetadataBearer;
 
 export class GetHostnameSuggestionCommand extends $Command<
   GetHostnameSuggestionCommandInput,
@@ -49,13 +45,8 @@ export class GetHostnameSuggestionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHostnameSuggestionCommandInput,
-    GetHostnameSuggestionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHostnameSuggestionCommandInput, GetHostnameSuggestionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

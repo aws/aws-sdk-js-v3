@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   SupportClientResolvedConfig
 } from "../SupportClient";
-import {
-  DescribeCommunicationsRequest,
-  DescribeCommunicationsResponse
-} from "../models/index";
+import { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCommunicationsCommand,
   serializeAws_json1_1DescribeCommunicationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCommunicationsCommandInput = DescribeCommunicationsRequest;
-export type DescribeCommunicationsCommandOutput = DescribeCommunicationsResponse &
-  __MetadataBearer;
+export type DescribeCommunicationsCommandOutput = DescribeCommunicationsResponse & __MetadataBearer;
 
 export class DescribeCommunicationsCommand extends $Command<
   DescribeCommunicationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeCommunicationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCommunicationsCommandInput,
-    DescribeCommunicationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCommunicationsCommandInput, DescribeCommunicationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

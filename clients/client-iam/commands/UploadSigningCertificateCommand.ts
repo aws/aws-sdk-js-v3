@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  UploadSigningCertificateRequest,
-  UploadSigningCertificateResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UploadSigningCertificateRequest, UploadSigningCertificateResponse } from "../models/index";
 import {
   deserializeAws_queryUploadSigningCertificateCommand,
   serializeAws_queryUploadSigningCertificateCommand
@@ -49,13 +42,8 @@ export class UploadSigningCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UploadSigningCertificateCommandInput,
-    UploadSigningCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UploadSigningCertificateCommandInput, UploadSigningCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  DeleteFlowDefinitionRequest,
-  DeleteFlowDefinitionResponse
-} from "../models/index";
+import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteFlowDefinitionCommand,
   serializeAws_json1_1DeleteFlowDefinitionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFlowDefinitionCommandInput = DeleteFlowDefinitionRequest;
-export type DeleteFlowDefinitionCommandOutput = DeleteFlowDefinitionResponse &
-  __MetadataBearer;
+export type DeleteFlowDefinitionCommandOutput = DeleteFlowDefinitionResponse & __MetadataBearer;
 
 export class DeleteFlowDefinitionCommand extends $Command<
   DeleteFlowDefinitionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteFlowDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteFlowDefinitionCommandInput,
-    DeleteFlowDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteFlowDefinitionCommandInput, DeleteFlowDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  GetFaceDetectionRequest,
-  GetFaceDetectionResponse
-} from "../models/index";
+import { GetFaceDetectionRequest, GetFaceDetectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetFaceDetectionCommand,
   serializeAws_json1_1GetFaceDetectionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFaceDetectionCommandInput = GetFaceDetectionRequest;
-export type GetFaceDetectionCommandOutput = GetFaceDetectionResponse &
-  __MetadataBearer;
+export type GetFaceDetectionCommandOutput = GetFaceDetectionResponse & __MetadataBearer;
 
 export class GetFaceDetectionCommand extends $Command<
   GetFaceDetectionCommandInput,
@@ -50,9 +46,7 @@ export class GetFaceDetectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

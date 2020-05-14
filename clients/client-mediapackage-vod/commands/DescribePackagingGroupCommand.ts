@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaPackageVodClient";
-import {
-  DescribePackagingGroupRequest,
-  DescribePackagingGroupResponse
-} from "../models/index";
+import { DescribePackagingGroupRequest, DescribePackagingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribePackagingGroupCommand,
   serializeAws_restJson1_1DescribePackagingGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePackagingGroupCommandInput = DescribePackagingGroupRequest;
-export type DescribePackagingGroupCommandOutput = DescribePackagingGroupResponse &
-  __MetadataBearer;
+export type DescribePackagingGroupCommandOutput = DescribePackagingGroupResponse & __MetadataBearer;
 
 export class DescribePackagingGroupCommand extends $Command<
   DescribePackagingGroupCommandInput,
@@ -49,13 +45,8 @@ export class DescribePackagingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePackagingGroupCommandInput,
-    DescribePackagingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePackagingGroupCommandInput, DescribePackagingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribePackagingGroupCommand extends $Command<
     input: DescribePackagingGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribePackagingGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribePackagingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1_1DescribePackagingGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

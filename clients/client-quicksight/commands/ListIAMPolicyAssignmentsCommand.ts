@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  ListIAMPolicyAssignmentsRequest,
-  ListIAMPolicyAssignmentsResponse
-} from "../models/index";
+import { ListIAMPolicyAssignmentsRequest, ListIAMPolicyAssignmentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand,
   serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand
@@ -49,13 +46,8 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListIAMPolicyAssignmentsCommandInput,
-    ListIAMPolicyAssignmentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListIAMPolicyAssignmentsCommandInput, ListIAMPolicyAssignmentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     input: ListIAMPolicyAssignmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListIAMPolicyAssignmentsCommandOutput> {
-    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

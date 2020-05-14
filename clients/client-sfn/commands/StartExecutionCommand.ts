@@ -1,8 +1,4 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
 import { StartExecutionInput, StartExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_0StartExecutionCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartExecutionCommandInput = StartExecutionInput;
-export type StartExecutionCommandOutput = StartExecutionOutput &
-  __MetadataBearer;
+export type StartExecutionCommandOutput = StartExecutionOutput & __MetadataBearer;
 
 export class StartExecutionCommand extends $Command<
   StartExecutionCommandInput,
@@ -47,9 +42,7 @@ export class StartExecutionCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartExecutionCommandInput, StartExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

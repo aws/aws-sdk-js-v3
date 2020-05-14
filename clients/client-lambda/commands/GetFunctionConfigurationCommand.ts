@@ -1,12 +1,5 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  FunctionConfiguration,
-  GetFunctionConfigurationRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionConfiguration, GetFunctionConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFunctionConfigurationCommand,
   serializeAws_restJson1_1GetFunctionConfigurationCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFunctionConfigurationCommandInput = GetFunctionConfigurationRequest;
-export type GetFunctionConfigurationCommandOutput = FunctionConfiguration &
-  __MetadataBearer;
+export type GetFunctionConfigurationCommandOutput = FunctionConfiguration & __MetadataBearer;
 
 export class GetFunctionConfigurationCommand extends $Command<
   GetFunctionConfigurationCommandInput,
@@ -49,13 +41,8 @@ export class GetFunctionConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFunctionConfigurationCommandInput,
-    GetFunctionConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFunctionConfigurationCommandInput, GetFunctionConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +61,14 @@ export class GetFunctionConfigurationCommand extends $Command<
     input: GetFunctionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetFunctionConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetFunctionConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetFunctionConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetFunctionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

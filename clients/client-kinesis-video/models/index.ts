@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum APIName {
@@ -16,26 +13,21 @@ export enum APIName {
 /**
  * <p>You do not have required permissions to perform this operation.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>You have reached the maximum limit of active signaling channels for this AWS account
  *             in this region.</p>
  */
-export interface AccountChannelLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountChannelLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "AccountChannelLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -49,9 +41,7 @@ export namespace AccountChannelLimitExceededException {
 /**
  * <p>The number of streams created for the account is too high.</p>
  */
-export interface AccountStreamLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccountStreamLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "AccountStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -129,8 +119,7 @@ export interface ChannelNameCondition {
 }
 
 export namespace ChannelNameCondition {
-  export const isa = (o: any): o is ChannelNameCondition =>
-    __isa(o, "ChannelNameCondition");
+  export const isa = (o: any): o is ChannelNameCondition => __isa(o, "ChannelNameCondition");
 }
 
 export enum ChannelProtocol {
@@ -151,9 +140,7 @@ export enum ChannelType {
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -270,8 +257,7 @@ export interface CreateStreamInput {
 }
 
 export namespace CreateStreamInput {
-  export const isa = (o: any): o is CreateStreamInput =>
-    __isa(o, "CreateStreamInput");
+  export const isa = (o: any): o is CreateStreamInput => __isa(o, "CreateStreamInput");
 }
 
 export interface CreateStreamOutput {
@@ -283,8 +269,7 @@ export interface CreateStreamOutput {
 }
 
 export namespace CreateStreamOutput {
-  export const isa = (o: any): o is CreateStreamOutput =>
-    __isa(o, "CreateStreamOutput");
+  export const isa = (o: any): o is CreateStreamOutput => __isa(o, "CreateStreamOutput");
 }
 
 export interface DeleteSignalingChannelInput {
@@ -334,8 +319,7 @@ export interface DeleteStreamInput {
 }
 
 export namespace DeleteStreamInput {
-  export const isa = (o: any): o is DeleteStreamInput =>
-    __isa(o, "DeleteStreamInput");
+  export const isa = (o: any): o is DeleteStreamInput => __isa(o, "DeleteStreamInput");
 }
 
 export interface DeleteStreamOutput {
@@ -343,8 +327,7 @@ export interface DeleteStreamOutput {
 }
 
 export namespace DeleteStreamOutput {
-  export const isa = (o: any): o is DeleteStreamOutput =>
-    __isa(o, "DeleteStreamOutput");
+  export const isa = (o: any): o is DeleteStreamOutput => __isa(o, "DeleteStreamOutput");
 }
 
 export interface DescribeSignalingChannelInput {
@@ -393,8 +376,7 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
-  export const isa = (o: any): o is DescribeStreamInput =>
-    __isa(o, "DescribeStreamInput");
+  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 export interface DescribeStreamOutput {
@@ -406,17 +388,14 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
-  export const isa = (o: any): o is DescribeStreamOutput =>
-    __isa(o, "DescribeStreamOutput");
+  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 /**
  * <p>Not implemented.
  *             </p>
  */
-export interface DeviceStreamLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeviceStreamLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DeviceStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -449,8 +428,7 @@ export interface GetDataEndpointInput {
 }
 
 export namespace GetDataEndpointInput {
-  export const isa = (o: any): o is GetDataEndpointInput =>
-    __isa(o, "GetDataEndpointInput");
+  export const isa = (o: any): o is GetDataEndpointInput => __isa(o, "GetDataEndpointInput");
 }
 
 export interface GetDataEndpointOutput {
@@ -463,8 +441,7 @@ export interface GetDataEndpointOutput {
 }
 
 export namespace GetDataEndpointOutput {
-  export const isa = (o: any): o is GetDataEndpointOutput =>
-    __isa(o, "GetDataEndpointOutput");
+  export const isa = (o: any): o is GetDataEndpointOutput => __isa(o, "GetDataEndpointOutput");
 }
 
 export interface GetSignalingChannelEndpointInput {
@@ -502,9 +479,7 @@ export namespace GetSignalingChannelEndpointOutput {
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -518,25 +493,20 @@ export namespace InvalidArgumentException {
 /**
  * <p>Not implemented.</p>
  */
-export interface InvalidDeviceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeviceException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidDeviceException {
-  export const isa = (o: any): o is InvalidDeviceException =>
-    __isa(o, "InvalidDeviceException");
+  export const isa = (o: any): o is InvalidDeviceException => __isa(o, "InvalidDeviceException");
 }
 
 /**
  * <p>The format of the <code>StreamARN</code> is invalid.</p>
  */
-export interface InvalidResourceFormatException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceFormatException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceFormatException";
   $fault: "client";
   Message?: string;
@@ -614,8 +584,7 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
-  export const isa = (o: any): o is ListStreamsInput =>
-    __isa(o, "ListStreamsInput");
+  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 export interface ListStreamsOutput {
@@ -633,8 +602,7 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
-  export const isa = (o: any): o is ListStreamsOutput =>
-    __isa(o, "ListStreamsOutput");
+  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 export interface ListTagsForResourceInput {
@@ -699,8 +667,7 @@ export interface ListTagsForStreamInput {
 }
 
 export namespace ListTagsForStreamInput {
-  export const isa = (o: any): o is ListTagsForStreamInput =>
-    __isa(o, "ListTagsForStreamInput");
+  export const isa = (o: any): o is ListTagsForStreamInput => __isa(o, "ListTagsForStreamInput");
 }
 
 export interface ListTagsForStreamOutput {
@@ -719,24 +686,20 @@ export interface ListTagsForStreamOutput {
 }
 
 export namespace ListTagsForStreamOutput {
-  export const isa = (o: any): o is ListTagsForStreamOutput =>
-    __isa(o, "ListTagsForStreamOutput");
+  export const isa = (o: any): o is ListTagsForStreamOutput => __isa(o, "ListTagsForStreamOutput");
 }
 
 /**
  * <p>The caller is not authorized to perform this operation.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -766,25 +729,20 @@ export namespace ResourceEndpointListItem {
 /**
  * <p>The stream is currently not available for this operation.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -927,8 +885,7 @@ export interface StreamNameCondition {
 }
 
 export namespace StreamNameCondition {
-  export const isa = (o: any): o is StreamNameCondition =>
-    __isa(o, "StreamNameCondition");
+  export const isa = (o: any): o is StreamNameCondition => __isa(o, "StreamNameCondition");
 }
 
 /**
@@ -966,8 +923,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -975,8 +931,7 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export const isa = (o: any): o is TagResourceOutput =>
-    __isa(o, "TagResourceOutput");
+  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface TagStreamInput {
@@ -1000,8 +955,7 @@ export interface TagStreamInput {
 }
 
 export namespace TagStreamInput {
-  export const isa = (o: any): o is TagStreamInput =>
-    __isa(o, "TagStreamInput");
+  export const isa = (o: any): o is TagStreamInput => __isa(o, "TagStreamInput");
 }
 
 export interface TagStreamOutput {
@@ -1009,17 +963,14 @@ export interface TagStreamOutput {
 }
 
 export namespace TagStreamOutput {
-  export const isa = (o: any): o is TagStreamOutput =>
-    __isa(o, "TagStreamOutput");
+  export const isa = (o: any): o is TagStreamOutput => __isa(o, "TagStreamOutput");
 }
 
 /**
  * <p>You have exceeded the limit of tags that you can associate with the resource.
  *             Kinesis video streams support up to 50 tags. </p>
  */
-export interface TagsPerResourceExceededLimitException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagsPerResourceExceededLimitException extends __SmithyException, $MetadataBearer {
   name: "TagsPerResourceExceededLimitException";
   $fault: "client";
   Message?: string;
@@ -1044,8 +995,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -1053,8 +1003,7 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export const isa = (o: any): o is UntagResourceOutput =>
-    __isa(o, "UntagResourceOutput");
+  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 export interface UntagStreamInput {
@@ -1077,8 +1026,7 @@ export interface UntagStreamInput {
 }
 
 export namespace UntagStreamInput {
-  export const isa = (o: any): o is UntagStreamInput =>
-    __isa(o, "UntagStreamInput");
+  export const isa = (o: any): o is UntagStreamInput => __isa(o, "UntagStreamInput");
 }
 
 export interface UntagStreamOutput {
@@ -1086,8 +1034,7 @@ export interface UntagStreamOutput {
 }
 
 export namespace UntagStreamOutput {
-  export const isa = (o: any): o is UntagStreamOutput =>
-    __isa(o, "UntagStreamOutput");
+  export const isa = (o: any): o is UntagStreamOutput => __isa(o, "UntagStreamOutput");
 }
 
 export interface UpdateDataRetentionInput {
@@ -1216,8 +1163,7 @@ export interface UpdateStreamInput {
 }
 
 export namespace UpdateStreamInput {
-  export const isa = (o: any): o is UpdateStreamInput =>
-    __isa(o, "UpdateStreamInput");
+  export const isa = (o: any): o is UpdateStreamInput => __isa(o, "UpdateStreamInput");
 }
 
 export interface UpdateStreamOutput {
@@ -1225,8 +1171,7 @@ export interface UpdateStreamOutput {
 }
 
 export namespace UpdateStreamOutput {
-  export const isa = (o: any): o is UpdateStreamOutput =>
-    __isa(o, "UpdateStreamOutput");
+  export const isa = (o: any): o is UpdateStreamOutput => __isa(o, "UpdateStreamOutput");
 }
 
 /**
@@ -1234,9 +1179,7 @@ export namespace UpdateStreamOutput {
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  */
-export interface VersionMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface VersionMismatchException extends __SmithyException, $MetadataBearer {
   name: "VersionMismatchException";
   $fault: "client";
   Message?: string;

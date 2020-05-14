@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  UpdateChapCredentialsInput,
-  UpdateChapCredentialsOutput
-} from "../models/index";
+import { UpdateChapCredentialsInput, UpdateChapCredentialsOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateChapCredentialsCommand,
   serializeAws_json1_1UpdateChapCredentialsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateChapCredentialsCommandInput = UpdateChapCredentialsInput;
-export type UpdateChapCredentialsCommandOutput = UpdateChapCredentialsOutput &
-  __MetadataBearer;
+export type UpdateChapCredentialsCommandOutput = UpdateChapCredentialsOutput & __MetadataBearer;
 
 export class UpdateChapCredentialsCommand extends $Command<
   UpdateChapCredentialsCommandInput,
@@ -49,13 +45,8 @@ export class UpdateChapCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateChapCredentialsCommandInput,
-    UpdateChapCredentialsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateChapCredentialsCommandInput, UpdateChapCredentialsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

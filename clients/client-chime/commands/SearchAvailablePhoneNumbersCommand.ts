@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   SearchAvailablePhoneNumbersRequest,
   SearchAvailablePhoneNumbersResponse
@@ -49,13 +45,8 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SearchAvailablePhoneNumbersCommandInput,
-    SearchAvailablePhoneNumbersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SearchAvailablePhoneNumbersCommandInput, SearchAvailablePhoneNumbersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     input: SearchAvailablePhoneNumbersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

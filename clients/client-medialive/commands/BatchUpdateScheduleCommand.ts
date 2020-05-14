@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  BatchUpdateScheduleRequest,
-  BatchUpdateScheduleResponse
-} from "../models/index";
+import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchUpdateScheduleCommand,
   serializeAws_restJson1_1BatchUpdateScheduleCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchUpdateScheduleCommandInput = BatchUpdateScheduleRequest;
-export type BatchUpdateScheduleCommandOutput = BatchUpdateScheduleResponse &
-  __MetadataBearer;
+export type BatchUpdateScheduleCommandOutput = BatchUpdateScheduleResponse & __MetadataBearer;
 
 export class BatchUpdateScheduleCommand extends $Command<
   BatchUpdateScheduleCommandInput,
@@ -49,13 +45,8 @@ export class BatchUpdateScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchUpdateScheduleCommandInput,
-    BatchUpdateScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchUpdateScheduleCommandInput, BatchUpdateScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class BatchUpdateScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateScheduleCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdateScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchUpdateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

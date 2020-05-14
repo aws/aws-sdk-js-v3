@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DeviceFarmClient";
-import {
-  UpdateInstanceProfileRequest,
-  UpdateInstanceProfileResult
-} from "../models/index";
+import { UpdateInstanceProfileRequest, UpdateInstanceProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateInstanceProfileCommand,
   serializeAws_json1_1UpdateInstanceProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateInstanceProfileCommandInput = UpdateInstanceProfileRequest;
-export type UpdateInstanceProfileCommandOutput = UpdateInstanceProfileResult &
-  __MetadataBearer;
+export type UpdateInstanceProfileCommandOutput = UpdateInstanceProfileResult & __MetadataBearer;
 
 export class UpdateInstanceProfileCommand extends $Command<
   UpdateInstanceProfileCommandInput,
@@ -49,13 +45,8 @@ export class UpdateInstanceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateInstanceProfileCommandInput,
-    UpdateInstanceProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateInstanceProfileCommandInput, UpdateInstanceProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

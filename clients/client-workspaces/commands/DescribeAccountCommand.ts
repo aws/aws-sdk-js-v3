@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountCommandInput = DescribeAccountRequest;
-export type DescribeAccountCommandOutput = DescribeAccountResult &
-  __MetadataBearer;
+export type DescribeAccountCommandOutput = DescribeAccountResult & __MetadataBearer;
 
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,
@@ -47,9 +46,7 @@ export class DescribeAccountCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountCommandInput, DescribeAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

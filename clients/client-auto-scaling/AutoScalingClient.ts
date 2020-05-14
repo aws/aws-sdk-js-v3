@@ -58,10 +58,7 @@ import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput
 } from "./commands/DeleteScheduledActionCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput
@@ -162,10 +159,7 @@ import {
   ExecutePolicyCommandInput,
   ExecutePolicyCommandOutput
 } from "./commands/ExecutePolicyCommand";
-import {
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput
-} from "./commands/ExitStandbyCommand";
+import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
 import {
   PutLifecycleHookCommandInput,
   PutLifecycleHookCommandOutput
@@ -463,9 +457,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AutoScalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -474,9 +466,7 @@ export type AutoScalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

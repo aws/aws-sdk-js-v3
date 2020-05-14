@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  ListAccountsForParentRequest,
-  ListAccountsForParentResponse
-} from "../models/index";
+import { ListAccountsForParentRequest, ListAccountsForParentResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAccountsForParentCommand,
   serializeAws_json1_1ListAccountsForParentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccountsForParentCommandInput = ListAccountsForParentRequest;
-export type ListAccountsForParentCommandOutput = ListAccountsForParentResponse &
-  __MetadataBearer;
+export type ListAccountsForParentCommandOutput = ListAccountsForParentResponse & __MetadataBearer;
 
 export class ListAccountsForParentCommand extends $Command<
   ListAccountsForParentCommandInput,
@@ -49,13 +45,8 @@ export class ListAccountsForParentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAccountsForParentCommandInput,
-    ListAccountsForParentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAccountsForParentCommandInput, ListAccountsForParentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

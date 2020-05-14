@@ -1,11 +1,5 @@
-import {
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
-import {
-  SuggestCommandInput,
-  SuggestCommandOutput
-} from "./commands/SuggestCommand";
+import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
+import { SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
 import {
   UploadDocumentsCommandInput,
   UploadDocumentsCommandOutput
@@ -157,9 +151,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudSearchDomainClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudSearchDomainClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

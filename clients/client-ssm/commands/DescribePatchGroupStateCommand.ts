@@ -1,12 +1,5 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  DescribePatchGroupStateRequest,
-  DescribePatchGroupStateResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribePatchGroupStateRequest, DescribePatchGroupStateResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribePatchGroupStateCommand,
   serializeAws_json1_1DescribePatchGroupStateCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePatchGroupStateCommandInput = DescribePatchGroupStateRequest;
-export type DescribePatchGroupStateCommandOutput = DescribePatchGroupStateResult &
-  __MetadataBearer;
+export type DescribePatchGroupStateCommandOutput = DescribePatchGroupStateResult & __MetadataBearer;
 
 export class DescribePatchGroupStateCommand extends $Command<
   DescribePatchGroupStateCommandInput,
@@ -49,13 +41,8 @@ export class DescribePatchGroupStateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePatchGroupStateCommandInput,
-    DescribePatchGroupStateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePatchGroupStateCommandInput, DescribePatchGroupStateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class DescribePatchGroupStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePatchGroupStateCommandOutput> {
-    return deserializeAws_json1_1DescribePatchGroupStateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePatchGroupStateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  DescribeEventTopicsRequest,
-  DescribeEventTopicsResult
-} from "../models/index";
+import { DescribeEventTopicsRequest, DescribeEventTopicsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventTopicsCommand,
   serializeAws_json1_1DescribeEventTopicsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventTopicsCommandInput = DescribeEventTopicsRequest;
-export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult &
-  __MetadataBearer;
+export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult & __MetadataBearer;
 
 export class DescribeEventTopicsCommand extends $Command<
   DescribeEventTopicsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeEventTopicsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventTopicsCommandInput,
-    DescribeEventTopicsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventTopicsCommandInput, DescribeEventTopicsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

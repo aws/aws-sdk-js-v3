@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  MigrateWorkspaceRequest,
-  MigrateWorkspaceResult
-} from "../models/index";
+import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/index";
 import {
   deserializeAws_json1_1MigrateWorkspaceCommand,
   serializeAws_json1_1MigrateWorkspaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type MigrateWorkspaceCommandInput = MigrateWorkspaceRequest;
-export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult &
-  __MetadataBearer;
+export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult & __MetadataBearer;
 
 export class MigrateWorkspaceCommand extends $Command<
   MigrateWorkspaceCommandInput,
@@ -50,9 +46,7 @@ export class MigrateWorkspaceCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

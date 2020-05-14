@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  DescribeMergeConflictsInput,
-  DescribeMergeConflictsOutput
-} from "../models/index";
+import { DescribeMergeConflictsInput, DescribeMergeConflictsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMergeConflictsCommand,
   serializeAws_json1_1DescribeMergeConflictsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMergeConflictsCommandInput = DescribeMergeConflictsInput;
-export type DescribeMergeConflictsCommandOutput = DescribeMergeConflictsOutput &
-  __MetadataBearer;
+export type DescribeMergeConflictsCommandOutput = DescribeMergeConflictsOutput & __MetadataBearer;
 
 export class DescribeMergeConflictsCommand extends $Command<
   DescribeMergeConflictsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeMergeConflictsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMergeConflictsCommandInput,
-    DescribeMergeConflictsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMergeConflictsCommandInput, DescribeMergeConflictsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

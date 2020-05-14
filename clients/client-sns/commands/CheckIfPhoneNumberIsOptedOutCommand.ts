@@ -1,8 +1,4 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import {
   CheckIfPhoneNumberIsOptedOutInput,
   CheckIfPhoneNumberIsOptedOutResponse
@@ -49,13 +45,8 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CheckIfPhoneNumberIsOptedOutCommandInput,
-    CheckIfPhoneNumberIsOptedOutCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CheckIfPhoneNumberIsOptedOutCommandInput, CheckIfPhoneNumberIsOptedOutCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     input: CheckIfPhoneNumberIsOptedOutCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(
-      input,
-      context
-    );
+    return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> {
-    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(output, context);
   }
 
   // Start section: command_body_extra

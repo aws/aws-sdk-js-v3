@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   DeleteConfigurationSetTrackingOptionsRequest,
   DeleteConfigurationSetTrackingOptionsResponse
@@ -39,9 +35,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteConfigurationSetTrackingOptionsCommandInput
-  ) {
+  constructor(readonly input: DeleteConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     DeleteConfigurationSetTrackingOptionsCommandInput,
     DeleteConfigurationSetTrackingOptionsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
     input: DeleteConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

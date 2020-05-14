@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeInstancePatchStatesRequest,
   DescribeInstancePatchStatesResult
@@ -49,13 +45,8 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstancePatchStatesCommandInput,
-    DescribeInstancePatchStatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstancePatchStatesCommandInput, DescribeInstancePatchStatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +65,14 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     input: DescribeInstancePatchStatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchStatesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeInstancePatchStatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstancePatchStatesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchStatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeInstancePatchStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult
@@ -53,9 +49,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     ExportClientVpnClientConfigurationCommandInput,
     ExportClientVpnClientConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
     input: ExportClientVpnClientConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ExportClientVpnClientConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2ExportClientVpnClientConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> {
-    return deserializeAws_ec2ExportClientVpnClientConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2ExportClientVpnClientConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  DeleteCommentContentInput,
-  DeleteCommentContentOutput
-} from "../models/index";
+import { DeleteCommentContentInput, DeleteCommentContentOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCommentContentCommand,
   serializeAws_json1_1DeleteCommentContentCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCommentContentCommandInput = DeleteCommentContentInput;
-export type DeleteCommentContentCommandOutput = DeleteCommentContentOutput &
-  __MetadataBearer;
+export type DeleteCommentContentCommandOutput = DeleteCommentContentOutput & __MetadataBearer;
 
 export class DeleteCommentContentCommand extends $Command<
   DeleteCommentContentCommandInput,
@@ -49,13 +45,8 @@ export class DeleteCommentContentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteCommentContentCommandInput,
-    DeleteCommentContentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteCommentContentCommandInput, DeleteCommentContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

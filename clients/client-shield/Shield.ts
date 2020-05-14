@@ -158,9 +158,7 @@ export class Shield extends ShieldClient {
   ): void;
   public associateDRTRole(
     args: AssociateDRTRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDRTRoleCommandOutput) => void),
     cb?: (err: any, data?: AssociateDRTRoleCommandOutput) => void
   ): Promise<AssociateDRTRoleCommandOutput> | void {
     const command = new AssociateDRTRoleCommand(args);
@@ -195,9 +193,7 @@ export class Shield extends ShieldClient {
   ): void;
   public createProtection(
     args: CreateProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProtectionCommandOutput) => void),
     cb?: (err: any, data?: CreateProtectionCommandOutput) => void
   ): Promise<CreateProtectionCommandOutput> | void {
     const command = new CreateProtectionCommand(args);
@@ -271,9 +267,7 @@ export class Shield extends ShieldClient {
   ): void;
   public deleteProtection(
     args: DeleteProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProtectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteProtectionCommandOutput) => void
   ): Promise<DeleteProtectionCommandOutput> | void {
     const command = new DeleteProtectionCommand(args);
@@ -341,9 +335,7 @@ export class Shield extends ShieldClient {
   ): void;
   public describeAttack(
     args: DescribeAttackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAttackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAttackCommandOutput) => void),
     cb?: (err: any, data?: DescribeAttackCommandOutput) => void
   ): Promise<DescribeAttackCommandOutput> | void {
     const command = new DescribeAttackCommand(args);
@@ -413,14 +405,8 @@ export class Shield extends ShieldClient {
     args: DescribeEmergencyContactSettingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEmergencyContactSettingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeEmergencyContactSettingsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEmergencyContactSettingsCommandOutput) => void
   ): Promise<DescribeEmergencyContactSettingsCommandOutput> | void {
     const command = new DescribeEmergencyContactSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -630,9 +616,7 @@ export class Shield extends ShieldClient {
   ): void;
   public listAttacks(
     args: ListAttacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttacksCommandOutput) => void),
     cb?: (err: any, data?: ListAttacksCommandOutput) => void
   ): Promise<ListAttacksCommandOutput> | void {
     const command = new ListAttacksCommand(args);
@@ -665,9 +649,7 @@ export class Shield extends ShieldClient {
   ): void;
   public listProtections(
     args: ListProtectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProtectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProtectionsCommandOutput) => void),
     cb?: (err: any, data?: ListProtectionsCommandOutput) => void
   ): Promise<ListProtectionsCommandOutput> | void {
     const command = new ListProtectionsCommand(args);
@@ -702,10 +684,7 @@ export class Shield extends ShieldClient {
     args: UpdateEmergencyContactSettingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateEmergencyContactSettingsCommandOutput
-        ) => void),
+      | ((err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateEmergencyContactSettingsCommandOutput) => void
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> | void {
     const command = new UpdateEmergencyContactSettingsCommand(args);

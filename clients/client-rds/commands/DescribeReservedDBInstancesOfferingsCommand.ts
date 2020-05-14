@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import {
   DescribeReservedDBInstancesOfferingsMessage,
   ReservedDBInstancesOfferingMessage
@@ -39,9 +35,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeReservedDBInstancesOfferingsCommandInput
-  ) {
+  constructor(readonly input: DescribeReservedDBInstancesOfferingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +49,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     DescribeReservedDBInstancesOfferingsCommandInput,
     DescribeReservedDBInstancesOfferingsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +68,14 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     input: DescribeReservedDBInstancesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

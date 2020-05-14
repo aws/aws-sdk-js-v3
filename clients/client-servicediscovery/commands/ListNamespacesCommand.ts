@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListNamespacesCommandInput = ListNamespacesRequest;
-export type ListNamespacesCommandOutput = ListNamespacesResponse &
-  __MetadataBearer;
+export type ListNamespacesCommandOutput = ListNamespacesResponse & __MetadataBearer;
 
 export class ListNamespacesCommand extends $Command<
   ListNamespacesCommandInput,
@@ -47,9 +46,7 @@ export class ListNamespacesCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListNamespacesCommandInput, ListNamespacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

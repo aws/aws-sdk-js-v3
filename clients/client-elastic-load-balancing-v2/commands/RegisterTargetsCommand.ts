@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterTargetsCommandInput = RegisterTargetsInput;
-export type RegisterTargetsCommandOutput = RegisterTargetsOutput &
-  __MetadataBearer;
+export type RegisterTargetsCommandOutput = RegisterTargetsOutput & __MetadataBearer;
 
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,
@@ -47,9 +46,7 @@ export class RegisterTargetsCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterTargetsCommandInput, RegisterTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

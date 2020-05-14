@@ -1,8 +1,4 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateTriggerRequest, CreateTriggerResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateTriggerCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTriggerCommandInput = CreateTriggerRequest;
-export type CreateTriggerCommandOutput = CreateTriggerResponse &
-  __MetadataBearer;
+export type CreateTriggerCommandOutput = CreateTriggerResponse & __MetadataBearer;
 
 export class CreateTriggerCommand extends $Command<
   CreateTriggerCommandInput,
@@ -47,9 +42,7 @@ export class CreateTriggerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTriggerCommandInput, CreateTriggerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

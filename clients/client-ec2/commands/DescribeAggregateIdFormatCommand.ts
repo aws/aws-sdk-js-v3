@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeAggregateIdFormatRequest,
-  DescribeAggregateIdFormatResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeAggregateIdFormatRequest, DescribeAggregateIdFormatResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeAggregateIdFormatCommand,
   serializeAws_ec2DescribeAggregateIdFormatCommand
@@ -49,13 +42,8 @@ export class DescribeAggregateIdFormatCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAggregateIdFormatCommandInput,
-    DescribeAggregateIdFormatCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAggregateIdFormatCommandInput, DescribeAggregateIdFormatCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

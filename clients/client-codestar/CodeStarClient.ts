@@ -50,10 +50,7 @@ import {
   ListUserProfilesCommandInput,
   ListUserProfilesCommandOutput
 } from "./commands/ListUserProfilesCommand";
-import {
-  TagProjectCommandInput,
-  TagProjectCommandOutput
-} from "./commands/TagProjectCommand";
+import { TagProjectCommandInput, TagProjectCommandOutput } from "./commands/TagProjectCommand";
 import {
   UntagProjectCommandInput,
   UntagProjectCommandOutput
@@ -247,9 +244,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeStarClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeStarClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +253,7 @@ export type CodeStarClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

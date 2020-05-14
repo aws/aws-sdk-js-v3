@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppSyncClient";
-import {
-  ListGraphqlApisRequest,
-  ListGraphqlApisResponse
-} from "../models/index";
+import { ListGraphqlApisRequest, ListGraphqlApisResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGraphqlApisCommand,
   serializeAws_restJson1_1ListGraphqlApisCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGraphqlApisCommandInput = ListGraphqlApisRequest;
-export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse &
-  __MetadataBearer;
+export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse & __MetadataBearer;
 
 export class ListGraphqlApisCommand extends $Command<
   ListGraphqlApisCommandInput,
@@ -50,9 +46,7 @@ export class ListGraphqlApisCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

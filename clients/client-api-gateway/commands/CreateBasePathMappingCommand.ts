@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateBasePathMappingCommandInput = CreateBasePathMappingRequest;
-export type CreateBasePathMappingCommandOutput = BasePathMapping &
-  __MetadataBearer;
+export type CreateBasePathMappingCommandOutput = BasePathMapping & __MetadataBearer;
 
 export class CreateBasePathMappingCommand extends $Command<
   CreateBasePathMappingCommandInput,
@@ -46,13 +45,8 @@ export class CreateBasePathMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBasePathMappingCommandInput,
-    CreateBasePathMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBasePathMappingCommandInput, CreateBasePathMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class CreateBasePathMappingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1_1CreateBasePathMappingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

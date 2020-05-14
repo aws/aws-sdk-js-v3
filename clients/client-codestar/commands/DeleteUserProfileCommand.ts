@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeStarClient";
-import {
-  DeleteUserProfileRequest,
-  DeleteUserProfileResult
-} from "../models/index";
+import { DeleteUserProfileRequest, DeleteUserProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
   serializeAws_json1_1DeleteUserProfileCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
-export type DeleteUserProfileCommandOutput = DeleteUserProfileResult &
-  __MetadataBearer;
+export type DeleteUserProfileCommandOutput = DeleteUserProfileResult & __MetadataBearer;
 
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,
@@ -50,9 +46,7 @@ export class DeleteUserProfileCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

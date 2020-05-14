@@ -6,17 +6,12 @@ import { Logins, ResolvedLogins } from "./Logins";
 export function resolveLogins(logins: Logins): Promise<ResolvedLogins> {
   return Promise.all(
     Object.keys(logins).reduce(
-      (
-        arr: Array<[string, string] | Promise<[string, string]>>,
-        name: string
-      ) => {
+      (arr: Array<[string, string] | Promise<[string, string]>>, name: string) => {
         const tokenOrProvider = logins[name];
         if (typeof tokenOrProvider === "string") {
           arr.push([name, tokenOrProvider] as [string, string]);
         } else {
-          arr.push(
-            tokenOrProvider().then(token => [name, token] as [string, string])
-          );
+          arr.push(tokenOrProvider().then(token => [name, token] as [string, string]));
         }
         return arr;
       },

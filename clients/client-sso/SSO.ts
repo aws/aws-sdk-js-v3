@@ -14,11 +14,7 @@ import {
   ListAccountsCommandInput,
   ListAccountsCommandOutput
 } from "./commands/ListAccountsCommand";
-import {
-  LogoutCommand,
-  LogoutCommandInput,
-  LogoutCommandOutput
-} from "./commands/LogoutCommand";
+import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -94,9 +90,7 @@ export class SSO extends SSOClient {
   ): void;
   public listAccountRoles(
     args: ListAccountRolesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountRolesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountRolesCommandOutput) => void),
     cb?: (err: any, data?: ListAccountRolesCommandOutput) => void
   ): Promise<ListAccountRolesCommandOutput> | void {
     const command = new ListAccountRolesCommand(args);
@@ -131,9 +125,7 @@ export class SSO extends SSOClient {
   ): void;
   public listAccounts(
     args: ListAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
@@ -155,10 +147,7 @@ export class SSO extends SSOClient {
     args: LogoutCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<LogoutCommandOutput>;
-  public logout(
-    args: LogoutCommandInput,
-    cb: (err: any, data?: LogoutCommandOutput) => void
-  ): void;
+  public logout(args: LogoutCommandInput, cb: (err: any, data?: LogoutCommandOutput) => void): void;
   public logout(
     args: LogoutCommandInput,
     options: __HttpHandlerOptions,
@@ -166,9 +155,7 @@ export class SSO extends SSOClient {
   ): void;
   public logout(
     args: LogoutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LogoutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LogoutCommandOutput) => void),
     cb?: (err: any, data?: LogoutCommandOutput) => void
   ): Promise<LogoutCommandOutput> | void {
     const command = new LogoutCommand(args);

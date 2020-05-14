@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  TerminateWorkspacesRequest,
-  TerminateWorkspacesResult
-} from "../models/index";
+import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/index";
 import {
   deserializeAws_json1_1TerminateWorkspacesCommand,
   serializeAws_json1_1TerminateWorkspacesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateWorkspacesCommandInput = TerminateWorkspacesRequest;
-export type TerminateWorkspacesCommandOutput = TerminateWorkspacesResult &
-  __MetadataBearer;
+export type TerminateWorkspacesCommandOutput = TerminateWorkspacesResult & __MetadataBearer;
 
 export class TerminateWorkspacesCommand extends $Command<
   TerminateWorkspacesCommandInput,
@@ -49,13 +45,8 @@ export class TerminateWorkspacesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TerminateWorkspacesCommandInput,
-    TerminateWorkspacesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TerminateWorkspacesCommandInput, TerminateWorkspacesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

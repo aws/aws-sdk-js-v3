@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  FailoverDBClusterMessage,
-  FailoverDBClusterResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
-export type FailoverDBClusterCommandOutput = FailoverDBClusterResult &
-  __MetadataBearer;
+export type FailoverDBClusterCommandOutput = FailoverDBClusterResult & __MetadataBearer;
 
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,
@@ -50,9 +42,7 @@ export class FailoverDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

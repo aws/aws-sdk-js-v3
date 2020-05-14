@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveTargetsCommandInput = RemoveTargetsRequest;
-export type RemoveTargetsCommandOutput = RemoveTargetsResponse &
-  __MetadataBearer;
+export type RemoveTargetsCommandOutput = RemoveTargetsResponse & __MetadataBearer;
 
 export class RemoveTargetsCommand extends $Command<
   RemoveTargetsCommandInput,
@@ -47,9 +46,7 @@ export class RemoveTargetsCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveTargetsCommandInput, RemoveTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

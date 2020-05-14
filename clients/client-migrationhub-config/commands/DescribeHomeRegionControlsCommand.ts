@@ -49,13 +49,8 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeHomeRegionControlsCommandInput,
-    DescribeHomeRegionControlsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeHomeRegionControlsCommandInput, DescribeHomeRegionControlsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     input: DescribeHomeRegionControlsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHomeRegionControlsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeHomeRegionControlsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHomeRegionControlsCommandOutput> {
-    return deserializeAws_json1_1DescribeHomeRegionControlsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeHomeRegionControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

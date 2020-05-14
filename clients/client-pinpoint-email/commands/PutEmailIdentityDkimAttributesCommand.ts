@@ -53,9 +53,7 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     PutEmailIdentityDkimAttributesCommandInput,
     PutEmailIdentityDkimAttributesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     input: PutEmailIdentityDkimAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

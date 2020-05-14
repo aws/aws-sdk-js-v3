@@ -1,12 +1,5 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  DeleteAccountSettingRequest,
-  DeleteAccountSettingResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { DeleteAccountSettingRequest, DeleteAccountSettingResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAccountSettingCommand,
   serializeAws_json1_1DeleteAccountSettingCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAccountSettingCommandInput = DeleteAccountSettingRequest;
-export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse &
-  __MetadataBearer;
+export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse & __MetadataBearer;
 
 export class DeleteAccountSettingCommand extends $Command<
   DeleteAccountSettingCommandInput,
@@ -49,13 +41,8 @@ export class DeleteAccountSettingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAccountSettingCommandInput,
-    DeleteAccountSettingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAccountSettingCommandInput, DeleteAccountSettingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

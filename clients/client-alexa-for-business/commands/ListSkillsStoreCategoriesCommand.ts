@@ -49,13 +49,8 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSkillsStoreCategoriesCommandInput,
-    ListSkillsStoreCategoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSkillsStoreCategoriesCommandInput, ListSkillsStoreCategoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSkillsStoreCategoriesCommandOutput> {
-    return deserializeAws_json1_1ListSkillsStoreCategoriesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSkillsStoreCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

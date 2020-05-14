@@ -13,10 +13,7 @@ export class TreeHash implements Hash {
    * Initializes a TreeHash.
    * @param Sha256 A Sha256 hash constructor.
    */
-  constructor(
-    private readonly Sha256: HashConstructor,
-    private readonly fromUtf8: Decoder
-  ) {}
+  constructor(private readonly Sha256: HashConstructor, private readonly fromUtf8: Decoder) {}
 
   /**
    * Generates Sha256 hashes from 1 MiB chunks of the

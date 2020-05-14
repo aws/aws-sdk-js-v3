@@ -1,12 +1,5 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/index";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult &
-  __MetadataBearer;
+export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult & __MetadataBearer;
 
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,
@@ -50,9 +42,7 @@ export class PromoteReadReplicaCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

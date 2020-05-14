@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeHostedConnectionsCommandInput = DescribeHostedConnectionsRequest;
-export type DescribeHostedConnectionsCommandOutput = Connections &
-  __MetadataBearer;
+export type DescribeHostedConnectionsCommandOutput = Connections & __MetadataBearer;
 
 export class DescribeHostedConnectionsCommand extends $Command<
   DescribeHostedConnectionsCommandInput,
@@ -46,13 +45,8 @@ export class DescribeHostedConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeHostedConnectionsCommandInput,
-    DescribeHostedConnectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeHostedConnectionsCommandInput, DescribeHostedConnectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class DescribeHostedConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHostedConnectionsCommandOutput> {
-    return deserializeAws_json1_1DescribeHostedConnectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeHostedConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

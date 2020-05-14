@@ -49,13 +49,8 @@ export class DescribeProblemObservationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProblemObservationsCommandInput,
-    DescribeProblemObservationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProblemObservationsCommandInput, DescribeProblemObservationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeProblemObservationsCommand extends $Command<
     input: DescribeProblemObservationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProblemObservationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeProblemObservationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProblemObservationsCommandOutput> {
-    return deserializeAws_json1_1DescribeProblemObservationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeProblemObservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

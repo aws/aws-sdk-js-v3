@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeTagOptionInput,
-  DescribeTagOptionOutput
-} from "../models/index";
+import { DescribeTagOptionInput, DescribeTagOptionOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTagOptionCommand,
   serializeAws_json1_1DescribeTagOptionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTagOptionCommandInput = DescribeTagOptionInput;
-export type DescribeTagOptionCommandOutput = DescribeTagOptionOutput &
-  __MetadataBearer;
+export type DescribeTagOptionCommandOutput = DescribeTagOptionOutput & __MetadataBearer;
 
 export class DescribeTagOptionCommand extends $Command<
   DescribeTagOptionCommandInput,
@@ -50,9 +46,7 @@ export class DescribeTagOptionCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTagOptionCommandInput, DescribeTagOptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

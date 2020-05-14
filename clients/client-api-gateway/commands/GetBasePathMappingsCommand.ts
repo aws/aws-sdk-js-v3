@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBasePathMappingsCommandInput = GetBasePathMappingsRequest;
-export type GetBasePathMappingsCommandOutput = BasePathMappings &
-  __MetadataBearer;
+export type GetBasePathMappingsCommandOutput = BasePathMappings & __MetadataBearer;
 
 export class GetBasePathMappingsCommand extends $Command<
   GetBasePathMappingsCommandInput,
@@ -46,13 +45,8 @@ export class GetBasePathMappingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBasePathMappingsCommandInput,
-    GetBasePathMappingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBasePathMappingsCommandInput, GetBasePathMappingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,10 +72,7 @@ export class GetBasePathMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBasePathMappingsCommandOutput> {
-    return deserializeAws_restJson1_1GetBasePathMappingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBasePathMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

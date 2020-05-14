@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  PostCommentForPullRequestInput,
-  PostCommentForPullRequestOutput
-} from "../models/index";
+import { PostCommentForPullRequestInput, PostCommentForPullRequestOutput } from "../models/index";
 import {
   deserializeAws_json1_1PostCommentForPullRequestCommand,
   serializeAws_json1_1PostCommentForPullRequestCommand
@@ -49,13 +46,8 @@ export class PostCommentForPullRequestCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PostCommentForPullRequestCommandInput,
-    PostCommentForPullRequestCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PostCommentForPullRequestCommandInput, PostCommentForPullRequestCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class PostCommentForPullRequestCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PostCommentForPullRequestCommandOutput> {
-    return deserializeAws_json1_1PostCommentForPullRequestCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PostCommentForPullRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -154,10 +154,7 @@ import {
   CopyFpgaImageCommandInput,
   CopyFpgaImageCommandOutput
 } from "./commands/CopyFpgaImageCommand";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import {
   CopySnapshotCommandInput,
   CopySnapshotCommandOutput
@@ -194,10 +191,7 @@ import {
   CreateEgressOnlyInternetGatewayCommandInput,
   CreateEgressOnlyInternetGatewayCommandOutput
 } from "./commands/CreateEgressOnlyInternetGatewayCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateFlowLogsCommandInput,
   CreateFlowLogsCommandOutput
@@ -206,10 +200,7 @@ import {
   CreateFpgaImageCommandInput,
   CreateFpgaImageCommandOutput
 } from "./commands/CreateFpgaImageCommand";
-import {
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateInstanceExportTaskCommandInput,
   CreateInstanceExportTaskCommandOutput
@@ -266,10 +257,7 @@ import {
   CreateReservedInstancesListingCommandInput,
   CreateReservedInstancesListingCommandOutput
 } from "./commands/CreateReservedInstancesListingCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteTableCommandInput,
   CreateRouteTableCommandOutput
@@ -294,10 +282,7 @@ import {
   CreateSubnetCommandInput,
   CreateSubnetCommandOutput
 } from "./commands/CreateSubnetCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateTrafficMirrorFilterCommandInput,
   CreateTrafficMirrorFilterCommandOutput
@@ -342,10 +327,7 @@ import {
   CreateVolumeCommandInput,
   CreateVolumeCommandOutput
 } from "./commands/CreateVolumeCommand";
-import {
-  CreateVpcCommandInput,
-  CreateVpcCommandOutput
-} from "./commands/CreateVpcCommand";
+import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
 import {
   CreateVpcEndpointCommandInput,
   CreateVpcEndpointCommandOutput
@@ -458,10 +440,7 @@ import {
   DeleteQueuedReservedInstancesCommandInput,
   DeleteQueuedReservedInstancesCommandOutput
 } from "./commands/DeleteQueuedReservedInstancesCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteTableCommandInput,
   DeleteRouteTableCommandOutput
@@ -482,10 +461,7 @@ import {
   DeleteSubnetCommandInput,
   DeleteSubnetCommandOutput
 } from "./commands/DeleteSubnetCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DeleteTrafficMirrorFilterCommandInput,
   DeleteTrafficMirrorFilterCommandOutput
@@ -530,10 +506,7 @@ import {
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput
 } from "./commands/DeleteVolumeCommand";
-import {
-  DeleteVpcCommandInput,
-  DeleteVpcCommandOutput
-} from "./commands/DeleteVpcCommand";
+import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput
@@ -1138,10 +1111,7 @@ import {
   ExportClientVpnClientConfigurationCommandInput,
   ExportClientVpnClientConfigurationCommandOutput
 } from "./commands/ExportClientVpnClientConfigurationCommand";
-import {
-  ExportImageCommandInput,
-  ExportImageCommandOutput
-} from "./commands/ExportImageCommand";
+import { ExportImageCommandInput, ExportImageCommandOutput } from "./commands/ExportImageCommand";
 import {
   ExportTransitGatewayRoutesCommandInput,
   ExportTransitGatewayRoutesCommandOutput
@@ -1214,10 +1184,7 @@ import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
-import {
-  ImportImageCommandInput,
-  ImportImageCommandOutput
-} from "./commands/ImportImageCommand";
+import { ImportImageCommandInput, ImportImageCommandOutput } from "./commands/ImportImageCommand";
 import {
   ImportInstanceCommandInput,
   ImportInstanceCommandOutput
@@ -1250,18 +1217,12 @@ import {
   ModifyEbsDefaultKmsKeyIdCommandInput,
   ModifyEbsDefaultKmsKeyIdCommandOutput
 } from "./commands/ModifyEbsDefaultKmsKeyIdCommand";
-import {
-  ModifyFleetCommandInput,
-  ModifyFleetCommandOutput
-} from "./commands/ModifyFleetCommand";
+import { ModifyFleetCommandInput, ModifyFleetCommandOutput } from "./commands/ModifyFleetCommand";
 import {
   ModifyFpgaImageAttributeCommandInput,
   ModifyFpgaImageAttributeCommandOutput
 } from "./commands/ModifyFpgaImageAttributeCommand";
-import {
-  ModifyHostsCommandInput,
-  ModifyHostsCommandOutput
-} from "./commands/ModifyHostsCommand";
+import { ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
 import {
   ModifyIdFormatCommandInput,
   ModifyIdFormatCommandOutput
@@ -2533,9 +2494,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EC2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EC2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -2544,9 +2503,7 @@ export type EC2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

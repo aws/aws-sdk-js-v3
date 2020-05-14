@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AppStreamClient";
-import {
-  StopImageBuilderRequest,
-  StopImageBuilderResult
-} from "../models/index";
+import { StopImageBuilderRequest, StopImageBuilderResult } from "../models/index";
 import {
   deserializeAws_json1_1StopImageBuilderCommand,
   serializeAws_json1_1StopImageBuilderCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopImageBuilderCommandInput = StopImageBuilderRequest;
-export type StopImageBuilderCommandOutput = StopImageBuilderResult &
-  __MetadataBearer;
+export type StopImageBuilderCommandOutput = StopImageBuilderResult & __MetadataBearer;
 
 export class StopImageBuilderCommand extends $Command<
   StopImageBuilderCommandInput,
@@ -50,9 +46,7 @@ export class StopImageBuilderCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopImageBuilderCommandInput, StopImageBuilderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

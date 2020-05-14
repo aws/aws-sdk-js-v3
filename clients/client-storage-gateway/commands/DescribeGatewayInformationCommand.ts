@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  DescribeGatewayInformationInput,
-  DescribeGatewayInformationOutput
-} from "../models/index";
+import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeGatewayInformationCommand,
   serializeAws_json1_1DescribeGatewayInformationCommand
@@ -49,13 +46,8 @@ export class DescribeGatewayInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGatewayInformationCommandInput,
-    DescribeGatewayInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGatewayInformationCommandInput, DescribeGatewayInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeGatewayInformationCommand extends $Command<
     input: DescribeGatewayInformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGatewayInformationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeGatewayInformationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGatewayInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeGatewayInformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGatewayInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

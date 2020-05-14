@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
-import {
-  SetSMBGuestPasswordInput,
-  SetSMBGuestPasswordOutput
-} from "../models/index";
+import { SetSMBGuestPasswordInput, SetSMBGuestPasswordOutput } from "../models/index";
 import {
   deserializeAws_json1_1SetSMBGuestPasswordCommand,
   serializeAws_json1_1SetSMBGuestPasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetSMBGuestPasswordCommandInput = SetSMBGuestPasswordInput;
-export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput &
-  __MetadataBearer;
+export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput & __MetadataBearer;
 
 export class SetSMBGuestPasswordCommand extends $Command<
   SetSMBGuestPasswordCommandInput,
@@ -49,13 +45,8 @@ export class SetSMBGuestPasswordCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetSMBGuestPasswordCommandInput,
-    SetSMBGuestPasswordCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetSMBGuestPasswordCommandInput, SetSMBGuestPasswordCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecursiveXmlShapesCommandInput = {};
-export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput &
-  __MetadataBearer;
+export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput & __MetadataBearer;
 
 export class RecursiveXmlShapesCommand extends $Command<
   RecursiveXmlShapesCommandInput,
@@ -47,9 +46,7 @@ export class RecursiveXmlShapesCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RecursiveXmlShapesCommandInput, RecursiveXmlShapesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

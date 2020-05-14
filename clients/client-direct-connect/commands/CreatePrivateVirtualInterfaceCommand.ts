@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  CreatePrivateVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { CreatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
   serializeAws_json1_1CreatePrivateVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePrivateVirtualInterfaceCommandInput = CreatePrivateVirtualInterfaceRequest;
-export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type CreatePrivateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class CreatePrivateVirtualInterfaceCommand extends $Command<
   CreatePrivateVirtualInterfaceCommandInput,
@@ -53,9 +49,7 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     CreatePrivateVirtualInterfaceCommandInput,
     CreatePrivateVirtualInterfaceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
     input: CreatePrivateVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

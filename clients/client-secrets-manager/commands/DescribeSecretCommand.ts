@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSecretCommandInput = DescribeSecretRequest;
-export type DescribeSecretCommandOutput = DescribeSecretResponse &
-  __MetadataBearer;
+export type DescribeSecretCommandOutput = DescribeSecretResponse & __MetadataBearer;
 
 export class DescribeSecretCommand extends $Command<
   DescribeSecretCommandInput,
@@ -47,9 +46,7 @@ export class DescribeSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSecretCommandInput, DescribeSecretCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

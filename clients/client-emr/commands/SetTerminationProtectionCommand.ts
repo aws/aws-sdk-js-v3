@@ -1,8 +1,4 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { SetTerminationProtectionInput } from "../models/index";
 import {
   deserializeAws_json1_1SetTerminationProtectionCommand,
@@ -45,13 +41,8 @@ export class SetTerminationProtectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetTerminationProtectionCommandInput,
-    SetTerminationProtectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetTerminationProtectionCommandInput, SetTerminationProtectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +68,7 @@ export class SetTerminationProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetTerminationProtectionCommandOutput> {
-    return deserializeAws_json1_1SetTerminationProtectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

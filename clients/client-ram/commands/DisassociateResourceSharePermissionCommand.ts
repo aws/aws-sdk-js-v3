@@ -1,8 +1,4 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import {
   DisassociateResourceSharePermissionRequest,
   DisassociateResourceSharePermissionResponse
@@ -53,9 +49,7 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     DisassociateResourceSharePermissionCommandInput,
     DisassociateResourceSharePermissionCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     input: DisassociateResourceSharePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateResourceSharePermissionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateResourceSharePermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResourceSharePermissionCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateResourceSharePermissionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateResourceSharePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

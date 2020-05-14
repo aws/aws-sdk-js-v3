@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectoryServiceClient";
-import {
-  ResetUserPasswordRequest,
-  ResetUserPasswordResult
-} from "../models/index";
+import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/index";
 import {
   deserializeAws_json1_1ResetUserPasswordCommand,
   serializeAws_json1_1ResetUserPasswordCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetUserPasswordCommandInput = ResetUserPasswordRequest;
-export type ResetUserPasswordCommandOutput = ResetUserPasswordResult &
-  __MetadataBearer;
+export type ResetUserPasswordCommandOutput = ResetUserPasswordResult & __MetadataBearer;
 
 export class ResetUserPasswordCommand extends $Command<
   ResetUserPasswordCommandInput,
@@ -50,9 +46,7 @@ export class ResetUserPasswordCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

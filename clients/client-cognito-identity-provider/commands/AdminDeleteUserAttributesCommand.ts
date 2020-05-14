@@ -49,13 +49,8 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminDeleteUserAttributesCommandInput,
-    AdminDeleteUserAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminDeleteUserAttributesCommandInput, AdminDeleteUserAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminDeleteUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminDeleteUserAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminDeleteUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

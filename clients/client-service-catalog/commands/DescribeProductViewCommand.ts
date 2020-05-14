@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServiceCatalogClient";
-import {
-  DescribeProductViewInput,
-  DescribeProductViewOutput
-} from "../models/index";
+import { DescribeProductViewInput, DescribeProductViewOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProductViewCommand,
   serializeAws_json1_1DescribeProductViewCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProductViewCommandInput = DescribeProductViewInput;
-export type DescribeProductViewCommandOutput = DescribeProductViewOutput &
-  __MetadataBearer;
+export type DescribeProductViewCommandOutput = DescribeProductViewOutput & __MetadataBearer;
 
 export class DescribeProductViewCommand extends $Command<
   DescribeProductViewCommandInput,
@@ -49,13 +45,8 @@ export class DescribeProductViewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProductViewCommandInput,
-    DescribeProductViewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProductViewCommandInput, DescribeProductViewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

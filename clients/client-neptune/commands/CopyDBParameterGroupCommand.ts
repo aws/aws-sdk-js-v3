@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  CopyDBParameterGroupMessage,
-  CopyDBParameterGroupResult
-} from "../models/index";
+import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/index";
 import {
   deserializeAws_queryCopyDBParameterGroupCommand,
   serializeAws_queryCopyDBParameterGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
-export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult &
-  __MetadataBearer;
+export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult & __MetadataBearer;
 
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,
@@ -49,13 +45,8 @@ export class CopyDBParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CopyDBParameterGroupCommandInput,
-    CopyDBParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CopyDBParameterGroupCommandInput, CopyDBParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

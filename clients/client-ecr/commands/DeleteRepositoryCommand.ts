@@ -1,12 +1,5 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  DeleteRepositoryRequest,
-  DeleteRepositoryResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRepositoryCommand,
   serializeAws_json1_1DeleteRepositoryCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteRepositoryCommandInput = DeleteRepositoryRequest;
-export type DeleteRepositoryCommandOutput = DeleteRepositoryResponse &
-  __MetadataBearer;
+export type DeleteRepositoryCommandOutput = DeleteRepositoryResponse & __MetadataBearer;
 
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,
@@ -50,9 +42,7 @@ export class DeleteRepositoryCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

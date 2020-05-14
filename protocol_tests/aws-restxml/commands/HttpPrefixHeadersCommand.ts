@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type HttpPrefixHeadersCommandInput = HttpPrefixHeadersInputOutput;
-export type HttpPrefixHeadersCommandOutput = HttpPrefixHeadersInputOutput &
-  __MetadataBearer;
+export type HttpPrefixHeadersCommandOutput = HttpPrefixHeadersInputOutput & __MetadataBearer;
 
 export class HttpPrefixHeadersCommand extends $Command<
   HttpPrefixHeadersCommandInput,
@@ -47,9 +46,7 @@ export class HttpPrefixHeadersCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

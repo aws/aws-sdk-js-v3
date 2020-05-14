@@ -49,13 +49,8 @@ export class CreateParticipantConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateParticipantConnectionCommandInput,
-    CreateParticipantConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateParticipantConnectionCommandInput, CreateParticipantConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class CreateParticipantConnectionCommand extends $Command<
     input: CreateParticipantConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateParticipantConnectionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateParticipantConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateParticipantConnectionCommandOutput> {
-    return deserializeAws_restJson1_1CreateParticipantConnectionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateParticipantConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

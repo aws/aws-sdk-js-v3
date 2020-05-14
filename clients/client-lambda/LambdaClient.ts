@@ -6,10 +6,7 @@ import {
   AddPermissionCommandInput,
   AddPermissionCommandOutput
 } from "./commands/AddPermissionCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateEventSourceMappingCommandInput,
   CreateEventSourceMappingCommandOutput
@@ -18,10 +15,7 @@ import {
   CreateFunctionCommandInput,
   CreateFunctionCommandOutput
 } from "./commands/CreateFunctionCommand";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
   DeleteEventSourceMappingCommandInput,
   DeleteEventSourceMappingCommandOutput
@@ -50,18 +44,12 @@ import {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput
 } from "./commands/GetAccountSettingsCommand";
-import {
-  GetAliasCommandInput,
-  GetAliasCommandOutput
-} from "./commands/GetAliasCommand";
+import { GetAliasCommandInput, GetAliasCommandOutput } from "./commands/GetAliasCommand";
 import {
   GetEventSourceMappingCommandInput,
   GetEventSourceMappingCommandOutput
 } from "./commands/GetEventSourceMappingCommand";
-import {
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput
-} from "./commands/GetFunctionCommand";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetFunctionConcurrencyCommandInput,
   GetFunctionConcurrencyCommandOutput
@@ -86,26 +74,14 @@ import {
   GetLayerVersionPolicyCommandInput,
   GetLayerVersionPolicyCommandOutput
 } from "./commands/GetLayerVersionPolicyCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
-import {
-  InvokeAsyncCommandInput,
-  InvokeAsyncCommandOutput
-} from "./commands/InvokeAsyncCommand";
-import {
-  InvokeCommandInput,
-  InvokeCommandOutput
-} from "./commands/InvokeCommand";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
+import { InvokeAsyncCommandInput, InvokeAsyncCommandOutput } from "./commands/InvokeAsyncCommand";
+import { InvokeCommandInput, InvokeCommandOutput } from "./commands/InvokeCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListEventSourceMappingsCommandInput,
   ListEventSourceMappingsCommandOutput
@@ -122,18 +98,12 @@ import {
   ListLayerVersionsCommandInput,
   ListLayerVersionsCommandOutput
 } from "./commands/ListLayerVersionsCommand";
-import {
-  ListLayersCommandInput,
-  ListLayersCommandOutput
-} from "./commands/ListLayersCommand";
+import { ListLayersCommandInput, ListLayersCommandOutput } from "./commands/ListLayersCommand";
 import {
   ListProvisionedConcurrencyConfigsCommandInput,
   ListProvisionedConcurrencyConfigsCommandOutput
 } from "./commands/ListProvisionedConcurrencyConfigsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListVersionsByFunctionCommandInput,
   ListVersionsByFunctionCommandOutput
@@ -166,18 +136,12 @@ import {
   RemovePermissionCommandInput,
   RemovePermissionCommandOutput
 } from "./commands/RemovePermissionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import {
   UpdateEventSourceMappingCommandInput,
   UpdateEventSourceMappingCommandOutput
@@ -433,9 +397,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LambdaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LambdaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -444,9 +406,7 @@ export type LambdaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

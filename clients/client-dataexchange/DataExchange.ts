@@ -44,11 +44,7 @@ import {
   GetDataSetCommandInput,
   GetDataSetCommandOutput
 } from "./commands/GetDataSetCommand";
-import {
-  GetJobCommand,
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
+import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import {
   GetRevisionCommand,
   GetRevisionCommandInput,
@@ -133,9 +129,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
@@ -168,9 +162,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createDataSet(
     args: CreateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSetCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSetCommandOutput) => void
   ): Promise<CreateDataSetCommandOutput> | void {
     const command = new CreateDataSetCommand(args);
@@ -203,9 +195,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
@@ -238,9 +228,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createRevision(
     args: CreateRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRevisionCommandOutput) => void),
     cb?: (err: any, data?: CreateRevisionCommandOutput) => void
   ): Promise<CreateRevisionCommandOutput> | void {
     const command = new CreateRevisionCommand(args);
@@ -273,9 +261,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssetCommandOutput) => void
   ): Promise<DeleteAssetCommandOutput> | void {
     const command = new DeleteAssetCommand(args);
@@ -308,9 +294,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
   ): Promise<DeleteDataSetCommandOutput> | void {
     const command = new DeleteDataSetCommand(args);
@@ -343,9 +327,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteRevision(
     args: DeleteRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRevisionCommandOutput) => void),
     cb?: (err: any, data?: DeleteRevisionCommandOutput) => void
   ): Promise<DeleteRevisionCommandOutput> | void {
     const command = new DeleteRevisionCommand(args);
@@ -378,9 +360,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getAsset(
     args: GetAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssetCommandOutput) => void),
     cb?: (err: any, data?: GetAssetCommandOutput) => void
   ): Promise<GetAssetCommandOutput> | void {
     const command = new GetAssetCommand(args);
@@ -413,9 +393,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getDataSet(
     args: GetDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataSetCommandOutput) => void),
     cb?: (err: any, data?: GetDataSetCommandOutput) => void
   ): Promise<GetDataSetCommandOutput> | void {
     const command = new GetDataSetCommand(args);
@@ -437,10 +415,7 @@ export class DataExchange extends DataExchangeClient {
     args: GetJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
+  public getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
   public getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -448,9 +423,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
@@ -483,9 +456,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getRevision(
     args: GetRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRevisionCommandOutput) => void),
     cb?: (err: any, data?: GetRevisionCommandOutput) => void
   ): Promise<GetRevisionCommandOutput> | void {
     const command = new GetRevisionCommand(args);
@@ -553,9 +524,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listDataSets(
     args: ListDataSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSetsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSetsCommandOutput) => void
   ): Promise<ListDataSetsCommandOutput> | void {
     const command = new ListDataSetsCommand(args);
@@ -588,9 +557,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
@@ -693,9 +660,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public startJob(
     args: StartJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobCommandOutput) => void),
     cb?: (err: any, data?: StartJobCommandOutput) => void
   ): Promise<StartJobCommandOutput> | void {
     const command = new StartJobCommand(args);
@@ -728,9 +693,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -763,9 +726,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -798,9 +759,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateAsset(
     args: UpdateAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssetCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssetCommandOutput) => void
   ): Promise<UpdateAssetCommandOutput> | void {
     const command = new UpdateAssetCommand(args);
@@ -833,9 +792,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateDataSet(
     args: UpdateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): Promise<UpdateDataSetCommandOutput> | void {
     const command = new UpdateDataSetCommand(args);
@@ -868,9 +825,7 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateRevision(
     args: UpdateRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRevisionCommandOutput) => void),
     cb?: (err: any, data?: UpdateRevisionCommandOutput) => void
   ): Promise<UpdateRevisionCommandOutput> | void {
     const command = new UpdateRevisionCommand(args);

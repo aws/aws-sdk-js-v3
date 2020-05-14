@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GuardDutyClient";
-import {
-  ArchiveFindingsRequest,
-  ArchiveFindingsResponse
-} from "../models/index";
+import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ArchiveFindingsCommand,
   serializeAws_restJson1_1ArchiveFindingsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ArchiveFindingsCommandInput = ArchiveFindingsRequest;
-export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse &
-  __MetadataBearer;
+export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse & __MetadataBearer;
 
 export class ArchiveFindingsCommand extends $Command<
   ArchiveFindingsCommandInput,
@@ -50,9 +46,7 @@ export class ArchiveFindingsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

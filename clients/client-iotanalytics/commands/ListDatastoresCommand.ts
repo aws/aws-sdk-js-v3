@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDatastoresCommandInput = ListDatastoresRequest;
-export type ListDatastoresCommandOutput = ListDatastoresResponse &
-  __MetadataBearer;
+export type ListDatastoresCommandOutput = ListDatastoresResponse & __MetadataBearer;
 
 export class ListDatastoresCommand extends $Command<
   ListDatastoresCommandInput,
@@ -47,9 +46,7 @@ export class ListDatastoresCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDatastoresCommandInput, ListDatastoresCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -22,10 +22,7 @@ import {
   ExportProjectCommandInput,
   ExportProjectCommandOutput
 } from "./commands/ExportProjectCommand";
-import {
-  ListBundlesCommandInput,
-  ListBundlesCommandOutput
-} from "./commands/ListBundlesCommand";
+import { ListBundlesCommandInput, ListBundlesCommandOutput } from "./commands/ListBundlesCommand";
 import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput
@@ -193,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MobileClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MobileClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +199,7 @@ export type MobileClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

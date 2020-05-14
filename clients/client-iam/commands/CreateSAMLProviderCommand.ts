@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateSAMLProviderRequest,
-  CreateSAMLProviderResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateSAMLProviderRequest, CreateSAMLProviderResponse } from "../models/index";
 import {
   deserializeAws_queryCreateSAMLProviderCommand,
   serializeAws_queryCreateSAMLProviderCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSAMLProviderCommandInput = CreateSAMLProviderRequest;
-export type CreateSAMLProviderCommandOutput = CreateSAMLProviderResponse &
-  __MetadataBearer;
+export type CreateSAMLProviderCommandOutput = CreateSAMLProviderResponse & __MetadataBearer;
 
 export class CreateSAMLProviderCommand extends $Command<
   CreateSAMLProviderCommandInput,
@@ -50,9 +42,7 @@ export class CreateSAMLProviderCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSAMLProviderCommandInput, CreateSAMLProviderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

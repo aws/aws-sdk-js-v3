@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult
@@ -53,9 +49,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     GetHostReservationPurchasePreviewCommandInput,
     GetHostReservationPurchasePreviewCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     input: GetHostReservationPurchasePreviewCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
-    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

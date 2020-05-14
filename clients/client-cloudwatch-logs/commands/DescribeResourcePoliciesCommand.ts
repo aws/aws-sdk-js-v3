@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  DescribeResourcePoliciesRequest,
-  DescribeResourcePoliciesResponse
-} from "../models/index";
+import { DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeResourcePoliciesCommand,
   serializeAws_json1_1DescribeResourcePoliciesCommand
@@ -49,13 +46,8 @@ export class DescribeResourcePoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeResourcePoliciesCommandInput,
-    DescribeResourcePoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeResourcePoliciesCommandInput, DescribeResourcePoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class DescribeResourcePoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeResourcePoliciesCommandOutput> {
-    return deserializeAws_json1_1DescribeResourcePoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

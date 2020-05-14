@@ -49,13 +49,8 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateCostCategoryDefinitionCommandInput,
-    UpdateCostCategoryDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateCostCategoryDefinitionCommandInput, UpdateCostCategoryDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
     input: UpdateCostCategoryDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateCostCategoryDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCostCategoryDefinitionCommandOutput> {
-    return deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  CloseInstancePublicPortsRequest,
-  CloseInstancePublicPortsResult
-} from "../models/index";
+import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/index";
 import {
   deserializeAws_json1_1CloseInstancePublicPortsCommand,
   serializeAws_json1_1CloseInstancePublicPortsCommand
@@ -49,13 +46,8 @@ export class CloseInstancePublicPortsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CloseInstancePublicPortsCommandInput,
-    CloseInstancePublicPortsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CloseInstancePublicPortsCommandInput, CloseInstancePublicPortsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class CloseInstancePublicPortsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CloseInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1CloseInstancePublicPortsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CloseInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

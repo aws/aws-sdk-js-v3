@@ -173,9 +173,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public addTagsToStream(
     args: AddTagsToStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToStreamCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToStreamCommandOutput) => void
   ): Promise<AddTagsToStreamCommandOutput> | void {
     const command = new AddTagsToStreamCommand(args);
@@ -246,9 +244,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public createStream(
     args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamCommandOutput) => void
   ): Promise<CreateStreamCommandOutput> | void {
     const command = new CreateStreamCommand(args);
@@ -336,9 +332,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public deleteStream(
     args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamCommandOutput) => void
   ): Promise<DeleteStreamCommandOutput> | void {
     const command = new DeleteStreamCommand(args);
@@ -415,9 +409,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeLimits(
     args: DescribeLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLimitsCommandOutput) => void
   ): Promise<DescribeLimitsCommandOutput> | void {
     const command = new DescribeLimitsCommand(args);
@@ -465,9 +457,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
@@ -696,9 +686,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public getRecords(
     args: GetRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetRecordsCommandOutput) => void
   ): Promise<GetRecordsCommandOutput> | void {
     const command = new GetRecordsCommand(args);
@@ -761,9 +749,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetShardIteratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetShardIteratorCommandOutput) => void),
     cb?: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): Promise<GetShardIteratorCommandOutput> | void {
     const command = new GetShardIteratorCommand(args);
@@ -847,9 +833,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listShards(
     args: ListShardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListShardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListShardsCommandOutput) => void),
     cb?: (err: any, data?: ListShardsCommandOutput) => void
   ): Promise<ListShardsCommandOutput> | void {
     const command = new ListShardsCommand(args);
@@ -934,9 +918,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
@@ -1040,9 +1022,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public mergeShards(
     args: MergeShardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergeShardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergeShardsCommandOutput) => void),
     cb?: (err: any, data?: MergeShardsCommandOutput) => void
   ): Promise<MergeShardsCommandOutput> | void {
     const command = new MergeShardsCommand(args);
@@ -1105,9 +1085,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public putRecord(
     args: PutRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordCommandOutput) => void),
     cb?: (err: any, data?: PutRecordCommandOutput) => void
   ): Promise<PutRecordCommandOutput> | void {
     const command = new PutRecordCommand(args);
@@ -1185,9 +1163,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public putRecords(
     args: PutRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordsCommandOutput) => void),
     cb?: (err: any, data?: PutRecordsCommandOutput) => void
   ): Promise<PutRecordsCommandOutput> | void {
     const command = new PutRecordsCommand(args);
@@ -1343,9 +1319,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public splitShard(
     args: SplitShardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SplitShardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SplitShardCommandOutput) => void),
     cb?: (err: any, data?: SplitShardCommandOutput) => void
   ): Promise<SplitShardCommandOutput> | void {
     const command = new SplitShardCommand(args);
@@ -1485,9 +1459,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public subscribeToShard(
     args: SubscribeToShardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToShardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeToShardCommandOutput) => void),
     cb?: (err: any, data?: SubscribeToShardCommandOutput) => void
   ): Promise<SubscribeToShardCommandOutput> | void {
     const command = new SubscribeToShardCommand(args);
@@ -1557,9 +1529,7 @@ export class Kinesis extends KinesisClient {
   ): void;
   public updateShardCount(
     args: UpdateShardCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateShardCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateShardCountCommandOutput) => void),
     cb?: (err: any, data?: UpdateShardCountCommandOutput) => void
   ): Promise<UpdateShardCountCommandOutput> | void {
     const command = new UpdateShardCountCommand(args);

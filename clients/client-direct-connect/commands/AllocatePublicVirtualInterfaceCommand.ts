@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  AllocatePublicVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
   serializeAws_json1_1AllocatePublicVirtualInterfaceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocatePublicVirtualInterfaceCommandInput = AllocatePublicVirtualInterfaceRequest;
-export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandInput,
@@ -53,9 +49,7 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     AllocatePublicVirtualInterfaceCommandInput,
     AllocatePublicVirtualInterfaceCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     input: AllocatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

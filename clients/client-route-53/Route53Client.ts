@@ -78,10 +78,7 @@ import {
   GetAccountLimitCommandInput,
   GetAccountLimitCommandOutput
 } from "./commands/GetAccountLimitCommand";
-import {
-  GetChangeCommandInput,
-  GetChangeCommandOutput
-} from "./commands/GetChangeCommand";
+import { GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand";
 import {
   GetCheckerIpRangesCommandInput,
   GetCheckerIpRangesCommandOutput
@@ -475,9 +472,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -486,9 +481,7 @@ export type Route53ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

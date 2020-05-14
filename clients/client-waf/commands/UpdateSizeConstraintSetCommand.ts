@@ -1,12 +1,5 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  UpdateSizeConstraintSetRequest,
-  UpdateSizeConstraintSetResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { UpdateSizeConstraintSetRequest, UpdateSizeConstraintSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSizeConstraintSetCommand,
   serializeAws_json1_1UpdateSizeConstraintSetCommand
@@ -49,13 +42,8 @@ export class UpdateSizeConstraintSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSizeConstraintSetCommandInput,
-    UpdateSizeConstraintSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSizeConstraintSetCommandInput, UpdateSizeConstraintSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +69,7 @@ export class UpdateSizeConstraintSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1UpdateSizeConstraintSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIntegrationCommandInput = GetIntegrationRequest;
-export type GetIntegrationCommandOutput = GetIntegrationResult &
-  __MetadataBearer;
+export type GetIntegrationCommandOutput = GetIntegrationResult & __MetadataBearer;
 
 export class GetIntegrationCommand extends $Command<
   GetIntegrationCommandInput,
@@ -47,9 +46,7 @@ export class GetIntegrationCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIntegrationCommandInput, GetIntegrationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../FirehoseClient";
-import {
-  ListDeliveryStreamsInput,
-  ListDeliveryStreamsOutput
-} from "../models/index";
+import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListDeliveryStreamsCommand,
   serializeAws_json1_1ListDeliveryStreamsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeliveryStreamsCommandInput = ListDeliveryStreamsInput;
-export type ListDeliveryStreamsCommandOutput = ListDeliveryStreamsOutput &
-  __MetadataBearer;
+export type ListDeliveryStreamsCommandOutput = ListDeliveryStreamsOutput & __MetadataBearer;
 
 export class ListDeliveryStreamsCommand extends $Command<
   ListDeliveryStreamsCommandInput,
@@ -49,13 +45,8 @@ export class ListDeliveryStreamsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeliveryStreamsCommandInput,
-    ListDeliveryStreamsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeliveryStreamsCommandInput, ListDeliveryStreamsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

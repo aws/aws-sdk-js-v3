@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaConvertClient";
-import {
-  AssociateCertificateRequest,
-  AssociateCertificateResponse
-} from "../models/index";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateCertificateCommand,
   serializeAws_restJson1_1AssociateCertificateCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateCertificateCommandInput = AssociateCertificateRequest;
-export type AssociateCertificateCommandOutput = AssociateCertificateResponse &
-  __MetadataBearer;
+export type AssociateCertificateCommandOutput = AssociateCertificateResponse & __MetadataBearer;
 
 export class AssociateCertificateCommand extends $Command<
   AssociateCertificateCommandInput,
@@ -49,13 +45,8 @@ export class AssociateCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateCertificateCommandInput,
-    AssociateCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateCertificateCommandInput, AssociateCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class AssociateCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateCertificateCommandOutput> {
-    return deserializeAws_restJson1_1AssociateCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

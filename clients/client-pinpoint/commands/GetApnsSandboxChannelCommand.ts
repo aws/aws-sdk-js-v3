@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetApnsSandboxChannelRequest,
-  GetApnsSandboxChannelResponse
-} from "../models/index";
+import { GetApnsSandboxChannelRequest, GetApnsSandboxChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetApnsSandboxChannelCommand,
   serializeAws_restJson1_1GetApnsSandboxChannelCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetApnsSandboxChannelCommandInput = GetApnsSandboxChannelRequest;
-export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse &
-  __MetadataBearer;
+export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse & __MetadataBearer;
 
 export class GetApnsSandboxChannelCommand extends $Command<
   GetApnsSandboxChannelCommandInput,
@@ -49,13 +45,8 @@ export class GetApnsSandboxChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetApnsSandboxChannelCommandInput,
-    GetApnsSandboxChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetApnsSandboxChannelCommandInput, GetApnsSandboxChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetApnsSandboxChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApnsSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1GetApnsSandboxChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetApnsSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

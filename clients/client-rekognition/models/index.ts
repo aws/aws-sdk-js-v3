@@ -8,9 +8,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * <p>You are not authorized to perform the action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -19,8 +17,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -211,8 +208,7 @@ export interface CelebrityDetail {
 }
 
 export namespace CelebrityDetail {
-  export const isa = (o: any): o is CelebrityDetail =>
-    __isa(o, "CelebrityDetail");
+  export const isa = (o: any): o is CelebrityDetail => __isa(o, "CelebrityDetail");
 }
 
 /**
@@ -233,8 +229,7 @@ export interface CelebrityRecognition {
 }
 
 export namespace CelebrityRecognition {
-  export const isa = (o: any): o is CelebrityRecognition =>
-    __isa(o, "CelebrityRecognition");
+  export const isa = (o: any): o is CelebrityRecognition => __isa(o, "CelebrityRecognition");
 }
 
 export enum CelebrityRecognitionSortBy {
@@ -263,8 +258,7 @@ export interface CompareFacesMatch {
 }
 
 export namespace CompareFacesMatch {
-  export const isa = (o: any): o is CompareFacesMatch =>
-    __isa(o, "CompareFacesMatch");
+  export const isa = (o: any): o is CompareFacesMatch => __isa(o, "CompareFacesMatch");
 }
 
 export interface CompareFacesRequest {
@@ -314,8 +308,7 @@ export interface CompareFacesRequest {
 }
 
 export namespace CompareFacesRequest {
-  export const isa = (o: any): o is CompareFacesRequest =>
-    __isa(o, "CompareFacesRequest");
+  export const isa = (o: any): o is CompareFacesRequest => __isa(o, "CompareFacesRequest");
 }
 
 export interface CompareFacesResponse {
@@ -369,8 +362,7 @@ export interface CompareFacesResponse {
 }
 
 export namespace CompareFacesResponse {
-  export const isa = (o: any): o is CompareFacesResponse =>
-    __isa(o, "CompareFacesResponse");
+  export const isa = (o: any): o is CompareFacesResponse => __isa(o, "CompareFacesResponse");
 }
 
 /**
@@ -429,8 +421,7 @@ export interface ComparedSourceImageFace {
 }
 
 export namespace ComparedSourceImageFace {
-  export const isa = (o: any): o is ComparedSourceImageFace =>
-    __isa(o, "ComparedSourceImageFace");
+  export const isa = (o: any): o is ComparedSourceImageFace => __isa(o, "ComparedSourceImageFace");
 }
 
 export enum ContentClassifier {
@@ -473,8 +464,7 @@ export interface CreateCollectionRequest {
 }
 
 export namespace CreateCollectionRequest {
-  export const isa = (o: any): o is CreateCollectionRequest =>
-    __isa(o, "CreateCollectionRequest");
+  export const isa = (o: any): o is CreateCollectionRequest => __isa(o, "CreateCollectionRequest");
 }
 
 export interface CreateCollectionResponse {
@@ -510,8 +500,7 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
-  export const isa = (o: any): o is CreateProjectRequest =>
-    __isa(o, "CreateProjectRequest");
+  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResponse {
@@ -524,8 +513,7 @@ export interface CreateProjectResponse {
 }
 
 export namespace CreateProjectResponse {
-  export const isa = (o: any): o is CreateProjectResponse =>
-    __isa(o, "CreateProjectResponse");
+  export const isa = (o: any): o is CreateProjectResponse => __isa(o, "CreateProjectResponse");
 }
 
 export interface CreateProjectVersionRequest {
@@ -663,8 +651,7 @@ export interface DeleteCollectionRequest {
 }
 
 export namespace DeleteCollectionRequest {
-  export const isa = (o: any): o is DeleteCollectionRequest =>
-    __isa(o, "DeleteCollectionRequest");
+  export const isa = (o: any): o is DeleteCollectionRequest => __isa(o, "DeleteCollectionRequest");
 }
 
 export interface DeleteCollectionResponse {
@@ -694,8 +681,7 @@ export interface DeleteFacesRequest {
 }
 
 export namespace DeleteFacesRequest {
-  export const isa = (o: any): o is DeleteFacesRequest =>
-    __isa(o, "DeleteFacesRequest");
+  export const isa = (o: any): o is DeleteFacesRequest => __isa(o, "DeleteFacesRequest");
 }
 
 export interface DeleteFacesResponse {
@@ -707,8 +693,7 @@ export interface DeleteFacesResponse {
 }
 
 export namespace DeleteFacesResponse {
-  export const isa = (o: any): o is DeleteFacesResponse =>
-    __isa(o, "DeleteFacesResponse");
+  export const isa = (o: any): o is DeleteFacesResponse => __isa(o, "DeleteFacesResponse");
 }
 
 export interface DeleteStreamProcessorRequest {
@@ -851,8 +836,7 @@ export interface DescribeProjectsRequest {
 }
 
 export namespace DescribeProjectsRequest {
-  export const isa = (o: any): o is DescribeProjectsRequest =>
-    __isa(o, "DescribeProjectsRequest");
+  export const isa = (o: any): o is DescribeProjectsRequest => __isa(o, "DescribeProjectsRequest");
 }
 
 export interface DescribeProjectsResponse {
@@ -1041,8 +1025,7 @@ export interface DetectFacesRequest {
 }
 
 export namespace DetectFacesRequest {
-  export const isa = (o: any): o is DetectFacesRequest =>
-    __isa(o, "DetectFacesRequest");
+  export const isa = (o: any): o is DetectFacesRequest => __isa(o, "DetectFacesRequest");
 }
 
 export interface DetectFacesResponse {
@@ -1068,8 +1051,7 @@ export interface DetectFacesResponse {
 }
 
 export namespace DetectFacesResponse {
-  export const isa = (o: any): o is DetectFacesResponse =>
-    __isa(o, "DetectFacesResponse");
+  export const isa = (o: any): o is DetectFacesResponse => __isa(o, "DetectFacesResponse");
 }
 
 export interface DetectLabelsRequest {
@@ -1100,8 +1082,7 @@ export interface DetectLabelsRequest {
 }
 
 export namespace DetectLabelsRequest {
-  export const isa = (o: any): o is DetectLabelsRequest =>
-    __isa(o, "DetectLabelsRequest");
+  export const isa = (o: any): o is DetectLabelsRequest => __isa(o, "DetectLabelsRequest");
 }
 
 export interface DetectLabelsResponse {
@@ -1132,8 +1113,7 @@ export interface DetectLabelsResponse {
 }
 
 export namespace DetectLabelsResponse {
-  export const isa = (o: any): o is DetectLabelsResponse =>
-    __isa(o, "DetectLabelsResponse");
+  export const isa = (o: any): o is DetectLabelsResponse => __isa(o, "DetectLabelsResponse");
 }
 
 export interface DetectModerationLabelsRequest {
@@ -1205,8 +1185,7 @@ export interface DetectTextRequest {
 }
 
 export namespace DetectTextRequest {
-  export const isa = (o: any): o is DetectTextRequest =>
-    __isa(o, "DetectTextRequest");
+  export const isa = (o: any): o is DetectTextRequest => __isa(o, "DetectTextRequest");
 }
 
 export interface DetectTextResponse {
@@ -1218,8 +1197,7 @@ export interface DetectTextResponse {
 }
 
 export namespace DetectTextResponse {
-  export const isa = (o: any): o is DetectTextResponse =>
-    __isa(o, "DetectTextResponse");
+  export const isa = (o: any): o is DetectTextResponse => __isa(o, "DetectTextResponse");
 }
 
 /**
@@ -1277,8 +1255,7 @@ export interface EvaluationResult {
 }
 
 export namespace EvaluationResult {
-  export const isa = (o: any): o is EvaluationResult =>
-    __isa(o, "EvaluationResult");
+  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -1568,8 +1545,7 @@ export interface FaceSearchSettings {
 }
 
 export namespace FaceSearchSettings {
-  export const isa = (o: any): o is FaceSearchSettings =>
-    __isa(o, "FaceSearchSettings");
+  export const isa = (o: any): o is FaceSearchSettings => __isa(o, "FaceSearchSettings");
 }
 
 export enum FaceSearchSortBy {
@@ -1646,8 +1622,7 @@ export interface GetCelebrityInfoRequest {
 }
 
 export namespace GetCelebrityInfoRequest {
-  export const isa = (o: any): o is GetCelebrityInfoRequest =>
-    __isa(o, "GetCelebrityInfoRequest");
+  export const isa = (o: any): o is GetCelebrityInfoRequest => __isa(o, "GetCelebrityInfoRequest");
 }
 
 export interface GetCelebrityInfoResponse {
@@ -1835,8 +1810,7 @@ export interface GetFaceDetectionRequest {
 }
 
 export namespace GetFaceDetectionRequest {
-  export const isa = (o: any): o is GetFaceDetectionRequest =>
-    __isa(o, "GetFaceDetectionRequest");
+  export const isa = (o: any): o is GetFaceDetectionRequest => __isa(o, "GetFaceDetectionRequest");
 }
 
 export interface GetFaceDetectionResponse {
@@ -1902,8 +1876,7 @@ export interface GetFaceSearchRequest {
 }
 
 export namespace GetFaceSearchRequest {
-  export const isa = (o: any): o is GetFaceSearchRequest =>
-    __isa(o, "GetFaceSearchRequest");
+  export const isa = (o: any): o is GetFaceSearchRequest => __isa(o, "GetFaceSearchRequest");
 }
 
 export interface GetFaceSearchResponse {
@@ -1942,8 +1915,7 @@ export interface GetFaceSearchResponse {
 }
 
 export namespace GetFaceSearchResponse {
-  export const isa = (o: any): o is GetFaceSearchResponse =>
-    __isa(o, "GetFaceSearchResponse");
+  export const isa = (o: any): o is GetFaceSearchResponse => __isa(o, "GetFaceSearchResponse");
 }
 
 export interface GetLabelDetectionRequest {
@@ -2111,8 +2083,7 @@ export interface GroundTruthManifest {
 }
 
 export namespace GroundTruthManifest {
-  export const isa = (o: any): o is GroundTruthManifest =>
-    __isa(o, "GroundTruthManifest");
+  export const isa = (o: any): o is GroundTruthManifest => __isa(o, "GroundTruthManifest");
 }
 
 /**
@@ -2166,8 +2137,7 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
-  export const isa = (o: any): o is HumanLoopConfig =>
-    __isa(o, "HumanLoopConfig");
+  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -2183,16 +2153,13 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
-  export const isa = (o: any): o is HumanLoopDataAttributes =>
-    __isa(o, "HumanLoopDataAttributes");
+  export const isa = (o: any): o is HumanLoopDataAttributes => __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
  * <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
  */
-export interface HumanLoopQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HumanLoopQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -2212,9 +2179,7 @@ export namespace HumanLoopQuotaExceededException {
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
  *         parameters is different from the previous call to the operation.</p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -2295,9 +2260,7 @@ export namespace ImageQuality {
  * <p>The input image size exceeds the allowed limit. For more information, see
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
-export interface ImageTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ImageTooLargeException extends __SmithyException, $MetadataBearer {
   name: "ImageTooLargeException";
   $fault: "client";
   Code?: string;
@@ -2306,8 +2269,7 @@ export interface ImageTooLargeException
 }
 
 export namespace ImageTooLargeException {
-  export const isa = (o: any): o is ImageTooLargeException =>
-    __isa(o, "ImageTooLargeException");
+  export const isa = (o: any): o is ImageTooLargeException => __isa(o, "ImageTooLargeException");
 }
 
 export interface IndexFacesRequest {
@@ -2380,8 +2342,7 @@ export interface IndexFacesRequest {
 }
 
 export namespace IndexFacesRequest {
-  export const isa = (o: any): o is IndexFacesRequest =>
-    __isa(o, "IndexFacesRequest");
+  export const isa = (o: any): o is IndexFacesRequest => __isa(o, "IndexFacesRequest");
 }
 
 export interface IndexFacesResponse {
@@ -2440,8 +2401,7 @@ export interface IndexFacesResponse {
 }
 
 export namespace IndexFacesResponse {
-  export const isa = (o: any): o is IndexFacesResponse =>
-    __isa(o, "IndexFacesResponse");
+  export const isa = (o: any): o is IndexFacesResponse => __isa(o, "IndexFacesResponse");
 }
 
 /**
@@ -2468,9 +2428,7 @@ export namespace Instance {
 /**
  * <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -2479,16 +2437,13 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>The provided image format is not supported. </p>
  */
-export interface InvalidImageFormatException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidImageFormatException extends __SmithyException, $MetadataBearer {
   name: "InvalidImageFormatException";
   $fault: "client";
   Code?: string;
@@ -2504,9 +2459,7 @@ export namespace InvalidImageFormatException {
 /**
  * <p>Pagination token in the request is not valid.</p>
  */
-export interface InvalidPaginationTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
   Code?: string;
@@ -2523,9 +2476,7 @@ export namespace InvalidPaginationTokenException {
  * <p>Input parameter violated a constraint. Validate your parameter before calling the API
  *       operation again.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -2541,9 +2492,7 @@ export namespace InvalidParameterException {
 /**
  * <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  */
-export interface InvalidS3ObjectException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3ObjectException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -2569,8 +2518,7 @@ export interface KinesisDataStream {
 }
 
 export namespace KinesisDataStream {
-  export const isa = (o: any): o is KinesisDataStream =>
-    __isa(o, "KinesisDataStream");
+  export const isa = (o: any): o is KinesisDataStream => __isa(o, "KinesisDataStream");
 }
 
 /**
@@ -2586,8 +2534,7 @@ export interface KinesisVideoStream {
 }
 
 export namespace KinesisVideoStream {
-  export const isa = (o: any): o is KinesisVideoStream =>
-    __isa(o, "KinesisVideoStream");
+  export const isa = (o: any): o is KinesisVideoStream => __isa(o, "KinesisVideoStream");
 }
 
 /**
@@ -2641,8 +2588,7 @@ export interface LabelDetection {
 }
 
 export namespace LabelDetection {
-  export const isa = (o: any): o is LabelDetection =>
-    __isa(o, "LabelDetection");
+  export const isa = (o: any): o is LabelDetection => __isa(o, "LabelDetection");
 }
 
 export enum LabelDetectionSortBy {
@@ -2717,9 +2663,7 @@ export enum LandmarkType {
  *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
  *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -2728,8 +2672,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCollectionsRequest {
@@ -2746,8 +2689,7 @@ export interface ListCollectionsRequest {
 }
 
 export namespace ListCollectionsRequest {
-  export const isa = (o: any): o is ListCollectionsRequest =>
-    __isa(o, "ListCollectionsRequest");
+  export const isa = (o: any): o is ListCollectionsRequest => __isa(o, "ListCollectionsRequest");
 }
 
 export interface ListCollectionsResponse {
@@ -2772,8 +2714,7 @@ export interface ListCollectionsResponse {
 }
 
 export namespace ListCollectionsResponse {
-  export const isa = (o: any): o is ListCollectionsResponse =>
-    __isa(o, "ListCollectionsResponse");
+  export const isa = (o: any): o is ListCollectionsResponse => __isa(o, "ListCollectionsResponse");
 }
 
 export interface ListFacesRequest {
@@ -2797,8 +2738,7 @@ export interface ListFacesRequest {
 }
 
 export namespace ListFacesRequest {
-  export const isa = (o: any): o is ListFacesRequest =>
-    __isa(o, "ListFacesRequest");
+  export const isa = (o: any): o is ListFacesRequest => __isa(o, "ListFacesRequest");
 }
 
 export interface ListFacesResponse {
@@ -2821,8 +2761,7 @@ export interface ListFacesResponse {
 }
 
 export namespace ListFacesResponse {
-  export const isa = (o: any): o is ListFacesResponse =>
-    __isa(o, "ListFacesResponse");
+  export const isa = (o: any): o is ListFacesResponse => __isa(o, "ListFacesResponse");
 }
 
 export interface ListStreamProcessorsRequest {
@@ -2892,8 +2831,7 @@ export interface ModerationLabel {
 }
 
 export namespace ModerationLabel {
-  export const isa = (o: any): o is ModerationLabel =>
-    __isa(o, "ModerationLabel");
+  export const isa = (o: any): o is ModerationLabel => __isa(o, "ModerationLabel");
 }
 
 /**
@@ -2956,8 +2894,7 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
-  export const isa = (o: any): o is NotificationChannel =>
-    __isa(o, "NotificationChannel");
+  export const isa = (o: any): o is NotificationChannel => __isa(o, "NotificationChannel");
 }
 
 export enum OrientationCorrection {
@@ -3048,8 +2985,7 @@ export interface PersonDetection {
 }
 
 export namespace PersonDetection {
-  export const isa = (o: any): o is PersonDetection =>
-    __isa(o, "PersonDetection");
+  export const isa = (o: any): o is PersonDetection => __isa(o, "PersonDetection");
 }
 
 /**
@@ -3159,8 +3095,7 @@ export interface ProjectDescription {
 }
 
 export namespace ProjectDescription {
-  export const isa = (o: any): o is ProjectDescription =>
-    __isa(o, "ProjectDescription");
+  export const isa = (o: any): o is ProjectDescription => __isa(o, "ProjectDescription");
 }
 
 export enum ProjectStatus {
@@ -3253,9 +3188,7 @@ export enum ProjectVersionStatus {
  * <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
  */
-export interface ProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -3341,9 +3274,7 @@ export namespace RecognizeCelebritiesResponse {
 /**
  * <p>A collection with the specified ID already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Code?: string;
@@ -3359,9 +3290,7 @@ export namespace ResourceAlreadyExistsException {
 /**
  * <p></p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Code?: string;
@@ -3370,16 +3299,13 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The collection specified in the request cannot be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3397,9 +3323,7 @@ export namespace ResourceNotFoundException {
  *          this exception occurs when you call <code>DetectCustomLabels</code> with a
  *          model version that isn't deployed. </p>
  */
-export interface ResourceNotReadyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotReadyException";
   $fault: "client";
   Code?: string;
@@ -3555,8 +3479,7 @@ export interface SearchFacesRequest {
 }
 
 export namespace SearchFacesRequest {
-  export const isa = (o: any): o is SearchFacesRequest =>
-    __isa(o, "SearchFacesRequest");
+  export const isa = (o: any): o is SearchFacesRequest => __isa(o, "SearchFacesRequest");
 }
 
 export interface SearchFacesResponse {
@@ -3579,8 +3502,7 @@ export interface SearchFacesResponse {
 }
 
 export namespace SearchFacesResponse {
-  export const isa = (o: any): o is SearchFacesResponse =>
-    __isa(o, "SearchFacesResponse");
+  export const isa = (o: any): o is SearchFacesResponse => __isa(o, "SearchFacesResponse");
 }
 
 /**
@@ -3801,8 +3723,7 @@ export interface StartFaceSearchRequest {
 }
 
 export namespace StartFaceSearchRequest {
-  export const isa = (o: any): o is StartFaceSearchRequest =>
-    __isa(o, "StartFaceSearchRequest");
+  export const isa = (o: any): o is StartFaceSearchRequest => __isa(o, "StartFaceSearchRequest");
 }
 
 export interface StartFaceSearchResponse {
@@ -3814,8 +3735,7 @@ export interface StartFaceSearchResponse {
 }
 
 export namespace StartFaceSearchResponse {
-  export const isa = (o: any): o is StartFaceSearchResponse =>
-    __isa(o, "StartFaceSearchResponse");
+  export const isa = (o: any): o is StartFaceSearchResponse => __isa(o, "StartFaceSearchResponse");
 }
 
 export interface StartLabelDetectionRequest {
@@ -4048,8 +3968,7 @@ export interface StreamProcessor {
 }
 
 export namespace StreamProcessor {
-  export const isa = (o: any): o is StreamProcessor =>
-    __isa(o, "StreamProcessor");
+  export const isa = (o: any): o is StreamProcessor => __isa(o, "StreamProcessor");
 }
 
 /**
@@ -4064,8 +3983,7 @@ export interface StreamProcessorInput {
 }
 
 export namespace StreamProcessorInput {
-  export const isa = (o: any): o is StreamProcessorInput =>
-    __isa(o, "StreamProcessorInput");
+  export const isa = (o: any): o is StreamProcessorInput => __isa(o, "StreamProcessorInput");
 }
 
 /**
@@ -4081,8 +3999,7 @@ export interface StreamProcessorOutput {
 }
 
 export namespace StreamProcessorOutput {
-  export const isa = (o: any): o is StreamProcessorOutput =>
-    __isa(o, "StreamProcessorOutput");
+  export const isa = (o: any): o is StreamProcessorOutput => __isa(o, "StreamProcessorOutput");
 }
 
 /**
@@ -4097,8 +4014,7 @@ export interface StreamProcessorSettings {
 }
 
 export namespace StreamProcessorSettings {
-  export const isa = (o: any): o is StreamProcessorSettings =>
-    __isa(o, "StreamProcessorSettings");
+  export const isa = (o: any): o is StreamProcessorSettings => __isa(o, "StreamProcessorSettings");
 }
 
 export enum StreamProcessorStatus {
@@ -4194,8 +4110,7 @@ export interface TestingDataResult {
 }
 
 export namespace TestingDataResult {
-  export const isa = (o: any): o is TestingDataResult =>
-    __isa(o, "TestingDataResult");
+  export const isa = (o: any): o is TestingDataResult => __isa(o, "TestingDataResult");
 }
 
 /**
@@ -4260,9 +4175,7 @@ export enum TextTypes {
 /**
  * <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -4271,8 +4184,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -4307,8 +4219,7 @@ export interface TrainingDataResult {
 }
 
 export namespace TrainingDataResult {
-  export const isa = (o: any): o is TrainingDataResult =>
-    __isa(o, "TrainingDataResult");
+  export const isa = (o: any): o is TrainingDataResult => __isa(o, "TrainingDataResult");
 }
 
 /**
@@ -4423,9 +4334,7 @@ export namespace VideoMetadata {
  * <p>The file size or duration of the supplied media is too large. The maximum file size is 8GB.
  *         The maximum duration is 2 hours. </p>
  */
-export interface VideoTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface VideoTooLargeException extends __SmithyException, $MetadataBearer {
   name: "VideoTooLargeException";
   $fault: "client";
   Code?: string;
@@ -4434,6 +4343,5 @@ export interface VideoTooLargeException
 }
 
 export namespace VideoTooLargeException {
-  export const isa = (o: any): o is VideoTooLargeException =>
-    __isa(o, "VideoTooLargeException");
+  export const isa = (o: any): o is VideoTooLargeException => __isa(o, "VideoTooLargeException");
 }

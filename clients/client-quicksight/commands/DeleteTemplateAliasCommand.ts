@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../QuickSightClient";
-import {
-  DeleteTemplateAliasRequest,
-  DeleteTemplateAliasResponse
-} from "../models/index";
+import { DeleteTemplateAliasRequest, DeleteTemplateAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteTemplateAliasCommand,
   serializeAws_restJson1_1DeleteTemplateAliasCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTemplateAliasCommandInput = DeleteTemplateAliasRequest;
-export type DeleteTemplateAliasCommandOutput = DeleteTemplateAliasResponse &
-  __MetadataBearer;
+export type DeleteTemplateAliasCommandOutput = DeleteTemplateAliasResponse & __MetadataBearer;
 
 export class DeleteTemplateAliasCommand extends $Command<
   DeleteTemplateAliasCommandInput,
@@ -49,13 +45,8 @@ export class DeleteTemplateAliasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTemplateAliasCommandInput,
-    DeleteTemplateAliasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTemplateAliasCommandInput, DeleteTemplateAliasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class DeleteTemplateAliasCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,4 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
   GetRecoveryPointRestoreMetadataInput,
   GetRecoveryPointRestoreMetadataOutput
@@ -53,9 +49,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     GetRecoveryPointRestoreMetadataCommandInput,
     GetRecoveryPointRestoreMetadataCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     input: GetRecoveryPointRestoreMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

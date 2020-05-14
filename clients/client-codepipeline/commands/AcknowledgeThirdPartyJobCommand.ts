@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodePipelineClient";
-import {
-  AcknowledgeThirdPartyJobInput,
-  AcknowledgeThirdPartyJobOutput
-} from "../models/index";
+import { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/index";
 import {
   deserializeAws_json1_1AcknowledgeThirdPartyJobCommand,
   serializeAws_json1_1AcknowledgeThirdPartyJobCommand
@@ -49,13 +46,8 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AcknowledgeThirdPartyJobCommandInput,
-    AcknowledgeThirdPartyJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AcknowledgeThirdPartyJobCommandInput, AcknowledgeThirdPartyJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +73,7 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcknowledgeThirdPartyJobCommandOutput> {
-    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(output, context);
   }
 
   // Start section: command_body_extra

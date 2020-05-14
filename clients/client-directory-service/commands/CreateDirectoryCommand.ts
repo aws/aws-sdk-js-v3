@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDirectoryCommandInput = CreateDirectoryRequest;
-export type CreateDirectoryCommandOutput = CreateDirectoryResult &
-  __MetadataBearer;
+export type CreateDirectoryCommandOutput = CreateDirectoryResult & __MetadataBearer;
 
 export class CreateDirectoryCommand extends $Command<
   CreateDirectoryCommandInput,
@@ -47,9 +46,7 @@ export class CreateDirectoryCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDirectoryCommandInput, CreateDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

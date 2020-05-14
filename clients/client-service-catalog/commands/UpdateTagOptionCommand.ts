@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTagOptionCommandInput = UpdateTagOptionInput;
-export type UpdateTagOptionCommandOutput = UpdateTagOptionOutput &
-  __MetadataBearer;
+export type UpdateTagOptionCommandOutput = UpdateTagOptionOutput & __MetadataBearer;
 
 export class UpdateTagOptionCommand extends $Command<
   UpdateTagOptionCommandInput,
@@ -47,9 +46,7 @@ export class UpdateTagOptionCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

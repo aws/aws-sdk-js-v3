@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetRoleRequest, GetRoleResponse } from "../models/index";
 import {
   deserializeAws_queryGetRoleCommand,
@@ -46,9 +42,7 @@ export class GetRoleCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRoleCommandInput, GetRoleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class GetRoleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRoleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetRoleCommand(input, context);
   }
 

@@ -39,9 +39,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeDirectConnectGatewayAttachmentsCommandInput
-  ) {
+  constructor(readonly input: DescribeDirectConnectGatewayAttachmentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +53,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     DescribeDirectConnectGatewayAttachmentsCommandInput,
     DescribeDirectConnectGatewayAttachmentsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +72,14 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     input: DescribeDirectConnectGatewayAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

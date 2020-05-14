@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have access to perform this operation on this resource.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -257,9 +251,7 @@ export namespace ApiKey {
 /**
  * <p>The API key exceeded a limit. Try your request again.</p>
  */
-export interface ApiKeyLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApiKeyLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ApiKeyLimitExceededException";
   $fault: "client";
   message?: string;
@@ -274,9 +266,7 @@ export namespace ApiKeyLimitExceededException {
  * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  */
-export interface ApiKeyValidityOutOfBoundsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApiKeyValidityOutOfBoundsException extends __SmithyException, $MetadataBearer {
   name: "ApiKeyValidityOutOfBoundsException";
   $fault: "client";
   message?: string;
@@ -290,9 +280,7 @@ export namespace ApiKeyValidityOutOfBoundsException {
 /**
  * <p>The GraphQL API exceeded a limit. Try your request again.</p>
  */
-export interface ApiLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApiLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ApiLimitExceededException";
   $fault: "client";
   message?: string;
@@ -334,8 +322,7 @@ export interface AuthorizationConfig {
 }
 
 export namespace AuthorizationConfig {
-  export const isa = (o: any): o is AuthorizationConfig =>
-    __isa(o, "AuthorizationConfig");
+  export const isa = (o: any): o is AuthorizationConfig => __isa(o, "AuthorizationConfig");
 }
 
 export enum AuthorizationType {
@@ -366,17 +353,14 @@ export namespace AwsIamConfig {
  * <p>The request is not well formed. For example, a value is invalid or a required field is
  *          missing. Check the field values, and then try again. </p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -424,17 +408,14 @@ export interface CognitoUserPoolConfig {
 }
 
 export namespace CognitoUserPoolConfig {
-  export const isa = (o: any): o is CognitoUserPoolConfig =>
-    __isa(o, "CognitoUserPoolConfig");
+  export const isa = (o: any): o is CognitoUserPoolConfig => __isa(o, "CognitoUserPoolConfig");
 }
 
 /**
  * <p>Another modification is in progress at this time and it must complete before you can make
  *          your change. </p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -535,8 +516,7 @@ export interface CreateApiCacheRequest {
 }
 
 export namespace CreateApiCacheRequest {
-  export const isa = (o: any): o is CreateApiCacheRequest =>
-    __isa(o, "CreateApiCacheRequest");
+  export const isa = (o: any): o is CreateApiCacheRequest => __isa(o, "CreateApiCacheRequest");
 }
 
 /**
@@ -551,8 +531,7 @@ export interface CreateApiCacheResponse {
 }
 
 export namespace CreateApiCacheResponse {
-  export const isa = (o: any): o is CreateApiCacheResponse =>
-    __isa(o, "CreateApiCacheResponse");
+  export const isa = (o: any): o is CreateApiCacheResponse => __isa(o, "CreateApiCacheResponse");
 }
 
 export interface CreateApiKeyRequest {
@@ -576,8 +555,7 @@ export interface CreateApiKeyRequest {
 }
 
 export namespace CreateApiKeyRequest {
-  export const isa = (o: any): o is CreateApiKeyRequest =>
-    __isa(o, "CreateApiKeyRequest");
+  export const isa = (o: any): o is CreateApiKeyRequest => __isa(o, "CreateApiKeyRequest");
 }
 
 export interface CreateApiKeyResponse {
@@ -589,8 +567,7 @@ export interface CreateApiKeyResponse {
 }
 
 export namespace CreateApiKeyResponse {
-  export const isa = (o: any): o is CreateApiKeyResponse =>
-    __isa(o, "CreateApiKeyResponse");
+  export const isa = (o: any): o is CreateApiKeyResponse => __isa(o, "CreateApiKeyResponse");
 }
 
 export interface CreateDataSourceRequest {
@@ -648,8 +625,7 @@ export interface CreateDataSourceRequest {
 }
 
 export namespace CreateDataSourceRequest {
-  export const isa = (o: any): o is CreateDataSourceRequest =>
-    __isa(o, "CreateDataSourceRequest");
+  export const isa = (o: any): o is CreateDataSourceRequest => __isa(o, "CreateDataSourceRequest");
 }
 
 export interface CreateDataSourceResponse {
@@ -705,8 +681,7 @@ export interface CreateFunctionRequest {
 }
 
 export namespace CreateFunctionRequest {
-  export const isa = (o: any): o is CreateFunctionRequest =>
-    __isa(o, "CreateFunctionRequest");
+  export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
 
 export interface CreateFunctionResponse {
@@ -718,8 +693,7 @@ export interface CreateFunctionResponse {
 }
 
 export namespace CreateFunctionResponse {
-  export const isa = (o: any): o is CreateFunctionResponse =>
-    __isa(o, "CreateFunctionResponse");
+  export const isa = (o: any): o is CreateFunctionResponse => __isa(o, "CreateFunctionResponse");
 }
 
 export interface CreateGraphqlApiRequest {
@@ -761,8 +735,7 @@ export interface CreateGraphqlApiRequest {
 }
 
 export namespace CreateGraphqlApiRequest {
-  export const isa = (o: any): o is CreateGraphqlApiRequest =>
-    __isa(o, "CreateGraphqlApiRequest");
+  export const isa = (o: any): o is CreateGraphqlApiRequest => __isa(o, "CreateGraphqlApiRequest");
 }
 
 export interface CreateGraphqlApiResponse {
@@ -849,8 +822,7 @@ export interface CreateResolverRequest {
 }
 
 export namespace CreateResolverRequest {
-  export const isa = (o: any): o is CreateResolverRequest =>
-    __isa(o, "CreateResolverRequest");
+  export const isa = (o: any): o is CreateResolverRequest => __isa(o, "CreateResolverRequest");
 }
 
 export interface CreateResolverResponse {
@@ -862,8 +834,7 @@ export interface CreateResolverResponse {
 }
 
 export namespace CreateResolverResponse {
-  export const isa = (o: any): o is CreateResolverResponse =>
-    __isa(o, "CreateResolverResponse");
+  export const isa = (o: any): o is CreateResolverResponse => __isa(o, "CreateResolverResponse");
 }
 
 export interface CreateTypeRequest {
@@ -887,8 +858,7 @@ export interface CreateTypeRequest {
 }
 
 export namespace CreateTypeRequest {
-  export const isa = (o: any): o is CreateTypeRequest =>
-    __isa(o, "CreateTypeRequest");
+  export const isa = (o: any): o is CreateTypeRequest => __isa(o, "CreateTypeRequest");
 }
 
 export interface CreateTypeResponse {
@@ -900,8 +870,7 @@ export interface CreateTypeResponse {
 }
 
 export namespace CreateTypeResponse {
-  export const isa = (o: any): o is CreateTypeResponse =>
-    __isa(o, "CreateTypeResponse");
+  export const isa = (o: any): o is CreateTypeResponse => __isa(o, "CreateTypeResponse");
 }
 
 /**
@@ -1024,8 +993,7 @@ export interface DeleteApiCacheRequest {
 }
 
 export namespace DeleteApiCacheRequest {
-  export const isa = (o: any): o is DeleteApiCacheRequest =>
-    __isa(o, "DeleteApiCacheRequest");
+  export const isa = (o: any): o is DeleteApiCacheRequest => __isa(o, "DeleteApiCacheRequest");
 }
 
 /**
@@ -1036,8 +1004,7 @@ export interface DeleteApiCacheResponse {
 }
 
 export namespace DeleteApiCacheResponse {
-  export const isa = (o: any): o is DeleteApiCacheResponse =>
-    __isa(o, "DeleteApiCacheResponse");
+  export const isa = (o: any): o is DeleteApiCacheResponse => __isa(o, "DeleteApiCacheResponse");
 }
 
 export interface DeleteApiKeyRequest {
@@ -1054,8 +1021,7 @@ export interface DeleteApiKeyRequest {
 }
 
 export namespace DeleteApiKeyRequest {
-  export const isa = (o: any): o is DeleteApiKeyRequest =>
-    __isa(o, "DeleteApiKeyRequest");
+  export const isa = (o: any): o is DeleteApiKeyRequest => __isa(o, "DeleteApiKeyRequest");
 }
 
 export interface DeleteApiKeyResponse {
@@ -1063,8 +1029,7 @@ export interface DeleteApiKeyResponse {
 }
 
 export namespace DeleteApiKeyResponse {
-  export const isa = (o: any): o is DeleteApiKeyResponse =>
-    __isa(o, "DeleteApiKeyResponse");
+  export const isa = (o: any): o is DeleteApiKeyResponse => __isa(o, "DeleteApiKeyResponse");
 }
 
 export interface DeleteDataSourceRequest {
@@ -1081,8 +1046,7 @@ export interface DeleteDataSourceRequest {
 }
 
 export namespace DeleteDataSourceRequest {
-  export const isa = (o: any): o is DeleteDataSourceRequest =>
-    __isa(o, "DeleteDataSourceRequest");
+  export const isa = (o: any): o is DeleteDataSourceRequest => __isa(o, "DeleteDataSourceRequest");
 }
 
 export interface DeleteDataSourceResponse {
@@ -1108,8 +1072,7 @@ export interface DeleteFunctionRequest {
 }
 
 export namespace DeleteFunctionRequest {
-  export const isa = (o: any): o is DeleteFunctionRequest =>
-    __isa(o, "DeleteFunctionRequest");
+  export const isa = (o: any): o is DeleteFunctionRequest => __isa(o, "DeleteFunctionRequest");
 }
 
 export interface DeleteFunctionResponse {
@@ -1117,8 +1080,7 @@ export interface DeleteFunctionResponse {
 }
 
 export namespace DeleteFunctionResponse {
-  export const isa = (o: any): o is DeleteFunctionResponse =>
-    __isa(o, "DeleteFunctionResponse");
+  export const isa = (o: any): o is DeleteFunctionResponse => __isa(o, "DeleteFunctionResponse");
 }
 
 export interface DeleteGraphqlApiRequest {
@@ -1130,8 +1092,7 @@ export interface DeleteGraphqlApiRequest {
 }
 
 export namespace DeleteGraphqlApiRequest {
-  export const isa = (o: any): o is DeleteGraphqlApiRequest =>
-    __isa(o, "DeleteGraphqlApiRequest");
+  export const isa = (o: any): o is DeleteGraphqlApiRequest => __isa(o, "DeleteGraphqlApiRequest");
 }
 
 export interface DeleteGraphqlApiResponse {
@@ -1162,8 +1123,7 @@ export interface DeleteResolverRequest {
 }
 
 export namespace DeleteResolverRequest {
-  export const isa = (o: any): o is DeleteResolverRequest =>
-    __isa(o, "DeleteResolverRequest");
+  export const isa = (o: any): o is DeleteResolverRequest => __isa(o, "DeleteResolverRequest");
 }
 
 export interface DeleteResolverResponse {
@@ -1171,8 +1131,7 @@ export interface DeleteResolverResponse {
 }
 
 export namespace DeleteResolverResponse {
-  export const isa = (o: any): o is DeleteResolverResponse =>
-    __isa(o, "DeleteResolverResponse");
+  export const isa = (o: any): o is DeleteResolverResponse => __isa(o, "DeleteResolverResponse");
 }
 
 export interface DeleteTypeRequest {
@@ -1189,8 +1148,7 @@ export interface DeleteTypeRequest {
 }
 
 export namespace DeleteTypeRequest {
-  export const isa = (o: any): o is DeleteTypeRequest =>
-    __isa(o, "DeleteTypeRequest");
+  export const isa = (o: any): o is DeleteTypeRequest => __isa(o, "DeleteTypeRequest");
 }
 
 export interface DeleteTypeResponse {
@@ -1198,8 +1156,7 @@ export interface DeleteTypeResponse {
 }
 
 export namespace DeleteTypeResponse {
-  export const isa = (o: any): o is DeleteTypeResponse =>
-    __isa(o, "DeleteTypeResponse");
+  export const isa = (o: any): o is DeleteTypeResponse => __isa(o, "DeleteTypeResponse");
 }
 
 /**
@@ -1224,8 +1181,7 @@ export interface DeltaSyncConfig {
 }
 
 export namespace DeltaSyncConfig {
-  export const isa = (o: any): o is DeltaSyncConfig =>
-    __isa(o, "DeltaSyncConfig");
+  export const isa = (o: any): o is DeltaSyncConfig => __isa(o, "DeltaSyncConfig");
 }
 
 /**
@@ -1303,8 +1259,7 @@ export interface FlushApiCacheRequest {
 }
 
 export namespace FlushApiCacheRequest {
-  export const isa = (o: any): o is FlushApiCacheRequest =>
-    __isa(o, "FlushApiCacheRequest");
+  export const isa = (o: any): o is FlushApiCacheRequest => __isa(o, "FlushApiCacheRequest");
 }
 
 /**
@@ -1315,8 +1270,7 @@ export interface FlushApiCacheResponse {
 }
 
 export namespace FlushApiCacheResponse {
-  export const isa = (o: any): o is FlushApiCacheResponse =>
-    __isa(o, "FlushApiCacheResponse");
+  export const isa = (o: any): o is FlushApiCacheResponse => __isa(o, "FlushApiCacheResponse");
 }
 
 /**
@@ -1366,8 +1320,7 @@ export interface FunctionConfiguration {
 }
 
 export namespace FunctionConfiguration {
-  export const isa = (o: any): o is FunctionConfiguration =>
-    __isa(o, "FunctionConfiguration");
+  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 /**
@@ -1382,8 +1335,7 @@ export interface GetApiCacheRequest {
 }
 
 export namespace GetApiCacheRequest {
-  export const isa = (o: any): o is GetApiCacheRequest =>
-    __isa(o, "GetApiCacheRequest");
+  export const isa = (o: any): o is GetApiCacheRequest => __isa(o, "GetApiCacheRequest");
 }
 
 /**
@@ -1395,8 +1347,7 @@ export interface GetApiCacheResponse {
 }
 
 export namespace GetApiCacheResponse {
-  export const isa = (o: any): o is GetApiCacheResponse =>
-    __isa(o, "GetApiCacheResponse");
+  export const isa = (o: any): o is GetApiCacheResponse => __isa(o, "GetApiCacheResponse");
 }
 
 export interface GetDataSourceRequest {
@@ -1413,8 +1364,7 @@ export interface GetDataSourceRequest {
 }
 
 export namespace GetDataSourceRequest {
-  export const isa = (o: any): o is GetDataSourceRequest =>
-    __isa(o, "GetDataSourceRequest");
+  export const isa = (o: any): o is GetDataSourceRequest => __isa(o, "GetDataSourceRequest");
 }
 
 export interface GetDataSourceResponse {
@@ -1426,8 +1376,7 @@ export interface GetDataSourceResponse {
 }
 
 export namespace GetDataSourceResponse {
-  export const isa = (o: any): o is GetDataSourceResponse =>
-    __isa(o, "GetDataSourceResponse");
+  export const isa = (o: any): o is GetDataSourceResponse => __isa(o, "GetDataSourceResponse");
 }
 
 export interface GetFunctionRequest {
@@ -1444,8 +1393,7 @@ export interface GetFunctionRequest {
 }
 
 export namespace GetFunctionRequest {
-  export const isa = (o: any): o is GetFunctionRequest =>
-    __isa(o, "GetFunctionRequest");
+  export const isa = (o: any): o is GetFunctionRequest => __isa(o, "GetFunctionRequest");
 }
 
 export interface GetFunctionResponse {
@@ -1457,8 +1405,7 @@ export interface GetFunctionResponse {
 }
 
 export namespace GetFunctionResponse {
-  export const isa = (o: any): o is GetFunctionResponse =>
-    __isa(o, "GetFunctionResponse");
+  export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
 
 export interface GetGraphqlApiRequest {
@@ -1470,8 +1417,7 @@ export interface GetGraphqlApiRequest {
 }
 
 export namespace GetGraphqlApiRequest {
-  export const isa = (o: any): o is GetGraphqlApiRequest =>
-    __isa(o, "GetGraphqlApiRequest");
+  export const isa = (o: any): o is GetGraphqlApiRequest => __isa(o, "GetGraphqlApiRequest");
 }
 
 export interface GetGraphqlApiResponse {
@@ -1483,8 +1429,7 @@ export interface GetGraphqlApiResponse {
 }
 
 export namespace GetGraphqlApiResponse {
-  export const isa = (o: any): o is GetGraphqlApiResponse =>
-    __isa(o, "GetGraphqlApiResponse");
+  export const isa = (o: any): o is GetGraphqlApiResponse => __isa(o, "GetGraphqlApiResponse");
 }
 
 export interface GetIntrospectionSchemaRequest {
@@ -1544,8 +1489,7 @@ export interface GetResolverRequest {
 }
 
 export namespace GetResolverRequest {
-  export const isa = (o: any): o is GetResolverRequest =>
-    __isa(o, "GetResolverRequest");
+  export const isa = (o: any): o is GetResolverRequest => __isa(o, "GetResolverRequest");
 }
 
 export interface GetResolverResponse {
@@ -1557,8 +1501,7 @@ export interface GetResolverResponse {
 }
 
 export namespace GetResolverResponse {
-  export const isa = (o: any): o is GetResolverResponse =>
-    __isa(o, "GetResolverResponse");
+  export const isa = (o: any): o is GetResolverResponse => __isa(o, "GetResolverResponse");
 }
 
 export interface GetSchemaCreationStatusRequest {
@@ -1612,8 +1555,7 @@ export interface GetTypeRequest {
 }
 
 export namespace GetTypeRequest {
-  export const isa = (o: any): o is GetTypeRequest =>
-    __isa(o, "GetTypeRequest");
+  export const isa = (o: any): o is GetTypeRequest => __isa(o, "GetTypeRequest");
 }
 
 export interface GetTypeResponse {
@@ -1625,24 +1567,20 @@ export interface GetTypeResponse {
 }
 
 export namespace GetTypeResponse {
-  export const isa = (o: any): o is GetTypeResponse =>
-    __isa(o, "GetTypeResponse");
+  export const isa = (o: any): o is GetTypeResponse => __isa(o, "GetTypeResponse");
 }
 
 /**
  * <p>The GraphQL schema is not valid.</p>
  */
-export interface GraphQLSchemaException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GraphQLSchemaException extends __SmithyException, $MetadataBearer {
   name: "GraphQLSchemaException";
   $fault: "client";
   message?: string;
 }
 
 export namespace GraphQLSchemaException {
-  export const isa = (o: any): o is GraphQLSchemaException =>
-    __isa(o, "GraphQLSchemaException");
+  export const isa = (o: any): o is GraphQLSchemaException => __isa(o, "GraphQLSchemaException");
 }
 
 /**
@@ -1722,16 +1660,13 @@ export interface HttpDataSourceConfig {
 }
 
 export namespace HttpDataSourceConfig {
-  export const isa = (o: any): o is HttpDataSourceConfig =>
-    __isa(o, "HttpDataSourceConfig");
+  export const isa = (o: any): o is HttpDataSourceConfig => __isa(o, "HttpDataSourceConfig");
 }
 
 /**
  * <p>An internal AWS AppSync error occurred. Try your request again.</p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1767,24 +1702,20 @@ export interface LambdaDataSourceConfig {
 }
 
 export namespace LambdaDataSourceConfig {
-  export const isa = (o: any): o is LambdaDataSourceConfig =>
-    __isa(o, "LambdaDataSourceConfig");
+  export const isa = (o: any): o is LambdaDataSourceConfig => __isa(o, "LambdaDataSourceConfig");
 }
 
 /**
  * <p>The request exceeded a limit. Try your request again.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListApiKeysRequest {
@@ -1807,8 +1738,7 @@ export interface ListApiKeysRequest {
 }
 
 export namespace ListApiKeysRequest {
-  export const isa = (o: any): o is ListApiKeysRequest =>
-    __isa(o, "ListApiKeysRequest");
+  export const isa = (o: any): o is ListApiKeysRequest => __isa(o, "ListApiKeysRequest");
 }
 
 export interface ListApiKeysResponse {
@@ -1826,8 +1756,7 @@ export interface ListApiKeysResponse {
 }
 
 export namespace ListApiKeysResponse {
-  export const isa = (o: any): o is ListApiKeysResponse =>
-    __isa(o, "ListApiKeysResponse");
+  export const isa = (o: any): o is ListApiKeysResponse => __isa(o, "ListApiKeysResponse");
 }
 
 export interface ListDataSourcesRequest {
@@ -1850,8 +1779,7 @@ export interface ListDataSourcesRequest {
 }
 
 export namespace ListDataSourcesRequest {
-  export const isa = (o: any): o is ListDataSourcesRequest =>
-    __isa(o, "ListDataSourcesRequest");
+  export const isa = (o: any): o is ListDataSourcesRequest => __isa(o, "ListDataSourcesRequest");
 }
 
 export interface ListDataSourcesResponse {
@@ -1869,8 +1797,7 @@ export interface ListDataSourcesResponse {
 }
 
 export namespace ListDataSourcesResponse {
-  export const isa = (o: any): o is ListDataSourcesResponse =>
-    __isa(o, "ListDataSourcesResponse");
+  export const isa = (o: any): o is ListDataSourcesResponse => __isa(o, "ListDataSourcesResponse");
 }
 
 export interface ListFunctionsRequest {
@@ -1893,8 +1820,7 @@ export interface ListFunctionsRequest {
 }
 
 export namespace ListFunctionsRequest {
-  export const isa = (o: any): o is ListFunctionsRequest =>
-    __isa(o, "ListFunctionsRequest");
+  export const isa = (o: any): o is ListFunctionsRequest => __isa(o, "ListFunctionsRequest");
 }
 
 export interface ListFunctionsResponse {
@@ -1912,8 +1838,7 @@ export interface ListFunctionsResponse {
 }
 
 export namespace ListFunctionsResponse {
-  export const isa = (o: any): o is ListFunctionsResponse =>
-    __isa(o, "ListFunctionsResponse");
+  export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
 
 export interface ListGraphqlApisRequest {
@@ -1931,8 +1856,7 @@ export interface ListGraphqlApisRequest {
 }
 
 export namespace ListGraphqlApisRequest {
-  export const isa = (o: any): o is ListGraphqlApisRequest =>
-    __isa(o, "ListGraphqlApisRequest");
+  export const isa = (o: any): o is ListGraphqlApisRequest => __isa(o, "ListGraphqlApisRequest");
 }
 
 export interface ListGraphqlApisResponse {
@@ -1950,8 +1874,7 @@ export interface ListGraphqlApisResponse {
 }
 
 export namespace ListGraphqlApisResponse {
-  export const isa = (o: any): o is ListGraphqlApisResponse =>
-    __isa(o, "ListGraphqlApisResponse");
+  export const isa = (o: any): o is ListGraphqlApisResponse => __isa(o, "ListGraphqlApisResponse");
 }
 
 export interface ListResolversByFunctionRequest {
@@ -2025,8 +1948,7 @@ export interface ListResolversRequest {
 }
 
 export namespace ListResolversRequest {
-  export const isa = (o: any): o is ListResolversRequest =>
-    __isa(o, "ListResolversRequest");
+  export const isa = (o: any): o is ListResolversRequest => __isa(o, "ListResolversRequest");
 }
 
 export interface ListResolversResponse {
@@ -2044,8 +1966,7 @@ export interface ListResolversResponse {
 }
 
 export namespace ListResolversResponse {
-  export const isa = (o: any): o is ListResolversResponse =>
-    __isa(o, "ListResolversResponse");
+  export const isa = (o: any): o is ListResolversResponse => __isa(o, "ListResolversResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -2099,8 +2020,7 @@ export interface ListTypesRequest {
 }
 
 export namespace ListTypesRequest {
-  export const isa = (o: any): o is ListTypesRequest =>
-    __isa(o, "ListTypesRequest");
+  export const isa = (o: any): o is ListTypesRequest => __isa(o, "ListTypesRequest");
 }
 
 export interface ListTypesResponse {
@@ -2118,8 +2038,7 @@ export interface ListTypesResponse {
 }
 
 export namespace ListTypesResponse {
-  export const isa = (o: any): o is ListTypesResponse =>
-    __isa(o, "ListTypesResponse");
+  export const isa = (o: any): o is ListTypesResponse => __isa(o, "ListTypesResponse");
 }
 
 /**
@@ -2191,8 +2110,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -2225,8 +2143,7 @@ export interface OpenIDConnectConfig {
 }
 
 export namespace OpenIDConnectConfig {
-  export const isa = (o: any): o is OpenIDConnectConfig =>
-    __isa(o, "OpenIDConnectConfig");
+  export const isa = (o: any): o is OpenIDConnectConfig => __isa(o, "OpenIDConnectConfig");
 }
 
 export enum OutputType {
@@ -2246,8 +2163,7 @@ export interface PipelineConfig {
 }
 
 export namespace PipelineConfig {
-  export const isa = (o: any): o is PipelineConfig =>
-    __isa(o, "PipelineConfig");
+  export const isa = (o: any): o is PipelineConfig => __isa(o, "PipelineConfig");
 }
 
 /**
@@ -2282,8 +2198,7 @@ export interface RdsHttpEndpointConfig {
 }
 
 export namespace RdsHttpEndpointConfig {
-  export const isa = (o: any): o is RdsHttpEndpointConfig =>
-    __isa(o, "RdsHttpEndpointConfig");
+  export const isa = (o: any): o is RdsHttpEndpointConfig => __isa(o, "RdsHttpEndpointConfig");
 }
 
 /**
@@ -2502,8 +2417,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2511,8 +2425,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2558,17 +2471,14 @@ export enum TypeDefinitionFormat {
 /**
  * <p>You are not authorized to perform this operation.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnauthorizedException {
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagResourceRequest {
@@ -2585,8 +2495,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2594,8 +2503,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -2666,8 +2574,7 @@ export interface UpdateApiCacheRequest {
 }
 
 export namespace UpdateApiCacheRequest {
-  export const isa = (o: any): o is UpdateApiCacheRequest =>
-    __isa(o, "UpdateApiCacheRequest");
+  export const isa = (o: any): o is UpdateApiCacheRequest => __isa(o, "UpdateApiCacheRequest");
 }
 
 /**
@@ -2682,8 +2589,7 @@ export interface UpdateApiCacheResponse {
 }
 
 export namespace UpdateApiCacheResponse {
-  export const isa = (o: any): o is UpdateApiCacheResponse =>
-    __isa(o, "UpdateApiCacheResponse");
+  export const isa = (o: any): o is UpdateApiCacheResponse => __isa(o, "UpdateApiCacheResponse");
 }
 
 export interface UpdateApiKeyRequest {
@@ -2711,8 +2617,7 @@ export interface UpdateApiKeyRequest {
 }
 
 export namespace UpdateApiKeyRequest {
-  export const isa = (o: any): o is UpdateApiKeyRequest =>
-    __isa(o, "UpdateApiKeyRequest");
+  export const isa = (o: any): o is UpdateApiKeyRequest => __isa(o, "UpdateApiKeyRequest");
 }
 
 export interface UpdateApiKeyResponse {
@@ -2724,8 +2629,7 @@ export interface UpdateApiKeyResponse {
 }
 
 export namespace UpdateApiKeyResponse {
-  export const isa = (o: any): o is UpdateApiKeyResponse =>
-    __isa(o, "UpdateApiKeyResponse");
+  export const isa = (o: any): o is UpdateApiKeyResponse => __isa(o, "UpdateApiKeyResponse");
 }
 
 export interface UpdateDataSourceRequest {
@@ -2782,8 +2686,7 @@ export interface UpdateDataSourceRequest {
 }
 
 export namespace UpdateDataSourceRequest {
-  export const isa = (o: any): o is UpdateDataSourceRequest =>
-    __isa(o, "UpdateDataSourceRequest");
+  export const isa = (o: any): o is UpdateDataSourceRequest => __isa(o, "UpdateDataSourceRequest");
 }
 
 export interface UpdateDataSourceResponse {
@@ -2844,8 +2747,7 @@ export interface UpdateFunctionRequest {
 }
 
 export namespace UpdateFunctionRequest {
-  export const isa = (o: any): o is UpdateFunctionRequest =>
-    __isa(o, "UpdateFunctionRequest");
+  export const isa = (o: any): o is UpdateFunctionRequest => __isa(o, "UpdateFunctionRequest");
 }
 
 export interface UpdateFunctionResponse {
@@ -2857,8 +2759,7 @@ export interface UpdateFunctionResponse {
 }
 
 export namespace UpdateFunctionResponse {
-  export const isa = (o: any): o is UpdateFunctionResponse =>
-    __isa(o, "UpdateFunctionResponse");
+  export const isa = (o: any): o is UpdateFunctionResponse => __isa(o, "UpdateFunctionResponse");
 }
 
 export interface UpdateGraphqlApiRequest {
@@ -2903,8 +2804,7 @@ export interface UpdateGraphqlApiRequest {
 }
 
 export namespace UpdateGraphqlApiRequest {
-  export const isa = (o: any): o is UpdateGraphqlApiRequest =>
-    __isa(o, "UpdateGraphqlApiRequest");
+  export const isa = (o: any): o is UpdateGraphqlApiRequest => __isa(o, "UpdateGraphqlApiRequest");
 }
 
 export interface UpdateGraphqlApiResponse {
@@ -2988,8 +2888,7 @@ export interface UpdateResolverRequest {
 }
 
 export namespace UpdateResolverRequest {
-  export const isa = (o: any): o is UpdateResolverRequest =>
-    __isa(o, "UpdateResolverRequest");
+  export const isa = (o: any): o is UpdateResolverRequest => __isa(o, "UpdateResolverRequest");
 }
 
 export interface UpdateResolverResponse {
@@ -3001,8 +2900,7 @@ export interface UpdateResolverResponse {
 }
 
 export namespace UpdateResolverResponse {
-  export const isa = (o: any): o is UpdateResolverResponse =>
-    __isa(o, "UpdateResolverResponse");
+  export const isa = (o: any): o is UpdateResolverResponse => __isa(o, "UpdateResolverResponse");
 }
 
 export interface UpdateTypeRequest {
@@ -3029,8 +2927,7 @@ export interface UpdateTypeRequest {
 }
 
 export namespace UpdateTypeRequest {
-  export const isa = (o: any): o is UpdateTypeRequest =>
-    __isa(o, "UpdateTypeRequest");
+  export const isa = (o: any): o is UpdateTypeRequest => __isa(o, "UpdateTypeRequest");
 }
 
 export interface UpdateTypeResponse {
@@ -3042,8 +2939,7 @@ export interface UpdateTypeResponse {
 }
 
 export namespace UpdateTypeResponse {
-  export const isa = (o: any): o is UpdateTypeResponse =>
-    __isa(o, "UpdateTypeResponse");
+  export const isa = (o: any): o is UpdateTypeResponse => __isa(o, "UpdateTypeResponse");
 }
 
 /**
@@ -3076,6 +2972,5 @@ export interface UserPoolConfig {
 }
 
 export namespace UserPoolConfig {
-  export const isa = (o: any): o is UserPoolConfig =>
-    __isa(o, "UserPoolConfig");
+  export const isa = (o: any): o is UserPoolConfig => __isa(o, "UserPoolConfig");
 }

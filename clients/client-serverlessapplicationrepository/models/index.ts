@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -99,16 +96,13 @@ export interface ApplicationSummary {
 }
 
 export namespace ApplicationSummary {
-  export const isa = (o: any): o is ApplicationSummary =>
-    __isa(o, "ApplicationSummary");
+  export const isa = (o: any): o is ApplicationSummary => __isa(o, "ApplicationSummary");
 }
 
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -123,8 +117,7 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum Capability {
@@ -152,8 +145,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
@@ -667,8 +659,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetApplicationPolicyRequest {
@@ -711,8 +702,7 @@ export interface GetApplicationRequest {
 }
 
 export namespace GetApplicationRequest {
-  export const isa = (o: any): o is GetApplicationRequest =>
-    __isa(o, "GetApplicationRequest");
+  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetApplicationResponse {
@@ -784,8 +774,7 @@ export interface GetApplicationResponse {
 }
 
 export namespace GetApplicationResponse {
-  export const isa = (o: any): o is GetApplicationResponse =>
-    __isa(o, "GetApplicationResponse");
+  export const isa = (o: any): o is GetApplicationResponse => __isa(o, "GetApplicationResponse");
 }
 
 export interface GetCloudFormationTemplateRequest {
@@ -857,9 +846,7 @@ export namespace GetCloudFormationTemplateResponse {
 /**
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -979,8 +966,7 @@ export interface ListApplicationsRequest {
 }
 
 export namespace ListApplicationsRequest {
-  export const isa = (o: any): o is ListApplicationsRequest =>
-    __isa(o, "ListApplicationsRequest");
+  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListApplicationsResponse {
@@ -1019,8 +1005,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1112,8 +1097,7 @@ export interface ParameterDefinition {
 }
 
 export namespace ParameterDefinition {
-  export const isa = (o: any): o is ParameterDefinition =>
-    __isa(o, "ParameterDefinition");
+  export const isa = (o: any): o is ParameterDefinition => __isa(o, "ParameterDefinition");
 }
 
 /**
@@ -1134,8 +1118,7 @@ export interface ParameterValue {
 }
 
 export namespace ParameterValue {
-  export const isa = (o: any): o is ParameterValue =>
-    __isa(o, "ParameterValue");
+  export const isa = (o: any): o is ParameterValue => __isa(o, "ParameterValue");
 }
 
 export interface PutApplicationPolicyRequest {
@@ -1189,8 +1172,7 @@ export interface RollbackConfiguration {
 }
 
 export namespace RollbackConfiguration {
-  export const isa = (o: any): o is RollbackConfiguration =>
-    __isa(o, "RollbackConfiguration");
+  export const isa = (o: any): o is RollbackConfiguration => __isa(o, "RollbackConfiguration");
 }
 
 /**
@@ -1213,8 +1195,7 @@ export interface RollbackTrigger {
 }
 
 export namespace RollbackTrigger {
-  export const isa = (o: any): o is RollbackTrigger =>
-    __isa(o, "RollbackTrigger");
+  export const isa = (o: any): o is RollbackTrigger => __isa(o, "RollbackTrigger");
 }
 
 export enum Status {
@@ -1251,9 +1232,7 @@ export namespace Tag {
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1497,6 +1476,5 @@ export interface VersionSummary {
 }
 
 export namespace VersionSummary {
-  export const isa = (o: any): o is VersionSummary =>
-    __isa(o, "VersionSummary");
+  export const isa = (o: any): o is VersionSummary => __isa(o, "VersionSummary");
 }

@@ -49,13 +49,8 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateClusterSecurityGroupCommandInput,
-    CreateClusterSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateClusterSecurityGroupCommandInput, CreateClusterSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +76,7 @@ export class CreateClusterSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryCreateClusterSecurityGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

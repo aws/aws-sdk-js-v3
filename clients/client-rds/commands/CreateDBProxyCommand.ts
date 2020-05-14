@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBProxyRequest, CreateDBProxyResponse } from "../models/index";
 import {
   deserializeAws_queryCreateDBProxyCommand,
@@ -25,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBProxyCommandInput = CreateDBProxyRequest;
-export type CreateDBProxyCommandOutput = CreateDBProxyResponse &
-  __MetadataBearer;
+export type CreateDBProxyCommandOutput = CreateDBProxyResponse & __MetadataBearer;
 
 export class CreateDBProxyCommand extends $Command<
   CreateDBProxyCommandInput,
@@ -47,9 +42,7 @@ export class CreateDBProxyCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDBProxyCommandInput, CreateDBProxyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

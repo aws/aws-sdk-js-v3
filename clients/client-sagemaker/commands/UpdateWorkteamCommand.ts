@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateWorkteamCommandInput = UpdateWorkteamRequest;
-export type UpdateWorkteamCommandOutput = UpdateWorkteamResponse &
-  __MetadataBearer;
+export type UpdateWorkteamCommandOutput = UpdateWorkteamResponse & __MetadataBearer;
 
 export class UpdateWorkteamCommand extends $Command<
   UpdateWorkteamCommandInput,
@@ -47,9 +46,7 @@ export class UpdateWorkteamCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkteamCommandInput, UpdateWorkteamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

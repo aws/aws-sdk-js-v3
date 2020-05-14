@@ -1,12 +1,5 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetPolicyVersionRequest,
-  GetPolicyVersionResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/index";
 import {
   deserializeAws_queryGetPolicyVersionCommand,
   serializeAws_queryGetPolicyVersionCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPolicyVersionCommandInput = GetPolicyVersionRequest;
-export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse &
-  __MetadataBearer;
+export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse & __MetadataBearer;
 
 export class GetPolicyVersionCommand extends $Command<
   GetPolicyVersionCommandInput,
@@ -50,9 +42,7 @@ export class GetPolicyVersionCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ConfigServiceClient";
-import {
-  DeliverConfigSnapshotRequest,
-  DeliverConfigSnapshotResponse
-} from "../models/index";
+import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeliverConfigSnapshotCommand,
   serializeAws_json1_1DeliverConfigSnapshotCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeliverConfigSnapshotCommandInput = DeliverConfigSnapshotRequest;
-export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse &
-  __MetadataBearer;
+export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse & __MetadataBearer;
 
 export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandInput,
@@ -49,13 +45,8 @@ export class DeliverConfigSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeliverConfigSnapshotCommandInput,
-    DeliverConfigSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeliverConfigSnapshotCommandInput, DeliverConfigSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -92,10 +92,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
     args: DescribeEntitiesDetectionV2JobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeEntitiesDetectionV2JobCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeEntitiesDetectionV2JobCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntitiesDetectionV2JobCommandOutput) => void
   ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> | void {
     const command = new DescribeEntitiesDetectionV2JobCommand(args);
@@ -167,9 +164,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectEntities(
     args: DetectEntitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesCommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesCommandOutput) => void
   ): Promise<DetectEntitiesCommandOutput> | void {
     const command = new DetectEntitiesCommand(args);
@@ -210,9 +205,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectEntitiesV2(
     args: DetectEntitiesV2CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectEntitiesV2CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectEntitiesV2CommandOutput) => void),
     cb?: (err: any, data?: DetectEntitiesV2CommandOutput) => void
   ): Promise<DetectEntitiesV2CommandOutput> | void {
     const command = new DetectEntitiesV2Command(args);
@@ -246,9 +239,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public detectPHI(
     args: DetectPHICommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectPHICommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectPHICommandOutput) => void),
     cb?: (err: any, data?: DetectPHICommandOutput) => void
   ): Promise<DetectPHICommandOutput> | void {
     const command = new DetectPHICommand(args);
@@ -282,9 +273,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public inferICD10CM(
     args: InferICD10CMCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InferICD10CMCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InferICD10CMCommandOutput) => void),
     cb?: (err: any, data?: InferICD10CMCommandOutput) => void
   ): Promise<InferICD10CMCommandOutput> | void {
     const command = new InferICD10CMCommand(args);
@@ -318,9 +307,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   ): void;
   public inferRxNorm(
     args: InferRxNormCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: InferRxNormCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InferRxNormCommandOutput) => void),
     cb?: (err: any, data?: InferRxNormCommandOutput) => void
   ): Promise<InferRxNormCommandOutput> | void {
     const command = new InferRxNormCommand(args);

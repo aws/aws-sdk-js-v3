@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketInventoryConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
@@ -50,9 +46,7 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     DeleteBucketInventoryConfigurationCommandInput,
     DeleteBucketInventoryConfigurationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,20 +66,14 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     input: DeleteBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

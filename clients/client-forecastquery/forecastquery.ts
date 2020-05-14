@@ -39,9 +39,7 @@ export class forecastquery extends forecastqueryClient {
   ): void;
   public queryForecast(
     args: QueryForecastCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: QueryForecastCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryForecastCommandOutput) => void),
     cb?: (err: any, data?: QueryForecastCommandOutput) => void
   ): Promise<QueryForecastCommandOutput> | void {
     const command = new QueryForecastCommand(args);

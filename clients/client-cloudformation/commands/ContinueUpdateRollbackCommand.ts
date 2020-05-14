@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudFormationClient";
-import {
-  ContinueUpdateRollbackInput,
-  ContinueUpdateRollbackOutput
-} from "../models/index";
+import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/index";
 import {
   deserializeAws_queryContinueUpdateRollbackCommand,
   serializeAws_queryContinueUpdateRollbackCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ContinueUpdateRollbackCommandInput = ContinueUpdateRollbackInput;
-export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput &
-  __MetadataBearer;
+export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput & __MetadataBearer;
 
 export class ContinueUpdateRollbackCommand extends $Command<
   ContinueUpdateRollbackCommandInput,
@@ -49,13 +45,8 @@ export class ContinueUpdateRollbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ContinueUpdateRollbackCommandInput,
-    ContinueUpdateRollbackCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ContinueUpdateRollbackCommandInput, ContinueUpdateRollbackCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

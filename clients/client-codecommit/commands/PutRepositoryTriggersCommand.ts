@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeCommitClient";
-import {
-  PutRepositoryTriggersInput,
-  PutRepositoryTriggersOutput
-} from "../models/index";
+import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutRepositoryTriggersCommand,
   serializeAws_json1_1PutRepositoryTriggersCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutRepositoryTriggersCommandInput = PutRepositoryTriggersInput;
-export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput &
-  __MetadataBearer;
+export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput & __MetadataBearer;
 
 export class PutRepositoryTriggersCommand extends $Command<
   PutRepositoryTriggersCommandInput,
@@ -49,13 +45,8 @@ export class PutRepositoryTriggersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRepositoryTriggersCommandInput,
-    PutRepositoryTriggersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRepositoryTriggersCommandInput, PutRepositoryTriggersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

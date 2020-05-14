@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import {
-  DescribeHsmClientCertificatesMessage,
-  HsmClientCertificateMessage
-} from "../models/index";
+import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeHsmClientCertificatesCommand,
   serializeAws_queryDescribeHsmClientCertificatesCommand
@@ -53,9 +50,7 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     DescribeHsmClientCertificatesCommandInput,
     DescribeHsmClientCertificatesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     input: DescribeHsmClientCertificatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeHsmClientCertificatesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeHsmClientCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHsmClientCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeHsmClientCertificatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeHsmClientCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

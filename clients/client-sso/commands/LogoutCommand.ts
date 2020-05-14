@@ -1,8 +1,4 @@
-import {
-  SSOClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOClient";
+import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
 import { LogoutRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1LogoutCommand,
@@ -46,9 +42,7 @@ export class LogoutCommand extends $Command<
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<LogoutCommandInput, LogoutCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,10 +57,7 @@ export class LogoutCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: LogoutCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: LogoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1LogoutCommand(input, context);
   }
 

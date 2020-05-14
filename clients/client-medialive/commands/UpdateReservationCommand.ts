@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MediaLiveClient";
-import {
-  UpdateReservationRequest,
-  UpdateReservationResponse
-} from "../models/index";
+import { UpdateReservationRequest, UpdateReservationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateReservationCommand,
   serializeAws_restJson1_1UpdateReservationCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateReservationCommandInput = UpdateReservationRequest;
-export type UpdateReservationCommandOutput = UpdateReservationResponse &
-  __MetadataBearer;
+export type UpdateReservationCommandOutput = UpdateReservationResponse & __MetadataBearer;
 
 export class UpdateReservationCommand extends $Command<
   UpdateReservationCommandInput,
@@ -50,9 +46,7 @@ export class UpdateReservationCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateReservationCommandInput, UpdateReservationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

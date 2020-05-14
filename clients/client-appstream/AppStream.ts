@@ -278,9 +278,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public associateFleet(
     args: AssociateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateFleetCommandOutput) => void),
     cb?: (err: any, data?: AssociateFleetCommandOutput) => void
   ): Promise<AssociateFleetCommandOutput> | void {
     const command = new AssociateFleetCommand(args);
@@ -383,9 +381,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public copyImage(
     args: CopyImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyImageCommandOutput) => void),
     cb?: (err: any, data?: CopyImageCommandOutput) => void
   ): Promise<CopyImageCommandOutput> | void {
     const command = new CopyImageCommand(args);
@@ -453,9 +449,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
@@ -526,10 +520,7 @@ export class AppStream extends AppStreamClient {
     args: CreateImageBuilderStreamingURLCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateImageBuilderStreamingURLCommandOutput
-        ) => void),
+      | ((err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void),
     cb?: (err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void
   ): Promise<CreateImageBuilderStreamingURLCommandOutput> | void {
     const command = new CreateImageBuilderStreamingURLCommand(args);
@@ -562,9 +553,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
@@ -667,9 +656,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
@@ -737,9 +724,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
@@ -773,9 +758,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteImage(
     args: DeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageCommandOutput) => void
   ): Promise<DeleteImageCommandOutput> | void {
     const command = new DeleteImageCommand(args);
@@ -878,9 +861,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
@@ -948,9 +929,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
@@ -1020,9 +999,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeFleets(
     args: DescribeFleetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFleetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetsCommandOutput) => void
   ): Promise<DescribeFleetsCommandOutput> | void {
     const command = new DescribeFleetsCommand(args);
@@ -1125,9 +1102,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
@@ -1162,9 +1137,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeSessions(
     args: DescribeSessionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSessionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): Promise<DescribeSessionsCommandOutput> | void {
     const command = new DescribeSessionsCommand(args);
@@ -1197,9 +1170,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
@@ -1234,14 +1205,8 @@ export class AppStream extends AppStreamClient {
     args: DescribeUsageReportSubscriptionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeUsageReportSubscriptionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeUsageReportSubscriptionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeUsageReportSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUsageReportSubscriptionsCommandOutput) => void
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput> | void {
     const command = new DescribeUsageReportSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1316,9 +1281,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeUsers(
     args: DescribeUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
     cb?: (err: any, data?: DescribeUsersCommandOutput) => void
   ): Promise<DescribeUsersCommandOutput> | void {
     const command = new DescribeUsersCommand(args);
@@ -1351,9 +1314,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public disableUser(
     args: DisableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableUserCommandOutput) => void),
     cb?: (err: any, data?: DisableUserCommandOutput) => void
   ): Promise<DisableUserCommandOutput> | void {
     const command = new DisableUserCommand(args);
@@ -1421,9 +1382,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public enableUser(
     args: EnableUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableUserCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableUserCommandOutput) => void),
     cb?: (err: any, data?: EnableUserCommandOutput) => void
   ): Promise<EnableUserCommandOutput> | void {
     const command = new EnableUserCommand(args);
@@ -1456,9 +1415,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public expireSession(
     args: ExpireSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExpireSessionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExpireSessionCommandOutput) => void),
     cb?: (err: any, data?: ExpireSessionCommandOutput) => void
   ): Promise<ExpireSessionCommandOutput> | void {
     const command = new ExpireSessionCommand(args);
@@ -1597,9 +1554,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public startFleet(
     args: StartFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFleetCommandOutput) => void),
     cb?: (err: any, data?: StartFleetCommandOutput) => void
   ): Promise<StartFleetCommandOutput> | void {
     const command = new StartFleetCommand(args);
@@ -1667,9 +1622,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public stopFleet(
     args: StopFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFleetCommandOutput) => void),
     cb?: (err: any, data?: StopFleetCommandOutput) => void
   ): Promise<StopFleetCommandOutput> | void {
     const command = new StopFleetCommand(args);
@@ -1702,9 +1655,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public stopImageBuilder(
     args: StopImageBuilderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopImageBuilderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopImageBuilderCommandOutput) => void),
     cb?: (err: any, data?: StopImageBuilderCommandOutput) => void
   ): Promise<StopImageBuilderCommandOutput> | void {
     const command = new StopImageBuilderCommand(args);
@@ -1743,9 +1694,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
@@ -1780,9 +1729,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
@@ -1853,9 +1800,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateFleet(
     args: UpdateFleetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFleetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetCommandOutput) => void
   ): Promise<UpdateFleetCommandOutput> | void {
     const command = new UpdateFleetCommand(args);
@@ -1923,9 +1868,7 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);

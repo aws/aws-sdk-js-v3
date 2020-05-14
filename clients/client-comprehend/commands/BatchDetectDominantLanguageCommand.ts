@@ -49,13 +49,8 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDetectDominantLanguageCommandInput,
-    BatchDetectDominantLanguageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDetectDominantLanguageCommandInput, BatchDetectDominantLanguageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +69,14 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     input: BatchDetectDominantLanguageCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectDominantLanguageCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1BatchDetectDominantLanguageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDetectDominantLanguageCommandOutput> {
-    return deserializeAws_json1_1BatchDetectDominantLanguageCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDetectDominantLanguageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionResult
-} from "../models/index";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
   serializeAws_queryDeleteEventSubscriptionCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult &
-  __MetadataBearer;
+export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult & __MetadataBearer;
 
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,
@@ -49,13 +45,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEventSubscriptionCommandInput,
-    DeleteEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEventSubscriptionCommandInput, DeleteEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

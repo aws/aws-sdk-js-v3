@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  DeleteResourcePolicyInput,
-  DeleteResourcePolicyOutput
-} from "../models/index";
+import { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyInput;
-export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyOutput &
-  __MetadataBearer;
+export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyOutput & __MetadataBearer;
 
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,
@@ -49,13 +45,8 @@ export class DeleteResourcePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResourcePolicyCommandInput,
-    DeleteResourcePolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  DescribeSignalingChannelInput,
-  DescribeSignalingChannelOutput
-} from "../models/index";
+import { DescribeSignalingChannelInput, DescribeSignalingChannelOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSignalingChannelCommand,
   serializeAws_restJson1_1DescribeSignalingChannelCommand
@@ -49,13 +46,8 @@ export class DescribeSignalingChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSignalingChannelCommandInput,
-    DescribeSignalingChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSignalingChannelCommandInput, DescribeSignalingChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class DescribeSignalingChannelCommand extends $Command<
     input: DescribeSignalingChannelCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSignalingChannelCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeSignalingChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSignalingChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

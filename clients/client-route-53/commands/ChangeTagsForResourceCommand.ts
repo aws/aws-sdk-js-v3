@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../Route53Client";
-import {
-  ChangeTagsForResourceRequest,
-  ChangeTagsForResourceResponse
-} from "../models/index";
+import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/index";
 import {
   deserializeAws_restXmlChangeTagsForResourceCommand,
   serializeAws_restXmlChangeTagsForResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ChangeTagsForResourceCommandInput = ChangeTagsForResourceRequest;
-export type ChangeTagsForResourceCommandOutput = ChangeTagsForResourceResponse &
-  __MetadataBearer;
+export type ChangeTagsForResourceCommandOutput = ChangeTagsForResourceResponse & __MetadataBearer;
 
 export class ChangeTagsForResourceCommand extends $Command<
   ChangeTagsForResourceCommandInput,
@@ -49,13 +45,8 @@ export class ChangeTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeTagsForResourceCommandInput,
-    ChangeTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeTagsForResourceCommandInput, ChangeTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

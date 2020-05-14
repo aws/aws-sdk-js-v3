@@ -44,9 +44,7 @@ export const serializeAws_json1_1DescribeDimensionKeysCommand = async (
     "X-Amz-Target": "PerformanceInsightsv20180227.DescribeDimensionKeys"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDimensionKeysRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDimensionKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -59,9 +57,7 @@ export const serializeAws_json1_1GetResourceMetricsCommand = async (
     "X-Amz-Target": "PerformanceInsightsv20180227.GetResourceMetrics"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetResourceMetricsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetResourceMetricsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -70,10 +66,7 @@ export const deserializeAws_json1_1DescribeDimensionKeysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDimensionKeysCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDimensionKeysCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDimensionKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -97,16 +90,12 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "amazonaws.pi.shared#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -114,10 +103,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
     case "InvalidArgumentException":
     case "amazonaws.pi.shared#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -125,10 +111,7 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
     case "NotAuthorizedException":
     case "amazonaws.pi.shared#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -155,10 +138,7 @@ export const deserializeAws_json1_1GetResourceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceMetricsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetResourceMetricsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetResourceMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -182,16 +162,12 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "amazonaws.pi.shared#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -199,10 +175,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
     case "InvalidArgumentException":
     case "amazonaws.pi.shared#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -210,10 +183,7 @@ const deserializeAws_json1_1GetResourceMetricsCommandError = async (
     case "NotAuthorizedException":
     case "amazonaws.pi.shared#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -240,10 +210,7 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceError(body, context);
   const contents: InternalServiceError = {
     name: "InternalServiceError",
     $fault: "server",
@@ -258,10 +225,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(body, context);
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
     $fault: "client",
@@ -276,10 +240,7 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotAuthorizedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotAuthorizedException(body, context);
   const contents: NotAuthorizedException = {
     name: "NotAuthorizedException",
     $fault: "client",
@@ -308,10 +269,7 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
     ...(input.Metric !== undefined && { Metric: input.Metric }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PartitionBy !== undefined && {
-      PartitionBy: serializeAws_json1_1DimensionGroup(
-        input.PartitionBy,
-        context
-      )
+      PartitionBy: serializeAws_json1_1DimensionGroup(input.PartitionBy, context)
     }),
     ...(input.PeriodInSeconds !== undefined && {
       PeriodInSeconds: input.PeriodInSeconds
@@ -347,10 +305,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
     ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.MetricQueries !== undefined && {
-      MetricQueries: serializeAws_json1_1MetricQueryList(
-        input.MetricQueries,
-        context
-      )
+      MetricQueries: serializeAws_json1_1MetricQueryList(input.MetricQueries, context)
     }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PeriodInSeconds !== undefined && {
@@ -363,10 +318,7 @@ const serializeAws_json1_1GetResourceMetricsRequest = (
   };
 };
 
-const serializeAws_json1_1MetricQuery = (
-  input: MetricQuery,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1MetricQuery = (input: MetricQuery, context: __SerdeContext): any => {
   return {
     ...(input.Filter !== undefined && {
       Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context)
@@ -398,10 +350,7 @@ const serializeAws_json1_1MetricQueryList = (
   return input.map(entry => serializeAws_json1_1MetricQuery(entry, context));
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -411,10 +360,7 @@ const deserializeAws_json1_1InternalServiceError = (
 ): InternalServiceError => {
   return {
     __type: "InternalServiceError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -424,10 +370,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   return {
     __type: "InvalidArgumentException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -437,27 +380,18 @@ const deserializeAws_json1_1NotAuthorizedException = (
 ): NotAuthorizedException => {
   return {
     __type: "NotAuthorizedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DataPoint = (
-  output: any,
-  context: __SerdeContext
-): DataPoint => {
+const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     __type: "DataPoint",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -465,9 +399,7 @@ const deserializeAws_json1_1DataPointsList = (
   output: any,
   context: __SerdeContext
 ): DataPoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DataPoint(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1DataPoint(entry, context));
 };
 
 const deserializeAws_json1_1DescribeDimensionKeysResponse = (
@@ -486,21 +418,13 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
         : undefined,
     Keys:
       output.Keys !== undefined && output.Keys !== null
-        ? deserializeAws_json1_1DimensionKeyDescriptionList(
-            output.Keys,
-            context
-          )
+        ? deserializeAws_json1_1DimensionKeyDescriptionList(output.Keys, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PartitionKeys:
       output.PartitionKeys !== undefined && output.PartitionKeys !== null
-        ? deserializeAws_json1_1ResponsePartitionKeyList(
-            output.PartitionKeys,
-            context
-          )
+        ? deserializeAws_json1_1ResponsePartitionKeyList(output.PartitionKeys, context)
         : undefined
   } as any;
 };
@@ -519,10 +443,7 @@ const deserializeAws_json1_1DimensionKeyDescription = (
       output.Partitions !== undefined && output.Partitions !== null
         ? deserializeAws_json1_1MetricValuesList(output.Partitions, context)
         : undefined,
-    Total:
-      output.Total !== undefined && output.Total !== null
-        ? output.Total
-        : undefined
+    Total: output.Total !== undefined && output.Total !== null ? output.Total : undefined
   } as any;
 };
 
@@ -563,20 +484,13 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
         ? new Date(Math.round(output.AlignedStartTime * 1000))
         : undefined,
     Identifier:
-      output.Identifier !== undefined && output.Identifier !== null
-        ? output.Identifier
-        : undefined,
+      output.Identifier !== undefined && output.Identifier !== null ? output.Identifier : undefined,
     MetricList:
       output.MetricList !== undefined && output.MetricList !== null
-        ? deserializeAws_json1_1MetricKeyDataPointsList(
-            output.MetricList,
-            context
-          )
+        ? deserializeAws_json1_1MetricKeyDataPointsList(output.MetricList, context)
         : undefined,
     NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+      output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -606,10 +520,7 @@ const deserializeAws_json1_1MetricKeyDataPointsList = (
   );
 };
 
-const deserializeAws_json1_1MetricValuesList = (
-  output: any,
-  context: __SerdeContext
-): number[] => {
+const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeContext): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -645,10 +556,7 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
         : undefined,
-    Metric:
-      output.Metric !== undefined && output.Metric !== null
-        ? output.Metric
-        : undefined
+    Metric: output.Metric !== undefined && output.Metric !== null ? output.Metric : undefined
   } as any;
 };
 
@@ -666,16 +574,11 @@ const collectBody = (
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

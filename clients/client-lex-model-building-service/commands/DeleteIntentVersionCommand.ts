@@ -45,13 +45,8 @@ export class DeleteIntentVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIntentVersionCommandInput,
-    DeleteIntentVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIntentVersionCommandInput, DeleteIntentVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,10 +72,7 @@ export class DeleteIntentVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteIntentVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteIntentVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -340,9 +340,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
@@ -569,9 +567,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
@@ -609,9 +605,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
@@ -1054,9 +1048,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
@@ -1081,31 +1073,19 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput>;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): void;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): void;
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeOrderableReplicationInstancesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeOrderableReplicationInstancesCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> | void {
     const command = new DescribeOrderableReplicationInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1128,31 +1108,19 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePendingMaintenanceActionsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribePendingMaintenanceActionsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): Promise<DescribePendingMaintenanceActionsCommandOutput> | void {
     const command = new DescribePendingMaintenanceActionsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1210,31 +1178,19 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput>;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): void;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): void;
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationInstanceTaskLogsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReplicationInstanceTaskLogsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> | void {
     const command = new DescribeReplicationInstanceTaskLogsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1304,10 +1260,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     args: DescribeReplicationSubnetGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationSubnetGroupsCommandOutput
-        ) => void),
+      | ((err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void
   ): Promise<DescribeReplicationSubnetGroupsCommandOutput> | void {
     const command = new DescribeReplicationSubnetGroupsCommand(args);
@@ -1332,31 +1285,19 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput>;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): void;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): void;
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReplicationTaskAssessmentResultsCommandOutput
-    ) => void
+      | ((err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> | void {
     const command = new DescribeReplicationTaskAssessmentResultsCommand(args);
     if (typeof optionsOrCb === "function") {
@@ -1426,9 +1367,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public describeSchemas(
     args: DescribeSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSchemasCommandOutput) => void),
     cb?: (err: any, data?: DescribeSchemasCommandOutput) => void
   ): Promise<DescribeSchemasCommandOutput> | void {
     const command = new DescribeSchemasCommand(args);
@@ -1570,9 +1509,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public modifyEndpoint(
     args: ModifyEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEndpointCommandOutput) => void),
     cb?: (err: any, data?: ModifyEndpointCommandOutput) => void
   ): Promise<ModifyEndpointCommandOutput> | void {
     const command = new ModifyEndpointCommand(args);
@@ -1790,9 +1727,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public refreshSchemas(
     args: RefreshSchemasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RefreshSchemasCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RefreshSchemasCommandOutput) => void),
     cb?: (err: any, data?: RefreshSchemasCommandOutput) => void
   ): Promise<RefreshSchemasCommandOutput> | void {
     const command = new RefreshSchemasCommand(args);
@@ -1825,9 +1760,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public reloadTables(
     args: ReloadTablesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReloadTablesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReloadTablesCommandOutput) => void),
     cb?: (err: any, data?: ReloadTablesCommandOutput) => void
   ): Promise<ReloadTablesCommandOutput> | void {
     const command = new ReloadTablesCommand(args);
@@ -1936,10 +1869,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     args: StartReplicationTaskAssessmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartReplicationTaskAssessmentCommandOutput
-        ) => void),
+      | ((err: any, data?: StartReplicationTaskAssessmentCommandOutput) => void),
     cb?: (err: any, data?: StartReplicationTaskAssessmentCommandOutput) => void
   ): Promise<StartReplicationTaskAssessmentCommandOutput> | void {
     const command = new StartReplicationTaskAssessmentCommand(args);
@@ -2009,9 +1939,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   ): void;
   public testConnection(
     args: TestConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestConnectionCommandOutput) => void),
     cb?: (err: any, data?: TestConnectionCommandOutput) => void
   ): Promise<TestConnectionCommandOutput> | void {
     const command = new TestConnectionCommand(args);

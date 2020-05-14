@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPortfoliosCommandInput = ListPortfoliosInput;
-export type ListPortfoliosCommandOutput = ListPortfoliosOutput &
-  __MetadataBearer;
+export type ListPortfoliosCommandOutput = ListPortfoliosOutput & __MetadataBearer;
 
 export class ListPortfoliosCommand extends $Command<
   ListPortfoliosCommandInput,
@@ -47,9 +46,7 @@ export class ListPortfoliosCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPortfoliosCommandInput, ListPortfoliosCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

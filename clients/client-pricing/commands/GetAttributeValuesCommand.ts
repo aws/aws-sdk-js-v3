@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PricingClient";
-import {
-  GetAttributeValuesRequest,
-  GetAttributeValuesResponse
-} from "../models/index";
+import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAttributeValuesCommand,
   serializeAws_json1_1GetAttributeValuesCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAttributeValuesCommandInput = GetAttributeValuesRequest;
-export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse &
-  __MetadataBearer;
+export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse & __MetadataBearer;
 
 export class GetAttributeValuesCommand extends $Command<
   GetAttributeValuesCommandInput,
@@ -50,9 +46,7 @@ export class GetAttributeValuesCommand extends $Command<
     configuration: PricingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -30,10 +30,7 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
-import {
-  CopyProductCommandInput,
-  CopyProductCommandOutput
-} from "./commands/CopyProductCommand";
+import { CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
 import {
   CreateConstraintCommandInput,
   CreateConstraintCommandOutput
@@ -637,9 +634,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServiceCatalogClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServiceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &

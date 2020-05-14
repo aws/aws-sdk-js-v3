@@ -3,10 +3,7 @@ import {
   ServiceOutputTypes,
   forecastClientResolvedConfig
 } from "../forecastClient";
-import {
-  ListForecastExportJobsRequest,
-  ListForecastExportJobsResponse
-} from "../models/index";
+import { ListForecastExportJobsRequest, ListForecastExportJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListForecastExportJobsCommand,
   serializeAws_json1_1ListForecastExportJobsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListForecastExportJobsCommandInput = ListForecastExportJobsRequest;
-export type ListForecastExportJobsCommandOutput = ListForecastExportJobsResponse &
-  __MetadataBearer;
+export type ListForecastExportJobsCommandOutput = ListForecastExportJobsResponse & __MetadataBearer;
 
 export class ListForecastExportJobsCommand extends $Command<
   ListForecastExportJobsCommandInput,
@@ -49,13 +45,8 @@ export class ListForecastExportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListForecastExportJobsCommandInput,
-    ListForecastExportJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListForecastExportJobsCommandInput, ListForecastExportJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

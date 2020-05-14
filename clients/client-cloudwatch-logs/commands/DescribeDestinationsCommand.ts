@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CloudWatchLogsClient";
-import {
-  DescribeDestinationsRequest,
-  DescribeDestinationsResponse
-} from "../models/index";
+import { DescribeDestinationsRequest, DescribeDestinationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDestinationsCommand,
   serializeAws_json1_1DescribeDestinationsCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDestinationsCommandInput = DescribeDestinationsRequest;
-export type DescribeDestinationsCommandOutput = DescribeDestinationsResponse &
-  __MetadataBearer;
+export type DescribeDestinationsCommandOutput = DescribeDestinationsResponse & __MetadataBearer;
 
 export class DescribeDestinationsCommand extends $Command<
   DescribeDestinationsCommandInput,
@@ -49,13 +45,8 @@ export class DescribeDestinationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDestinationsCommandInput,
-    DescribeDestinationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDestinationsCommandInput, DescribeDestinationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -1,12 +1,5 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
-import {
-  CreateFargateProfileRequest,
-  CreateFargateProfileResponse
-} from "../models/index";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { CreateFargateProfileRequest, CreateFargateProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateFargateProfileCommand,
   serializeAws_restJson1_1CreateFargateProfileCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFargateProfileCommandInput = CreateFargateProfileRequest;
-export type CreateFargateProfileCommandOutput = CreateFargateProfileResponse &
-  __MetadataBearer;
+export type CreateFargateProfileCommandOutput = CreateFargateProfileResponse & __MetadataBearer;
 
 export class CreateFargateProfileCommand extends $Command<
   CreateFargateProfileCommandInput,
@@ -49,13 +41,8 @@ export class CreateFargateProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateFargateProfileCommandInput,
-    CreateFargateProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateFargateProfileCommandInput, CreateFargateProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class CreateFargateProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFargateProfileCommandOutput> {
-    return deserializeAws_restJson1_1CreateFargateProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateFargateProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

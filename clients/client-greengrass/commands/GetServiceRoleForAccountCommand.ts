@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GreengrassClient";
-import {
-  GetServiceRoleForAccountRequest,
-  GetServiceRoleForAccountResponse
-} from "../models/index";
+import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetServiceRoleForAccountCommand,
   serializeAws_restJson1_1GetServiceRoleForAccountCommand
@@ -49,13 +46,8 @@ export class GetServiceRoleForAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetServiceRoleForAccountCommandInput,
-    GetServiceRoleForAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetServiceRoleForAccountCommandInput, GetServiceRoleForAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +66,14 @@ export class GetServiceRoleForAccountCommand extends $Command<
     input: GetServiceRoleForAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetServiceRoleForAccountCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetServiceRoleForAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceRoleForAccountCommandOutput> {
-    return deserializeAws_restJson1_1GetServiceRoleForAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetServiceRoleForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum DataSetType {
@@ -174,8 +171,7 @@ export interface GenerateDataSetRequest {
 }
 
 export namespace GenerateDataSetRequest {
-  export const isa = (o: any): o is GenerateDataSetRequest =>
-    __isa(o, "GenerateDataSetRequest");
+  export const isa = (o: any): o is GenerateDataSetRequest => __isa(o, "GenerateDataSetRequest");
 }
 
 /**
@@ -191,16 +187,13 @@ export interface GenerateDataSetResult {
 }
 
 export namespace GenerateDataSetResult {
-  export const isa = (o: any): o is GenerateDataSetResult =>
-    __isa(o, "GenerateDataSetResult");
+  export const isa = (o: any): o is GenerateDataSetResult => __isa(o, "GenerateDataSetResult");
 }
 
 /**
  * This exception is thrown when an internal service error occurs.
  */
-export interface MarketplaceCommerceAnalyticsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MarketplaceCommerceAnalyticsException extends __SmithyException, $MetadataBearer {
   name: "MarketplaceCommerceAnalyticsException";
   $fault: "server";
   /**

@@ -1,12 +1,5 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyVpcTenancyCommand,
   serializeAws_ec2ModifyVpcTenancyCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyVpcTenancyCommandInput = ModifyVpcTenancyRequest;
-export type ModifyVpcTenancyCommandOutput = ModifyVpcTenancyResult &
-  __MetadataBearer;
+export type ModifyVpcTenancyCommandOutput = ModifyVpcTenancyResult & __MetadataBearer;
 
 export class ModifyVpcTenancyCommand extends $Command<
   ModifyVpcTenancyCommandInput,
@@ -50,9 +42,7 @@ export class ModifyVpcTenancyCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyVpcTenancyCommandInput, ModifyVpcTenancyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

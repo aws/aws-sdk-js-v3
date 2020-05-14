@@ -1,8 +1,4 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetAccountAuthorizationDetailsRequest,
   GetAccountAuthorizationDetailsResponse
@@ -53,9 +49,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     GetAccountAuthorizationDetailsCommandInput,
     GetAccountAuthorizationDetailsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +68,14 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     input: GetAccountAuthorizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountAuthorizationDetailsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetAccountAuthorizationDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> {
-    return deserializeAws_queryGetAccountAuthorizationDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetAccountAuthorizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

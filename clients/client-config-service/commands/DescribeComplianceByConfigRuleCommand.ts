@@ -53,9 +53,7 @@ export class DescribeComplianceByConfigRuleCommand extends $Command<
     DescribeComplianceByConfigRuleCommandInput,
     DescribeComplianceByConfigRuleCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +72,14 @@ export class DescribeComplianceByConfigRuleCommand extends $Command<
     input: DescribeComplianceByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByConfigRuleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeComplianceByConfigRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComplianceByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByConfigRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeComplianceByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

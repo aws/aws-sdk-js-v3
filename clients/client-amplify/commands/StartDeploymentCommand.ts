@@ -25,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDeploymentCommandInput = StartDeploymentRequest;
-export type StartDeploymentCommandOutput = StartDeploymentResult &
-  __MetadataBearer;
+export type StartDeploymentCommandOutput = StartDeploymentResult & __MetadataBearer;
 
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,
@@ -47,9 +46,7 @@ export class StartDeploymentCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDeploymentCommandInput, StartDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

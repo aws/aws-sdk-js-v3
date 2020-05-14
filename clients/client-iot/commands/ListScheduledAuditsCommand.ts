@@ -1,12 +1,5 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListScheduledAuditsRequest,
-  ListScheduledAuditsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListScheduledAuditsCommand,
   serializeAws_restJson1_1ListScheduledAuditsCommand
@@ -28,8 +21,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListScheduledAuditsCommandInput = ListScheduledAuditsRequest;
-export type ListScheduledAuditsCommandOutput = ListScheduledAuditsResponse &
-  __MetadataBearer;
+export type ListScheduledAuditsCommandOutput = ListScheduledAuditsResponse & __MetadataBearer;
 
 export class ListScheduledAuditsCommand extends $Command<
   ListScheduledAuditsCommandInput,
@@ -49,13 +41,8 @@ export class ListScheduledAuditsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListScheduledAuditsCommandInput,
-    ListScheduledAuditsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListScheduledAuditsCommandInput, ListScheduledAuditsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +68,7 @@ export class ListScheduledAuditsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListScheduledAuditsCommandOutput> {
-    return deserializeAws_restJson1_1ListScheduledAuditsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListScheduledAuditsCommand(output, context);
   }
 
   // Start section: command_body_extra

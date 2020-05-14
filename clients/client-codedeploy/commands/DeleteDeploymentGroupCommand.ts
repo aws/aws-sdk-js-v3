@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  DeleteDeploymentGroupInput,
-  DeleteDeploymentGroupOutput
-} from "../models/index";
+import { DeleteDeploymentGroupInput, DeleteDeploymentGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDeploymentGroupCommand,
   serializeAws_json1_1DeleteDeploymentGroupCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDeploymentGroupCommandInput = DeleteDeploymentGroupInput;
-export type DeleteDeploymentGroupCommandOutput = DeleteDeploymentGroupOutput &
-  __MetadataBearer;
+export type DeleteDeploymentGroupCommandOutput = DeleteDeploymentGroupOutput & __MetadataBearer;
 
 export class DeleteDeploymentGroupCommand extends $Command<
   DeleteDeploymentGroupCommandInput,
@@ -49,13 +45,8 @@ export class DeleteDeploymentGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDeploymentGroupCommandInput,
-    DeleteDeploymentGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDeploymentGroupCommandInput, DeleteDeploymentGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

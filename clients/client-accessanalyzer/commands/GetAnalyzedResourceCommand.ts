@@ -3,10 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../AccessAnalyzerClient";
-import {
-  GetAnalyzedResourceRequest,
-  GetAnalyzedResourceResponse
-} from "../models/index";
+import { GetAnalyzedResourceRequest, GetAnalyzedResourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetAnalyzedResourceCommand,
   serializeAws_restJson1_1GetAnalyzedResourceCommand
@@ -28,8 +25,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAnalyzedResourceCommandInput = GetAnalyzedResourceRequest;
-export type GetAnalyzedResourceCommandOutput = GetAnalyzedResourceResponse &
-  __MetadataBearer;
+export type GetAnalyzedResourceCommandOutput = GetAnalyzedResourceResponse & __MetadataBearer;
 
 export class GetAnalyzedResourceCommand extends $Command<
   GetAnalyzedResourceCommandInput,
@@ -49,13 +45,8 @@ export class GetAnalyzedResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAnalyzedResourceCommandInput,
-    GetAnalyzedResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAnalyzedResourceCommandInput, GetAnalyzedResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,10 +72,7 @@ export class GetAnalyzedResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAnalyzedResourceCommandOutput> {
-    return deserializeAws_restJson1_1GetAnalyzedResourceCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetAnalyzedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
